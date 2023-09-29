@@ -60,6 +60,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -82,7 +85,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/blog/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -207,7 +210,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-09-29 13:29:01 / 修改时间：14:37:08" itemprop="dateCreated datePublished" datetime="2023-09-29T13:29:01+08:00">2023-09-29</time>
+      <time title="创建时间：2023-09-29 13:29:01 / 修改时间：14:45:43" itemprop="dateCreated datePublished" datetime="2023-09-29T13:29:01+08:00">2023-09-29</time>
     </span>
 
   
@@ -243,7 +246,7 @@
 另外一个方式就是在手机（以安卓手机为例）上，快速播放高清长视频。
 
 <p>它们共同都涉及一个技术方式：IPTV，常见视频流有：<br>VOD点播，在线实时直播。分享最近几年成熟的APP方案：<strong>TVBOX</strong></p>
-<p>这个开源的应用可以运行在各个构架的平台上：安卓手机，安卓机顶盒，Windows电脑，苹果电脑，等等。<br>它只是一个用来播放媒体的壳（这也是为什么它还能存活的原因），<br>它并不包含实实在在的影视资源（直播源，m3u，m3u8地址等等）。<br>你可以理解它仅仅是一个电动工具，没有电，它无法开心地工作。</p>
+<p>这个开源的应用可以运行在各个构架的平台上：安卓手机，安卓机顶盒，Windows电脑，苹果电脑等等。<br>它只是一个用来播放媒体的壳（这也是为什么它还能存活的原因），<br>它并不包含实实在在的影视资源（直播源，m3u，m3u8地址等等）。<br>你可以理解它仅仅是一个电动工具，没有电，它无法开心地工作。</p>
 <p>那么既然有了播放工具下一个问题就变成：怎么找到播放源？<br>播放源分为：<br>1。 直播源（比如iptv直播的各个电视台卫视节目，或者各大网络平台的直播）<br>2。 点播源，一般有两种展现形式：<br>一种是通过列表一页页的显示给用户来选取（那一部特定的电影），<br>另一种是通过搜索跨越不同的点播站&#x2F;源，再展现与关键字相关的搜索结果。</p>
 <p>今天主要分享安卓和N1机顶盒上的TVBox应用及视频源的使用经验。<br>以下主要以安卓手机为例，展开具体思路（在电视机顶盒上原理也一样）</p>
 <h1>材料清单</h1>
@@ -254,7 +257,8 @@ APP下载：https://www.123pan.com/s/UKPrVv-f06zh.html 提取码:nYTC      (手�
 <h1>安卓手机安装与设置</h1>
 我的安卓手机下载到的对应的APP名称为：mobile-java-arm64-v8a.apk
 安装后打开APP》右下角设置按钮》点播
-这里就是输入TVBOX的源，举例说明：https://ghproxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/js.json
+这里就是输入TVBOX的源，
+举例说明：https://ghproxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/js.json
 
 <p>如果这个源是有效的，保存后，点击回到APP的左下角》搜索框，输入想要观看的影片名。<br>在出现的结果列表中选择一部影视资源，即可打开播放。</p>
 <h1>TVBOX配置去那里找</h1>
@@ -262,8 +266,8 @@ APP下载：https://www.123pan.com/s/UKPrVv-f06zh.html 提取码:nYTC      (手�
 接口的维护和运营是要花费时间硬件等等成本的，还涉及到遭封杀或恶意攻击等等现实遭遇。
 对于普通用户，如何快速找到可用的接口，以下提供两个思路（都要借助与梯子，才能灵活应用）
 
-<p><strong>思路一：github tvbox关键字</strong><br>比如：<a target="_blank" rel="noopener" href="https://github.com/search?q=tvbox%E9%85%8D%E7%BD%AE&type=repositories&s=updated&o=desc">https://github.com/search?q=tvbox%E9%85%8D%E7%BD%AE&amp;type=repositories&amp;s=updated&amp;o=desc</a><br>个人有相关能力的用户无私分享是普通用户获取配置最直接的白piao方式，<br>一般来说最新commit的配置，一般通过了作者最近的测试。<br>另外需要在Github Raw地址前加上一些中转地址，比如<a target="_blank" rel="noopener" href="https://ghproxy.com/%EF%BC%8C%E7%94%A8%E6%9D%A5%E7%BB%99%E8%AE%BE%E5%A4%87%E7%BB%95%E5%BC%80gihub%E8%A2%AB%E5%B1%8F%E8%94%BD%E7%9A%84%E5%B0%B4%E5%B0%AC%E3%80%82">https://ghproxy.com/，用来给设备绕开gihub被屏蔽的尴尬。</a><br>举例说明#1：<br>anaer&#x2F;Meow  自用tvbox配置<br>这是今天最近一条的搜索结果，打开后，依据说明中的链接得到：<a target="_blank" rel="noopener" href="https://anaer.github.io/Meow/meow.json">https://anaer.github.io/Meow/meow.json</a><br>或者：<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/anaer/Meow/main/meow.json">https://raw.githubusercontent.com/anaer/Meow/main/meow.json</a><br>就是最新的接口了，不同的作者和源侧重点不一样。<br>比如这个接口就包含很多在线实时直播的iptv源url地址，它很适合用来看iptv电视台的电视</p>
-<p>举例说明#2：<br>有一种点播站的源是从各个在线影视网站中提取影视资源的地址。讲人话：可以搜索已知收集到的很多PHP视频站的资源，比如：<br><a target="_blank" rel="noopener" href="https://xiaobaotv.net/index.php/vod/play/id/40759/sid/1/nid/1.html">https://xiaobaotv.net/index.php/vod/play/id/40759/sid/1/nid/1.html</a><br>正在播放：侏罗纪世界3-1080P<br>就是可以直接在tvbox中使用，这个思路可太疯狂了。<br>‘’’<br>‘’’<br><a target="_blank" rel="noopener" href="https://github.com/gaotianliuyun/gao">https://github.com/gaotianliuyun/gao</a><br>（7）js.json 资源来源于道长drpy(js)仓库；<br>‘’’<br>‘’’</p>
+<p><strong>思路一：github tvbox关键字</strong><br>比如：<a target="_blank" rel="noopener" href="https://github.com/search?q=tvbox%E9%85%8D%E7%BD%AE&type=repositories&s=updated&o=desc">https://github.com/search?q=tvbox%E9%85%8D%E7%BD%AE&amp;type=repositories&amp;s=updated&amp;o=desc</a><br>个人有相关能力的用户无私分享是普通用户获取配置最直接的白piao方式，<br>一般来说最新commit的配置，一般通过了作者最近的测试。<br>另外需要在Github Raw地址前加上一些中转地址，比如<a target="_blank" rel="noopener" href="https://ghproxy.com/%EF%BC%8C">https://ghproxy.com/，</a><br>用来给设备绕开gihub被屏蔽的尴尬。<br>举例说明#1：<br>anaer&#x2F;Meow  自用tvbox配置<br>这是今天最近一条的搜索结果，打开后，<br>依据说明中的链接得到：<a target="_blank" rel="noopener" href="https://anaer.github.io/Meow/meow.json">https://anaer.github.io/Meow/meow.json</a><br>或者：<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/anaer/Meow/main/meow.json">https://raw.githubusercontent.com/anaer/Meow/main/meow.json</a><br>就是最新的接口了，不同的作者和源侧重点不一样。<br>比如这个接口就包含很多在线实时直播的iptv源url地址，它很适合用来看iptv电视台的电视</p>
+<p>举例说明#2：<br>有一种点播站的源是从各个在线影视网站中提取影视资源的地址。<br>讲人话：可以搜索已知收集到的很多PHP视频站的资源，比如：<br><a target="_blank" rel="noopener" href="https://xiaobaotv.net/index.php/vod/play/id/40759/sid/1/nid/1.html">https://xiaobaotv.net/index.php/vod/play/id/40759/sid/1/nid/1.html</a><br>正在播放：侏罗纪世界3-1080P<br>就是可以直接在tvbox中使用，这个思路可太疯狂了。<br>‘’’<br>‘’’<br><a target="_blank" rel="noopener" href="https://github.com/gaotianliuyun/gao">https://github.com/gaotianliuyun/gao</a><br>（7）js.json 资源来源于道长drpy(js)仓库；<br>‘’’<br>‘’’</p>
 <p><strong>思路二：多线路（接口）</strong><br>比如：<a target="_blank" rel="noopener" href="https://gitlab.com/duomv/apps/-/raw/main/duo.json">https://gitlab.com/duomv/apps/-/raw/main/duo.json</a><br>影视多线配置接口，就好比把多个的思路组合在一起，<br>其中某个线路挂掉之后，另外的线路就自动补充上来。<br>可以自己找到自己喜欢的线路后配置到一起，成为一个json文件，在APP中可以切换使用。<br>{<br>“urls”: [<br>{<br>“url”: “<a target="_blank" rel="noopener" href="http://yydsys.top/duo">http://yydsys.top/duo</a>“,<br>“name”: “🏡应用多多家庭版”<br>},<br>{<br>“url”: “<a target="_blank" rel="noopener" href="http://cdn.yydsys.top/duo">http://cdn.yydsys.top/duo</a>“,<br>“name”: “🏡应用多多备用”<br>},<br>]<br>}</p>
 <h1>感谢</h1>
 1。 [iptv信源 资源分享或寻求] FongMi和百川、DIYP、Tivimate以及其他直播壳子对比
