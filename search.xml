@@ -31,4 +31,70 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>网络影视资源 - 2023中秋国庆分享</title>
+    <url>/blog/2023/09/29/%E7%BD%91%E7%BB%9C%E5%BD%B1%E8%A7%86%E8%B5%84%E6%BA%90/</url>
+    <content><![CDATA[<h1>背景</h1>
+经常遇到那个影视网站可以在线看电影之类的需求，
+要么是追求'速食主义'（不想去下载到本地然后再播放），
+要么是想要确保影片的高清晰度高质量播放。
+目前，在电视上播放影视资源（电影、电视剧）成为潮流，
+另外一个方式就是在手机（以安卓手机为例）上，快速播放高清长视频。
+
+<p>它们共同都涉及一个技术方式：IPTV，常见视频流有：<br>VOD点播，在线实时直播。分享最近几年成熟的APP方案：<strong>TVBOX</strong></p>
+<p>这个开源的应用可以运行在各个构架的平台上：安卓手机，安卓机顶盒，Windows电脑，苹果电脑，等等。<br>它只是一个用来播放媒体的壳（这也是为什么它还能存活的原因），<br>它并不包含实实在在的影视资源（直播源，m3u，m3u8地址等等）。<br>你可以理解它仅仅是一个电动工具，没有电，它无法开心地工作。</p>
+<p>那么既然有了播放工具下一个问题就变成：怎么找到播放源？<br>播放源分为：<br>1。 直播源（比如iptv直播的各个电视台卫视节目，或者各大网络平台的直播）<br>2。 点播源，一般有两种展现形式：<br>一种是通过列表一页页的显示给用户来选取（那一部特定的电影），<br>另一种是通过搜索跨越不同的点播站&#x2F;源，再展现与关键字相关的搜索结果。</p>
+<p>今天主要分享安卓和N1机顶盒上的TVBox应用及视频源的使用经验。<br>以下主要以安卓手机为例，展开具体思路（在电视机顶盒上原理也一样）</p>
+<h1>材料清单</h1>
+安卓手机
+梯子
+APP下载：https://www.123pan.com/s/UKPrVv-f06zh.html 提取码:nYTC      (手机版本:mobilie，电视版本：leanback)
+
+<h1>安卓手机安装与设置</h1>
+我的安卓手机下载到的对应的APP名称为：mobile-java-arm64-v8a.apk
+安装后打开APP》右下角设置按钮》点播
+这里就是输入TVBOX的源，举例说明：https://ghproxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/js.json
+
+<p>如果这个源是有效的，保存后，点击回到APP的左下角》搜索框，输入想要观看的影片名。<br>在出现的结果列表中选择一部影视资源，即可打开播放。</p>
+<h1>TVBOX配置去那里找</h1>
+这变成关键的问题，好比有了一个好燃气灶，假如燃气输入，那燃气灶变成摆设。
+接口的维护和运营是要花费时间硬件等等成本的，还涉及到遭封杀或恶意攻击等等现实遭遇。
+对于普通用户，如何快速找到可用的接口，以下提供两个思路（都要借助与梯子，才能灵活应用）
+
+<p><strong>思路一：github tvbox关键字</strong><br>比如：<a href="https://github.com/search?q=tvbox%E9%85%8D%E7%BD%AE&type=repositories&s=updated&o=desc">https://github.com/search?q=tvbox%E9%85%8D%E7%BD%AE&amp;type=repositories&amp;s=updated&amp;o=desc</a><br>个人有相关能力的用户无私分享是普通用户获取配置最直接的白piao方式，<br>一般来说最新commit的配置，一般通过了作者最近的测试。<br>另外需要在Github Raw地址前加上一些中转地址，比如<a href="https://ghproxy.com/%EF%BC%8C%E7%94%A8%E6%9D%A5%E7%BB%99%E8%AE%BE%E5%A4%87%E7%BB%95%E5%BC%80gihub%E8%A2%AB%E5%B1%8F%E8%94%BD%E7%9A%84%E5%B0%B4%E5%B0%AC%E3%80%82">https://ghproxy.com/，用来给设备绕开gihub被屏蔽的尴尬。</a><br>举例说明#1：<br>anaer&#x2F;Meow  自用tvbox配置<br>这是今天最近一条的搜索结果，打开后，依据说明中的链接得到：<a href="https://anaer.github.io/Meow/meow.json">https://anaer.github.io/Meow/meow.json</a><br>或者：<a href="https://raw.githubusercontent.com/anaer/Meow/main/meow.json">https://raw.githubusercontent.com/anaer/Meow/main/meow.json</a><br>就是最新的接口了，不同的作者和源侧重点不一样。<br>比如这个接口就包含很多在线实时直播的iptv源url地址，它很适合用来看iptv电视台的电视</p>
+<p>举例说明#2：<br>有一种点播站的源是从各个在线影视网站中提取影视资源的地址。讲人话：可以搜索已知收集到的很多PHP视频站的资源，比如：<br><a href="https://xiaobaotv.net/index.php/vod/play/id/40759/sid/1/nid/1.html">https://xiaobaotv.net/index.php/vod/play/id/40759/sid/1/nid/1.html</a><br>正在播放：侏罗纪世界3-1080P<br>就是可以直接在tvbox中使用，这个思路可太疯狂了。<br>‘’’<br>‘’’<br><a href="https://github.com/gaotianliuyun/gao">https://github.com/gaotianliuyun/gao</a><br>（7）js.json 资源来源于道长drpy(js)仓库；<br>‘’’<br>‘’’</p>
+<p><strong>思路二：多线路（接口）</strong><br>比如：<a href="https://gitlab.com/duomv/apps/-/raw/main/duo.json">https://gitlab.com/duomv/apps/-/raw/main/duo.json</a><br>影视多线配置接口，就好比把多个的思路组合在一起，<br>其中某个线路挂掉之后，另外的线路就自动补充上来。<br>可以自己找到自己喜欢的线路后配置到一起，成为一个json文件，在APP中可以切换使用。<br>{<br>“urls”: [<br>{<br>“url”: “<a href="http://yydsys.top/duo">http://yydsys.top/duo</a>“,<br>“name”: “🏡应用多多家庭版”<br>},<br>{<br>“url”: “<a href="http://cdn.yydsys.top/duo">http://cdn.yydsys.top/duo</a>“,<br>“name”: “🏡应用多多备用”<br>},<br>]<br>}</p>
+<h1>感谢</h1>
+1。 [iptv信源 资源分享或寻求] FongMi和百川、DIYP、Tivimate以及其他直播壳子对比
+https://www.right.com.cn/forum/thread-8291411-1-1.html
+2。 TVBox各路大佬配置（排名不分先后）：
+（1）唐三：https://gh.t4tv.hz.cz/newtang.bmp
+
+<p>（2）Fongmi：<a href="https://ghproxy.com/https://raw.githubusercontent.com/gaotianliuyun/fongmi/main/json/config.json">https://ghproxy.com/https://raw.githubusercontent.com/gaotianliuyun/fongmi/main/json/config.json</a></p>
+<p>（3）俊于：<a href="http://home.jundie.top:81/top98.json">http://home.jundie.top:81/top98.json</a></p>
+<p>（4）饭太硬：http:&#x2F;&#x2F;饭太硬.top&#x2F;tv</p>
+<p>（5）肥猫：http:&#x2F;&#x2F;我不是.肥猫.love:63&#x2F;接口禁止贩卖</p>
+<p>（6）霜辉月明py：<a href="https://ghproxy.com/raw.githubusercontent.com/lm317379829/PyramidStore/pyramid/py.json">https://ghproxy.com/raw.githubusercontent.com/lm317379829/PyramidStore/pyramid/py.json</a></p>
+<p>（7）小米小爆脾气：<a href="http://xhww.fun:63/%E5%B0%8F%E7%B1%B3/DEMO.json">http://xhww.fun:63/小米/DEMO.json</a></p>
+<p>（8）小雅：<a href="http://drpy.site/js1">http://drpy.site/js1</a></p>
+<p>（9）菜妮丝：<a href="https://tvbox.cainisi.cf/">https://tvbox.cainisi.cf</a></p>
+<p>（10）运输车：<a href="https://github.moeyy.xyz/https://raw.githubusercontent.com/52670576/tvbox/main/ysc.json">https://github.moeyy.xyz/https://raw.githubusercontent.com/52670576/tvbox/main/ysc.json</a></p>
+<p>（11）多多：<a href="https://yydsys.top/duo">https://yydsys.top/duo</a></p>
+<p>（12）南风：<a href="https://agit.ai/Yoursmile7/TVBox/raw/branch/master/XC.json">https://agit.ai/Yoursmile7/TVBox/raw/branch/master/XC.json</a></p>
+<p>（13）神器：https:&#x2F;&#x2F;神器每日推送.tk&#x2F;pz.json</p>
+<p>（14）巧技：<a href="http://pandown.pro/tvbox/tvbox.json">http://pandown.pro/tvbox/tvbox.json</a></p>
+<p>（15）那里花开：<a href="http://hz752.love:63/tk.json">http://hz752.love:63/tk.json</a></p>
+<p>（16）吾爱有三：<a href="http://52bsj.vip:98/0805">http://52bsj.vip:98/0805</a></p>
+<p>（17）潇洒：<a href="https://download.kstore.space/download/2863/01.txt">https://download.kstore.space/download/2863/01.txt</a></p>
+<p>（18）佰欣园：<a href="https://ghproxy.com/https://raw.githubusercontent.com/chengxueli818913/maoTV/main/44.txt">https://ghproxy.com/https://raw.githubusercontent.com/chengxueli818913/maoTV/main/44.txt</a></p>
+<p>（19）胖虎：<a href="https://notabug.org/imbig66/tv-spider-man/raw/master/%E9%85%8D%E7%BD%AE/0801.json">https://notabug.org/imbig66/tv-spider-man/raw/master/配置/0801.json</a></p>
+<p>（20）云星日记：<a href="http://itvbox.cc/tvbox/%E4%BA%91%E6%98%9F%E6%97%A5%E8%AE%B0/1.m3u8">http://itvbox.cc/tvbox/云星日记/1.m3u8</a></p>
+<p>（21）Yoursmile7：<a href="https://agit.ai/Yoursmile7/TVBox/raw/branch/master/XC.json">https://agit.ai/Yoursmile7/TVBox/raw/branch/master/XC.json</a></p>
+<p>（22）Ray：<a href="https://ghproxy.com/https://raw.githubusercontent.com/dxawi/0/main/0.json">https://ghproxy.com/https://raw.githubusercontent.com/dxawi/0/main/0.json</a></p>
+<p>（23）甜蜜：<a href="https://kebedd69.github.io/TVbox-interface/py%E7%94%9C%E8%9C%9C.json">https://kebedd69.github.io/TVbox-interface/py甜蜜.json</a></p>
+<p>（24）月光宝盒：<a href="https://jihulab.com/ygbh1/box/-/raw/main/%E6%9C%88%E5%85%89%E5%AE%9D%E7%9B%92">https://jihulab.com/ygbh1/box/-/raw/main/月光宝盒</a></p>
+<p>（25）好人：<a href="https://xhdwc.tk/0">https://xhdwc.tk/0</a></p>
+<p>FongMi影视、TVBox、猫影视配置文件。<br>所有资源均来自于各路大神无私分享，如有侵权，请联系删除。</p>
+]]></content>
+  </entry>
 </search>
