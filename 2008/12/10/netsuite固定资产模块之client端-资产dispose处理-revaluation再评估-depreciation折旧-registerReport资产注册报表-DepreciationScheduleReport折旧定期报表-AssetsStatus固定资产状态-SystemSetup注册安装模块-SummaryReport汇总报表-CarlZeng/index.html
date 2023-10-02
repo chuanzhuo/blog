@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Mist","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="下面介绍一下，我分析 资产, 财产asset的一些结论，全是netsuite的固定资产解决方案，希望对您有些帮助。~总体分类如下：模块一：proposal 提议; 建议模块二：资产dispose处理,模块三：revaluation再评估,模块四：depreciation折旧,模块五：registerReport资产注册报表,模块六：DepreciationScheduleReport折旧定期报表,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="netsuite固定资产模块之client端,资产dispose处理,revaluation再评估,depreciation折旧,registerReport资产注册报表,DepreciationScheduleReport折旧定期报表,AssetsStatus固定资产状态,SystemSetup注册安装模块,SummaryReport汇总报表-CarlZeng">
+<meta property="og:url" content="https://chuanzhuo.github.com/blog/2008/12/10/netsuite%E5%9B%BA%E5%AE%9A%E8%B5%84%E4%BA%A7%E6%A8%A1%E5%9D%97%E4%B9%8Bclient%E7%AB%AF-%E8%B5%84%E4%BA%A7dispose%E5%A4%84%E7%90%86-revaluation%E5%86%8D%E8%AF%84%E4%BC%B0-depreciation%E6%8A%98%E6%97%A7-registerReport%E8%B5%84%E4%BA%A7%E6%B3%A8%E5%86%8C%E6%8A%A5%E8%A1%A8-DepreciationScheduleReport%E6%8A%98%E6%97%A7%E5%AE%9A%E6%9C%9F%E6%8A%A5%E8%A1%A8-AssetsStatus%E5%9B%BA%E5%AE%9A%E8%B5%84%E4%BA%A7%E7%8A%B6%E6%80%81-SystemSetup%E6%B3%A8%E5%86%8C%E5%AE%89%E8%A3%85%E6%A8%A1%E5%9D%97-SummaryReport%E6%B1%87%E6%80%BB%E6%8A%A5%E8%A1%A8-CarlZeng/index.html">
+<meta property="og:site_name" content="Carl&#39;s Notes">
+<meta property="og:description" content="下面介绍一下，我分析 资产, 财产asset的一些结论，全是netsuite的固定资产解决方案，希望对您有些帮助。~总体分类如下：模块一：proposal 提议; 建议模块二：资产dispose处理,模块三：revaluation再评估,模块四：depreciation折旧,模块五：registerReport资产注册报表,模块六：DepreciationScheduleReport折旧定期报表,">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2008-12-10T07:02:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:28.941Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://chuanzhuo.github.com/blog/2008/12/10/netsuite%E5%9B%BA%E5%AE%9A%E8%B5%84%E4%BA%A7%E6%A8%A1%E5%9D%97%E4%B9%8Bclient%E7%AB%AF-%E8%B5%84%E4%BA%A7dispose%E5%A4%84%E7%90%86-revaluation%E5%86%8D%E8%AF%84%E4%BC%B0-depreciation%E6%8A%98%E6%97%A7-registerReport%E8%B5%84%E4%BA%A7%E6%B3%A8%E5%86%8C%E6%8A%A5%E8%A1%A8-DepreciationScheduleReport%E6%8A%98%E6%97%A7%E5%AE%9A%E6%9C%9F%E6%8A%A5%E8%A1%A8-AssetsStatus%E5%9B%BA%E5%AE%9A%E8%B5%84%E4%BA%A7%E7%8A%B6%E6%80%81-SystemSetup%E6%B3%A8%E5%86%8C%E5%AE%89%E8%A3%85%E6%A8%A1%E5%9D%97-SummaryReport%E6%B1%87%E6%80%BB%E6%8A%A5%E8%A1%A8-CarlZeng/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://chuanzhuo.github.com/blog/2008/12/10/netsuite%E5%9B%BA%E5%AE%9A%E8%B5%84%E4%BA%A7%E6%A8%A1%E5%9D%97%E4%B9%8Bclient%E7%AB%AF-%E8%B5%84%E4%BA%A7dispose%E5%A4%84%E7%90%86-revaluation%E5%86%8D%E8%AF%84%E4%BC%B0-depreciation%E6%8A%98%E6%97%A7-registerReport%E8%B5%84%E4%BA%A7%E6%B3%A8%E5%86%8C%E6%8A%A5%E8%A1%A8-DepreciationScheduleReport%E6%8A%98%E6%97%A7%E5%AE%9A%E6%9C%9F%E6%8A%A5%E8%A1%A8-AssetsStatus%E5%9B%BA%E5%AE%9A%E8%B5%84%E4%BA%A7%E7%8A%B6%E6%80%81-SystemSetup%E6%B3%A8%E5%86%8C%E5%AE%89%E8%A3%85%E6%A8%A1%E5%9D%97-SummaryReport%E6%B1%87%E6%80%BB%E6%8A%A5%E8%A1%A8-CarlZeng/","path":"2008/12/10/netsuite固定资产模块之client端-资产dispose处理-revaluation再评估-depreciation折旧-registerReport资产注册报表-DepreciationScheduleReport折旧定期报表-AssetsStatus固定资产状态-SystemSetup注册安装模块-SummaryReport汇总报表-CarlZeng/","title":"netsuite固定资产模块之client端,资产dispose处理,revaluation再评估,depreciation折旧,registerReport资产注册报表,DepreciationScheduleReport折旧定期报表,AssetsStatus固定资产状态,SystemSetup注册安装模块,SummaryReport汇总报表-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>netsuite固定资产模块之client端,资产dispose处理,revaluation再评估,depreciation折旧,registerReport资产注册报表,DepreciationScheduleReport折旧定期报表,AssetsStatus固定资产状态,SystemSetup注册安装模块,SummaryReport汇总报表-CarlZeng | Carl's Notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/blog/atom.xml" title="Carl's Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Carl's Notes</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/blog/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">290</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2008/12/10/netsuite%E5%9B%BA%E5%AE%9A%E8%B5%84%E4%BA%A7%E6%A8%A1%E5%9D%97%E4%B9%8Bclient%E7%AB%AF-%E8%B5%84%E4%BA%A7dispose%E5%A4%84%E7%90%86-revaluation%E5%86%8D%E8%AF%84%E4%BC%B0-depreciation%E6%8A%98%E6%97%A7-registerReport%E8%B5%84%E4%BA%A7%E6%B3%A8%E5%86%8C%E6%8A%A5%E8%A1%A8-DepreciationScheduleReport%E6%8A%98%E6%97%A7%E5%AE%9A%E6%9C%9F%E6%8A%A5%E8%A1%A8-AssetsStatus%E5%9B%BA%E5%AE%9A%E8%B5%84%E4%BA%A7%E7%8A%B6%E6%80%81-SystemSetup%E6%B3%A8%E5%86%8C%E5%AE%89%E8%A3%85%E6%A8%A1%E5%9D%97-SummaryReport%E6%B1%87%E6%80%BB%E6%8A%A5%E8%A1%A8-CarlZeng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="netsuite固定资产模块之client端,资产dispose处理,revaluation再评估,depreciation折旧,registerReport资产注册报表,DepreciationScheduleReport折旧定期报表,AssetsStatus固定资产状态,SystemSetup注册安装模块,SummaryReport汇总报表-CarlZeng | Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          netsuite固定资产模块之client端,资产dispose处理,revaluation再评估,depreciation折旧,registerReport资产注册报表,DepreciationScheduleReport折旧定期报表,AssetsStatus固定资产状态,SystemSetup注册安装模块,SummaryReport汇总报表-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2008-12-10 15:02:00" itemprop="dateCreated datePublished" datetime="2008-12-10T15:02:00+08:00">2008-12-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>17k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>32 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>下面介绍一下，我分析 资产, 财产asset的一些结论，全是netsuite的固定资产解决方案，希望对您有些帮助。~总体分类如下：模块一：proposal 提议; 建议模块二：资产dispose处理,模块三：revaluation再评估,模块四：depreciation折旧,模块五：registerReport资产注册报表,模块六：DepreciationScheduleReport折旧定期报表,…</p>
+<!-- more -->
+<p>下面介绍一下，我分析 资产, 财产asset的一些结论，全是netsuite的固定资产解决方案，希望对您有些帮助。~<br>总体分类如下：</p>
+<p>模块一：proposal 提议; 建议<br>模块二：资产dispose处理,<br>模块三：revaluation再评估,<br>模块四：depreciation折旧,<br>模块五：registerReport资产注册报表,<br>模块六：DepreciationScheduleReport折旧定期报表,<br>模块七：AssetsStatus固定资产状态,<br>模块八：SystemSetup注册安装模块<br>模块九：SummaryReport汇总报表  </p>
+<p><strong>模块一：proposal 提议; 建议</strong></p>
+<p>-——————————————————————- 以下是操作界面：proposal 提议</p>
+<p>function ncFAR_ProposalSL(request, response)<br>{<br>var RKResp &#x3D; nlapiRequestURL( RKcheckURL, null, RKparams ); &#x2F;&#x2F; params now passed as custom headers<br>var RKresult &#x3D; RKResp.getBody().split(‘:’); 请求一个验证注册的sl，然后进一步判断。</p>
+<p>if (request.getMethod() &#x3D;&#x3D; ‘GET’) &#x2F;&#x2F; page display<br>{<br>var Params &#x3D; new Array();<br>ncFAR_RenderProposalForm(PropList,’Edit’,null,null,Params); &#x2F;&#x2F;初始化一个列表，或sublist<br>response.writePage(PropList);<br>}<br>else &#x2F;&#x2F; user submit<br>{<br>var rParams &#x3D; request.getAllParameters();</p>
+<p>if( rParams[‘ncactionid’] &#x3D;&#x3D; ‘Propose’ ) &#x2F;&#x2F;动作1：建议<br>else if( rParams[‘ncactionid’] &#x3D;&#x3D; ‘Generate’ )&#x2F;&#x2F;动作2：生成<br>var ProposalList &#x3D; new Array();<br>for(var i&#x3D;1; i&lt;&#x3D;request.getLineItemCount(‘proposals’); ++i) &#x2F;&#x2F;在最开始的页面上，submit后直接getLineItemCount ；经典应用！<br>else if( rParams[‘ncactionid’] &#x3D;&#x3D; ‘Reject’ ) &#x2F;&#x2F;动作3：拒绝<br>for(var i&#x3D;1; i&lt;&#x3D;request.getLineItemCount(‘proposals’); ++i) &#x2F;&#x2F;经典应用zeng.cz200901051710;说明了submit以后request本身成为了一种Record可以直接getLineItemValue等动作，这个应用非常经典。其他main的变量都可以request.getAllParameters()中取道。<br>{<br>if( request.getLineItemValue(‘proposals’,’marked’,i) &#x3D;&#x3D; ‘T’ )<br>{<br>nlapiSubmitField(ncConst.FAR_Proposal,request.getLineItemValue(‘proposals’,’id’,i),<br>‘custrecord_propstatus’,’4’,false); &#x2F;&#x2F; 10 units not 30!<br>}<br>}</p>
+<p>}</p>
+<p>function ncFAR_RenderProposalForm(form,recState,id,rec,params) &#x2F;&#x2F;This function builds the tabs, fields and buttons for the Asset Proposal window<br>{<br>&#x2F;&#x2F; header area Filter expressions<br>var f_msAssetType &#x3D; params[‘filter_msAssetType’];<br>if( f_msAssetType &#x3D;&#x3D; null ) f_msAssetType &#x3D; ‘’;</p>
+<p>var fld0 &#x3D; form.addField(‘ncactionid’,’text’,’Action Id’);<br>fld0.setDisplayType(‘hidden’);<br>fld0.setDefaultValue(‘’);</p>
+<p>var pList &#x3D; form.addSubList(‘proposals’,’list’,’Proposed Assets’);</p>
+<p>pList.addField(‘editurl’,’url’,’Edit’,true).setLinkText(‘Edit’);<br>pList.addField(‘custrecord_propassetdescr’,’text’,’Description’).setDisplayType(‘inline’); &#x2F;&#x2F;简写经典应用。<br>pList.addField(‘custrecord_propaccmethod’,’select’,’Depreciation Method’,ncConst.FAR_DeprMethod).setDisplayType(‘inline’);<br>pList.addField(‘custrecord_propassetcost’,’currency’,’Initial Cost’).setDisplayType(‘inline’);</p>
+<p>pList.addMarkAllButtons();</p>
+<p>form.addSubmitButton(‘Refresh’);<br>form.addButton(‘Propose’,’Propose New Assets’,”if (window.isinited &amp;&amp; window.isvalid &amp;&amp; save_record(true)){main_form.ncactionid.value&#x3D;’Propose’;main_form.submit();}”);<br>form.addButton(‘Generate’,’Generate Assets’,”if (window.isinited &amp;&amp; window.isvalid &amp;&amp; save_record(true)){main_form.ncactionid.value&#x3D;’Generate’;main_form.submit();}”);<br>form.addButton(‘Reject’,’Reject Proposals’,”if (window.isinited &amp;&amp; window.isvalid &amp;&amp; save_record(true)){main_form.ncactionid.value&#x3D;’Reject’;main_form.submit();}”); &#x2F;&#x2F;经典应用2：main_form.ncactionid.value&#x3D;’Propose’ 这样给一个’ncactionid’ 页面隐藏的变量赋值了！！ 然后main_form.submit()以后request.getAllParameters()就可以得到所有这些字段的值（包括隐藏的字段），然后再if( rParams[‘ncactionid’] &#x3D;&#x3D; ‘Propose’ )进行动作判断。<br>200901051702<br>zeng.cz</p>
+<p>动作 完毕！~ 书写系统日志 经典：</p>
+<p>&#x2F;* ncBGP_WriteToLog - utility function to write to the Background Process Manager log table<br>*<br>* This function will create a new NC Process Log record using the details provided<br>*<br>* Parameters:<br>* ProcessId - the id of the current process record<br>* RecordRef - a reference for the current record being processed or which the message relates to<br>* MessageText - the message text to be written to the log<br>* MessageType - the type of message, ‘Error’, ‘Warning’ or ‘Message’<br>*&#x2F;<br>function ncBGP_WriteToLog(ProcessId,RecordRef,MessageText,MessageType)<br>{<br>var l_MsgType;<br>switch (MessageType)<br>{<br>case ‘Error’:<br>l_MsgType &#x3D; 1;<br>break;</p>
+<p>case ‘Warning’:<br>l_MsgType &#x3D; 2;<br>break;</p>
+<p>case ‘Message’:<br>default:<br>l_MsgType &#x3D; 3;<br>}</p>
+<p>var LogRec &#x3D; nlapiCreateRecord(‘customrecord_ncbgp_processlog’);<br>LogRec.setFieldValue(‘custrecord_logprocessid’,ProcessId);<br>LogRec.setFieldValue(‘custrecord_logrecordref’,RecordRef);<br>LogRec.setFieldValue(‘custrecord_logmessagetype’,l_MsgType);<br>LogRec.setFieldValue(‘custrecord_logmessagedetail’,MessageText);<br>nlapiSubmitRecord(LogRec,false);<br>}</p>
+<p><strong>模块二：dispose 处理;处置</strong></p>
+<p>DisposalPageInit - Event Script for Page Init to disable or enable fields<br>Once sold or disposed, everything should be read-only</p>
+<p>onload. assetid change<br>var Rec &#x3D; nlapiLoadRecord(‘customrecord_ncfar_asset’, Id);<br>nlapiSetFieldValue(‘assetdescr’, ncToEmptyString(Rec.getFieldValue(‘custrecord_assetdescr’)));<br>DisposalPageInit();</p>
+<p>AssetOnSave<br>Please select a Disposal Type<br>Sale amount must be greater than zero</p>
+<p>-——————————————————————- 以下是操作界面：dispose 处理</p>
+<p>1，ncFAR_RenderDisposalForm(DisposalForm,’New’,null,null,Params);</p>
+<p>2，submit后创建form； 总体circle的经典应用</p>
+<p>var dParams &#x3D; request.getAllParameters();<br>var assetId &#x3D; dParams[‘assetid’];<br>var dAsset;<br>if( (assetId !&#x3D; null) &amp;&amp; (assetId !&#x3D; ‘’) )<br>{<br>dAsset &#x3D; nlapiLoadRecord(ncConst.FAR_Asset, assetId);<br>}</p>
+<p>var result &#x3D; AssetDisposal(dAsset, assetId, dParams); &#x2F;&#x2F;根据提交的id 和变量信息，提交给第三步的事务处理来解决<br>if(result !&#x3D;’’)<br>{<br>&#x2F;&#x2F; disposal failed<br>ncFAR_RenderDisposalForm(DisposalForm, ‘Error’, assetId, dAsset, dParams,result); &#x2F;&#x2F;如果出错则 创建form<br>response.writePage(DisposalForm);<br>}<br>else<br>{<br>&#x2F;&#x2F;disposal successful - redirect to full view of asset &#x2F;&#x2F;如果成功，直接跳转业务流程。<br>response.sendRedirect(‘RECORD’,ncConst.FAR_Asset,assetId,false); &#x2F;&#x2F;suitelet良好应用sendRedirect</p>
+<p>3，处理特殊具体的事务</p>
+<p>* Generate disposal journal and update asset status.<br>* Generate asset history record.<br>* If a Sale, create Sales Invoice record and update link on Asset.</p>
+<p>&#x2F;&#x2F; if Sale<br>if( DispType &#x3D;&#x3D; 1 )<br>var usermsg &#x3D; ‘<BR>Failed to create invoice for asset sale. <BR>Check setup of location and subsidiary on asset record.’;<br>var result &#x3D; CreateJournalEntry(DispDate,CurrencyId,FixedExchangeRate,accts,debits,credits,refs,JournalId,Subsid,ClassId,DepartmentId,LocationId);<br>fNames &#x3D; new Array(‘custrecord_assetstatus’, ‘custrecord_assetdepractive’,’custrecord_assetbookvalue’,’custrecord_assetdisposaldate’, ‘custrecord_assetdisposaltype’, ‘custrecord_assetdisposalitem’, ‘custrecord_assetsalecustomer’, ‘custrecord_assetsaleamount’, ‘custrecord_assetsalesinvoice’);<br>fValues &#x3D; new Array(‘4’, ‘2’,’0.00’,DispDate, DispType, SaleItem, CustomerId, SaleAmount, SIrecId);<br>nlapiSubmitField(‘customrecord_ncfar_asset’, id, fNames, fValues, ‘F’); &#x2F;&#x2F;经典应用，数组批量的submitField<br>&#x2F;&#x2F; if Write Off<br>else if( DispType &#x3D;&#x3D; 2 )<br>msg &#x3D; result + ‘<BR>Journal entry for asset write-off not created.’; &#x2F;&#x2F;make JE<br>nlapiSubmitField(‘customrecord_ncfar_asset’, id, fNames, fValues, ‘F’);&#x2F;&#x2F;更新资产<br>var rDeprHist &#x3D; nlapiCreateRecord(ncConst.FAR_DeprHistory); &#x2F;&#x2F;书写历史。</p>
+<p><strong>模块三：revaluation 再评估</strong></p>
+<p>if(nlapiGetFieldText(‘assetstatus’) &#x3D;&#x3D; ‘Disposed’)<br>alert(‘This asset has been disposed.’);</p>
+<p>save<br>Revaluation details must be supplied；</p>
+<p>-——————————————————————- 以下是操作界面：revaluation 再评估</p>
+<p>三个结构，思路很清晰：</p>
+<p>1。构造主界面如果是request.getMethod() &#x3D;&#x3D; ‘GET’) &#x2F;&#x2F; page display显示<br>构造初始form然后writePage。 else 获得request 的参数开始运算过程  </p>
+<p>2。书写构造form的函数，subtab等的界面按钮等。</p>
+<p>3。ncFAR_ProcessRevaluation进行运算。书写JE，完成系统内部联系。</p>
+<p><strong>模块四：depreciation 折旧</strong></p>
+<p>&#x2F;* DeprMethodOnSave - Event Script to invoke validation and display error if failed (and prevent save)<br>*<br>* This function will use SL_DeprMethodValidate (suitelet function) to validate the formula.<br>* If the formula parses successfully it will continue the save operation.<br>* If the formula fails an error is displayed and the save is aborted.<br>*&#x2F;</p>
+<p>var SLparams &#x3D; new Array();<br>SLparams[‘deprmethodformula’] &#x3D; l_Fn;<br>SLparams[‘render’] &#x3D; ‘false’;<br>var OnSaveURL &#x3D; nlapiResolveURL(‘SUITELET’,’customscript_ncfar_deprmethodvalidate’,’customdeploy_ncfar_deprmethodvalidate’,true);<br>var OnSaveResp &#x3D; nlapiRequestURL( OnSaveURL, SLparams );<br>var OnSaveResult &#x3D; OnSaveResp.getBody().split(‘~’);</p>
+<p>if( OnSaveResult[0] &#x3D;&#x3D; ‘OK’ )<br>{</p>
+<p>document.all.item(‘divNCFN’).innerHTML &#x3D; OnSaveResult[1];<br>alert(‘Function validated successfully. Please review formula representation.’);</p>
+<p>-——————————————————————- 以下是操作界面：RenderDepreciate</p>
+<p>留在后期在补充。。200812111500  </p>
+<p>var fNames &#x3D; new Array();<br>fNames[0] &#x3D; ‘custrecord_currentprocessstatus’;<br>fNames[1] &#x3D; ‘custrecord_processactivitytype’;<br>fNames[2] &#x3D; ‘custrecord_numrecordsprocessed’;<br>fNames[3] &#x3D; ‘custrecord_processfailuremessage’;<br>fNames[4] &#x3D; ‘custrecord_processparamnames’;<br>fNames[5] &#x3D; ‘custrecord_processparamvalues’;<br>var fValues &#x3D; new Array();<br>fValues[0] &#x3D; ‘1’; &#x2F;&#x2F; status 1 &#x3D; in progress<br>fValues[1] &#x3D; ‘1’; &#x2F;&#x2F; activity type 1 &#x3D; custom (direct call)<br>fValues[2] &#x3D; ‘0’; &#x2F;&#x2F; reset record count<br>fValues[3] &#x3D; ‘’; &#x2F;&#x2F; reset error message<br>fValues[4] &#x3D; ‘ATarray,ATypes,DeprPeriod’;<br>fValues[5] &#x3D; ATlist+’,’+ATlist+’,’+DeprPeriodDate;  </p>
+<p>nlapiSubmitField(ncConst.NC_ProcessActivity, ProcessId, fNames, fValues, false); &#x2F;&#x2F;经典应用,….数组赋值，多字段submit，ncConst.NC_ProcessActivity 全局变量中取值<br>ncFAR_DepreciateAssetBG(ProcessId); &#x2F;&#x2F;should be in main transfer function</p>
+<p><strong>模块五：registerReport 资产注册报表</strong></p>
+<p>Client code for Asset Register Report scriptlet</p>
+<p>ncFAR_AssetRegisterReportSL - entry point for Asset Register Report Scriptlet  </p>
+<p>form.addSubmitButton(‘Generate Report’);</p>
+<p>suitelet：</p>
+<p>var AssetReportForm &#x3D; nlapiCreateForm(‘Asset Register Report’);</p>
+<p>var ReportOptions &#x3D; new Array();</p>
+<p>if (request.getMethod() &#x3D;&#x3D; ‘GET’) &#x2F;&#x2F; page display &#x2F;&#x2F;在显示之前，先把form等变量定义好<br>{<br>var Params &#x3D; new Array();<br>ncFAR_RenderReportOptionsForm(AssetReportForm,’Edit’,null,null,Params);<br>response.writePage(AssetReportForm);<br>}<br>else &#x2F;&#x2F; user submit<br>{<br>var rParams &#x3D; request.getAllParameters(); &#x2F;&#x2F;这个方法 取得那些变量</p>
+<p>ReportOptions[0] &#x3D; rParams[‘filtermsassettype’];<br>ReportOptions[1] &#x3D; rParams[‘filtermssubsid’];</p>
+<p>var fld_rptData &#x3D; AssetReportForm.addField(‘reportdata’, ‘inlinehtml’, ‘’); &#x2F;&#x2F;用户点击提交后改变或添加一些field，然后设置值 然后再writePage 这个form即可！！ 经典应用！高效 的动态刷新了页面。<br>fld_rptData.setDisplayType(‘inline’); &#x2F;&#x2F;因为是inlinehtml的类型 并且设置显示类型：inline 所以结构就灵活了。。。<br>fld_rptData.setDefaultValue( ncFAR_BuildReportData(ReportOptions, response) );<br>response.writePage(AssetReportForm);<br>}</p>
+<p><strong>模块六：Depreciation Schedule Report 折旧定期报表</strong></p>
+<p>&#x2F;&#x2F; aiming to make the following table structure:<br>&#x2F;&#x2F;<br>&#x2F;&#x2F; [ ][ Asset Type Name 1 ][ Asset Type Name 2 ]…<br>&#x2F;&#x2F; [‘Asset’][Asset No.<br>Name][Asset No.<br>Name]… [Asset No.<br>Name][Asset No.<br>Name]…<br>&#x2F;&#x2F; [period1][depr amt][nbv amt][depr amt][nbv amt] [depr amt][nbv amt][depr amt][nbv amt]<br>&#x2F;&#x2F; [period2][depr amt][nbv amt][depr amt][nbv amt] [depr amt][nbv amt][depr amt][nbv amt]<br>&#x2F;&#x2F; [… ][depr amt][nbv amt][depr amt][nbv amt] [depr amt][nbv amt][depr amt][nbv amt]<br>&#x2F;&#x2F;<br>&#x2F;&#x2F; so, outer table for 3 columns, n periods + 2 rows; each row (except first) contains sub-table for cols 2 and 3  </p>
+<p>while( (srAT !&#x3D; null) &amp;&amp; (i &lt; srAT.length) )<br>{<br>while( (srAssets !&#x3D; null) &amp;&amp; (j &lt; srAssets.length) )<br>{ ++j;<br>}<br>++i;<br>}</p>
+<p>Asset Depreciation Schedule - Period Depreciation 折旧期间</p>
+<p>Asset Depreciation Schedule - Net Book Value</p>
+<p><strong>模块七： Fixed Assets Status固定资产状态</strong></p>
+<p>处理状态报告，搜索状态表，<br>var sr &#x3D; nlapiSearchRecord(‘customrecord_ncbgp_processcontrol’,null,sf,sc);</p>
+<p>var rProcessInfo &#x3D; sr[0];<br>var procStatus &#x3D; rProcessInfo.getValue(‘custrecord_currentprocessstatus’); &#x2F;&#x2F;get text<br>var procStatusText &#x3D; rProcessInfo.getText(‘custrecord_currentprocessstatus’);<br>var l_RecordCount &#x3D; rProcessInfo.getValue(‘custrecord_numrecordsprocessed’);</p>
+<p>fld_1.setDefaultValue(procStatusText);</p>
+<p>var _InProgress &#x3D; false;<br>if(procStatus &#x3D;&#x3D; ‘1’ || procStatus &#x3D;&#x3D; ‘5’) &#x2F;&#x2F; In Progress or In Queue<br>_InProgress &#x3D; true;  </p>
+<p>if(_InProgress)</p>
+<p>else &#x2F;&#x2F; processing complete<br>{<br>fld_3.setDefaultValue(l_RecordCount + ‘ assets(s) have been depreciated.’);<br>}</p>
+<p><strong>模块八： SystemSetup注册安装模块</strong></p>
+<p>三个结构，思路很清晰：</p>
+<p>1。构造主界面如果是request.getMethod() &#x3D;&#x3D; ‘GET’) &#x2F;&#x2F; page display显示<br>构造初始form然后writePage。 else 获得request 的参数开始运算过程  </p>
+<p>2。先判断是new的setup还是edit的form，然后书写构造form的函数，subtab等的界面及按钮等。<br>如果有ncConst.FAR_SystemSetup记录的话，把默认的系统设置带出来，并且把配置信息子标签和内容都弄出来。<br>如果没有就只弄出界面而已，不包含配置Subsidiaries、Departments、Locations、Classes、Jobs、Multiple Currencies的checkbox。</p>
+<p>ncFAR_RenderSetupForm(form,setupState,id,rec)<br>var fld1 &#x3D; form.addField(‘farsetupautopropose’, ‘checkbox’, ‘Auto-Propose from Asset Accounts’, ‘’, ‘custpagesettings’);<br>var fld1b &#x3D; form.addField(‘farsetupautocreate’, ‘checkbox’, ‘Auto-Create from Asset Accounts’, ‘’, ‘custpagesettings’);<br>var fld2 &#x3D; form.addField(‘farsetuppostlocation’, ‘checkbox’, ‘Post on Location Change’, ‘’, ‘custpagesettings’);<br>var fld3 &#x3D; form.addField(‘farsetuppostclass’, ‘checkbox’, ‘Post on Class Change’, ‘’, ‘custpagesettings’);<br>var fld4 &#x3D; form.addField(‘farsetuppostdepartment’, ‘checkbox’, ‘Post on Department Change’, ‘’, ‘custpagesettings’);<br>var fld4b &#x3D; form.addField(‘farsetupsummaryjournals’, ‘checkbox’, ‘Summarise Depreciation Journals’, ‘’, ‘custpagesettings’<br>var fldAFD &#x3D; form.addField(‘farsetupfuturedepreciations’, ‘checkbox’, ‘Allow Future-dated Depreciation’, ‘’, ‘custpagesettings’);<br>if (setupState &#x3D;&#x3D; ‘Edit’) &#x2F;&#x2F; 如果是要编辑一些系统设置的话，<br>{<br>fld1.setDefaultValue(rec.getFieldValue(‘custrecord_autopropose’));<br>form.addTab(‘custpagefeatures’, ‘Features’);</p>
+<p>var fld6 &#x3D; form.addField(‘farsetupsubsidsenabled’, ‘checkbox’, ‘Subsidiaries’, ‘’, ‘custpagefeatures’);<br>var hiddenIDField &#x3D; form.addField(‘hidden_field’, ‘text’, ‘hidden’);<br>hiddenIDField.setDisplayType(‘hidden’);<br>hiddenIDField.setDefaultValue(id); &#x2F;&#x2F;如果是编辑，把id带过去。<br>form.addSubmitButton(‘Save’);<br>}<br>else<br>{<br>fld1.setDefaultValue(‘T’); &#x2F;&#x2F; checked<br>fld1b.setDefaultValue(‘T’); &#x2F;&#x2F; checked<br>form.addSubmitButton(‘Submit’);<br>}</p>
+<p>3。else（即submit后）进行运算：先CreateRecord创建记录</p>
+<p>var rec &#x3D; nlapiCreateRecord(ncConst.FAR_SystemSetup);<br>rec.setFieldValue(‘custrecord_allowfuturedepr’, request.getParameter(‘farsetupfuturedepreciations’));<br>rec.setFieldValue(‘custrecord_subsidsenabled’, currentContext.getSetting(‘FEATURE’, ‘subsidiaries’));<br>var id &#x3D; request.getParameter(‘hidden_field’); &#x2F;&#x2F;用request中隐含字段带出id<br>if( id !&#x3D; null )<br>{<br>rec.setFieldValue(‘id’, id); &#x2F;&#x2F;关键语句<br>}<br>try {<br>id &#x3D; nlapiSubmitRecord(rec); &#x2F;&#x2F;关键语句；经典应用，如果是edit的话（有id），submitRecord系统就会更新原有记录，如果没有就会创建一条！！<br>} catch (e) {<br>if ( e instanceof nlobjError )<br>nlapiLogExecution(‘Error’,’System Setup Suitelet’, e.getCode() + ‘\n’ + e.getDetails());<br>else<br>nlapiLogExecution(‘Error’,’System Setup Suitelet’, e.toString());<br>}</p>
+<p>var form &#x3D; nlapiCreateForm(‘Fixed Assets Register’); &#x2F;&#x2F;经典应用二！ submit后直接在CreateForm然后把id赋予直接创建form然后writePage.!!　　完美circle！<br>ncFAR_RenderSetupForm(form,’Edit’,id,rec);<br>response.writePage(form);</p>
+<p><strong>模块九：SummaryReport汇总报表</strong></p>
+<p>关键点：ncFAR_BuildReportData(ReportOptions)<br>* This function will read through the Asset data, filtering by the given Report<br>* Options, and convert the results to HTML<br>*<br>* Parameters: ReportOptions - Array of range values to restrict the report data</p>
+<p><strong>模块十：核心主函数</strong></p>
+<p>if( currentContext.getSetting(‘FEATURE’,’multicurrency’) &#x3D;&#x3D; ‘T’ ) &#x2F;&#x2F;for what?<br>{<br>sColumns[sColumns.length] &#x3D; new nlobjSearchColumn(‘currency’); &#x2F;&#x2F; N.B. this (as at 9 Nov 2007) will return currency id (not name)<br>sColumns[sColumns.length] &#x3D; new nlobjSearchColumn(‘exchangerate’); &#x2F;&#x2F;good way!~`<br>}</p>
+<p>全局变量设定：</p>
+<p>&#x2F;* ************* Shared Constant Values ************* *&#x2F;</p>
+<p>function ncConst() &#x2F;&#x2F; dummy constructor for ncConst object which will contain our Record Type constants<br>{<br>}</p>
+<p>ncConst.BGP_ProcessIdParam &#x3D; ‘custscript_bgp_processid’; &#x2F;* parameter name for Process Id on scheduled script deployments *&#x2F;<br>ncConst.BGP_ProcessIdParam2 &#x3D;’custscript_bgp_startprocessid’; &#x2F;* parameter name for Process Id on additional scheduled script deployments *&#x2F;</p>
+<p>&#x2F;&#x2F;–SEARCHBLOCK:customrecord - replace these values on deployment<br>ncConst.FAR_SystemSetup &#x3D; ‘customrecord_ncfar_systemsetup’; &#x2F;* record type for System Setup *&#x2F;<br>ncConst.FAR_AssetType &#x3D; ‘customrecord_ncfar_assettype’; &#x2F;* record type for Asset Type *&#x2F;<br>ncConst.FAR_DeprMethod &#x3D; ‘customrecord_ncfar_deprmethod’; &#x2F;* record type for Deprecation Method *&#x2F;<br>ncConst.FAR_Asset &#x3D; ‘customrecord_ncfar_asset’; &#x2F;* record type for Asset *&#x2F;<br>ncConst.FAR_Proposal &#x3D; ‘customrecord_ncfar_assetproposal’; &#x2F;* record type for Asset Proposal *&#x2F;<br>ncConst.FAR_AssetUsage &#x3D; ‘customrecord_ncfar_assetusage’; &#x2F;* record type for Asset Usage *&#x2F;<br>ncConst.FAR_DeprHistory &#x3D; ‘customrecord_ncfar_deprhistory’; &#x2F;* record type for Depreciation History *&#x2F;<br>ncConst.FAR_XferAccounts &#x3D; ‘customrecord_ncfar_transferaccounts’; &#x2F;* record type for Asset Transfer Accounts *&#x2F;<br>ncConst.NC_ProcessActivity &#x3D; ‘customrecord_ncbgp_processcontrol’; &#x2F;* record type for Process Activity *&#x2F;<br>ncConst.NC_ProcessLog &#x3D; ‘customrecord_ncbgp_processlog’; &#x2F;* record type for Process Log *&#x2F;</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/blog/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2008/12/09/%E6%8E%A8%E8%8D%90%E4%B8%80%E4%B8%8Bjquery-js%E5%BA%93-CarlZeng/" rel="prev" title="推荐一下jquery, js库-CarlZeng">
+                  <i class="fa fa-angle-left"></i> 推荐一下jquery, js库-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/2008/12/12/Training-Agenda-netsuite-CarlZeng/" rel="next" title="Training Agenda netsuite-CarlZeng">
+                  Training Agenda netsuite-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接。</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">718k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">21:45</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/schemes/muse.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  <script src="/blog/js/third-party/addtoany.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"chuanzhuo/blog","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/blog/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

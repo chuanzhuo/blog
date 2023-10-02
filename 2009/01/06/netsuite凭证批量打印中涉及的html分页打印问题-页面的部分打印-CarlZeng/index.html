@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Mist","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="zeng.cz在打印HTML页面时控制分页，可以使用层来动态控制。 具体的方法是，在需要分页的地方动态添加如下代码： 这是一个经典应用，如果netsuite中涉及的批量凭证打印 需要用这个来控制每张凭证的页面的。很重要，因为html打印是无法像pdf那样的位置决定性。如果一个页面中的表格被分摊到不同的页面来打印了：无标题文档每页都有的表头表格内容表格内容表格内容表格内容表格内容表格内容表格内容..">
+<meta property="og:type" content="article">
+<meta property="og:title" content="netsuite凭证批量打印中涉及的html分页打印问题,页面的部分打印-CarlZeng">
+<meta property="og:url" content="https://chuanzhuo.github.com/blog/2009/01/06/netsuite%E5%87%AD%E8%AF%81%E6%89%B9%E9%87%8F%E6%89%93%E5%8D%B0%E4%B8%AD%E6%B6%89%E5%8F%8A%E7%9A%84html%E5%88%86%E9%A1%B5%E6%89%93%E5%8D%B0%E9%97%AE%E9%A2%98-%E9%A1%B5%E9%9D%A2%E7%9A%84%E9%83%A8%E5%88%86%E6%89%93%E5%8D%B0-CarlZeng/index.html">
+<meta property="og:site_name" content="Carl&#39;s Notes">
+<meta property="og:description" content="zeng.cz在打印HTML页面时控制分页，可以使用层来动态控制。 具体的方法是，在需要分页的地方动态添加如下代码： 这是一个经典应用，如果netsuite中涉及的批量凭证打印 需要用这个来控制每张凭证的页面的。很重要，因为html打印是无法像pdf那样的位置决定性。如果一个页面中的表格被分摊到不同的页面来打印了：无标题文档每页都有的表头表格内容表格内容表格内容表格内容表格内容表格内容表格内容..">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2009-01-06T13:10:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:28.954Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://chuanzhuo.github.com/blog/2009/01/06/netsuite%E5%87%AD%E8%AF%81%E6%89%B9%E9%87%8F%E6%89%93%E5%8D%B0%E4%B8%AD%E6%B6%89%E5%8F%8A%E7%9A%84html%E5%88%86%E9%A1%B5%E6%89%93%E5%8D%B0%E9%97%AE%E9%A2%98-%E9%A1%B5%E9%9D%A2%E7%9A%84%E9%83%A8%E5%88%86%E6%89%93%E5%8D%B0-CarlZeng/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://chuanzhuo.github.com/blog/2009/01/06/netsuite%E5%87%AD%E8%AF%81%E6%89%B9%E9%87%8F%E6%89%93%E5%8D%B0%E4%B8%AD%E6%B6%89%E5%8F%8A%E7%9A%84html%E5%88%86%E9%A1%B5%E6%89%93%E5%8D%B0%E9%97%AE%E9%A2%98-%E9%A1%B5%E9%9D%A2%E7%9A%84%E9%83%A8%E5%88%86%E6%89%93%E5%8D%B0-CarlZeng/","path":"2009/01/06/netsuite凭证批量打印中涉及的html分页打印问题-页面的部分打印-CarlZeng/","title":"netsuite凭证批量打印中涉及的html分页打印问题,页面的部分打印-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>netsuite凭证批量打印中涉及的html分页打印问题,页面的部分打印-CarlZeng | Carl's Notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/blog/atom.xml" title="Carl's Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Carl's Notes</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/blog/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">290</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2009/01/06/netsuite%E5%87%AD%E8%AF%81%E6%89%B9%E9%87%8F%E6%89%93%E5%8D%B0%E4%B8%AD%E6%B6%89%E5%8F%8A%E7%9A%84html%E5%88%86%E9%A1%B5%E6%89%93%E5%8D%B0%E9%97%AE%E9%A2%98-%E9%A1%B5%E9%9D%A2%E7%9A%84%E9%83%A8%E5%88%86%E6%89%93%E5%8D%B0-CarlZeng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="netsuite凭证批量打印中涉及的html分页打印问题,页面的部分打印-CarlZeng | Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          netsuite凭证批量打印中涉及的html分页打印问题,页面的部分打印-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-01-06 21:10:00" itemprop="dateCreated datePublished" datetime="2009-01-06T21:10:00+08:00">2009-01-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>431</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>zeng.cz在打印HTML页面时控制分页，可以使用层来动态控制。 具体的方法是，在需要分页的地方动态添加如下代码： 这是一个经典应用，如果netsuite中涉及的批量凭证打印 需要用这个来控制每张凭证的页面的。很重要，因为html打印是无法像pdf那样的位置决定性。如果一个页面中的表格被分摊到不同的页面来打印了：无标题文档每页都有的表头表格内容表格内容表格内容表格内容表格内容表格内容表格内容…</p>
+<!-- more -->
+<p>zeng.cz</p>
+<p>在打印HTML页面时控制分页，可以使用层来动态控制。</p>
+<p>　　具体的方法是，在需要分页的地方动态添加如下代码：</p>
+<p>　　<div style="PAGE-BREAK-AFTER: always"></div></p>
+<p>这是一个经典应用，如果netsuite中涉及的批量凭证打印 需要用这个来控制每张凭证的页面的。很重要，因为html打印是无法像pdf那样的位置决定性。</p>
+<p>如果一个页面中的表格被分摊到不同的页面来打印了：</p>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">  
+<title>无标题文档</title>  
+<style>  
+@media print{  
+INPUT {display:none}  
+}  
+</style>  
+</head>
+
+<body>
+
+<TABLE border="0" style="font-size:9pt;" width="300px" align="center">  
+<THEAD style="display:table-header-group;font-weight:bold">  
+<TR><TD colspan="2" align="center" style="font-weight:bold;border:3px double red">每页都有的表头</TD></TR>  
+</THEAD>  
+<TBODY style="text-align:center"">  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR style="page-break-after:always;"><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR style="page-break-after:always;"><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR><TD>表格内容</TD><TD>表格内容</TD></TR>  
+<TR style="page-break-after:always;"><TD>表格内容</TD><TD>表格内容</TD></TR>  
+</TBODY>  
+<TFOOT style="display:table-footer-group;font-weight:bold">  
+<TR>  
+<TD colspan="2" align="center" style="font-weight:bold;border:3px double blue">每页都有的表尾</TD>  
+</TR>  
+</TFOOT>  
+</TABLE>  
+<input type=button value=" 打 印 " onclick=javascript:window.print()>  
+</body>  
+</html>
+
+<p>总体方案的确认：</p>
+<p>一、<strong>浏览器的打印功能菜单</strong><br>这种方案的优势是不需要对浏览器作任何扩充，是最简单的办法，但问题也最多，如：<br>1. 不能精确分页。<br>浏览器一般是根据用户设置的页面大小，web页面的内容多少，来自行决定分页位置，程序员很难控制。会有页脚页眉干扰。<br>2. 不能准确对齐边边距及打印文字。<br>3. 不能解决连续打印。<br>比如，不是仅打印一张票据，而是连续一次打印若干个票据。  </p>
+<p>二、<strong>使用webbrowser****控件+ javascript</strong><br>这实际上，是浏览器打印功能菜单的一种程序调用，与打印功能菜单没什么两样。分页的问题仍然存在，只不过，可以让用户不用去点菜单，直接在网页中的一个按钮，或一个链接里面调用罢了。  </p>
+<p>三、<strong>使用print css</strong><br>这是一种最理想的实现web套打的方法。这种方法通过在html文档中，嵌入打印相关的css样式，来实现对html文档输出打印的控制，比如设置纸张大小，纸张纵横方向，打印边距，分页等。显而易见，这种方式成本小，不需要下载任何插件，而且跨平台性非常好。print css推出已经有些时日，但遗憾的是，至今<br>没有一个厂商的浏览器很好地实现了这些标准，这使得程序员目前还不能利用print css进行实际的开发。关于打印css，参见<a target="_blank" rel="noopener" href="http://css-discuss.incutio.com/?page=PrintStylesheets">http://css-discuss.incutio.com/?page=PrintStylesheets</a>  </p>
+<p>四、<strong>使用pdf文件</strong><br>用这种方式，就是从服务器端下载一个pdf文件流，在IE中用adobe插件打开，然后用adobe的打印菜单进行打印，虽然这种方案，也能实现精确套打，但需要下载adobe插件。这是国外报表工具经常推荐的一种打印方法，但在pdf不那么普及的中国，这种方案不是最好选择。</p>
+<p>七、<strong>轻量级的ActiveX****打印方式</strong><br>这是本公司应客户要求，最新推出的一种最具创意的web套打解决方案。<br>杰表作为一款纯java的报表工具，以前的提供的web套打方案也是基于Applet的，Applet也做到了尽可能的小(只有24kb)，但用户还是抱怨，因为jre太大，安装需要耐心。另外，用Applet方式，很难实现客户端的批量打印功能。  </p>
+<p>我们采用轻量级的ActiveX打印方案，很好地解决了客户的问题。以下是一个典型的该种方案的示例。</p>
+<p>轻量级的ActiveX打印方案的<strong>优点</strong>是：<br>1．效率高。可以直接打印指定的html文档，不必向后台再次提起请求。<br>2．能做到精确打印，分页；<br>3．功能丰富。可以利用该控件，实现对当前票据文档的打印，预览，及多个html文档的连续打印。<br>4．成本低廉，ActiveX只有20kb。、</p>
+<p><a target="_blank" rel="noopener" href="http://www.jatools.com/print/">http://www.jatools.com/print/</a> 这是一个收费的东西，可以找找那些绿色版的，</p>
+<p>=&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<strong>netsuite凭证批量打印中涉及的html分页打印问题,页面的部分打印</strong></p>
+<p>window.print() 实际上，是浏览器打印功能菜单的一种程序调用。与点击打印功能菜单一样，不能精确分页，不能设置纸型，套打的问题更加无从谈起，只不过，可以让用户不用去点菜单，直接点击网页中的一个按钮，或一个链接里面调用罢了。事实上，很多用户都是采用这种方式打印，但是这种方式最致命的缺点是不能设置打印参数，比如纸型，页边距，选择打印机等等。</p>
+<p>需要指出的是这种方法提供一个打印前和打印后的事件onbeforeprint、onafterprint。可以在打印前的时候重新编辑一些格式，专门送去打印，打印后又处理回来。<br>function window.onbeforeprint()<br>{<br>&#x2F;&#x2F;将一些不需要打印的隐藏<br>}<br>function window.onafterprint()<br>{<br>&#x2F;&#x2F;放开隐藏的元素<br>}</p>
+<p>通过这两个方法，就可以实现页面的部分打印</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/blog/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2009/01/05/nlapiGetContext-%E5%BA%94%E7%94%A8%E4%B8%8E%E4%BB%8B%E7%BB%8D-CarlZeng/" rel="prev" title="nlapiGetContext 应用与介绍-CarlZeng">
+                  <i class="fa fa-angle-left"></i> nlapiGetContext 应用与介绍-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/2009/01/07/JavaScript-While-%E5%BE%AA%E7%8E%AF-CarlZeng/" rel="next" title="JavaScript While 循环-CarlZeng">
+                  JavaScript While 循环-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接。</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">718k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">21:45</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/schemes/muse.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  <script src="/blog/js/third-party/addtoany.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"chuanzhuo/blog","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/blog/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

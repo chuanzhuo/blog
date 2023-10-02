@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Mist","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="目标实现往Android联通机顶盒安装APP，比如投屏类APP（比如：乐播投屏），桌面类APP（比如：沙发桌面，当贝桌面） 环境联通 创维机顶盒：E900V21C Mac（windows也一样，找相应平台的软件即可）  Terminal 系统自带工具   adb 如何安装：MAC下安装adb环境的三种方式 我使用的是第一种方式，因为本身就用Andriod的IDE Andriod Studio 然后">
+<meta property="og:type" content="article">
+<meta property="og:title" content="E900V21C - Android联通 机顶盒 安装APP实例-CarlZeng">
+<meta property="og:url" content="https://chuanzhuo.github.com/blog/2022/11/18/E900V21C-Android%E8%81%94%E9%80%9A-%E6%9C%BA%E9%A1%B6%E7%9B%92-%E5%AE%89%E8%A3%85APP%E5%AE%9E%E4%BE%8B-CarlZeng/index.html">
+<meta property="og:site_name" content="Carl&#39;s Notes">
+<meta property="og:description" content="目标实现往Android联通机顶盒安装APP，比如投屏类APP（比如：乐播投屏），桌面类APP（比如：沙发桌面，当贝桌面） 环境联通 创维机顶盒：E900V21C Mac（windows也一样，找相应平台的软件即可）  Terminal 系统自带工具   adb 如何安装：MAC下安装adb环境的三种方式 我使用的是第一种方式，因为本身就用Andriod的IDE Andriod Studio 然后">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-18T04:40:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:29.063Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://chuanzhuo.github.com/blog/2022/11/18/E900V21C-Android%E8%81%94%E9%80%9A-%E6%9C%BA%E9%A1%B6%E7%9B%92-%E5%AE%89%E8%A3%85APP%E5%AE%9E%E4%BE%8B-CarlZeng/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://chuanzhuo.github.com/blog/2022/11/18/E900V21C-Android%E8%81%94%E9%80%9A-%E6%9C%BA%E9%A1%B6%E7%9B%92-%E5%AE%89%E8%A3%85APP%E5%AE%9E%E4%BE%8B-CarlZeng/","path":"2022/11/18/E900V21C-Android联通-机顶盒-安装APP实例-CarlZeng/","title":"E900V21C - Android联通 机顶盒 安装APP实例-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>E900V21C - Android联通 机顶盒 安装APP实例-CarlZeng | Carl's Notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/blog/atom.xml" title="Carl's Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Carl's Notes</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/blog/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">步骤</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">290</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2023/04/13/%E8%8B%B9%E6%9E%9C%E7%94%B5%E8%84%91M1%E4%B8%8A%E5%94%AF%E4%B8%80%E5%8F%AF%E7%94%A8%E7%9A%84%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2023-04-13</time>
+        <br>
+      苹果电脑M1上唯一可用的安卓模拟器-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2023/04/13/Python-%E7%BC%96%E8%BE%91%E5%99%A8-jupyter-notebook-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2023-04-13</time>
+        <br>
+      Python 编辑器 jupyter notebook-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2008/12/08/%E5%85%B3%E4%BA%8Enetsuite%E5%88%9B%E5%BB%BA%E7%BB%84%E5%90%88%E6%8C%89%E9%92%AE%E7%9A%84%E6%96%B9%E6%B3%95-%E5%90%88%E5%B9%B6%E6%8C%89%E9%92%AE-netsuite-API-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2008-12-08</time>
+        <br>
+      关于netsuite创建组合按钮的方法,合并按钮,netsuite API-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2023/02/16/%E6%89%93%E5%8D%B0%E7%9B%B8%E7%89%87-%E5%A6%82%E4%BD%95%E4%BB%8E%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E5%8F%91%E9%80%81%E5%A4%A7%E9%87%8F%E7%85%A7%E7%89%87%E5%88%B0Mac%E7%94%B5%E8%84%91-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2023-02-16</time>
+        <br>
+      打印相片, 如何从安卓手机发送大量照片到Mac电脑-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2021/12/01/%E5%A6%82%E4%BD%95%E5%9C%A8%E6%89%8B%E6%9C%BA%EF%BC%88%E5%AE%89%E5%8D%93%EF%BC%89%E4%B8%AD%E6%90%9C%E7%B4%A2%E7%85%A7%E7%89%87-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2021-12-01</time>
+        <br>
+      如何在手机（安卓）中搜索照片-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2022/11/18/E900V21C-Android%E8%81%94%E9%80%9A-%E6%9C%BA%E9%A1%B6%E7%9B%92-%E5%AE%89%E8%A3%85APP%E5%AE%9E%E4%BE%8B-CarlZeng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="E900V21C - Android联通 机顶盒 安装APP实例-CarlZeng | Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          E900V21C - Android联通 机顶盒 安装APP实例-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-11-18 12:40:00" itemprop="dateCreated datePublished" datetime="2022-11-18T12:40:00+08:00">2022-11-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>实现往Android联通机顶盒安装APP，比如投屏类APP（比如：乐播投屏），桌面类APP（比如：沙发桌面，当贝桌面）</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>联通 创维机顶盒：E900V21C</p>
+<p>Mac（windows也一样，找相应平台的软件即可）</p>
+<ol>
+<li>Terminal<ol>
+<li>系统自带工具</li>
+</ol>
+</li>
+<li>adb<ol>
+<li>如何安装：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/744fc5946627">MAC下安装adb环境的三种方式</a></li>
+<li>我使用的是第一种方式，因为本身就用Andriod的IDE Andriod Studio</li>
+<li>然后关键的步骤就是往Terminal里输入命令把sdk的platform-tools写到系统的环境变量中，具体如下：<ol>
+<li>echo ‘export ANDROID_HOME&#x3D;&#x2F;Users&#x2F;$USER&#x2F;Library&#x2F;Android&#x2F;sdk’ &gt;&gt; ~&#x2F;.bash_profile<br>echo ‘export PATH&#x3D;${PATH}:$ANDROID_HOME&#x2F;platform-tools’ &gt;&gt; ~&#x2F;.bash_profile</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>　</p>
+<p>或者直接运行：<br>export ANDROID_HOME&#x3D;&#x2F;Users&#x2F;$USER&#x2F;Library&#x2F;Android&#x2F;sdk<br>export PATH=${PATH}:$ANDROID_HOME&#x2F;platform-tools<br>然后即可 adb</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li><p>将E900机顶盒和Mac电脑连接到相同的局域网</p>
+</li>
+<li><p>安装好adb工具并设置了环境变量以后，打开Terminal，输入adb –version 验证一下adb可以正常运行，在进行下一步</p>
+</li>
+<li><p>把北京联通创维E900机顶盒的adb功能打开，具体方法：按遥控的“设置”，进到高级设置，</p>
+<ol>
+<li>最里面有很多看不懂的设置项选择列表后，按遥控的右键（指遥控的上下左右按键中的右键），连续按十下 至 15下</li>
+<li>这时选项列表最下方会多出一个新的选项（隐藏选项），打开ADB的选项（再右键，确定打开ADB远程调试）</li>
+</ol>
+</li>
+<li><p>从机顶盒设置里面或者路由器的设置中，找到机顶盒当前的IP地址，比如192.168.1.171；</p>
+<ol>
+<li><p>Terminal输入 adb connect 192.168.2.171:5555 进行连接。</p>
+<p>_adb connect 192.168.2.171:5555<br>或者<br>_&#x2F;Users&#x2F;$USER&#x2F;Library&#x2F;Android&#x2F;sdk&#x2F;platform-tools&#x2F;adb connect 192.168.2.171:5555</p>
+</li>
+</ol>
+</li>
+<li><p>Terminal输入 <strong>adb install com.shafa.zhuomian_2.2.3_aged.apk</strong> 进入操作Andriod安装命令</p>
+<ol>
+<li>这个apk文件，要从网络上下载到本机的目录中，然后把Terminal调整到当前apk文件所在目录（命令为 cd 具体目录）</li>
+<li>adb install com.shafa.zhuomian_2.2.3_aged.apk<br>或者<br>&#x2F;Users&#x2F;$USER&#x2F;Library&#x2F;Android&#x2F;sdk&#x2F;platform-tools&#x2F;adb install &#x2F;Users&#x2F;$USER&#x2F;Downloads&#x2F;international_sfgj_4.9.25.apk</li>
+</ol>
+</li>
+<li><p>【可选】运行安装完成后，就可以用遥控器启动这些新的应用APP；也可以使用命令强制运行（唤醒&#x2F;打开）特定的APP应用</p>
+<ol>
+<li>adb shell</li>
+<li>am start -a android.intent.action.VIEW   (也可以合并为一个命令：adb shell am start android.intent.action.VIEW)</li>
+<li>App的名字可以使用如下命令列出（或者使用沙发桌面列出已安装的APP）<ol>
+<li>adb shell pm list packages</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>引用</p>
+<ol>
+<li>MAC下安装adb环境的三种方式 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/744fc5946627">https://www.jianshu.com/p/744fc5946627</a></li>
+<li>adb常用命令 <a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/command-line/adb?hl=zh-cn">https://developer.android.google.cn/studio/command-line/adb?hl=zh-cn</a></li>
+<li>Android adb启动任意app的几种方式 <a target="_blank" rel="noopener" href="https://blog.csdn.net/ezconn/article/details/99885715">https://blog.csdn.net/ezconn/article/details/99885715</a></li>
+</ol>
+<p>放到最后写，感想于体验：</p>
+<p>安装一些安卓APP，开启沙发桌面以后，发现创维E900机顶盒有wifi功能，并且支持有线和WIFI同时分别在不同的网段下使用，这就意味着连接网线看IPTV（不影响网速）</p>
+<p>连接WIFI后，机顶盒就可以上网，运行别的实时直播APP（比如：电视家）。这是一个很有意思的使用角度，很方便。</p>
+<p>以前中兴的机顶盒都是需要手动去拔查不同的网线（或者使用支持组播iptv协议的路由器）来切换联通内网和外网。</p>
+<p>现在可以根据你打开的APP，自动选择可用的网络；默认的IPTV依然走内网，其他APP（比如：悟空遥控）走外网WIFI接口。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/blog/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2022/11/16/Share-how-to-use-Bootstrap-in-NetSuite-SuiteLet-CarlZeng/" rel="prev" title="Share how to use Bootstrap in NetSuite SuiteLet-CarlZeng">
+                  <i class="fa fa-angle-left"></i> Share how to use Bootstrap in NetSuite SuiteLet-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/2022/11/18/curl-ptm-CarlZeng/" rel="next" title="curl ptm-CarlZeng">
+                  curl ptm-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接。</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">718k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">21:45</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/schemes/muse.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  <script src="/blog/js/third-party/addtoany.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"chuanzhuo/blog","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/blog/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

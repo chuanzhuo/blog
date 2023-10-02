@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Mist","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Mist","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
     <meta name="description" content="Hexo 的 Next 主题默认是首页显示你每篇文章的全文内容，那么要如何设置只显示部分呢？正如你现在看到的本篇文章，只显示到这里。">
 <meta property="og:type" content="article">
@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/4162c8d6-1696-4d5b-9e41-90f4b8911872/YxVnBQXhm90DL2PweYpbJ8GX64mvqytXkTtYTIqcU4Fy3FTEF1P-BpayuA/deep/0/image.png">
 <meta property="article:published_time" content="2023-09-22T15:44:18.000Z">
-<meta property="article:modified_time" content="2023-09-30T16:00:25.607Z">
+<meta property="article:modified_time" content="2023-10-02T08:11:58.309Z">
 <meta property="article:author" content="Carl Zeng">
 <meta property="article:tag" content="如何使用hexo">
 <meta name="twitter:card" content="summary">
@@ -143,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E6%AC%A1%E5%AE%8C%E6%95%B4%E7%9A%84Hexo%E5%86%99%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">一次完整的Hexo写作流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87"><span class="nav-number"></span> <span class="nav-text">插入本地图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3"><span class="nav-number"></span> <span class="nav-text">官方中文文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E6%96%B9%E5%90%91%EF%BC%88%E5%A4%A7%E4%BD%93%EF%BC%89%E6%80%9D%E8%B7%AF"><span class="nav-number"></span> <span class="nav-text">大方向（大体）思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E5%8F%82%E8%80%83"><span class="nav-number"></span> <span class="nav-text">步骤参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">存储位置：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-Markdown-%E7%AE%80%E6%98%8E%E8%AF%AD%E6%B3%95%E6%89%8B%E5%86%8C"><span class="nav-number">1.</span> <span class="nav-text">Hexo Markdown 简明语法手册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E5%AE%89%E8%A3%85%E6%96%B0%E7%9A%84hexo%E6%8F%92%E4%BB%B6%EF%BC%8C%E6%AD%A5%E9%AA%A4%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">怎么安装新的hexo插件，步骤如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo%E8%BF%99%E7%A7%8D%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BC%98%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">hexo这种模式的优点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Next"><span class="nav-number">3.1.</span> <span class="nav-text">Next</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E6%AC%A1%E5%AE%8C%E6%95%B4%E7%9A%84Hexo%E5%86%99%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">一次完整的Hexo写作流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87"><span class="nav-number"></span> <span class="nav-text">插入本地图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3"><span class="nav-number"></span> <span class="nav-text">官方中文文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E6%96%B9%E5%90%91%EF%BC%88%E5%A4%A7%E4%BD%93%EF%BC%89%E6%80%9D%E8%B7%AF"><span class="nav-number"></span> <span class="nav-text">大方向（大体）思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E5%8F%82%E8%80%83"><span class="nav-number"></span> <span class="nav-text">步骤参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E4%BD%8D%E7%BD%AE%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">存储位置：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-Markdown-%E7%AE%80%E6%98%8E%E8%AF%AD%E6%B3%95%E6%89%8B%E5%86%8C"><span class="nav-number">1.</span> <span class="nav-text">Hexo Markdown 简明语法手册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E5%AE%89%E8%A3%85%E6%96%B0%E7%9A%84hexo%E6%8F%92%E4%BB%B6%EF%BC%8C%E6%AD%A5%E9%AA%A4%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">怎么安装新的hexo插件，步骤如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-%E5%A6%82%E4%BD%95%E5%86%99%E5%A4%9A%E4%B8%AAtag"><span class="nav-number">3.</span> <span class="nav-text">hexo 如何写多个tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Note%EF%BC%9A%E5%AE%9D%E5%A1%94-%E9%83%A8%E7%BD%B2-Hexo%EF%BC%8C%E6%B2%A1%E6%9C%89%E6%84%8F%E4%B9%89%E3%80%82hexo-%E5%86%99%E5%8D%9A%E5%AE%A2%E6%B5%81%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">Note：宝塔 部署 Hexo，没有意义。hexo 写博客流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo%E8%BF%99%E7%A7%8D%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BC%98%E7%82%B9"><span class="nav-number">5.</span> <span class="nav-text">hexo这种模式的优点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Next"><span class="nav-number">5.1.</span> <span class="nav-text">Next</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -156,12 +156,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">290</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -178,6 +178,44 @@
 
     
         <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2017/05/04/Google-Sheet-NetSuite-Integration-%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2017-05-04</time>
+        <br>
+      Google Sheet NetSuite Integration 设计理念-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2023/05/05/Image-Captioning-with-nlbconnect-vit-gpt2-image-captioning-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2023-05-05</time>
+        <br>
+      Image Captioning with nlbconnect/vit-gpt2-image-captioning-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2023/09/22/hello-world/" rel="bookmark">
+        <time class="popular-posts-time">2023-09-22</time>
+        <br>
+      Hello World
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2023/01/15/AI%E8%84%B8%E9%83%A8%E8%AF%86%E5%88%AB%EF%BC%8C%E4%BA%BA%E8%84%B8%E6%AF%94%E5%AF%B9%EF%BC%8C%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2023-01-15</time>
+        <br>
+      AI脸部识别，人脸比对，人脸识别-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
         </div>
   </aside>
 
@@ -231,7 +269,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-01 00:00:25" itemprop="dateModified" datetime="2023-10-01T00:00:25+08:00">2023-10-01</time>
+      <time title="修改时间：2023-10-02 16:11:58" itemprop="dateModified" datetime="2023-10-02T16:11:58+08:00">2023-10-02</time>
     </span>
 
   
@@ -248,7 +286,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
+      <span>1.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -283,7 +321,7 @@
 <blockquote>
 <p>举例说明（设置大小和样式） { % img <a target="_blank" rel="noopener" href="http://www.viemu.com/vi-vim-cheat-sheet.gif">http://www.viemu.com/vi-vim-cheat-sheet.gif</a> 200 400 vi-vim-cheat-sheet % }<br>这个功能太赞了，我终于可以链接我的Evernote存储的Skitch应用（发布的链接）来方便地展示图片了！</p>
 </blockquote>
-<img src="https://www.evernote.com/shard/s122/sh/4162c8d6-1696-4d5b-9e41-90f4b8911872/YxVnBQXhm90DL2PweYpbJ8GX64mvqytXkTtYTIqcU4Fy3FTEF1P-BpayuA/deep/0/image.png" class="">
+<img data-src="https://www.evernote.com/shard/s122/sh/4162c8d6-1696-4d5b-9e41-90f4b8911872/YxVnBQXhm90DL2PweYpbJ8GX64mvqytXkTtYTIqcU4Fy3FTEF1P-BpayuA/deep/0/image.png" class="">
 
 <p>让hexo的首页只显示文章的部分内容而不是全部<br>在文章的 front-matter 中添加 description，并提供文章摘录<br>如何加入到模版中，每次hexo new “”的时候，自动有这个标签？</p>
 <h2 id="官方中文文档"><a href="#官方中文文档" class="headerlink" title="官方中文文档"></a>官方中文文档</h2><pre><code>https://hexo.io/zh-cn/docs/writing.html
@@ -303,7 +341,13 @@ https://developer.aliyun.com/article/940387
 </li>
 <li><a target="_blank" rel="noopener" href="https://theme-next.js.org/mist/docs/third-party-services/search-services.html?highlight=search">Detail Configuration</a></li>
 </ol>
-<p>Note：宝塔 部署 Hexo，没有意义。hexo 写博客流程<br>    github.io<br>    还是选择使用hexo.io的构架，能长久！文档，本地编辑，git。<br>    不依赖vps或服务器。<br>    .md文件的编辑罢了<br>    放弃方案：使用宝塔面板快速搭建Typecho个人博客(图文教程)</p>
+<h3 id="hexo-如何写多个tag"><a href="#hexo-如何写多个tag" class="headerlink" title="hexo 如何写多个tag"></a>hexo 如何写多个tag</h3><p>类似与数组，必须使用逗号, 隔开各个tag<br>比如：[AI,人脸识别,人脸对比,机器人脸比对,批量人脸比对]</p>
+<h3 id="Note：宝塔-部署-Hexo，没有意义。hexo-写博客流程"><a href="#Note：宝塔-部署-Hexo，没有意义。hexo-写博客流程" class="headerlink" title="Note：宝塔 部署 Hexo，没有意义。hexo 写博客流程"></a>Note：宝塔 部署 Hexo，没有意义。hexo 写博客流程</h3><pre><code>github.io
+还是选择使用hexo.io的构架，能长久！文档，本地编辑，git。
+不依赖vps或服务器。
+.md文件的编辑罢了
+放弃方案：使用宝塔面板快速搭建Typecho个人博客(图文教程)
+</code></pre>
 <h3 id="hexo这种模式的优点"><a href="#hexo这种模式的优点" class="headerlink" title="hexo这种模式的优点"></a>hexo这种模式的优点</h3><ul>
 <li>可以极其方便地不停的更新文章内容，版本不停迭代，（不再像cnblogs发布后，不搭理文章了，由于维护很麻烦）</li>
 </ul>
@@ -389,25 +433,25 @@ https://developer.aliyun.com/article/940387
     <div class="footer-inner">
 
   <div class="copyright">
-    &copy; 
+    &copy; 2008 – 
     <span itemprop="copyrightYear">2023</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
-    <span class="author" itemprop="copyrightHolder">Carl Zeng</span>
+    <span class="author" itemprop="copyrightHolder">本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接。</span>
   </div>
 <div class="wordcount">
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">5k</span>
+    <span title="站点总字数">718k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">9 分钟</span>
+    <span title="站点阅读时长">21:45</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -454,6 +498,7 @@ https://developer.aliyun.com/article/940387
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/schemes/muse.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>

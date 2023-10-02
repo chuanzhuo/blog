@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Mist","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="VLOOKUP函数对查找内容列排序增加效率， 默认是认为true，即已经排序，只从上到下查找一遍即可。效率很高， 而如果false，精确匹配值。 关于VLOOKUP函数的用法   &quot;Lookup&quot;的汉语意思是&quot;查找&quot;，在Excel中与&quot;Lookup&quot;相关的函数有三个：VLOOKUP、HLOOKUO和LOOKUP。下面介绍VLOOKUP函数的用法。   一、功能  在表格的首列查找指定的数据，并返回">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VLOOKUP函数对查找内容列排序增加效率-CarlZeng">
+<meta property="og:url" content="https://chuanzhuo.github.com/blog/2009/11/02/VLOOKUP%E5%87%BD%E6%95%B0%E5%AF%B9%E6%9F%A5%E6%89%BE%E5%86%85%E5%AE%B9%E5%88%97%E6%8E%92%E5%BA%8F%E5%A2%9E%E5%8A%A0%E6%95%88%E7%8E%87-CarlZeng/index.html">
+<meta property="og:site_name" content="Carl&#39;s Notes">
+<meta property="og:description" content="VLOOKUP函数对查找内容列排序增加效率， 默认是认为true，即已经排序，只从上到下查找一遍即可。效率很高， 而如果false，精确匹配值。 关于VLOOKUP函数的用法   &quot;Lookup&quot;的汉语意思是&quot;查找&quot;，在Excel中与&quot;Lookup&quot;相关的函数有三个：VLOOKUP、HLOOKUO和LOOKUP。下面介绍VLOOKUP函数的用法。   一、功能  在表格的首列查找指定的数据，并返回">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2009-11-02T05:24:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:29.006Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://chuanzhuo.github.com/blog/2009/11/02/VLOOKUP%E5%87%BD%E6%95%B0%E5%AF%B9%E6%9F%A5%E6%89%BE%E5%86%85%E5%AE%B9%E5%88%97%E6%8E%92%E5%BA%8F%E5%A2%9E%E5%8A%A0%E6%95%88%E7%8E%87-CarlZeng/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://chuanzhuo.github.com/blog/2009/11/02/VLOOKUP%E5%87%BD%E6%95%B0%E5%AF%B9%E6%9F%A5%E6%89%BE%E5%86%85%E5%AE%B9%E5%88%97%E6%8E%92%E5%BA%8F%E5%A2%9E%E5%8A%A0%E6%95%88%E7%8E%87-CarlZeng/","path":"2009/11/02/VLOOKUP函数对查找内容列排序增加效率-CarlZeng/","title":"VLOOKUP函数对查找内容列排序增加效率-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>VLOOKUP函数对查找内容列排序增加效率-CarlZeng | Carl's Notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/blog/atom.xml" title="Carl's Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Carl's Notes</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/blog/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">290</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/04/13/js-%E5%88%A4%E6%96%AD%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E5%90%A6ie-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-04-13</time>
+        <br>
+      js 判断浏览器是否ie-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2010/03/17/js-%E5%8A%A8%E6%80%81%E8%A1%A8%E6%A0%BC%E4%B8%BE%E4%BE%8B-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2010-03-17</time>
+        <br>
+      js 动态表格举例-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2008/12/30/js-%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84-%E5%BA%94%E7%94%A8-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2008-12-30</time>
+        <br>
+      js 多维数组 应用-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2019/01/10/js-%E5%A6%82%E4%BD%95%E8%AE%A9forEach%E5%8F%AF%E4%BB%A5break%EF%BC%9F-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2019-01-10</time>
+        <br>
+      js 如何让forEach可以break？-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/12/08/js-%E8%BD%AC%E5%8C%96%E4%B8%BA%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%9F%E5%9E%8B-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-12-08</time>
+        <br>
+      js 转化为标准日期型-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2009/11/02/VLOOKUP%E5%87%BD%E6%95%B0%E5%AF%B9%E6%9F%A5%E6%89%BE%E5%86%85%E5%AE%B9%E5%88%97%E6%8E%92%E5%BA%8F%E5%A2%9E%E5%8A%A0%E6%95%88%E7%8E%87-CarlZeng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="VLOOKUP函数对查找内容列排序增加效率-CarlZeng | Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          VLOOKUP函数对查找内容列排序增加效率-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-11-02 13:24:00" itemprop="dateCreated datePublished" datetime="2009-11-02T13:24:00+08:00">2009-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>VLOOKUP函数对查找内容列排序增加效率， 默认是认为true，即已经排序，只从上到下查找一遍即可。效率很高， 而如果false，精确匹配值。 关于VLOOKUP函数的用法 “Lookup”的汉语意思是”查找”，在Excel中与”Lookup”相关的函数有三个：VLOOKUP、HLOOKUO和LOOKUP。下面介绍VLOOKUP函数的用法。 一、功能 在表格的首列查找指定的数据，并返回…</p>
+<!-- more -->
+<p>VLOOKUP函数对查找内容列排序增加效率，</p>
+<p>默认是认为true，即已经排序，只从上到下查找一遍即可。效率很高，</p>
+<p>而如果false，精确匹配值。</p>
+<p>关于VLOOKUP函数的用法  </p>
+<p>“Lookup”的汉语意思是”查找”，在Excel中与”Lookup”相关的函数有三个：VLOOKUP、HLOOKUO和LOOKUP。下面介绍VLOOKUP函数的用法。  </p>
+<p>一、功能<br>在表格的首列查找指定的数据，并返回指定的数据所在行中的指定列处的数据。  </p>
+<p>二、语法<br>标准格式：<br>VLOOKUP(lookup_value,table_array,col_index_num , range_lookup)  </p>
+<p>三、语法解释<br>VLOOKUP(lookup_value,table_array,col_index_num,range_lookup)可以写为：<br>VLOOKUP(需在第一列中查找的数据,需要在其中查找数据的数据表,需返回某列值的列号,逻辑值True或False)<br>1.Lookup_value为”需在数据表第一列中查找的数据”，可以是数值、文本字符串或引用。<br>2.Table_array 为”需要在其中查找数据的数据表”，可以使用单元格区域或区域名称等。<br>⑴如果 range_lookup 为 TRUE或省略，则 table_array 的第一列中的数值必须按升序排列，否则，函数 VLOOKUP 不能返回正确的数值。<br>如果 range_lookup 为 FALSE，table_array 不必进行排序。<br>⑵Table_array 的第一列中的数值可以为文本、数字或逻辑值。若为文本时，不区分文本的大小写。<br>3.Col_index_num 为table_array 中待返回的匹配值的列序号。<br>Col_index_num 为 1 时，返回 table_array 第一列中的数值；<br>Col_index_num 为 2 时，返回 table_array 第二列中的数值，以此类推。<br>如果Col_index_num 小于 1，函数 VLOOKUP 返回错误值 #VALUE!；<br>如果Col_index_num 大于 table_array 的列数，函数 VLOOKUP 返回错误值 #REF!。<br>4.Range_lookup 为一逻辑值，指明函数 VLOOKUP 返回时是精确匹配还是近似匹配。如果为 TRUE 或省略，则返回近似匹配值，也就是说，如果找不到精确匹配值，则返回小于lookup_value 的最大数值；如果 range_value 为 FALSE，函数 VLOOKUP 将返回精确匹配值。如果找不到，则返回错误值 #N&#x2F;A。  </p>
+<p>四、应用例子<br>A B C D<br>1 编号 姓名 工资 科室<br>2 2005001 周杰伦 2870 办公室<br>3 2005002 萧亚轩 2750 人事科<br>4 2005006 郑智化 2680 供应科<br>5 2005010 屠洪刚 2980 销售科<br>6 2005019 孙楠 2530 财务科<br>7 2005036 孟庭苇 2200 工 会  </p>
+<p>A列已排序（第四个参数缺省或用TRUE）<br>VLOOKUP(2005001,A1:D7,2,TRUE) 等于”周杰伦”<br>VLOOKUP(2005001,A1:D7,3,TRUE) 等于”2870”<br>VLOOKUP(2005001,A1:D7,4,TRUE) 等于”办公室”<br>VLOOKUP(2005019,A1:D7,2,TRUE) 等于”孙楠”<br>VLOOKUP(2005036,A1:D7,3,TRUE) 等于”2200”<br>VLOOKUP(2005036,A1:D7,4,TRUE) 等于”工 会”<br>VLOOKUP(2005036,A1:D7,4) 等于”工 会”  </p>
+<p>若A列没有排序，要得出正确的结果，第四个参数必须用FALSE<br>VLOOKUP(2005001,A1:D7,2,FALSE) 等于”周杰伦”<br>VLOOKUP(2005001,A1:D7,3,FALSE) 等于”2870”<br>VLOOKUP(2005001,A1:D7,4,FALSE) 等于”办公室”<br>VLOOKUP(2005019,A1:D7,2,FALSE) 等于”孙楠”<br>VLOOKUP(2005036,A1:D7,3,FALSE) 等于”2200”<br>VLOOKUP(2005036,A1:D7,4,FALSE) 等于”工 会”  </p>
+<p>五、关于TRUE和FALSE的应用<br>先举个例子，假如让你在数万条记录的表格中查找给定编号的某个人，假如编号已按由小到大的顺序排序，你会很轻松地找到这个人；假如编号没有排序，你只好从上到下一条一条地查找，很费事。<br>用VLOOKUP查找数据也是这样，当第一列已排序，第四个参数用TRUE（或确省），Excel会很轻松地找到数据，效率较高。当第一列没有排序，第四个参数用FALSE，Excel会从上到下一条一条地查找，效率较低。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/blog/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2009/10/29/%E8%A3%85%E8%BD%BD-%E7%94%B1%E4%BA%8E%E7%BB%8F%E6%B5%8E%E6%98%AF%E4%BB%A5%E5%88%9B%E6%96%B0%E4%B8%BA%E5%9F%BA%E7%A1%80%E7%9A%84%EF%BC%8C%E6%88%91%E4%BB%AC%E5%AF%B9%E8%BF%99%E7%A7%8D%E4%BA%8B%E6%83%85%E4%B8%8D%E8%83%BD%E5%9D%90%E8%A7%86%E4%B8%8D%E7%90%86-CarlZeng/" rel="prev" title="(装载)由于经济是以创新为基础的，我们对这种事情不能坐视不理-CarlZeng">
+                  <i class="fa fa-angle-left"></i> (装载)由于经济是以创新为基础的，我们对这种事情不能坐视不理-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/2009/11/02/xp-setup-https-%E8%A3%85%E8%BD%BD-CarlZeng/" rel="next" title="xp setup https(装载)-CarlZeng">
+                  xp setup https(装载)-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接。</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">718k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">21:45</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/schemes/muse.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  <script src="/blog/js/third-party/addtoany.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"chuanzhuo/blog","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/blog/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

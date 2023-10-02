@@ -1,0 +1,2284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Mist","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="2023年4月 版本SELECT * from TransactionStatus FULLNAME  NAME  ID  TRANTYPE  1 Expense Report : In Progress In Progress A ExpRept 2 Expense Report : Pending Supervisor Approval Pending Supervisor Approval">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NetSuite SearchFilter Transaction Internal Status List SS 2.0-CarlZeng">
+<meta property="og:url" content="https://chuanzhuo.github.com/blog/2017/08/29/NetSuite-SearchFilter-Transaction-Internal-Status-List-SS-2-0-CarlZeng/index.html">
+<meta property="og:site_name" content="Carl&#39;s Notes">
+<meta property="og:description" content="2023年4月 版本SELECT * from TransactionStatus FULLNAME  NAME  ID  TRANTYPE  1 Expense Report : In Progress In Progress A ExpRept 2 Expense Report : Pending Supervisor Approval Pending Supervisor Approval">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-08-29T13:07:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:29.042Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://chuanzhuo.github.com/blog/2017/08/29/NetSuite-SearchFilter-Transaction-Internal-Status-List-SS-2-0-CarlZeng/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://chuanzhuo.github.com/blog/2017/08/29/NetSuite-SearchFilter-Transaction-Internal-Status-List-SS-2-0-CarlZeng/","path":"2017/08/29/NetSuite-SearchFilter-Transaction-Internal-Status-List-SS-2-0-CarlZeng/","title":"NetSuite SearchFilter Transaction Internal Status List SS 2.0-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>NetSuite SearchFilter Transaction Internal Status List SS 2.0-CarlZeng | Carl's Notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/blog/atom.xml" title="Carl's Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Carl's Notes</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/blog/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2023%E5%B9%B44%E6%9C%88-%E7%89%88%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">2023年4月 版本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2022%E5%B9%B411%E6%9C%88%E7%89%88%E6%9C%AC"><span class="nav-number">3.</span> <span class="nav-text">2022年11月版本</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">290</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2008/12/26/netsuite-nlobjSearchFilter-anyof-noneof-order%E7%8A%B6%E6%80%81%E5%88%97%E8%A1%A8-transaction%E7%B1%BB%E5%9E%8B-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2008-12-26</time>
+        <br>
+      netsuite nlobjSearchFilter anyof noneof ,order状态列表,transaction类型-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2014/10/29/Netsuite%E8%AE%A2%E5%8D%95%E5%AE%A1%E6%A0%B8%E9%97%AE%E9%A2%98-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2014-10-29</time>
+        <br>
+      Netsuite订单审核问题-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/01/22/po-so%E7%AD%89%E5%8D%95%E6%8D%AE-%E8%AF%BB%E5%8F%96%E5%85%B3%E8%81%94%E7%9A%84%E6%B5%81%E7%A8%8B%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE-netsuite-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-01-22</time>
+        <br>
+      po,so等单据,读取关联的流程业务数据,netsuite-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/05/04/server%E7%AB%AF%E7%9A%84beforeload%E4%BA%8B%E4%BB%B6-%E5%9C%A8nlapiLoadRecord-%E4%B8%AD%E5%B0%86%E4%BC%9A%E8%A2%AB%E5%87%BA%E5%8F%91-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-05-04</time>
+        <br>
+      server端的beforeload事件  在nlapiLoadRecord 中将会被出发-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2021/04/08/NetSuite-generated-bank-files-and-the-Bank-Reconciliation-process-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2021-04-08</time>
+        <br>
+      NetSuite generated bank files and the Bank Reconciliation process-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2017/08/29/NetSuite-SearchFilter-Transaction-Internal-Status-List-SS-2-0-CarlZeng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="NetSuite SearchFilter Transaction Internal Status List SS 2.0-CarlZeng | Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          NetSuite SearchFilter Transaction Internal Status List SS 2.0-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-08-29 21:07:00" itemprop="dateCreated datePublished" datetime="2017-08-29T21:07:00+08:00">2017-08-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>22k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>40 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="2023年4月-版本"><a href="#2023年4月-版本" class="headerlink" title="2023年4月 版本"></a>2023年4月 版本</h1><p>SELECT * from TransactionStatus</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>FULLNAME </p>
+<p>NAME </p>
+<p>ID </p>
+<p>TRANTYPE </p>
+<p>1</p>
+<p>Expense Report : In Progress</p>
+<p>In Progress</p>
+<p>A</p>
+<p>ExpRept</p>
+<p>2</p>
+<p>Expense Report : Pending Supervisor Approval</p>
+<p>Pending Supervisor Approval</p>
+<p>B</p>
+<p>ExpRept</p>
+<p>3</p>
+<p>Expense Report : Pending Accounting Approval</p>
+<p>Pending Accounting Approval</p>
+<p>C</p>
+<p>ExpRept</p>
+<p>4</p>
+<p>Expense Report : Rejected by Supervisor</p>
+<p>Rejected by Supervisor</p>
+<p>D</p>
+<p>ExpRept</p>
+<p>5</p>
+<p>Expense Report : Rejected by Accounting</p>
+<p>Rejected by Accounting</p>
+<p>E</p>
+<p>ExpRept</p>
+<p>6</p>
+<p>Expense Report : Approved by Accounting</p>
+<p>Approved by Accounting</p>
+<p>F</p>
+<p>ExpRept</p>
+<p>7</p>
+<p>Expense Report : Approved (Overridden) by Accounting</p>
+<p>Approved (Overridden) by Accounting</p>
+<p>G</p>
+<p>ExpRept</p>
+<p>8</p>
+<p>Expense Report : Rejected (Overridden) by Accounting</p>
+<p>Rejected (Overridden) by Accounting</p>
+<p>H</p>
+<p>ExpRept</p>
+<p>9</p>
+<p>Expense Report : Paid In Full</p>
+<p>Paid In Full</p>
+<p>I</p>
+<p>ExpRept</p>
+<p>10</p>
+<p>Expense Report : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>ExpRept</p>
+<p>11</p>
+<p>Expense Report : Payment In Transit</p>
+<p>Payment In Transit</p>
+<p>J</p>
+<p>ExpRept</p>
+<p>12</p>
+<p>Expense Report : Voided</p>
+<p>Voided</p>
+<p>V</p>
+<p>ExpRept</p>
+<p>13</p>
+<p>Sales Order : Pending Approval</p>
+<p>Pending Approval</p>
+<p>A</p>
+<p>SalesOrd</p>
+<p>14</p>
+<p>Sales Order : Pending Fulfillment</p>
+<p>Pending Fulfillment</p>
+<p>B</p>
+<p>SalesOrd</p>
+<p>15</p>
+<p>Sales Order : Cancelled</p>
+<p>Cancelled</p>
+<p>C</p>
+<p>SalesOrd</p>
+<p>16</p>
+<p>Sales Order : Partially Fulfilled</p>
+<p>Partially Fulfilled</p>
+<p>D</p>
+<p>SalesOrd</p>
+<p>17</p>
+<p>Sales Order : Pending Billing&#x2F;Partially Fulfilled</p>
+<p>Pending Billing&#x2F;Partially Fulfilled</p>
+<p>E</p>
+<p>SalesOrd</p>
+<p>18</p>
+<p>Sales Order : Pending Billing</p>
+<p>Pending Billing</p>
+<p>F</p>
+<p>SalesOrd</p>
+<p>19</p>
+<p>Sales Order : Billed</p>
+<p>Billed</p>
+<p>G</p>
+<p>SalesOrd</p>
+<p>20</p>
+<p>Sales Order : Closed</p>
+<p>Closed</p>
+<p>H</p>
+<p>SalesOrd</p>
+<p>21</p>
+<p>Sales Order : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>SalesOrd</p>
+<p>22</p>
+<p>Work Order : Planned</p>
+<p>Planned</p>
+<p>A</p>
+<p>WorkOrd</p>
+<p>23</p>
+<p>Work Order : Released</p>
+<p>Released</p>
+<p>B</p>
+<p>WorkOrd</p>
+<p>24</p>
+<p>Work Order : Cancelled</p>
+<p>Cancelled</p>
+<p>C</p>
+<p>WorkOrd</p>
+<p>25</p>
+<p>Work Order : In Process</p>
+<p>In Process</p>
+<p>D</p>
+<p>WorkOrd</p>
+<p>26</p>
+<p>Work Order : Built</p>
+<p>Built</p>
+<p>G</p>
+<p>WorkOrd</p>
+<p>27</p>
+<p>Work Order : Closed</p>
+<p>Closed</p>
+<p>H</p>
+<p>WorkOrd</p>
+<p>28</p>
+<p>Work Order : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>WorkOrd</p>
+<p>29</p>
+<p>Transfer Order : Pending Approval</p>
+<p>Pending Approval</p>
+<p>A</p>
+<p>TrnfrOrd</p>
+<p>30</p>
+<p>Transfer Order : Pending Fulfillment</p>
+<p>Pending Fulfillment</p>
+<p>B</p>
+<p>TrnfrOrd</p>
+<p>31</p>
+<p>Transfer Order : Rejected</p>
+<p>Rejected</p>
+<p>C</p>
+<p>TrnfrOrd</p>
+<p>32</p>
+<p>Transfer Order : Partially Fulfilled</p>
+<p>Partially Fulfilled</p>
+<p>D</p>
+<p>TrnfrOrd</p>
+<p>33</p>
+<p>Transfer Order : Pending Receipt&#x2F;Partially Fulfilled</p>
+<p>Pending Receipt&#x2F;Partially Fulfilled</p>
+<p>E</p>
+<p>TrnfrOrd</p>
+<p>34</p>
+<p>Transfer Order : Pending Receipt</p>
+<p>Pending Receipt</p>
+<p>F</p>
+<p>TrnfrOrd</p>
+<p>35</p>
+<p>Transfer Order : Received</p>
+<p>Received</p>
+<p>G</p>
+<p>TrnfrOrd</p>
+<p>36</p>
+<p>Transfer Order : Closed</p>
+<p>Closed</p>
+<p>H</p>
+<p>TrnfrOrd</p>
+<p>37</p>
+<p>Transfer Order : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>TrnfrOrd</p>
+<p>38</p>
+<p>Return Authorization : Pending Approval</p>
+<p>Pending Approval</p>
+<p>A</p>
+<p>RtnAuth</p>
+<p>39</p>
+<p>Return Authorization : Pending Receipt</p>
+<p>Pending Receipt</p>
+<p>B</p>
+<p>RtnAuth</p>
+<p>40</p>
+<p>Return Authorization : Cancelled</p>
+<p>Cancelled</p>
+<p>C</p>
+<p>RtnAuth</p>
+<p>41</p>
+<p>Return Authorization : Partially Received</p>
+<p>Partially Received</p>
+<p>D</p>
+<p>RtnAuth</p>
+<p>42</p>
+<p>Return Authorization : Pending Refund&#x2F;Partially Received</p>
+<p>Pending Refund&#x2F;Partially Received</p>
+<p>E</p>
+<p>RtnAuth</p>
+<p>43</p>
+<p>Return Authorization : Pending Refund</p>
+<p>Pending Refund</p>
+<p>F</p>
+<p>RtnAuth</p>
+<p>44</p>
+<p>Return Authorization : Refunded</p>
+<p>Refunded</p>
+<p>G</p>
+<p>RtnAuth</p>
+<p>45</p>
+<p>Return Authorization : Closed</p>
+<p>Closed</p>
+<p>H</p>
+<p>RtnAuth</p>
+<p>46</p>
+<p>Return Authorization : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>RtnAuth</p>
+<p>47</p>
+<p>Vendor Return Authorization : Pending Approval</p>
+<p>Pending Approval</p>
+<p>A</p>
+<p>VendAuth</p>
+<p>48</p>
+<p>Vendor Return Authorization : Pending Return</p>
+<p>Pending Return</p>
+<p>B</p>
+<p>VendAuth</p>
+<p>49</p>
+<p>Vendor Return Authorization : Cancelled</p>
+<p>Cancelled</p>
+<p>C</p>
+<p>VendAuth</p>
+<p>50</p>
+<p>Vendor Return Authorization : Partially Returned</p>
+<p>Partially Returned</p>
+<p>D</p>
+<p>VendAuth</p>
+<p>51</p>
+<p>Vendor Return Authorization : Pending Credit&#x2F;Partially Returned</p>
+<p>Pending Credit&#x2F;Partially Returned</p>
+<p>E</p>
+<p>VendAuth</p>
+<p>52</p>
+<p>Vendor Return Authorization : Pending Credit</p>
+<p>Pending Credit</p>
+<p>F</p>
+<p>VendAuth</p>
+<p>53</p>
+<p>Vendor Return Authorization : Credited</p>
+<p>Credited</p>
+<p>G</p>
+<p>VendAuth</p>
+<p>54</p>
+<p>Vendor Return Authorization : Closed</p>
+<p>Closed</p>
+<p>H</p>
+<p>VendAuth</p>
+<p>55</p>
+<p>Vendor Return Authorization : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>VendAuth</p>
+<p>56</p>
+<p>Purchase Order : Pending Supervisor Approval</p>
+<p>Pending Supervisor Approval</p>
+<p>A</p>
+<p>PurchOrd</p>
+<p>57</p>
+<p>Purchase Order : Pending Receipt</p>
+<p>Pending Receipt</p>
+<p>B</p>
+<p>PurchOrd</p>
+<p>58</p>
+<p>Purchase Order : Rejected by Supervisor</p>
+<p>Rejected by Supervisor</p>
+<p>C</p>
+<p>PurchOrd</p>
+<p>59</p>
+<p>Purchase Order : Partially Received</p>
+<p>Partially Received</p>
+<p>D</p>
+<p>PurchOrd</p>
+<p>60</p>
+<p>Purchase Order : Pending Billing&#x2F;Partially Received</p>
+<p>Pending Billing&#x2F;Partially Received</p>
+<p>E</p>
+<p>PurchOrd</p>
+<p>61</p>
+<p>Purchase Order : Pending Bill</p>
+<p>Pending Bill</p>
+<p>F</p>
+<p>PurchOrd</p>
+<p>62</p>
+<p>Purchase Order : Fully Billed</p>
+<p>Fully Billed</p>
+<p>G</p>
+<p>PurchOrd</p>
+<p>63</p>
+<p>Purchase Order : Closed</p>
+<p>Closed</p>
+<p>H</p>
+<p>PurchOrd</p>
+<p>64</p>
+<p>Purchase Order : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>PurchOrd</p>
+<p>65</p>
+<p>Check : Online Bill Pay Pending Accounting Approval</p>
+<p>Online Bill Pay Pending Accounting Approval</p>
+<p>Z</p>
+<p>Check</p>
+<p>66</p>
+<p>Check : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>Check</p>
+<p>67</p>
+<p>Check : Voided</p>
+<p>Voided</p>
+<p>V</p>
+<p>Check</p>
+<p>68</p>
+<p>Bill Payment : Online Bill Pay Pending Accounting Approval</p>
+<p>Online Bill Pay Pending Accounting Approval</p>
+<p>Z</p>
+<p>VendPymt</p>
+<p>69</p>
+<p>Sales Tax Payment : Online Bill Pay Pending Accounting Approval</p>
+<p>Online Bill Pay Pending Accounting Approval</p>
+<p>Z</p>
+<p>TaxPymt</p>
+<p>70</p>
+<p>Journal : Pending Approval</p>
+<p>Pending Approval</p>
+<p>A</p>
+<p>Journal</p>
+<p>71</p>
+<p>Journal : Approved for Posting</p>
+<p>Approved for Posting</p>
+<p>B</p>
+<p>Journal</p>
+<p>72</p>
+<p>Journal : Rejected</p>
+<p>Rejected</p>
+<p>R</p>
+<p>Journal</p>
+<p>73</p>
+<p>Journal : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>Journal</p>
+<p>74</p>
+<p>Transfer : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>Transfer</p>
+<p>75</p>
+<p>Deposit : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>Deposit</p>
+<p>76</p>
+<p>Cash Sale : Unapproved Payment</p>
+<p>Unapproved Payment</p>
+<p>A</p>
+<p>CashSale</p>
+<p>77</p>
+<p>Cash Sale : Not Deposited</p>
+<p>Not Deposited</p>
+<p>B</p>
+<p>CashSale</p>
+<p>78</p>
+<p>Cash Sale : Deposited</p>
+<p>Deposited</p>
+<p>C</p>
+<p>CashSale</p>
+<p>79</p>
+<p>Cash Sale : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>CashSale</p>
+<p>80</p>
+<p>Payment : Unapproved Payment</p>
+<p>Unapproved Payment</p>
+<p>A</p>
+<p>CustPymt</p>
+<p>81</p>
+<p>Payment : Not Deposited</p>
+<p>Not Deposited</p>
+<p>B</p>
+<p>CustPymt</p>
+<p>82</p>
+<p>Payment : Deposited</p>
+<p>Deposited</p>
+<p>C</p>
+<p>CustPymt</p>
+<p>83</p>
+<p>Payment : Cancelled</p>
+<p>Cancelled</p>
+<p>R</p>
+<p>CustPymt</p>
+<p>84</p>
+<p>Payment : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>CustPymt</p>
+<p>85</p>
+<p>Quote : Open</p>
+<p>Open</p>
+<p>A</p>
+<p>Estimate</p>
+<p>86</p>
+<p>Quote : Processed</p>
+<p>Processed</p>
+<p>B</p>
+<p>Estimate</p>
+<p>87</p>
+<p>Quote : Closed</p>
+<p>Closed</p>
+<p>C</p>
+<p>Estimate</p>
+<p>88</p>
+<p>Quote : Voided</p>
+<p>Voided</p>
+<p>V</p>
+<p>Estimate</p>
+<p>89</p>
+<p>Quote : Expired</p>
+<p>Expired</p>
+<p>X</p>
+<p>Estimate</p>
+<p>90</p>
+<p>Quote : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>Estimate</p>
+<p>91</p>
+<p>Invoice : Open</p>
+<p>Open</p>
+<p>A</p>
+<p>CustInvc</p>
+<p>92</p>
+<p>Invoice : Paid In Full</p>
+<p>Paid In Full</p>
+<p>B</p>
+<p>CustInvc</p>
+<p>93</p>
+<p>Invoice : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>CustInvc</p>
+<p>94</p>
+<p>Invoice : Pending Approval</p>
+<p>Pending Approval</p>
+<p>D</p>
+<p>CustInvc</p>
+<p>95</p>
+<p>Invoice : Rejected</p>
+<p>Rejected</p>
+<p>E</p>
+<p>CustInvc</p>
+<p>96</p>
+<p>Statement Charge : Open</p>
+<p>Open</p>
+<p>A</p>
+<p>CustChrg</p>
+<p>97</p>
+<p>Statement Charge : Paid In Full</p>
+<p>Paid In Full</p>
+<p>B</p>
+<p>CustChrg</p>
+<p>98</p>
+<p>Statement Charge : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>CustChrg</p>
+<p>99</p>
+<p>Bill : Open</p>
+<p>Open</p>
+<p>A</p>
+<p>VendBill</p>
+<p>100</p>
+<p>Bill : Paid In Full</p>
+<p>Paid In Full</p>
+<p>B</p>
+<p>VendBill</p>
+<p>101</p>
+<p>Bill : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>VendBill</p>
+<p>102</p>
+<p>Bill : Cancelled</p>
+<p>Cancelled</p>
+<p>C</p>
+<p>VendBill</p>
+<p>103</p>
+<p>Bill : Pending Approval</p>
+<p>Pending Approval</p>
+<p>D</p>
+<p>VendBill</p>
+<p>104</p>
+<p>Bill : Rejected</p>
+<p>Rejected</p>
+<p>E</p>
+<p>VendBill</p>
+<p>105</p>
+<p>Bill : Payment In-Transit</p>
+<p>Payment In-Transit</p>
+<p>F</p>
+<p>VendBill</p>
+<p>106</p>
+<p>Credit Memo : Open</p>
+<p>Open</p>
+<p>A</p>
+<p>CustCred</p>
+<p>107</p>
+<p>Credit Memo : Fully Applied</p>
+<p>Fully Applied</p>
+<p>B</p>
+<p>CustCred</p>
+<p>108</p>
+<p>Credit Memo : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>CustCred</p>
+<p>109</p>
+<p>Inventory Adjustment : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>InvAdjst</p>
+<p>110</p>
+<p>Inventory Worksheet : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>InvWksht</p>
+<p>111</p>
+<p>Bin Putaway Worksheet : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>BinWksht</p>
+<p>112</p>
+<p>Bin Transfer : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>BinTrnfr</p>
+<p>113</p>
+<p>Inventory Transfer : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>InvTrnfr</p>
+<p>114</p>
+<p>Inventory Distribution : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>InvDistr</p>
+<p>115</p>
+<p>Item Receipt : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>ItemRcpt</p>
+<p>116</p>
+<p>Inventory Status Change : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>StatChng</p>
+<p>117</p>
+<p>Bill Credit : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>VendCred</p>
+<p>118</p>
+<p>Credit Card : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>CardChrg</p>
+<p>119</p>
+<p>CCard Refund : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>CardRfnd</p>
+<p>120</p>
+<p>Paycheck : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>Paycheck</p>
+<p>121</p>
+<p>YTD Adjustment : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>YtdAdjst</p>
+<p>122</p>
+<p>Liability Adjustment : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>LiaAdjst</p>
+<p>123</p>
+<p>Cash Refund : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>CashRfnd</p>
+<p>124</p>
+<p>Deposit Application : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>DepAppl</p>
+<p>125</p>
+<p>Customer Deposit : Not Deposited</p>
+<p>Not Deposited</p>
+<p>A</p>
+<p>CustDep</p>
+<p>126</p>
+<p>Customer Deposit : Cancelled</p>
+<p>Cancelled</p>
+<p>R</p>
+<p>CustDep</p>
+<p>127</p>
+<p>Customer Deposit : Deposited</p>
+<p>Deposited</p>
+<p>B</p>
+<p>CustDep</p>
+<p>128</p>
+<p>Customer Deposit : Fully Applied</p>
+<p>Fully Applied</p>
+<p>C</p>
+<p>CustDep</p>
+<p>129</p>
+<p>Customer Deposit : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>CustDep</p>
+<p>130</p>
+<p>Customer Refund : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>CustRfnd</p>
+<p>131</p>
+<p>Customer Refund : Cancelled</p>
+<p>Cancelled</p>
+<p>R</p>
+<p>CustRfnd</p>
+<p>132</p>
+<p>Customer Refund : Voided</p>
+<p>Voided</p>
+<p>V</p>
+<p>CustRfnd</p>
+<p>133</p>
+<p>Bill Payment : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>VendPymt</p>
+<p>134</p>
+<p>Bill Payment : Voided</p>
+<p>Voided</p>
+<p>V</p>
+<p>VendPymt</p>
+<p>135</p>
+<p>Bill Payment : Pending Approval</p>
+<p>Pending Approval</p>
+<p>A</p>
+<p>VendPymt</p>
+<p>136</p>
+<p>Bill Payment : In-Transit</p>
+<p>In-Transit</p>
+<p>B</p>
+<p>VendPymt</p>
+<p>137</p>
+<p>Bill Payment : Confirmed</p>
+<p>Confirmed</p>
+<p>C</p>
+<p>VendPymt</p>
+<p>138</p>
+<p>Bill Payment : Rejected</p>
+<p>Rejected</p>
+<p>D</p>
+<p>VendPymt</p>
+<p>139</p>
+<p>Bill Payment : Declined</p>
+<p>Declined</p>
+<p>E</p>
+<p>VendPymt</p>
+<p>140</p>
+<p>Bill Payment : Approved</p>
+<p>Approved</p>
+<p>F</p>
+<p>VendPymt</p>
+<p>141</p>
+<p>Sales Tax Payment : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>TaxPymt</p>
+<p>142</p>
+<p>Sales Tax Payment : Voided</p>
+<p>Voided</p>
+<p>V</p>
+<p>TaxPymt</p>
+<p>143</p>
+<p>Payroll Liability Check : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>LiabPymt</p>
+<p>144</p>
+<p>Payroll Liability Check : Voided</p>
+<p>Voided</p>
+<p>V</p>
+<p>LiabPymt</p>
+<p>145</p>
+<p>Tax Liability Cheque : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>TaxLiab</p>
+<p>146</p>
+<p>Tax Liability Cheque : Voided</p>
+<p>Voided</p>
+<p>V</p>
+<p>TaxLiab</p>
+<p>147</p>
+<p>Item Fulfillment : Picked</p>
+<p>Picked</p>
+<p>A</p>
+<p>ItemShip</p>
+<p>148</p>
+<p>Item Fulfillment : In Process</p>
+<p>In Process</p>
+<p>B</p>
+<p>ItemShip</p>
+<p>149</p>
+<p>Item Fulfillment : Shipped</p>
+<p>Shipped</p>
+<p>C</p>
+<p>ItemShip</p>
+<p>150</p>
+<p>Assembly Build : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>Build</p>
+<p>151</p>
+<p>Assembly Unbuild : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>Unbuild</p>
+<p>152</p>
+<p>Currency Revaluation : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>FxReval</p>
+<p>153</p>
+<p>Opportunity : In Progress</p>
+<p>In Progress</p>
+<p>A</p>
+<p>Opprtnty</p>
+<p>154</p>
+<p>Opportunity : Issued Quote</p>
+<p>Issued Quote</p>
+<p>B</p>
+<p>Opprtnty</p>
+<p>155</p>
+<p>Opportunity : Closed - Won</p>
+<p>Closed - Won</p>
+<p>C</p>
+<p>Opprtnty</p>
+<p>156</p>
+<p>Opportunity : Closed - Lost</p>
+<p>Closed - Lost</p>
+<p>D</p>
+<p>Opprtnty</p>
+<p>157</p>
+<p>Commission : Pending Accounting Approval</p>
+<p>Pending Accounting Approval</p>
+<p>P</p>
+<p>Commissn</p>
+<p>158</p>
+<p>Commission : Pending Payment</p>
+<p>Pending Payment</p>
+<p>A</p>
+<p>Commissn</p>
+<p>159</p>
+<p>Commission : Paid in Full</p>
+<p>Paid in Full</p>
+<p>X</p>
+<p>Commissn</p>
+<p>160</p>
+<p>Commission : Overpaid</p>
+<p>Overpaid</p>
+<p>O</p>
+<p>Commissn</p>
+<p>161</p>
+<p>Commission : Rejected by Accounting</p>
+<p>Rejected by Accounting</p>
+<p>R</p>
+<p>Commissn</p>
+<p>162</p>
+<p>Commission : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>Commissn</p>
+<p>163</p>
+<p>Paycheck : Reversed</p>
+<p>Reversed</p>
+<p>R</p>
+<p>Paycheck</p>
+<p>164</p>
+<p>Paycheck : Pending Tax Calculation</p>
+<p>Pending Tax Calculation</p>
+<p>C</p>
+<p>Paycheck</p>
+<p>165</p>
+<p>Paycheck : Pending Commitment</p>
+<p>Pending Commitment</p>
+<p>D</p>
+<p>Paycheck</p>
+<p>166</p>
+<p>Paycheck : Preview</p>
+<p>Preview</p>
+<p>P</p>
+<p>Paycheck</p>
+<p>167</p>
+<p>Paycheck : Committed</p>
+<p>Committed</p>
+<p>F</p>
+<p>Paycheck</p>
+<p>168</p>
+<p>Paycheck : Created</p>
+<p>Created</p>
+<p>A</p>
+<p>Paycheck</p>
+<p>169</p>
+<p>Paycheck : Error</p>
+<p>Error</p>
+<p>X</p>
+<p>Paycheck</p>
+<p>170</p>
+<p>Revenue Commitment : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>RevComm</p>
+<p>171</p>
+<p>Revenue Commitment Reversal : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>RevComRv</p>
+<p>172</p>
+<p>Tegata Receivables : Holding</p>
+<p>Holding</p>
+<p>H</p>
+<p>TegRcvbl</p>
+<p>173</p>
+<p>Tegata Receivables : Collected</p>
+<p>Collected</p>
+<p>C</p>
+<p>TegRcvbl</p>
+<p>174</p>
+<p>Tegata Receivables : Discounted</p>
+<p>Discounted</p>
+<p>D</p>
+<p>TegRcvbl</p>
+<p>175</p>
+<p>Tegata Receivables : Endorsed</p>
+<p>Endorsed</p>
+<p>E</p>
+<p>TegRcvbl</p>
+<p>176</p>
+<p>Tegata Payable : Issued</p>
+<p>Issued</p>
+<p>I</p>
+<p>TegPybl</p>
+<p>177</p>
+<p>Tegata Payable : Endorsed</p>
+<p>Endorsed</p>
+<p>E</p>
+<p>TegPybl</p>
+<p>178</p>
+<p>Tegata Payable : Paid</p>
+<p>Paid</p>
+<p>P</p>
+<p>TegPybl</p>
+<p>179</p>
+<p>Inventory Cost Revaluation : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>InvReval</p>
+<p>180</p>
+<p>Work Order Issue : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>WOIssue</p>
+<p>181</p>
+<p>Work Order Completion : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>WOCompl</p>
+<p>182</p>
+<p>Work Order Close : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>WOClose</p>
+<p>183</p>
+<p>Paycheck Journal : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>PChkJrnl</p>
+<p>184</p>
+<p>Inventory Count : Open</p>
+<p>Open</p>
+<p>A</p>
+<p>InvCount</p>
+<p>185</p>
+<p>Inventory Count : Started</p>
+<p>Started</p>
+<p>B</p>
+<p>InvCount</p>
+<p>186</p>
+<p>Inventory Count : Completed&#x2F;Pending Approval</p>
+<p>Completed&#x2F;Pending Approval</p>
+<p>C</p>
+<p>InvCount</p>
+<p>187</p>
+<p>Inventory Count : Approved</p>
+<p>Approved</p>
+<p>D</p>
+<p>InvCount</p>
+<p>188</p>
+<p>Inventory Count : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>InvCount</p>
+<p>189</p>
+<p>Revenue Contract : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>RevContr</p>
+<p>190</p>
+<p>Requisition : Pending Approval</p>
+<p>Pending Approval</p>
+<p>A</p>
+<p>PurchReq</p>
+<p>191</p>
+<p>Requisition : Pending Order</p>
+<p>Pending Order</p>
+<p>B</p>
+<p>PurchReq</p>
+<p>192</p>
+<p>Requisition : Cancelled</p>
+<p>Cancelled</p>
+<p>C</p>
+<p>PurchReq</p>
+<p>193</p>
+<p>Requisition : Partially Ordered</p>
+<p>Partially Ordered</p>
+<p>D</p>
+<p>PurchReq</p>
+<p>194</p>
+<p>Requisition : Fully Ordered</p>
+<p>Fully Ordered</p>
+<p>E</p>
+<p>PurchReq</p>
+<p>195</p>
+<p>Requisition : Partially Received</p>
+<p>Partially Received</p>
+<p>F</p>
+<p>PurchReq</p>
+<p>196</p>
+<p>Requisition : Fully Received</p>
+<p>Fully Received</p>
+<p>G</p>
+<p>PurchReq</p>
+<p>197</p>
+<p>Requisition : Closed</p>
+<p>Closed</p>
+<p>H</p>
+<p>PurchReq</p>
+<p>198</p>
+<p>Requisition : Rejected</p>
+<p>Rejected</p>
+<p>R</p>
+<p>PurchReq</p>
+<p>199</p>
+<p>Purchase Contract : Pending Approval</p>
+<p>Pending Approval</p>
+<p>A</p>
+<p>PurchCon</p>
+<p>200</p>
+<p>Purchase Contract : Approved</p>
+<p>Approved</p>
+<p>B</p>
+<p>PurchCon</p>
+<p>201</p>
+<p>Purchase Contract : Closed</p>
+<p>Closed</p>
+<p>H</p>
+<p>PurchCon</p>
+<p>202</p>
+<p>Purchase Contract : Rejected</p>
+<p>Rejected</p>
+<p>R</p>
+<p>PurchCon</p>
+<p>203</p>
+<p>Blanket Purchase Order : Pending Approval</p>
+<p>Pending Approval</p>
+<p>A</p>
+<p>BlankOrd</p>
+<p>204</p>
+<p>Blanket Purchase Order : Approved</p>
+<p>Approved</p>
+<p>B</p>
+<p>BlankOrd</p>
+<p>205</p>
+<p>Blanket Purchase Order : Closed</p>
+<p>Closed</p>
+<p>H</p>
+<p>BlankOrd</p>
+<p>206</p>
+<p>Blanket Purchase Order : Rejected</p>
+<p>Rejected</p>
+<p>R</p>
+<p>BlankOrd</p>
+<p>207</p>
+<p>Request For Quote : Pending Bid Open</p>
+<p>Pending Bid Open</p>
+<p>A</p>
+<p>Rfq</p>
+<p>208</p>
+<p>Request For Quote : Cancelled</p>
+<p>Cancelled</p>
+<p>C</p>
+<p>Rfq</p>
+<p>209</p>
+<p>Request For Quote : Bid Open</p>
+<p>Bid Open</p>
+<p>D</p>
+<p>Rfq</p>
+<p>210</p>
+<p>Request For Quote : Bid Closed</p>
+<p>Bid Closed</p>
+<p>E</p>
+<p>Rfq</p>
+<p>211</p>
+<p>Request For Quote : Partially Awarded</p>
+<p>Partially Awarded</p>
+<p>F</p>
+<p>Rfq</p>
+<p>212</p>
+<p>Request For Quote : Fully Awarded</p>
+<p>Fully Awarded</p>
+<p>G</p>
+<p>Rfq</p>
+<p>213</p>
+<p>Request For Quote : Closed</p>
+<p>Closed</p>
+<p>H</p>
+<p>Rfq</p>
+<p>214</p>
+<p>Request For Quote : Pending</p>
+<p>Pending</p>
+<p>B</p>
+<p>Rfq</p>
+<p>215</p>
+<p>Vendor Request For Quote : Pending Bid Open</p>
+<p>Pending Bid Open</p>
+<p>A</p>
+<p>VendRfq</p>
+<p>216</p>
+<p>Vendor Request For Quote : Cancelled</p>
+<p>Cancelled</p>
+<p>C</p>
+<p>VendRfq</p>
+<p>217</p>
+<p>Vendor Request For Quote : Bid Open</p>
+<p>Bid Open</p>
+<p>D</p>
+<p>VendRfq</p>
+<p>218</p>
+<p>Vendor Request For Quote : Bid Closed</p>
+<p>Bid Closed</p>
+<p>E</p>
+<p>VendRfq</p>
+<p>219</p>
+<p>Vendor Request For Quote : Partially Awarded</p>
+<p>Partially Awarded</p>
+<p>F</p>
+<p>VendRfq</p>
+<p>220</p>
+<p>Vendor Request For Quote : Fully Awarded</p>
+<p>Fully Awarded</p>
+<p>G</p>
+<p>VendRfq</p>
+<p>221</p>
+<p>Vendor Request For Quote : Closed</p>
+<p>Closed</p>
+<p>H</p>
+<p>VendRfq</p>
+<p>222</p>
+<p>Vendor Request For Quote : Pending</p>
+<p>Pending</p>
+<p>B</p>
+<p>VendRfq</p>
+<p>223</p>
+<p>Tegata Receivables : Voided</p>
+<p>Voided</p>
+<p>V</p>
+<p>TegRcvbl</p>
+<p>224</p>
+<p>Store Pickup Fulfillment : Picked</p>
+<p>Picked</p>
+<p>A</p>
+<p>StPickUp</p>
+<p>225</p>
+<p>Store Pickup Fulfillment : Picked Up</p>
+<p>Picked Up</p>
+<p>B</p>
+<p>StPickUp</p>
+<p>226</p>
+<p>Store Pickup Fulfillment : Cancelled</p>
+<p>Cancelled</p>
+<p>C</p>
+<p>StPickUp</p>
+<p>227</p>
+<p>Revenue Arrangement : Pending Approval</p>
+<p>Pending Approval</p>
+<p>A</p>
+<p>RevArrng</p>
+<p>228</p>
+<p>Revenue Arrangement : Approved</p>
+<p>Approved</p>
+<p>B</p>
+<p>RevArrng</p>
+<p>229</p>
+<p>Revenue Arrangement : Closed</p>
+<p>Closed</p>
+<p>H</p>
+<p>RevArrng</p>
+<p>230</p>
+<p>Revenue Arrangement : Rejected</p>
+<p>Rejected</p>
+<p>R</p>
+<p>RevArrng</p>
+<p>231</p>
+<p>Revenue Arrangement : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>RevArrng</p>
+<p>232</p>
+<p>Deprecated Custom Transaction : Status A</p>
+<p>Status A</p>
+<p>A</p>
+<p>DeprCust</p>
+<p>233</p>
+<p>Deprecated Custom Transaction : Status B</p>
+<p>Status B</p>
+<p>B</p>
+<p>DeprCust</p>
+<p>234</p>
+<p>Deprecated Custom Transaction : Status C</p>
+<p>Status C</p>
+<p>C</p>
+<p>DeprCust</p>
+<p>235</p>
+<p>Deprecated Custom Transaction : Status D</p>
+<p>Status D</p>
+<p>D</p>
+<p>DeprCust</p>
+<p>236</p>
+<p>Deprecated Custom Transaction : Status E</p>
+<p>Status E</p>
+<p>E</p>
+<p>DeprCust</p>
+<p>237</p>
+<p>Deprecated Custom Transaction : Status F</p>
+<p>Status F</p>
+<p>F</p>
+<p>DeprCust</p>
+<p>238</p>
+<p>Deprecated Custom Transaction : Status G</p>
+<p>Status G</p>
+<p>G</p>
+<p>DeprCust</p>
+<p>239</p>
+<p>Deprecated Custom Transaction : Status H</p>
+<p>Status H</p>
+<p>H</p>
+<p>DeprCust</p>
+<p>240</p>
+<p>Deprecated Custom Transaction : Status I</p>
+<p>Status I</p>
+<p>I</p>
+<p>DeprCust</p>
+<p>241</p>
+<p>Deprecated Custom Transaction : Status J</p>
+<p>Status J</p>
+<p>J</p>
+<p>DeprCust</p>
+<p>242</p>
+<p>Deprecated Custom Transaction : Status K</p>
+<p>Status K</p>
+<p>K</p>
+<p>DeprCust</p>
+<p>243</p>
+<p>Deprecated Custom Transaction : Status L</p>
+<p>Status L</p>
+<p>L</p>
+<p>DeprCust</p>
+<p>244</p>
+<p>Deprecated Custom Transaction : Status M</p>
+<p>Status M</p>
+<p>M</p>
+<p>DeprCust</p>
+<p>245</p>
+<p>Deprecated Custom Transaction : Status N</p>
+<p>Status N</p>
+<p>N</p>
+<p>DeprCust</p>
+<p>246</p>
+<p>Deprecated Custom Transaction : Status O</p>
+<p>Status O</p>
+<p>O</p>
+<p>DeprCust</p>
+<p>247</p>
+<p>Deprecated Custom Transaction : Status P</p>
+<p>Status P</p>
+<p>P</p>
+<p>DeprCust</p>
+<p>248</p>
+<p>Deprecated Custom Transaction : Status Q</p>
+<p>Status Q</p>
+<p>Q</p>
+<p>DeprCust</p>
+<p>249</p>
+<p>Deprecated Custom Transaction : Status R</p>
+<p>Status R</p>
+<p>R</p>
+<p>DeprCust</p>
+<p>250</p>
+<p>Deprecated Custom Transaction : Status S</p>
+<p>Status S</p>
+<p>S</p>
+<p>DeprCust</p>
+<p>251</p>
+<p>Deprecated Custom Transaction : Status T</p>
+<p>Status T</p>
+<p>T</p>
+<p>DeprCust</p>
+<p>252</p>
+<p>Deprecated Custom Transaction : Status U</p>
+<p>Status U</p>
+<p>U</p>
+<p>DeprCust</p>
+<p>253</p>
+<p>Deprecated Custom Transaction : Voided</p>
+<p>Voided</p>
+<p>V</p>
+<p>DeprCust</p>
+<p>254</p>
+<p>Deprecated Custom Transaction : Status W</p>
+<p>Status W</p>
+<p>W</p>
+<p>DeprCust</p>
+<p>255</p>
+<p>Deprecated Custom Transaction : Status X</p>
+<p>Status X</p>
+<p>X</p>
+<p>DeprCust</p>
+<p>256</p>
+<p>Deprecated Custom Transaction : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>DeprCust</p>
+<p>257</p>
+<p>Deprecated Custom Transaction : Status Z</p>
+<p>Status Z</p>
+<p>Z</p>
+<p>DeprCust</p>
+<p>258</p>
+<p>Fulfillment Request : New</p>
+<p>New</p>
+<p>A</p>
+<p>FftReq</p>
+<p>259</p>
+<p>Fulfillment Request : In Progress</p>
+<p>In Progress</p>
+<p>B</p>
+<p>FftReq</p>
+<p>260</p>
+<p>Fulfillment Request : Cancelled</p>
+<p>Cancelled</p>
+<p>C</p>
+<p>FftReq</p>
+<p>261</p>
+<p>Fulfillment Request : Picked</p>
+<p>Picked</p>
+<p>D</p>
+<p>FftReq</p>
+<p>262</p>
+<p>Fulfillment Request : In Process</p>
+<p>In Process</p>
+<p>I</p>
+<p>FftReq</p>
+<p>263</p>
+<p>Fulfillment Request : Partially Fulfilled</p>
+<p>Partially Fulfilled</p>
+<p>E</p>
+<p>FftReq</p>
+<p>264</p>
+<p>Fulfillment Request : Fulfilled</p>
+<p>Fulfilled</p>
+<p>F</p>
+<p>FftReq</p>
+<p>265</p>
+<p>Fulfillment Request : Fulfilled With Exceptions</p>
+<p>Fulfilled With Exceptions</p>
+<p>G</p>
+<p>FftReq</p>
+<p>266</p>
+<p>Fulfillment Request : Rejected</p>
+<p>Rejected</p>
+<p>R</p>
+<p>FftReq</p>
+<p>267</p>
+<p>Customer Payment Authorization : Pending Processing</p>
+<p>Pending Processing</p>
+<p>A</p>
+<p>CustAuth</p>
+<p>268</p>
+<p>Customer Payment Authorization : Pending Authorization Confirmation</p>
+<p>Pending Authorization Confirmation</p>
+<p>B</p>
+<p>CustAuth</p>
+<p>269</p>
+<p>Customer Payment Authorization : Declined</p>
+<p>Declined</p>
+<p>C</p>
+<p>CustAuth</p>
+<p>270</p>
+<p>Customer Payment Authorization : Potential Fraud</p>
+<p>Potential Fraud</p>
+<p>D</p>
+<p>CustAuth</p>
+<p>271</p>
+<p>Customer Payment Authorization : Authorized</p>
+<p>Authorized</p>
+<p>E</p>
+<p>CustAuth</p>
+<p>272</p>
+<p>Customer Payment Authorization : Aged</p>
+<p>Aged</p>
+<p>F</p>
+<p>CustAuth</p>
+<p>273</p>
+<p>Customer Payment Authorization : Partially Captured</p>
+<p>Partially Captured</p>
+<p>G</p>
+<p>CustAuth</p>
+<p>274</p>
+<p>Customer Payment Authorization : Pending Capture Confirmation</p>
+<p>Pending Capture Confirmation</p>
+<p>H</p>
+<p>CustAuth</p>
+<p>275</p>
+<p>Customer Payment Authorization : Pending Void Confirmation</p>
+<p>Pending Void Confirmation</p>
+<p>I</p>
+<p>CustAuth</p>
+<p>276</p>
+<p>Customer Payment Authorization : Invalid</p>
+<p>Invalid</p>
+<p>J</p>
+<p>CustAuth</p>
+<p>277</p>
+<p>Customer Payment Authorization : Captured</p>
+<p>Captured</p>
+<p>K</p>
+<p>CustAuth</p>
+<p>278</p>
+<p>Customer Payment Authorization : Voided</p>
+<p>Voided</p>
+<p>L</p>
+<p>CustAuth</p>
+<p>279</p>
+<p>Customer Payment Authorization : Expired</p>
+<p>Expired</p>
+<p>M</p>
+<p>CustAuth</p>
+<p>280</p>
+<p>Customer Payment Authorization : Rejected</p>
+<p>Rejected</p>
+<p>N</p>
+<p>CustAuth</p>
+<p>281</p>
+<p>Invoice : Voided</p>
+<p>Voided</p>
+<p>V</p>
+<p>CustInvc</p>
+<p>282</p>
+<p>Credit Memo : Voided</p>
+<p>Voided</p>
+<p>V</p>
+<p>CustCred</p>
+<p>283</p>
+<p>GL Impact Adjustment : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>GLAdj</p>
+<p>284</p>
+<p>Cross Charge Journal : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>XChgJrnl</p>
+<p>285</p>
+<p>Inbound Shipment : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>InbShip</p>
+<p>286</p>
+<p>Ownership Transfer : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>OwnTrnsf</p>
+<p>287</p>
+<p>Customer Deposit : Unapproved Payment</p>
+<p>Unapproved Payment</p>
+<p>D</p>
+<p>CustDep</p>
+<p>288</p>
+<p>Period End Journal : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>PEJrnl</p>
+<p>289</p>
+<p>Period End Journal : Pending Approval</p>
+<p>Pending Approval</p>
+<p>A</p>
+<p>PEJrnl</p>
+<p>290</p>
+<p>Period End Journal : Approved for Posting</p>
+<p>Approved for Posting</p>
+<p>B</p>
+<p>PEJrnl</p>
+<p>291</p>
+<p>Period End Journal : Rejected</p>
+<p>Rejected</p>
+<p>R</p>
+<p>PEJrnl</p>
+<p>292</p>
+<p>System Journal : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>SysJrnl</p>
+<p>293</p>
+<p>Netting Settlement : Pending Approval</p>
+<p>Pending Approval</p>
+<p>A</p>
+<p>NettStlm</p>
+<p>294</p>
+<p>Netting Settlement : Approved</p>
+<p>Approved</p>
+<p>B</p>
+<p>NettStlm</p>
+<p>295</p>
+<p>Balancing Journal : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>BalJrnal</p>
+<p>296</p>
+<p>Balancing Journal : Approved for Posting Balance Transactions by Segments</p>
+<p>Approved for Posting Balance Transactions by Segments</p>
+<p>B</p>
+<p>BalJrnal</p>
+<p> </p>
+<p>Wave : Pending Release</p>
+<p>Pending Release</p>
+<p>A</p>
+<p>Wave</p>
+<p> </p>
+<p>Wave : Released</p>
+<p>Released</p>
+<p>B</p>
+<p>Wave</p>
+<p> </p>
+<p>Wave : In Progress</p>
+<p>In Progress</p>
+<p>C</p>
+<p>Wave</p>
+<p> </p>
+<p>Wave : Complete</p>
+<p>Complete</p>
+<p>D</p>
+<p>Wave</p>
+<p> </p>
+<p>Vendor Prepayment : Paid</p>
+<p>Paid</p>
+<p>B</p>
+<p>VPrep</p>
+<p> </p>
+<p>Vendor Prepayment : Partially Applied</p>
+<p>Partially Applied</p>
+<p>E</p>
+<p>VPrep</p>
+<p> </p>
+<p>Vendor Prepayment : Fully Applied</p>
+<p>Fully Applied</p>
+<p>F</p>
+<p>VPrep</p>
+<p> </p>
+<p>Vendor Prepayment : Voided</p>
+<p>Voided</p>
+<p>V</p>
+<p>VPrep</p>
+<p> </p>
+<p>Vendor Prepayment : Pending Approval</p>
+<p>Pending Approval</p>
+<p>A</p>
+<p>VPrep</p>
+<p> </p>
+<p>Vendor Prepayment : Rejected</p>
+<p>Rejected</p>
+<p>R</p>
+<p>VPrep</p>
+<p> </p>
+<p>Vendor Prepayment Application : Undefined</p>
+<p>Undefined</p>
+<p>Y</p>
+<p>VPrepApp</p>
+<p> </p>
+<p>Purchase Order : Planned</p>
+<p>Planned</p>
+<p>P</p>
+<p>PurchOrd</p>
+<p> </p>
+<p>Order Reservation : Pending Approval</p>
+<p>Pending Approval</p>
+<p>A</p>
+<p>OrdResv</p>
+<p> </p>
+<p>Order Reservation : Approved</p>
+<p>Approved</p>
+<p>B</p>
+<p>OrdResv</p>
+<p> </p>
+<p>Order Reservation : Rejected</p>
+<p>Rejected</p>
+<p>C</p>
+<p>OrdResv</p>
+<p> </p>
+<p>Order Reservation : Closed</p>
+<p>Closed</p>
+<p>H</p>
+<p>OrdResv</p>
+<hr>
+<h1 id="2022年11月版本"><a href="#2022年11月版本" class="headerlink" title="2022年11月版本"></a>2022年11月版本</h1><p><strong>Status</strong></p>
+<p><strong>SearchFilter</strong></p>
+<p> Cash Sale:Unapproved Payment</p>
+<p> CashSale:A</p>
+<p> Cash Sale:Not Deposited</p>
+<p> CashSale:B</p>
+<p> Cash Sale:Deposited</p>
+<p> CashSale:C</p>
+<p> Check:Voided</p>
+<p> Check:V</p>
+<p> Check:Online Bill Pay Pending Accounting Approval</p>
+<p> Check:Z</p>
+<p> Commission:Pending Payment</p>
+<p> Commissn:A</p>
+<p> Commission:Overpaid</p>
+<p> Commissn:O</p>
+<p> Commission:Pending Accounting Approval</p>
+<p> Commissn:P</p>
+<p> Commission:Rejected by Accounting</p>
+<p> Commissn:R</p>
+<p> Commission:Paid in Full</p>
+<p> Commissn:X</p>
+<p> Statement Charge:Open</p>
+<p> CustChrg:A</p>
+<p> Statement Charge:Paid In Full</p>
+<p> CustChrg:B</p>
+<p> Credit Memo:Open</p>
+<p> CustCred:A</p>
+<p> Credit Memo:Fully Applied</p>
+<p> CustCred:B</p>
+<p> Customer Deposit:Not Deposited</p>
+<p> CustDep:A</p>
+<p> Customer Deposit:Deposited</p>
+<p> CustDep:B</p>
+<p> Customer Deposit:Fully Applied</p>
+<p> CustDep:C</p>
+<p> Invoice:Open</p>
+<p> CustInvc:A</p>
+<p> Invoice:Paid In Full</p>
+<p> CustInvc:B</p>
+<p> Payment:Unapproved Payment</p>
+<p> CustPymt:A</p>
+<p> Payment:Not Deposited</p>
+<p> CustPymt:B</p>
+<p> Payment:Deposited</p>
+<p> CustPymt:C</p>
+<p> Customer Refund:Voided</p>
+<p> CustRfnd:V</p>
+<p> Quote:Open</p>
+<p> Estimate:A</p>
+<p> Quote:Processed</p>
+<p> Estimate:B</p>
+<p> Quote:Closed</p>
+<p> Estimate:C</p>
+<p> Quote:Voided</p>
+<p> Estimate:V</p>
+<p> Quote:Expired</p>
+<p> Estimate:X</p>
+<p> Expense Report:In Progress</p>
+<p> ExpRept:A</p>
+<p> Expense Report:Pending Supervisor Approval</p>
+<p> ExpRept:B</p>
+<p> Expense Report:Pending Accounting Approval</p>
+<p> ExpRept:C</p>
+<p> Expense Report:Rejected by Supervisor</p>
+<p> ExpRept:D</p>
+<p> Expense Report:Rejected by Accounting</p>
+<p> ExpRept:E</p>
+<p> Expense Report:Approved by Accounting</p>
+<p> ExpRept:F</p>
+<p> Expense Report:Approved (Overridden) by Accounting</p>
+<p> ExpRept:G</p>
+<p> Expense Report:Rejected (Overridden) by Accounting</p>
+<p> ExpRept:H</p>
+<p> Expense Report:Paid In Full</p>
+<p> ExpRept:I</p>
+<p> Inventory Count:Open</p>
+<p> InvCount:A</p>
+<p> Inventory Count:Started</p>
+<p> InvCount:B</p>
+<p> Inventory Count:Completed&#x2F;Pending Approval</p>
+<p> InvCount:C</p>
+<p> Inventory Count:Approved</p>
+<p> InvCount:D</p>
+<p> Item Fulfillment:Picked</p>
+<p> ItemShip:A</p>
+<p> Item Fulfillment:Packed</p>
+<p> ItemShip:B</p>
+<p> Item Fulfillment:Shipped</p>
+<p> ItemShip:C</p>
+<p> Journal:Pending Approval</p>
+<p> Journal:A</p>
+<p> Journal:Approved for Posting</p>
+<p> Journal:B</p>
+<p> Payroll Liability Check:Voided</p>
+<p> LiabPymt:V</p>
+<p> Opportunity:In Progress</p>
+<p> Opprtnty:A</p>
+<p> Opportunity:Issued Estimate</p>
+<p> Opprtnty:B</p>
+<p> Opportunity:Closed – Won</p>
+<p> Opprtnty:C</p>
+<p> Opportunity:Closed – Lost</p>
+<p> Opprtnty:D</p>
+<p> Paycheck:Undefined</p>
+<p> Paycheck:A</p>
+<p> Paycheck:Pending Tax Calculation</p>
+<p> Paycheck:C</p>
+<p> Paycheck:Pending Commitment</p>
+<p> Paycheck:D</p>
+<p> Paycheck:Committed</p>
+<p> Paycheck:F</p>
+<p> Paycheck:Preview</p>
+<p> Paycheck:P</p>
+<p> Paycheck:Reversed</p>
+<p> Paycheck:R</p>
+<p> Purchase Order:Pending Supervisor Approval</p>
+<p> PurchOrd:A</p>
+<p> Purchase Order:Pending Receipt</p>
+<p> PurchOrd:B</p>
+<p> Purchase Order:Rejected by Supervisor</p>
+<p> PurchOrd:C</p>
+<p> Purchase Order:Partially Received</p>
+<p> PurchOrd:D</p>
+<p> Purchase Order:Pending Billing&#x2F;Partially Received</p>
+<p> PurchOrd:E</p>
+<p> Purchase Order:Pending Bill</p>
+<p> PurchOrd:F</p>
+<p> Purchase Order:Fully Billed</p>
+<p> PurchOrd:G</p>
+<p> Purchase Order:Closed</p>
+<p> PurchOrd:H</p>
+<p> Return Authorization:Pending Approval</p>
+<p> RtnAuth:A</p>
+<p> Return Authorization:Pending Receipt</p>
+<p> RtnAuth:B</p>
+<p> Return Authorization:Cancelled</p>
+<p> RtnAuth:C</p>
+<p> Return Authorization:Partially Received</p>
+<p> RtnAuth:D</p>
+<p> Return Authorization:Pending Refund&#x2F;Partially Received</p>
+<p> RtnAuth:E</p>
+<p> Return Authorization:Pending Refund</p>
+<p> RtnAuth:F</p>
+<p> Return Authorization:Refunded</p>
+<p> RtnAuth:G</p>
+<p> Return Authorization:Closed</p>
+<p> RtnAuth:H</p>
+<p> Sales Order:Pending Approval</p>
+<p> SalesOrd:A</p>
+<p> Sales Order:Pending Fulfillment</p>
+<p> SalesOrd:B</p>
+<p> Sales Order:Cancelled</p>
+<p> SalesOrd:C</p>
+<p> Sales Order:Partially Fulfilled</p>
+<p> SalesOrd:D</p>
+<p> Sales Order:Pending Billing&#x2F;Partially Fulfilled</p>
+<p> SalesOrd:E</p>
+<p> Sales Order:Pending Billing</p>
+<p> SalesOrd:F</p>
+<p> Sales Order:Billed</p>
+<p> SalesOrd:G</p>
+<p> Sales Order:Closed</p>
+<p> SalesOrd:H</p>
+<p> Tax Liability Cheque:Voided</p>
+<p> TaxLiab:V</p>
+<p> Sales Tax Payment:Voided</p>
+<p> TaxPymt:V</p>
+<p> Sales Tax Payment:Online Bill Pay Pending Accounting Approval</p>
+<p> TaxPymt:Z</p>
+<p> Tegata Payable:Endorsed</p>
+<p> TegPybl:E</p>
+<p> Tegata Payable:Issued</p>
+<p> TegPybl:I</p>
+<p> Tegata Payable:Paid</p>
+<p> TegPybl:P</p>
+<p> Tegata Receivables:Collected</p>
+<p> TegRcvbl:C</p>
+<p> Tegata Receivables:Discounted</p>
+<p> TegRcvbl:D</p>
+<p> Tegata Receivables:Endorsed</p>
+<p> TegRcvbl:E</p>
+<p> Tegata Receivables:Holding</p>
+<p> TegRcvbl:H</p>
+<p> Transfer Order:Pending Approval</p>
+<p> TrnfrOrd:A</p>
+<p> Transfer Order:Pending Fulfillment</p>
+<p> TrnfrOrd:B</p>
+<p> Transfer Order:Rejected</p>
+<p> TrnfrOrd:C</p>
+<p> Transfer Order:Partially Fulfilled</p>
+<p> TrnfrOrd:D</p>
+<p> Transfer Order:Pending Receipt&#x2F;Partially Fulfilled</p>
+<p> TrnfrOrd:E</p>
+<p> Transfer Order:Pending Receipt</p>
+<p> TrnfrOrd:F</p>
+<p> Transfer Order:Received</p>
+<p> TrnfrOrd:G</p>
+<p> Transfer Order:Closed</p>
+<p> TrnfrOrd:H</p>
+<p> Vendor Return Authorization:Pending Approval</p>
+<p> VendAuth:A</p>
+<p> Vendor Return Authorization:Pending Return</p>
+<p> VendAuth:B</p>
+<p> Vendor Return Authorization:Cancelled</p>
+<p> VendAuth:C</p>
+<p> Vendor Return Authorization:Partially Returned</p>
+<p> VendAuth:D</p>
+<p> Vendor Return Authorization:Pending Credit&#x2F;Partially Returned</p>
+<p> VendAuth:E</p>
+<p> Vendor Return Authorization:Pending Credit</p>
+<p> VendAuth:F</p>
+<p> Vendor Return Authorization:Credited</p>
+<p> VendAuth:G</p>
+<p> Vendor Return Authorization:Closed</p>
+<p> VendAuth:H</p>
+<p> Bill:Open</p>
+<p> VendBill:A</p>
+<p> Bill:Paid In Full</p>
+<p> VendBill:B</p>
+<p> Bill:Cancelled</p>
+<p> VendBill:C</p>
+<p> Bill:Pending Approval</p>
+<p> VendBill:D</p>
+<p> Bill:Rejected</p>
+<p> VendBill:E</p>
+<p> Cash Payment:Voided</p>
+<p> VendPymt:V</p>
+<p> Cash Payment:Online Bill Pay Pending Accounting Approval</p>
+<p> VendPymt:Z</p>
+<p> Work Order:Pending Build</p>
+<p> WorkOrd:B</p>
+<p> Work Order:Cancelled</p>
+<p> WorkOrd:C</p>
+<p> Work Order:In Process</p>
+<p> WorkOrd:D</p>
+<p> Work Order:Built</p>
+<p> WorkOrd:G</p>
+<p> Work Order:Closed</p>
+<p> WorkOrd:H  </p>
+<p>New status:</p>
+<p> Credit Memo:Open</p>
+<p> CustCred:　V</p>
+<p>Invoice:Void</p>
+<p>CustInvc:V</p>
+<p>in the UI, search criteria page:Checking way: </p>
+<p>1. Select the status in UI</p>
+<p>2. Run nlapiGetCurrentLineItemValue(‘filters’, ‘filtervals’)</p>
+<p>3. Got result: “CustCred:V”</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/blog/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2017/06/23/NetSuite-SuiteScript-2-0-SFTP-API-Usage-Sample-CarlZeng/" rel="prev" title="NetSuite SuiteScript 2.0 SFTP API Usage Sample-CarlZeng">
+                  <i class="fa fa-angle-left"></i> NetSuite SuiteScript 2.0 SFTP API Usage Sample-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/2017/09/28/%E5%8D%8E%E4%B8%BAHG8347R-V3R016C10S135%E5%85%89%E7%8C%AB%E6%A1%A5%E6%8E%A5-%E5%8C%97%E4%BA%AC%E8%81%94%E9%80%9A-%E6%81%A2%E5%A4%8D%E5%8D%8E%E4%B8%BA%E5%8E%9F%E7%89%88-CarlZeng/" rel="next" title="华为HG8347R V3R016C10S135光猫桥接 北京联通 恢复华为原版-CarlZeng">
+                  华为HG8347R V3R016C10S135光猫桥接 北京联通 恢复华为原版-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接。</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">718k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">21:45</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/schemes/muse.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  <script src="/blog/js/third-party/addtoany.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"chuanzhuo/blog","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/blog/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Mist","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="CRM 自动化销售 n 区域跟踪和分配任务 Territory Tracking and Assignment n 销售线索路径 Lead Routing n 机会管理 n 报价单生成 n 销售订单输入 n 向上销售经理 n 离线销售 n 高级预测 n 电子...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NetSuite全功能介绍 totemsuite netsuite开发模块-CarlZeng">
+<meta property="og:url" content="https://chuanzhuo.github.com/blog/2008/10/13/NetSuite%E5%85%A8%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D-totemsuite-netsuite%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9D%97-CarlZeng/index.html">
+<meta property="og:site_name" content="Carl&#39;s Notes">
+<meta property="og:description" content="CRM 自动化销售 n 区域跟踪和分配任务 Territory Tracking and Assignment n 销售线索路径 Lead Routing n 机会管理 n 报价单生成 n 销售订单输入 n 向上销售经理 n 离线销售 n 高级预测 n 电子...">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.totemsuite.com/img/spacer.gif">
+<meta property="og:image" content="http://www.totemsuite.com/img/spacer.gif">
+<meta property="og:image" content="http://www.totemsuite.com/img/spacer.gif">
+<meta property="og:image" content="http://www.totemsuite.com/img/cylinder-suiteflex.jpg">
+<meta property="article:published_time" content="2008-10-13T14:09:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:28.917Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.totemsuite.com/img/spacer.gif">
+
+
+<link rel="canonical" href="https://chuanzhuo.github.com/blog/2008/10/13/NetSuite%E5%85%A8%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D-totemsuite-netsuite%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9D%97-CarlZeng/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://chuanzhuo.github.com/blog/2008/10/13/NetSuite%E5%85%A8%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D-totemsuite-netsuite%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9D%97-CarlZeng/","path":"2008/10/13/NetSuite全功能介绍-totemsuite-netsuite开发模块-CarlZeng/","title":"NetSuite全功能介绍 totemsuite netsuite开发模块-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>NetSuite全功能介绍 totemsuite netsuite开发模块-CarlZeng | Carl's Notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/blog/atom.xml" title="Carl's Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Carl's Notes</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/blog/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E5%95%86%E5%8F%AF%E4%BB%A5%E5%9C%A8NetSuite%E4%B8%AD%E5%AE%9A%E5%88%B6%EF%BC%8C%E6%89%A9%E5%B1%95"><span class="nav-number">1.</span> <span class="nav-text">开发商可以在NetSuite中定制，扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E5%BB%BA%E7%AB%8B%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">并建立软件</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">290</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2008/10/13/NetSuite%E5%85%A8%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D-totemsuite-netsuite%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9D%97-CarlZeng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="NetSuite全功能介绍 totemsuite netsuite开发模块-CarlZeng | Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          NetSuite全功能介绍 totemsuite netsuite开发模块-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2008-10-13 22:09:00" itemprop="dateCreated datePublished" datetime="2008-10-13T22:09:00+08:00">2008-10-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>CRM 自动化销售 n 区域跟踪和分配任务 Territory Tracking and Assignment n 销售线索路径 Lead Routing n 机会管理 n 报价单生成 n 销售订单输入 n 向上销售经理 n 离线销售 n 高级预测 n 电子…</p>
+<!-- more -->
+<p> <a target="_blank" rel="noopener" href="http://www.totemsuite.com/">CRM</a></p>
+<p>自动化销售</p>
+<p>n</p>
+<p>区域跟踪和分配任务</p>
+<p>Territory Tracking and Assignment</p>
+<p>n</p>
+<p>销售线索路径</p>
+<p>Lead Routing</p>
+<p>n</p>
+<p>机会管理</p>
+<p>n</p>
+<p>报价单生成</p>
+<p>n</p>
+<p>销售订单输入</p>
+<p>n</p>
+<p>向上销售经理</p>
+<p>n</p>
+<p>离线销售</p>
+<p>n</p>
+<p>高级预测</p>
+<p>n</p>
+<p>电子邮件与邮件合并</p>
+<p>n</p>
+<p>采购历史记录</p>
+<p>n</p>
+<p>客户支持历史记录</p>
+<p>n</p>
+<p>销售工具发布</p>
+<p>n</p>
+<p>销售可能性跟踪</p>
+<p>n</p>
+<p>实时佣金报告</p>
+<p>n</p>
+<p>交易逾期提醒</p>
+<p>n</p>
+<p>灵活的佣金日程</p>
+<p>n</p>
+<p>分层次佣金</p>
+<p>n</p>
+<p>实时信用卡授权</p>
+<p>n</p>
+<p>预测和配额管理</p>
+<p>n</p>
+<p>竞争对手跟踪</p>
+<p>n</p>
+<p>团队销售</p>
+<p>市场自动化</p>
+<p>n</p>
+<p>群发邮件</p>
+<p>n</p>
+<p>电话销售管理</p>
+<p>n</p>
+<p>打印管理</p>
+<p>n</p>
+<p>直邮管理</p>
+<p>n</p>
+<p>活动创意文件夹</p>
+<p>n</p>
+<p>向上销售活动向导</p>
+<p>n</p>
+<p>个性化信息</p>
+<p>n</p>
+<p>替代标签功能</p>
+<p>n</p>
+<p>活动日程安排</p>
+<p>n</p>
+<p>活动投资回报报告</p>
+<p>n</p>
+<p>优惠券和越区销售</p>
+<p>n</p>
+<p>可定制的在线线索表格</p>
+<p>n</p>
+<p>参照和促销代码跟踪</p>
+<p>n</p>
+<p>活动跟踪</p>
+<p>n</p>
+<p>线索来源管理</p>
+<p>n</p>
+<p>e-mail活动市场管理</p>
+<p>n</p>
+<p>由采购历史记录产生目标群体</p>
+<p>客户支持管理</p>
+<p>n</p>
+<p>案例管理中心</p>
+<p>n</p>
+<p>按照产品跟踪案例</p>
+<p>n</p>
+<p>优先跟踪</p>
+<p>n</p>
+<p>灵活的队列管理</p>
+<p>n</p>
+<p>任务分配</p>
+<p>n</p>
+<p>E-MAIL案例捕捉和建立</p>
+<p>n</p>
+<p>在线自我服务</p>
+<p>n</p>
+<p>上报和通告功能</p>
+<p>n</p>
+<p>自动上报功能</p>
+<p>n</p>
+<p>按照产品和服务跟踪案例</p>
+<p>n</p>
+<p>在线客户服务中心</p>
+<p>n</p>
+<p>知识库</p>
+<p>n</p>
+<p>基于案例的计费时间跟踪</p>
+<p>n</p>
+<p>问题管理</p>
+<p>合作伙伴关系管理</p>
+<p>n</p>
+<p>订单录入</p>
+<p>n</p>
+<p>合作伙伴行动报告</p>
+<p>n</p>
+<p>客户案例查看</p>
+<p>n</p>
+<p>协同销售线索管理</p>
+<p>n</p>
+<p>实时库存访问</p>
+<p>n</p>
+<p>奖励折扣</p>
+<p>n</p>
+<p>市场活动发布</p>
+<p>实时仪表盘</p>
+<p>n</p>
+<p>高官和基于角色的仪表板</p>
+<p>n</p>
+<p>可发布的版面</p>
+<p>n</p>
+<p>个性化拖放</p>
+<p>n</p>
+<p>关键绩效指标</p>
+<p>n</p>
+<p>快速搜索</p>
+<p>n</p>
+<p>图表和列表报告快照</p>
+<p>n</p>
+<p>从零自定义快照</p>
+<p>n</p>
+<p>RSS内容种子</p>
+<p>n</p>
+<p>可排期的和按需获取的仪表盘警报</p>
+<p>n</p>
+<p>客户仪表盘</p>
+<p>n</p>
+<p>KPI计分表</p>
+<p>效能工具</p>
+<p>n</p>
+<p>分组日历</p>
+<p>n</p>
+<p>记录的导入导出</p>
+<p>n</p>
+<p>Outlook与Plam的同步</p>
+<p>n</p>
+<p>任何时间与地点Web接入</p>
+<p>n</p>
+<p>高官仪表盘和关键指标</p>
+<p>n</p>
+<p>客户记录</p>
+<p>n</p>
+<p>拼写检查</p>
+<p>n</p>
+<p>重复记录坚持和合并</p>
+<p>n</p>
+<p>延期约会</p>
+<p>n</p>
+<p>可定制的报表</p>
+<p>n</p>
+<p>文件夹</p>
+<p>n</p>
+<p>提醒功能</p>
+<p>客户自定义</p>
+<p>n</p>
+<p>无编码配置</p>
+<p>n</p>
+<p>功能配置</p>
+<p>n</p>
+<p>用户特权</p>
+<p>n</p>
+<p>实时仪表盘</p>
+<p>n</p>
+<p>客户的记录和表格</p>
+<p>n</p>
+<p>术语管理</p>
+<p>n</p>
+<p>自定义编码</p>
+<p>n</p>
+<p>客户域</p>
+<p>n</p>
+<p>客户保存搜索</p>
+<p>n</p>
+<p>下拉式列表</p>
+<p>n</p>
+<p>表格</p>
+<p>n</p>
+<p>可定制角色</p>
+<p>n</p>
+<p>可定制仪表盘</p>
+<p>n</p>
+<p>网点开发工具</p>
+<p>n</p>
+<p>报告的发布和接受</p>
+<p>n</p>
+<p>分析可变的输入</p>
+<p>n</p>
+<p>改进的可定制域的URL</p>
+<p>ERP</p>
+<p>财务</p>
+<p>n</p>
+<p>总账</p>
+<p>n</p>
+<p>多层帐户图表</p>
+<p>n</p>
+<p>财务报告</p>
+<p>n</p>
+<p>应付帐户,多币种</p>
+<p>n</p>
+<p>应收帐户,多币种</p>
+<p>n</p>
+<p>薪金,直接存款</p>
+<p>n</p>
+<p>多重预算</p>
+<p>n</p>
+<p>高级计费</p>
+<p>n</p>
+<p>收入确认</p>
+<p>n</p>
+<p>公认会计准测报告</p>
+<p>n</p>
+<p>分摊</p>
+<p>n</p>
+<p>多层帐户图表</p>
+<p>n</p>
+<p>支票打印</p>
+<p>n</p>
+<p>网上银行</p>
+<p>n</p>
+<p>帐单支付</p>
+<p>n</p>
+<p>更新税收</p>
+<p>n</p>
+<p>可定制帐户图表</p>
+<p>n</p>
+<p>保留的分类帐科目</p>
+<p>n</p>
+<p>会计周期</p>
+<p>n</p>
+<p>信用卡地址校验</p>
+<p>n</p>
+<p>存储的交易事务</p>
+<p>n</p>
+<p>老化期</p>
+<p>n</p>
+<p>卖方EFT支付</p>
+<p>n</p>
+<p>高级项目会计</p>
+<p>n</p>
+<p>分期偿付安排</p>
+<p>库存管理</p>
+<p>n</p>
+<p>特定成本</p>
+<p>n</p>
+<p>产品包</p>
+<p>n</p>
+<p>产品图片</p>
+<p>n</p>
+<p>定价规则</p>
+<p>n</p>
+<p>库存调整的审计跟踪</p>
+<p>n</p>
+<p>库存补充预警</p>
+<p>n</p>
+<p>多地点库存</p>
+<p>n</p>
+<p>多重计量单位</p>
+<p>n</p>
+<p>包,配件</p>
+<p>n</p>
+<p>平均法, LIFO, FIFO 成本计算方式</p>
+<p>n</p>
+<p>产品的不同价格水平管理</p>
+<p>n</p>
+<p>首选供货商纪录</p>
+<p>n</p>
+<p>批量管理</p>
+<p>n</p>
+<p>条码</p>
+<p>n</p>
+<p>截止日期</p>
+<p>n</p>
+<p>按序列号管理</p>
+<p>n</p>
+<p>库存产品矩阵</p>
+<p>n</p>
+<p>再定购点跟踪和通知</p>
+<p>n</p>
+<p>库存盘点</p>
+<p>n</p>
+<p>货柜管理</p>
+<p>n</p>
+<p>到岸成本</p>
+<p>n</p>
+<p>按需求补充库存</p>
+<p>采购</p>
+<p>n</p>
+<p>倒序计划</p>
+<p>n</p>
+<p>采购历史</p>
+<p>n</p>
+<p>特殊顺序P.O.S.</p>
+<p>n</p>
+<p>审批路径</p>
+<p>n</p>
+<p>部分收据跟踪</p>
+<p>n</p>
+<p>申购</p>
+<p>n</p>
+<p>采购订单</p>
+<p>n</p>
+<p>购买请求跟踪</p>
+<p>n</p>
+<p>收货处理</p>
+<p>n</p>
+<p>应付帐款</p>
+<p>订单执行</p>
+<p>n</p>
+<p>多收货地址</p>
+<p>n</p>
+<p>多方支付</p>
+<p>n</p>
+<p>分客户跟踪</p>
+<p>n</p>
+<p>折扣计算</p>
+<p>n</p>
+<p>销售税</p>
+<p>n</p>
+<p>批量订单审批</p>
+<p>n</p>
+<p>部分出货处理</p>
+<p>n</p>
+<p>订单推迟</p>
+<p>n</p>
+<p>为客户进行订单跟踪</p>
+<p>n</p>
+<p>报价&#x2F;估价</p>
+<p>n</p>
+<p>订单处理</p>
+<p>n</p>
+<p>可接受订单量</p>
+<p>n</p>
+<p>承诺库存</p>
+<p>n</p>
+<p>定价与折扣</p>
+<p>n</p>
+<p>销售税</p>
+<p>n</p>
+<p>信用卡授权</p>
+<p>n</p>
+<p>配送&#x2F;包装&#x2F;运输</p>
+<p>n</p>
+<p>直送发货</p>
+<p>n</p>
+<p>特殊订单的采购订单</p>
+<p>n</p>
+<p>联邦航运发运整合</p>
+<p>n</p>
+<p>UPS航运发运整合</p>
+<p>n</p>
+<p>退货</p>
+<p>雇员管理</p>
+<p>n</p>
+<p>时间与费用输入和报告</p>
+<p>n</p>
+<p>远程时间输入</p>
+<p>n</p>
+<p>整合案例管理</p>
+<p>n</p>
+<p>HR 发布</p>
+<p>n</p>
+<p>日程安排和任务管理</p>
+<p>n</p>
+<p>员工记录</p>
+<p>n</p>
+<p>薪金,直接存款</p>
+<p>n</p>
+<p>费用报告</p>
+<p>n</p>
+<p>时间,费用,支付审批流程</p>
+<p>n</p>
+<p>提醒</p>
+<p>客户&#x2F;供应商中心</p>
+<p>n</p>
+<p>订单历史</p>
+<p>n</p>
+<p>交运追踪</p>
+<p>n</p>
+<p>退货订单</p>
+<p>n</p>
+<p>更新档案</p>
+<p>n</p>
+<p>支付发票</p>
+<p>n</p>
+<p>在线自助服务</p>
+<p>其他</p>
+<p>n</p>
+<p>CSV导入&#x2F;导出</p>
+<p>n</p>
+<p>总在线的审计追踪</p>
+<p>n</p>
+<p>用户特权</p>
+<p>n</p>
+<p>数据导出</p>
+<p>n</p>
+<p>全面的在线帮助</p>
+<p>n</p>
+<p>多用户选项</p>
+<p>n</p>
+<p>免费会计师</p>
+<p>n</p>
+<p>公司合并</p>
+<p> 电子商务</p>
+<p>网店</p>
+<p>n</p>
+<p>特价</p>
+<p>n</p>
+<p>消费者特殊定价</p>
+<p>n</p>
+<p>库存整合</p>
+<p>n</p>
+<p>定购和按期支付</p>
+<p>n</p>
+<p>批量定价更新</p>
+<p>n</p>
+<p>优待券处理</p>
+<p>n</p>
+<p>Paypal支付整合</p>
+<p>n</p>
+<p>信用卡在线处理</p>
+<p>n</p>
+<p>交叉销售</p>
+<p>n</p>
+<p>购物车</p>
+<p>n</p>
+<p>多货币购物车和结帐</p>
+<p>n</p>
+<p>消费者结帐单据</p>
+<p>n</p>
+<p>单据销售</p>
+<p>n</p>
+<p>订单确认</p>
+<p>n</p>
+<p>多种交运方式</p>
+<p>n</p>
+<p>税金计算</p>
+<p>n</p>
+<p>活动编码捕捉</p>
+<p>n</p>
+<p>促销URL</p>
+<p>n</p>
+<p>电子文件&#x2F;软件下载</p>
+<p>n</p>
+<p>自动向上销售推荐</p>
+<p>n</p>
+<p>礼品认证</p>
+<p>n</p>
+<p>折扣和产品优惠券</p>
+<p><a target="_blank" rel="noopener" href="http://www.totemsuite.com/">网站</a></p>
+<p>n</p>
+<p>网站托管</p>
+<p>n</p>
+<p>多域名托管</p>
+<p>n</p>
+<p>域名</p>
+<p>n</p>
+<p>多域名路径</p>
+<p>n</p>
+<p>支持Meta标签</p>
+<p>n</p>
+<p>页面Meta标签</p>
+<p>n</p>
+<p>发布动态列表</p>
+<p>n</p>
+<p>高级网站建设</p>
+<p>n</p>
+<p>在线表格</p>
+<p>n</p>
+<p>多语言站点</p>
+<p><a target="_blank" rel="noopener" href="http://www.totemsuite.com/">网站分析</a></p>
+<p>n</p>
+<p>访客点击流量分析</p>
+<p>n</p>
+<p>访客页面浏览分析</p>
+<p>n</p>
+<p>提交URL ROI报告</p>
+<p>n</p>
+<p>搜索术语ROI报告</p>
+<p>n</p>
+<p>站点活跃程度</p>
+<p>n</p>
+<p>购物车放弃分析</p>
+<p>客户管理</p>
+<p>n</p>
+<p>客户自服务</p>
+<p>n</p>
+<p>访问知识库</p>
+<p>n</p>
+<p>客户帐单支付</p>
+<p>n</p>
+<p>订单生成客户email</p>
+<p>n</p>
+<p>客户历史交易记录</p>
+<p>n</p>
+<p>在线案例表格</p>
+<p>表格和发布</p>
+<p>n</p>
+<p>案例</p>
+<p>n</p>
+<p>线索</p>
+<p>n</p>
+<p>客户</p>
+<p>n</p>
+<p>企业内网</p>
+<p>n</p>
+<p>互联网</p>
+<p> <a target="_blank" rel="noopener" href="http://www.totemsuite.com/product">网店开发工具包</a></p>
+<p>n</p>
+<p>购物车和产品</p>
+<p>n</p>
+<p>整合</p>
+<p>n</p>
+<p>密码保护的客户中心</p>
+<p>n</p>
+<p>经由XML传送数据</p>
+<p>n</p>
+<p>销售线索,客户信息,案例等在线表格</p>
+<p>n</p>
+<p>完全自定义的HTML 在线表格</p>
+<p>n</p>
+<p>在线销售线索获取的E-MAIL通知</p>
+<p>n</p>
+<p>自动在线线索路径规则和流程</p>
+<p> <a target="_blank" rel="noopener" href="http://www.totemsuite.com/">报表</a></p>
+<p>n</p>
+<p>实时仪表盘</p>
+<p>n</p>
+<p>百余个标准报表</p>
+<p>n</p>
+<p>可定制报表</p>
+<p>n</p>
+<p>可保存搜索</p>
+<p>n</p>
+<p>报告输出</p>
+<p>n</p>
+<p>高级分析</p>
+<p>n</p>
+<p>关键业务指标快照</p>
+<p>n</p>
+<p>报告共享控制</p>
+<h2 id="开发商可以在NetSuite中定制，扩展"><a href="#开发商可以在NetSuite中定制，扩展" class="headerlink" title="开发商可以在NetSuite中定制，扩展"></a>开发商可以在NetSuite中定制，扩展</h2><h2 id="并建立软件"><a href="#并建立软件" class="headerlink" title="并建立软件"></a>并建立软件</h2><ul>
+<li>为精确的行业需求定制功能和业务流程</li>
+<li>建立并销售完整的新业务流程</li>
+<li>建立并销售完整的垂直软件</li>
+</ul>
+<p><img data-src="http://www.totemsuite.com/img/spacer.gif"></p>
+<p><img data-src="http://www.totemsuite.com/img/spacer.gif"></p>
+<p><img data-src="http://www.totemsuite.com/img/spacer.gif"></p>
+<p><img data-src="http://www.totemsuite.com/img/cylinder-suiteflex.jpg"><a target="_blank" rel="noopener" href="http://www.totemsuite.com/produ-flex-main.htm#">SuiteBuilder</a><br>通过简单应用及指向点击工具来完成个性化配置NetSuit  </p>
+<p><a target="_blank" rel="noopener" href="http://www.totemsuite.com/produ-flex-main.htm#">SuiteScript</a><br>建立新的功能、处理业务流程及整个软件，并将其托管到NetSuite中。  </p>
+<p><a target="_blank" rel="noopener" href="http://www.totemsuite.com/produ-flex-main.htm#">SuiteTalk</a><br>将NetSuite无缝扩展到原有系统及第三方垂直软件中。  </p>
+<p><a target="_blank" rel="noopener" href="http://www.totemsuite.com/produ-flex-main.htm#">SuiteScipt D-Bug</a><br>实时校验写入NS-BOS平台中的编码和元数据。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/blog/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2008/10/13/totemsuite%E4%B8%8ENetsuite-OneWorld-CarlZeng/" rel="prev" title="totemsuite与Netsuite OneWorld-CarlZeng">
+                  <i class="fa fa-angle-left"></i> totemsuite与Netsuite OneWorld-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/2008/10/13/today-oracle-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%A5%E6%9C%9F-netsuite-CarlZeng/" rel="next" title="(today) oracle 获取当前日期 netsuite-CarlZeng">
+                  (today) oracle 获取当前日期 netsuite-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接。</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">718k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">21:45</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/schemes/muse.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  <script src="/blog/js/third-party/addtoany.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"chuanzhuo/blog","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/blog/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

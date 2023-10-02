@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Mist","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="JScript 运行时错误  JScript 运行时错误是指当 JScript 脚本试图执行一个系统不能运行的动作时导致的错误。当正在运行脚本、计算变量表达式、或者正在动态分配内存时出现 JScript 运行时错误时。 错误号 描述  5029 数组长度必须为一有限正整数  5030 必须赋给数组长度一个有限正数  5028 需要 Array 或 arguments 对象  5010 需要 Boo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS错误代码解释大全+VBS错误代码解释大全-CarlZeng">
+<meta property="og:url" content="https://chuanzhuo.github.com/blog/2009/05/25/JS%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E8%A7%A3%E9%87%8A%E5%A4%A7%E5%85%A8-VBS%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E8%A7%A3%E9%87%8A%E5%A4%A7%E5%85%A8-CarlZeng/index.html">
+<meta property="og:site_name" content="Carl&#39;s Notes">
+<meta property="og:description" content="JScript 运行时错误  JScript 运行时错误是指当 JScript 脚本试图执行一个系统不能运行的动作时导致的错误。当正在运行脚本、计算变量表达式、或者正在动态分配内存时出现 JScript 运行时错误时。 错误号 描述  5029 数组长度必须为一有限正整数  5030 必须赋给数组长度一个有限正数  5028 需要 Array 或 arguments 对象  5010 需要 Boo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2009-05-25T09:49:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:28.982Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://chuanzhuo.github.com/blog/2009/05/25/JS%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E8%A7%A3%E9%87%8A%E5%A4%A7%E5%85%A8-VBS%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E8%A7%A3%E9%87%8A%E5%A4%A7%E5%85%A8-CarlZeng/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://chuanzhuo.github.com/blog/2009/05/25/JS%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E8%A7%A3%E9%87%8A%E5%A4%A7%E5%85%A8-VBS%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E8%A7%A3%E9%87%8A%E5%A4%A7%E5%85%A8-CarlZeng/","path":"2009/05/25/JS错误代码解释大全-VBS错误代码解释大全-CarlZeng/","title":"JS错误代码解释大全+VBS错误代码解释大全-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JS错误代码解释大全+VBS错误代码解释大全-CarlZeng | Carl's Notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/blog/atom.xml" title="Carl's Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Carl's Notes</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/blog/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">290</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/05/25/js-%E7%BB%93%E5%90%88vb-script-%E5%BA%94%E7%94%A8-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-05-25</time>
+        <br>
+      js 结合vb script 应用-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/01/07/JavaScript-While-%E5%BE%AA%E7%8E%AF-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-01-07</time>
+        <br>
+      JavaScript While 循环-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/01/21/%E6%B1%89%E5%AD%97%E8%BD%AC%E5%8C%96%E7%BC%96%E7%A0%81%E4%B8%BAutf-8-%E6%9F%A5%E8%AF%A2-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-01-21</time>
+        <br>
+      汉字转化编码为utf-8,查询-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/07/24/js-%E5%8F%96%E5%BE%97-Unix%E6%97%B6%E9%97%B4%E6%88%B3-Unix-timestamp-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-07-24</time>
+        <br>
+      js 取得 Unix时间戳(Unix timestamp)-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/08/17/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98-utf-8%E8%BD%AC%E4%B8%BA%E4%B8%AD%E6%96%87-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-08-17</time>
+        <br>
+      中文编码问题(utf-8转为中文)-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2009/05/25/JS%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E8%A7%A3%E9%87%8A%E5%A4%A7%E5%85%A8-VBS%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81%E8%A7%A3%E9%87%8A%E5%A4%A7%E5%85%A8-CarlZeng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JS错误代码解释大全+VBS错误代码解释大全-CarlZeng | Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JS错误代码解释大全+VBS错误代码解释大全-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-05-25 17:49:00" itemprop="dateCreated datePublished" datetime="2009-05-25T17:49:00+08:00">2009-05-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>JScript 运行时错误 JScript 运行时错误是指当 JScript 脚本试图执行一个系统不能运行的动作时导致的错误。当正在运行脚本、计算变量表达式、或者正在动态分配内存时出现 JScript 运行时错误时。 错误号 描述 5029 数组长度必须为一有限正整数 5030 必须赋给数组长度一个有限正数 5028 需要 Array 或 arguments 对象 5010 需要 Boo…</p>
+<!-- more -->
+<p><strong>JScript 运行时错误</strong><br>JScript 运行时错误是指当 JScript 脚本试图执行一个系统不能运行的动作时导致的错误。当正在运行脚本、计算变量表达式、或者正在动态分配内存时出现 JScript 运行时错误时。</p>
+<p>错误号 描述<br>5029 数组长度必须为一有限正整数<br>5030 必须赋给数组长度一个有限正数<br>5028 需要 Array 或 arguments 对象<br>5010 需要 Boolean<br>5003 不能给函数返回值赋值<br>5000 不能给 ‘this’ 赋值<br>5006 需要 Date 对象<br>5015 需要 Enumerator 对象<br>5022 异常抛出，但无法抓住<br>5020 正则表达式中缺少”)”<br>5019 正则表达式中缺少”]“<br>5023 函数没有合法的 Prototype 对象<br>5002 需要 Function 对象<br>5008 非法赋值<br>5021 字符集范围无效<br>5014 需要 JScript 对象<br>5001 需要 Number 类型<br>5007 需要 Object 类型<br>5012 需要对象的成员<br>5016 需要正则表达式对象<br>5005 需要 String<br>5017 正则表达式语法错误<br>5026 小数部分的位数越界<br>5027 精度越界<br>5025 待解码的 URI 编码非法<br>5024 待解码的 URI 包含有非法字符<br>5009 未定义标识符<br>5018 未预期的限定符<br>5013 需要 VBArray</p>
+<p>JScript 语法错误<br>JScript 语法错误是指当 JScript 语句违反了 JScript 脚本语言的一条或多条语法规则时导致的错误。JScript 语法错误发生在程序编译阶段，在开始运行该程序之前。</p>
+<p>错误号 描述<br>1019 在循环外不能有”break”<br>1020 在循环外不能有”continue”<br>1030 条件编译已关闭<br>1027 一条 “switch” 语句中只能有一个 “default”<br>1005 需要”(“<br>1006 需要”)”<br>1012 需要”&#x2F;“<br>1003 需要”:”<br>1004 需要”;”<br>1032 需要”@”<br>1029 需要<a href="mailto:“@end">“@end</a>“<br>1007 需要”]“<br>1008 需要”{“<br>1009 需要”}”<br>1011 需要”&#x3D;”<br>1033 需要”catch”<br>1031 需要常数<br>1023 需要十六进制数<br>1010 需要标识符<br>1028 需要标识符、字符串或者数字<br>1024 需要”while”<br>1014 非法字符<br>1026 未找到标签<br>1025 标签定义重复<br>1018 函数外有 ‘return’ 语句<br>1002 语法错误<br>1035 “Throw”的后面必须跟有一个表达式，且在同一源代码行上<br>1016 注释未结束<br>1015 字符串常数未结束</p>
+<p>=&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p><strong>VBScript 运行时错误</strong></p>
+<p>如果 VBScript 脚本执行系统无法实施的操作，则会产生 VBScript 运行时错误。只有在运行脚本、为变量表达式赋值或分配内存时，才会产生 VBScript 运行时错误。</p>
+<p>错误编号 描述<br>429 ActiveX 部件无法创建对象<br>507 发生异常<br>449 参数不可选<br>17 无法执行请求的操作<br>430 类不支持自动化<br>506 类未被定义<br>11 被零除<br>48 加载 DLL 错误<br>5020 在正则表达式中需要 ‘)’<br>5019 在正则表达式中需要 ‘]‘<br>432 在自动化操作中未找到文件名或类名<br>92 For 循环未初始化<br>5008 非法赋值<br>51 内部错误<br>505 无效的或不合格的引用<br>481 无效图片<br>5 无效过程调用或参数<br>5021 字符集越界<br>94 非法使用 Null<br>448 未找到命名参数<br>447 对象不支持当前的区域设置<br>445 对象不支持此操作<br>438 对象不支持该属性或方法<br>451 对象不是一个集合<br>504 对象不能安全创建<br>503 对象不能安全初始化<br>502 脚本对象不安全<br>424 需要对象<br>91 未设置对象变量<br>7 内存不足<br>28 堆栈溢出<br>14 字符串空间溢出<br>6 溢出<br>35 未定义 Sub 或 Function<br>9 下标越界<br>5017 正则表达式中的语法错误<br>462 远程服务器不存在或不能访问<br>10 该数组为定长的或临时被锁定<br>13 类型不匹配<br>5018 错误的数量词<br>500 变量未定义<br>458 变量使用了一个 VBScript 中不支持的自动化类型<br>450 错误的参数个数或无效的参数属性值</p>
+<p>VBScript 语法错误<br>如果 VBScript 语句结构违反了一个或多个 VBScript 脚本语言语法规则，就会产生 VBScript 语法错误。VBScript 语法错误通常在执行程序前，编译程序时产生。</p>
+<p>错误编号 描述<br>1052 在类中不能有多个缺省的属性&#x2F;方法<br>1044 调用 Sub 时不能使用圆括号<br>1053 类初始化或终止不能带参数<br>1058 只能在 Property Get 中指定 ‘Default’<br>1057 说明 ‘Default’ 必须同时说明 ‘Public’ “<br>1005 需要 ‘(‘<br>1006 需要 ‘)’<br>1011 需要 ‘&#x3D;’<br>1021 需要 ‘Case’<br>1047 需要 ‘Class’<br>1025 需要语句的结束<br>1014 需要 ‘End’<br>1023 需要表达式<br>1015 需要 ‘Function’<br>1010 需要标识符<br>1012 需要 ‘If’<br>1046 需要 ‘In’<br>1026 需要整数常数<br>1049 在属性声明中需要 Let , Set 或 Get<br>1045 需要文字常数<br>1019 需要 ‘Loop’<br>1020 需要 ‘Next’<br>1050 需要 ‘Property’<br>1022 需要 ‘Select’<br>1024 需要语句<br>1016 需要 ‘Sub’<br>1017 需要 ‘Then’<br>1013 需要 ‘To’<br>1018 需要 ‘Wend’<br>1027 需要 ‘While’ 或 ‘Until’<br>1028 需要 ‘While,’、 ‘Until,’ 或语句未结束<br>1029 需要 ‘With’<br>1030 标识符太长<br>1014 无效字符<br>1039 无效 ‘exit’ 语句<br>1040 无效 ‘for’ 循环控制变量<br>1013 无效数字<br>1037 无效使用关键字 ‘Me’<br>1038 ‘loop’ 没有 ‘do’<br>1048 必须在一个类的内部定义<br>1042 必须为行的第一个语句<br>1041 名称重定义<br>1051 参数数目必须与属性说明一致<br>1001 内存不足<br>1054 Property Let 或 Set 至少应该有一个参数<br>1002 语法错误<br>1055 不需要的 ‘Next’<br>1015 未终止字符串常数</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/blog/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2009/05/25/js-%E7%BB%93%E5%90%88vb-script-%E5%BA%94%E7%94%A8-CarlZeng/" rel="prev" title="js 结合vb script 应用-CarlZeng">
+                  <i class="fa fa-angle-left"></i> js 结合vb script 应用-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/2009/05/25/%E7%BD%91%E7%AB%99%E6%96%87%E6%A1%A3%E5%A6%82%E4%BD%95%E5%9C%A8%E6%9C%80%E7%9F%AD%E7%9A%84%E6%97%B6%E9%97%B4%E5%86%85%E8%A2%ABGoogle%E6%94%B6%E5%BD%95%EF%BC%9F-CarlZeng/" rel="next" title="网站文档如何在最短的时间内被Google收录？-CarlZeng">
+                  网站文档如何在最短的时间内被Google收录？-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接。</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">718k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">21:45</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/schemes/muse.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  <script src="/blog/js/third-party/addtoany.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"chuanzhuo/blog","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/blog/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

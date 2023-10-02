@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Mist","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="function l_sort(col,coltype,hier,hiercol,mach,colname,sAlternateSortType)153{154 &#x2F;&#x2F; this is used in cases where a column needs to be sorted by something different than it&#39;s type&#x2F;value155	if(sAltern...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="l_sort function明细 netsuite列排序-CarlZeng">
+<meta property="og:url" content="https://chuanzhuo.github.com/blog/2008/10/07/l-sort-function%E6%98%8E%E7%BB%86-netsuite%E5%88%97%E6%8E%92%E5%BA%8F-CarlZeng/index.html">
+<meta property="og:site_name" content="Carl&#39;s Notes">
+<meta property="og:description" content="function l_sort(col,coltype,hier,hiercol,mach,colname,sAlternateSortType)153{154 &#x2F;&#x2F; this is used in cases where a column needs to be sorted by something different than it&#39;s type&#x2F;value155	if(sAltern...">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2008-10-07T15:51:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:28.913Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://chuanzhuo.github.com/blog/2008/10/07/l-sort-function%E6%98%8E%E7%BB%86-netsuite%E5%88%97%E6%8E%92%E5%BA%8F-CarlZeng/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://chuanzhuo.github.com/blog/2008/10/07/l-sort-function%E6%98%8E%E7%BB%86-netsuite%E5%88%97%E6%8E%92%E5%BA%8F-CarlZeng/","path":"2008/10/07/l-sort-function明细-netsuite列排序-CarlZeng/","title":"l_sort function明细 netsuite列排序-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>l_sort function明细 netsuite列排序-CarlZeng | Carl's Notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/blog/atom.xml" title="Carl's Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Carl's Notes</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/blog/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">290</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/02/08/netsuite%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86%E5%8D%95%E6%8D%AE-%E5%88%97%E5%AD%97%E6%AE%B5serialnumbers-%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%AA%8C%E8%AF%81%E5%87%BD%E6%95%B0validateInventoryNumbers-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-02-08</time>
+        <br>
+      netsuite事务处理单据 列字段serialnumbers 的客户端验证函数validateInventoryNumbers-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/03/30/netsuite-Bin-Numbers-%E8%BE%93%E5%85%A5%E5%8E%9F%E7%90%86-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-03-30</time>
+        <br>
+      netsuite Bin Numbers 输入原理-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/02/18/netsuite-SyncQtyRate-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-02-18</time>
+        <br>
+      netsuite SyncQtyRate-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/04/13/js-%E5%88%A4%E6%96%AD%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E5%90%A6ie-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-04-13</time>
+        <br>
+      js 判断浏览器是否ie-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2010/03/03/Netsuite-%E4%B8%AD-js-%E6%89%AB%E6%8F%8F%E6%9E%AA%E5%BA%94%E7%94%A8-%E8%A7%A3%E8%AF%BB%E4%B8%80-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2010-03-03</time>
+        <br>
+      Netsuite 中 js 扫描枪应用 解读一-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2008/10/07/l-sort-function%E6%98%8E%E7%BB%86-netsuite%E5%88%97%E6%8E%92%E5%BA%8F-CarlZeng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="l_sort function明细 netsuite列排序-CarlZeng | Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          l_sort function明细 netsuite列排序-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2008-10-07 23:51:00" itemprop="dateCreated datePublished" datetime="2008-10-07T23:51:00+08:00">2008-10-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>function l_sort(col,coltype,hier,hiercol,mach,colname,sAlternateSortType)153{154 &#x2F;&#x2F; this is used in cases where a column needs to be sorted by something different than it’s type&#x2F;value155 if(sAltern…</p>
+<!-- more -->
+<p>function l_sort(col,coltype,hier,hiercol,mach,colname,sAlternateSortType)</p>
+<p>153{</p>
+<p>154 &#x2F;&#x2F; this is used in cases where a column needs to be sorted by something different than it’s type&#x2F;value</p>
+<p>155 if(sAlternateSortType !&#x3D; null)</p>
+<p>156 coltype &#x3D; sAlternateSortType;</p>
+<p>157 var i &#x3D; 0, node,node2, numRows &#x3D; 0, rnode, col2 &#x3D; -1, col2type;</p>
+<p>158 var elems &#x3D; new Array(), elem, cols;</p>
+<p>159 var dir_up &#x3D; true, dir_up2;</p>
+<p>160 var ordered_mach &#x3D; false;</p>
+<p>161 if (mach &#x3D;&#x3D; ‘’ || mach &#x3D;&#x3D; null) mach &#x3D; ‘’;</p>
+<p>162 else if (document.forms[0].elements[mach+’sortidx’] !&#x3D; null)</p>
+<p>163 {</p>
+<p>164 col2 &#x3D; document.forms[0].elements[mach+’sortidx’].value;</p>
+<p>165 if (col2 &#x3D;&#x3D; col)</p>
+<p>166 col2 &#x3D; -1;</p>
+<p>167 else</p>
+<p>168 {</p>
+<p>169 col2type &#x3D; document.forms[0].elements[mach+’sorttype’].value;</p>
+<p>170 dir_up2 &#x3D; document.forms[0].elements[mach+’sortdir’].value &#x3D;&#x3D; “UP”;</p>
+<p>171 }</p>
+<p>172 ordered_mach &#x3D; hasEncodedField(mach,mach+”seqnum”);</p>
+<p>173 }</p>
+<p>174</p>
+<p>175 node &#x3D; l_id(mach+’dir’+col);</p>
+<p>176 if (node.src.indexOf(‘nlup.gif’) !&#x3D; -1)</p>
+<p>177 dir_up &#x3D; false;</p>
+<p>178 node.src &#x3D; dir_up ? ‘&#x2F;images&#x2F;nav&#x2F;nlup.gif’ : ‘&#x2F;images&#x2F;nav&#x2F;nldown.gif’;</p>
+<p>179 node2 &#x3D; l_id(mach+’header’);</p>
+<p>180 for (idx&#x3D;0; idx &lt; node2.cells.length; idx++)</p>
+<p>181 {</p>
+<p>182 if (idx &#x3D;&#x3D; col)</p>
+<p>183 continue;</p>
+<p>184 node &#x3D; l_id(mach+’dir’+idx);</p>
+<p>185 if (node !&#x3D; undefined)</p>
+<p>186 node.src &#x3D; ‘&#x2F;images&#x2F;nav&#x2F;nlempty.gif’;</p>
+<p>187 }</p>
+<p>188</p>
+<p>189 while (true)</p>
+<p>190 {</p>
+<p>191 node &#x3D; l_id(mach+’row’+i);</p>
+<p>192 if (node !&#x3D; undefined)</p>
+<p>193 {</p>
+<p>194 &#x2F;&#x2F; when we are sorting by a different type&#x2F;value than the cell contiains, that value will</p>
+<p>195 &#x2F;&#x2F; exist in a hidden span - which will always be the first child within the <TD></p>
+<p>196 if(sAlternateSortType !&#x3D; null)</p>
+<p>197 elem &#x3D; node.cells[col].firstChild.innerHTML;</p>
+<p>198 else</p>
+<p>199 elem &#x3D; node.cells[col].innerHTML;</p>
+<p>200 cols &#x3D; new Array();</p>
+<p>201</p>
+<p>202 for (idx&#x3D;0; idx &lt; node.cells.length; idx++)</p>
+<p>203 {</p>
+<p>204 cols[idx] &#x3D; node.cells[idx].innerHTML;</p>
+<p>205</p>
+<p>206 if(node.cells[idx].firstChild &amp;&amp; node.cells[idx].firstChild.nodeName &#x3D;&#x3D; ‘INPUT’ &amp;&amp; node.cells[idx].firstChild.type &#x3D;&#x3D; ‘checkbox’)</p>
+<p>207 {</p>
+<p>208 &#x2F;&#x2F; If a checkbox is checked now, but was not checked the last time we drew it, add CHECKED to the input tag</p>
+<p>209 if(node.cells[idx].firstChild.checked &amp;&amp; node.cells[idx].innerHTML.indexOf(‘checked’) &lt; 0)</p>
+<p>210 cols[idx] &#x3D; cols[idx].substring(0,cols[idx].length-1) + ‘ CHECKED&gt;’;</p>
+<p>211 &#x2F;&#x2F; else if a checkbox is NOT checked, but it was when we drew it, remove CHECKED from the input tag</p>
+<p>212 else if(!node.cells[idx].firstChild.checked &amp;&amp; node.cells[idx].innerHTML.indexOf(‘checked’) &gt;&#x3D; 0)</p>
+<p>213 cols[idx] &#x3D; cols[idx].substring(0,cols[idx].indexOf(‘checked’)) + ‘&gt;’;</p>
+<p>214 }</p>
+<p>215</p>
+<p>216 }</p>
+<p>217</p>
+<p>218</p>
+<p>219 if (hier)</p>
+<p>220 {</p>
+<p>221 hierfld &#x3D; l_elem(‘_hier’+i);</p>
+<p>222 if (hiercol)</p>
+<p>223 elem &#x3D; hierfld.value;</p>
+<p>224 elems[i] &#x3D; new l_node(elem.toLowerCase(),cols,coltype,dir_up,hierfld.value);</p>
+<p>225 }</p>
+<p>226 else if (col2 !&#x3D; -1)</p>
+<p>227 elems[i] &#x3D; new l_node(elem.toLowerCase(),cols,coltype,dir_up,null,node.cells[col2].innerHTML,col2type,dir_up2, ordered_mach ? findEncodedValue(mach, mach+”seqnum”, i+1) : -1);</p>
+<p>228 else</p>
+<p>229 elems[i] &#x3D; new l_node(elem.toLowerCase(),cols,coltype,dir_up,null,null,null,null,ordered_mach ? findEncodedValue(mach, mach+”seqnum”, i+1) : -1);</p>
+<p>230 i++;</p>
+<p>231 }</p>
+<p>232 else</p>
+<p>233 break;</p>
+<p>234 }</p>
+<p>235</p>
+<p>236 numRows &#x3D; i;</p>
+<p>237 i &#x3D; 0;</p>
+<p>238</p>
+<p>239 elems.sort(l_sortnodes);</p>
+<p>240</p>
+<p>241 while (i &lt; numRows)</p>
+<p>242 {</p>
+<p>243 node &#x3D; l_id(mach+’row’+i);</p>
+<p>244 rnode &#x3D; elems[i];</p>
+<p>245 cols &#x3D; rnode.row;</p>
+<p>246</p>
+<p>247 for (idx&#x3D;0; idx &lt; node.cells.length; idx++)</p>
+<p>248 node.cells[idx].innerHTML &#x3D; cols[idx];</p>
+<p>249</p>
+<p>250 if (hier)</p>
+<p>251 {</p>
+<p>252 hierfld &#x3D; l_elem(‘_hier’+i);</p>
+<p>253 hierfld.value &#x3D; rnode.hier;</p>
+<p>254 }</p>
+<p>255 if (ordered_mach)</p>
+<p>256 setEncodedValue(mach,rnode.linenum,mach+’seqnum’,i+1);</p>
+<p>257 i++;</p>
+<p>258 }</p>
+<p>259 l_saveprefs(mach, col, colname, coltype, dir_up);</p>
+<p>260}</p>
+<p>261</p>
+<p>262function l_sortprefs(col,coltype,mach,colname)</p>
+<p>263{</p>
+<p>264 var dir_up &#x3D; true;</p>
+<p>265 node &#x3D; l_id(mach+’dir’+col);</p>
+<p>266 if (node.src.indexOf(‘nlup.gif’) !&#x3D; -1)</p>
+<p>267 dir_up &#x3D; false;</p>
+<p>268 l_saveprefs(mach, col, colname, coltype, dir_up);</p>
+<p>269}</p>
+<p>270</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/blog/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2008/10/07/getElementByClass-in-Javascript-%E4%B8%A4%E7%A7%8D%E4%BB%A3%E7%A0%81-CarlZeng/" rel="prev" title="getElementByClass in Javascript - 两种代码-CarlZeng">
+                  <i class="fa fa-angle-left"></i> getElementByClass in Javascript - 两种代码-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/2008/10/08/doAddEditexpense-CarlZeng/" rel="next" title="doAddEditexpense-CarlZeng">
+                  doAddEditexpense-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接。</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">718k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">21:45</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/schemes/muse.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  <script src="/blog/js/third-party/addtoany.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"chuanzhuo/blog","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/blog/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Mist","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="概诉 网上提交预约申请单，线下面交完成实体卡的交付和办理。 本文主要从技术角度分析预约页面，仅供初学者技术交流使用。 表单输入和校验 系统通过2步的确认点击到达信息输入页面。 地址：&#x2F;bjggzxc&#x2F;TzYybk_third_1.html 验证规则： 居住地址 工作居住证号 电子邮箱 联系人姓名 性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="某预约系统分析 &gt; 某区公共自行车租车卡在线预约，关于如何提高成功概率-CarlZeng">
+<meta property="og:url" content="https://chuanzhuo.github.com/blog/2016/03/30/%E6%9F%90%E9%A2%84%E7%BA%A6%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90-%E6%9F%90%E5%8C%BA%E5%85%AC%E5%85%B1%E8%87%AA%E8%A1%8C%E8%BD%A6%E7%A7%9F%E8%BD%A6%E5%8D%A1%E5%9C%A8%E7%BA%BF%E9%A2%84%E7%BA%A6%EF%BC%8C%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98%E6%88%90%E5%8A%9F%E6%A6%82%E7%8E%87-CarlZeng/index.html">
+<meta property="og:site_name" content="Carl&#39;s Notes">
+<meta property="og:description" content="概诉 网上提交预约申请单，线下面交完成实体卡的交付和办理。 本文主要从技术角度分析预约页面，仅供初学者技术交流使用。 表单输入和校验 系统通过2步的确认点击到达信息输入页面。 地址：&#x2F;bjggzxc&#x2F;TzYybk_third_1.html 验证规则： 居住地址 工作居住证号 电子邮箱 联系人姓名 性">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/41238/201603/41238-20160331084520066-67841008.jpg">
+<meta property="og:image" content="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif">
+<meta property="og:image" content="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif">
+<meta property="og:image" content="http://wpa.qq.com/pa?p=1:402167488:13">
+<meta property="article:published_time" content="2016-03-30T07:35:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:29.032Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/41238/201603/41238-20160331084520066-67841008.jpg">
+
+
+<link rel="canonical" href="https://chuanzhuo.github.com/blog/2016/03/30/%E6%9F%90%E9%A2%84%E7%BA%A6%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90-%E6%9F%90%E5%8C%BA%E5%85%AC%E5%85%B1%E8%87%AA%E8%A1%8C%E8%BD%A6%E7%A7%9F%E8%BD%A6%E5%8D%A1%E5%9C%A8%E7%BA%BF%E9%A2%84%E7%BA%A6%EF%BC%8C%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98%E6%88%90%E5%8A%9F%E6%A6%82%E7%8E%87-CarlZeng/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://chuanzhuo.github.com/blog/2016/03/30/%E6%9F%90%E9%A2%84%E7%BA%A6%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90-%E6%9F%90%E5%8C%BA%E5%85%AC%E5%85%B1%E8%87%AA%E8%A1%8C%E8%BD%A6%E7%A7%9F%E8%BD%A6%E5%8D%A1%E5%9C%A8%E7%BA%BF%E9%A2%84%E7%BA%A6%EF%BC%8C%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98%E6%88%90%E5%8A%9F%E6%A6%82%E7%8E%87-CarlZeng/","path":"2016/03/30/某预约系统分析-某区公共自行车租车卡在线预约，关于如何提高成功概率-CarlZeng/","title":"某预约系统分析 > 某区公共自行车租车卡在线预约，关于如何提高成功概率-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>某预约系统分析 > 某区公共自行车租车卡在线预约，关于如何提高成功概率-CarlZeng | Carl's Notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/blog/atom.xml" title="Carl's Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Carl's Notes</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/blog/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E8%AF%89"><span class="nav-number">1.</span> <span class="nav-text">概诉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95%E8%BE%93%E5%85%A5%E5%92%8C%E6%A0%A1%E9%AA%8C"><span class="nav-number">2.</span> <span class="nav-text">表单输入和校验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E8%AE%A4%E6%8F%90%E4%BA%A4%E4%BC%98%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">确认提交优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">290</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2010/01/25/Netsuite-%E5%8F%8B%E5%A5%BD%E6%8F%90%E7%A4%BA-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2010-01-25</time>
+        <br>
+      Netsuite 友好提示-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/04/17/email-feedback-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-04-17</time>
+        <br>
+      email feedback-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2017/03/16/NetSuite-Build-In-Error-Message-The-record-has-been-deleted-since-you-have-retrieved-it-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2017-03-16</time>
+        <br>
+      NetSuite Build-In Error Message: The record has been deleted since you have retrieved it.-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/04/13/js-%E5%88%A4%E6%96%AD%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E5%90%A6ie-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-04-13</time>
+        <br>
+      js 判断浏览器是否ie-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2008/10/13/today-oracle-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%A5%E6%9C%9F-netsuite-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2008-10-13</time>
+        <br>
+      (today) oracle 获取当前日期 netsuite-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2016/03/30/%E6%9F%90%E9%A2%84%E7%BA%A6%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90-%E6%9F%90%E5%8C%BA%E5%85%AC%E5%85%B1%E8%87%AA%E8%A1%8C%E8%BD%A6%E7%A7%9F%E8%BD%A6%E5%8D%A1%E5%9C%A8%E7%BA%BF%E9%A2%84%E7%BA%A6%EF%BC%8C%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98%E6%88%90%E5%8A%9F%E6%A6%82%E7%8E%87-CarlZeng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="某预约系统分析 > 某区公共自行车租车卡在线预约，关于如何提高成功概率-CarlZeng | Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          某预约系统分析 > 某区公共自行车租车卡在线预约，关于如何提高成功概率-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-03-30 15:35:00" itemprop="dateCreated datePublished" datetime="2016-03-30T15:35:00+08:00">2016-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>13k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>24 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>概诉 网上提交预约申请单，线下面交完成实体卡的交付和办理。 本文主要从技术角度分析预约页面，仅供初学者技术交流使用。 表单输入和校验 系统通过2步的确认点击到达信息输入页面。 地址：&#x2F;bjggzxc&#x2F;TzYybk_third_1.html 验证规则： 居住地址 工作居住证号 电子邮箱 联系人姓名 性</p>
+<!-- more -->
+<h3 id="概诉"><a href="#概诉" class="headerlink" title="概诉"></a>概诉</h3><p>网上提交预约申请单，线下面交完成实体卡的交付和办理。</p>
+<p>本文主要从技术角度分析预约页面，仅供初学者技术交流使用。</p>
+<h3 id="表单输入和校验"><a href="#表单输入和校验" class="headerlink" title="表单输入和校验"></a>表单输入和校验</h3><p><img data-src="http://images2015.cnblogs.com/blog/41238/201603/41238-20160331084520066-67841008.jpg"></p>
+<p>系统通过2步的确认点击到达信息输入页面。</p>
+<p>地址：&#x2F;bjggzxc&#x2F;TzYybk_third_1.html</p>
+<p>验证规则：</p>
+<p><strong>字段名</strong></p>
+<p><strong>字段ID</strong></p>
+<p><strong>校验规则1</strong></p>
+<p><strong>验证规则2</strong></p>
+<p><strong>验证规则3</strong></p>
+<p><strong>验证规则4</strong></p>
+<p>姓名</p>
+<p>U_NAME</p>
+<p>非空验证</p>
+<p>只能输入中英文字符以及逗号、点、减号、下划线，且至少两个字符  </p>
+<p>性别</p>
+<p>U_SEX</p>
+<p>非空验证</p>
+<p>性别与身份证不匹配</p>
+<p> </p>
+<p> </p>
+<p>出生日期</p>
+<p>U_BIRTHDAY</p>
+<p>非空验证</p>
+<p>日期格式不正确，输入类似2011-01-01的日期！</p>
+<p>出生日期与身份证不匹配</p>
+<p>18-60岁之间才能预约！</p>
+<p>户口所在地</p>
+<p>U_BIRTHPLACE</p>
+<p>非空验证</p>
+<p>户口所在地只能输入中文，填写省市区(县)即可，最少两个汉字！  </p>
+<p>证件类型</p>
+<p>U_ZJTYPE</p>
+<p>非空验证</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>证件号</p>
+<p>U_ZJNUM</p>
+<p>非空验证</p>
+<p>身份证号码校验失败，IdentityCodeValid</p>
+<p>此证件号码已经预约过，请不要重复预约！</p>
+<p>校验出生日期 和 性别</p>
+<p>居住地址</p>
+<p>U_TXPLACE</p>
+<p>非空验证</p>
+<p>居住地址只能输入中英文字符、数字以及逗号、点、减号、下划线，且至少五个字符  </p>
+<p>工作居住证号</p>
+<p>U_ZZZNUM</p>
+<p> </p>
+<p>非北京户口用户必须输入工作居住证号码，且只能输入12位数字，北京户口请在户口所在地中包含“北京”两个字。  </p>
+<p>手机号</p>
+<p>U_PHONE</p>
+<p>非空验证</p>
+<p>手机号只能是11位数字!</p>
+<p> </p>
+<p> </p>
+<p>电子邮箱</p>
+<p>U_EMAIL</p>
+<p>非空验证</p>
+<p>电子邮箱格式不正确！</p>
+<p> </p>
+<p> </p>
+<p>联系人姓名</p>
+<p>U_U_NAME</p>
+<p>非空验证</p>
+<p>只能输入中英文字符以及逗号、点、减号、下划线，且至少两个字符  </p>
+<p>性别</p>
+<p>U_U_SEX</p>
+<p>非空验证</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>与联系人的关系</p>
+<p>U_U_RELATION</p>
+<p>非空验证</p>
+<p>与联系人的关系只能输入汉字，最少两个字符！</p>
+<p> </p>
+<p> </p>
+<p>联系电话</p>
+<p>U_U_TELEPHONE</p>
+<p>非空验证</p>
+<p>联系电话只能是数字或横杠，最少8位！</p>
+<p> </p>
+<p> </p>
+<p>通讯地址</p>
+<p>U_U_TXPLACE</p>
+<p>非空验证</p>
+<p>联系人通讯地址只能输入中英文字符、数字以及逗号、点、减号、下划线，且至少五个字符  </p>
+<p>选择办卡地点</p>
+<p>U_CARD_ADDRESS</p>
+<p>非空验证</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Y_PC</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>PC_ID</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>验证代码：</p>
+<p><img data-src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif"><img data-src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif"></p>
+<p> 1 $(function() {<br> 2     $(‘#U_BIRTHDAY’).datetimepicker({<br> 3          language: ‘zh-CN’,<br> 4          minView: ‘2’,  &#x2F;&#x2F;只选择日期，不选择时间<br> 5          format: ‘yyyy-mm-dd’,<br> 6          startDate: ‘${yypc.ksrq}’,<br> 7           endDate: new Date(), 8          autoclose: true , 9         todayBtn: true<br> 10      }).on(“changeDate”, function(e){<br> 11 &#x2F;&#x2F; console.log($(“#applyForm”).data(‘formValidation’));<br> 12          $(“#applyForm”).bootstrapValidator(‘revalidateField’, ‘U_BIRTHDAY’);<br> 13     });<br> 14<br> 15     var validForm &#x3D; $(‘#applyForm’).bootstrapValidator({<br> 16         fields: {<br> 17             “U_NAME”: {<br> 18                 validators: {<br> 19                     notEmpty: {  &#x2F;&#x2F;非空验证<br> 20                         message: ‘姓名不能为空！’<br> 21                     },<br> 22                     regexp: {<br> 23                         regexp: &#x2F;^[a-zA-z\u4e00-\u9fa5,\.\-_]{2,}$&#x2F;,<br> 24                         message: ‘只能输入中英文字符以及逗号、点、减号、下划线，且至少两个字符’<br> 25                     }<br> 26                 }<br> 27             },<br> 28             “U_SEX”: {<br> 29                 validators: {<br> 30                     notEmpty: {  &#x2F;&#x2F;非空验证<br> 31                         message: ‘性别不能为空，请选择！’<br> 32                     },<br> 33                     callback: {<br> 34                         message: ‘性别与身份证不匹配！’,<br> 35                         callback: function(value, validator, $field) {<br> 36                             var zjlx &#x3D; $(‘select[name&#x3D;U_ZJTYPE]‘).val();<br> 37                             var sfzh &#x3D; $(‘input[name&#x3D;U_ZJNUM]‘).val();<br> 38                             var sex&#x3D;$(“input[name&#x3D;’U_SEX’]:checked”).val();<br> 39<br> 40                             if (sex !&#x3D; “” &amp;&amp; zjlx &#x3D;&#x3D; “身份证” &amp;&amp; (sfzh.length &#x3D;&#x3D; 18 || sfzh.length &#x3D;&#x3D; 15)) {<br> 41                                 var sexFromSfzh &#x3D; “”;<br> 42                                 if(sfzh.length &#x3D;&#x3D; 18) {<br> 43                                     sexFromSfzh &#x3D; sfzh.substring(16, 17);<br> 44                                 } else if(sfzh.length &#x3D;&#x3D; 15) {<br> 45                                     sexFromSfzh &#x3D; sfzh.substring(14);<br> 46                                 }<br> 47                                 console.log(sexFromSfzh);<br> 48                                 var sexCode &#x3D; parseInt(sexFromSfzh); 49<br> 50                                 if(sexCode % 2 &#x3D;&#x3D; 0)<br> 51                                     sexFromSfzh &#x3D; “女”;<br> 52                                 else<br> 53                                     sexFromSfzh &#x3D; “男”;<br> 54<br> 55                                 if(sex !&#x3D; sexFromSfzh) 56                                     return false;    &#x2F;&#x2F; or false<br> 57                             }<br> 58                             return true;<br> 59                         }<br> 60                     }<br> 61                 }<br> 62             },<br> 63             “U_BIRTHDAY”: {<br> 64                 validators: {<br> 65                     notEmpty: {  &#x2F;&#x2F;非空验证<br> 66                         message: ‘出生日期不能为空！’<br> 67                     },<br> 68                     date: {<br> 69                         message: ‘日期格式不正确，输入类似2011-01-01的日期！’,<br> 70                         format: ‘YYYY-MM-DD’<br> 71                     },<br> 72                     callback: {<br> 73                         message: ‘出生日期与身份证不匹配！’,<br> 74                         callback: function(value, validator, $field) {<br> 75                             var zjlx &#x3D; $(‘select[name&#x3D;U_ZJTYPE]‘).val();<br> 76                             var sfzh &#x3D; $(‘input[name&#x3D;U_ZJNUM]‘).val();<br> 77                             if (zjlx &#x3D;&#x3D; “身份证” &amp;&amp; (sfzh.length &#x3D;&#x3D; 18 || sfzh.length &#x3D;&#x3D; 15)) {<br> 78                                 var birthdayFromSfzh &#x3D; “”;<br> 79                                 if(sfzh.length &#x3D;&#x3D; 18) {<br> 80                                     birthdayFromSfzh &#x3D; sfzh.substring(6, 14);<br> 81                                 } else if(sfzh.length &#x3D;&#x3D; 15) {<br> 82                                     birthdayFromSfzh &#x3D; “19” + sfzh.substring(6, 12);<br> 83                                 }<br> 84                                 if(value.replace(&#x2F;-&#x2F;g,’’) !&#x3D; birthdayFromSfzh) 85                                     return false;    &#x2F;&#x2F; or false<br> 86                             }<br> 87                             return true;<br> 88                         }<br> 89                     },<br> 90                     callback: {<br> 91                         message: ‘18-60岁之间才能预约！’,<br> 92                         callback: function(value, validator, $field) {<br> 93                             var d &#x3D; Date.parse(value.replace(&#x2F;-&#x2F;g,’&#x2F;‘));<br> 94                             var date &#x3D; new Date(); 95                             var now &#x3D; date.format(“yyyyMMdd”);<br> 96                             date.setTime(d);<br> 97                             date.addYears(18);<br> 98                             var date1 &#x3D; date.format(“yyyyMMdd”);  &#x2F;&#x2F;18岁是哪天<br> 99                             date.addYears(42); 100                             var date2 &#x3D; date.format(“yyyyMMdd”);  &#x2F;&#x2F;60岁是哪天<br>101 console.log(date1); 102 console.log(date2); 103 console.log(now); 104                             return (now &gt;&#x3D; date1 &amp;&amp; now &lt;&#x3D; date2); 105 } 106 } 107 } 108 }, 109             “U_BIRTHPLACE”: { 110 validators: { 111                     notEmpty: {  &#x2F;&#x2F;非空验证<br>112                         message: ‘户口所在地不能为空！’<br>113 }, 114 regexp: { 115                         regexp: &#x2F;^[\u4e00-\u9fa5]{2,}$&#x2F;, 116                         message: ‘户口所在地只能输入中文，填写省市区(县)即可，最少两个汉字！’<br>117 } 118 }, 119                 onSuccess: function(e, data) { 120                     data.bv.revalidateField(‘U_ZZZNUM’); 121 } 122 }, 123             “U_ZJTYPE”: { 124 validators: { 125                     notEmpty: {  &#x2F;&#x2F;非空验证<br>126                         message: ‘证件类型不能为空，请选择！’<br>127 } 128 } 129 }, 130             “U_ZJNUM”: { 131 validators: { 132                     notEmpty: {  &#x2F;&#x2F;非空验证<br>133                         message: ‘证件号码不能为空！’<br>134 }, 135 callback: { 136                         message: ‘身份证号码校验失败！’, 137                         callback: function(value, validator, $field) { 138                             var zjlx &#x3D; $(‘select[name&#x3D;U_ZJTYPE]‘).val(); 139                             if (zjlx &#x3D;&#x3D; “身份证”) 140                                 return IdentityCodeValid(value); 141                             else<br>142                                 return true; 143 } 144 }, 145 remote: { 146                         message: ‘此证件号码已经预约过，请不要重复预约！’, 147                         url: ‘TzYybk_checkZjhm_1.html’, 148                         type: ‘POST’, 149 &#x2F;&#x2F; delay: 1000,<br>150 data: { 151                             Y_PC: $(‘input[name&#x3D;Y_PC]‘).val(), 152                             PC_ID: $(‘input[name&#x3D;PC_ID]‘).val() 153 } 154 } 155 }, 156                 onSuccess: function(e, data) { 157                     data.bv.revalidateField(‘U_BIRTHDAY’); 158                     data.bv.revalidateField(‘U_SEX’); 159 } 160 }, 161             “U_TXPLACE”: { 162 validators: { 163                     notEmpty: {  &#x2F;&#x2F;非空验证<br>164                         message: ‘居住地址不能为空！’<br>165 }, 166 regexp: { 167                         regexp: &#x2F;^[a-zA-z0-9\u4e00-\u9fa5,， 　\.\-_]{5,}$&#x2F;, 168                         message: ‘居住地址只能输入中英文字符、数字以及逗号、点、减号、下划线，且至少五个字符’<br>169 } 170<br>171 } 172 }, 173             “U_ZZZNUM”: { 174 validators: { 175 callback: { 176                         message: ‘非北京户口用户必须输入工作居住证号码，且只能输入12位数字，北京户口请在户口所在地中包含“北京”两个字。’, 177                         callback: function(value, validator, $field) { 178                             var hk &#x3D; $(‘input[name&#x3D;U_BIRTHPLACE]‘).val(); 179                             if (hk !&#x3D; “” &amp;&amp; hk.indexOf(“北京”) &lt; 0 &amp;&amp; value &#x3D;&#x3D; “”) { 180                                    return false;    &#x2F;&#x2F; or false<br>181                             } else { 182                                 if(value !&#x3D; “”) { 183                                     if(&#x2F;^[0-9]{12}$&#x2F;m.test(value)) 184                                         return true; 185                                     else<br>186                                         return false; 187                                 } else<br>188                                     return true; 189 } 190 } 191 } 192 } 193 }, 194             “U_PHONE”: { 195 validators: { 196                     notEmpty: {  &#x2F;&#x2F;非空验证<br>197                         message: ‘手机号不能为空！’<br>198 }, 199 regexp: { 200                         regexp: &#x2F;^[0-9]{11}$&#x2F;, 201                         message: ‘手机号只能是11位数字！’<br>202 } 203 } 204 }, 205             “U_EMAIL”: { 206 validators: { 207                     notEmpty: {  &#x2F;&#x2F;非空验证<br>208                         message: ‘电子邮箱不能为空！’<br>209 }, 210 regexp: { 211                         regexp: &#x2F;^[a-zA-Z0-9_\-.]+@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$&#x2F;, 212                         message: ‘电子邮箱格式不正确！’<br>213 } 214 } 215 }, 216             “U_ZJTYPE”: { 217 validators: { 218                     notEmpty: {  &#x2F;&#x2F;非空验证<br>219                         message: ‘证件类型不能为空！’<br>220 } 221 } 222 }, 223             “U_U_NAME”: { 224 validators: { 225                     notEmpty: {  &#x2F;&#x2F;非空验证<br>226                         message: ‘联系人姓名不能为空！’<br>227 }, 228 regexp: { 229                         regexp: &#x2F;^[a-zA-z\u4e00-\u9fa5,\.\-_]{2,}$&#x2F;, 230                         message: ‘只能输入中英文字符以及逗号、点、减号、下划线，且至少两个字符’<br>231 } 232 } 233 }, 234             “U_U_SEX”: { 235 validators: { 236                     notEmpty: {  &#x2F;&#x2F;非空验证<br>237                         message: ‘性别不能为空！’<br>238 } 239 } 240 }, 241             “U_U_RELATION”: { 242 validators: { 243                     notEmpty: {  &#x2F;&#x2F;非空验证<br>244                         message: ‘与联系人的关系不能为空！’<br>245 }, 246 regexp: { 247                         regexp: &#x2F;^[\u4e00-\u9fa5]{2,}$&#x2F;, 248                         message: ‘与联系人的关系只能输入汉字，最少两个字符！’<br>249 } 250 } 251 }, 252             “U_U_TELEPHONE”: { 253 validators: { 254                     notEmpty: {  &#x2F;&#x2F;非空验证<br>255                         message: ‘联系电话为空！’<br>256 }, 257 regexp: { 258                         regexp: &#x2F;^[0-9()-]{8,}$&#x2F;, 259                         message: ‘联系电话只能是数字或横杠，最少8位！’<br>260 } 261 } 262 }, 263             “U_U_TXPLACE”: { 264 validators: { 265                     notEmpty: {  &#x2F;&#x2F;非空验证<br>266                         message: ‘联系人通讯地址不能为空！’<br>267 }, 268 regexp: { 269                         regexp: &#x2F;^[a-zA-z0-9\u4e00-\u9fa5,， 　\.\-_]{5,}$&#x2F;, 270                         message: ‘联系人通讯地址只能输入中英文字符、数字以及逗号、点、减号、下划线，且至少五个字符’<br>271 } 272 } 273 } 274 } 275 }) 276     .on(‘success.form.bv’, function(e) { 277 e.preventDefault(); 278 editPcSave(); 279 }); 280 })</p>
+<p>View Code</p>
+<p>提前准备好合格的注册&#x2F;预约信息是件很重要的事情，通过代码提取然后进行自动的填写。</p>
+<p>用一个本地库去保存合格的注册信息。</p>
+<p>循环：提取信息，然后提交服务器。</p>
+<h3 id="确认提交优化"><a href="#确认提交优化" class="headerlink" title="确认提交优化"></a>确认提交优化</h3><p>提前判断信息都通过验证以后（合格），除了用editPcSave中的ajaxSubmit来提交信息以外，如下：</p>
+<p><img data-src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif"><img data-src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif"></p>
+<p>function submitToSrv(){<br>$(‘#applyForm’).ajaxSubmit({<br>            type : “post”,<br>            url : “TzYybk_save_1.html”,<br>            beforeSubmit : function() {<br>                $(“button”).attr(“disabled”, true);<br>            },<br>            success : function(responseText, statusText, xhr, $form) { var response &#x3D; $.parseJSON(responseText); if(response.status&#x3D;&#x3D;”ok”) {<br>                    console.log(response.uid);<br>                    document.location=“TzYybk_success_1.html?uid&#x3D;” + response.uid;<br>                } else {<br>                    alert(response.message);<br>                }<br>            },<br>            error : function(request, textStatus, e) {<br>                $(“button”).attr(“disabled”, false);<br>            }<br>        });<br>};</p>
+<p>setInterval(“submitToSrv()”, 5000);</p>
+<p>View Code</p>
+<p>另外：提高成功概率的主要影响因素</p>
+<ol>
+<li>对网页资源的本地化，优化；给服务器减轻压力<ol>
+<li>对资源进行缓存jquery-1.11.2.min.js</li>
+<li>对资源进行映射。</li>
+</ol>
+</li>
+<li>服务器测速（多服务器情况下）<br>定义测速机制，根据数据包路由信息确定最优服务器IP地址，直接缓存到本地hosts文件中3.  智能DNS切换<br>多服务器情况下，切换选择基于本机的最优服务器4.  CDN返回缓存<br>CDN判断</li>
+</ol>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>这个1.0版本的分析还有些技术细节有待优化.</p>
+<p>欢迎探讨，如果您想找人帮忙：<a href="tencent://message/?uin=402167488&Site=cnblogs&Menu=yes"><img data-src="http://wpa.qq.com/pa?p=1:402167488:13" alt="点击这里给我发消息"></a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/blog/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2016/03/22/OpenWrt-ADSL%E5%8D%95%E7%BA%BF%E5%A4%9A%E6%8B%A8%EF%BC%8C%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%EF%BC%88%E4%BB%85%E4%BE%9B%E5%8F%82%E8%80%83%EF%BC%89-CarlZeng/" rel="prev" title="OpenWrt >  ADSL单线多拨，负载均衡（仅供参考）-CarlZeng">
+                  <i class="fa fa-angle-left"></i> OpenWrt >  ADSL单线多拨，负载均衡（仅供参考）-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/2016/04/05/%E7%B3%BB%E7%BB%9F%E5%BB%BA%E8%AE%BE-%E5%8C%BB%E7%96%97%E9%9B%86%E5%9B%A2CRM%E7%B3%BB%E7%BB%9F%E5%BB%BA%E8%AE%BE%E6%AD%A5%E9%AA%A4%E4%B8%8E%E5%88%86%E6%9E%90-CarlZeng/" rel="next" title="系统建设 > 医疗集团CRM系统建设步骤与分析-CarlZeng">
+                  系统建设 > 医疗集团CRM系统建设步骤与分析-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接。</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">718k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">21:45</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/schemes/muse.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  <script src="/blog/js/third-party/addtoany.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"chuanzhuo/blog","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/blog/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Mist","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="Quick TECHNICAL NoteReality: UPS only support WebServices integration(or window platform exe application: FedEx Ship Manager® Lite), friendly for JAVA, PHP or C#. We need to calling UPS SOAP services">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FedEx Package Rate Integration with NetSuite direct integrate by WebServices-CarlZeng">
+<meta property="og:url" content="https://chuanzhuo.github.com/blog/2021/03/11/FedEx-Package-Rate-Integration-with-NetSuite-direct-integrate-by-WebServices-CarlZeng/index.html">
+<meta property="og:site_name" content="Carl&#39;s Notes">
+<meta property="og:description" content="Quick TECHNICAL NoteReality: UPS only support WebServices integration(or window platform exe application: FedEx Ship Manager® Lite), friendly for JAVA, PHP or C#. We need to calling UPS SOAP services">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-11T13:29:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:29.054Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://chuanzhuo.github.com/blog/2021/03/11/FedEx-Package-Rate-Integration-with-NetSuite-direct-integrate-by-WebServices-CarlZeng/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://chuanzhuo.github.com/blog/2021/03/11/FedEx-Package-Rate-Integration-with-NetSuite-direct-integrate-by-WebServices-CarlZeng/","path":"2021/03/11/FedEx-Package-Rate-Integration-with-NetSuite-direct-integrate-by-WebServices-CarlZeng/","title":"FedEx Package Rate Integration with NetSuite direct integrate by WebServices-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>FedEx Package Rate Integration with NetSuite direct integrate by WebServices-CarlZeng | Carl's Notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/blog/atom.xml" title="Carl's Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Carl's Notes</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/blog/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-TECHNICAL-Note"><span class="nav-number">1.</span> <span class="nav-text">Quick TECHNICAL Note</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.0.1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FedEx-Webservices-Errors"><span class="nav-number">1.0.2.</span> <span class="nav-text">FedEx Webservices Errors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Share-tools-used-between-XML-and-JSON"><span class="nav-number">1.0.3.</span> <span class="nav-text">Share tools used between XML and JSON</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Estimate-Rate"><span class="nav-number">1.0.4.</span> <span class="nav-text">Estimate Rate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Integrate-with-existing-UPS-integration"><span class="nav-number">1.0.5.</span> <span class="nav-text">Integrate with existing UPS integration</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">290</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/02/18/netsuite-SyncQtyRate-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-02-18</time>
+        <br>
+      netsuite SyncQtyRate-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2009/02/08/netsuite%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86%E5%8D%95%E6%8D%AE-%E5%88%97%E5%AD%97%E6%AE%B5serialnumbers-%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%AA%8C%E8%AF%81%E5%87%BD%E6%95%B0validateInventoryNumbers-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2009-02-08</time>
+        <br>
+      netsuite事务处理单据 列字段serialnumbers 的客户端验证函数validateInventoryNumbers-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2008/10/01/%E9%80%9A%E8%BF%87Performancing-for-Firefox%E5%8F%91%E5%B8%83Blog-%E5%8D%9A%E5%AE%A2%E5%9B%AD-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2008-10-01</time>
+        <br>
+      通过Performancing for Firefox发布Blog - 博客园-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2022/11/18/netsuite-query-account-balance-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2022-11-18</time>
+        <br>
+      netsuite query account balance-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/2008/10/01/%E9%80%9A%E8%BF%87Performancing-for-Firefox%E5%8F%91%E5%B8%83Blog-%E5%9E%83%E5%9C%BE-CarlZeng/" rel="bookmark">
+        <time class="popular-posts-time">2008-10-01</time>
+        <br>
+      通过Performancing for Firefox发布Blog - 垃圾-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2021/03/11/FedEx-Package-Rate-Integration-with-NetSuite-direct-integrate-by-WebServices-CarlZeng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="FedEx Package Rate Integration with NetSuite direct integrate by WebServices-CarlZeng | Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          FedEx Package Rate Integration with NetSuite direct integrate by WebServices-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-03-11 21:29:00" itemprop="dateCreated datePublished" datetime="2021-03-11T21:29:00+08:00">2021-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Quick-TECHNICAL-Note"><a href="#Quick-TECHNICAL-Note" class="headerlink" title="Quick TECHNICAL Note"></a>Quick TECHNICAL Note</h1><p>Reality: UPS only support WebServices integration(or window platform exe application: FedEx Ship Manager® Lite), friendly for JAVA, PHP or C#.</p>
+<p>We need to calling UPS SOAP services in NetSuite directly, so there is JSON -&gt; XML for input expected XML parameters and parse API return result XML -&gt; JSON action. </p>
+<p>Different from UPS, There is high request for xml’s element order&#x2F;sequence for FedEx API.</p>
+<p><strong>This’s a re-usable framework for intergration with WebServices platform&#x2F;application.</strong></p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>Registration for the Developer Keys</p>
+<p>We will need registration on webside got</p>
+<p>Developer Test Key:   PFPtfQE9ME1N****<br>Required for FedEx Web Services for Intra Country Shipping in US and Global </p>
+<p>and the Email Box:</p>
+<p>Title: Your Developer Test Key Registration is complete</p>
+<p>Test Account Information<br>&lt;spacer.gif&gt;<br>Test URL: <a target="_blank" rel="noopener" href="https://wsbeta.fedex.com/web-services">https://wsbeta.fedex.com:443/web-services</a><br>Test Password: H6F4kyFrYIQxALXOTbH53**** </p>
+<p>FedEx Web Services Testing Information:<br>     FedEx Shipping Account Number: **0088000<br>     FedEx Meter Number: ***2012**</p>
+<p>On NetSuite Side we are targeting to achieve xml files like the sample:</p>
+<p>Example 1:Rate Request</p>
+<p>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV&#x3D;”<a target="_blank" rel="noopener" href="http://schemas.xmlsoap.org/soap/envelope/">http://schemas.xmlsoap.org/soap/envelope/</a>“ xmlns:SOAP-<br>ENC&#x3D;”<a target="_blank" rel="noopener" href="http://schemas.xmlsoap.org/soap/encoding/">http://schemas.xmlsoap.org/soap/encoding/</a>“ xmlns:xsi&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2001/XMLSchema-instance">http://www.w3.org/2001/XMLSchema-instance</a>“ xmlns:xsd&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2001/XMLSchema">http://www.w3.org/2001/XMLSchema</a>“ xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://fedex.com/ws/rate/v28%22%3E">http://fedex.com/ws/rate/v28&quot;&gt;</a><br>   <a href="SOAP-ENV:Body">SOAP-ENV:Body</a><br>      <RateRequest><br>         <WebAuthenticationDetail><br>            <ParentCredential><br>               <Key>XXXXXX</Key><br>               <Password>XXXXXX</Password><br>            </ParentCredential><br>            <UserCredential><br>               <Key>XXXXXX</Key><br>               <Password>XXXXXX</Password><br>            </UserCredential><br>         </WebAuthenticationDetail><br>         <ClientDetail><br>            <AccountNumber>XXXXXX</AccountNumber><br>            <MeterNumber>XXXXXX</MeterNumber><br>         </ClientDetail><br>         <TransactionDetail><br>            <CustomerTransactionId>RateRequest_v28</CustomerTransactionId><br>         </TransactionDetail><br>         <Version><br>            <ServiceId>crs</ServiceId><br>            <Major>28</Major><br>            <Intermediate>0</Intermediate><br>            <Minor>0</Minor><br>         </Version><br>         <RequestedShipment><br>            <ShipTimestamp>2020-02-25T12:34:56-06:00</ShipTimestamp><br>            <DropoffType>REGULAR_PICKUP</DropoffType><br>            <ServiceType>PRIORITY_OVERNIGHT</ServiceType><br>            <PackagingType>FEDEX_BOX</PackagingType></p>
+<TotalWeight>
+   <Units>LB</Units>
+   <Value>20.0</Value>
+</TotalWeight>
+<Shipper>
+   <AccountNumber>XXXXXX</AccountNumber>
+   <Contact>
+      <CompanyName>FedEx-WAPI</CompanyName>
+      <PhoneNumber>XXXXXX</PhoneNumber>
+   </Contact>
+   <Address>
+      <StreetLines>SN2000 Test Meter 8</StreetLines>
+      <StreetLines>10 Fedex Parkway</StreetLines>
+      <City>AUSTIN</City>
+      <StateOrProvinceCode>TX</StateOrProvinceCode>
+      <PostalCode>XXXXXX</PostalCode>
+      <CountryCode>US</CountryCode>
+   </Address>
+</Shipper>
+<Recipient>
+   <AccountNumber>XXXXXX</AccountNumber>
+   <Contact>
+      <PersonName>Recipient Contact</PersonName>
+      <PhoneNumber>XXXXXX</PhoneNumber>
+   </Contact>
+   <Address>
+      <StreetLines>Recipient Address Line 1</StreetLines>
+      <StreetLines>Recipient Address Line 2</StreetLines>
+      <City>Collierville</City>
+      <StateOrProvinceCode>TN</StateOrProvinceCode>
+      <PostalCode>XXXXXX</PostalCode>
+      <CountryCode>US</CountryCode>
+   </Address>
+</Recipient>
+<ShippingChargesPayment>
+   <PaymentType>SENDER</PaymentType>
+   <Payor>
+      <ResponsibleParty>
+         <AccountNumber>XXXXXX</AccountNumber>
+         <Tins>
+            <TinType>BUSINESS\_STATE</TinType>
+            <Number>123456</Number>
+         </Tins>
+      </ResponsibleParty>
+   </Payor>
+</ShippingChargesPayment>
+<RateRequestTypes>LIST</RateRequestTypes>
+<PackageCount>1</PackageCount>
+<RequestedPackageLineItems>
+   <SequenceNumber>1</SequenceNumber>
+   <GroupNumber>1</GroupNumber>
+   <GroupPackageCount>1</GroupPackageCount>
+   <Weight>
+      <Units>LB</Units>
+      <Value>20.0</Value>
+   </Weight>
+   <Dimensions>
+      <Length>12</Length>
+      <Width>12</Width>
+      <Height>12</Height>
+      <Units>IN</Units>
+   </Dimensions>
+   <ContentRecords>
+      <PartNumber>XXXXXX</PartNumber>
+<ItemNumber>XXXXXX</ItemNumber>
+                  <ReceivedQuantity>12</ReceivedQuantity>
+                  <Description>ContentDescription</Description>
+               </ContentRecords>
+            </RequestedPackageLineItems>
+         </RequestedShipment>
+      </RateRequest>
+   </SOAP-ENV:Body>
+
+<p>And all above xml element is dynamically transfered from NetSuite Sales Order data(and also data from location, currency, custom record types, settings), We got those data(in expected order), using the Google Project’s X2JS to convert from JSON to XML.</p>
+<p>Next resolve the across domain ajax call by using NetSuite 2.0 API https.post</p>
+<p>var response &#x3D; https.post({<br>            url: ‘<a target="_blank" rel="noopener" href="https://wsbeta.fedex.com/web-services">https://wsbeta.fedex.com:443/web-services</a>‘,<br>            body: new X2JS().json2xml_str(PostDataObj),<br>            headers: {<br>                “Accept”: “image&#x2F;gif, image&#x2F;jpeg, image&#x2F;pjpeg, text&#x2F;plain, text&#x2F;html, *&#x2F;*“,<br>                “Content-Type”: “text&#x2F;xml”,<br>                “Access-Control-Allow-Origin”: ‘*‘,<br>            }<br>        });</p>
+<p>Need to thanks this thread for useful notes: <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/62523251/creating-a-http-post-call-for-fedex-web-services">https://stackoverflow.com/questions/62523251/creating-a-http-post-call-for-fedex-web-services</a>　　</p>
+<h3 id="FedEx-Webservices-Errors"><a href="#FedEx-Webservices-Errors" class="headerlink" title="FedEx Webservices Errors"></a>FedEx Webservices Errors</h3><ul>
+<li><p>Response Code 400 or 500</p>
+<ul>
+<li>Accross domain Error</li>
+<li>Schema Error</li>
+</ul>
+<p> </p>
+</li>
+<li><p><cause>UnrecoverableClientError</cause><br><code>SchemaError</code><br><desc>validation failure for RateRequest Error:cvc-complex-type.2.4.a: Invalid content was found starting with element</p>
+<ul>
+<li>Check the XML object sent to FedEx, the order of the element MUST match to the WDSL schema</li>
+<li>Check the XML object elements if there is addtional property</li>
+</ul>
+</li>
+<li><p>FedEx 404 Unrecoverable ClientError</p>
+<ul>
+<li>Double check the target server url address</li>
+<li>test url: <a target="_blank" rel="noopener" href="https://wsbeta.fedex.com/web-services">https://wsbeta.fedex.com:443/web-services</a></li>
+<li>production url: <a target="_blank" rel="noopener" href="https://ws.fedex.com/web-services">https://ws.fedex.com:443/web-services</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Share-tools-used-between-XML-and-JSON"><a href="#Share-tools-used-between-XML-and-JSON" class="headerlink" title="Share tools used between XML and JSON"></a>Share tools used between XML and JSON</h3><ul>
+<li>Testing&#x2F;xmlTOjson&#x2F;jsonTOxml: <a target="_blank" rel="noopener" href="https://peterdaugaardrasmussen.com/json2xml/">https://peterdaugaardrasmussen.com/json2xml/</a></li>
+<li>Source Code: <a target="_blank" rel="noopener" href="https://github.com/abdolence/x2js">https://github.com/abdolence/x2js</a><ul>
+<li>Useful Javascript framework for convention between XML and JSON</li>
+</ul>
+</li>
+<li>Format XML: <a target="_blank" rel="noopener" href="https://jsonformatter.org/xml-formatter">https://jsonformatter.org/xml-formatter</a></li>
+<li>Format JSON: <a target="_blank" rel="noopener" href="https://www.sojson.com/json/json/_online.html">https://www.sojson.com/json/json\_online.html</a></li>
+<li>XML compare&#x2F;diff <a target="_blank" rel="noopener" href="https://extendsclass.com/xml-diff.html">https://extendsclass.com/xml-diff.html</a><ul>
+<li>Be careful, the result of the xml diff is not in element order, the diff not acurate for FedEx test</li>
+</ul>
+</li>
+<li>Comparing XML files: <a target="_blank" rel="noopener" href="https://extendsclass.com/xml-diff.html">https://extendsclass.com/xml-diff.html</a></li>
+<li>POSTMAN simulate and compare the input and output<ul>
+<li>Powerful and Easy to use</li>
+</ul>
+</li>
+<li>XML Formatter <a target="_blank" rel="noopener" href="https://www.freeformatter.com/xml-formatter.html">https://www.freeformatter.com/xml-formatter.html</a><ul>
+<li>Make XML clean and clear</li>
+</ul>
+</li>
+<li>JSON Reviewer&#x2F;Formatter <a target="_blank" rel="noopener" href="http://jsonviewer.stack.hu/">http://jsonviewer.stack.hu</a> <ul>
+<li>Clean and clear</li>
+</ul>
+</li>
+<li>JSON to XML <a target="_blank" rel="noopener" href="https://www.convertjson.com/json-to-xml.htm">https://www.convertjson.com/json-to-xml.htm</a></li>
+</ul>
+<h3 id="Estimate-Rate"><a href="#Estimate-Rate" class="headerlink" title="Estimate Rate"></a>Estimate Rate</h3><ul>
+<li>UPS <a target="_blank" rel="noopener" href="https://www.theupsstore.com/tools/estimate-shipping-cost">https://www.theupsstore.com/tools/estimate-shipping-cost</a></li>
+<li>FedEx <a target="_blank" rel="noopener" href="https://www.fedex.com/en-us/online/rating.html">https://www.fedex.com/en-us/online/rating.html</a></li>
+</ul>
+<h3 id="Integrate-with-existing-UPS-integration"><a href="#Integrate-with-existing-UPS-integration" class="headerlink" title="Integrate with existing UPS integration"></a>Integrate with existing UPS integration</h3><p>While end-use switching shipping carries, we need to clean up the backend package list data and rebuild for current shipping carrier, since UPS and FedEx are using DIFFERENT formating and propertys.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/blog/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+  <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_wechat"></a>
+  </div>
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2021/03/03/git-Merge-branches-CarlZeng/" rel="prev" title="git Merge branches﻿-CarlZeng">
+                  <i class="fa fa-angle-left"></i> git Merge branches﻿-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/2021/03/17/Global-Search-file-content-in-Gitlab-repositories-search-across-repositories-search-across-all-files-CarlZeng/" rel="next" title="Global Search file content in Gitlab repositories, search across repositories, search across all files-CarlZeng">
+                  Global Search file content in Gitlab repositories, search across repositories, search across all files-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接。</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">718k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">21:45</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/schemes/muse.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  <script src="/blog/js/third-party/addtoany.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"chuanzhuo/blog","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/blog/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>
