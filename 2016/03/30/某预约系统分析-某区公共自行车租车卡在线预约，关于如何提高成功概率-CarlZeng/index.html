@@ -20,13 +20,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Mist","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Pisces","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
     <meta name="description" content="概诉 网上提交预约申请单，线下面交完成实体卡的交付和办理。 本文主要从技术角度分析预约页面，仅供初学者技术交流使用。 表单输入和校验 系统通过2步的确认点击到达信息输入页面。 地址：&#x2F;bjggzxc&#x2F;TzYybk_third_1.html 验证规则： 居住地址 工作居住证号 电子邮箱 联系人姓名 性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="某预约系统分析 &gt; 某区公共自行车租车卡在线预约，关于如何提高成功概率-CarlZeng">
 <meta property="og:url" content="https://chuanzhuo.github.com/blog/2016/03/30/%E6%9F%90%E9%A2%84%E7%BA%A6%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90-%E6%9F%90%E5%8C%BA%E5%85%AC%E5%85%B1%E8%87%AA%E8%A1%8C%E8%BD%A6%E7%A7%9F%E8%BD%A6%E5%8D%A1%E5%9C%A8%E7%BA%BF%E9%A2%84%E7%BA%A6%EF%BC%8C%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98%E6%88%90%E5%8A%9F%E6%A6%82%E7%8E%87-CarlZeng/index.html">
-<meta property="og:site_name" content="Carl&#39;s Notes">
+<meta property="og:site_name" content="Carl Notes">
 <meta property="og:description" content="概诉 网上提交预约申请单，线下面交完成实体卡的交付和办理。 本文主要从技术角度分析预约页面，仅供初学者技术交流使用。 表单输入和校验 系统通过2步的确认点击到达信息输入页面。 地址：&#x2F;bjggzxc&#x2F;TzYybk_third_1.html 验证规则： 居住地址 工作居住证号 电子邮箱 联系人姓名 性">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/41238/201603/41238-20160331084520066-67841008.jpg">
@@ -49,7 +49,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://chuanzhuo.github.com/blog/2016/03/30/%E6%9F%90%E9%A2%84%E7%BA%A6%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90-%E6%9F%90%E5%8C%BA%E5%85%AC%E5%85%B1%E8%87%AA%E8%A1%8C%E8%BD%A6%E7%A7%9F%E8%BD%A6%E5%8D%A1%E5%9C%A8%E7%BA%BF%E9%A2%84%E7%BA%A6%EF%BC%8C%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98%E6%88%90%E5%8A%9F%E6%A6%82%E7%8E%87-CarlZeng/","path":"2016/03/30/某预约系统分析-某区公共自行车租车卡在线预约，关于如何提高成功概率-CarlZeng/","title":"某预约系统分析 > 某区公共自行车租车卡在线预约，关于如何提高成功概率-CarlZeng"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>某预约系统分析 > 某区公共自行车租车卡在线预约，关于如何提高成功概率-CarlZeng | Carl's Notes</title>
+<title>某预约系统分析 > 某区公共自行车租车卡在线预约，关于如何提高成功概率-CarlZeng | Carl Notes</title>
   
 
 
@@ -62,7 +62,7 @@
   <noscript>
     <link rel="stylesheet" href="/blog/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/blog/atom.xml" title="Carl's Notes" type="application/atom+xml">
+<link rel="alternate" href="/blog/atom.xml" title="Carl Notes" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -83,9 +83,10 @@
 
     <a href="/blog/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">Carl's Notes</p>
+      <p class="site-title">Carl Notes</p>
       <i class="logo-line"></i>
     </a>
+      <p class="site-subtitle" itemprop="description">Hello 我是传灼</p>
   </div>
 
   <div class="site-nav-right">
@@ -98,7 +99,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/blog/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -167,8 +168,9 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
+          <a href="/blog/tags/">
         <span class="site-state-item-count">19</span>
-        <span class="site-state-item-name">标签</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -180,6 +182,10 @@
 
         </div>
       </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
     </div>
 
     
@@ -254,12 +260,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl's Notes">
+      <meta itemprop="name" content="Carl Notes">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="某预约系统分析 > 某区公共自行车租车卡在线预约，关于如何提高成功概率-CarlZeng | Carl's Notes">
+      <meta itemprop="name" content="某预约系统分析 > 某区公共自行车租车卡在线预约，关于如何提高成功概率-CarlZeng | Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -457,16 +463,6 @@
     
 
     <footer class="post-footer">
-          <div class="reward-container">
-  <div>请我一杯咖啡吧！</div>
-  <button>
-    赞赏
-  </button>
-  <div class="post-reward">
-
-  </div>
-</div>
-
           <div class="followme">
   <span>欢迎关注我的其它发布渠道</span>
 
@@ -532,13 +528,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">718k</span>
+    <span title="站点总字数">719k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">21:46</span>
+    <span title="站点阅读时长">21:47</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -559,23 +555,13 @@
       </span>
     </span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
   <div class="reading-progress-bar"></div>
 
 <noscript>
@@ -587,7 +573,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/schemes/muse.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/blog/js/third-party/search/local-search.js"></script>
