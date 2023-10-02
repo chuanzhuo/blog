@@ -17,6 +17,8 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Mist","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
@@ -153,7 +155,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -1023,116 +1025,6 @@ https需要考虑使用硬件上的集线器监听解码或者MITM 来转变数�
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2009/11/20/%E4%B8%80%E4%B8%AD%E5%8F%A6%E7%B1%BB%E8%B0%83%E8%AF%95javascript%E7%9A%84%E6%96%B9%E6%B3%95-CarlZeng/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Carl Zeng">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl's Notes">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Carl's Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2009/11/20/%E4%B8%80%E4%B8%AD%E5%8F%A6%E7%B1%BB%E8%B0%83%E8%AF%95javascript%E7%9A%84%E6%96%B9%E6%B3%95-CarlZeng/" class="post-title-link" itemprop="url">一中另类调试javascrīpt的方法-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2009-11-20 17:08:00" itemprop="dateCreated datePublished" datetime="2009-11-20T17:08:00+08:00">2009-11-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>555</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          调试javascrīpt的方法：?
-
-修改IE的设置：
-
-IE的"选项－高级"，有两个选项默认是钩选的：
-
-Disable scrīpt Debugging(Internet Explorer)
-
-Disable scrīpt Debugging(Other)
-
-中文可能是"禁用脚本调试"，去掉这两项的钩选。
-在VS2005"工具－选项－调试－实时"，选中脚本调试。
-在需要调试的地方加上debug...
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/blog/2009/11/20/%E4%B8%80%E4%B8%AD%E5%8F%A6%E7%B1%BB%E8%B0%83%E8%AF%95javascript%E7%9A%84%E6%96%B9%E6%B3%95-CarlZeng/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2009/11/20/%E4%B8%80%E4%B8%AD%E5%8F%A6%E7%B1%BB%E8%B0%83%E8%AF%95javascript%E7%9A%84%E5%A5%BD%E6%96%B9%E6%B3%95-CarlZeng/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1235,6 +1127,116 @@ Disable scrīpt Debugging(Other)
 
 
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2009/11/20/%E4%B8%80%E4%B8%AD%E5%8F%A6%E7%B1%BB%E8%B0%83%E8%AF%95javascript%E7%9A%84%E6%96%B9%E6%B3%95-CarlZeng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Carl's Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2009/11/20/%E4%B8%80%E4%B8%AD%E5%8F%A6%E7%B1%BB%E8%B0%83%E8%AF%95javascript%E7%9A%84%E6%96%B9%E6%B3%95-CarlZeng/" class="post-title-link" itemprop="url">一中另类调试javascrīpt的方法-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-11-20 17:08:00" itemprop="dateCreated datePublished" datetime="2009-11-20T17:08:00+08:00">2009-11-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>555</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          调试javascrīpt的方法：?
+
+修改IE的设置：
+
+IE的"选项－高级"，有两个选项默认是钩选的：
+
+Disable scrīpt Debugging(Internet Explorer)
+
+Disable scrīpt Debugging(Other)
+
+中文可能是"禁用脚本调试"，去掉这两项的钩选。
+在VS2005"工具－选项－调试－实时"，选中脚本调试。
+在需要调试的地方加上debug...
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2009/11/20/%E4%B8%80%E4%B8%AD%E5%8F%A6%E7%B1%BB%E8%B0%83%E8%AF%95javascript%E7%9A%84%E6%96%B9%E6%B3%95-CarlZeng/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/blog/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/blog/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/29/">29</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/blog/page/14/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1264,7 +1266,7 @@ Disable scrīpt Debugging(Other)
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">21:45</span>
+    <span title="站点阅读时长">21:46</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -1302,6 +1304,7 @@ Disable scrīpt Debugging(Other)
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
@@ -1321,6 +1324,7 @@ Disable scrīpt Debugging(Other)
 
 
 
+  <script src="/blog/js/third-party/pace.js"></script>
 
   <script src="/blog/js/third-party/addtoany.js"></script>
 
