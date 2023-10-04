@@ -162,12 +162,12 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/blog/categories/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/blog/tags/">
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -329,7 +329,7 @@
 <h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes:"></a>Notes:</h3><p>Don’t verify the operation in editor(WebStorm,IntelliJ IDEA…etc), use command(Mac’s terminal.app), use terminal.app</p>
 <hr>
 <h3 id="Solutions-for-Operation-timed-out"><a href="#Solutions-for-Operation-timed-out" class="headerlink" title="Solutions for: Operation timed out"></a>Solutions for: Operation timed out</h3><p>1. Fix the hosts to make sure the ssh connection between your Computer and github.com is availble(修复连接到github.com)</p>
-<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#109;">&#x67;&#105;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#109;</a></p>
+<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;">&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;</a></p>
 <p>1.1 记录下github的IP地址, 把IP Address 记录下来</p>
 <p>打开<a target="_blank" rel="noopener" href="https://github.com.ipaddress.com/">https://github.com.ipaddress.com/</a> </p>
 <p>打开<a target="_blank" rel="noopener" href="https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo">https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo</a></p>
@@ -340,7 +340,7 @@
 <p>sudo killall -HUP mDNSResponder</p>
 <p>1.4 如果之前用ssh proxy，取消它</p>
 <p>git config –global http.proxy <a target="_blank" rel="noopener" href="http://127.0.0.1:1080/">http://127.0.0.1:1080</a> git config --global https.proxy <a target="_blank" rel="noopener" href="http://127.0.0.1:1080/">http://127.0.0.1:1080</a> git config --global –unset http.proxy<br>git config --global –unset https.proxy</p>
-<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#103;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;</a></p>
+<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#x63;&#111;&#109;">&#103;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#x63;&#111;&#109;</a></p>
 <p>新的错误可能和授权有关，至少证明连接到github.com是通的。</p>
 <hr>
 <h3 id="Solutions-for-Authentication"><a href="#Solutions-for-Authentication" class="headerlink" title="Solutions for: Authentication"></a>Solutions for: Authentication</h3><p>2. Create new Token and login to github.com (新建密钥并登陆进github.com)</p>
@@ -352,7 +352,7 @@
 <p>Username for ‘<a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a>‘:  （这个地方输入登录github网址用的用户名，我的是用9个英文字母）<br>Password for ‘https:&#x2F;&#x2F;***@github.com’:  （这个地方要是输入#2.1中得到的Token）</p>
 <p>2.3 判断一下连接和授权，如果需要ssh连接，继续添加配置以下。</p>
 <p>2.4 生成ssh密钥。Generating a new SSH key and adding it to the ssh-agent。具体步骤简要如下：</p>
-<p>$ ssh-keygen -t ed25519 -C “your_<a href="mailto:&#x65;&#109;&#x61;&#x69;&#x6c;&#x40;&#101;&#x78;&#97;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#109;">&#x65;&#109;&#x61;&#x69;&#x6c;&#x40;&#101;&#x78;&#97;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#109;</a>“</p>
+<p>$ ssh-keygen -t ed25519 -C “your_<a href="mailto:&#101;&#x6d;&#97;&#x69;&#108;&#x40;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#x63;&#111;&#109;">&#101;&#x6d;&#97;&#x69;&#108;&#x40;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#x63;&#111;&#109;</a>“</p>
 <blockquote>
 <p>Enter a file in which to save the key (&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_algorithm): [Press enter] &gt; Enter passphrase (empty for no passphrase): [Type a passphrase] &gt; Enter same passphrase again: [Type passphrase again] -————————————————— $ eval “$(ssh-agent -s)”<br>Agent pid 59566</p>
 </blockquote>
@@ -431,20 +431,20 @@
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
-    <span class="author" itemprop="copyrightHolder">本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接。</span>
+    <span class="author" itemprop="copyrightHolder">[object Object]</span>
   </div>
 <div class="wordcount">
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">725k</span>
+    <span title="站点总字数">站点总字数 725k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">21:58</span>
+    <span title="站点阅读时长">站点阅读时长 21:58</span>
   </span>
 </div>
 <div class="busuanzi-count">
