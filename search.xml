@@ -603,6 +603,7 @@ https://developer.aliyun.com/article/940387
 <li><a href="https://theme-next.js.org/mist/docs/third-party-services/search-services.html?highlight=search">Detail Configuration</a></li>
 </ol>
 <h3 id="hexo-next-不生成tag页面解决方案"><a href="#hexo-next-不生成tag页面解决方案" class="headerlink" title="hexo next 不生成tag页面解决方案"></a>hexo next 不生成tag页面解决方案</h3><p><a href="https://blog.csdn.net/yinjiangQAQ/article/details/103951416">https://blog.csdn.net/yinjiangQAQ/article/details/103951416</a></p>
+<h3 id="hexo-阅读排行榜"><a href="#hexo-阅读排行榜" class="headerlink" title="hexo 阅读排行榜"></a>hexo 阅读排行榜</h3><p>感觉不好弄，而且需要依赖另外一个计数系统 <a href="https://www.jianshu.com/p/27b971d84f76">https://www.jianshu.com/p/27b971d84f76</a></p>
 <h3 id="Note：宝塔-部署-Hexo，没有意义。hexo-写博客流程"><a href="#Note：宝塔-部署-Hexo，没有意义。hexo-写博客流程" class="headerlink" title="Note：宝塔 部署 Hexo，没有意义。hexo 写博客流程"></a>Note：宝塔 部署 Hexo，没有意义。hexo 写博客流程</h3><pre><code>github.io
 还是选择使用hexo.io的构架，能长久！文档，本地编辑，git。
 不依赖vps或服务器。
@@ -10738,10 +10739,8 @@ var CN\_INTEGER = "整";
 </ul>
 <h2 id="实测操作体验-应用"><a href="#实测操作体验-应用" class="headerlink" title="实测操作体验&#x2F;应用"></a>实测操作体验&#x2F;应用</h2><p>请使用USB线直连电话，不能通过拓展坞。否则USB Debugger会无法检测到设备 </p>
 <ol>
-<li><p>将手机和电脑连接到同一局域网</p>
-</li>
-<li><p>安卓手机端在开发者选项中打开 USB 调试</p>
-<ol>
+<li>将手机和电脑连接到同一局域网</li>
+<li>安卓手机端在开发者选项中打开 USB 调试<ol>
 <li>这个步骤不同的安卓手机会略微有差异，此处拿一加8T举例：打开设置</li>
 <li>拉到最下面找到并进入：“关于手机”</li>
 <li>找到并一直点击：“版本号”</li>
@@ -10751,18 +10750,52 @@ var CN\_INTEGER = "整";
 <li>开启：“USB调试”，“网络ADB调试”，“无线调试”</li>
 </ol>
 </li>
-<li><p>通过 USB 连接安卓手机到电脑</p>
-</li>
-<li><p>下面的步骤适用于scrcpy，下载后直接在Terminal中运行如下：<br>scrcpy -e</p>
-<p>应用在录屏上的命令：<br>把手机屏幕录制并保存为mp4文件，scrcpy to record screen with sound，手机的声音也可以一起录制到视频中。 命令举例：<br>scrcpy -S -e -r test20230904.mp4</p>
-</li>
+<li>通过 USB 连接安卓手机到电脑</li>
+<li>下面的步骤适用于scrcpy，下载后直接在Terminal中运行如下(二选一)：  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">//这是在WIFI连接的情况下</span><br><span class="line">scrcpy -e</span><br><span class="line"></span><br><span class="line">//这是在USB连接的情况下</span><br><span class="line">scrcpy -d</span><br></pre></td></tr></table></figure>
+
+应用在录屏上的命令：<br>把手机屏幕录制并保存为mp4文件，scrcpy to record screen with sound，手机的声音也可以一起录制到视频中。 命令举例：<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scrcpy \-S -e -r test20230904.mp4</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="QtScrcpy"><a href="#QtScrcpy" class="headerlink" title="QtScrcpy"></a>QtScrcpy</h2><ol>
 <li><p>下面的步骤适用于QtScrcpy.app</p>
 <p>点击刷新设备，会看到有设备号更新出来<br>点击获取设备 IP<br>点击启动 adbd<br>无线连接<br>再次点击刷新设备，发现多出了一个 IP 地址开头的设备，选择这个设备<br>启动服务</p>
 </li>
 </ol>
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>在电脑上玩安卓手游，电脑上操作手机，直播录屏。</p>
-<p>类似的说明&#x2F;分享：</p>
-<p><a href="https://zhuanlan.zhihu.com/p/625186339">好用工具第1期:手机电脑同屏QtScrcpy</a></p>
+<h2 id="错误信息调试与解决"><a href="#错误信息调试与解决" class="headerlink" title="错误信息调试与解决"></a>错误信息调试与解决</h2><p>错误消息#1：</p>
+<pre><code>ERROR: Could not find any ADB device over TCP/IP:
+ERROR:           (usb)  adb-e0ddd964-c6dr8S._adb-tls-connect._tcp.           offline  
+ERROR: Server connection failed
+</code></pre>
+<p>已经尝试过多次开启和关闭”USB调试”无效。这个时候，还是需要用Typec线，把手机和电脑连接在一起，重新尝试。<br>运行：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scrcpy --list-displays</span><br></pre></td></tr></table></figure>
+<p>会显示</p>
+<pre><code>scrcpy 2.1.1 &lt;https://github.com/Genymobile/scrcpy&gt;
+INFO: ADB device found:
+INFO:     --&gt;   (usb)  e0ddd964                        device  KB2000
+/opt/homebrew/Cellar/scrcpy/2.1.1/share/scrcpy/scrcpy-server: 1 file pushed, 0 skipped. 58.5 MB/s (56995 bytes in 0.001s)
+[server] INFO: List of displays:
+--display=0    (1080x2400)
+</code></pre>
+<p>说明设备已经被APP找到了，可见是（usb），这是可以使用scrcpy -d来连接。</p>
+<p>错误消息#2：</p>
+<pre><code>scrcpy 2.1.1 &lt;https://github.com/Genymobile/scrcpy&gt;
+ERROR: Could not find any ADB device over TCP/IP:
+ERROR:           (usb)  e0ddd964                        device  KB2000
+ERROR: Server connection failed
+</code></pre>
+<p>可能是使用错了命令，-e 是用于连接网络相连的手机， -d 是用于连接USB（Typec）的手机。<br>参数说明：</p>
+<pre><code>-e, --select-tcpip
+    Use TCP/IP device (if there is exactly one, like adb -e).
+    Also see -d (--select-usb).
+
+-d, --select-usb
+    Use USB device (if there is exactly one, like adb -d).
+    Also see -e (--select-tcpip).
+
+--list-displays
+    List device displays.
+</code></pre>
+<h3 id="类似的说明-分享："><a href="#类似的说明-分享：" class="headerlink" title="类似的说明&#x2F;分享："></a>类似的说明&#x2F;分享：</h3><p><a href="https://zhuanlan.zhihu.com/p/625186339">好用工具第1期:手机电脑同屏QtScrcpy</a></p>
 ]]></content>
   </entry>
   <entry>
