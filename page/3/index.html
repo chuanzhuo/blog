@@ -157,7 +157,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/blog/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -185,6 +185,141 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2021/11/23/GitHub-fatal-unable-to-access-https-github-com-Failed-to-connect-to-github-com-port-443-Operation-timed-out-CarlZeng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2021/11/23/GitHub-fatal-unable-to-access-https-github-com-Failed-to-connect-to-github-com-port-443-Operation-timed-out-CarlZeng/" class="post-title-link" itemprop="url">[GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-11-23 11:11:00" itemprop="dateCreated datePublished" datetime="2021-11-23T11:11:00+08:00">2021-11-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>2021年11月，由于天朝众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解题思路，希望对你有帮助：</p>
+<h3 id="Errors"><a href="#Errors" class="headerlink" title="Errors"></a>Errors</h3><ul>
+<li>fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a>‘: Failed to connect to github.com port 443: Operation timed out</li>
+<li>fatal: Authentication failed for ‘<a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a>‘</li>
+<li>fatal unable to access <a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a> LibreSSL SSL_connect SSL_ERROR_SYSCALL in connection to github.com 443</li>
+</ul>
+<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes:"></a>Notes:</h3><p>Don’t verify the operation in editor(WebStorm,IntelliJ IDEA…etc), use command(Mac’s terminal.app), use terminal.app</p>
+<hr>
+<h3 id="Solutions-for-Operation-timed-out"><a href="#Solutions-for-Operation-timed-out" class="headerlink" title="Solutions for: Operation timed out"></a>Solutions for: Operation timed out</h3><p>1. Fix the hosts to make sure the ssh connection between your Computer and github.com is availble(修复连接到github.com)</p>
+<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#109;">&#x67;&#105;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#109;</a></p>
+<p>1.1 记录下github的IP地址, 把IP Address 记录下来</p>
+<p>打开<a target="_blank" rel="noopener" href="https://github.com.ipaddress.com/">https://github.com.ipaddress.com/</a> </p>
+<p>打开<a target="_blank" rel="noopener" href="https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo">https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo</a></p>
+<p>打开<a target="_blank" rel="noopener" href="https://github.com.ipaddress.com/assets-cdn.github.com">https://github.com.ipaddress.com/assets-cdn.github.com</a></p>
+<p>1.2 打开电脑的hosts文件（&#x2F;private&#x2F;etc&#x2F;hosts），把下列的地址对应写入，然后保存即可（version2021.11.23）</p>
+<p># Github Start. Updated 20211123&#x2F;CZ 140.82.113.3 github.com 199.232.69.194 github.global.ssl.fastly.net 185.199.108.153 assets-cdn.github.com 185.199.109.153 assets-cdn.github.com 185.199.110.153 assets-cdn.github.com 185.199.111.153 assets-cdn.github.com</p>
+<h1 id="Github-End"><a href="#Github-End" class="headerlink" title="Github End"></a>Github End</h1><p>1.3 在终端在输以下指令刷新DNS（需要权限）</p>
+<p>sudo killall -HUP mDNSResponder</p>
+<p>1.4 如果之前用ssh proxy，取消它</p>
+<p>git config –global http.proxy <a target="_blank" rel="noopener" href="http://127.0.0.1:1080/">http://127.0.0.1:1080</a> git config --global https.proxy <a target="_blank" rel="noopener" href="http://127.0.0.1:1080/">http://127.0.0.1:1080</a> git config --global –unset http.proxy<br>git config --global –unset https.proxy</p>
+<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#103;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;</a></p>
+<p>新的错误可能和授权有关，至少证明连接到github.com是通的。</p>
+<hr>
+<h3 id="Solutions-for-Authentication"><a href="#Solutions-for-Authentication" class="headerlink" title="Solutions for: Authentication"></a>Solutions for: Authentication</h3><p>2. Create new Token and login to github.com (新建密钥并登陆进github.com)</p>
+<p>Verify Standard 判断标准：$ git pull</p>
+<p>2.1 Creating a personal access token at <a target="_blank" rel="noopener" href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></p>
+<p>授权_admin:org, admin:public_key, admin:repo_hook, gist, read:user, repo, <em>write:packages</em>_</p>
+<p>具体步骤：<a target="_blank" rel="noopener" href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token</a></p>
+<p>2.2 Terminal.app 命令行，运行 git pull（先要cd 到原来的git 根目录）</p>
+<p>Username for ‘<a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a>‘:  （这个地方输入登录github网址用的用户名，我的是用9个英文字母）<br>Password for ‘https:&#x2F;&#x2F;***@github.com’:  （这个地方要是输入#2.1中得到的Token）</p>
+<p>2.3 判断一下连接和授权，如果需要ssh连接，继续添加配置以下。</p>
+<p>2.4 生成ssh密钥。Generating a new SSH key and adding it to the ssh-agent。具体步骤简要如下：</p>
+<p>$ ssh-keygen -t ed25519 -C “your_<a href="mailto:&#x65;&#109;&#x61;&#x69;&#x6c;&#x40;&#101;&#x78;&#97;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#109;">&#x65;&#109;&#x61;&#x69;&#x6c;&#x40;&#101;&#x78;&#97;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#109;</a>“</p>
+<blockquote>
+<p>Enter a file in which to save the key (&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_algorithm): [Press enter] &gt; Enter passphrase (empty for no passphrase): [Type a passphrase] &gt; Enter same passphrase again: [Type passphrase again] -————————————————— $ eval “$(ssh-agent -s)”<br>Agent pid 59566</p>
+</blockquote>
+<p>—————————————————- $ touch ~&#x2F;.ssh&#x2F;config<br>加入以下内容：<br>Host * AddKeysToAgent yes<br>  UseKeychain yes<br>  IdentityFile ~&#x2F;.ssh&#x2F;id_ed25519 -————————————————— $ ssh-add -K ~&#x2F;.ssh&#x2F;id_ed25519</p>
+<p>2.5 协助排查：github服务端的日志，显示有用的连接信息，用来验证链路是否握手成功等等</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/settings/security-log">https://github.com/settings/security-log</a></p>
+<p>尽量把验证都放在命令行中，这样更高效直接（在IDE中操作，在验证太费劲了），terminal成功以后，IDEA会自动也成功，因为它们分享相同的配置（git 根目录下面有.git的配置目录）</p>
+<p>参见文档：</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904193170341896">https://juejin.cn/post/6844904193170341896</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -262,6 +397,124 @@
 <p><a target="_blank" rel="noopener" href="https://www.taniarascia.com/getting-started-with-react">https://www.taniarascia.com/getting-started-with-react</a></p>
 <p>Installed React debug tool<br><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-debug-react-components-using-react-developer-tools">https://www.digitalocean.com/community/tutorials/how-to-debug-react-components-using-react-developer-tools</a></p>
 <p>Sample:<br><a target="_blank" rel="noopener" href="https://react-devtools-tutorial.vercel.app/">https://react-devtools-tutorial.vercel.app/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2021/11/08/K2P%E5%88%B7%E6%9C%BA-%E5%9D%90%E6%A0%87%E5%8C%97%E4%BA%ACUnicom-CarlZeng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2021/11/08/K2P%E5%88%B7%E6%9C%BA-%E5%9D%90%E6%A0%87%E5%8C%97%E4%BA%ACUnicom-CarlZeng/" class="post-title-link" itemprop="url">K2P刷机-坐标北京Unicom-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-11-08 11:17:00" itemprop="dateCreated datePublished" datetime="2021-11-08T11:17:00+08:00">2021-11-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Openwrt可以实现很多功能，目前我主要是让K2P实现双播让上行带宽提速。</p>
+<p>其他的实践不如：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/backuper/p/4028173.html">https://www.cnblogs.com/backuper/p/4028173.html</a></p>
+<p>K2P A2版本，其他固件也一样能实现这个基本功能，比如高格等等，不同地区(不同ISP)建议找找老司机的实践经验分享。</p>
+<h1 id="思路-步骤"><a href="#思路-步骤" class="headerlink" title="思路&#x2F;步骤"></a>思路&#x2F;步骤</h1><h2 id="1-刷入breed"><a href="#1-刷入breed" class="headerlink" title="1. 刷入breed"></a>1. 刷入breed</h2><p>断电，长按Reset键，通电10s以上；如果是Mac电脑没有网线接口，可以通过Lan口连接到其他的路由器来访问192.168.1.1</p>
+<p>如果发现不是breed平台，就刷一下；因为下面的固件对breed支持比较好。据说备份一下eeprom.bin(留着备不时之需)</p>
+<p>刷机文件名：breed-mt7621-phicomm-k2p.bin</p>
+<h2 id="2-刷入支持单线多播的Openwrt"><a href="#2-刷入支持单线多播的Openwrt" class="headerlink" title="2. 刷入支持单线多播的Openwrt"></a>2. 刷入支持单线多播的Openwrt</h2><p>注意事项有：</p>
+<p>1. breed 刷 选择斐讯分区</p>
+<p>2. 刷完成后，开机连接名字为Openwrt的WIFI，用户名密码：root password；恢复出厂设置，这里恢复清理一下避免一些后续配置发生不明问题。</p>
+<p>3. 网络》接口，配置好wan口的adsl用户名密码</p>
+<p>4. 网络〉多线多播， 启用，单线多播，虚拟WAN接口数量 2；最低在线接口数量2；</p>
+<p>（播出太多，并没有实际意义，反而降低了K2P的其他硬件性能，主要是无法叠加，没实际意义）</p>
+<p>目前可用的下载链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1iK35emaVfAnIEgFlMyprmg">https://pan.baidu.com/s/1iK35emaVfAnIEgFlMyprmg</a>  密码: 4vva </p>
+<p>刷机文件名：openwrt-ramips-mt7621-phicomm_k2p-squashfs-sysupgrade0509.bin</p>
+<h2 id="3-改桥接"><a href="#3-改桥接" class="headerlink" title="3. 改桥接"></a>3. 改桥接</h2><p>也可以直接购买刷好的机器，跳过上面2步；因为拥有了设备，下一步就是改桥接。</p>
+<p>两种情况，按实际情况对号入座，或按需顺序执行。</p>
+<p>1. 光猫性能老旧无千兆口，打电话给客服报告：同址移机；升级千兆口光猫，装修导致老光猫弄***（思考一下怎么说）</p>
+<p>2. 打电话给客服，报告死机无法上网等现象，光猫性能缺陷导致；第二天，技术人员打电话沟通，让他远程改一下桥接。</p>
+<h2 id="4-改桥接后继续通过K2P路由器访问光猫"><a href="#4-改桥接后继续通过K2P路由器访问光猫" class="headerlink" title="4. 改桥接后继续通过K2P路由器访问光猫"></a>4. 改桥接后继续通过K2P路由器访问光猫</h2><p>改桥接后，猫地址192.168.1.1 网断；K2P地址192.168.2.1网段；Openwrt无法让局域网内192.168.2.0网段内客户端访问192.168.1.1这个猫地址。</p>
+<p>网络 》 接口 菜单下新建一个接口，协议选dhcp客户端（高级菜单里的使用默认网关去掉勾选），</p>
+<p>物理接口选wan口对应的接口，保存后就能获取到192.168.1.0段的ip了</p>
+<p>然后两个网段就可以互通了（可以不用切换网络直接访问光猫和路由器）。</p>
+<p>这样就方便了平时路由器下的客户端，访问192.168.1.1的猫地址。</p>
+<p>现实生活中，根据弱点箱布线，水电工经常把线都是集中拉在弱点箱中，无法实现光猫上的其他口上网就需要其他的交换机或者别的路由器来让其他的有线上网；</p>
+<p>思路：可以从路由器在返回一条网线来给交换机（简单粗暴，已实践），或者让猫的其他口可上网（关闭猫的DHCP，接上路由器返回的网线即可，暂未实践）</p>
+<p>参考文献：</p>
+<p><a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-4058509-1-1.html">https://www.right.com.cn/forum/thread-4058509-1-1.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://post.smzdm.com/p/aoxqe86m/">https://post.smzdm.com/p/aoxqe86m/</a></p>
 
       
     </div>
@@ -1212,107 +1465,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2021/02/23/git-tag-and-NetSuite-deployment-tracking-CarlZeng/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Carl Zeng">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2021/02/23/git-tag-and-NetSuite-deployment-tracking-CarlZeng/" class="post-title-link" itemprop="url">git tag and NetSuite deployment tracking-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-02-23 11:21:00" itemprop="dateCreated datePublished" datetime="2021-02-23T11:21:00+08:00">2021-02-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.7k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>While we have team to maintain same project and (some times) same file, we use git commit to track feature by feature(or update by update) refinements&#x2F;updates.  Each commit will pass to testing team for testing(usually testing in sandbox before deployment&#x2F;release to Production), </p>
-<p>- There are chances of deploy multiple commits, after testing and confirm</p>
-<p>- There can be few days or weeks after the commit been deploy&#x2F;release to Production.</p>
-<p>-- At that time, we might already forget where and when the last update has been made(even sometimes the feature&#x2F;refinement has been forgotten), where is the last production version&#x2F;status</p>
-<p>- So here comes the challenge:</p>
-<p>How to use Git branch to maintain the tesing commit to released PRD status?<br>Is there any comment or tag to show the status of the deployment to PRD<br>or the deployment note?<br>Use Tag?</p>
-<p>The light way, fast way to do this can be git tag, we can create a simple tag AT deployment date&#x2F;process.</p>
-<p>By doing that, we track the last deployment commit&#x2F;point; so we knows where is the status in Production, and the lasttest commit(s) in the branch log.  Each to refresh the memory on what updates has been made in sandbox(i.e.)</p>
-<p>Detail operation, we can reference on the git tag usage, I.e. this article <a target="_blank" rel="noopener" href="https://www.codenong.com/cs106325649/">https://www.codenong.com/cs106325649/</a></p>
-<p>How to given more note&#x2F;description for Deployment Notes&#x2F;Steps(some times it related with new custom objects), git tag has the comment paramter, the other way is to keep the deployment note in the commit message.</p>
-<p>The other ways is using Branch to track the production status, but that will consume more times between deployment process, we can choose this option in same cases, depends on the project situation.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2021/01/23/Version-Control-System-IntelliJ-IDEA-Create-a-Git-Repository-for-a-Project-and-push-to-multiple-remotes-CarlZeng/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1446,7 +1598,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2020/12/14/SWOT-Challenges-to-upgrade-to-MacOS-Big-Sur-Version-11-0-1-CarlZeng/">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2021/02/23/git-tag-and-NetSuite-deployment-tracking-CarlZeng/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -1464,7 +1616,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2020/12/14/SWOT-Challenges-to-upgrade-to-MacOS-Big-Sur-Version-11-0-1-CarlZeng/" class="post-title-link" itemprop="url">SWOT, Challenges to upgrade to MacOS Big Sur (Version 11.0.1)-CarlZeng</a>
+          <a href="/blog/2021/02/23/git-tag-and-NetSuite-deployment-tracking-CarlZeng/" class="post-title-link" itemprop="url">git tag and NetSuite deployment tracking-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1475,7 +1627,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-12-14 10:44:00" itemprop="dateCreated datePublished" datetime="2020-12-14T10:44:00+08:00">2020-12-14</time>
+      <time title="创建时间：2021-02-23 11:21:00" itemprop="dateCreated datePublished" datetime="2021-02-23T11:21:00+08:00">2021-02-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1492,14 +1644,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>958</span>
+      <span>1.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -1510,21 +1662,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>SWOT stands for Strengths, Weaknesses, Opportunities, and Threats</p>
-<p><strong>Strengths:</strong></p>
-<p>Better view, Clean up more disk spaces(since some apps is not working)</p>
-<p>The Power can work longer time</p>
-<p>System working faster</p>
-<p><strong>Weaknesses:</strong></p>
-<p>* HP 1010 Printer is not working(Not able to print with HP Deskjet 1010 and macOS Big Sur)</p>
-<p>Solution:  Download a very old driver for OS X10.6 for HP and it worked. <a target="_blank" rel="noopener" href="https://support.hp.com/us-en/drivers/selfservice/closure/hp-deskjet-1010-printer-series/5157543/model/5157545?ssfFlag=true&sku=">https://support.hp.com/us-en/drivers/selfservice/closure/hp-deskjet-1010-printer-series/5157543/model/5157545?ssfFlag=true&amp;sku=</a></p>
-<p>Download will got a ‘HP Easy Start.app’, install it.</p>
-<p>* Parallels Desktop for Mac compatibility with macOS 11 Big Sur – Known and Resolved Issues</p>
-<p>Solution: Remove Parallels, use back to VMware, ‘VMware_Fusion_Pro_12.1.0_Build_17195230__macwk.com’</p>
-<p>It working great for Windows XP. (verified date 2021-01-14)</p>
-<p><strong>Opportunities:</strong></p>
-<p><strong>Threats:</strong></p>
-<p>Your Mac Sounds will broken, one of the sound broken after I upgraded to Big Sur :(  very likely caused by the system upgrade action.</p>
+          <p>While we have team to maintain same project and (some times) same file, we use git commit to track feature by feature(or update by update) refinements&#x2F;updates.  Each commit will pass to testing team for testing(usually testing in sandbox before deployment&#x2F;release to Production), </p>
+<p>- There are chances of deploy multiple commits, after testing and confirm</p>
+<p>- There can be few days or weeks after the commit been deploy&#x2F;release to Production.</p>
+<p>-- At that time, we might already forget where and when the last update has been made(even sometimes the feature&#x2F;refinement has been forgotten), where is the last production version&#x2F;status</p>
+<p>- So here comes the challenge:</p>
+<p>How to use Git branch to maintain the tesing commit to released PRD status?<br>Is there any comment or tag to show the status of the deployment to PRD<br>or the deployment note?<br>Use Tag?</p>
+<p>The light way, fast way to do this can be git tag, we can create a simple tag AT deployment date&#x2F;process.</p>
+<p>By doing that, we track the last deployment commit&#x2F;point; so we knows where is the status in Production, and the lasttest commit(s) in the branch log.  Each to refresh the memory on what updates has been made in sandbox(i.e.)</p>
+<p>Detail operation, we can reference on the git tag usage, I.e. this article <a target="_blank" rel="noopener" href="https://www.codenong.com/cs106325649/">https://www.codenong.com/cs106325649/</a></p>
+<p>How to given more note&#x2F;description for Deployment Notes&#x2F;Steps(some times it related with new custom objects), git tag has the comment paramter, the other way is to keep the deployment note in the commit message.</p>
+<p>The other ways is using Branch to track the production status, but that will consume more times between deployment process, we can choose this option in same cases, depends on the project situation.</p>
 
       
     </div>
@@ -1624,6 +1772,111 @@
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2020/12/14/SWOT-Challenges-to-upgrade-to-MacOS-Big-Sur-Version-11-0-1-CarlZeng/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2020/12/14/SWOT-Challenges-to-upgrade-to-MacOS-Big-Sur-Version-11-0-1-CarlZeng/" class="post-title-link" itemprop="url">SWOT, Challenges to upgrade to MacOS Big Sur (Version 11.0.1)-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-14 10:44:00" itemprop="dateCreated datePublished" datetime="2020-12-14T10:44:00+08:00">2020-12-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>958</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>SWOT stands for Strengths, Weaknesses, Opportunities, and Threats</p>
+<p><strong>Strengths:</strong></p>
+<p>Better view, Clean up more disk spaces(since some apps is not working)</p>
+<p>The Power can work longer time</p>
+<p>System working faster</p>
+<p><strong>Weaknesses:</strong></p>
+<p>* HP 1010 Printer is not working(Not able to print with HP Deskjet 1010 and macOS Big Sur)</p>
+<p>Solution:  Download a very old driver for OS X10.6 for HP and it worked. <a target="_blank" rel="noopener" href="https://support.hp.com/us-en/drivers/selfservice/closure/hp-deskjet-1010-printer-series/5157543/model/5157545?ssfFlag=true&sku=">https://support.hp.com/us-en/drivers/selfservice/closure/hp-deskjet-1010-printer-series/5157543/model/5157545?ssfFlag=true&amp;sku=</a></p>
+<p>Download will got a ‘HP Easy Start.app’, install it.</p>
+<p>* Parallels Desktop for Mac compatibility with macOS 11 Big Sur – Known and Resolved Issues</p>
+<p>Solution: Remove Parallels, use back to VMware, ‘VMware_Fusion_Pro_12.1.0_Build_17195230__macwk.com’</p>
+<p>It working great for Windows XP. (verified date 2021-01-14)</p>
+<p><strong>Opportunities:</strong></p>
+<p><strong>Threats:</strong></p>
+<p>Your Mac Sounds will broken, one of the sound broken after I upgraded to Big Sur :(  very likely caused by the system upgrade action.</p>
+
       
     </div>
 
@@ -2172,98 +2425,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2019/03/05/%E8%BF%99%E6%A0%B7%E7%9A%84%E6%97%B6%E5%88%BB%EF%BC%9A%E8%AF%9D%E4%B8%8D%E5%A4%9A%E8%AF%B4%EF%BC%8C%E5%B0%B1%E4%B8%80%E5%8F%A5-CarlZeng/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Carl Zeng">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2019/03/05/%E8%BF%99%E6%A0%B7%E7%9A%84%E6%97%B6%E5%88%BB%EF%BC%9A%E8%AF%9D%E4%B8%8D%E5%A4%9A%E8%AF%B4%EF%BC%8C%E5%B0%B1%E4%B8%80%E5%8F%A5-CarlZeng/" class="post-title-link" itemprop="url">这样的时刻：话不多说，就一句-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-03-05 10:25:00" itemprop="dateCreated datePublished" datetime="2019-03-05T10:25:00+08:00">2019-03-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>29</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>“两会来了，Internet颤抖了；”</p>
-<p>（至少要抖上18天）</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2019/02/20/How-to-run-a-NetSuite-scheduled-script-at-every-month-end-CarlZeng/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2354,105 +2515,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/2019/02/19/NetSuite-merge-PDF-in-SuiteScript-2-0-in-progress-CarlZeng/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Carl Zeng">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2019/02/19/NetSuite-merge-PDF-in-SuiteScript-2-0-in-progress-CarlZeng/" class="post-title-link" itemprop="url">NetSuite merge PDF in SuiteScript 2.0 [in-progress]-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-02-19 17:48:00" itemprop="dateCreated datePublished" datetime="2019-02-19T17:48:00+08:00">2019-02-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>936</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>An example below shows the how PDF files are being merged using <pdfset> tag. For compiled PDF files to be merged, use the src property of pdf.</p>
-<p>var xmlF &#x3D; ‘<?xml version=”1.0″?></p>
-<!DOCTYPE pdf PUBLIC “-//big.faceless.org//report” “report-1.1.dtd”><p>’;<br>xmlF +&#x3D; ‘<pdfset>’;</p>
-<p><em><pdf src="https://system.netsuite.com/core/media/media.nl?id=1"/></em></p>
-<p><em><pdf src="https://system.netsuite.com/core/media/media.nl?id=2"/></em></p>
-<p>xmlF +&#x3D; ‘</pdfset>‘;<br>xmlF &#x3D; xmlF.replace(&#x2F;&amp;(?!amp;)&#x2F;g, ‘&amp;’);<br>var file &#x3D; render.xmlToPdf({ xmlString: xmlF });<br>file.save();</p>
-<p>Sample2:</p>
-<p>var arrayWithUrls &#x3D; [“&#x2F;core&#x2F;media&#x2F;media.nl?id&#x3D;theid&amp;c&#x3D;myaccoutn&amp;h&#x3D;1122&amp;_xt&#x3D;.pdf”, “&#x2F;core&#x2F;media&#x2F;media.nl?id&#x3D;theid&amp;c&#x3D;myaccount&amp;h&#x3D;2233&amp;_xt&#x3D;.pdf”] var xml &#x3D; “<?xml version=\\"1.0\\"?>\n<!DOCTYPE pdf PUBLIC \\"-//big.faceless.org//report\\" \\"report-1.1.dtd\\">\n” xml +&#x3D; “<pdfset>“ xml +&#x3D; “<pdf>\n&lt;body font-size&#x3D;\“12\“&gt;\n<h2>Merged PDF</h2>\n” xml +&#x3D; “<p></p>“ xml +&#x3D; “Document body” xml +&#x3D; “</body>\n</pdf>“ arrayWithUrls.map(function (x) { var cleanPdfURL &#x3D; mxml.escape({<br>xmlText: x<br>});<br>xml +&#x3D; ‘<pdf src="https://system.netsuite.com' + cleanPdfURL + '"></pdf>‘ })<br>xml +&#x3D; “</pdfset>“</p>
-<p> <a target="_blank" rel="noopener" href="https://medium.com/@morrisdev/append-multiple-pdf-documents-in-netsuite-suitescripts-6542396a2343">https://medium.com/@morrisdev/append-multiple-pdf-documents-in-netsuite-suitescripts-6542396a2343</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/blog/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/15/">15</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/blog/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -2482,7 +2544,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">21:54</span>
+    <span title="站点阅读时长">21:55</span>
   </span>
 </div>
 <div class="busuanzi-count">

@@ -22,16 +22,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Pisces","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="动态公网IP（Dynamic Public IP）是指由互联网服务提供商（ISP）分配给用户的动态IP地址，该地址是公共的，可以在公共互联网上访问。与静态公网IP不同，动态公网IP是临时分配的，并且在一段时间后可能会更改。这意味着每次重新连接到互联网时，用户可能会被分配一个新的动态公网IP地址。 动态公网IP通常用于个人用户或小型企业，因为它们相对便宜，而且不需要用户进行任何配置或管理。但是，由于">
+    <meta name="description" content="动态公网IP 和 SRS 简介和现实中的应用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态公网IP 和 SRS-CarlZeng">
 <meta property="og:url" content="https://chuanzhuo.github.com/blog/2023/04/13/%E5%8A%A8%E6%80%81%E5%85%AC%E7%BD%91IP-%E5%92%8C-SRS-CarlZeng/index.html">
 <meta property="og:site_name" content="Carl Notes">
-<meta property="og:description" content="动态公网IP（Dynamic Public IP）是指由互联网服务提供商（ISP）分配给用户的动态IP地址，该地址是公共的，可以在公共互联网上访问。与静态公网IP不同，动态公网IP是临时分配的，并且在一段时间后可能会更改。这意味着每次重新连接到互联网时，用户可能会被分配一个新的动态公网IP地址。 动态公网IP通常用于个人用户或小型企业，因为它们相对便宜，而且不需要用户进行任何配置或管理。但是，由于">
+<meta property="og:description" content="动态公网IP 和 SRS 简介和现实中的应用">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-13T09:36:00.000Z">
-<meta property="article:modified_time" content="2023-10-02T02:27:29.072Z">
+<meta property="article:modified_time" content="2023-10-04T11:21:25.288Z">
 <meta property="article:author" content="Carl Zeng">
+<meta property="article:tag" content="动态公网IP">
+<meta property="article:tag" content="SRS">
 <meta name="twitter:card" content="summary">
 
 
@@ -161,7 +163,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/blog/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">33</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -273,7 +275,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+      <time title="修改时间：2023-10-04 19:21:25" itemprop="dateModified" datetime="2023-10-04T19:21:25+08:00">2023-10-04</time>
     </span>
 
   
@@ -307,11 +309,11 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>动态公网IP（Dynamic Public IP）是指由互联网服务提供商（ISP）分配给用户的动态IP地址，该地址是公共的，可以在公共互联网上访问。与静态公网IP不同，动态公网IP是临时分配的，并且在一段时间后可能会更改。这意味着每次重新连接到互联网时，用户可能会被分配一个新的动态公网IP地址。</p>
+    <div class="post-body" itemprop="articleBody"><p>动态公网IP（Dynamic Public IP）是指由互联网服务提供商（ISP）分配给用户的动态IP地址，该地址是公共的，可以在公共互联网上访问。<br>与静态公网IP不同，动态公网IP是临时分配的，并且在一段时间后可能会更改。这意味着每次重新连接到互联网时，用户可能会被分配一个新的动态公网IP地址。</p>
 <p>动态公网IP通常用于个人用户或小型企业，因为它们相对便宜，而且不需要用户进行任何配置或管理。但是，由于其不稳定性和易变性，动态公网IP可能不适合需要稳定和持久的互联网连接的大型企业或组织。</p>
 <p>联通的adsl用户可以打10010 叫客服打开“动态公网IP” + 路由器桥接。（<a target="_blank" rel="noopener" href="https://www.mi-d.cn/1590">缘由：需要动态公网ip做监控或者访问服务</a>）</p>
-<p>开启动态公网IP+路由器桥接以后, </p>
-<p>路由器上拨号即可得到一个公网IP. </p>
+<p>开启动态公网IP+路由器桥接以后,</p>
+<p>路由器上拨号即可得到一个公网IP.</p>
 <p>OpenWRT 路由器 设置端口映射， 即可将局域网内主机的端口 映射到公网IP的特定上。</p>
 <p>题外话（弯路）：（Padavan的系统，在端口映射是使用单独的工具（socat耗内存）来实现端口数据转发，OpenWrt的iptables更可靠，扎实稳定）</p>
 <p>下面以mac电脑，架设SRS服务器 来：分享流媒体至互联网。</p>
@@ -376,6 +378,10 @@
   </div>
 </div>
 
+          <div class="post-tags">
+              <a href="/blog/tags/%E5%8A%A8%E6%80%81%E5%85%AC%E7%BD%91IP/" rel="tag"># 动态公网IP</a>
+              <a href="/blog/tags/SRS/" rel="tag"># SRS</a>
+          </div>
 
         
   <div class="social-like a2a_kit a2a_kit_size_32 a2a_default_style">
@@ -430,7 +436,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">21:54</span>
+    <span title="站点阅读时长">21:55</span>
   </span>
 </div>
 <div class="busuanzi-count">
