@@ -22,12 +22,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Pisces","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="2021年11月更新：如果是K2P A2版本硬件，请参考更简易的步骤，更加高效，不需要太多代码知识。 K2P刷机-坐标北京Unicom  前题   硬件：路由器，刷入OpenWrt 一些背景知识和动手能力  目标效果图    步骤   使用SSH 登陆路由器。I.e. ssh &amp;#114;&amp;#111;&amp;#x6f;&amp;#116;&amp;#64;&amp;#x31;&amp;#x39;&amp;#50;&amp;#46;&amp;#49;&amp;#54">
+    <meta name="description" content="2021年11月更新：如果是K2P A2版本硬件，请参考更简易的步骤，更加高效，不需要太多代码知识。 K2P刷机-坐标北京Unicom  前题   硬件：路由器，刷入OpenWrt 一些背景知识和动手能力  目标效果图    步骤   使用SSH 登陆路由器。I.e. ssh &amp;#114;&amp;#111;&amp;#x6f;&amp;#x74;&amp;#x40;&amp;#49;&amp;#57;&amp;#50;&amp;#x2e;&amp;#49;&amp;#54">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenWrt &gt;  ADSL单线多拨，负载均衡（仅供参考）-CarlZeng">
 <meta property="og:url" content="https://chuanzhuo.github.com/blog/2016/03/22/OpenWrt-ADSL%E5%8D%95%E7%BA%BF%E5%A4%9A%E6%8B%A8%EF%BC%8C%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%EF%BC%88%E4%BB%85%E4%BE%9B%E5%8F%82%E8%80%83%EF%BC%89-CarlZeng/index.html">
 <meta property="og:site_name" content="随笔 Carl Notes">
-<meta property="og:description" content="2021年11月更新：如果是K2P A2版本硬件，请参考更简易的步骤，更加高效，不需要太多代码知识。 K2P刷机-坐标北京Unicom  前题   硬件：路由器，刷入OpenWrt 一些背景知识和动手能力  目标效果图    步骤   使用SSH 登陆路由器。I.e. ssh &amp;#114;&amp;#111;&amp;#x6f;&amp;#116;&amp;#64;&amp;#x31;&amp;#x39;&amp;#50;&amp;#46;&amp;#49;&amp;#54">
+<meta property="og:description" content="2021年11月更新：如果是K2P A2版本硬件，请参考更简易的步骤，更加高效，不需要太多代码知识。 K2P刷机-坐标北京Unicom  前题   硬件：路由器，刷入OpenWrt 一些背景知识和动手能力  目标效果图    步骤   使用SSH 登陆路由器。I.e. ssh &amp;#114;&amp;#111;&amp;#x6f;&amp;#x74;&amp;#x40;&amp;#49;&amp;#57;&amp;#50;&amp;#x2e;&amp;#49;&amp;#54">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/41238/201603/41238-20160323125607870-97593375.jpg">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/41238/201603/41238-20160326151505526-1086117574.jpg">
@@ -166,18 +166,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">300</span>
+          <span class="site-state-item-count">301</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/blog/categories/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/blog/tags/">
-        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-count">54</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -325,7 +325,7 @@
 <p><strong>步骤</strong></p>
 <hr>
 <ol>
-<li><p>使用SSH 登陆路由器。I.e. ssh <a href="mailto:&#114;&#111;&#x6f;&#116;&#64;&#x31;&#x39;&#50;&#46;&#49;&#54;&#x38;&#46;&#x32;&#46;&#x31;">&#114;&#111;&#x6f;&#116;&#64;&#x31;&#x39;&#50;&#46;&#49;&#54;&#x38;&#46;&#x32;&#46;&#x31;</a></p>
+<li><p>使用SSH 登陆路由器。I.e. ssh <a href="mailto:&#114;&#111;&#x6f;&#x74;&#x40;&#49;&#57;&#50;&#x2e;&#49;&#54;&#56;&#x2e;&#x32;&#46;&#49;">&#114;&#111;&#x6f;&#x74;&#x40;&#49;&#57;&#50;&#x2e;&#49;&#54;&#56;&#x2e;&#x32;&#46;&#49;</a></p>
 </li>
 <li><p>运行&#x2F;usr&#x2F;bin&#x2F;duobo。日志类似：</p>
 </li>
@@ -439,13 +439,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 754k</span>
+    <span title="站点总字数">站点总字数 746k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 22:51</span>
+    <span title="站点阅读时长">站点阅读时长 22:37</span>
   </span>
 </div>
 <div class="busuanzi-count">
