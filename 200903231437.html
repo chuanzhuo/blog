@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Pisces","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="来自Nine Javascript Gotchas, 以下是JavaScript容易犯错的九个陷阱。虽然不是什么很高深的技术问题，但注意一下，会使您的编程轻松些，即所谓make life easier. 笔者对某些陷阱会混杂一些评点。最后一个逗号如这段代码，注意最后一个逗号，按语言学角度来说应该是不错的（python的类似数据类型辞典dictionary就允许如此）。IE会报语法错误，但语焉不详，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript的9个陷阱及评点  -转载-CarlZeng">
+<meta property="og:url" content="https://chuanzhuo.github.com/blog/200903231437.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="来自Nine Javascript Gotchas, 以下是JavaScript容易犯错的九个陷阱。虽然不是什么很高深的技术问题，但注意一下，会使您的编程轻松些，即所谓make life easier. 笔者对某些陷阱会混杂一些评点。最后一个逗号如这段代码，注意最后一个逗号，按语言学角度来说应该是不错的（python的类似数据类型辞典dictionary就允许如此）。IE会报语法错误，但语焉不详，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2009-03-23T06:37:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:28.971Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://chuanzhuo.github.com/blog/200903231437.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://chuanzhuo.github.com/blog/200903231437.html","path":"200903231437.html","title":"JavaScript的9个陷阱及评点  -转载-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JavaScript的9个陷阱及评点  -转载-CarlZeng | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/blog/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人随笔 解决方案 IT技术 探讨请发邮件</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E9%80%97%E5%8F%B7"><span class="nav-number">1.</span> <span class="nav-text">最后一个逗号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this%E7%9A%84%E5%BC%95%E7%94%A8%E4%BC%9A%E6%94%B9%E5%8F%98"><span class="nav-number">2.</span> <span class="nav-text">this的引用会改变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%87%E8%AF%86%E7%9B%97%E8%B4%BC"><span class="nav-number">3.</span> <span class="nav-text">标识盗贼</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%AA%E6%9B%BF%E6%8D%A2%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8C%B9%E9%85%8D"><span class="nav-number">4.</span> <span class="nav-text">字符串只替换第一个匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mouseout%E6%84%8F%E5%91%B3%E7%9D%80mousein"><span class="nav-number">5.</span> <span class="nav-text">mouseout意味着mousein</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parseInt%E6%98%AF%E5%9F%BA%E4%BA%8E%E8%BF%9B%E5%88%B6%E4%BD%93%E7%B3%BB%E7%9A%84"><span class="nav-number">6.</span> <span class="nav-text">parseInt是基于进制体系的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#for-in-%E4%BC%9A%E9%81%8D%E5%8E%86%E6%89%80%E6%9C%89%E7%9A%84%E4%B8%9C%E8%A5%BF"><span class="nav-number">7.</span> <span class="nav-text">for...in...会遍历所有的东西</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%99%A8%E7%9A%84%E9%99%B7%E9%98%B1"><span class="nav-number">8.</span> <span class="nav-text">事件处理器的陷阱</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Focus-Pocus"><span class="nav-number">9.</span> <span class="nav-text">Focus Pocus</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">对个人而言，不要放弃学习，学习不能让你飞到云端，但可以让你免于跌入泥沼</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">302</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/blog/categories/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/blog/tags/">
+        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/200912081129.html" rel="bookmark">
+        <time class="popular-posts-time">2009-12-08</time>
+        <br>
+      js 转化为标准日期型-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/200904131139.html" rel="bookmark">
+        <time class="popular-posts-time">2009-04-13</time>
+        <br>
+      js 判断浏览器是否ie-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/200811241346.html" rel="bookmark">
+        <time class="popular-posts-time">2008-11-24</time>
+        <br>
+      js数字金额转换为英文金额(数字的中英文转化) 修正版-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/200902191736.html" rel="bookmark">
+        <time class="popular-posts-time">2009-02-19</time>
+        <br>
+      JS弹出一个等待对话框,js iframe等待 推荐一下-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/200906101022.html" rel="bookmark">
+        <time class="popular-posts-time">2009-06-10</time>
+        <br>
+      js 取得div高度-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/200903231437.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="对个人而言，不要放弃学习，学习不能让你飞到云端，但可以让你免于跌入泥沼">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JavaScript的9个陷阱及评点  -转载-CarlZeng | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript的9个陷阱及评点  -转载-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-03-23 14:37:00" itemprop="dateCreated datePublished" datetime="2009-03-23T14:37:00+08:00">2009-03-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>来自Nine Javascript Gotchas, 以下是JavaScript容易犯错的九个陷阱。虽然不是什么很高深的技术问题，但注意一下，会使您的编程轻松些，即所谓make life easier. 笔者对某些陷阱会混杂一些评点。最后一个逗号如这段代码，注意最后一个逗号，按语言学角度来说应该是不错的（python的类似数据类型辞典dictionary就允许如此）。IE会报语法错误，但语焉不详，…</p>
+<!-- more -->
+<p>来自<a target="_blank" rel="noopener" href="http://www.fitzblog.com/tabid/17782/bid/2127/Nine-Javascript-Gotchas.aspx">Nine Javascript Gotchas</a>, 以下是JavaScript容易犯错的九个陷阱。虽然不是什么很高深的技术问题，但注意一下，会使您的编程轻松些，即所谓make life easier. 笔者对某些陷阱会混杂一些评点。</p>
+<ol>
+<li><h4 id="最后一个逗号"><a href="#最后一个逗号" class="headerlink" title="最后一个逗号"></a>最后一个逗号</h4><p>如这段代码，注意最后一个逗号，按语言学角度来说应该是不错的（python的类似数据类型辞典dictionary就允许如此）。IE会报语法错误，但语焉不详，你只能用人眼从几千行代码中扫描。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var theObj = &#123;</span><br><span class="line">    city : &quot;Boston&quot;,</span><br><span class="line">    state : &quot;MA&quot;,</span><br><span class="line">    &#125;</span><br><span class="line">    &lt;/script&gt; </span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="this的引用会改变"><a href="#this的引用会改变" class="headerlink" title="this的引用会改变"></a><code>this</code>的引用会改变</h4><p>如这段代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;button&quot; value=&quot;Gotcha!&quot; id=&quot;MyButton&quot; &gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    var MyObject = function () &#123;</span><br><span class="line">    this.alertMessage = &quot;Javascript rules&quot;;</span><br><span class="line">    this.ClickHandler = function() &#123;</span><br><span class="line">    alert(this.alertMessage );</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;();</span><br><span class="line">    document.getElementById(&quot;theText&quot;).onclick =  MyObject.ClickHandler</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>并不如你所愿，答案并不是”JavaScript rules”。在执行<code>MyObject.ClickHandler</code>时，代码中红色这行，<code>this</code>的引用实际上指向的是<code>document.getElementById(&quot;theText&quot;)</code>的引用。可以这么解决：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;button&quot; value=&quot;Gotcha!&quot; id=&quot;theText&quot; &gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    var MyObject = function () &#123;</span><br><span class="line">    var self = this;</span><br></pre></td></tr></table></figure>
+
+<p>实质上，这就是<a target="_blank" rel="noopener" href="http://realazy.org/blog/2007/07/18/scope-in-javascript/">JavaScript作用域的问题</a>。如果你看过，你会发现解决方案不止一种。</p>
+</li>
+<li><h4 id="标识盗贼"><a href="#标识盗贼" class="headerlink" title="标识盗贼"></a>标识盗贼</h4><p>在JavaScript中不要使用跟HTML的id一样的变量名。如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;button&quot; id=&quot;TheButton&quot;&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    TheButton = get(&quot;TheButton&quot;);</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>IE会报对象未定义的错误。我只能说：IE sucks.</p>
+</li>
+<li><h4 id="字符串只替换第一个匹配"><a href="#字符串只替换第一个匹配" class="headerlink" title="字符串只替换第一个匹配"></a>字符串只替换第一个匹配</h4><p>如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var fileName = &quot;This is a title&quot;.replace(&quot; &quot;,&quot;_&quot;);</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>而实际上，结果是”<code>This_is a title</code>“. 在JavaScript中，<code>String.replace</code>的第一个参数应该是正则表达式。所以，正确的做法是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var fileName = &quot;This is a title&quot;.replace(/ /g,&quot;_&quot;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="mouseout意味着mousein"><a href="#mouseout意味着mousein" class="headerlink" title="mouseout意味着mousein"></a>mouseout意味着mousein</h4><p>事实上，这是由于事件冒泡导致的。IE中有<code>mouseenter</code>和<code>mouseleave</code>，但不是标准的。作者在此建议大家使用库比如YUI来解决问题。</p>
+</li>
+<li><h4 id="parseInt是基于进制体系的"><a href="#parseInt是基于进制体系的" class="headerlink" title="parseInt是基于进制体系的"></a><code>parseInt</code>是基于进制体系的</h4><p>这个是常识，可是很多人给忽略了<code>parseInt</code>还有第二个参数，用以指明进制。比如，<code>parseInt(&quot;09&quot;)</code>，如果你认为答案是9，那就错了。因为，在此，字符串以0开头，<code>parseInt</code>以八进制来处理它，在八进制中，<code>09</code>是非法，返回<code>false</code>，布尔值<code>false</code>转化成数值就是0. 因此，正确的做法是<code>parseInt(&quot;09&quot;, 10)</code>.</p>
+</li>
+<li><h4 id="for-in-会遍历所有的东西"><a href="#for-in-会遍历所有的东西" class="headerlink" title="for...in...会遍历所有的东西"></a><code>for...in...</code>会遍历所有的东西</h4><p>有一段这样的代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [5,10,15]</span><br><span class="line">    var total = 1;</span><br><span class="line">    for ( var x in arr) &#123;</span><br><span class="line">    total = total * arr[x];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行得好好的，不是吗？但是有一天它不干了，给我返回的值变成了<code>NaN</code>, 晕。我只不过引入了一个库而已啊。原来是这个库改写了<code>Array</code>的<code>prototype</code>，这样，我们的<code>arr</code>平白无过多出了一个属性（方法），而<code>for...in...</code>会把它给遍历出来。所以这样做才是比较安全的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for ( var x = 0; x &lt; arr.length; x++) &#123;</span><br><span class="line">    total = total * arr[x];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>其实，这也是污染基本类的<code>prototype</code>会带来危害的一个例证。</p>
+</li>
+<li><h4 id="事件处理器的陷阱"><a href="#事件处理器的陷阱" class="headerlink" title="事件处理器的陷阱"></a>事件处理器的陷阱</h4><p>这其实只会存在使用作为对象属性的事件处理器才会存在的问题。比如<code>window.onclick = MyOnClickMethod``这样的代码，这会复写掉之前的``window.onclick</code>事件，还可能导致IE的内容泄露（sucks again）。在IE还没有支持DOM 2的事件注册之前，作者建议使用库来解决问题，比如使用YUI:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">YAHOO.util.Event.addListener(window, &quot;click&quot;, MyOnClickMethod);</span><br></pre></td></tr></table></figure>
+
+<p>这应该也属于常识问题，但新手可能容易犯错。</p>
+</li>
+<li><h4 id="Focus-Pocus"><a href="#Focus-Pocus" class="headerlink" title="Focus Pocus"></a>Focus Pocus</h4><p>新建一个<code>input</code>文本元素，然后把焦点挪到它上面，按理说，这样的代码应该很自然：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var newInput = document.createElement(&quot;input&quot;);</span><br><span class="line">    document.body.appendChild(newInput);</span><br><span class="line">    newInput.focus();</span><br><span class="line">    newInput.select();</span><br></pre></td></tr></table></figure>
+
+<p>但是IE会报错（sucks again and again）。理由可能是当你执行<code>fouce()</code>的时候，元素尚未可用。因此，我们可以延迟执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var newInput = document.createElement(&quot;input&quot;);</span><br><span class="line">    newInput.id = &quot;TheNewInput&quot;;</span><br><span class="line">    document.body.appendChild(newInput);</span><br><span class="line">    setTimeout(function()&#123; //这里我使用闭包改写过，若有兴趣可以对比原文</span><br><span class="line">    document.getElementById(&#x27;TheNewInput&#x27;).focus();</span><br><span class="line">    document.getElementById(&#x27;TheNewInput&#x27;).select();&#125;, 10);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>在实践中，JavaScript的陷阱还有很多很多，大多是由于解析器的实现不到位而引起。这些东西一般都不会在教科书中出现，只能靠开发者之间的经验分享。谢天谢地，我们生活在网络时代，很多碰到的问题，一般都可以在Google中找到答案。</p>
+<p>-——————————–</p>
+<p>有些问题已经碰到了。很经典的文章！！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/blog/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/200903231431.html" rel="prev" title="跨站解决方案-转载-CarlZeng">
+                  <i class="fa fa-angle-left"></i> 跨站解决方案-转载-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/200903231634.html" rel="next" title="iframe 兼容  ie firefox 提交-CarlZeng">
+                  iframe 兼容  ie firefox 提交-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Carl 本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">站点总字数 748k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">站点阅读时长 22:41</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/blog/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

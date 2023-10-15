@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Pisces","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="将人民币数字转换成大写形式  JARON_DOT_CN 2004年4月27日  阅读:4537次  关键字：人民币,大写 [GOOGLE搜索更多资料] 　  用JavaScript编写了一功能函数，完成如下功能： 1、对一给定字符串，如：1234.55，转换成正确的中文货币描述：如：人民币壹仟贰佰叁拾四元五角五分 2、输入的字符串形式可以是以下几种：带分隔符的，如：123,456,789.00；不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="将人民币数字转换成大写形式-CarlZeng">
+<meta property="og:url" content="https://chuanzhuo.github.com/blog/200905251759.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="将人民币数字转换成大写形式  JARON_DOT_CN 2004年4月27日  阅读:4537次  关键字：人民币,大写 [GOOGLE搜索更多资料] 　  用JavaScript编写了一功能函数，完成如下功能： 1、对一给定字符串，如：1234.55，转换成正确的中文货币描述：如：人民币壹仟贰佰叁拾四元五角五分 2、输入的字符串形式可以是以下几种：带分隔符的，如：123,456,789.00；不">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2009-05-25T09:59:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:28.983Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://chuanzhuo.github.com/blog/200905251759.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://chuanzhuo.github.com/blog/200905251759.html","path":"200905251759.html","title":"将人民币数字转换成大写形式-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>将人民币数字转换成大写形式-CarlZeng | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/blog/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人随笔 解决方案 IT技术 探讨请发邮件</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">对个人而言，不要放弃学习，学习不能让你飞到云端，但可以让你免于跌入泥沼</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">302</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/blog/categories/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/blog/tags/">
+        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/200812191743.html" rel="bookmark">
+        <time class="popular-posts-time">2008-12-19</time>
+        <br>
+      关于suitescript 无法读取Item Number Field-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/200811241346.html" rel="bookmark">
+        <time class="popular-posts-time">2008-11-24</time>
+        <br>
+      js数字金额转换为英文金额(数字的中英文转化) 修正版-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/200901071017.html" rel="bookmark">
+        <time class="popular-posts-time">2009-01-07</time>
+        <br>
+      JavaScript While 循环-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/200810150015.html" rel="bookmark">
+        <time class="popular-posts-time">2008-10-15</time>
+        <br>
+      js fix小数点 和int的区别-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/200902121205.html" rel="bookmark">
+        <time class="popular-posts-time">2009-02-12</time>
+        <br>
+      netsuite suitelet 出报表样式的js循环-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/200905251759.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="对个人而言，不要放弃学习，学习不能让你飞到云端，但可以让你免于跌入泥沼">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="将人民币数字转换成大写形式-CarlZeng | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          将人民币数字转换成大写形式-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2009-05-25 17:59:00" itemprop="dateCreated datePublished" datetime="2009-05-25T17:59:00+08:00">2009-05-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>将人民币数字转换成大写形式 JARON_DOT_CN 2004年4月27日 阅读:4537次 关键字：人民币,大写 [GOOGLE搜索更多资料] 　 用JavaScript编写了一功能函数，完成如下功能： 1、对一给定字符串，如：1234.55，转换成正确的中文货币描述：如：人民币壹仟贰佰叁拾四元五角五分 2、输入的字符串形式可以是以下几种：带分隔符的，如：123,456,789.00；不…</p>
+<!-- more -->
+<p>将人民币数字转换成大写形式<br>JARON_DOT_CN 2004年4月27日 阅读:4537次  </p>
+<p>关键字：<a target="_blank" rel="noopener" href="http://www.google.cn/search?q=%E4%BA%BA%E6%B0%91%E5%B8%81,%E5%A4%A7%E5%86%99&start=0&ie=gb2312&oe=utf-8&client=pub-7916447012000715"><strong>人民币,大写</strong> [GOOGLE搜索更多资料]</a></p>
+<p>　</p>
+<p>用JavaScript编写了一功能函数，完成如下功能：</p>
+<p>1、对一给定字符串，如：1234.55，转换成正确的中文货币描述：如：人民币壹仟贰佰叁拾四元五角五分</p>
+<p>2、输入的字符串形式可以是以下几种：带分隔符的，如：123,456,789.00；不带分隔符的，如：123456789</p>
+<p>3、输出的中文货币描述要符合规范，如：0.3—-人民币三角；0.33—-人民币三角三分；1—-人民币壹元整<br>100—-人民币壹佰元整；1001—-人民币壹仟零壹元整；10000001—-人民币壹仟万零壹元整；<br>1001001—-人民币壹仟零壹万零壹元整，等</p>
+<p>4、最大转换能到百亿</p>
+<p>具体的代码如下：</p>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html>  
+<head>  
+<title></title>  
+<script language="jscript">  
+function convertCurrency(currencyDigits) {  
+// Constants:  
+var MAXIMUM\_NUMBER = 99999999999.99;  
+// Predefine the radix characters and currency symbols for output:  
+var CN\_ZERO = "零";  
+var CN\_ONE = "壹";  
+var CN\_TWO = "贰";  
+var CN\_THREE = "叁";  
+var CN\_FOUR = "肆";  
+var CN\_FIVE = "伍";  
+var CN\_SIX = "陆";  
+var CN\_SEVEN = "柒";  
+var CN\_EIGHT = "捌";  
+var CN\_NINE = "玖";  
+var CN\_TEN = "拾";  
+var CN\_HUNDRED = "佰";  
+var CN\_THOUSAND = "仟";  
+var CN\_TEN\_THOUSAND = "万";  
+var CN\_HUNDRED\_MILLION = "亿";  
+var CN\_SYMBOL = "人民币";  
+var CN\_DOLLAR = "元";  
+var CN\_TEN\_CENT = "角";  
+var CN\_CENT = "分";  
+var CN\_INTEGER = "整";  
+  
+<p>&#x2F;&#x2F; Variables:<br>var integral; &#x2F;&#x2F; Represent integral part of digit number.<br>var decimal; &#x2F;&#x2F; Represent decimal part of digit number.<br>var outputCharacters; &#x2F;&#x2F; The output result.<br>var parts;<br>var digits, radices, bigRadices, decimals;<br>var zeroCount;<br>var i, p, d;<br>var quotient, modulus;  </p>
+<p>&#x2F;&#x2F; Validate input string:<br>currencyDigits &#x3D; currencyDigits.toString();<br>if (currencyDigits &#x3D;&#x3D; “”) {<br>alert(“Empty input!”);<br>return “”;<br>}<br>if (currencyDigits.match(&#x2F;[^,.\d]&#x2F;) !&#x3D; null) {<br>alert(“Invalid characters in the input string!”);<br>return “”;<br>}<br>if ((currencyDigits).match(&#x2F;^((\d{1,3}(,\d{3})*(.((\d{3},)*\d{1,3}))?)|(\d+(.\d+)?))$&#x2F;) &#x3D;&#x3D; null) {<br>alert(“Illegal format of digit number!”);<br>return “”;<br>}  </p>
+<p>&#x2F;&#x2F; Normalize the format of input digits:<br>currencyDigits &#x3D; currencyDigits.replace(&#x2F;,&#x2F;g, “”); &#x2F;&#x2F; Remove comma delimiters.<br>currencyDigits &#x3D; currencyDigits.replace(&#x2F;^0+&#x2F;, “”); &#x2F;&#x2F; Trim zeros at the beginning.<br>&#x2F;&#x2F; Assert the number is not greater than the maximum number.<br>if (Number(currencyDigits) &gt; MAXIMUM_NUMBER) {<br>alert(“Too large a number to convert!”);<br>return “”;<br>}  </p>
+<p>&#x2F;&#x2F; Process the coversion from currency digits to characters:<br>&#x2F;&#x2F; Separate integral and decimal parts before processing coversion:<br>parts &#x3D; currencyDigits.split(“.”);<br>if (parts.length &gt; 1) {<br>integral &#x3D; parts[0];<br>decimal &#x3D; parts[1];<br>&#x2F;&#x2F; Cut down redundant decimal digits that are after the second.<br>decimal &#x3D; decimal.substr(0, 2);<br>}<br>else {<br>integral &#x3D; parts[0];<br>decimal &#x3D; “”;<br>}<br>&#x2F;&#x2F; Prepare the characters corresponding to the digits:<br>digits &#x3D; new Array(CN_ZERO, CN_ONE, CN_TWO, CN_THREE, CN_FOUR, CN_FIVE, CN_SIX, CN_SEVEN, CN_EIGHT, CN_NINE);<br>radices &#x3D; new Array(“”, CN_TEN, CN_HUNDRED, CN_THOUSAND);<br>bigRadices &#x3D; new Array(“”, CN_TEN_THOUSAND, CN_HUNDRED_MILLION);<br>decimals &#x3D; new Array(CN_TEN_CENT, CN_CENT);<br>&#x2F;&#x2F; Start processing:<br>outputCharacters &#x3D; “”;<br>&#x2F;&#x2F; Process integral part if it is larger than 0:<br>if (Number(integral) &gt; 0) {<br>zeroCount &#x3D; 0;<br>for (i &#x3D; 0; i &lt; integral.length; i++) {<br>p &#x3D; integral.length - i - 1;<br>d &#x3D; integral.substr(i, 1);<br>quotient &#x3D; p &#x2F; 4;<br>modulus &#x3D; p % 4;<br>if (d &#x3D;&#x3D; “0”) {<br>zeroCount++;<br>}<br>else {<br>if (zeroCount &gt; 0)<br>{<br>outputCharacters +&#x3D; digits[0];<br>}<br>zeroCount &#x3D; 0;<br>outputCharacters +&#x3D; digits[Number(d)] + radices[modulus];<br>}<br>if (modulus &#x3D;&#x3D; 0 &amp;&amp; zeroCount &lt; 4) {<br>outputCharacters +&#x3D; bigRadices[quotient];<br>}<br>}<br>outputCharacters +&#x3D; CN_DOLLAR;<br>}<br>&#x2F;&#x2F; Process decimal part if there is:<br>if (decimal !&#x3D; “”) {<br>for (i &#x3D; 0; i &lt; decimal.length; i++) {<br>d &#x3D; decimal.substr(i, 1);<br>if (d !&#x3D; “0”) {<br>outputCharacters +&#x3D; digits[Number(d)] + decimals[i];<br>}<br>}<br>}<br>&#x2F;&#x2F; Confirm and return the final output string:<br>if (outputCharacters &#x3D;&#x3D; “”) {<br>outputCharacters &#x3D; CN_ZERO + CN_DOLLAR;<br>}<br>if (decimal &#x3D;&#x3D; “”) {<br>outputCharacters +&#x3D; CN_INTEGER;<br>}<br>outputCharacters &#x3D; CN_SYMBOL + outputCharacters;<br>return outputCharacters;<br>}<br></script>  </p>
+</head>  
+<body>  
+<INPUT id="Digits" type="text" name="Digits" size=20>  
+<INPUT id="Convert" type="button" value="Convert" name="Convert" onclick="Result.value = convertCurrency(Digits.value);">  
+<INPUT id="Result" type="text" name="Result" size=60>  
+</body>  
+</html>  
+
+<p>以上代码运用了正则表达式的功能，除了可以正确的转换成人民币的大写形式以外，还可以判断输入的形式是否正确有效。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/blog/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/200905251751.html" rel="prev" title="网站文档如何在最短的时间内被Google收录？-CarlZeng">
+                  <i class="fa fa-angle-left"></i> 网站文档如何在最短的时间内被Google收录？-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/200905251759.html" rel="next" title="UTF-8转GB2312函数 {装载 http://www.jaron.cn/chs_scripts/8/2006-10/101872.shtml}-CarlZeng">
+                  UTF-8转GB2312函数 {装载 http://www.jaron.cn/chs_scripts/8/2006-10/101872.shtml}-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Carl 本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">站点总字数 748k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">站点阅读时长 22:41</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/blog/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

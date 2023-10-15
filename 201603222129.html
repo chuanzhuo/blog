@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Pisces","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="2021年11月更新：如果是K2P A2版本硬件，请参考更简易的步骤，更加高效，不需要太多代码知识。 K2P刷机-坐标北京Unicom  前题   硬件：路由器，刷入OpenWrt 一些背景知识和动手能力  目标效果图    步骤   使用SSH 登陆路由器。I.e. ssh &amp;#114;&amp;#111;&amp;#111;&amp;#x74;&amp;#64;&amp;#x31;&amp;#x39;&amp;#50;&amp;#x2e;&amp;#49;&amp;#5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenWrt &gt;  ADSL单线多拨，负载均衡（仅供参考）-CarlZeng">
+<meta property="og:url" content="https://chuanzhuo.github.com/blog/201603222129.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="2021年11月更新：如果是K2P A2版本硬件，请参考更简易的步骤，更加高效，不需要太多代码知识。 K2P刷机-坐标北京Unicom  前题   硬件：路由器，刷入OpenWrt 一些背景知识和动手能力  目标效果图    步骤   使用SSH 登陆路由器。I.e. ssh &amp;#114;&amp;#111;&amp;#111;&amp;#x74;&amp;#64;&amp;#x31;&amp;#x39;&amp;#50;&amp;#x2e;&amp;#49;&amp;#5">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/41238/201603/41238-20160323125607870-97593375.jpg">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/41238/201603/41238-20160326151505526-1086117574.jpg">
+<meta property="og:image" content="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif">
+<meta property="og:image" content="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif">
+<meta property="og:image" content="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif">
+<meta property="og:image" content="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif">
+<meta property="og:image" content="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif">
+<meta property="article:published_time" content="2016-03-22T13:29:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:29.031Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/41238/201603/41238-20160323125607870-97593375.jpg">
+
+
+<link rel="canonical" href="https://chuanzhuo.github.com/blog/201603222129.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://chuanzhuo.github.com/blog/201603222129.html","path":"201603222129.html","title":"OpenWrt >  ADSL单线多拨，负载均衡（仅供参考）-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>OpenWrt >  ADSL单线多拨，负载均衡（仅供参考）-CarlZeng | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/blog/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人随笔 解决方案 IT技术 探讨请发邮件</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">对个人而言，不要放弃学习，学习不能让你飞到云端，但可以让你免于跌入泥沼</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">302</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/blog/categories/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/blog/tags/">
+        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/201903200846.html" rel="bookmark">
+        <time class="popular-posts-time">2019-03-20</time>
+        <br>
+      SuiteScript 2.0 Error: SSS_INVALID_SRCH_FILTER_EXPR_TYPE-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/201003171140.html" rel="bookmark">
+        <time class="popular-posts-time">2010-03-17</time>
+        <br>
+      js 动态表格举例-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/201603222129.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="对个人而言，不要放弃学习，学习不能让你飞到云端，但可以让你免于跌入泥沼">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="OpenWrt >  ADSL单线多拨，负载均衡（仅供参考）-CarlZeng | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          OpenWrt >  ADSL单线多拨，负载均衡（仅供参考）-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-03-22 21:29:00" itemprop="dateCreated datePublished" datetime="2016-03-22T21:29:00+08:00">2016-03-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>18k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>33 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ul>
+<li>2021年11月更新：如果是K2P A2版本硬件，请参考更简易的步骤，更加高效，不需要太多代码知识。 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/backuper/p/15523365.html">K2P刷机-坐标北京Unicom</a></li>
+</ul>
+<p><strong>前题</strong></p>
+<hr>
+<ul>
+<li>硬件：路由器，刷入<a target="_blank" rel="noopener" href="https://openwrt.org/">OpenWrt</a></li>
+<li>一些背景知识和动手能力</li>
+</ul>
+<p><strong>目标效果图</strong></p>
+<hr>
+<p><img data-src="http://images2015.cnblogs.com/blog/41238/201603/41238-20160323125607870-97593375.jpg" alt="实际例子Sample "></p>
+<p><img data-src="http://images2015.cnblogs.com/blog/41238/201603/41238-20160326151505526-1086117574.jpg"></p>
+<p><strong>步骤</strong></p>
+<hr>
+<ol>
+<li><p>使用SSH 登陆路由器。I.e. ssh <a href="mailto:&#114;&#111;&#111;&#x74;&#64;&#x31;&#x39;&#50;&#x2e;&#49;&#54;&#x38;&#46;&#50;&#x2e;&#x31;">&#114;&#111;&#111;&#x74;&#64;&#x31;&#x39;&#50;&#x2e;&#49;&#54;&#x38;&#46;&#50;&#x2e;&#x31;</a></p>
+</li>
+<li><p>运行&#x2F;usr&#x2F;bin&#x2F;duobo。日志类似：</p>
+</li>
+<li><p><img data-src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif"><img data-src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif"></p>
+<p>sh: 2: unknown operand<br>Killed<br>Warning: Unable to locate ipset utility, disabling ipset support * Flushing IPv4 filter table * Flushing IPv4 nat table * Flushing IPv4 mangle table * Flushing IPv4 raw table * Flushing conntrack table … * Populating IPv4 filter table * Zone ‘lan’<br>   * Zone ‘wan’<br>   * Rule ‘Allow-DHCP-Renew’<br>   * Rule ‘Allow-Ping’<br>   * Rule ‘51413’<br>   * Rule ‘9091’<br>   * Rule ‘9000’<br>   * Rule ‘6800’<br>   * Forward ‘lan’ -&gt; ‘wan’<br> * Populating IPv4 nat table * Zone ‘lan’<br>   * Zone ‘wan’<br> * Populating IPv4 mangle table * Zone ‘lan’<br>   * Zone ‘wan’<br> * Populating IPv4 raw table * Zone ‘lan’<br>   * Zone ‘wan’<br> * Set tcp_ecn to off * Set tcp_syncookies to on * Set tcp_window_scaling to on * Running script ‘&#x2F;etc&#x2F;firewall.user’<br> * Running script ‘&#x2F;usr&#x2F;share&#x2F;miniupnpd&#x2F;firewall.include’<br> * Running script ‘&#x2F;usr&#x2F;share&#x2F;qos_gargoyle&#x2F;firewall.include’<br>   ! Failed with exit code 1 ___________________________________________________<br>开始第1次拔号………..<br>正在并发拔号中………….<br>等待3秒………….<br>[3]拔[0]拔成功, 小于设定的[2]拔，将重新拔号…</p>
+<p>_________________________</p>
+<p>View Code</p>
+</li>
+<li><p>_如果没有成功并发多播，根据提示信息调整duobo的内部参数设置，重新运行_。分享一些技巧：</p>
+</li>
+<li><p>number&#x3D;10 #number是重拔次数，本脚本启动后一共尝试的次数 n=7 #n是几拔，同时发出几拨，理论上设置越大成功概率越大！ ok=2 #ok是拔上几次后退出拔号, 要实现的预期目标<br>wait=5 #wait time 每次单线多拨失败后，重试的等待时间</p>
+<ul>
+<li><strong>原则：</strong>失败多次以后，建议冷重启路由器，多个运行中的脚本会互相冲突，把问题复杂化。</li>
+<li><strong>多拨失败以后，耐心等上1分钟；很多次的多播成功都是脚本完成以后退出，然后60秒内获取了超过预期的多条链接。</strong></li>
+<li><strong>把n调到7，这样会虚拟出很多wan接口，根据硬件性能，理论上设置越大成功概率越大！</strong></li>
+<li>将ok调低一点，比如2。我觉得别太贪心，如果能稳定多播2个ADSL的IP，那其实概率上更折中了稳定性和高负载下的带宽均衡。</li>
+<li>wait的时间我感觉5秒－8秒差不多，这个要看运行日志，做相应调整。</li>
+<li>看懂程序的原理，根据实际情况调整脚本程序。比如：这个版本的程序是这么多播的，ifup $prefix$i</li>
+</ul>
+</li>
+</ol>
+<p><strong>遗留问题</strong></p>
+<hr>
+<p><img data-src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif"><img data-src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif"></p>
+<p> 1 开始第3次拔号………..<br> 2 正在并发拔号中………….<br> 3 等待10秒………….<br> 4 pppoe-wan Link encap:Point-to-Point Protocol<br> 5 pppoe-wan3 Link encap:Point-to-Point Protocol<br> 6 [3]拔[2]拔成功, 大于或等于设定的[2]拨，退出拔号…<br> 7 Error: an inet address is expected rather than “dev”.<br> 8 iptables v1.4.10: Couldn’t load target `zone_wan_notrack’:File not found<br> 9<br>10 Try `iptables -h’ or ‘iptables –help’ for more information.<br>11 iptables v1.4.10: Couldn’t load target `zone_wan_nat’:File not found 12<br>13 Try `iptables -h’ or ‘iptables –help’ for more information.<br>14 iptables: No chain&#x2F;target&#x2F;match by that name. 15 iptables v1.4.10: Couldn’t load target `zone_wan’:File not found 16<br>17 Try `iptables -h’ or ‘iptables –help’ for more information.<br>18 iptables: No chain&#x2F;target&#x2F;match by that name. 19 iptables: No chain&#x2F;target&#x2F;match by that name. 20 iptables: No chain&#x2F;target&#x2F;match by that name. 21 iptables: No chain&#x2F;target&#x2F;match by that name. 22 iptables: No chain&#x2F;target&#x2F;match by that name. 23 iptables: No chain&#x2F;target&#x2F;match by that name. 24 iptables: No chain&#x2F;target&#x2F;match by that name. 25 Error: an inet address is expected rather than “dev”. 26 iptables v1.4.10: Couldn’t load target `zone_wan_notrack’:File not found 27<br>28 Try `iptables -h’ or ‘iptables –help’ for more information.<br>29 iptables v1.4.10: Couldn’t load target `zone_wan_nat’:File not found 30<br>31 Try `iptables -h’ or ‘iptables –help’ for more information.<br>32 iptables: No chain&#x2F;target&#x2F;match by that name. 33 iptables v1.4.10: Couldn’t load target `zone_wan’:File not found 34<br>35 Try `iptables -h’ or ‘iptables –help’ for more information.<br>36 iptables: No chain&#x2F;target&#x2F;match by that name. 37 iptables: No chain&#x2F;target&#x2F;match by that name. 38 iptables: No chain&#x2F;target&#x2F;match by that name. 39 iptables: No chain&#x2F;target&#x2F;match by that name. 40 iptables: No chain&#x2F;target&#x2F;match by that name. 41 iptables: No chain&#x2F;target&#x2F;match by that name. 42 iptables: No chain&#x2F;target&#x2F;match by that name. 43 Error: an IP address is expected rather than “dev”<br>44 192.168.2.0&#x2F;24 dev br-lan  proto kernel  scope link  src 192.168.2.1<br>45 221.218.232.1 dev pppoe-wan3  proto kernel  scope link  src 123.112.248.148<br>46 221.218.232.1 dev pppoe-wan  proto kernel  scope link  src 221.218.236.51<br>47 Kernel IP routing table 48 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface 49 192.168.2.0     0.0.0.0         255.255.255.0   U     0      0        0 br-lan 50 221.218.232.1   0.0.0.0         255.255.255.255 UH    0      0        0 pppoe-wan3 51 221.218.232.1   0.0.0.0         255.255.255.255 UH    0      0        0 pppoe-wan</p>
+<p>View Error Code</p>
+<p>显然这个0.3版本的脚本不完全适用于我的路由器，有时间我需要查查原因。</p>
+<p>估计都是关于iptables</p>
+<p>有没有大侠探讨一下？</p>
+<p><em>修正了下面版本中的一个错误</em></p>
+<p><em>line 19：if [ $j -ge $ok ] ;</em></p>
+<p><strong>多拨代码(V0.3)</strong></p>
+<hr>
+<p><img data-src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif"><img data-src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif"></p>
+<p> 1 #!&#x2F;bin&#x2F;sh<br> 2 #modified by muziling v0.3<br> 3 #并发多拨脚本<br> 4<br> 5 #number是重拔次数<br> 6 #n是几拔<br> 7 #ok是拔上几次后退出拔号<br> 8 #wait time<br> 9<br> 10 number&#x3D;10<br> 11 n&#x3D;3<br> 12 ok&#x3D;2<br> 13 wait=5<br> 14 # avoid same with feixiang’s N-WAN naming and must start with “wan”<br> 15 prefix&#x3D;wan<br> 16 vthprefix&#x3D;vth<br> 17<br> 18 j&#x3D;$(ifconfig | grep pppoe-wan | wc -l)<br> 19 if [ “$j” &gt;&#x3D; “$ok” ] ; 20 then<br> 21     echo 已经是[$j]拔了，退出拔号… 22     exit 0<br> 23 fi<br> 24<br> 25 if [ -f &#x2F;etc&#x2F;config&#x2F;nwannumset ] ;<br> 26 then<br> 27     uci set nwannumset.@macvlan_numset[0].macvlan_num&#x3D;1<br> 28     uci commit nwannumset<br> 29 fi<br> 30 for i in $( seq 1 $(($n-1)))<br> 31 do<br> 32     ifname&#x3D;$prefix$i<br> 33     ifvth&#x3D;$vthprefix$i<br> 34     #ifwan&#x3D;$(uci get network.wan.ifname)<br> 35     pppoe_name&#x3D;$(uci get network.wan.username)<br> 36     pppoe_pw&#x3D;$(uci get network.wan.password)<br> 37<br> 38     if [ $(ip link | grep “ ${ifvth}@eth0.2:” | wc -l) &#x3D;&#x3D; “0” ] ; 39     then<br> 40         macfac&#x3D;$(ifconfig | grep eth0.2 | tr -s “ “ | cut -d “ “ -f5 | cut -b 1-8)<br> 41         mac&#x3D;”$macfac:”$(md5sum &#x2F;proc&#x2F;sys&#x2F;kernel&#x2F;random&#x2F;uuid | sed ‘s&#x2F;\(..\)&#x2F;&amp;:&#x2F;g’ | cut -b 1-8 | tr [a-f] [A-F])<br> 42         ip link add link eth0.2 $ifvth type macvlan 43         ifconfig $ifvth hw ether $mac 44     fi<br> 45<br> 46     # add &#x2F;etc&#x2F;config&#x2F;network<br> 47     uci delete network.$ifname<br> 48     uci set network.$ifname&#x3D;interface<br> 49     uci set network.$ifname.ifname&#x3D;$ifvth<br> 50     #uci set network.$ifname._orig_ifname&#x3D;eth0.2<br> 51     #uci set network.$ifname._orig_bridge&#x3D;false<br> 52     uci set network.$ifname.proto&#x3D;pppoe<br> 53     uci set network.$ifname.username&#x3D;$pppoe_name<br> 54     uci set network.$ifname.password&#x3D;$pppoe_pw<br> 55     uci set network.$ifname.auto&#x3D;0<br> 56     uci set network.$ifname.defaultroute&#x3D;0<br> 57     uci set network.$ifname.peerdns&#x3D;1<br> 58     uci set network.$ifname.pppd_options&#x3D;”plugin rp-pppoe.so syncppp $n”<br> 59<br> 60     # add &#x2F;etc&#x2F;config&#x2F;dhcp<br> 61     uci delete dhcp.$ifvth<br> 62     uci set dhcp.$ifvth&#x3D;dhcp<br> 63     uci set dhcp.$ifvth.interface&#x3D;$ifname<br> 64     uci set dhcp.$ifvth.ignore&#x3D;1<br> 65<br> 66     if [ -f &#x2F;etc&#x2F;config&#x2F;nwan ] ;<br> 67     then<br> 68         uci delete nwan.$ifname<br> 69         uci set nwan.$ifname&#x3D;interface<br> 70         uci set nwan.$ifname.name&#x3D;telecom<br> 71         uci set nwan.$ifname.route&#x3D;balance<br> 72         uci set nwan.$ifname.weight&#x3D;1<br> 73         uci set nwan.$ifname.uptime=0day,0hour,0min<br> 74         uci commit nwan<br> 75     fi<br> 76 done<br> 77 uci set network.wan.defaultroute&#x3D;0<br> 78 uci set network.wan.peerdns&#x3D;1<br> 79 uci set network.wan.pppd_options&#x3D;”plugin rp-pppoe.so syncppp $n”<br> 80 uci commit network<br> 81 uci commit dhcp<br> 82<br> 83 fw_wan_list&#x3D;$(uci show network |grep &#x3D;interface |grep -v lan|grep -v loopback |cut -d”.” -f2 | awk -F “=“ ‘{printf $1” “}’)<br> 84 uci set firewall.@zone[1].network&#x3D;”$fw_wan_list”<br> 85 uci commit firewall<br> 86 &#x2F;etc&#x2F;init.d&#x2F;firewall restart<br> 87<br> 88 for q in $( seq 1 $number ) 89 do<br> 90     echo<br> 91     echo ___________________________________________________ 92     echo 开始第$q次拔号……….. 93     killall -q -SIG pppd<br> 94     if [ “$q” &#x3D;&#x3D; “1” ] ; 95     then<br> 96         for i in $( seq 1 $(($n-1)))<br> 97         do<br> 98             ifup $prefix$i<br> 99         done<br>100     fi<br>101<br>102     echo 正在并发拔号中…………. 103     echo 等待$wait秒…………. 104     sleep $wait<br>105<br>106     j&#x3D;$(ps | grep pppd | wc -l) 107     ! [ “$j” -ge “$n” ]  &amp;&amp; ifup ${prefix}1<br>108<br>109     ifconfig|grep pppoe 110     j&#x3D;$(ifconfig | grep pppoe-wan | wc -l) 111<br>112     ! [ “$j” -ge “$ok” ] &amp;&amp; echo [$n]拔[$j]拔成功, 小于设定的[$ok]拔，将重新拔号… 113     [ “$j” -ge “$ok” ] &amp;&amp; echo [$n]拔[$j]拔成功, 大于或等于设定的[$ok]拨，退出拔号… 114<br>115     if [ “$j” -ge “$ok” ] ; 116     then<br>117         for i in $( seq 0 $(($n-1))) 118         do<br>119             if [ “$i” &#x3D;&#x3D; “0” ] ; 120             then<br>121                 interface&#x3D;wan 122             else<br>123                 interface&#x3D;$prefix$i 124             fi<br>125             if [ $(ifconfig | grep “pppoe-$interface “ | wc -l) &#x3D;&#x3D; “0” ] ; 126             then<br>127 ifdown $interface 128             fi<br>129         done<br>130 break 131     fi<br>132 done<br>133 # kill ddns sleep and re-check wan ip change 134 killall sleep<br>135<br>136 j&#x3D;$(ifconfig | grep pppoe-wan | wc -l) 137 ! [ “$j” -ge 0 ] &amp;&amp; reboot 138<br>139 #ppoename&#x3D;$(ifconfig |grep ‘ppoe-‘ |awk ‘{print substr($1,7)}’|tr ‘\n’ ‘ ‘) 140 ppoename&#x3D;$(ifconfig |grep ‘ppoe-‘ |awk ‘{print $1}’|tr ‘\n’ ‘ ‘) 141 i&#x3D;0<br>142 vias&#x3D;””<br>143 for wan_ifname in $ppoename 144 do<br>145     vias&#x3D;”$vias nexthop via $wan_ip dev $wan_ifname weight 1 “<br>146     let “rt&#x3D;100+$i”<br>147     i&#x3D;$(($i+1)) 148 ip route flush table $rt 149 ip route add default via $wan_ip dev $wan_ifname table $rt 150     ip route add table $rt to $(ip route | grep br-lan) 151<br>152     if [ $(iptables -t nat -vxnL POSTROUTING | grep -c “ $wan_ifname “) &#x3D;&#x3D; “0” ] ; 153     then<br>154         iptables -t raw -A PREROUTING -i $wan_ifname -j zone_wan_notrack 155         iptables -t nat -A PREROUTING -i $wan_ifname -j zone_wan_prerouting 156         iptables -t nat -A POSTROUTING -o $wan_ifname -j zone_wan_nat 157         iptables -t filter -A forward -i $wan_ifname -j zone_wan_forward 158         iptables -t filter -A input -i $wan_ifname -j zone_wan 159         iptables -t filter -A zone_wan_ACCEPT -o $wan_ifname -j ACCEPT 160         iptables -t filter -A zone_wan_ACCEPT -i $wan_ifname -j ACCEPT 161         iptables -t filter -A zone_wan_DROP -o $wan_ifname -j DROP 162         iptables -t filter -A zone_wan_DROP -i $wan_ifname -j DROP 163         iptables -t filter -A zone_wan_REJECT -o $wan_ifname -j reject 164         iptables -t filter -A zone_wan_REJECT -i $wan_ifname -j reject 165     fi<br>166     iptables -A PREROUTING -t mangle -i $wan_ifname -j MARK –set-mark $rt 167     iptables -t mangle -A zone_wan_MSSFIX -o $wan_ifname -p tcp -m tcp –tcp-flags SYN,RST SYN -j TCPMSS –clamp-mss-to-pmtu 168 ip rule add fwmark $rt table $rt prio $rt 169 done<br>170 ip route del default 171 ip route add default scope global $vias 172 ip route flush cache 173 ip route list 174 route -n 175 root@OpenWrt:~# </p>
+<p>View Code (duobo)</p>
+<p>修订版（V0.3.1）</p>
+<p><img data-src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif"><img data-src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif"></p>
+<p> 1 #!&#x2F;bin&#x2F;sh<br> 2 #modified by muziling v0.3<br> 3 #并发多拨脚本<br> 4 #modified by carl v0.3.1 (修正一处bug，改善友好提示信息) 5<br> 6 #number是重拔次数，本脚本启动后一共尝试的次数<br> 7 #n是几拔，同时发出几拨，理论上设置越大成功概率越大！<br> 8 #ok是拔上几次后退出拔号, 要实现的预期目标<br> 9 #wait time 每次单线多拨失败后，重试的等待时间 10<br> 11 number&#x3D;15<br> 12 n&#x3D;7<br> 13 ok&#x3D;2<br> 14 wait=8<br> 15 # avoid same with feixiang’s N-WAN naming and must start with “wan”<br> 16 prefix&#x3D;wan<br> 17 vthprefix&#x3D;vth<br> 18<br> 19 j&#x3D;$(ifconfig | grep pppoe-wan | wc -l)<br> 20 if [ $j -ge $ok ] ;<br> 21 then<br> 22     echo 已经是[$j]拔了，退出拔号程序。 23     exit 0<br> 24 fi<br> 25<br> 26 if [ -f &#x2F;etc&#x2F;config&#x2F;nwannumset ] ;<br> 27 then<br> 28     uci set nwannumset.@macvlan_numset[0].macvlan_num&#x3D;1<br> 29     uci commit nwannumset<br> 30 fi<br> 31<br> 32 for i in $( seq 1 $(($n-1)))<br> 33 do<br> 34     ifname&#x3D;$prefix$i<br> 35     ifvth&#x3D;$vthprefix$i<br> 36     #ifwan&#x3D;$(uci get network.wan.ifname)<br> 37     pppoe_name&#x3D;$(uci get network.wan.username)<br> 38     pppoe_pw&#x3D;$(uci get network.wan.password)<br> 39<br> 40     if [ $(ip link | grep “ ${ifvth}@eth0.2:” | wc -l) &#x3D;&#x3D; “0” ] ; 41     then<br> 42         macfac&#x3D;$(ifconfig | grep eth0.2 | tr -s “ “ | cut -d “ “ -f5 | cut -b 1-8)<br> 43         mac&#x3D;”$macfac:”$(md5sum &#x2F;proc&#x2F;sys&#x2F;kernel&#x2F;random&#x2F;uuid | sed ‘s&#x2F;\(..\)&#x2F;&amp;:&#x2F;g’ | cut -b 1-8 | tr [a-f] [A-F])<br> 44         ip link add link eth0.2 $ifvth type macvlan 45         ifconfig $ifvth hw ether $mac 46         echo 更换MAC完毕$ifvth. 47     fi<br> 48<br> 49     # add &#x2F;etc&#x2F;config&#x2F;network<br> 50     uci delete network.$ifname<br> 51     uci set network.$ifname&#x3D;interface<br> 52     uci set network.$ifname.ifname&#x3D;$ifvth<br> 53     #uci set network.$ifname._orig_ifname&#x3D;eth0.2<br> 54     #uci set network.$ifname._orig_bridge&#x3D;false<br> 55     uci set network.$ifname.proto&#x3D;pppoe<br> 56     uci set network.$ifname.username&#x3D;$pppoe_name<br> 57     uci set network.$ifname.password&#x3D;$pppoe_pw<br> 58     uci set network.$ifname.auto&#x3D;0<br> 59     uci set network.$ifname.defaultroute&#x3D;0<br> 60     uci set network.$ifname.peerdns&#x3D;1<br> 61     uci set network.$ifname.pppd_options&#x3D;”plugin rp-pppoe.so syncppp $n”<br> 62<br> 63     # add &#x2F;etc&#x2F;config&#x2F;dhcp<br> 64     uci delete dhcp.$ifvth<br> 65     uci set dhcp.$ifvth&#x3D;dhcp<br> 66     uci set dhcp.$ifvth.interface&#x3D;$ifname<br> 67     uci set dhcp.$ifvth.ignore&#x3D;1<br> 68<br> 69     if [ -f &#x2F;etc&#x2F;config&#x2F;nwan ] ;<br> 70     then<br> 71         uci delete nwan.$ifname<br> 72         uci set nwan.$ifname&#x3D;interface<br> 73         uci set nwan.$ifname.name&#x3D;unicom<br> 74         uci set nwan.$ifname.route&#x3D;balance<br> 75         uci set nwan.$ifname.weight&#x3D;1<br> 76         uci set nwan.$ifname.uptime=0day,0hour,0min<br> 77         uci commit nwan<br> 78     fi<br> 79 done<br> 80<br> 81 uci set network.wan.defaultroute&#x3D;0<br> 82 uci set network.wan.peerdns&#x3D;1<br> 83 uci set network.wan.pppd_options&#x3D;”plugin rp-pppoe.so syncppp $n”<br> 84 uci commit network<br> 85 uci commit dhcp<br> 86<br> 87 fw_wan_list&#x3D;$(uci show network |grep &#x3D;interface |grep -v lan|grep -v loopback |cut -d”.” -f2 | awk -F “=“ ‘{printf $1” “}’)<br> 88 uci set firewall.@zone[1].network&#x3D;”$fw_wan_list”<br> 89 uci commit firewall<br> 90 &#x2F;etc&#x2F;init.d&#x2F;firewall restart<br> 91<br> 92 for q in $( seq 1 $number ) 93 do<br> 94     echo<br> 95     echo ___________________________________________________ 96     echo 开始第$q次拔号……….. 97     killall -q -SIG pppd<br> 98     if [ “$q” &#x3D;&#x3D; “1” ] ; 99     then<br>100         for i in $( seq 1 $(($n-1))) 101         do<br>102 ifup $prefix$i 103         done<br>104     fi<br>105<br>106     echo 正在并发拔号中…………. 107     echo 等待$wait秒…………. 108     sleep $wait<br>109<br>110     j&#x3D;$(ps | grep pppd | wc -l) 111     ! [ “$j” -ge “$n” ]  &amp;&amp; ifup ${prefix}1<br>112<br>113     ifconfig | grep pppoe 114     j&#x3D;$(ifconfig | grep pppoe-wan | wc -l) 115<br>116     ! [ “$j” -ge “$ok” ] &amp;&amp; echo [$n]拔[$j]拔成功, 小于设定的[$ok]拔，将重新拔号… 117     [ “$j” -ge “$ok” ] &amp;&amp; echo [$n]拔[$j]拔成功, 大于或等于设定的[$ok]拨，退出拔号… 118<br>119     if [ “$j” -ge “$ok” ] ; 120     then<br>121         for i in $( seq 0 $(($n-1))) 122         do<br>123             if [ “$i” &#x3D;&#x3D; “0” ] ; 124             then<br>125                 interface&#x3D;wan 126             else<br>127                 interface&#x3D;$prefix$i 128             fi<br>129             if [ $(ifconfig | grep “pppoe-$interface “ | wc -l) &#x3D;&#x3D; “0” ] ; 130             then<br>131 ifdown $interface 132             fi<br>133         done<br>134 break 135     fi<br>136 done # done&#x2F;tried all tring times $number 137<br>138 # kill ddns sleep and re-check wan ip change 139 killall sleep<br>140<br>141 # reboot the machine if failed tried times 142 #sleep $wait<br>143 j&#x3D;$(ifconfig | grep pppoe-wan | wc -l) 144 ! [ “$j” -gt 0 ] &amp;&amp; reboot 145<br>146<br>147 echo ___________________________________________________ 148 echo 开始N-WAN负载均衡功能… 149 #ppoename&#x3D;$(ifconfig |grep ‘ppoe-‘ |awk ‘{print substr($1,7)}’|tr ‘\n’ ‘ ‘) 150 ppoename&#x3D;$(ifconfig|grep ‘ppoe-‘ |awk ‘{print $1}’|tr ‘\n’ ‘ ‘) 151 i&#x3D;0<br>152 vias&#x3D;””<br>153 for wan_ifname in $ppoename 154 do<br>155     vias&#x3D;”$vias nexthop via $wan_ip dev $wan_ifname weight 1 “<br>156     let “rt&#x3D;100+$i”<br>157     i&#x3D;$(($i+1)) 158 ip route flush table $rt 159 #REMOVE ERROR 160 ip route add default via $wan_ip dev $wan_ifname table $rt 161     ip route add table $rt to $(ip route | grep br-lan) 162<br>163     if [ $(iptables -t nat -vxnL POSTROUTING | grep -c “ $wan_ifname “) &#x3D;&#x3D; “0” ] ; 164     then<br>165 #REMOVE ERROR 166         iptables -t raw -A PREROUTING -i $wan_ifname -j zone_wan_notrack 167         iptables -t nat -A PREROUTING -i $wan_ifname -j zone_wan_prerouting 168 #REMOVE ERROR 169         iptables -t nat -A POSTROUTING -o $wan_ifname -j zone_wan_nat 170         iptables -t filter -A forward -i $wan_ifname -j zone_wan_forward 171 #REMOVE ERROR 172         iptables -t filter -A input -i $wan_ifname -j zone_wan 173         iptables -t filter -A zone_wan_ACCEPT -o $wan_ifname -j ACCEPT 174         iptables -t filter -A zone_wan_ACCEPT -i $wan_ifname -j ACCEPT 175         iptables -t filter -A zone_wan_DROP -o $wan_ifname -j DROP 176         iptables -t filter -A zone_wan_DROP -i $wan_ifname -j DROP 177         iptables -t filter -A zone_wan_REJECT -o $wan_ifname -j reject 178         iptables -t filter -A zone_wan_REJECT -i $wan_ifname -j reject 179     fi<br>180<br>181     iptables -A PREROUTING -t mangle -i $wan_ifname -j MARK –set-mark $rt 182     iptables -t mangle -A zone_wan_MSSFIX -o $wan_ifname -p tcp -m tcp –tcp-flags SYN,RST SYN -j TCPMSS –clamp-mss-to-pmtu 183 ip rule add fwmark $rt table $rt prio $rt 184 done<br>185<br>186 ip route del default 187<br>188 echo ___________________________________________________ 189 echo 下面执行ip route add default scope global $vias 190 ip route add default scope global $vias 191<br>192 ip route flush cache 193<br>194 echo ___________________________________________________ 195 echo 下面输出ip route list 196 ip route list 197<br>198 echo ___________________________________________________ 199 echo 下面输出route -n 200 route -n</p>
+<p>View Code</p>
+<p><strong>参考文献</strong></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="http://www.right.com.cn/forum/thread-102073-1-1.html">OpenWrt For AR71xx系列 ar2 Tr 脱机 N-WAN r48549</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.right.com.cn/forum/thread-104970-1-1.html">自己动手 4530R 脱机 Samba U-BOOT 多拨（11-04更新部分问题说明，请看2楼）</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.right.com.cn/forum/thread-102411-1-1.html">[0916更新]WR703N WR720N 及其他各类 OpenWRT类路由实现一号多拨带宽叠加教程</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/blog/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/201603221430.html" rel="prev" title="Mac > 编写跨平台桌面应用开发工具，基于 Web 技术-CarlZeng">
+                  <i class="fa fa-angle-left"></i> Mac > 编写跨平台桌面应用开发工具，基于 Web 技术-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/201603301535.html" rel="next" title="某预约系统分析 > 某区公共自行车租车卡在线预约，关于如何提高成功概率-CarlZeng">
+                  某预约系统分析 > 某区公共自行车租车卡在线预约，关于如何提高成功概率-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Carl 本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">站点总字数 748k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">站点阅读时长 22:41</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/blog/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

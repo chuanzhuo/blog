@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chuanzhuo.github.com","root":"/blog/","images":"/blog/images","scheme":"Pisces","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="Fildder 是一个用来监视所有 HTTP 请求和响应的工具，这对于调试 WEB 应用程序来说是一个很有用的工具，此工具的官方网站是：http:&#x2F;&#x2F;www.fiddlertool.com下面是两篇对此工具进行介绍的中文文档：Fiddler工具介绍一(原文地址：http:&#x2F;&#x2F;msdn.microsoft.com&#x2F;library&#x2F;default.asp?url&#x3D;&#x2F;library&#x2F;en-us&#x2F;dnwe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="监视所有 HTTP 请求和响应的工具 Fiddler工具介绍 (转载)-CarlZeng">
+<meta property="og:url" content="https://chuanzhuo.github.com/blog/200812311151.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="Fildder 是一个用来监视所有 HTTP 请求和响应的工具，这对于调试 WEB 应用程序来说是一个很有用的工具，此工具的官方网站是：http:&#x2F;&#x2F;www.fiddlertool.com下面是两篇对此工具进行介绍的中文文档：Fiddler工具介绍一(原文地址：http:&#x2F;&#x2F;msdn.microsoft.com&#x2F;library&#x2F;default.asp?url&#x3D;&#x2F;library&#x2F;en-us&#x2F;dnwe">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/framework/ie_introfiddler_fig01.gif">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/framework/ie_introfiddler_fig02.gif">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/framework/ie_introfiddler_fig03.gif">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/framework/ie_introfiddler_fig04.gif">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/framework/ie_introfiddler_fig05.gif">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/framework/ie_introfiddler_fig06.gif">
+<meta property="article:published_time" content="2008-12-31T03:51:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:28.950Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://images.cnblogs.com/cnblogs_com/framework/ie_introfiddler_fig01.gif">
+
+
+<link rel="canonical" href="https://chuanzhuo.github.com/blog/200812311151.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://chuanzhuo.github.com/blog/200812311151.html","path":"200812311151.html","title":"监视所有 HTTP 请求和响应的工具 Fiddler工具介绍 (转载)-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>监视所有 HTTP 请求和响应的工具 Fiddler工具介绍 (转载)-CarlZeng | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/blog/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人随笔 解决方案 IT技术 探讨请发邮件</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8Fiddler%E6%9D%A5%E5%81%9A%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="nav-number">1.</span> <span class="nav-text">用Fiddler来做性能测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP%E7%BB%9F%E8%AE%A1%E8%A7%86%E5%9B%BE"><span class="nav-number">2.</span> <span class="nav-text">HTTP统计视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session%E6%A3%80%E6%9F%A5"><span class="nav-number">3.</span> <span class="nav-text">Session检查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fiddler-%E6%89%A9%E5%B1%95"><span class="nav-number">4.</span> <span class="nav-text">Fiddler 扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E5%8C%96%E7%9A%84%E8%A7%84%E5%88%99%E6%9D%A5%E6%89%A9%E5%B1%95Fiddler"><span class="nav-number">5.</span> <span class="nav-text">使用脚本化的规则来扩展Fiddler</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP%E6%80%A7%E8%83%BD%E6%80%BB%E8%A7%88"><span class="nav-number">6.</span> <span class="nav-text">HTTP性能总览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-%E7%BC%93%E5%AD%98%E4%BB%8B%E7%BB%8D"><span class="nav-number">7.</span> <span class="nav-text">HTTP 缓存介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E7%9B%B8%E5%85%B3%E7%9A%84%E8%AF%B7%E6%B1%82%E5%A4%B4"><span class="nav-number">7.1.</span> <span class="nav-text">缓存相关的请求头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E7%9B%B8%E5%85%B3%E5%93%8D%E5%BA%94%E5%A4%B4"><span class="nav-number">7.2.</span> <span class="nav-text">缓存相关响应头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fiddler-%E4%BC%9A%E8%AF%9D%E5%88%97%E8%A1%A8"><span class="nav-number">7.3.</span> <span class="nav-text">Ｆｉｄｄｌｅｒ　会话列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8DHTTP%E5%8E%8B%E7%BC%A9"><span class="nav-number">8.</span> <span class="nav-text">介绍ＨＴＴＰ压缩</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">对个人而言，不要放弃学习，学习不能让你飞到云端，但可以让你免于跌入泥沼</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">302</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/blog/categories/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/blog/tags/">
+        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/200901041808.html" rel="bookmark">
+        <time class="popular-posts-time">2009-01-04</time>
+        <br>
+      js post 应用-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/200810311408.html" rel="bookmark">
+        <time class="popular-posts-time">2008-10-31</time>
+        <br>
+      netsuite内部ajax请求,返回Code: 500错误-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/blog/201705041056.html" rel="bookmark">
+        <time class="popular-posts-time">2017-05-04</time>
+        <br>
+      Node.js Application Node.js应用-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chuanzhuo.github.com/blog/200812311151.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="对个人而言，不要放弃学习，学习不能让你飞到云端，但可以让你免于跌入泥沼">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="监视所有 HTTP 请求和响应的工具 Fiddler工具介绍 (转载)-CarlZeng | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          监视所有 HTTP 请求和响应的工具 Fiddler工具介绍 (转载)-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2008-12-31 11:51:00" itemprop="dateCreated datePublished" datetime="2008-12-31T11:51:00+08:00">2008-12-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>9.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>18 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Fildder 是一个用来监视所有 HTTP 请求和响应的工具，这对于调试 WEB 应用程序来说是一个很有用的工具，此工具的官方网站是：<a href="http://www.fiddlertool.com下面是两篇对此工具进行介绍的中文文档：Fiddler工具介绍一">http://www.fiddlertool.com下面是两篇对此工具进行介绍的中文文档：Fiddler工具介绍一</a>(原文地址：<a target="_blank" rel="noopener" href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnwe">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnwe</a>…</p>
+<!-- more -->
+<p>Fildder 是一个用来监视所有 HTTP 请求和响应的工具，这对于调试 WEB 应用程序来说是一个很有用的工具，此工具的官方网站是：<a target="_blank" rel="noopener" href="http://www.fiddlertool.com/">http://www.fiddlertool.com</a>  </p>
+<p>下面是两篇对此工具进行介绍的中文文档：</p>
+<p>Fiddler工具介绍一<br>(原文地址：<a target="_blank" rel="noopener" href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnwebgen/html/IE_IntroFiddler.asp">http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnwebgen/html/IE_IntroFiddler.asp</a>)  </p>
+<p>这个工具我已经使用比较长时间了，对我的帮助也挺大，今天我翻译的微软的文章，让更多的朋友都来了解这个不错的工具，也是我第一次翻译文章，不恰当之处请大家大家多多指正。<br>介绍：</p>
+<p>你是不是曾经疑惑过你的web程序和IE是如何交互的？你是不是遇到过一些奇怪的而你又无法解决的性能瓶颈？你是不是对那些发送给服务器端的cookie 和那些你下载下来的被标记为可缓存的内容感到好奇？</p>
+<p>Fiddler官方网站及下载地址：<a target="_blank" rel="noopener" href="http://www.fiddlertool.com/Fiddler/dev/">http://www.fiddlertool.com/Fiddler/dev/</a></p>
+<p>微软的Fiddler能够帮助你回答以上的问题，不但如此，它还是一个http调试代理，它能够记录所有的你电脑和互联网之间的http通讯，Fiddler 可以也可以让你检查所有的http通讯，设置断点，以及Fiddle 所有的”进出”的数据（指cookie,html,js,css等文件，这些都可以让你胡乱修改的意思）。 Fiddler 要比其他的网络调试器要更加简单，因为它仅仅暴露http通讯还有提供一个用户友好的格式。</p>
+<p>Fiddler 包含一个简单却功能强大的基于JScript .NET 事件脚本子系统，他非常灵活性非常棒，可以支持众多的http调试任务。Fiddler 是用C#写出来的。</p>
+<p>。。。。。接下来是一大段废话，关于如何安装的，只要一路next，就可以了。这段话我就跳过，直接切入正题了。</p>
+<p>Running Fiddler</p>
+<p>当你启动了Fiddler，程序将会把自己作为一个微软互联网服务的系统代理中去。你可以通过检查代理设置对话框来验证Fiddler是被正确地截取了web请求。操作是这样的：点击IE设置，工具，局域网设置，最后点击高级。<br><img data-src="http://images.cnblogs.com/cnblogs_com/framework/ie_introfiddler_fig01.gif"></p>
+<p>作为系统代理，所有的来自微软互联网服务（WinInet）的http请求再到达目标Web服务器的之前都会经过Fiddle，同样的，所有的Http响应都会在返回客户端之前流经Fiddler。这样，就能明白Fiddler很多作用了吧！<br><img data-src="http://images.cnblogs.com/cnblogs_com/framework/ie_introfiddler_fig02.gif"></p>
+<p>当你关闭Fiddler的时候，它就会自动从系统注册表中移出，换句话说，当你关闭了Fiddler后，不会占着茅坑不拉屎。</p>
+<p>下面，是一个Fillder的用户界面，大家可以参考参考其功能。  </p>
+<p><img data-src="http://images.cnblogs.com/cnblogs_com/framework/ie_introfiddler_fig03.gif"></p>
+<h2 id="用Fiddler来做性能测试"><a href="#用Fiddler来做性能测试" class="headerlink" title="用Fiddler来做性能测试"></a>用Fiddler来做性能测试</h2><h2 id="HTTP统计视图"><a href="#HTTP统计视图" class="headerlink" title="HTTP统计视图"></a>HTTP统计视图</h2><p>通过显示所有的Http通讯，Fiddler可以轻松的演示哪些用来生成一个页面，通过统计页面（就是Fiddler左边的那个大框）用户可以很轻松的使用多选，来得到一个WEB页面的”总重量”（页面文件以及相关js,css等）你也可以很轻松得看到你请求的某个页面，总共请求了多少次，以及多少字节被转化了。  </p>
+<p><img data-src="http://images.cnblogs.com/cnblogs_com/framework/ie_introfiddler_fig04.gif"></p>
+<p>另外，通过暴露HTTP头，用户可以看见哪些页面被允许在客户端或者是代理端进行缓存。如果要是一个响应没有包含Cache-Control 头，那么他就不会被缓存在客户端。  </p>
+<p><img data-src="http://images.cnblogs.com/cnblogs_com/framework/ie_introfiddler_fig05.gif">  </p>
+<p>用Fiddler来调试</p>
+<p>Fiddler支持断点调试概念，当你在软件的菜单-rules-automatic breakpoints选项选择beforerequest,或者当这些请求或响应属性能够跟目标的标准相匹配，Fiddler就能够暂停Http通讯，情切允许修改请求和响应。这种功能对于安全测试是非常有用的，当然也可以用来做一般的功能测试，因为所有的代码路径都可以用来演习。</p>
+<p><img data-src="http://images.cnblogs.com/cnblogs_com/framework/ie_introfiddler_fig06.gif"></p>
+<h2 id="Session检查"><a href="#Session检查" class="headerlink" title="Session检查"></a>Session检查</h2><p>用户可以在BuilderPage项种来以手工的方式来创建一个HTTP请求（即在 Fiddler右侧的tab的第三个，RequestBUILDER），或者可以使用拖拽操作从Session列表中来移动一个已经存在的请求到 builder page 来再次执行这个请求。。。</p>
+<h2 id="Fiddler-扩展"><a href="#Fiddler-扩展" class="headerlink" title="Fiddler 扩展"></a>Fiddler 扩展</h2><p>Fiddler可以使用 .net framework来对它进行扩展。有2种为Fiddler扩展准备的基本机制：</p>
+<p>自定义规则，和规则检查。</p>
+<h2 id="使用脚本化的规则来扩展Fiddler"><a href="#使用脚本化的规则来扩展Fiddler" class="headerlink" title="使用脚本化的规则来扩展Fiddler"></a>使用脚本化的规则来扩展Fiddler</h2><p>Fiddler支持JScript .NET引擎，它可以允许用户自动地修改Http请求和响应。这个引擎能够在可视化界面修改在FiddlerUI中的Session，可以从列表中提取你感兴趣的错误，也可以移除你不感兴趣的Session。</p>
+<p>以下的示例代码演示当cookie被加载的时候把界面变成紫色。</p>
+<p>static function OnBeforeRequest(oSession:Fiddler.Session)</p>
+<p>{</p>
+<p>   if (oSession.oRequest.headers.Exists(“Cookie”)){</p>
+<pre><code>  oSession\[&quot;ui-color&quot;\] = &quot;purple&quot;;
+
+  oSession\[&quot;ui-bold&quot;\] = &quot;cookie&quot;;
+</code></pre>
+<p>   }</p>
+<p>}</p>
+<p>通过加入Inspectors来扩展Fiddler</p>
+<p>用户可以加入一个Inspector插件对象，来使用.net下的任何语言来编写Fiddler扩展。RequestInspectors 和 ResponseInspectors提供一个格式规范的，或者是被指定的（用户自定义）Http请求和响应视图。</p>
+<p>默认安装中，Fiddler加入了一下的Inspectors：</p>
+<p>Request Inspectors</p>
+<p>[RW] Headers-Shows request headers and status.</p>
+<p>[RW] TextView-Shows the request body in a text box. （原始的请求body视图）</p>
+<p>[RW] HexView-Shows the request body in a hexadecimal view. （body的16进制视图）</p>
+<p>[RO] XML-Shows the request body as an XML DOM in a tree view.（以XML方式展示请求）</p>
+<p>Response Inspectors</p>
+<p>[RW] Transformer-Removes GZip, DEFLATE, and CHUNKED encodings for easier debugging.</p>
+<p>[RW] Headers-Shows response headers and status.</p>
+<p>[RW] TextView-Shows the response body in a text box.</p>
+<p>[RW] HexView-Shows the response body in a hexadecimal view. （16进制视图）</p>
+<p>[RO] ImageView-Shows the response body as an Image. Supports all .NET image formats.</p>
+<p>[RO] XML-Shows the response body as an XML DOM in a tree view.</p>
+<p>[RO] Privacy-Explains the P3P statement in the response headers, if present.（如果在响应头中有关于隐私策略的说明就展示出来）</p>
+<p>Fiddler的高级篇。</p>
+<p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/FrameWork/archive/2006/10/16/530827.html">HTTP调试工具：Fiddler 介绍二</a></p>
+<p>学习如何通过Fiddler建立一个速度更快的网站。在这篇文章中，我们将使用Fiddler去探究HTTP的性能，缓存，以及压缩。</p>
+<p>如果你要是没有安装和配置过Fiddler， 请从文章的第一篇开始。</p>
+<h2 id="HTTP性能总览"><a href="#HTTP性能总览" class="headerlink" title="HTTP性能总览"></a>HTTP性能总览</h2><p>毫无疑问用户都喜欢访问速度快的网站。用户是非常的不耐烦，除非你的网站是没有竞争对手，换句话就是处于垄断地位的。如果你的访问者来自世界各地，那你就必须要保证你的网站在执行效率方面要非常好，甚至要更加标准。作为一个国际化的网络连接点，通常要受到来自两个方面的压力：高访问量以及低带宽。</p>
+<p>在第一次至关重要的访问中，用户必须要下载每一个内容片断，来生成页面，包括JS，CSS，Images，HTML，如果你的页面太难加载（包括IIS接到请求执行并返回给客户端HTML），访问者也许就会离开你的页面！</p>
+<p>通过暴露所有的HTTP通讯，Fiddler很容易得向你展示哪些文件经常被用于生成一个页面，</p>
+<p>Shift+click 可以在Fiddler左边框的会话列表中多选会话，来计算那些被选会话的”页面总重量”。那些被转换成字节的数量。</p>
+<p>如果你想让你的客户在第一次访问的时候就留下深刻的印象 ，那么最好的，也是唯一的途径就是返回给客户更少的文件。</p>
+<p>1 使用更少的图画</p>
+<p>2 将所有的CSS浓缩到一个CSS文件中</p>
+<p>3 将所有的脚本浓缩到一个JS文件中</p>
+<p>4 简化你的页面时间</p>
+<p>5 使用HTTP压缩</p>
+<p>如果要是你已经对用户的第一次来访的性能进行了优化，那么你可以通过Http 缓存的优势来使得你的网站访问速度更快！</p>
+<h2 id="HTTP-缓存介绍"><a href="#HTTP-缓存介绍" class="headerlink" title="HTTP 缓存介绍"></a>HTTP 缓存介绍</h2><p>2种方式来提升你的web 应用程序的速度：</p>
+<p>减少请求和响应的往返次数</p>
+<p>减少请求和响应的往返字节大小。</p>
+<p>HTTP缓存是最好的减少客户端服务器端往返次数的办法。缓存提供了提供一种机制来保证客户端或者代理能够存储一些东西，而这些东西将会在稍后的HTTP 响应中用到的。（即第一次请求了，到了客户端，缓存起来，下次如果页面还要这个JS文件或者CSS文件啥的，就不要到服务器端去取下来了，但是还是要去服务器上去访问一次，因为请求要对比ETAG值，关于这个值，我将会在下次翻译中介绍其作用）这样，就不用让文件再次跨越整个网络了。</p>
+<h3 id="缓存相关的请求头"><a href="#缓存相关的请求头" class="headerlink" title="缓存相关的请求头"></a>缓存相关的请求头</h3><p>为了提高性能，微软的IE和其他的web客户端总是想尽办法来维持从远程服务器上下载下来的本地的缓存。</p>
+<p>当客户端需要一个资源（html,css.js…），他们有3种可能的动作：</p>
+<p>1 发送一个一般的HTTP请求到远程服务器端，请求这个资源。</p>
+<p>2 发送一个有条件的HTTP请求到服务器，条件就是如果它不同于本地的缓存版本。</p>
+<p>3 如果缓存的拷贝可用，就使用本地的缓存资源。</p>
+<p>当发送一个请求，客户也许会使用如下的几个HEADER</p>
+<p>Table 1. Client Cache Headers</p>
+<p>Pragma: no-cache</p>
+<p>The client is unwilling to accept any cached responses from caches along the route and the origin server must be contacted for a fresh copy of the resource.</p>
+<p>If-Modified-Since: datetime</p>
+<p>The server should return the requested resource only if the resource has been modified since the date-time provided by the client.</p>
+<p>If-None-Match: etagvalue</p>
+<p>The server should return the requested resource if the ETAG of the resource is different than the value provided by the client. An <a target="_blank" rel="noopener" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19">ETAG</a> is a unique identifier representing a particular version of a file.</p>
+<p>1 Pragma：no-cache 表明客户端不愿意接受缓存请求，它需要的是最即时的资源。</p>
+<p>2 If-Modified-Since: datetime 表明如果这个资源自从上次被客户端请求，就已经修改了，那么服务器就会返回给客户端最新的。</p>
+<p>3 If-None-Match: etagvalue 如果客户端资源的ETAG值跟服务器端不一致了，那么服务器端返回最新的资源。ETAG就是一个唯一的ID，用来表示一个文件的一个特定的版本。</p>
+<p>如果要是这些有条件的请求，也就是含有If-Modified-Since 或者 If-None-MatchHeader头的请求，服务器将会以HTTP&#x2F;304 Not Modified 来作为响应，那么客户端就知道可以使用客户端的缓存了。否则，服务器将会返回一个新的响应并且客户端就会抛弃过期的缓存资源。</p>
+<p>你可以观察2个连贯的请求，来请求同一个图片，你会在Fiddler中发现：在第一个本地缓存版本中，服务器返回一个含有ETAG的文件，和一个含有最后修改日期的文件，在这个第一次的请求会话中，一个本地的缓存版本已经可以使用了。这样一来，一个有条件的请求就被创建出来。然后你再次请求这个图片的时候，他就就会响应一个本地缓存的文件，当然前提是第一次缓存的图片的ETAG值或者If- Modified-Since 值跟服务器上匹配的话，服务器就响应一个304给客户端。</p>
+<p>Session #1</p>
+<p>GET &#x2F;images&#x2F;banner.jpg HTTP&#x2F;1.1</p>
+<p>Host: <a target="_blank" rel="noopener" href="http://www.bayden.com/">www.bayden.com</a></p>
+<p>HTTP&#x2F;1.1 200 OK</p>
+<p>Date: Tue, 08 Mar 2006 00:32:46 GMT</p>
+<p>Content-Length: 6171</p>
+<p>Content-Type: image&#x2F;jpeg</p>
+<p>ETag: “40c7f76e8d30c31:2fe20”</p>
+<p>Last-Modified: Thu, 12 Jun 2003 02:50:50 GMT</p>
+<p>Session #2</p>
+<p>GET &#x2F;images&#x2F;banner.jpg HTTP&#x2F;1.1</p>
+<p>If-Modified-Since: Thu, 12 Jun 2003 02:50:50 GMT</p>
+<p>If-None-Match: “40c7f76e8d30c31:2fe20”</p>
+<p>Host: <a target="_blank" rel="noopener" href="http://www.bayden.com/">www.bayden.com</a></p>
+<p>HTTP&#x2F;1.1 304 Not Modified</p>
+<p>因为一个HTTP304响应仅仅包含头，没有body,所有它在穿越互联网的时候要比携带了资源的快很多，尽管如此，HTTP&#x2F;304响应需要一个服务器的往返，但是通过细心的设置响应头，web程序员可以消除这种因素，甚至是有条件的请求。</p>
+<h3 id="缓存相关响应头"><a href="#缓存相关响应头" class="headerlink" title="缓存相关响应头"></a>缓存相关响应头</h3><p>通常缓存机制是由响应头来控制的。HTTP规范描述了Header控制缓存，The optional Cache-Control，Expires（过期）。</p>
+<p>Expires头包含一个绝对的日期，当超过此日期，它将不会被考虑更新了。</p>
+<p>Table 2. Common Cache-Control Headers</p>
+<p>Value</p>
+<p>Meaning</p>
+<p>public</p>
+<p>The response may be stored in any cache, including caches shared among many users.</p>
+<p>private</p>
+<p>The response may only be stored in a private cache used by a single user.</p>
+<p>no-cache</p>
+<p>The response should not be reused to satisfy future requests.</p>
+<p>no-store</p>
+<p>The response should not be reused to satisfy future requests, and should not be written to disk. This is primarily used as a security measure for sensitive responses.</p>
+<p>max-age&#x3D;#seconds</p>
+<p>The response may be reused to satisfy future requests within a certain number of seconds.</p>
+<p>must-revalidate</p>
+<p>The response may be reused to satisfy future requests, but the origin server should first be contacted to verify that the response is still fresh.</p>
+<p>Cache-Control头的参数设置：</p>
+<p>Public 响应会被缓存，并且在多用户间共享。</p>
+<p>Private 响应只能够作为私有的缓存，不能再用户间共享。</p>
+<p>No-cache 响应不会被缓存</p>
+<p>No-store 响应不会被缓存，并且不会被写入到客户端的磁盘里，这也是基于安全考虑的某些敏感的响应才会使用这个。</p>
+<p>Max-age&#x3D;#seconds 响应将会某个指定的秒数内缓存，一旦时间过了，就不会被缓存。</p>
+<p>Must-revalidate 响应会被重用来满足接下来的请求，但是它必须到服务器端去验证它是不是仍然是最新的。</p>
+<p>注意：</p>
+<p>如果你要想在iis中配置缓存，请参阅温软的知识技术文章：</p>
+<p>· <a target="_blank" rel="noopener" href="http://support.microsoft.com/default.aspx?scid=kb;en-us;247404">How to Modify the Cache-Control HTTP Header When You Use IIS</a>.</p>
+<p>你可以学习更多关于在asp.net中使用缓存的知识文章：</p>
+<p>· <a target="_blank" rel="noopener" href="http://support.microsoft.com/default.aspx?scid=kb;en-us;323290">How To Cache in ASP.NET by Using Visual C# .NET</a>.</p>
+<p>如果你发现你经常在你的网站上更新文件，但是并没有更改文件名字，那你就必须要非常小心地设置你的缓存生存时间。例如：如果你要一个thisyear.gif图片文件显示当前的年份在网站上，你需要保证这个缓存过期时间不能超过一天，否则一个用户在12月31号访问你的网站的时候，在1月1号就不能显示正确的日期。</p>
+<p>由于某些原因，服务器可能会设置：Progma：no-cache 头，Cache-control:no-cache</p>
+<p>Header中的参数：Vary 是一个缓存信号，Vary：User-Agent表示缓存当前的响应，但是仅限于当发送同样的User-Agent 头的时候。指令 Vary：* 就相当于Cache-Control：no-Cache。</p>
+<p>Vary就相当于asp.net中的缓存的参数一样，意思是根据什么来缓存，如果要是知道asp.net的缓存的使用方法，就很容易明白这个参数的意思。</p>
+<p>使用HTTP会话列表，Fiddler用户可以看到在页面里包含的ＨＴＴＰ缓存头。</p>
+<h3 id="Fiddler-会话列表"><a href="#Fiddler-会话列表" class="headerlink" title="Ｆｉｄｄｌｅｒ　会话列表"></a>Ｆｉｄｄｌｅｒ　会话列表</h3><p>如果响应不包含Ｅｘｐｉｒｅｓ或者Ｃａｃｈｅ－Ｃｏｎｔｒｏｌ，那么客户端就会被迫作为一个有条件的请求，来保证所有的资源都是最新的。</p>
+<p>有条件的请求和ＷｉｎＩｎｅｔＣａｃｈｅ</p>
+<p>ＩＥ通过Ｍｉｃｒｏｓｏｆｔ　ｗｉｎｄｏｗｓ　Ｉｎｔｅｒｎｅｔ　Ｓｅｒｖｉｃｅｓ来最大程度的利用缓存服务。ＷｉｎＩｎｅｔ允许用户配置缓存的大小和行为，设置缓存进行如下操作：</p>
+<p>１　打开ＩＥ，</p>
+<p>２　工具选项，选择Ｉｎｒｅｒｎｅｔ选项，在一般子选项中，临时文件夹内，点击设置</p>
+<p>下图就是选村的四种设置：</p>
+<p>标记性能问题：</p>
+<p>你可以使用Ｆｉｄｄｌｅｒ的自定义规则来标记某些你需要的，比如如果某个响应大于２５ＫＢ，你可以把当前的Ｓｅｓｓｉｏｎ标记为红色，更加醒目。以下代码都是在OnBeforeResponse事件中：</p>
+<p>&#x2F;&#x2F; Flag files over 25KB</p>
+<p>   if (oSession.responseBodyBytes.length &gt; 25000){</p>
+<pre><code>  oSession\[&quot;ui-color&quot;\] = &quot;red&quot;;
+
+  oSession\[&quot;ui-bold&quot;\] = &quot;true&quot;;
+
+  oSession\[&quot;ui-customcolumn&quot;\] = &quot;Large file&quot;;
+</code></pre>
+<p>   }</p>
+<p>同样，你也可以标记响应并不指示缓存信息。</p>
+<p>   &#x2F;&#x2F; Mark files which do not have caching information</p>
+<p>if (!oSession.oResponse.headers.Exists(“Expires”) &amp;&amp;</p>
+<p>!oSession.oResponse.headers.Exists(“Cache-Control”)){</p>
+<p>oSession[“ui-color”] &#x3D; “purple”;</p>
+<pre><code>  oSession\[&quot;ui-bold&quot;\] = &quot;true&quot;;
+</code></pre>
+<p>   }</p>
+<h2 id="介绍HTTP压缩"><a href="#介绍HTTP压缩" class="headerlink" title="介绍ＨＴＴＰ压缩"></a>介绍ＨＴＴＰ压缩</h2><p>所有的目前流行的ＷＥＢ服务器和浏览器都提供ＨＴＴＰ压缩支持。ＨＴＴＰ压缩可以非常显著地降低客户端和服务器端的通讯量。节省超过５０％的ＨＴＭＬ，ＸＭＬ，ＣＳＳ，ＪＳ等文件。一个浏览器发送一个信号给服务器，他可以介绍ＨＴＴＰ压缩过的内容，并且会把客户端所支持的压缩类型放在请求的Ｈｅａｄｅｒ中，例如：考虑如下的请求：</p>
+<p>GET &#x2F; HTTP&#x2F;1.1</p>
+<p>Accept: *&#x2F;*</p>
+<p>Accept-Language: en-us</p>
+<p>Accept-Encoding: gzip, deflate</p>
+<p>User-Agent: Mozilla&#x2F;4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322)</p>
+<p>Host: search.msn.com</p>
+<p>这个　Ａｃｃｅｐｔ－Ｅｎｃｏｄｉｎｇ　头表明ＩＥ将愿意接受ＧＺＩＰ格式的和ＤＥＦＬＡＴＥ格式的压缩响应。</p>
+<p>相应的响应如下：</p>
+<p>HTTP&#x2F;1.1 200 OK</p>
+<p>Content-Type: text&#x2F;html; charset&#x3D;utf-8</p>
+<p>Server: Microsoft-IIS&#x2F;6.0 –Microsoft-HTTPAPI&#x2F;1.0</p>
+<p>X-Powered-By: ASP.NET</p>
+<p>Vary: Accept-Encoding</p>
+<p>Content-Encoding: gzip</p>
+<p>Date: Tue, 15 Feb 2006 09:14:36 GMT</p>
+<p>Content-Length: 1277</p>
+<p>Connection: close</p>
+<p>Cache-Control: private, max-age&#x3D;3600</p>
+<p>你可以使用Ｆｉｄｄｌｅｒ来解压缩这些数据。实验表明，使用ＨＴＴＰ压缩能大量减少数据往返，一个普通的ＣＳＳ文件甚至能减少８０％！当然压缩是以牺牲ＣＰＵ性能为代价的。特别是压缩动态文件，但是一般的权宜之策是压缩例如ＪＳ，ＣＳＳ等静态文件，因为他们在第一次压缩后，就会被存储在服务器上，如果要压缩ａｓｐ．ｎｅｔ动态文件，一定要有个权衡才行</p>
+<p>如果您现在还是不满足您的程序优化，那么你还可以参看这篇文章，</p>
+<p><a target="_blank" rel="noopener" href="http://msdn.microsoft.com/msdnmag/issues/05/01/ASPNETPerformance/default.aspx">Ten Tips for Writing High-Performance Web Applications</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/blog/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/200812301028.html" rel="prev" title="js 多维数组 应用-CarlZeng">
+                  <i class="fa fa-angle-left"></i> js 多维数组 应用-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/200901041808.html" rel="next" title="js post 应用-CarlZeng">
+                  js post 应用-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Carl 本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">站点总字数 748k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">站点阅读时长 22:41</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/next-boot.js"></script><script src="/blog/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/blog/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
