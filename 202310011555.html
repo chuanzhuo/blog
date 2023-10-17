@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
@@ -13,7 +14,7 @@
 
 <link rel="stylesheet" href="/blog/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
@@ -168,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/blog/tags/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -318,7 +319,7 @@
     
     <div class="post-body" itemprop="articleBody"><p>记录go语言学习与应用日志<br> <span id="more"></span></p>
 <h1 id="Proxypool-WebFuzzSub"><a href="#Proxypool-WebFuzzSub" class="headerlink" title="Proxypool - WebFuzzSub"></a>Proxypool - WebFuzzSub</h1><p>审查所有使用这个类型的站点，需要定期去维护。</p>
-<h1 id="安装步骤："><a href="#安装步骤：" class="headerlink" title="安装步骤："></a>安装步骤：</h1><p>1.安装 go install github.com&#x2F;ssrlive&#x2F;proxypool@latest<br>2.将生成的proxypool 可执行文件，复制到整个项目的集体目录下. i.e. &#x2F;Users&#x2F;carlzeng&#x2F;go&#x2F;pkg&#x2F;mod&#x2F;github.com&#x2F;ssrlive&#x2F;<a href="mailto:&#112;&#x72;&#x6f;&#x78;&#x79;&#x70;&#x6f;&#111;&#108;&#x40;&#118;&#x30;&#46;&#55;&#46;&#x31;&#50;">&#112;&#x72;&#x6f;&#x78;&#x79;&#x70;&#x6f;&#111;&#108;&#x40;&#118;&#x30;&#46;&#55;&#46;&#x31;&#50;</a><br>3.配置文件config.yaml 和 source.yaml<br>4.运行 .&#x2F;proxypool -c config_proxypool.yaml</p>
+<h1 id="安装步骤："><a href="#安装步骤：" class="headerlink" title="安装步骤："></a>安装步骤：</h1><p>1.安装 go install github.com&#x2F;ssrlive&#x2F;proxypool@latest<br>2.将生成的proxypool 可执行文件，复制到整个项目的集体目录下. i.e. &#x2F;Users&#x2F;carlzeng&#x2F;go&#x2F;pkg&#x2F;mod&#x2F;github.com&#x2F;ssrlive&#x2F;<a href="mailto:&#112;&#x72;&#x6f;&#x78;&#x79;&#112;&#x6f;&#111;&#108;&#x40;&#x76;&#x30;&#x2e;&#x37;&#46;&#x31;&#x32;">&#112;&#x72;&#x6f;&#x78;&#x79;&#112;&#x6f;&#111;&#108;&#x40;&#x76;&#x30;&#x2e;&#x37;&#46;&#x31;&#x32;</a><br>3.配置文件config.yaml 和 source.yaml<br>4.运行 .&#x2F;proxypool -c config_proxypool.yaml</p>
 <p>以后只要搜索proxypool的source.yaml即可，拓展爬虫目标列表，<br>i.e. <a target="_blank" rel="noopener" href="https://github.com/newcastlecy/proxypool-1/blob/master/source.yaml">https://github.com/newcastlecy/proxypool-1/blob/master/source.yaml</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxypool  -c config_proxypool.json</span><br></pre></td></tr></table></figure>
 
@@ -363,6 +364,18 @@ internal/app/task.go:64:19: undefined: FuzzParseProxyFromString
   <div class="social-list">
 
       <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信</span>
+          </span>
+
+          <img class="social-item-img" src="/blog/images/wechat_channel.png">
+      </div>
+
+      <div class="social-item">
           <a target="_blank" class="social-link" href="/blog/atom.xml">
             <span class="icon">
               <i class="fa fa-rss"></i>
@@ -382,8 +395,8 @@ internal/app/task.go:64:19: undefined: FuzzParseProxyFromString
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/202309291329.html" rel="prev" title="网络影视资源 - 2023中秋国庆分享">
-                  <i class="fa fa-angle-left"></i> 网络影视资源 - 2023中秋国庆分享
+                <a href="/blog/202310010555.html" rel="prev" title="NetSuite Test Driver Account 如何查看系统邮件发送历史记录">
+                  <i class="fa fa-angle-left"></i> NetSuite Test Driver Account 如何查看系统邮件发送历史记录
                 </a>
             </div>
             <div class="post-nav-item">
@@ -420,13 +433,13 @@ internal/app/task.go:64:19: undefined: FuzzParseProxyFromString
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 748k</span>
+    <span title="站点总字数">站点总字数 753k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 22:41</span>
+    <span title="站点阅读时长">站点阅读时长 22:48</span>
   </span>
 </div>
 <div class="busuanzi-count">
