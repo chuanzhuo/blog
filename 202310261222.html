@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="网站部署artalk评论系统，接收访客用户的评论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo定制之家宽部署artalk评论系统">
+<meta property="og:url" content="https://www.carlzeng.top/202310261222.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="网站部署artalk评论系统，接收访客用户的评论">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.evernote.com/shard/s122/sh/3e6145c0-e60c-4484-978d-77c4fc794bf0/xZsj26mfamXYoqTFCRfXyVIHPi2gNUfF_3UuDZAv0W-ilz5vBxltD0dzLQ/deep/0/image.png">
+<meta property="article:published_time" content="2023-10-26T04:22:41.000Z">
+<meta property="article:modified_time" content="2023-10-26T07:31:23.679Z">
+<meta property="article:author" content="Carl Zeng">
+<meta property="article:tag" content="debian">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="artalk">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.evernote.com/shard/s122/sh/3e6145c0-e60c-4484-978d-77c4fc794bf0/xZsj26mfamXYoqTFCRfXyVIHPi2gNUfF_3UuDZAv0W-ilz5vBxltD0dzLQ/deep/0/image.png">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/202310261222.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/202310261222.html","path":"202310261222.html","title":"Hexo定制之家宽部署artalk评论系统"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo定制之家宽部署artalk评论系统 | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人随笔 解决方案 IT技术 欢迎探讨</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="全站检索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时光轴</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>全站检索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">实现方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">2.</span> <span class="nav-text">灵感来源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%88%B0NexT%E7%9A%84%E9%A1%B5%E8%84%9A%E6%A8%A1%E7%89%88comment%E4%BD%8D%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">添加到NexT的页脚模版comment位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9NexT%E7%9A%84%E7%94%B5%E8%84%91%E7%AB%AF%E8%83%8C%E6%99%AF%E8%89%B2%E4%B8%BA%E7%99%BD%E8%89%B2%EF%BC%8C%EF%BC%88%E5%90%8C%E6%AD%A5%E4%BA%8E%E6%89%8B%E6%9C%BA%E7%AB%AF%E6%A0%B7%E5%BC%8F%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">修改NexT的电脑端背景色为白色，（同步于手机端样式）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%A0%E5%B0%84%E6%88%96%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%EF%BC%8C%E6%8F%90%E4%BE%9B%E7%BB%99%E5%A4%96%E7%BD%91%E4%BD%BF%E7%94%A8%EF%BC%9Ahttps-chuanzhuo-github-io-blog"><span class="nav-number">2.3.</span> <span class="nav-text">映射或反向代理，提供给外网使用：https:&#x2F;&#x2F;chuanzhuo.github.io&#x2F;blog&#x2F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2%E8%A1%A8%E6%83%85%E5%8C%85"><span class="nav-number">2.4.</span> <span class="nav-text">替换表情包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E6%9C%89%E5%A4%9A%E5%87%A0%E4%B8%AA%E4%BA%BA%E5%90%8C%E6%97%B6%E8%AE%BF%E9%97%AE%E6%97%B6%EF%BC%8Cartalk%E5%B0%B1%E5%A5%94%E6%BA%83%E4%BA%86%EF%BC%8C%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="nav-number">2.5.</span> <span class="nav-text">一有多几个人同时访问时，artalk就奔溃了，如何解决？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%AE%E5%85%A5%E5%8D%9A%E5%AE%A2"><span class="nav-number">2.6.</span> <span class="nav-text">置入博客</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">眼观心察</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">306</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">66</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://unpkg.com/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+
+    <!-- recent posts -->
+      <div class="sidebar-inner sidebar-overview-active animated fadeInUp">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔Recently
+        </div>
+        <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item">
+                  <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论系统" target="">
+                  Hexo定制之家宽部署artalk评论系统
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+                  任天堂Switch全部记录
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202310202241.html" title="安卓手机root与小黄鸟抓包" target="">
+                  安卓手机root与小黄鸟抓包
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
+                  Debian初体验之基础设置
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202310132055.html" title="海康萤石摄像头C3HC学习" target="">
+                  海康萤石摄像头C3HC学习
+                  </a>
+                </li>
+        </ul>
+      </div>
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202304131736.html" rel="bookmark">
+        <time class="popular-posts-time">2023-04-13</time>
+        <br>
+      动态公网IP 和 SRS-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200809301259.html" rel="bookmark">
+        <time class="popular-posts-time">2008-09-30</time>
+        <br>
+      jseclipse_plugin_040207.zip-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202211220913.html" rel="bookmark">
+        <time class="popular-posts-time">2022-11-22</time>
+        <br>
+      (已失效，待更新)如何使用youtube-dl下载Youtube上面的音视频，油管视频-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202211182124.html" rel="bookmark">
+        <time class="popular-posts-time">2022-11-18</time>
+        <br>
+      ptm learning and misc-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202310261222.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="眼观心察">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hexo定制之家宽部署artalk评论系统 | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo定制之家宽部署artalk评论系统
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-10-26 12:22:41 / 修改时间：15:31:23" itemprop="dateCreated datePublished" datetime="2023-10-26T12:22:41+08:00">2023-10-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/202310261222.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/202310261222.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202310261222.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>10 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img data-src='https://www.evernote.com/shard/s122/sh/3e6145c0-e60c-4484-978d-77c4fc794bf0/xZsj26mfamXYoqTFCRfXyVIHPi2gNUfF_3UuDZAv0W-ilz5vBxltD0dzLQ/deep/0/image.png'>
+网站部署artalk评论系统，接收访客用户的评论
+<span id="more"></span>
+
+
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>hexo部署Artalk<br>用J4125里面的宝塔面板的Docker</p>
+<p>宝塔在debian服务器上<br>debian服务器上镜像Docker对应目录&#x2F;data&#x2F;artalk</p>
+<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p>carlzeng@Debian11:&#x2F;data&#x2F;artalk$ ls<br>artalk.db  artalk.yml</p>
+<p><a target="_blank" rel="noopener" href="http://192.168.6.116:8282/sidebar/#/login">http://192.168.6.116:8282/sidebar/#/login</a></p>
+<p>carlzeng@Debian11:&#x2F;$ docker exec -it artalk artalk admin<br>permission denied while trying to connect to the Docker daemon socket at unix:&#x2F;&#x2F;&#x2F;var&#x2F;run&#x2F;docker.sock: Get “http:&#x2F;&#x2F;%2Fvar%2Frun%2Fdocker.sock&#x2F;v1.24&#x2F;containers&#x2F;artalk&#x2F;json”: dial unix &#x2F;var&#x2F;run&#x2F;docker.sock: connect: permission denied<br>carlzeng@Debian11:&#x2F;$ su<br>Password:<br>root@Debian11:&#x2F;# docker exec -it artalk artalk admin<br>Error response from daemon: No such container: artalk</p>
+<p>检测了BT面板里面的artalk容器配置，发现异常如下：<br>“Name” : “&#x2F;q18qdroglehghc”,</p>
+<p>用第二种方法：直接在ssh中输入docker命令</p>
+<p>在root的根目录下执行<br>docker run -d <br>  –name artalk <br>  -p 8282:23366 <br>  -v &#x2F;data&#x2F;artalk:&#x2F;data <br>  artalk&#x2F;artalk-go</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it artalk artalk admin</span><br><span class="line"></span><br><span class="line">WARN[0000] 未找到 IP 数据库文件：&quot;./data/ip2region.xdb&quot;，IP 归属地功能已禁用，参考链接：https://artalk.js.org/guide/frontend/ip-region.html</span><br><span class="line">--------------------------------</span><br><span class="line"> Create admin account</span><br><span class="line">--------------------------------</span><br><span class="line">Enter Username: ***</span><br><span class="line">Enter Email: zeng.@icloud.com</span><br><span class="line">Enter Password: </span><br><span class="line">Retype Password: </span><br><span class="line">--------------------------------</span><br><span class="line">  Name: ***</span><br><span class="line">  Mail: zeng.@icloud.com</span><br><span class="line">--------------------------------</span><br></pre></td></tr></table></figure>
+
+<p>可以在正常在本地提交评论<a target="_blank" rel="noopener" href="http://localhost:4000/blog/202309222344.html#Next">http://localhost:4000/blog/202309222344.html#Next</a><br>下一步：</p>
+<h2 id="添加到NexT的页脚模版comment位置"><a href="#添加到NexT的页脚模版comment位置" class="headerlink" title="添加到NexT的页脚模版comment位置"></a>添加到NexT的页脚模版comment位置</h2><pre><code>done, added in comments.njk
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- if page.comments %&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- CSS --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- JS --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- Artalk --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;Comments&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="title class_">Artalk</span>.<span class="title function_">init</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">el</span>:        <span class="string">&#x27;#Comments&#x27;</span>,               <span class="comment">// 绑定元素的 Selector</span></span></span><br><span class="line"><span class="language-javascript">    <span class="attr">pageKey</span>:   <span class="string">&#x27;&#x27;</span>,                          <span class="comment">// 固定链接 (留空自动获取)</span></span></span><br><span class="line"><span class="language-javascript">    <span class="attr">pageTitle</span>: <span class="string">&#x27;&#x27;</span>,                          <span class="comment">// 页面标题 (留空自动获取)</span></span></span><br><span class="line"><span class="language-javascript">    <span class="attr">server</span>:    <span class="string">&#x27;http://192.168.6.116:8282&#x27;</span>,  <span class="comment">// 后端地址</span></span></span><br><span class="line"><span class="language-javascript">    <span class="attr">site</span>:      <span class="string">&#x27;Carl Notes - Local&#x27;</span>,         <span class="comment">// 你的站点名</span></span></span><br><span class="line"><span class="language-javascript">  &#125;)</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  ....</span><br></pre></td></tr></table></figure>
+.post-nav &#123; border-bottom: 20px solid $gainsboro;
+
+
+目前的局限：打开页面以后需要二次刷新页面才会出现评论
+</code></pre>
+<h2 id="修改NexT的电脑端背景色为白色，（同步于手机端样式）"><a href="#修改NexT的电脑端背景色为白色，（同步于手机端样式）" class="headerlink" title="修改NexT的电脑端背景色为白色，（同步于手机端样式）"></a>修改NexT的电脑端背景色为白色，（同步于手机端样式）</h2><pre><code>修改配置文件 darkmode: false
+</code></pre>
+<h2 id="映射或反向代理，提供给外网使用：https-chuanzhuo-github-io-blog"><a href="#映射或反向代理，提供给外网使用：https-chuanzhuo-github-io-blog" class="headerlink" title="映射或反向代理，提供给外网使用：https://chuanzhuo.github.io/blog/"></a>映射或反向代理，提供给外网使用：<a target="_blank" rel="noopener" href="https://chuanzhuo.github.io/blog/">https://chuanzhuo.github.io/blog/</a></h2><pre><code>如何给docker中的服务配置二级域名？
+https页面可否嵌入http服务？
+    需要升级到https
+    Nginx Proxy Manager也可以代劳
+
+家宽如何使用Nginx Proxy Manager反向代理 - YouTube https://vt.wooomooo.com/?p=67689
+材料清单
+    家宽+公网IP
+    一级域名？
+
+反向代理步骤
+    1. 进入Nginx Proxy Manager官网，获取docker-compose.yml配置文件（需保存为这个文件名）
+    1. 到这个docker-compose.yml文件的目录下，执行：docker-compose up -d
+        /www/server/panel/data/compose/NginxPorxyManager/template
+    1. 进入Nginx Proxy Manager 后台 
+        http://192.168.6.116:81/login
+    1. 端口转发
+        这里的880和4443就是刚才在配置服务器的端口
+        openwrt端口转发设置方法
+        依次找到：网络–&gt; 防火墙–&gt; 端口转发。
+        在新建端口转发设置栏中，输入你要转发的IP、端口和协议等内容。
+        点击保存&amp;应用便可即时生效。
+        配置好以后，可以用外网IP访问转发的两个端口：
+            http://123.118.31.119:880/
+            http://123.118.31.119:4443/
+    1. 特定域名
+        A记录
+
+    1. 配置New Proxy Host 在 Nginx Proxy Manager 后台    
+        新增一条a.goodday.cc指向http://192.168.6.116:8282
+
+
+访问http://a.goodday.cc:880/
+http://a.goodday.cc:4443/
+错误：
+    504 Gateway Time-out
+    openresty
+
+很大可能现在面临的问题是letsencrypt.org无法成功申请证书
+有没有其他的SSL免费证书可用？
+
+
+https://a.goodday.cc:4443/
+错误：
+    This site can’t be reachedThe webpage at https://a.goodday.cc:4443/ might be temporarily down or it may have moved permanently to a new web address.
+    ERR_SSL_UNRECOGNIZED_NAME_ALERT
+
+转换思路，取得域名
+成功切换至域名（CF控制的 carlzeng.top）
+    https://sharedblog.net/posts/2022-09-28-github-pages-custom-domain-name/
+
+关闭DNS \*泛解析 A记录 的 ‘代理’，才能正常连接到NginxProxyManager的特点端口
+等待生效后，方可正常
+</code></pre>
+<h2 id="替换表情包"><a href="#替换表情包" class="headerlink" title="替换表情包"></a>替换表情包</h2><pre><code>替换原来的https://cdn.jsdelivr.net/gh/ArtalkJS/Emoticons/grps/default.json
+新的：https://cdn.klyang.com/json/emo.json
+</code></pre>
+<h2 id="一有多几个人同时访问时，artalk就奔溃了，如何解决？"><a href="#一有多几个人同时访问时，artalk就奔溃了，如何解决？" class="headerlink" title="一有多几个人同时访问时，artalk就奔溃了，如何解决？"></a>一有多几个人同时访问时，artalk就奔溃了，如何解决？</h2><pre><code>    Artalk Error
+    Error: 请求超时或意外终止，无法获取评论列表数据
+    点击重新获取
+ping artalk.carlzeng.top -c4
+PING artalk.carlzeng.top (172.67.202.139): 56 data bytes
+本机是这种情况，用联通4G网络就能正常访问artalk评论
+</code></pre>
+<p>Next pending…</p>
+<h2 id="置入博客"><a href="#置入博客" class="headerlink" title="置入博客"></a>置入博客</h2><pre><code>不要自己修改NexT，测试使用插件：Artalk comment plugin for Hexo NexT
+https://github.com/leirock/hexo-next-artalk
+npm install hexo-next-artalk
+
+这个插件方案可能可以解决，首页也会冒出评论框的尴尬。
+    &lt;script&gt;
+    Artalk.init(&#123;
+      el:        &#39;#Comments&#39;,
+      pageKey:   &#39;&#123;&#123;page.permalink&#125;&#125;&#39;,
+      pageTitle: &#39;&#123;&#123;page.title&#125;&#125;&#39;,
+      server:    &#39;&#123;&#123;theme.post_artalkserver&#125;&#125;&#39;,
+      site:      &#39;Carl Notes&#39;
+    &#125;)
+    &lt;/script&gt;
+
+&lt;!-- CSS.comments --&gt;
+  &lt;link href=&quot;https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;!-- JS.comments --&gt;
+  &lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js&quot;&gt;&lt;/script&gt;
+
+  &lt;span class=&quot;post-meta-item&quot;&gt;
+    &lt;span class=&quot;post-meta-break&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;post-meta-item-text&quot;&gt;评论数&#123;&#123;__('symbol.colon')&#125;&#125;&lt;/span&gt;
+    &lt;span id=&quot;ArtalkCount&quot;&gt;&lt;/span&gt;
+  &lt;/span&gt;
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Carl Zeng
+    <a href='https://www.carlzeng.top/202310261222.html'> 《Hexo定制之家宽部署artalk评论系统》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.carlzeng.top/202310261222.html" title="Hexo定制之家宽部署artalk评论系统">https://www.carlzeng.top/202310261222.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>文章距今多时,请灵活应用.有偿协助请联系</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar"></i>
+        </span>
+        <span class="post-meta-item-text">发表于</span>
+        
+
+        <time title="创建时间：2023-10-26 12:22:41 / 修改时间：15:31:23" itemprop="dateCreated datePublished" datetime="2023-10-26T12:22:41+08:00">2023-10-26</time>
+      </span>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/debian/" rel="tag"># debian</a>
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/artalk/" rel="tag"># artalk</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202310221511.html" rel="prev" title="任天堂Switch全部记录">
+                  <i class="fa fa-angle-left"></i> 任天堂Switch全部记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Carl 本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">站点总字数 777k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">站点阅读时长 23:32</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+  <script type="text/javascript">
+  var sc_project=12934590;
+  var sc_invisible=0;
+  var sc_security="122fb52f";
+  var scJsHost = "https://";
+  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="View My Stats"
+  href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/202310261222.html","pageTitle":"Hexo定制之家宽部署artalk评论系统"}</script>
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>
