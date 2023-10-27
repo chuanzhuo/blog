@@ -21,16 +21,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="背景2023年8月更新 安卓手机用户，有个APP目前还很好用的：波点音乐 bodian.kuwo.com 厉害了酷我，听说是用视频的形式绕开部分音乐版权blabla..  Listen 1 是一个非常牛逼的开源音乐播放器，就像作者说的，现在想听一首歌，因为版权的原因，要在不同播放器进行来回切换，这会很让人抓狂，Listen 1 可以很完美的帮你解决这个问题。GitHub 主页 github.com">
+    <meta name="description" content="背景听音乐，音乐APP等等个人自用分享">
 <meta property="og:type" content="article">
-<meta property="og:title" content="(音乐播放器) 给 Listen 1 Chrome 版添加下载功能 版本2.27.0  给 Listen 1 Firefox 版添加下载功能 2.27.0-CarlZeng">
+<meta property="og:title" content="听音乐(音乐播放器)">
 <meta property="og:url" content="https://www.carlzeng.top/202302201139.html">
 <meta property="og:site_name" content="随笔 Carl Notes">
-<meta property="og:description" content="背景2023年8月更新 安卓手机用户，有个APP目前还很好用的：波点音乐 bodian.kuwo.com 厉害了酷我，听说是用视频的形式绕开部分音乐版权blabla..  Listen 1 是一个非常牛逼的开源音乐播放器，就像作者说的，现在想听一首歌，因为版权的原因，要在不同播放器进行来回切换，这会很让人抓狂，Listen 1 可以很完美的帮你解决这个问题。GitHub 主页 github.com">
+<meta property="og:description" content="背景听音乐，音乐APP等等个人自用分享">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-20T03:39:00.000Z">
-<meta property="article:modified_time" content="2023-10-04T13:47:44.184Z">
+<meta property="article:modified_time" content="2023-10-27T00:45:24.132Z">
 <meta property="article:author" content="Carl Zeng">
+<meta property="article:tag" content="安卓手机">
+<meta property="article:tag" content="音乐">
 <meta property="article:tag" content="音乐播放器">
 <meta name="twitter:card" content="summary">
 
@@ -39,10 +41,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/202302201139.html","path":"202302201139.html","title":"(音乐播放器) 给 Listen 1 Chrome 版添加下载功能 版本2.27.0  给 Listen 1 Firefox 版添加下载功能 2.27.0-CarlZeng"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/202302201139.html","path":"202302201139.html","title":"听音乐(音乐播放器)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>(音乐播放器) 给 Listen 1 Chrome 版添加下载功能 版本2.27.0  给 Listen 1 Firefox 版添加下载功能 2.27.0-CarlZeng | 随笔 Carl Notes</title>
+<title>听音乐(音乐播放器) | 随笔 Carl Notes</title>
   
 
 
@@ -92,7 +94,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时光轴</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>文章列表</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>全站检索
         </a>
@@ -143,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">具体步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E7%9A%84Chrome-%E7%94%9F%E6%88%90-crx%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.0.1.</span> <span class="nav-text">具体的Chrome 生成.crx步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%89%93%E5%8C%85%E7%94%9F%E6%88%90Firefox%E6%8F%92%E4%BB%B6%E7%89%88"><span class="nav-number">3.</span> <span class="nav-text">如何打包生成Firefox插件版</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%99-Listen-1-Chrome-%E7%89%88%E6%B7%BB%E5%8A%A0%E4%B8%8B%E8%BD%BD%E5%8A%9F%E8%83%BD-%E7%89%88%E6%9C%AC2-27-0"><span class="nav-number">2.</span> <span class="nav-text">给 Listen 1 Chrome 版添加下载功能 版本2.27.0</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.1.</span> <span class="nav-text">具体步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E7%9A%84Chrome-%E7%94%9F%E6%88%90-crx%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.1.1.</span> <span class="nav-text">具体的Chrome 生成.crx步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%89%93%E5%8C%85%E7%94%9F%E6%88%90Firefox%E6%8F%92%E4%BB%B6%E7%89%88"><span class="nav-number">2.2.</span> <span class="nav-text">如何打包生成Firefox插件版</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,12 +164,12 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">66</span>
+        <span class="site-state-item-count">67</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -248,10 +250,10 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201001251523.html" rel="bookmark">
-        <time class="popular-posts-time">2010-01-25</time>
+      <a class="popular-posts-link" href="/200907091056.html" rel="bookmark">
+        <time class="popular-posts-time">2009-07-09</time>
         <br>
-      Netsuite 友好提示-CarlZeng
+      netsuite动态绑定事件-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
@@ -259,13 +261,6 @@
         <time class="popular-posts-time">2021-11-23</time>
         <br>
       [GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200907091056.html" rel="bookmark">
-        <time class="popular-posts-time">2009-07-09</time>
-        <br>
-      netsuite动态绑定事件-CarlZeng
       </a>
     </li>
   </ul>
@@ -302,12 +297,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="(音乐播放器) 给 Listen 1 Chrome 版添加下载功能 版本2.27.0  给 Listen 1 Firefox 版添加下载功能 2.27.0-CarlZeng | 随笔 Carl Notes">
+      <meta itemprop="name" content="听音乐(音乐播放器) | 随笔 Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          (音乐播放器) 给 Listen 1 Chrome 版添加下载功能 版本2.27.0  给 Listen 1 Firefox 版添加下载功能 2.27.0-CarlZeng
+          听音乐(音乐播放器)
         </h1>
 
         <div class="post-meta-container">
@@ -325,7 +320,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-04 21:47:44" itemprop="dateModified" datetime="2023-10-04T21:47:44+08:00">2023-10-04</time>
+      <time title="修改时间：2023-10-27 08:45:24" itemprop="dateModified" datetime="2023-10-27T08:45:24+08:00">2023-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%9F%B3%E4%B9%90/" itemprop="url" rel="index"><span itemprop="name">音乐</span></a>
+        </span>
     </span>
 
   
@@ -364,14 +368,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.3k</span>
+      <span>3.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>6 分钟</span>
     </span>
 </div>
 
@@ -381,29 +385,22 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>2023年8月更新</p>
-<p>安卓手机用户，有个APP目前还很好用的：<a target="_blank" rel="noopener" href="https://bodian.kuwo.cn/">波</a>点音乐</p>
-<p>bodian.kuwo.com 厉害了酷我，听说是用视频的形式绕开部分音乐版权blabla..</p>
-<hr>
-<p>Listen 1 是一个非常牛逼的开源音乐播放器，就像作者说的，现在想听一首歌，因为版权的原因，要在不同播放器进行来回切换，这会很让人抓狂，Listen 1 可以很完美的帮你解决这个问题。<br>GitHub 主页 <a href="github.com/listen1">github.com&#x2F;listen1</a><br>下载地址 <a href="listen1.github.io/listen1/">listen1.github.io&#x2F;listen1&#x2F;</a><br>软件提供了多个平台的安装版本，这里以Chrome讲解。</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>听音乐，音乐APP等等个人自用分享</p>
 <span id="more"></span>
-<h1 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h1><p>具体要修改的地方有两处 第一处在 listen1.html #1906行</p>
+
+<hr>
+<p>2023年10月更新<br>其他方案之：酷我音乐 10.6.2.0 .apk<br>无需登陆版：<a target="_blank" rel="noopener" href="https://www.123pan.com/s/ZcgqVv-hn5Ch.html">https://www.123pan.com/s/ZcgqVv-hn5Ch.html</a>  提取码：4CxB</p>
+<p>需登录版：<a target="_blank" rel="noopener" href="https://www.123pan.com/s/ZcgqVv-3n5Ch.html">https://www.123pan.com/s/ZcgqVv-3n5Ch.html</a>  提取码：THYP</p>
+<p>状态：待测试</p>
+<hr>
+<p>2023年8月更新</p>
+<p>安卓手机用户，有个APP目前还很好用的：<a target="_blank" rel="noopener" href="https://bodian.kuwo.cn/">波</a>点音乐</p>
+<p>bodian.kuwo.com 厉害了酷我，听说是用视频的形式绕开部分音乐版权blabla..<br>状态：已测试</p>
+<hr>
+<h1 id="给-Listen-1-Chrome-版添加下载功能-版本2-27-0"><a href="#给-Listen-1-Chrome-版添加下载功能-版本2-27-0" class="headerlink" title="给 Listen 1 Chrome 版添加下载功能 版本2.27.0"></a>给 Listen 1 Chrome 版添加下载功能 版本2.27.0</h1><p>Listen 1 是一个非常牛逼的开源音乐播放器，就像作者说的，现在想听一首歌，因为版权的原因，要在不同播放器进行来回切换，这会很让人抓狂，Listen 1 可以很完美的帮你解决这个问题。<br>GitHub 主页 <a href="github.com/listen1">github.com&#x2F;listen1</a><br>下载地址 <a href="listen1.github.io/listen1/">listen1.github.io&#x2F;listen1&#x2F;</a><br>软件提供了多个平台的安装版本，这里以Chrome讲解。</p>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><p>具体要修改的地方有两处 第一处在 listen1.html #1906行</p>
 <p>修改</p>
-<div class="title">
-    <span
-    ng\-if\="currentPlaying.source === 'xiami'" style\="color: orange; font-size: medium"
-    >⚠️ </span
-    >
-                            </div>
-
-<p>为</p>
-<div class="title">
-    <span
-    ng\-if\="currentPlaying.source === 'xiami'" style\="color: orange; font-size: medium"
-    >⚠️ </span
-    > <a id="download\_music" download="" class="title ng-binding" href="" target="\_blank">下载</a>
-    </div>
-
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;title&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span></span></span><br><span class="line"><span class="tag">    <span class="attr">ng</span>\<span class="attr">-if</span>\=<span class="string">&quot;currentPlaying.source === &#x27;xiami&#x27;&quot;</span> <span class="attr">style</span>\=<span class="string">&quot;color: orange; font-size: medium&quot;</span></span></span><br><span class="line"><span class="tag">    &gt;</span>⚠️ &lt;/span</span><br><span class="line">    &gt;&#123;&#123; currentPlaying.title &#125;&#125;</span><br><span class="line">                            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">为</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;title&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span></span></span><br><span class="line"><span class="tag">    <span class="attr">ng</span>\<span class="attr">-if</span>\=<span class="string">&quot;currentPlaying.source === &#x27;xiami&#x27;&quot;</span> <span class="attr">style</span>\=<span class="string">&quot;color: orange; font-size: medium&quot;</span></span></span><br><span class="line"><span class="tag">    &gt;</span>⚠️ &lt;/span</span><br><span class="line">    &gt;&#123;&#123; currentPlaying.title &#125;&#125; <span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">&quot;download\_music&quot;</span> <span class="attr">download</span>=<span class="string">&quot;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;title ng-binding&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;\_blank&quot;</span>&gt;</span>下载<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>这里我增加了 target 新窗口打开，并且把原作者的 download 设置为空，因为安全的原因所以跨域这个问题无解。这样的设置的不足就是无法自动保存歌曲名称，需要手动修改保存的歌曲名称。</p>
 <p>第二处在 js&#x2F;loweb.js #396行 修改</p>
 <p>Promise.all(getUrlPromises)<br>    .then(playerFailCallback)<br>    .catch((response) &#x3D;&gt; {<br>    playerSuccessCallback(response);<br>    });</p>
@@ -417,13 +414,13 @@
 <p>4. 选取你解压后的文件夹（默认文件夹名：listen1_chrome_extension-2.27.0）也就是在这个文件夹修改上面的两个文件</p>
 <p>5. 点 Pack extension， 即生成2个文件：listen1_chrome_extension-2.27.0.crx 和 listen1_chrome_extension-2.27.0.pem</p>
 <p>6. 我们拖拽那个.crx文件到浏览器内(chrome:&#x2F;&#x2F;extensions&#x2F;)进行安装。</p>
-<h1 id="如何打包生成Firefox插件版"><a href="#如何打包生成Firefox插件版" class="headerlink" title="如何打包生成Firefox插件版"></a>如何打包生成Firefox插件版</h1><p>（1） 首先到github下载相关代码<a target="_blank" rel="noopener" href="https://github.com/listen1/listen1/_chrome/_extension">https://github.com/listen1/listen1\_chrome\_extension</a><br>（2）下载后，解压到文件夹，打开文件夹，删除manifest.json文件，将manifest_firefox.json重命名为manifest.json<br>（3）进入命令行界面（快捷键 win+r， Mac：terminal），进入解压后的目录：cd listen1_chrome_extension-2.10.0 , 执行 zip -r ..&#x2F;listen1.xpi * ，完成后可在此目录上级找到listen1.xpi</p>
+<h2 id="如何打包生成Firefox插件版"><a href="#如何打包生成Firefox插件版" class="headerlink" title="如何打包生成Firefox插件版"></a>如何打包生成Firefox插件版</h2><p>（1） 首先到github下载相关代码<a target="_blank" rel="noopener" href="https://github.com/listen1/listen1/_chrome/_extension">https://github.com/listen1/listen1\_chrome\_extension</a><br>（2）下载后，解压到文件夹，打开文件夹，删除manifest.json文件，将manifest_firefox.json重命名为manifest.json<br>（3）进入命令行界面（快捷键 win+r， Mac：terminal），进入解压后的目录：cd listen1_chrome_extension-2.10.0 , 执行 zip -r ..&#x2F;listen1.xpi * ，完成后可在此目录上级找到listen1.xpi</p>
 <p>zip -r ..&#x2F;listen1.xpi *</p>
 <p>（4）(需要使用<a target="_blank" rel="noopener" href="https://www.mozilla.org/en-US/firefox/developer/">FireFox的开发版Firefox Browser Developer Edition</a>, 测试时间2023年2月）Firefox页面地址栏输入：about:config , 不管提示啥，点确定就行，咋搜索首选项名称输入：xpinstall.signatures.required ，将此选项切换为 false</p>
 <p>（5）进入附加组件-扩展-管理您的扩展-设置-从文件安装附加组件，选择刚刚打包好的 .xpi 文件（默认名：listen1.xpi），添加。</p>
 <p>安装完成可以使用了，目前下载的功能仍然在测试当中，期待进一步完善。</p>
 <p>不管如何，安装完这个Chrome或者Firefox插件以后，我们都可以使用浏览器的调试工具 &gt;  Network标签下的Media来查看正在播放的媒体文件(MP3，FLAC等)</p>
-<p>参考文档：</p>
+<p>给 Listen 1 Chrome 版添加下载功能 版本2.27.0<br>参考文档：</p>
 <p>作者：ttys000<br>链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6878428772249370631">https://juejin.cn/post/6878428772249370631</a><br>来源：稀土掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 <p>————————————————<br>版权声明：本文为CSDN博主「onebai」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin/_40562999/article/details/108943445">https://blog.csdn.net/weixin\_40562999/article/details/108943445</a></p>
 
@@ -440,11 +437,11 @@
 <ul>
   <li class="post-copyright-author">
       <strong>本文作者： </strong>Carl Zeng
-    <a href='https://www.carlzeng.top/202302201139.html'> 《(音乐播放器) 给 Listen 1 Chrome 版添加下载功能 版本2.27.0  给 Listen 1 Firefox 版添加下载功能 2.27.0-CarlZeng》</a>
+    <a href='https://www.carlzeng.top/202302201139.html'> 《听音乐(音乐播放器)》</a>
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.carlzeng.top/202302201139.html" title="(音乐播放器) 给 Listen 1 Chrome 版添加下载功能 版本2.27.0  给 Listen 1 Firefox 版添加下载功能 2.27.0-CarlZeng">https://www.carlzeng.top/202302201139.html</a>
+      <a href="https://www.carlzeng.top/202302201139.html" title="听音乐(音乐播放器)">https://www.carlzeng.top/202302201139.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -492,11 +489,13 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-10-04 21:47:44" itemprop="dateModified" datetime="2023-10-04T21:47:44+08:00">2023-10-04</time>
+        <time title="修改时间：2023-10-27 08:45:24" itemprop="dateModified" datetime="2023-10-27T08:45:24+08:00">2023-10-27</time>
       </span>
 </div>
 
           <div class="post-tags">
+              <a href="/tags/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/" rel="tag"># 安卓手机</a>
+              <a href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag"># 音乐</a>
               <a href="/tags/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/" rel="tag"># 音乐播放器</a>
           </div>
 
@@ -544,13 +543,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 777k</span>
+    <span title="站点总字数">站点总字数 782k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 23:32</span>
+    <span title="站点阅读时长">站点阅读时长 23:41</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -621,7 +620,7 @@
 
 
 
-<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/202302201139.html","pageTitle":"(音乐播放器) 给 Listen 1 Chrome 版添加下载功能 版本2.27.0  给 Listen 1 Firefox 版添加下载功能 2.27.0-CarlZeng"}</script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/202302201139.html","pageTitle":"听音乐(音乐播放器)"}</script>
 
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
 <style>.artalk{width:initial;}</style>

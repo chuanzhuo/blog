@@ -29,7 +29,7 @@
 <meta property="og:description" content="云盘转化为本地磁盘">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-26T13:04:00.000Z">
-<meta property="article:modified_time" content="2023-10-04T11:17:08.314Z">
+<meta property="article:modified_time" content="2023-10-27T00:19:45.256Z">
 <meta property="article:author" content="Carl Zeng">
 <meta property="article:tag" content="NAS">
 <meta property="article:tag" content="云盘">
@@ -93,7 +93,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>时光轴</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>文章列表</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>全站检索
         </a>
@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%AD%A5%E9%AA%A4%E6%B1%87%E6%80%BB"><span class="nav-number">3.</span> <span class="nav-text">技术步骤汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="nav-number">4.</span> <span class="nav-text">背景知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%84%9F%E8%B0%A2"><span class="nav-number">5.</span> <span class="nav-text">感谢</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD"><span class="nav-number">6.</span> <span class="nav-text">后续</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%AD%A5%E9%AA%A4%E6%B1%87%E6%80%BB"><span class="nav-number">3.</span> <span class="nav-text">技术步骤汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E8%BF%99%E4%B8%AA%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98refresh-token"><span class="nav-number">3.1.</span> <span class="nav-text">如何获取这个阿里云盘refresh-token</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="nav-number">4.</span> <span class="nav-text">背景知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%84%9F%E8%B0%A2"><span class="nav-number">5.</span> <span class="nav-text">感谢</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD"><span class="nav-number">6.</span> <span class="nav-text">后续</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -163,12 +163,12 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">66</span>
+        <span class="site-state-item-count">67</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -235,13 +235,6 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202304131742.html" rel="bookmark">
-        <time class="popular-posts-time">2023-04-13</time>
-        <br>
-      Python 编辑器 jupyter notebook-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/201811161744.html" rel="bookmark">
         <time class="popular-posts-time">2018-11-16</time>
         <br>
@@ -253,6 +246,13 @@
         <time class="popular-posts-time">2021-03-17</time>
         <br>
       Global Search file content in Gitlab repositories, search across repositories, search across all files-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202304131742.html" rel="bookmark">
+        <time class="popular-posts-time">2023-04-13</time>
+        <br>
+      Python 编辑器 jupyter notebook-CarlZeng
       </a>
     </li>
   </ul>
@@ -312,7 +312,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-04 19:17:08" itemprop="dateModified" datetime="2023-10-04T19:17:08+08:00">2023-10-04</time>
+      <time title="修改时间：2023-10-27 08:19:45" itemprop="dateModified" datetime="2023-10-27T08:19:45+08:00">2023-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BA%91%E7%9B%98/" itemprop="url" rel="index"><span itemprop="name">云盘</span></a>
+        </span>
     </span>
 
   
@@ -351,14 +360,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.4k</span>
+      <span>3.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
+      <span>7 分钟</span>
     </span>
 </div>
 
@@ -371,9 +380,9 @@
     <div class="post-body" itemprop="articleBody"><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>一直对软路由硬件J4125之类的痴迷，想要它虚拟出另外一个系统实现NAS本地云存储的功能，<br>可是碍于广大群众对这种集成方案的实用性、稳定性、低维护性产生实践中的顾虑和问题，更倾向于独立的NAS硬件。<br>我也一直在思考NAS在日常生活中除了备份旧文件用处的其他实用性考究。<br>（20231004更新：发现NAS收集展示15年+的个人所有照片后，赞赞赞）</p>
 <p>音乐文件的跨平台同步需求越来越急切。各大平台对音乐版权的收紧，使得我不在寻找播放软件APP的解决方案，转而更希望保存我喜爱的歌曲。存储在网盘中不占用手机内存和电脑硬盘是个不错的选择（电影文件显然也是类似的）</p>
 <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><ol>
-<li><p>将 阿里云盘 开放出 WebDAV 服务</p>
+<li><p>将 阿里云盘 开放出 WebDAV 服务</p>
 </li>
-<li><p>将 rclone 用于同步 电脑中 和 阿里云盘 中的文件和目录</p>
+<li><p>将 rclone 用于同步 电脑中 和 阿里云盘 中的文件和目录</p>
 </li>
 <li><p>将 nplayer 用于播放 WebDAV中的音乐（电影也是一样）<br>　　安卓手机手机都可以的，电脑上用Potplayer之类的。</p>
 </li>
@@ -385,7 +394,7 @@
 <p>1.1 解压缩后得到文件：aliyundrive-webdav</p>
 <p>1.2 Terimal运行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aliyundrive-webdav -r eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIzYjg0YzM0OTczNjA0OTk4OTRjYjI3OWUzOTM1ZTA0OSIsImF1ZCI6IjczZTYxMTgzMWE3YzRkODdhYzQ5Yzg0ODFiZjlmMmM0IiwiZXhwIjoxNzAwNzI5MTM4LCJpYXQiOjE2OTI5NTMxMzgsImp0aSI6IjJjNDVlZDdhNWUyZjQxOTg5ZTk2NDA4NmQ1OTE1MzhiIn0.LcDVLaeqaQWpvE7eBbEv-KnA27JP6bmk7Rxw1vK6ZD3EqSGQuaH-DVE6lU8NneiN1h0z8mW1ImrkjFQ1234</span><br></pre></td></tr></table></figure>
-<p>如何获取这个refresh-token，作者在页面做了详细的说明：<a target="_blank" rel="noopener" href="https://github.com/messense/aliyundrive-webdav%E3%80%82">https://github.com/messense/aliyundrive-webdav。</a><br>实测也可以使用Chrome登录云盘后<a target="_blank" rel="noopener" href="https://www.aliyundrive.com/drive/file/backup%EF%BC%8C%E5%9C%A8Chrome">https://www.aliyundrive.com/drive/file/backup，在Chrome</a> &gt; Application &gt; Local Storage &gt; share_token 中复制。  </p>
+<p>如何获取这个refresh-token，作者在页面做了详细的说明：<a target="_blank" rel="noopener" href="https://github.com/messense/aliyundrive-webdav%E3%80%82">https://github.com/messense/aliyundrive-webdav。</a><br>实测也可以使用Chrome登录云盘后<a target="_blank" rel="noopener" href="https://www.aliyundrive.com/drive/file/backup%EF%BC%8C">https://www.aliyundrive.com/drive/file/backup，</a><br>在Chrome &gt; Application &gt; Local Storage &gt; share_token 中复制。  </p>
 <p>成功运行后的日志类似：</p>
 <pre><code>    2023-08-25T21:10:27.769474+08:00 INFO aliyundrive\_webdav::drive: refresh token succeed
     
@@ -432,6 +441,11 @@
 <p>主机：选择运行aliyundrive-webdav的电脑的局域网IP地址（<a href="http://192.168.6.221:8080）">http://192.168.6.221:8080）</a></p>
 <p>用户名&#x2F;密码：admin</p>
 <p>端口：8080</p>
+<h2 id="如何获取这个阿里云盘refresh-token"><a href="#如何获取这个阿里云盘refresh-token" class="headerlink" title="如何获取这个阿里云盘refresh-token"></a>如何获取这个阿里云盘refresh-token</h2><p>可以用于影视或TVBOX中提示时的Refresh_Token</p>
+<ol>
+<li>浏览器打开并登录阿里云<a target="_blank" rel="noopener" href="https://www.aliyundrive.com/drive/">https://www.aliyundrive.com/drive/</a></li>
+<li>在Chrome &gt; Application &gt; Local Storage &gt; share_token 中复制<br>或者打开console（开发者工具中）运行下面的JS<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;share_token&#x27;</span>)).<span class="property">access_token</span></span><br></pre></td></tr></table></figure></li>
+</ol>
 <h1 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h1><p>NAS是网络接入存储（Network Attached Storage）的简称，也就是存储系统直接接入网络，通过网络交换机，将服务器与存储连接在一起，用户可以通过TCPIP协议访问数据，并通过标准的业界文件共享协议，如CIFS、NFS来实现目录级的共享。</p>
 <h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><p>感谢所有以上工具的作者与参与者，感恩。</p>
 <h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>文章分享没有几天，聪明的朋友就寻出了不便之处：上面这个方案，需要电脑上开启WebDAV服务然后手机才能连接上去播放媒体文件等访问网盘的内容。</p>
@@ -507,7 +521,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-10-04 19:17:08" itemprop="dateModified" datetime="2023-10-04T19:17:08+08:00">2023-10-04</time>
+        <time title="修改时间：2023-10-27 08:19:45" itemprop="dateModified" datetime="2023-10-27T08:19:45+08:00">2023-10-27</time>
       </span>
 </div>
 
@@ -560,13 +574,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 777k</span>
+    <span title="站点总字数">站点总字数 782k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 23:32</span>
+    <span title="站点阅读时长">站点阅读时长 23:41</span>
   </span>
 </div>
 <div class="busuanzi-count">
