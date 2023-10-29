@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
   <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="用法 var a&#x3D;new NLAlertDialog(&#39;&quot;NLAlertDialog&quot;&#39;); a.show(&#39;title&#39;,&#39;sMessage&#39;,3) ---------------------------------------------------------------------- function hideAlertBox(elemId)  {  document.getElement">
 <meta property="og:type" content="article">
@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">306</span>
+          <span class="site-state-item-count">305</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -176,7 +176,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">69</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -338,13 +338,6 @@
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span id="busuanzi_value_page_pv"></span>
-    </span>
         
           <span class="post-meta-item" title="阅读次数">
             <span class="post-meta-item-icon">
@@ -397,7 +390,7 @@
 <p>-———————————————————————</p>
 <p>function hideAlertBox(elemId)<br>{<br>document.getElementById(elemId).style.display&#x3D;’none’;<br>}</p>
 <p>function getAlertBoxHtml(sTitle, sMessage, iType, width, helpUrl, helpText)<br>{<br>if (iType !&#x3D; NLAlertDialog.TYPE_LOWEST_PRIORITY &amp;&amp;<br>iType !&#x3D; NLAlertDialog.TYPE_LOW_PRIORITY &amp;&amp;<br>iType !&#x3D; NLAlertDialog.TYPE_MEDIUM_PRIORITY &amp;&amp;<br>iType !&#x3D; NLAlertDialog.TYPE_HIGH_PRIORITY)<br>iType &#x3D; NLAlertDialog.TYPE_LOW_PRIORITY;<br>if(!width)<br>width &#x3D; 600;<br>if (!sTitle)<br>{<br>switch (iType)<br>{<br>case NLAlertDialog.TYPE_LOWEST_PRIORITY:<br>sTitle &#x3D; “Confirmation”;<br>break;<br>case NLAlertDialog.TYPE_LOW_PRIORITY:<br>sTitle &#x3D; “Information”;<br>break;<br>case NLAlertDialog.TYPE_MEDIUM_PRIORITY:<br>sTitle &#x3D; “WARNING”;<br>break;<br>case NLAlertDialog.TYPE_HIGH_PRIORITY:<br>default:<br>sTitle &#x3D; “Error”;<br>break;<br>}<br>}</p>
-<p>var bHelpLink &#x3D; false;<br>if (helpUrl &amp;&amp; helpUrl.length &gt; 0)<br>{<br>bHelpLink &#x3D; true;<br>if (!helpText)<br>helpText &#x3D; “Visit this Help Topic”;<br>}<br>return “<table cellpadding=8><tr><td><table cellpadding=0 cellspacing=0 border=0 width=" + width + " style='font-family: Verdana,Helvetica,sans-serif; font-size: 11px; width:" + width + ";'>“+<br>“<tr>“+<br>“<td valign=top rowspan=3 style='background-image: url(/images/icons/reporting/mbx2\_box\_l.gif)'><img data-src='/images/icons/reporting/mbx2\_box\_ul\_type" + iType + ".gif' width=8 height=8 border=0></td>“+<br>“<td valign=top rowspan=3><img data-src='/images/icons/reporting/mbx2\_icontop\_type" + iType + ".gif' width=45 height=22 border=0></td>“+<br>“<td style='background-color: #E2E2E2' height='1' width='100%'><img data-src='/images/icons/reporting/x.gif' width=1 height=1></td>“+<br>“<td bgcolor='" + ((iType <= NLAlertDialog.TYPE\_MEDIUM\_PRIORITY) ? "#E5E5E5" : "#F6BFBF") + "' valign=top rowspan=3><img data-src='/images/icons/reporting/mbx2\_box\_ur\_type" + iType + ".gif' width=8 height=8 border=0></td>“+<br>“</tr>“+<br>“<tr>“+<br>“<td bgcolor='" + ((iType <= NLAlertDialog.TYPE\_MEDIUM\_PRIORITY) ? "#F6F6F6" : "#FAD9D9") + "' height=1><img data-src='/images/icons/reporting/x.gif' width=1 height=1></td>“+<br>“</tr>“+<br>“<tr>“+<br>“<td bgcolor='" + ((iType <= NLAlertDialog.TYPE\_MEDIUM\_PRIORITY) ? "#E5E5E5" : "#F6BFBF") + "' height=16><b>“+sTitle+”</b></td>“+<br>“</tr>“+<br>“<tr>“+<br>“<td style='background-image: url(/images/icons/reporting/mbx2\_box\_l.gif)'></td>“+<br>“<td valign=top bgcolor='#FFFFFF'><img data-src='/images/icons/reporting/mbx2\_iconbot\_type" + iType + ".gif' width=45 height=18 border=0></td>“+<br>“<td style='background-color:#FFFFFF; font-weight:normal; padding-top:3px;'>“+sMessage +<br>( (bHelpLink) ?<br>(“<p align='right'> <img height='17' data-src='/images/icons/help/icon\_help\_green.gif' width='17' style='vertical-align:middle' /> &lt;a href&#x3D;\“” + helpUrl.replace(&#x2F;“&#x2F;g, “&amp;#34”) + “\“&gt;” + helpText + “</a></p>“) :””) +<br>“</td>“+<br>“<td style='background-image: url(/images/icons/reporting/mbx2\_box\_r.gif)'></td>“+<br>“</tr>“+<br>“<tr>“+<br>“<td valign=top><img data-src='/images/icons/reporting/mbx2\_box\_ll.gif' width=8 height=8 border=0></td>“+<br>“<td style='background-image: url(/images/icons/reporting/mbx2\_box\_b.gif)' colspan=2><img data-src='/images/icons/reporting/x.gif' width=1 height=8></td>“+<br>“<td valign=bottom><img data-src='/images/icons/reporting/mbx2\_box\_lr.gif' width=8 height=8 border=0></td>“+<br>“</tr>“+<br>“</table></td></tr></table>“;<br>}</p>
+<p>var bHelpLink &#x3D; false;<br>if (helpUrl &amp;&amp; helpUrl.length &gt; 0)<br>{<br>bHelpLink &#x3D; true;<br>if (!helpText)<br>helpText &#x3D; “Visit this Help Topic”;<br>}<br>return “<table cellpadding=8><tr><td><table cellpadding=0 cellspacing=0 border=0 width=" + width + " style='font-family: Verdana,Helvetica,sans-serif; font-size: 11px; width:" + width + ";'>“+<br>“<tr>“+<br>“<td valign=top rowspan=3 style='background-image: url(/images/icons/reporting/mbx2\_box\_l.gif)'><img src='/images/icons/reporting/mbx2\_box\_ul\_type" + iType + ".gif' width=8 height=8 border=0></td>“+<br>“<td valign=top rowspan=3><img src='/images/icons/reporting/mbx2\_icontop\_type" + iType + ".gif' width=45 height=22 border=0></td>“+<br>“<td style='background-color: #E2E2E2' height='1' width='100%'><img src='/images/icons/reporting/x.gif' width=1 height=1></td>“+<br>“<td bgcolor='" + ((iType <= NLAlertDialog.TYPE\_MEDIUM\_PRIORITY) ? "#E5E5E5" : "#F6BFBF") + "' valign=top rowspan=3><img src='/images/icons/reporting/mbx2\_box\_ur\_type" + iType + ".gif' width=8 height=8 border=0></td>“+<br>“</tr>“+<br>“<tr>“+<br>“<td bgcolor='" + ((iType <= NLAlertDialog.TYPE\_MEDIUM\_PRIORITY) ? "#F6F6F6" : "#FAD9D9") + "' height=1><img src='/images/icons/reporting/x.gif' width=1 height=1></td>“+<br>“</tr>“+<br>“<tr>“+<br>“<td bgcolor='" + ((iType <= NLAlertDialog.TYPE\_MEDIUM\_PRIORITY) ? "#E5E5E5" : "#F6BFBF") + "' height=16><b>“+sTitle+”</b></td>“+<br>“</tr>“+<br>“<tr>“+<br>“<td style='background-image: url(/images/icons/reporting/mbx2\_box\_l.gif)'></td>“+<br>“<td valign=top bgcolor='#FFFFFF'><img src='/images/icons/reporting/mbx2\_iconbot\_type" + iType + ".gif' width=45 height=18 border=0></td>“+<br>“<td style='background-color:#FFFFFF; font-weight:normal; padding-top:3px;'>“+sMessage +<br>( (bHelpLink) ?<br>(“<p align='right'> <img height='17' src='/images/icons/help/icon\_help\_green.gif' width='17' style='vertical-align:middle' /> &lt;a href&#x3D;\“” + helpUrl.replace(&#x2F;“&#x2F;g, “&amp;#34”) + “\“&gt;” + helpText + “</a></p>“) :””) +<br>“</td>“+<br>“<td style='background-image: url(/images/icons/reporting/mbx2\_box\_r.gif)'></td>“+<br>“</tr>“+<br>“<tr>“+<br>“<td valign=top><img src='/images/icons/reporting/mbx2\_box\_ll.gif' width=8 height=8 border=0></td>“+<br>“<td style='background-image: url(/images/icons/reporting/mbx2\_box\_b.gif)' colspan=2><img src='/images/icons/reporting/x.gif' width=1 height=8></td>“+<br>“<td valign=bottom><img src='/images/icons/reporting/mbx2\_box\_lr.gif' width=8 height=8 border=0></td>“+<br>“</tr>“+<br>“</table></td></tr></table>“;<br>}</p>
 <p>NLAlertDialog &#x3D; Class.create();</p>
 <p>NLAlertDialog.TYPE_LOWEST_PRIORITY &#x3D; 0;<br>NLAlertDialog.TYPE_LOW_PRIORITY &#x3D; 1;<br>NLAlertDialog.TYPE_MEDIUM_PRIORITY &#x3D; 2;<br>NLAlertDialog.TYPE_HIGH_PRIORITY &#x3D; 3;</p>
 <p>NLAlertDialog.prototype &#x3D;<br>{<br>initialize: function(sId)<br>{<br>this.sId &#x3D; sId || “NLAlertDialog”;<br>},</p>
@@ -514,20 +507,20 @@
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
-    <span class="author" itemprop="copyrightHolder">Carl 本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接</span>
+    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接, 如涉嫌侵犯您的合法权益, 请联系本站删除处理</span>
   </div>
 <div class="wordcount">
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 782k</span>
+    <span title="站点总字数">站点总字数 789k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 23:41</span>
+    <span title="站点阅读时长">站点阅读时长 23:55</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -564,6 +557,7 @@
 
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+    本站多线部署：<a target="_blank" rel="noopener" href="https://netlify.carlzeng.top">Netlify</a>
   </div>
 
     </div>
@@ -579,7 +573,6 @@
   
   <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>

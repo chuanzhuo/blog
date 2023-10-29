@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
   <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="这个就是应用 yahoo YUI 上的&#x2F;*TERMS OF USE - EASING EQUATIONSOpen source under the BSD License.Copyright 2001 Robert Penner All rights reserved.Redistribution and use in source and binary forms, with or withou">
 <meta property="og:type" content="article">
@@ -163,7 +163,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">306</span>
+          <span class="site-state-item-count">305</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,7 +174,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">69</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -345,13 +345,6 @@
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span id="busuanzi_value_page_pv"></span>
-    </span>
         
           <span class="post-meta-item" title="阅读次数">
             <span class="post-meta-item-icon">
@@ -440,19 +433,19 @@ var G={eventType:"mouse",currentClass:"selected",autoSwitchToFirst:false,onSwitc
 
 var F="http://favorite.taobao.com/json/promote\_banner.htm?count=6&pages=1&callback=FP.Guessing.render";var C="J\_GuessingLayer";var L=function(){G=true;YAHOO.util.Get.script(F+(F.indexOf("?")==-1?"?":"&")+"t="+new Date().getTime(),{onSuccess:function(){N.hide();G=false},charset:"gbk"})};var K={};
 
-K.render=function(S){var P=document.createElement("ul");A.get(J).appendChild(P);P.className="item";if(S&&typeof (S.items)!="undefined"&&S.items.length>=6){var Q=S.items.length,D=\[\];for(var E=0;E<6;++E){var T=S.items\[E\];D\[D.length\]='<li><a href="'+T.link+'" class="pic"><img data-src="'+encodeURI(T.picURL)+'" /></a>
+K.render=function(S){var P=document.createElement("ul");A.get(J).appendChild(P);P.className="item";if(S&&typeof (S.items)!="undefined"&&S.items.length>=6){var Q=S.items.length,D=\[\];for(var E=0;E<6;++E){var T=S.items\[E\];D\[D.length\]='<li><a href="'+T.link+'" class="pic"><img src="'+encodeURI(T.picURL)+'" /></a>
 
-<a href="'+T.link+'" class="desc">'+T.title+"</a></li>"}P.innerHTML=D.join("")}else{var R='<li><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-db1-4a7b436dd431265877b74f2665e5ad60.jhtml" class="pic"><img data-src="http://pics.taobaocdn.com/bao/album/promotion/canixihuan1.jpg" /></a>
+<a href="'+T.link+'" class="desc">'+T.title+"</a></li>"}P.innerHTML=D.join("")}else{var R='<li><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-db1-4a7b436dd431265877b74f2665e5ad60.jhtml" class="pic"><img src="http://pics.taobaocdn.com/bao/album/promotion/canixihuan1.jpg" /></a>
 
-<a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-db1-4a7b436dd431265877b74f2665e5ad60.jhtml" class="desc">百搭羊毛绒毛衣</a></li><li><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-0db2-3f1a0b33074c5cfb645b7010874985fc.jhtml" class="pic"><img data-src="http://pics.taobaocdn.com/bao/album/promotion/canixihuan2.jpg" /></a>
+<a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-db1-4a7b436dd431265877b74f2665e5ad60.jhtml" class="desc">百搭羊毛绒毛衣</a></li><li><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-0db2-3f1a0b33074c5cfb645b7010874985fc.jhtml" class="pic"><img src="http://pics.taobaocdn.com/bao/album/promotion/canixihuan2.jpg" /></a>
 
-<a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-0db2-3f1a0b33074c5cfb645b7010874985fc.jhtml" class="desc">热卖休闲包包</a></li><li><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-db2-8869cd987adf5df8e1ea7e198d7acd07.jhtml" class="pic"><img data-src="http://pics.taobaocdn.com/bao/album/promotion/canixihuan3.jpg" /></a>
+<a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-0db2-3f1a0b33074c5cfb645b7010874985fc.jhtml" class="desc">热卖休闲包包</a></li><li><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-db2-8869cd987adf5df8e1ea7e198d7acd07.jhtml" class="pic"><img src="http://pics.taobaocdn.com/bao/album/promotion/canixihuan3.jpg" /></a>
 
-<a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-db2-8869cd987adf5df8e1ea7e198d7acd07.jhtml" class="desc">男式名品内裤</a></li><li><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-db2-a1eece9755c14883fff160335edd16c9.jhtml" class="pic"><img data-src="http://pics.taobaocdn.com/bao/album/promotion/canixihuan4.jpg" />
+<a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-db2-8869cd987adf5df8e1ea7e198d7acd07.jhtml" class="desc">男式名品内裤</a></li><li><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-db2-a1eece9755c14883fff160335edd16c9.jhtml" class="pic"><img src="http://pics.taobaocdn.com/bao/album/promotion/canixihuan4.jpg" />
 
-</a><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-db2-a1eece9755c14883fff160335edd16c9.jhtml" class="desc">红酒面膜60ML</a></li><li><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail--90df9e4f4ed184950d88bd8c0dd08c93.jhtml" class="pic"><img data-src="http://pics.taobaocdn.com/bao/album/promotion/canixihuan5.jpg" />
+</a><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-db2-a1eece9755c14883fff160335edd16c9.jhtml" class="desc">红酒面膜60ML</a></li><li><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail--90df9e4f4ed184950d88bd8c0dd08c93.jhtml" class="pic"><img src="http://pics.taobaocdn.com/bao/album/promotion/canixihuan5.jpg" />
 
-</a><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail--90df9e4f4ed184950d88bd8c0dd08c93.jhtml" class="desc">乐扣摇水杯</a></li><li><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-db2-cfe2f23c61b490d12be86d404f11290d.jhtml" class="pic"><img data-src="http://pics.taobaocdn.com/bao/album/promotion/canixihuan6.jpg" />
+</a><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail--90df9e4f4ed184950d88bd8c0dd08c93.jhtml" class="desc">乐扣摇水杯</a></li><li><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-db2-cfe2f23c61b490d12be86d404f11290d.jhtml" class="pic"><img src="http://pics.taobaocdn.com/bao/album/promotion/canixihuan6.jpg" />
 
 </a><a target="_blank" rel="noopener" href="http://auction1.taobao.com/auction/item\_detail-db2-cfe2f23c61b490d12be86d404f11290d.jhtml" class="desc">诺基亚N72</a></li>';P.innerHTML=R}H()};var H=function(){aObj=J.getElementsByTagName("A");O.on(aObj,"click",function(D){document.createElement("img").setAttribute("src",[http://ju.atpanel.com/?url=http://www.atpanel.com?ad\_id=&am\_id=&cm\_id=&pm\_id=1500068013798a44e7d7](http://ju.atpanel.com/?url=http://www.atpanel.com?ad_id=&am_id=&cm_id=&pm_id=1500068013798a44e7d7))})};
 
@@ -482,7 +475,7 @@ var K={};K.init=function(D){F=B.get(D);if(!F){return }var R=F.getElementsByTagNa
 
 FP.P4p=(function(){var D=YAHOO.util.Dom,E=YAHOO.util.Event;var varName="p4presult";var p4pKeyWord=D.get("indexp4p").getAttribute("title");var SPI="http://tmatch.p4p.cn.yahoo.com/kcbad?adcount=18&catcount=3&pid=619362\_1007&ip=10.1.19.139&p4p="+varName+"&catid=16,30,1801&keyword="+p4pKeyWord+"&t="+new Date().getTime();
 
-var \_renderAd=function(ret,renderer,showDesc){var adDiv=document.createElement("li");var price=parseFloat(ret.GOODSPRICE/100).toFixed(2);price=price.replace(/\\.(\\d{2})/,".<sub>$1</sub>");adDiv.innerHTML='<a href="'+ret.EURL+'" title="'+ret.TITLE+'" target="\_blank" ><b><img data-src="'+ret.TBGOODSLINK+'"/></b>
+var \_renderAd=function(ret,renderer,showDesc){var adDiv=document.createElement("li");var price=parseFloat(ret.GOODSPRICE/100).toFixed(2);price=price.replace(/\\.(\\d{2})/,".<sub>$1</sub>");adDiv.innerHTML='<a href="'+ret.EURL+'" title="'+ret.TITLE+'" target="\_blank" ><b><img src="'+ret.TBGOODSLINK+'"/></b>
 
 <span class="title">'+ret.TITLE+'</span><span class="price"><sup>￥</sup>'+price+"</span></a>";return adDiv};var \_bulidDom=function(container){var data=eval(varName);if(!data||data.length===0){container.style.display="none";return }D.removeClass(container,"loading");D.addClass(container,"hot-buy");
 
@@ -615,20 +608,20 @@ if((A&1)==1){YAHOO.util.Get.script("http://www.taobao.com/help/wizard/wizard.js?
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
-    <span class="author" itemprop="copyrightHolder">Carl 本文章著作权归作者所有，任何形式的转载都请注明出处与原始链接</span>
+    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接, 如涉嫌侵犯您的合法权益, 请联系本站删除处理</span>
   </div>
 <div class="wordcount">
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 782k</span>
+    <span title="站点总字数">站点总字数 789k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 23:41</span>
+    <span title="站点阅读时长">站点阅读时长 23:55</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -665,6 +658,7 @@ if((A&1)==1){YAHOO.util.Get.script("http://www.taobao.com/help/wizard/wizard.js?
 
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+    本站多线部署：<a target="_blank" rel="noopener" href="https://netlify.carlzeng.top">Netlify</a>
   </div>
 
     </div>
@@ -680,7 +674,6 @@ if((A&1)==1){YAHOO.util.Get.script("http://www.taobao.com/help/wizard/wizard.js?
   
   <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
