@@ -84,7 +84,7 @@
       <p class="site-title">随笔 Carl Notes</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">个人随笔 解决方案 IT技术 欢迎探讨</p>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 个人随笔</p>
   </div>
 
   <div class="site-nav-right">
@@ -161,18 +161,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">305</span>
+          <span class="site-state-item-count">303</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-count">77</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -205,8 +205,8 @@
         </div>
         <ul class="links-of-blogroll-list recent-posts-list">
                 <li class="popular-posts-item">
-                  <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论系统" target="">
-                  Hexo定制之家宽部署artalk评论系统
+                  <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+                  Hexo定制之家宽部署artalk评论
                   </a>
                 </li>
                 <li class="popular-posts-item">
@@ -319,14 +319,6 @@
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-01-05 10:01:00" itemprop="dateCreated datePublished" datetime="2017-01-05T10:01:00+08:00">2017-01-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
@@ -390,15 +382,15 @@
     
     <div class="post-body" itemprop="articleBody"><p>THIS IS A COPY FROM BLOG THIS IS A COPY FROM BLOG Ways of incorporating Bar Codes into your Netsuite Saved Searches. Code 39: Step 1: Load web font fi</p>
 <!-- more -->
-<h1 id="THIS-IS-A-COPY-FROM-BLOG"><a href="#THIS-IS-A-COPY-FROM-BLOG" class="headerlink" title="THIS IS A COPY FROM BLOG"></a><strong>THIS IS A COPY FROM <a target="_blank" rel="noopener" href="http://blog.nxturn.com/bar-codes-in-netsuite-saved-searches">BLOG</a></strong></h1><p>Ways of incorporating Bar Codes into your Netsuite Saved Searches. <a target="_blank" rel="noopener" href="http://www.nxturn.com/wp-content/uploads/2016/10/Results.Blog_.BarCode.TL_.png"><img src="http://www.nxturn.com/wp-content/uploads/2016/10/Results.Blog_.BarCode.TL_.png" alt="Results.Blog.BarCode.TL"></a></p>
+<h1 id="THIS-IS-A-COPY-FROM-BLOG"><a href="#THIS-IS-A-COPY-FROM-BLOG" class="headerlink" title="THIS IS A COPY FROM BLOG"></a><strong>THIS IS A COPY FROM <a target="_blank" rel="noopener" href="http://blog.nxturn.com/bar-codes-in-netsuite-saved-searches">BLOG</a></strong></h1><p>Ways of incorporating Bar Codes into your Netsuite Saved Searches. <a target="_blank" rel="noopener" href="http://www.nxturn.com/wp-content/uploads/2016/10/Results.Blog_.BarCode.TL_.png"><img data-src="http://www.nxturn.com/wp-content/uploads/2016/10/Results.Blog_.BarCode.TL_.png" alt="Results.Blog.BarCode.TL"></a></p>
 <h2 id="Code-39"><a href="#Code-39" class="headerlink" title="Code 39:"></a><strong>Code 39:</strong></h2><hr>
 <p><strong>Step 1:</strong> Load web font file into the file cabinet and set to available without login.</p>
-<p>You can use the font file provided or a custom bar code font. <a target="_blank" rel="noopener" href="http://www.nxturn.com/wp-content/uploads/2016/10/AddFontFile.Blog_.BarCode.TL_.png"><img src="http://www.nxturn.com/wp-content/uploads/2016/10/AddFontFile.Blog_.BarCode.TL_.png" alt="AddFontFile.Blog.BarCode.TL"></a> You can download the web font file here: <a target="_blank" rel="noopener" href="http://www.nxturn.com/wp-content/uploads/2016/10/Code39.zip" title="Code 39">Code39.woff</a> (unzip before uploading) </p>
+<p>You can use the font file provided or a custom bar code font. <a target="_blank" rel="noopener" href="http://www.nxturn.com/wp-content/uploads/2016/10/AddFontFile.Blog_.BarCode.TL_.png"><img data-src="http://www.nxturn.com/wp-content/uploads/2016/10/AddFontFile.Blog_.BarCode.TL_.png" alt="AddFontFile.Blog.BarCode.TL"></a> You can download the web font file here: <a target="_blank" rel="noopener" href="http://www.nxturn.com/wp-content/uploads/2016/10/Code39.zip" title="Code 39">Code39.woff</a> (unzip before uploading) </p>
 <p><strong>Step 2:</strong> In your saved search results add a Formula(Text) field and set the custom label as desired.  </p>
 <p>Insert the formula below and update the file URL and the desired field id that you want to encode.</p>
 <p>You can modify the font-size to adjust the size of your bar code.</p>
 <p>‘<style> @font-face { font-family: Code39; src: url( insert file URL here )}</style><div style="font-family:Code39;font-size:48pt;">*‘||UPPER({desired field id to encode})||’*</div>‘</p>
-<p>Example: ‘<strong><style> @font-face { font-family: Code39; src: url(<a target="_blank" rel="noopener" href="https://system.na1.netsuite.com/core/media/media.nl?id=5491&c=TSTDRV250785&h=cc810815f230b8f9b31d&%5C_xt=.woff)%7D">https://system.na1.netsuite.com/core/media/media.nl?id=5491&amp;c=TSTDRV250785&amp;h=cc810815f230b8f9b31d&amp;\_xt=.woff)}</a></style><div style="font-family:Code39;font-size:48pt;">*‘||UPPER({tranid})||’*</div></strong>‘ <a target="_blank" rel="noopener" href="http://www.nxturn.com/wp-content/uploads/2016/10/AddBarCode.Blog_.BarCode.TL_.png"><img src="http://www.nxturn.com/wp-content/uploads/2016/10/AddBarCode.Blog_.BarCode.TL_.png" alt="AddBarCode.Blog.BarCode.TL"></a></p>
+<p>Example: ‘<strong><style> @font-face { font-family: Code39; src: url(<a target="_blank" rel="noopener" href="https://system.na1.netsuite.com/core/media/media.nl?id=5491&c=TSTDRV250785&h=cc810815f230b8f9b31d&%5C_xt=.woff)%7D">https://system.na1.netsuite.com/core/media/media.nl?id=5491&amp;c=TSTDRV250785&amp;h=cc810815f230b8f9b31d&amp;\_xt=.woff)}</a></style><div style="font-family:Code39;font-size:48pt;">*‘||UPPER({tranid})||’*</div></strong>‘ <a target="_blank" rel="noopener" href="http://www.nxturn.com/wp-content/uploads/2016/10/AddBarCode.Blog_.BarCode.TL_.png"><img data-src="http://www.nxturn.com/wp-content/uploads/2016/10/AddBarCode.Blog_.BarCode.TL_.png" alt="AddBarCode.Blog.BarCode.TL"></a></p>
 <p><strong>Step 3:</strong> Repeat step 2 for each additional field you would like converted to a bar code. </p>
 <p><strong>NOTE:</strong> If you don’t have the start and stop characters ‘*‘ as provided in the code, then you will get something that looks like a bar code but will not scan.   </p>
 <h2 id="Code-128"><a href="#Code-128" class="headerlink" title="Code 128:"></a><strong>Code 128:</strong></h2><hr>
@@ -407,9 +399,9 @@
 <p><strong>Step 1:</strong> Load this Javascript file <a target="_blank" rel="noopener" href="http://www.nxturn.com/wp-content/uploads/2016/10/JsBarcode.code128.min_.js" title="JSBarcode.code128.min.js">JsBarcode.code128.min.js</a> into Netsuite’s file cabinet. </p>
 <p><strong>Step 2:</strong> So that you don’t reload the Javascript code on each line of your search results, I have created the formula below that will only load it once.  This will noticeably reduce the load time for your search results.  Add a Formula (Text) column to the very top of your search results with the formula below, make sure to replace your javascript url with the one shown. <strong>decode(rownum, 1, ‘<script src="https://system.na1.netsuite.com/core/media/media.nl?id=5492&c=TSTDRV250785&h=ae62aeaa7c75cd183ccd&\_xt=.js"></script>‘,’’)</strong> </p>
 <p><strong>Step 3:</strong> Add a Formula (Text) column that will use the script loaded. Replace the {item.name} with the field you would like to encode. <strong>‘<svg id="barcode'||rownum||'"></svg><script>JsBarcode("#barcode'||rownum||'", "'||{item.name}||'");</script>‘</strong> </p>
-<p><strong>Step 4:</strong> If you would like to have more than one bar code per line you will need to make a small change for each new column added.  Repeat step 3 and add an additional Formula (Text) column but add a number before the two lower case ‘barcode’ strings. The number should be unique for each newly added column. ‘<svg id="**2**barcode'||rownum||'"></svg><script>JsBarcode("#<strong>2</strong>barcode'||rownum||'", "'||{item.name}||'",{width:1.5,height:30});</script>‘ <a target="_blank" rel="noopener" href="http://www.nxturn.com/wp-content/uploads/2016/10/Code128.Blog_.BarCode.TL_.png"><img src="http://www.nxturn.com/wp-content/uploads/2016/10/Code128.Blog_.BarCode.TL_.png" alt="Code128.Blog.BarCode.TL"></a>  </p>
+<p><strong>Step 4:</strong> If you would like to have more than one bar code per line you will need to make a small change for each new column added.  Repeat step 3 and add an additional Formula (Text) column but add a number before the two lower case ‘barcode’ strings. The number should be unique for each newly added column. ‘<svg id="**2**barcode'||rownum||'"></svg><script>JsBarcode("#<strong>2</strong>barcode'||rownum||'", "'||{item.name}||'",{width:1.5,height:30});</script>‘ <a target="_blank" rel="noopener" href="http://www.nxturn.com/wp-content/uploads/2016/10/Code128.Blog_.BarCode.TL_.png"><img data-src="http://www.nxturn.com/wp-content/uploads/2016/10/Code128.Blog_.BarCode.TL_.png" alt="Code128.Blog.BarCode.TL"></a>  </p>
 <p><strong>Limitations:</strong> You must use the Print button to either print the bar codes or to save them to PDF.  </p>
-<p>The other export options will not render the HTML by default. <a target="_blank" rel="noopener" href="http://www.nxturn.com/wp-content/uploads/2016/10/Limitation.Blog_.BarCode.TL_.png"><img src="http://www.nxturn.com/wp-content/uploads/2016/10/Limitation.Blog_.BarCode.TL_.png" alt="Limitation.Blog.BarCode.TL"></a></p>
+<p>The other export options will not render the HTML by default. <a target="_blank" rel="noopener" href="http://www.nxturn.com/wp-content/uploads/2016/10/Limitation.Blog_.BarCode.TL_.png"><img data-src="http://www.nxturn.com/wp-content/uploads/2016/10/Limitation.Blog_.BarCode.TL_.png" alt="Limitation.Blog.BarCode.TL"></a></p>
 <p><strong>THIS IS A COPY FROM <a target="_blank" rel="noopener" href="http://blog.nxturn.com/bar-codes-in-netsuite-saved-searches">BLOG</a></strong></p>
 <p><strong>SOURCE URL ADDRESS: <a target="_blank" rel="noopener" href="http://blog.nxturn.com/bar-codes-in-netsuite-saved-searches">http://blog.nxturn.com/bar-codes-in-netsuite-saved-searches</a></strong></p>
 
@@ -465,14 +457,6 @@
           </a>
       </div>
   </div>
-      <span>
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar"></i>
-        </span>
-        <span class="post-meta-item-text">发表于</span>
-
-        <time title="创建时间：2017-01-05 10:01:00" itemprop="dateCreated datePublished" datetime="2017-01-05T10:01:00+08:00">2017-01-05</time>
-      </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
@@ -530,13 +514,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 791k</span>
+    <span title="站点总字数">站点总字数 772k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 23:58</span>
+    <span title="站点阅读时长">站点阅读时长 23:23</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -573,7 +557,7 @@
 
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-    本站多线部署：<a target="_blank" rel="noopener" href="https://netlify.carlzeng.top">Netlify</a>
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://netlify.carlzeng.top">Netlify</a>
   </div>
 
     </div>

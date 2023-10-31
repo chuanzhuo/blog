@@ -78,7 +78,7 @@
       <p class="site-title">随笔 Carl Notes</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">个人随笔 解决方案 IT技术 欢迎探讨</p>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 个人随笔</p>
   </div>
 
   <div class="site-nav-right">
@@ -155,18 +155,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">305</span>
+          <span class="site-state-item-count">303</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-count">77</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -199,8 +199,8 @@
         </div>
         <ul class="links-of-blogroll-list recent-posts-list">
                 <li class="popular-posts-item">
-                  <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论系统" target="">
-                  Hexo定制之家宽部署artalk评论系统
+                  <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+                  Hexo定制之家宽部署artalk评论
                   </a>
                 </li>
                 <li class="popular-posts-item">
@@ -247,13 +247,6 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202309040941.html" rel="bookmark">
-        <time class="popular-posts-time">2023-09-04</time>
-        <br>
-      NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202101230038.html" rel="bookmark">
         <time class="popular-posts-time">2021-01-23</time>
         <br>
@@ -265,6 +258,13 @@
         <time class="popular-posts-time">2023-02-20</time>
         <br>
       听音乐(音乐播放器)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309040941.html" rel="bookmark">
+        <time class="popular-posts-time">2023-09-04</time>
+        <br>
+      NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng
       </a>
     </li>
   </ul>
@@ -311,14 +311,6 @@
 
         <div class="post-meta-container">
           <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-11-23 11:11:00" itemprop="dateCreated datePublished" datetime="2021-11-23T11:11:00+08:00">2021-11-23</time>
-    </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
@@ -393,7 +385,7 @@
 <h3 id="Solutions-for-Operation-timed-out"><a href="#Solutions-for-Operation-timed-out" class="headerlink" title="Solutions for: Operation timed out"></a>Solutions for: Operation timed out</h3><ol>
 <li>Fix the hosts to make sure the ssh connection between your Computer and github.com is availble(修复连接到github.com)</li>
 </ol>
-<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;</a></p>
+<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#111;&#109;">&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#111;&#109;</a></p>
 <p>1.1 记录下github的IP地址, 把IP Address 记录下来</p>
 <p>打开<a target="_blank" rel="noopener" href="https://github.com.ipaddress.com/">https://github.com.ipaddress.com/</a></p>
 <p>打开<a target="_blank" rel="noopener" href="https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo">https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo</a></p>
@@ -406,7 +398,7 @@
 <p>1.4 如果之前用ssh proxy，取消它</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global https.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
 
-<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#46;&#99;&#111;&#109;">&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#46;&#99;&#111;&#109;</a></p>
+<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#111;&#109;">&#103;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#111;&#109;</a></p>
 <p>新的错误可能和授权有关，至少证明连接到github.com是通的。</p>
 <hr>
 <h3 id="Solutions-for-Authentication"><a href="#Solutions-for-Authentication" class="headerlink" title="Solutions for: Authentication"></a>Solutions for: Authentication</h3><ol start="2">
@@ -420,7 +412,7 @@
 <p>Username for ‘<a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a>‘:  （这个地方输入登录github网址用的用户名，我的是用9个英文字母）<br>Password for ‘https:&#x2F;&#x2F;***@github.com’:  （这个地方要是输入#2.1中得到的Token）</p>
 <p>2.3 判断一下连接和授权，如果需要ssh连接，继续添加配置以下。</p>
 <p>2.4 生成ssh密钥。Generating a new SSH key and adding it to the ssh-agent。具体步骤简要如下：</p>
-<p>$ ssh-keygen -t ed25519 -C “your_<a href="mailto:&#x65;&#109;&#97;&#x69;&#x6c;&#x40;&#x65;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#99;&#111;&#109;">&#x65;&#109;&#97;&#x69;&#x6c;&#x40;&#x65;&#x78;&#97;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#99;&#111;&#109;</a>“</p>
+<p>$ ssh-keygen -t ed25519 -C “your_<a href="mailto:&#x65;&#x6d;&#x61;&#105;&#108;&#x40;&#101;&#x78;&#97;&#109;&#x70;&#x6c;&#101;&#46;&#x63;&#111;&#x6d;">&#x65;&#x6d;&#x61;&#105;&#108;&#x40;&#101;&#x78;&#97;&#109;&#x70;&#x6c;&#101;&#46;&#x63;&#111;&#x6d;</a>“</p>
 <blockquote>
 <p>Enter a file in which to save the key (&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_algorithm): [Press enter] &gt; Enter passphrase (empty for no passphrase): [Type a passphrase] &gt; Enter same passphrase again: [Type passphrase again] -————————————————— $ eval “$(ssh-agent -s)”<br>Agent pid 59566</p>
 </blockquote>
@@ -485,14 +477,6 @@
           </a>
       </div>
   </div>
-      <span>
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar"></i>
-        </span>
-        <span class="post-meta-item-text">发表于</span>
-
-        <time title="创建时间：2021-11-23 11:11:00" itemprop="dateCreated datePublished" datetime="2021-11-23T11:11:00+08:00">2021-11-23</time>
-      </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
@@ -550,13 +534,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 791k</span>
+    <span title="站点总字数">站点总字数 772k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 23:58</span>
+    <span title="站点阅读时长">站点阅读时长 23:23</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -593,7 +577,7 @@
 
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-    本站多线部署：<a target="_blank" rel="noopener" href="https://netlify.carlzeng.top">Netlify</a>
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://netlify.carlzeng.top">Netlify</a>
   </div>
 
     </div>

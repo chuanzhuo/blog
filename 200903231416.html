@@ -80,7 +80,7 @@
       <p class="site-title">随笔 Carl Notes</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">个人随笔 解决方案 IT技术 欢迎探讨</p>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 个人随笔</p>
   </div>
 
   <div class="site-nav-right">
@@ -157,18 +157,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">305</span>
+          <span class="site-state-item-count">303</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-count">77</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -201,8 +201,8 @@
         </div>
         <ul class="links-of-blogroll-list recent-posts-list">
                 <li class="popular-posts-item">
-                  <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论系统" target="">
-                  Hexo定制之家宽部署artalk评论系统
+                  <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+                  Hexo定制之家宽部署artalk评论
                   </a>
                 </li>
                 <li class="popular-posts-item">
@@ -268,14 +268,6 @@
 
         <div class="post-meta-container">
           <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2009-03-23 14:16:00" itemprop="dateCreated datePublished" datetime="2009-03-23T14:16:00+08:00">2009-03-23</time>
-    </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
@@ -355,11 +347,11 @@
 <p>_StateServer需要在服务中开启”asp.net状态服务”的服务_。</p>
 <p><a target="_blank" rel="noopener" href="http://www.imneio.com/2007/11/17/aspnetnote1/" title="http://www.imneio.com/2007/11/17/aspnetnote1/">http://www.imneio.com/2007/11/17/aspnetnote1/</a>，以上斜体内容摘自此链接</p>
 <h2 id="完全跨单点域登录"><a href="#完全跨单点域登录" class="headerlink" title="完全跨单点域登录"></a>完全跨单点域登录</h2><p>完全跨域登录，是指A，B站点和P站点没有共同的父域，比如A站点为forum.yizhu1999.net,B站点为blog.yizhu1998.net，大家可以参考微软旗下的几个站点<a target="_blank" rel="noopener" href="http://www.live.com/" title="http://www.live.com">http://www.live.com</a>，<a target="_blank" rel="noopener" href="http://www.hotmail.com/">www.hotmail.com</a>,这两个站点就没有共同的父域，而仍然可以共用登录，怎样才能实现呢？请参考下图，由于这种情况ticket比较复杂，我们暂时把P站点创建的的ticket叫做P-ticket，而A站点创建的ticket叫A-ticket，B的为B-ticket</p>
-<p><a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/yizhu2000/WindowsLiveWriter/3616c09558a3_136C8/login_4.gif"><img src="http://images.cnblogs.com/cnblogs_com/yizhu2000/WindowsLiveWriter/3616c09558a3_136C8/login_thumb_1.gif" alt="login"></a></p>
+<p><a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/yizhu2000/WindowsLiveWriter/3616c09558a3_136C8/login_4.gif"><img data-src="http://images.cnblogs.com/cnblogs_com/yizhu2000/WindowsLiveWriter/3616c09558a3_136C8/login_thumb_1.gif" alt="login"></a></p>
 <p>由于站点A（forum.yizhu1999.com）不能读取到由站点P（passport.yizhu2000.com）创建的加密 ticket，所以当用户访问A站点上需要登录才能访问的资源时，A站点会首先查看是否有A-ticket，如果没有，证明用户没有在A站点登录过，不过并不保证用户没有在B站点登录，（重复一下，既然是单点登录，当然无论你在A，B任意一个站点登录过，另外一个站点都要可以访问），请求会被重定向到p站点的验证页面，验证页面读取P-ticket，如果没有，或者解密不成功，就需要重定向登录页面，登录页面完成登录后，写一个加密cookie，也就是 P-ticket，并且重定向到A站点的登录处理页，并把加密的用户信息作为参数传递给这个页面，这个页面接收登录页的用户信息，解密后也要写一个 cookie，也就是A-ticket，今后用户再次访问A站点上需要登录权限才能访问的资源时，只需要检查这个A-cookie是否存在就可以了</p>
 <p>当用户访问B站点时，会重复上面的过程，监测到没有B-ticket，就会重定向到P站点的验证页面，去检查P-ticket，如果没有，就登录，有则返回B的登录处理页面写B-ticket</p>
 <p>注销的时候需要删除P-ticket和A-ticket</p>
-<p><a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/yizhu2000/WindowsLiveWriter/3616c09558a3_136C8/logout.gif"><img src="http://images.cnblogs.com/cnblogs_com/yizhu2000/WindowsLiveWriter/3616c09558a3_136C8/logout_thumb.gif" alt="logout"></a></p>
+<p><a target="_blank" rel="noopener" href="http://images.cnblogs.com/cnblogs_com/yizhu2000/WindowsLiveWriter/3616c09558a3_136C8/logout.gif"><img data-src="http://images.cnblogs.com/cnblogs_com/yizhu2000/WindowsLiveWriter/3616c09558a3_136C8/logout_thumb.gif" alt="logout"></a></p>
 <p>怎么删除cookie：本来以为这个不是问题，不过还是有朋友问道，简单的说其实是创建一个和你要删除的cookie同名的cookie，并把 cookie的expire设为当前时间之前的某个时间，不过在跨子域的删除cookie时有一点要注意：必须要把cookie的域设置为父域，在本文中为yizhu2000.com</p>
 <p>为了保证各个环节的传输的安全性，最好使用https连接</p>
 <p>来源：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/yizhu2000/archive/2008/04/01/1131976.html">http://www.cnblogs.com/yizhu2000/archive/2008/04/01/1131976.html</a></p>
@@ -416,14 +408,6 @@
           </a>
       </div>
   </div>
-      <span>
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar"></i>
-        </span>
-        <span class="post-meta-item-text">发表于</span>
-
-        <time title="创建时间：2009-03-23 14:16:00" itemprop="dateCreated datePublished" datetime="2009-03-23T14:16:00+08:00">2009-03-23</time>
-      </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
@@ -478,13 +462,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 791k</span>
+    <span title="站点总字数">站点总字数 772k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 23:58</span>
+    <span title="站点阅读时长">站点阅读时长 23:23</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -521,7 +505,7 @@
 
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-    本站多线部署：<a target="_blank" rel="noopener" href="https://netlify.carlzeng.top">Netlify</a>
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://netlify.carlzeng.top">Netlify</a>
   </div>
 
     </div>

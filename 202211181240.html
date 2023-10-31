@@ -20,16 +20,19 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="目标实现往Android联通机顶盒安装APP，比如投屏类APP（比如：乐播投屏），桌面类APP（比如：沙发桌面，当贝桌面） 环境联通 创维机顶盒：E900V21C Mac（windows也一样，找相应平台的软件即可）  Terminal 系统自带工具   adb 如何安装：MAC下安装adb环境的三种方式 我使用的是第一种方式，因为本身就用Andriod的IDE Andriod Studio 然后">
+    <meta name="description" content="目标实现往Android联通机顶盒安装APP，比如投屏类APP（比如：乐播投屏），桌面类APP（比如：沙发桌面，当贝桌面）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="E900V21C - Android联通 机顶盒 安装APP实例-CarlZeng">
 <meta property="og:url" content="https://www.carlzeng.top/202211181240.html">
 <meta property="og:site_name" content="随笔 Carl Notes">
-<meta property="og:description" content="目标实现往Android联通机顶盒安装APP，比如投屏类APP（比如：乐播投屏），桌面类APP（比如：沙发桌面，当贝桌面） 环境联通 创维机顶盒：E900V21C Mac（windows也一样，找相应平台的软件即可）  Terminal 系统自带工具   adb 如何安装：MAC下安装adb环境的三种方式 我使用的是第一种方式，因为本身就用Andriod的IDE Andriod Studio 然后">
+<meta property="og:description" content="目标实现往Android联通机顶盒安装APP，比如投屏类APP（比如：乐播投屏），桌面类APP（比如：沙发桌面，当贝桌面）">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-18T04:40:00.000Z">
-<meta property="article:modified_time" content="2023-10-02T02:27:29.063Z">
+<meta property="article:modified_time" content="2023-10-30T12:16:08.243Z">
 <meta property="article:author" content="Carl Zeng">
+<meta property="article:tag" content="安卓">
+<meta property="article:tag" content="盒子">
+<meta property="article:tag" content="adb">
 <meta name="twitter:card" content="summary">
 
 
@@ -77,7 +80,7 @@
       <p class="site-title">随笔 Carl Notes</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">个人随笔 解决方案 IT技术 欢迎探讨</p>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 个人随笔</p>
   </div>
 
   <div class="site-nav-right">
@@ -141,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">步骤</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%9F%E6%83%B3%E4%B8%8E%E4%BD%93%E9%AA%8C"><span class="nav-number">5.</span> <span class="nav-text">感想与体验</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -154,18 +157,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">305</span>
+          <span class="site-state-item-count">303</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-count">77</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -198,8 +201,8 @@
         </div>
         <ul class="links-of-blogroll-list recent-posts-list">
                 <li class="popular-posts-item">
-                  <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论系统" target="">
-                  Hexo定制之家宽部署artalk评论系统
+                  <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+                  Hexo定制之家宽部署artalk评论
                   </a>
                 </li>
                 <li class="popular-posts-item">
@@ -239,10 +242,10 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202304131742.html" rel="bookmark">
-        <time class="popular-posts-time">2023-04-13</time>
+      <a class="popular-posts-link" href="/202302161639.html" rel="bookmark">
+        <time class="popular-posts-time">2023-02-16</time>
         <br>
-      Python 编辑器 jupyter notebook-CarlZeng
+      打印相片, 如何从安卓手机发送大量照片到Mac电脑-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
@@ -253,17 +256,17 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202302161639.html" rel="bookmark">
-        <time class="popular-posts-time">2023-02-16</time>
+      <a class="popular-posts-link" href="/202304221641.html" rel="bookmark">
+        <time class="popular-posts-time">2023-04-22</time>
         <br>
-      打印相片, 如何从安卓手机发送大量照片到Mac电脑-CarlZeng
+      Mac中 ~/.bashrc 或 ~/.bash_profile 的问题 [转载]-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201604271638.html" rel="bookmark">
-        <time class="popular-posts-time">2016-04-27</time>
+      <a class="popular-posts-link" href="/202112011808.html" rel="bookmark">
+        <time class="popular-posts-time">2021-12-01</time>
         <br>
-      多个数据库合并的可行方案（待续）-CarlZeng
+      如何在手机（安卓）中搜索照片-CarlZeng
       </a>
     </li>
   </ul>
@@ -312,18 +315,19 @@
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-11-18 12:40:00" itemprop="dateCreated datePublished" datetime="2022-11-18T12:40:00+08:00">2022-11-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+      <time title="修改时间：2023-10-30 20:16:08" itemprop="dateModified" datetime="2023-10-30T20:16:08+08:00">2023-10-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AE%89%E5%8D%93/" itemprop="url" rel="index"><span itemprop="name">安卓</span></a>
+        </span>
     </span>
 
   
@@ -355,7 +359,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.1k</span>
+      <span>2.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -373,11 +377,13 @@
     
     
     <div class="post-body" itemprop="articleBody"><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>实现往Android联通机顶盒安装APP，比如投屏类APP（比如：乐播投屏），桌面类APP（比如：沙发桌面，当贝桌面）</p>
+<span id="more"></span>
 <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>联通 创维机顶盒：E900V21C</p>
 <p>Mac（windows也一样，找相应平台的软件即可）</p>
 <ol>
 <li>Terminal<ol>
 <li>系统自带工具</li>
+<li>（windows对应的工具叫cmd）</li>
 </ol>
 </li>
 <li>adb<ol>
@@ -391,35 +397,29 @@
 </li>
 </ol>
 <p>　</p>
-<p>或者直接运行：<br>export ANDROID_HOME&#x3D;&#x2F;Users&#x2F;$USER&#x2F;Library&#x2F;Android&#x2F;sdk<br>export PATH=${PATH}:$ANDROID_HOME&#x2F;platform-tools<br>然后即可 adb</p>
+<p>或者直接运行：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export ANDROID\_HOME=/Users/$USER/Library/Android/sdk</span><br><span class="line">export PATH\=$&#123;PATH&#125;:$ANDROID\_HOME/platform-tools  </span><br></pre></td></tr></table></figure>
+<p>然后即可 adb<br>Windows也一样的，目录变一下而已，或者直接cd到….Android&#x2F;sdk 目录（搜索一下adb应用程序在那个目录）</p>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li><p>将E900机顶盒和Mac电脑连接到相同的局域网</p>
-</li>
-<li><p>安装好adb工具并设置了环境变量以后，打开Terminal，输入adb –version 验证一下adb可以正常运行，在进行下一步</p>
-</li>
-<li><p>把北京联通创维E900机顶盒的adb功能打开，具体方法：按遥控的“设置”，进到高级设置，</p>
-<ol>
+<li>将E900机顶盒和Mac电脑连接到相同的局域网</li>
+<li>安装好adb工具并设置了环境变量以后，打开Terminal，输入adb –version 验证一下adb可以正常运行，在进行下一步</li>
+<li>把北京联通创维E900机顶盒的adb功能打开，具体方法：按遥控的“设置”，进到高级设置，<ol>
 <li>最里面有很多看不懂的设置项选择列表后，按遥控的右键（指遥控的上下左右按键中的右键），连续按十下 至 15下</li>
 <li>这时选项列表最下方会多出一个新的选项（隐藏选项），打开ADB的选项（再右键，确定打开ADB远程调试）</li>
 </ol>
 </li>
-<li><p>从机顶盒设置里面或者路由器的设置中，找到机顶盒当前的IP地址，比如192.168.1.171；</p>
-<ol>
-<li><p>Terminal输入 adb connect 192.168.2.171:5555 进行连接。</p>
-<p>_adb connect 192.168.2.171:5555<br>或者<br>_&#x2F;Users&#x2F;$USER&#x2F;Library&#x2F;Android&#x2F;sdk&#x2F;platform-tools&#x2F;adb connect 192.168.2.171:5555</p>
-</li>
+<li>从机顶盒设置里面或者路由器的设置中，找到机顶盒当前的IP地址，比如192.168.1.171；<ol>
+<li>Terminal输入 adb connect 192.168.2.171:5555 进行连接。   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_adb connect 192.168.2.171:5555  </span><br><span class="line">或者  </span><br><span class="line">_/Users/$USER/Library/Android/sdk/platform-tools/adb connect 192.168.2.171:5555</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
-<li><p>Terminal输入 <strong>adb install com.shafa.zhuomian_2.2.3_aged.apk</strong> 进入操作Andriod安装命令</p>
-<ol>
+<li>Terminal输入 <strong>adb install com.shafa.zhuomian_2.2.3_aged.apk</strong> 进入操作Andriod安装命令<ol>
 <li>这个apk文件，要从网络上下载到本机的目录中，然后把Terminal调整到当前apk文件所在目录（命令为 cd 具体目录）</li>
-<li>adb install com.shafa.zhuomian_2.2.3_aged.apk<br>或者<br>&#x2F;Users&#x2F;$USER&#x2F;Library&#x2F;Android&#x2F;sdk&#x2F;platform-tools&#x2F;adb install &#x2F;Users&#x2F;$USER&#x2F;Downloads&#x2F;international_sfgj_4.9.25.apk</li>
+<li>安装命令举例：adb install ****.apk  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb install com.shafa.zhuomian\_2.2.3\_aged.apk  </span><br><span class="line">或者  </span><br><span class="line">/Users/$USER/Library/Android/sdk/platform-tools/adb install /Users/$USER/Downloads/international\_sfgj\_4.9.25.apk</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
-<li><p>【可选】运行安装完成后，就可以用遥控器启动这些新的应用APP；也可以使用命令强制运行（唤醒&#x2F;打开）特定的APP应用</p>
-<ol>
+<li>【可选】运行安装完成后，就可以用遥控器启动这些新的应用APP；也可以使用命令强制运行（唤醒&#x2F;打开）特定的APP应用<ol>
 <li>adb shell</li>
-<li>am start -a android.intent.action.VIEW   (也可以合并为一个命令：adb shell am start android.intent.action.VIEW)</li>
+<li>am start -a android.intent.action.VIEW<br>(也可以合并为一个命令：adb shell am start android.intent.action.VIEW)</li>
 <li>App的名字可以使用如下命令列出（或者使用沙发桌面列出已安装的APP）<ol>
 <li>adb shell pm list packages</li>
 </ol>
@@ -427,17 +427,22 @@
 </ol>
 </li>
 </ol>
-<p>引用</p>
-<ol>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ol>
 <li>MAC下安装adb环境的三种方式 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/744fc5946627">https://www.jianshu.com/p/744fc5946627</a></li>
 <li>adb常用命令 <a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/command-line/adb?hl=zh-cn">https://developer.android.google.cn/studio/command-line/adb?hl=zh-cn</a></li>
 <li>Android adb启动任意app的几种方式 <a target="_blank" rel="noopener" href="https://blog.csdn.net/ezconn/article/details/99885715">https://blog.csdn.net/ezconn/article/details/99885715</a></li>
 </ol>
-<p>放到最后写，感想于体验：</p>
+<h2 id="感想与体验"><a href="#感想与体验" class="headerlink" title="感想与体验"></a>感想与体验</h2><p>放到最后写，感想与体验：</p>
 <p>安装一些安卓APP，开启沙发桌面以后，发现创维E900机顶盒有wifi功能，并且支持有线和WIFI同时分别在不同的网段下使用，这就意味着连接网线看IPTV（不影响网速）</p>
 <p>连接WIFI后，机顶盒就可以上网，运行别的实时直播APP（比如：电视家）。这是一个很有意思的使用角度，很方便。</p>
 <p>以前中兴的机顶盒都是需要手动去拔查不同的网线（或者使用支持组播iptv协议的路由器）来切换联通内网和外网。</p>
-<p>现在可以根据你打开的APP，自动选择可用的网络；默认的IPTV依然走内网，其他APP（比如：悟空遥控）走外网WIFI接口。</p>
+<p>现在可以根据你打开的APP，自动选择可用的网络；<br>默认的IPTV依然走内网，其他APP（比如：悟空遥控）走外网WIFI接口。</p>
+<p>话说回来：第一次这样在机顶盒端安装了悟空遥控以后，再去安卓手机端安装悟空遥控；以后就方便了：</p>
+<ol>
+<li>让手机和机顶盒连接到相同的局域网</li>
+<li>打开手机端的悟空遥控，和机顶盒端悟空遥控APP</li>
+<li>在手机端的悟空遥控操作，把新的APK推送到电视机顶盒端即可</li>
+</ol>
 
     </div>
 
@@ -491,23 +496,20 @@
           </a>
       </div>
   </div>
-      <span>
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar"></i>
-        </span>
-        <span class="post-meta-item-text">发表于</span>
-
-        <time title="创建时间：2022-11-18 12:40:00" itemprop="dateCreated datePublished" datetime="2022-11-18T12:40:00+08:00">2022-11-18</time>
-      </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+        <time title="修改时间：2023-10-30 20:16:08" itemprop="dateModified" datetime="2023-10-30T20:16:08+08:00">2023-10-30</time>
       </span>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/%E5%AE%89%E5%8D%93/" rel="tag"># 安卓</a>
+              <a href="/tags/%E7%9B%92%E5%AD%90/" rel="tag"># 盒子</a>
+              <a href="/tags/adb/" rel="tag"># adb</a>
+          </div>
 
         
 
@@ -518,8 +520,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/202211182026.html" rel="next" title="curl ptm-CarlZeng">
-                  curl ptm-CarlZeng <i class="fa fa-angle-right"></i>
+                <a href="/202211182125.html" rel="next" title="netsuite query account balance-CarlZeng">
+                  netsuite query account balance-CarlZeng <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -553,13 +555,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 791k</span>
+    <span title="站点总字数">站点总字数 772k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 23:58</span>
+    <span title="站点阅读时长">站点阅读时长 23:23</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -596,7 +598,7 @@
 
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-    本站多线部署：<a target="_blank" rel="noopener" href="https://netlify.carlzeng.top">Netlify</a>
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://netlify.carlzeng.top">Netlify</a>
   </div>
 
     </div>

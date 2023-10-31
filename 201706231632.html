@@ -81,7 +81,7 @@
       <p class="site-title">随笔 Carl Notes</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">个人随笔 解决方案 IT技术 欢迎探讨</p>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 个人随笔</p>
   </div>
 
   <div class="site-nav-right">
@@ -158,18 +158,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">305</span>
+          <span class="site-state-item-count">303</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-count">77</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -202,8 +202,8 @@
         </div>
         <ul class="links-of-blogroll-list recent-posts-list">
                 <li class="popular-posts-item">
-                  <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论系统" target="">
-                  Hexo定制之家宽部署artalk评论系统
+                  <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+                  Hexo定制之家宽部署artalk评论
                   </a>
                 </li>
                 <li class="popular-posts-item">
@@ -316,14 +316,6 @@
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-06-23 16:32:00" itemprop="dateCreated datePublished" datetime="2017-06-23T16:32:00+08:00">2017-06-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
@@ -388,8 +380,8 @@
     <div class="post-body" itemprop="articleBody"><p>Background: Created a test SuiteLet script, after correct credential, it will do: 1. Upload&#x2F;Sent specific NS File Cabinet file to SFTP server.(NS -&gt; S</p>
 <!-- more -->
 <h2 id="Background"><a href="#Background" class="headerlink" title="Background:"></a>Background:</h2><p>Created a test SuiteLet script, after correct credential, it will do:<br>1. Upload&#x2F;Sent specific NS File Cabinet file to SFTP server.(NS -&gt; SFTP)<br>2. Get a specific file from SFTP server to NS File Cabinet.(SFTP -&gt; NS)</p>
-<h2 id="Screen-Shoot-GET"><a href="#Screen-Shoot-GET" class="headerlink" title="Screen Shoot - GET:"></a>Screen Shoot - GET:</h2><p><img src="http://images2015.cnblogs.com/blog/41238/201706/41238-20170623162453038-1310980693.jpg" alt="Upload/Sent specific NS File Cabinet file to SFTP server."></p>
-<h2 id="Screen-Shoot-POST"><a href="#Screen-Shoot-POST" class="headerlink" title="Screen Shoot - POST:"></a>Screen Shoot - POST:<img src="http://images2015.cnblogs.com/blog/41238/201706/41238-20170623162535616-1946962584.jpg" alt="Upload/Sent specific NS File Cabinet file to SFTP server. Response" title="Upload/Sent specific NS File Cabinet file to SFTP server. Response"></h2><h2 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h2><p>&#x2F;**<br> * @NApiVersion 2.x<br> * @NScriptType Suitelet<br> * @NModuleScope SameAccount<br> *<br> * @Note: This’s a test script which will do: <br><br> *        1. Upload&#x2F;Sent specific NS File Cabinet file to SFTP server.(NS -&gt;<br> *        SFTP)<br><br> *        2. Get a specific file from SFTP server to NS File Cabinet.(SFTP -&gt;<br> *        NS) *&#x2F; define(<br>        [ ‘N&#x2F;error’, ‘N&#x2F;sftp’, ‘N&#x2F;file’, ‘N&#x2F;runtime’, ‘N&#x2F;search’, ‘N&#x2F;transaction’, ‘N&#x2F;ui&#x2F;serverWidget’ ], &#x2F;**<br>         * @param {error}<br>         *            error<br>         * @param {file}<br>         *            file<br>         * @param {runtime}<br>         *            runtime<br>         * @param {search}<br>         *            search<br>         * @param {transaction}<br>         *            transaction<br>         * @param {serverWidget}<br>         *            ui *&#x2F;<br>        function(error, sftp, file, runtime, search, transaction, ui) { &#x2F;**<br>             * Definition of the Suitelet script trigger point.<br>             *<br>             * @param {Object}<br>             *            context<br>             * @param {ServerRequest}<br>             *            context.request - Encapsulation of the incoming<br>             *            request<br>             * @param {ServerResponse}<br>             *            context.response - Encapsulation of the Suitelet<br>             *            response<br>             * @Since 2015.2 *&#x2F;<br>            function onRequest(context) { var strSftpServerUrl &#x3D; ‘123.112.249.93’; var strSftpDir &#x3D; ‘Public’; &#x2F;&#x2F; *nix command: ssh-keyscan -t rsa -p 22 123.112.249.93<br>                var strHostKey &#x3D; “AAAAB3NzaC1yc2EAAAABIwAAAQEAul&#x2F;AnqfetlyUR6cMEEHNEsJWXk+9mo2nCSgkgU1sIwC91qoWHc&#x2F;QQl+5fNYZnF93x60IQ6rjmeW6h5E44xLqZ2g6UtA6ZB1nkTZS41imbTUb+Apge0xyE32&#x2F;XI8aMdaG9ZORvuRJARz4dwtnIHBwZUQBjvOpcdala0nObHiCasG1QKpTk0OYPqwRYijKHDfaW5oPmMIYrQWnLHQ8E6krL8a9gKHcwtsyJh&#x2F;Ng6sEZdpVHL6ZE&#x2F;8&#x2F;EyTGOED14Qh1QIN3Lbk2RLPPO5tHYS6rMlozGqTRVwadaBtXV8jXfsrUGzciu3JnEO3HHXBT4ILeEGdqWpDSA5t8TC986PJ4yw&#x3D;&#x3D;”; var strHostKeyType &#x3D; ‘rsa’; var objRequest &#x3D; context.request; if (objRequest.method &#x3D;&#x3D;&#x3D; ‘GET’) { var form &#x3D; ui.createForm({<br>                        title : ‘SFTP Transfer Sample’ }); var objUserFld &#x3D; form.addField({<br>                        id : ‘custpage_username’,<br>                        type : ui.FieldType.TEXT,<br>                        label : ‘SFTP User Name’ });<br>                    objUserFld.breakType = ui.FieldBreakType.STARTCOL;<br>                    objUserFld.isMandatory = true;</p>
+<h2 id="Screen-Shoot-GET"><a href="#Screen-Shoot-GET" class="headerlink" title="Screen Shoot - GET:"></a>Screen Shoot - GET:</h2><p><img data-src="http://images2015.cnblogs.com/blog/41238/201706/41238-20170623162453038-1310980693.jpg" alt="Upload/Sent specific NS File Cabinet file to SFTP server."></p>
+<h2 id="Screen-Shoot-POST"><a href="#Screen-Shoot-POST" class="headerlink" title="Screen Shoot - POST:"></a>Screen Shoot - POST:<img data-src="http://images2015.cnblogs.com/blog/41238/201706/41238-20170623162535616-1946962584.jpg" alt="Upload/Sent specific NS File Cabinet file to SFTP server. Response" title="Upload/Sent specific NS File Cabinet file to SFTP server. Response"></h2><h2 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h2><p>&#x2F;**<br> * @NApiVersion 2.x<br> * @NScriptType Suitelet<br> * @NModuleScope SameAccount<br> *<br> * @Note: This’s a test script which will do: <br><br> *        1. Upload&#x2F;Sent specific NS File Cabinet file to SFTP server.(NS -&gt;<br> *        SFTP)<br><br> *        2. Get a specific file from SFTP server to NS File Cabinet.(SFTP -&gt;<br> *        NS) *&#x2F; define(<br>        [ ‘N&#x2F;error’, ‘N&#x2F;sftp’, ‘N&#x2F;file’, ‘N&#x2F;runtime’, ‘N&#x2F;search’, ‘N&#x2F;transaction’, ‘N&#x2F;ui&#x2F;serverWidget’ ], &#x2F;**<br>         * @param {error}<br>         *            error<br>         * @param {file}<br>         *            file<br>         * @param {runtime}<br>         *            runtime<br>         * @param {search}<br>         *            search<br>         * @param {transaction}<br>         *            transaction<br>         * @param {serverWidget}<br>         *            ui *&#x2F;<br>        function(error, sftp, file, runtime, search, transaction, ui) { &#x2F;**<br>             * Definition of the Suitelet script trigger point.<br>             *<br>             * @param {Object}<br>             *            context<br>             * @param {ServerRequest}<br>             *            context.request - Encapsulation of the incoming<br>             *            request<br>             * @param {ServerResponse}<br>             *            context.response - Encapsulation of the Suitelet<br>             *            response<br>             * @Since 2015.2 *&#x2F;<br>            function onRequest(context) { var strSftpServerUrl &#x3D; ‘123.112.249.93’; var strSftpDir &#x3D; ‘Public’; &#x2F;&#x2F; *nix command: ssh-keyscan -t rsa -p 22 123.112.249.93<br>                var strHostKey &#x3D; “AAAAB3NzaC1yc2EAAAABIwAAAQEAul&#x2F;AnqfetlyUR6cMEEHNEsJWXk+9mo2nCSgkgU1sIwC91qoWHc&#x2F;QQl+5fNYZnF93x60IQ6rjmeW6h5E44xLqZ2g6UtA6ZB1nkTZS41imbTUb+Apge0xyE32&#x2F;XI8aMdaG9ZORvuRJARz4dwtnIHBwZUQBjvOpcdala0nObHiCasG1QKpTk0OYPqwRYijKHDfaW5oPmMIYrQWnLHQ8E6krL8a9gKHcwtsyJh&#x2F;Ng6sEZdpVHL6ZE&#x2F;8&#x2F;EyTGOED14Qh1QIN3Lbk2RLPPO5tHYS6rMlozGqTRVwadaBtXV8jXfsrUGzciu3JnEO3HHXBT4ILeEGdqWpDSA5t8TC986PJ4yw&#x3D;&#x3D;”; var strHostKeyType &#x3D; ‘rsa’; var objRequest &#x3D; context.request; if (objRequest.method &#x3D;&#x3D;&#x3D; ‘GET’) { var form &#x3D; ui.createForm({<br>                        title : ‘SFTP Transfer Sample’ }); var objUserFld &#x3D; form.addField({<br>                        id : ‘custpage_username’,<br>                        type : ui.FieldType.TEXT,<br>                        label : ‘SFTP User Name’ });<br>                    objUserFld.breakType = ui.FieldBreakType.STARTCOL;<br>                    objUserFld.isMandatory = true;</p>
 <pre><code>                form
                         .addCredentialField(&#123;
                             id : &#39;custpage\_sftp\_password\_token&#39;,
@@ -500,14 +492,6 @@
           </a>
       </div>
   </div>
-      <span>
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar"></i>
-        </span>
-        <span class="post-meta-item-text">发表于</span>
-
-        <time title="创建时间：2017-06-23 16:32:00" itemprop="dateCreated datePublished" datetime="2017-06-23T16:32:00+08:00">2017-06-23</time>
-      </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
@@ -565,13 +549,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 791k</span>
+    <span title="站点总字数">站点总字数 772k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 23:58</span>
+    <span title="站点阅读时长">站点阅读时长 23:23</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -608,7 +592,7 @@
 
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-    本站多线部署：<a target="_blank" rel="noopener" href="https://netlify.carlzeng.top">Netlify</a>
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://netlify.carlzeng.top">Netlify</a>
   </div>
 
     </div>

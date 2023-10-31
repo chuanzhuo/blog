@@ -84,7 +84,7 @@
       <p class="site-title">随笔 Carl Notes</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">个人随笔 解决方案 IT技术 欢迎探讨</p>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 个人随笔</p>
   </div>
 
   <div class="site-nav-right">
@@ -161,18 +161,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">305</span>
+          <span class="site-state-item-count">303</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">71</span>
+        <span class="site-state-item-count">77</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -205,8 +205,8 @@
         </div>
         <ul class="links-of-blogroll-list recent-posts-list">
                 <li class="popular-posts-item">
-                  <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论系统" target="">
-                  Hexo定制之家宽部署artalk评论系统
+                  <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+                  Hexo定制之家宽部署artalk评论
                   </a>
                 </li>
                 <li class="popular-posts-item">
@@ -319,14 +319,6 @@
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2016-03-30 15:35:00" itemprop="dateCreated datePublished" datetime="2016-03-30T15:35:00+08:00">2016-03-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
@@ -383,7 +375,7 @@
 <!-- more -->
 <h3 id="概诉"><a href="#概诉" class="headerlink" title="概诉"></a>概诉</h3><p>网上提交预约申请单，线下面交完成实体卡的交付和办理。</p>
 <p>本文主要从技术角度分析预约页面，仅供初学者技术交流使用。</p>
-<h3 id="表单输入和校验"><a href="#表单输入和校验" class="headerlink" title="表单输入和校验"></a>表单输入和校验</h3><p><img src="http://images2015.cnblogs.com/blog/41238/201603/41238-20160331084520066-67841008.jpg"></p>
+<h3 id="表单输入和校验"><a href="#表单输入和校验" class="headerlink" title="表单输入和校验"></a>表单输入和校验</h3><p><img data-src="http://images2015.cnblogs.com/blog/41238/201603/41238-20160331084520066-67841008.jpg"></p>
 <p>系统通过2步的确认点击到达信息输入页面。</p>
 <p>地址：&#x2F;bjggzxc&#x2F;TzYybk_third_1.html</p>
 <p>验证规则：</p>
@@ -490,14 +482,14 @@
 <p> </p>
 <p> </p>
 <p>验证代码：</p>
-<p><img src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif"><img src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif"></p>
+<p><img data-src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif"><img data-src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif"></p>
 <p> 1 $(function() {<br> 2     $(‘#U_BIRTHDAY’).datetimepicker({<br> 3          language: ‘zh-CN’,<br> 4          minView: ‘2’,  &#x2F;&#x2F;只选择日期，不选择时间<br> 5          format: ‘yyyy-mm-dd’,<br> 6          startDate: ‘${yypc.ksrq}’,<br> 7           endDate: new Date(), 8          autoclose: true , 9         todayBtn: true<br> 10      }).on(“changeDate”, function(e){<br> 11 &#x2F;&#x2F; console.log($(“#applyForm”).data(‘formValidation’));<br> 12          $(“#applyForm”).bootstrapValidator(‘revalidateField’, ‘U_BIRTHDAY’);<br> 13     });<br> 14<br> 15     var validForm &#x3D; $(‘#applyForm’).bootstrapValidator({<br> 16         fields: {<br> 17             “U_NAME”: {<br> 18                 validators: {<br> 19                     notEmpty: {  &#x2F;&#x2F;非空验证<br> 20                         message: ‘姓名不能为空！’<br> 21                     },<br> 22                     regexp: {<br> 23                         regexp: &#x2F;^[a-zA-z\u4e00-\u9fa5,\.\-_]{2,}$&#x2F;,<br> 24                         message: ‘只能输入中英文字符以及逗号、点、减号、下划线，且至少两个字符’<br> 25                     }<br> 26                 }<br> 27             },<br> 28             “U_SEX”: {<br> 29                 validators: {<br> 30                     notEmpty: {  &#x2F;&#x2F;非空验证<br> 31                         message: ‘性别不能为空，请选择！’<br> 32                     },<br> 33                     callback: {<br> 34                         message: ‘性别与身份证不匹配！’,<br> 35                         callback: function(value, validator, $field) {<br> 36                             var zjlx &#x3D; $(‘select[name&#x3D;U_ZJTYPE]‘).val();<br> 37                             var sfzh &#x3D; $(‘input[name&#x3D;U_ZJNUM]‘).val();<br> 38                             var sex&#x3D;$(“input[name&#x3D;’U_SEX’]:checked”).val();<br> 39<br> 40                             if (sex !&#x3D; “” &amp;&amp; zjlx &#x3D;&#x3D; “身份证” &amp;&amp; (sfzh.length &#x3D;&#x3D; 18 || sfzh.length &#x3D;&#x3D; 15)) {<br> 41                                 var sexFromSfzh &#x3D; “”;<br> 42                                 if(sfzh.length &#x3D;&#x3D; 18) {<br> 43                                     sexFromSfzh &#x3D; sfzh.substring(16, 17);<br> 44                                 } else if(sfzh.length &#x3D;&#x3D; 15) {<br> 45                                     sexFromSfzh &#x3D; sfzh.substring(14);<br> 46                                 }<br> 47                                 console.log(sexFromSfzh);<br> 48                                 var sexCode &#x3D; parseInt(sexFromSfzh); 49<br> 50                                 if(sexCode % 2 &#x3D;&#x3D; 0)<br> 51                                     sexFromSfzh &#x3D; “女”;<br> 52                                 else<br> 53                                     sexFromSfzh &#x3D; “男”;<br> 54<br> 55                                 if(sex !&#x3D; sexFromSfzh) 56                                     return false;    &#x2F;&#x2F; or false<br> 57                             }<br> 58                             return true;<br> 59                         }<br> 60                     }<br> 61                 }<br> 62             },<br> 63             “U_BIRTHDAY”: {<br> 64                 validators: {<br> 65                     notEmpty: {  &#x2F;&#x2F;非空验证<br> 66                         message: ‘出生日期不能为空！’<br> 67                     },<br> 68                     date: {<br> 69                         message: ‘日期格式不正确，输入类似2011-01-01的日期！’,<br> 70                         format: ‘YYYY-MM-DD’<br> 71                     },<br> 72                     callback: {<br> 73                         message: ‘出生日期与身份证不匹配！’,<br> 74                         callback: function(value, validator, $field) {<br> 75                             var zjlx &#x3D; $(‘select[name&#x3D;U_ZJTYPE]‘).val();<br> 76                             var sfzh &#x3D; $(‘input[name&#x3D;U_ZJNUM]‘).val();<br> 77                             if (zjlx &#x3D;&#x3D; “身份证” &amp;&amp; (sfzh.length &#x3D;&#x3D; 18 || sfzh.length &#x3D;&#x3D; 15)) {<br> 78                                 var birthdayFromSfzh &#x3D; “”;<br> 79                                 if(sfzh.length &#x3D;&#x3D; 18) {<br> 80                                     birthdayFromSfzh &#x3D; sfzh.substring(6, 14);<br> 81                                 } else if(sfzh.length &#x3D;&#x3D; 15) {<br> 82                                     birthdayFromSfzh &#x3D; “19” + sfzh.substring(6, 12);<br> 83                                 }<br> 84                                 if(value.replace(&#x2F;-&#x2F;g,’’) !&#x3D; birthdayFromSfzh) 85                                     return false;    &#x2F;&#x2F; or false<br> 86                             }<br> 87                             return true;<br> 88                         }<br> 89                     },<br> 90                     callback: {<br> 91                         message: ‘18-60岁之间才能预约！’,<br> 92                         callback: function(value, validator, $field) {<br> 93                             var d &#x3D; Date.parse(value.replace(&#x2F;-&#x2F;g,’&#x2F;‘));<br> 94                             var date &#x3D; new Date(); 95                             var now &#x3D; date.format(“yyyyMMdd”);<br> 96                             date.setTime(d);<br> 97                             date.addYears(18);<br> 98                             var date1 &#x3D; date.format(“yyyyMMdd”);  &#x2F;&#x2F;18岁是哪天<br> 99                             date.addYears(42); 100                             var date2 &#x3D; date.format(“yyyyMMdd”);  &#x2F;&#x2F;60岁是哪天<br>101 console.log(date1); 102 console.log(date2); 103 console.log(now); 104                             return (now &gt;&#x3D; date1 &amp;&amp; now &lt;&#x3D; date2); 105 } 106 } 107 } 108 }, 109             “U_BIRTHPLACE”: { 110 validators: { 111                     notEmpty: {  &#x2F;&#x2F;非空验证<br>112                         message: ‘户口所在地不能为空！’<br>113 }, 114 regexp: { 115                         regexp: &#x2F;^[\u4e00-\u9fa5]{2,}$&#x2F;, 116                         message: ‘户口所在地只能输入中文，填写省市区(县)即可，最少两个汉字！’<br>117 } 118 }, 119                 onSuccess: function(e, data) { 120                     data.bv.revalidateField(‘U_ZZZNUM’); 121 } 122 }, 123             “U_ZJTYPE”: { 124 validators: { 125                     notEmpty: {  &#x2F;&#x2F;非空验证<br>126                         message: ‘证件类型不能为空，请选择！’<br>127 } 128 } 129 }, 130             “U_ZJNUM”: { 131 validators: { 132                     notEmpty: {  &#x2F;&#x2F;非空验证<br>133                         message: ‘证件号码不能为空！’<br>134 }, 135 callback: { 136                         message: ‘身份证号码校验失败！’, 137                         callback: function(value, validator, $field) { 138                             var zjlx &#x3D; $(‘select[name&#x3D;U_ZJTYPE]‘).val(); 139                             if (zjlx &#x3D;&#x3D; “身份证”) 140                                 return IdentityCodeValid(value); 141                             else<br>142                                 return true; 143 } 144 }, 145 remote: { 146                         message: ‘此证件号码已经预约过，请不要重复预约！’, 147                         url: ‘TzYybk_checkZjhm_1.html’, 148                         type: ‘POST’, 149 &#x2F;&#x2F; delay: 1000,<br>150 data: { 151                             Y_PC: $(‘input[name&#x3D;Y_PC]‘).val(), 152                             PC_ID: $(‘input[name&#x3D;PC_ID]‘).val() 153 } 154 } 155 }, 156                 onSuccess: function(e, data) { 157                     data.bv.revalidateField(‘U_BIRTHDAY’); 158                     data.bv.revalidateField(‘U_SEX’); 159 } 160 }, 161             “U_TXPLACE”: { 162 validators: { 163                     notEmpty: {  &#x2F;&#x2F;非空验证<br>164                         message: ‘居住地址不能为空！’<br>165 }, 166 regexp: { 167                         regexp: &#x2F;^[a-zA-z0-9\u4e00-\u9fa5,， 　\.\-_]{5,}$&#x2F;, 168                         message: ‘居住地址只能输入中英文字符、数字以及逗号、点、减号、下划线，且至少五个字符’<br>169 } 170<br>171 } 172 }, 173             “U_ZZZNUM”: { 174 validators: { 175 callback: { 176                         message: ‘非北京户口用户必须输入工作居住证号码，且只能输入12位数字，北京户口请在户口所在地中包含“北京”两个字。’, 177                         callback: function(value, validator, $field) { 178                             var hk &#x3D; $(‘input[name&#x3D;U_BIRTHPLACE]‘).val(); 179                             if (hk !&#x3D; “” &amp;&amp; hk.indexOf(“北京”) &lt; 0 &amp;&amp; value &#x3D;&#x3D; “”) { 180                                    return false;    &#x2F;&#x2F; or false<br>181                             } else { 182                                 if(value !&#x3D; “”) { 183                                     if(&#x2F;^[0-9]{12}$&#x2F;m.test(value)) 184                                         return true; 185                                     else<br>186                                         return false; 187                                 } else<br>188                                     return true; 189 } 190 } 191 } 192 } 193 }, 194             “U_PHONE”: { 195 validators: { 196                     notEmpty: {  &#x2F;&#x2F;非空验证<br>197                         message: ‘手机号不能为空！’<br>198 }, 199 regexp: { 200                         regexp: &#x2F;^[0-9]{11}$&#x2F;, 201                         message: ‘手机号只能是11位数字！’<br>202 } 203 } 204 }, 205             “U_EMAIL”: { 206 validators: { 207                     notEmpty: {  &#x2F;&#x2F;非空验证<br>208                         message: ‘电子邮箱不能为空！’<br>209 }, 210 regexp: { 211                         regexp: &#x2F;^[a-zA-Z0-9_\-.]+@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$&#x2F;, 212                         message: ‘电子邮箱格式不正确！’<br>213 } 214 } 215 }, 216             “U_ZJTYPE”: { 217 validators: { 218                     notEmpty: {  &#x2F;&#x2F;非空验证<br>219                         message: ‘证件类型不能为空！’<br>220 } 221 } 222 }, 223             “U_U_NAME”: { 224 validators: { 225                     notEmpty: {  &#x2F;&#x2F;非空验证<br>226                         message: ‘联系人姓名不能为空！’<br>227 }, 228 regexp: { 229                         regexp: &#x2F;^[a-zA-z\u4e00-\u9fa5,\.\-_]{2,}$&#x2F;, 230                         message: ‘只能输入中英文字符以及逗号、点、减号、下划线，且至少两个字符’<br>231 } 232 } 233 }, 234             “U_U_SEX”: { 235 validators: { 236                     notEmpty: {  &#x2F;&#x2F;非空验证<br>237                         message: ‘性别不能为空！’<br>238 } 239 } 240 }, 241             “U_U_RELATION”: { 242 validators: { 243                     notEmpty: {  &#x2F;&#x2F;非空验证<br>244                         message: ‘与联系人的关系不能为空！’<br>245 }, 246 regexp: { 247                         regexp: &#x2F;^[\u4e00-\u9fa5]{2,}$&#x2F;, 248                         message: ‘与联系人的关系只能输入汉字，最少两个字符！’<br>249 } 250 } 251 }, 252             “U_U_TELEPHONE”: { 253 validators: { 254                     notEmpty: {  &#x2F;&#x2F;非空验证<br>255                         message: ‘联系电话为空！’<br>256 }, 257 regexp: { 258                         regexp: &#x2F;^[0-9()-]{8,}$&#x2F;, 259                         message: ‘联系电话只能是数字或横杠，最少8位！’<br>260 } 261 } 262 }, 263             “U_U_TXPLACE”: { 264 validators: { 265                     notEmpty: {  &#x2F;&#x2F;非空验证<br>266                         message: ‘联系人通讯地址不能为空！’<br>267 }, 268 regexp: { 269                         regexp: &#x2F;^[a-zA-z0-9\u4e00-\u9fa5,， 　\.\-_]{5,}$&#x2F;, 270                         message: ‘联系人通讯地址只能输入中英文字符、数字以及逗号、点、减号、下划线，且至少五个字符’<br>271 } 272 } 273 } 274 } 275 }) 276     .on(‘success.form.bv’, function(e) { 277 e.preventDefault(); 278 editPcSave(); 279 }); 280 })</p>
 <p>View Code</p>
 <p>提前准备好合格的注册&#x2F;预约信息是件很重要的事情，通过代码提取然后进行自动的填写。</p>
 <p>用一个本地库去保存合格的注册信息。</p>
 <p>循环：提取信息，然后提交服务器。</p>
 <h3 id="确认提交优化"><a href="#确认提交优化" class="headerlink" title="确认提交优化"></a>确认提交优化</h3><p>提前判断信息都通过验证以后（合格），除了用editPcSave中的ajaxSubmit来提交信息以外，如下：</p>
-<p><img src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif"><img src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif"></p>
+<p><img data-src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif"><img data-src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif"></p>
 <p>function submitToSrv(){<br>$(‘#applyForm’).ajaxSubmit({<br>            type : “post”,<br>            url : “TzYybk_save_1.html”,<br>            beforeSubmit : function() {<br>                $(“button”).attr(“disabled”, true);<br>            },<br>            success : function(responseText, statusText, xhr, $form) { var response &#x3D; $.parseJSON(responseText); if(response.status&#x3D;&#x3D;”ok”) {<br>                    console.log(response.uid);<br>                    document.location=“TzYybk_success_1.html?uid&#x3D;” + response.uid;<br>                } else {<br>                    alert(response.message);<br>                }<br>            },<br>            error : function(request, textStatus, e) {<br>                $(“button”).attr(“disabled”, false);<br>            }<br>        });<br>};</p>
 <p>setInterval(“submitToSrv()”, 5000);</p>
 <p>View Code</p>
@@ -511,7 +503,7 @@
 <li>服务器测速（多服务器情况下）<br>定义测速机制，根据数据包路由信息确定最优服务器IP地址，直接缓存到本地hosts文件中3.  智能DNS切换<br>多服务器情况下，切换选择基于本机的最优服务器4.  CDN返回缓存<br>CDN判断</li>
 </ol>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>这个1.0版本的分析还有些技术细节有待优化.</p>
-<p>欢迎探讨，如果您想找人帮忙：<a href="tencent://message/?uin=402167488&Site=cnblogs&Menu=yes"><img src="http://wpa.qq.com/pa?p=1:402167488:13" alt="点击这里给我发消息"></a></p>
+<p>欢迎探讨，如果您想找人帮忙：<a href="tencent://message/?uin=402167488&Site=cnblogs&Menu=yes"><img data-src="http://wpa.qq.com/pa?p=1:402167488:13" alt="点击这里给我发消息"></a></p>
 
     </div>
 
@@ -565,14 +557,6 @@
           </a>
       </div>
   </div>
-      <span>
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar"></i>
-        </span>
-        <span class="post-meta-item-text">发表于</span>
-
-        <time title="创建时间：2016-03-30 15:35:00" itemprop="dateCreated datePublished" datetime="2016-03-30T15:35:00+08:00">2016-03-30</time>
-      </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
@@ -627,13 +611,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 791k</span>
+    <span title="站点总字数">站点总字数 772k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 23:58</span>
+    <span title="站点阅读时长">站点阅读时长 23:23</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -670,7 +654,7 @@
 
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-    本站多线部署：<a target="_blank" rel="noopener" href="https://netlify.carlzeng.top">Netlify</a>
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://netlify.carlzeng.top">Netlify</a>
   </div>
 
     </div>
