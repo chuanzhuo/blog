@@ -28,10 +28,12 @@
 <meta property="og:description" content="动态公网IP 和 SRS 简介和现实中的应用">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-13T09:36:00.000Z">
-<meta property="article:modified_time" content="2023-10-04T11:21:25.288Z">
+<meta property="article:modified_time" content="2023-11-01T07:03:52.966Z">
 <meta property="article:author" content="Carl Zeng">
 <meta property="article:tag" content="动态公网IP">
 <meta property="article:tag" content="SRS">
+<meta property="article:tag" content="Obs">
+<meta property="article:tag" content="vMix">
 <meta name="twitter:card" content="summary">
 
 
@@ -130,7 +132,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -143,6 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85SRS%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.</span> <span class="nav-text">1. 安装SRS步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%92%AD%E6%94%BE%E8%A7%82%E7%9C%8B"><span class="nav-number">2.</span> <span class="nav-text">4. 播放观看</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84"><span class="nav-number">3.</span> <span class="nav-text">5. 外网映射</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%8E%A8%E6%B5%81%E6%96%B9%E6%A1%88"><span class="nav-number">4.</span> <span class="nav-text">2. 推流方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8obs%E6%8E%A8%E6%B5%81"><span class="nav-number">4.1.</span> <span class="nav-text">使用obs推流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8%EF%BC%8C%E5%B9%B6%E6%89%BE%E5%88%B0%E6%82%A8%E9%9C%80%E8%A6%81%E4%BF%AE%E6%94%B9%E7%9A%84-HTML-%E6%96%87%E4%BB%B6%E6%89%80%E5%9C%A8%E7%9A%84%E8%B7%AF%E5%BE%84%E3%80%82"><span class="nav-number">4.1.1.</span> <span class="nav-text">2. 进入容器，并找到您需要修改的 HTML 文件所在的路径。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E4%BF%AE%E6%94%B9-HTML-%E6%96%87%E4%BB%B6%E3%80%82"><span class="nav-number">4.1.2.</span> <span class="nav-text">3. 使用文本编辑器修改 HTML 文件。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%BD%BF%E7%94%A8-docker-commit-%E5%91%BD%E4%BB%A4%E5%B0%86%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E5%AE%B9%E5%99%A8%E4%BF%9D%E5%AD%98%E4%B8%BA%E6%96%B0%E7%9A%84%E9%95%9C%E5%83%8F%E3%80%82"><span class="nav-number">4.1.3.</span> <span class="nav-text">4. 使用 docker commit 命令将修改后的容器保存为新的镜像。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-optional-%E5%B0%86%E6%96%B0%E7%9A%84%E9%95%9C%E5%83%8F%E6%8E%A8%E9%80%81%E5%88%B0-Docker-%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93%E4%B8%AD%EF%BC%88%E5%A6%82%E6%9E%9C%E9%9C%80%E8%A6%81%EF%BC%89%E3%80%82"><span class="nav-number">4.1.4.</span> <span class="nav-text">5. [optional]将新的镜像推送到 Docker 镜像仓库中（如果需要）。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%9C%A8%E9%83%A8%E7%BD%B2-SRS-%E6%9C%8D%E5%8A%A1%E6%97%B6%EF%BC%8C%E4%BD%BF%E7%94%A8%E6%96%B0%E7%9A%84%E9%95%9C%E5%83%8F%E6%A0%87%E7%AD%BE%E6%9D%A5%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8%E3%80%82"><span class="nav-number">4.1.5.</span> <span class="nav-text">6. 在部署 SRS 服务时，使用新的镜像标签来启动容器。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8vMix%E6%8E%A8%E6%B5%81"><span class="nav-number">4.2.</span> <span class="nav-text">使用vMix推流</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">5.</span> <span class="nav-text">错误及解决方案</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -155,18 +158,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">302</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">77</span>
+        <span class="site-state-item-count">79</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -233,6 +236,13 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310081055.html" rel="bookmark">
+        <time class="popular-posts-time">2023-10-08</time>
+        <br>
+      转载-收藏夹
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/" rel="bookmark">
       
       </a>
@@ -256,13 +266,6 @@
         <time class="popular-posts-time">2009-12-08</time>
         <br>
       js 转化为标准日期型-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
-        <time class="popular-posts-time">2023-08-26</time>
-        <br>
-      云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
       </a>
     </li>
   </ul>
@@ -314,7 +317,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-04 19:21:25" itemprop="dateModified" datetime="2023-10-04T19:21:25+08:00">2023-10-04</time>
+      <time title="修改时间：2023-11-01 15:03:52" itemprop="dateModified" datetime="2023-11-01T15:03:52+08:00">2023-11-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AE%BD%E5%B8%A6/" itemprop="url" rel="index"><span itemprop="name">宽带</span></a>
+        </span>
     </span>
 
   
@@ -346,7 +358,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.9k</span>
+      <span>3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -366,43 +378,38 @@
     <div class="post-body" itemprop="articleBody"><p>动态公网IP（Dynamic Public IP）是指由互联网服务提供商（ISP）分配给用户的动态IP地址，该地址是公共的，可以在公共互联网上访问。<br>与静态公网IP不同，动态公网IP是临时分配的，并且在一段时间后可能会更改。这意味着每次重新连接到互联网时，用户可能会被分配一个新的动态公网IP地址。</p>
 <p>动态公网IP通常用于个人用户或小型企业，因为它们相对便宜，而且不需要用户进行任何配置或管理。但是，由于其不稳定性和易变性，动态公网IP可能不适合需要稳定和持久的互联网连接的大型企业或组织。</p>
 <p>联通的adsl用户可以打10010 叫客服打开“动态公网IP” + 路由器桥接。（<a target="_blank" rel="noopener" href="https://www.mi-d.cn/1590">缘由：需要动态公网ip做监控或者访问服务</a>）</p>
-<p>开启动态公网IP+路由器桥接以后,</p>
-<p>路由器上拨号即可得到一个公网IP.</p>
+<p>开启动态公网IP+路由器桥接以后, 路由器上拨号即可得到一个公网IP.</p>
 <p>OpenWRT 路由器 设置端口映射， 即可将局域网内主机的端口 映射到公网IP的特定上。</p>
 <p>题外话（弯路）：（Padavan的系统，在端口映射是使用单独的工具（socat耗内存）来实现端口数据转发，OpenWrt的iptables更可靠，扎实稳定）</p>
 <p>下面以mac电脑，架设SRS服务器 来：分享流媒体至互联网。</p>
-<p>1. 安装SRS步骤(安装Docker.dmg后, 运行下面的指令)</p>
-<p>SRS文档：<a target="_blank" rel="noopener" href="https://ossrs.net/lts/zh-cn/docs/v4/doc/getting-started">https:&#x2F;&#x2F;</a><a target="_blank" rel="noopener" href="https://ossrs.net/lts/zh-cn/docs/v4/doc/getting-started">ossrs.net&#x2F;lts&#x2F;zh-cn&#x2F;docs&#x2F;v4&#x2F;doc&#x2F;getting-started</a><br>首先要先把安装好的Docker启动，屏幕右上角会出现鲸鱼背楼的图标，确保其正在运行。<br> Steps to run docker: 1. cd &#x2F;Users&#x2F;abc&#x2F;WebstormProjects&#x2F;srs&#x2F;srs&#x2F;trunk 2. 运行：<br>docker run –rm -it -p 1935:1935 -p 1985:1985 -p 8080:8080 registry.cn-hangzhou.aliyuncs.com&#x2F;ossrs&#x2F;srs:4 .&#x2F;objs&#x2F;srs -c conf&#x2F;docker.conf 3. 推流（循环读取音视频文件，进行推送）<br>ffmpeg -re -stream_loop -1 -i ‘.&#x2F;…’ -c copy -f flv rtmp:&#x2F;&#x2F;localhost&#x2F;live&#x2F;livestream</p>
-<p>备注：-stream_loop 中 -1 表示无限循环；0表示 不循环；适合于小文件</p>
-<ol start="4">
-<li><p>播放观看<br><a target="_blank" rel="noopener" href="http://localhost:8080/players/srs/_player.html">http://localhost:8080/players/srs\_player.html</a></p>
-</li>
-<li><p>外网映射<br>注意: 映射的时候不能使用8080端口, 建议使用60000以上的端口 (因isp防火墙已封锁这些特殊的端口)<br>建议使用frp，具体的配置方法可参考<a target="_blank" rel="noopener" href="https://freefrp.net/docs">https://freefrp.net/docs</a>，或后续的相关文字 ，运行命令：.&#x2F;frpc -c frpc.ini</p>
-</li>
+<h1 id="1-安装SRS步骤"><a href="#1-安装SRS步骤" class="headerlink" title="1. 安装SRS步骤"></a>1. 安装SRS步骤</h1><p>(安装Docker.dmg后, 运行下面的指令)</p>
+<p>SRS文档：<a target="_blank" rel="noopener" href="https://ossrs.net/lts/zh-cn/docs/v4/doc/getting-started">https:&#x2F;&#x2F;</a><a target="_blank" rel="noopener" href="https://ossrs.net/lts/zh-cn/docs/v4/doc/getting-started">ossrs.net&#x2F;lts&#x2F;zh-cn&#x2F;docs&#x2F;v4&#x2F;doc&#x2F;getting-started</a><br>首先要先把安装好的Docker启动，屏幕右上角会出现鲸鱼背楼的图标，确保其正在运行。<br> Steps to run docker: </p>
+<ol>
+<li>cd &#x2F;Users&#x2F;abc&#x2F;WebstormProjects&#x2F;srs&#x2F;srs&#x2F;trunk </li>
+<li>运行：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -it -p 1935:1935 -p 1985:1985 -p 8080:8080 registry.cn-hangzhou.aliyuncs.com/ossrs/srs:4 ./objs/srs -c conf/docker.conf </span><br></pre></td></tr></table></figure></li>
+<li>推流（循环读取音视频文件，进行推送）<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -re -stream_loop -1 -i &#x27;./...&#x27; -c copy -f flv rtmp://localhost/live/livestream</span><br></pre></td></tr></table></figure>
+备注：-stream_loop 中 -1 表示无限循环；0表示 不循环；适合于小文件</li>
 </ol>
-<p>2. 推流方案#2：使用obs推流</p>
-<p>下载并安装 obs-studio-29.0.2-macos-arm64.dmg</p>
+<h1 id="4-播放观看"><a href="#4-播放观看" class="headerlink" title="4. 播放观看"></a>4. 播放观看</h1><p><a target="_blank" rel="noopener" href="http://localhost:8080/players/srs_player.html">http://localhost:8080/players/srs_player.html</a></p>
+<h1 id="5-外网映射"><a href="#5-外网映射" class="headerlink" title="5. 外网映射"></a>5. 外网映射</h1><p>注意: 映射的时候不能使用8080端口, 建议使用60000以上的端口 (因isp防火墙已封锁这些特殊的端口)<br>建议使用frp，具体的配置方法可参考<a target="_blank" rel="noopener" href="https://freefrp.net/docs">https://freefrp.net/docs</a>，<br>或后续的相关文字 ，运行命令：.&#x2F;frpc -c frpc.ini </p>
+<h1 id="2-推流方案"><a href="#2-推流方案" class="headerlink" title="2. 推流方案"></a>2. 推流方案</h1><h2 id="使用obs推流"><a href="#使用obs推流" class="headerlink" title="使用obs推流"></a>使用obs推流</h2><p>下载并安装 obs-studio-29.0.2-macos-arm64.dmg</p>
 <p>Obs 打开后右下角的设置 &gt;直播 &gt;服务选择自定义服务器为rtmp:&#x2F;&#x2F;localhost&#x2F;live&#x2F;, 推流码为1(可以是任意数字和字母，可理解为房间号)<br> 添加内容（音频，视频）后，点击开始直播。</p>
-<p>———播放部分-——–</p>
-<p>最终得到的 播放地址为： <a target="_blank" rel="noopener" href="http://localhost:60080/live/1.flv">http://localhost:60080/live/1.flv</a><br>工具可选用VLC或者网页形式<a target="_blank" rel="noopener" href="http://localhost:8080/players/srs/_player.html">http://localhost:8080/players/srs\_player.html</a></p>
+<p>———播放部分———</p>
+<p>最终得到的 播放地址为： <a target="_blank" rel="noopener" href="http://localhost:60080/live/1.flv">http://localhost:60080/live/1.flv</a><br>工具可选用VLC或者网页形式<a target="_blank" rel="noopener" href="http://localhost:8080/players/srs_player.html">http://localhost:8080/players/srs_player.html</a></p>
 <p>经验：</p>
 <p>使用ffmpeg3流远程m3u8媒体时，经常会容易断流或电脑休眠后会断流， 这时我们最好使用 obs 转播来源为window capture的方案。</p>
 <p>20230419 Update</p>
 <p>问题：那如果我仅仅需要修改镜像文件中的某个特定的html，我要怎么做? 如果您只需要修改镜像文件中的某个特定的 HTML 文件，可以通过以下步骤来实现： 1. 下载 SRS 镜像文件并创建容器。<br>docker run -it -p 1935:1935 -p 1985:1985 -p 8080:8080 registry.cn-hangzhou.aliyuncs.com&#x2F;ossrs&#x2F;srs:4</p>
-<ol start="2">
-<li><p>进入容器，并找到您需要修改的 HTML 文件所在的路径。<br>docker exec -it &lt;CONTAINER_ID&gt; &#x2F;bin&#x2F;bash<br>cd &#x2F;usr&#x2F;local&#x2F;srs&#x2F;objs&#x2F;nginx&#x2F;html&#x2F;</p>
-</li>
-<li><p>使用文本编辑器修改 HTML 文件。<br>vi index.html<br>保存修改并退出容器。 4. 使用 docker commit 命令将修改后的容器保存为新的镜像。</p>
-</li>
-</ol>
-<p>docker commit &lt;CONTAINER_ID&gt; &lt;NEW_IMAGE_TAG&gt;</p>
-<ol start="5">
-<li><p>[optional]将新的镜像推送到 Docker 镜像仓库中（如果需要）。<br>docker push &lt;NEW_IMAGE_TAG&gt;</p>
-</li>
-<li><p>在部署 SRS 服务时，使用新的镜像标签来启动容器。<br>docker run -it -p 1935:1935 -p 1985:1985 -p 8080:8080 &lt;NEW_IMAGE_TAG&gt; 需要注意的是，这种方式只适用于修改镜像中的某个特定的文件。如果您需要对 SRS 的配置文件或者其他文件进行修改，建议使用 Dockerfile 来自定义 SRS 镜像。 -———————————————————————–</p>
-</li>
-</ol>
-<p> 问题：vi index.html. 提示错误：bash: vi: command not found。 我要怎么办？<br>如果在容器中执行 vi 命令时提示 command not found 错误，说明容器中没有安装 vi 编辑器。</p>
+<h3 id="2-进入容器，并找到您需要修改的-HTML-文件所在的路径。"><a href="#2-进入容器，并找到您需要修改的-HTML-文件所在的路径。" class="headerlink" title="2. 进入容器，并找到您需要修改的 HTML 文件所在的路径。"></a>2. 进入容器，并找到您需要修改的 HTML 文件所在的路径。</h3><p>docker exec -it <CONTAINER_ID> &#x2F;bin&#x2F;bash<br>cd &#x2F;usr&#x2F;local&#x2F;srs&#x2F;objs&#x2F;nginx&#x2F;html&#x2F;</p>
+<h3 id="3-使用文本编辑器修改-HTML-文件。"><a href="#3-使用文本编辑器修改-HTML-文件。" class="headerlink" title="3. 使用文本编辑器修改 HTML 文件。"></a>3. 使用文本编辑器修改 HTML 文件。</h3><p>vi index.html<br>保存修改并退出容器。 </p>
+<h3 id="4-使用-docker-commit-命令将修改后的容器保存为新的镜像。"><a href="#4-使用-docker-commit-命令将修改后的容器保存为新的镜像。" class="headerlink" title="4. 使用 docker commit 命令将修改后的容器保存为新的镜像。"></a>4. 使用 docker commit 命令将修改后的容器保存为新的镜像。</h3><p>docker commit <CONTAINER_ID> <NEW_IMAGE_TAG></p>
+<h3 id="5-optional-将新的镜像推送到-Docker-镜像仓库中（如果需要）。"><a href="#5-optional-将新的镜像推送到-Docker-镜像仓库中（如果需要）。" class="headerlink" title="5. [optional]将新的镜像推送到 Docker 镜像仓库中（如果需要）。"></a>5. [optional]将新的镜像推送到 Docker 镜像仓库中（如果需要）。</h3><p>docker push <NEW_IMAGE_TAG></p>
+<h3 id="6-在部署-SRS-服务时，使用新的镜像标签来启动容器。"><a href="#6-在部署-SRS-服务时，使用新的镜像标签来启动容器。" class="headerlink" title="6. 在部署 SRS 服务时，使用新的镜像标签来启动容器。"></a>6. 在部署 SRS 服务时，使用新的镜像标签来启动容器。</h3><p>docker run -it -p 1935:1935 -p 1985:1985 -p 8080:8080 <NEW_IMAGE_TAG> 需要注意的是，这种方式只适用于修改镜像中的某个特定的文件。如果您需要对 SRS 的配置文件或者其他文件进行修改，建议使用 Dockerfile 来自定义 SRS 镜像。 ————————————————————————  </p>
+<h2 id="使用vMix推流"><a href="#使用vMix推流" class="headerlink" title="使用vMix推流"></a>使用vMix推流</h2><p>vMix: Live Video Streaming Software</p>
+<p>vMix<br><a target="_blank" rel="noopener" href="https://www.vmix.com/">https://www.vmix.com</a><br>vMix is a live streaming and live production software video mixer and switcher for Windows. Easily Produce, Record and Live Stream professional looking …</p>
+<p>VS OBS, it sounds like vMix is better</p>
+<p>状态：待测试</p>
+<h1 id="错误及解决方案"><a href="#错误及解决方案" class="headerlink" title="错误及解决方案"></a>错误及解决方案</h1><p>问题：vi index.html. 提示错误：bash: vi: command not found。 我要怎么办？<br>如果在容器中执行 vi 命令时提示 command not found 错误，说明容器中没有安装 vi 编辑器。</p>
 <p>您可以尝试使用其他文本编辑器来修改 HTML 文件，例如 nano 或者 emacs。这些编辑器通常已经包含在大多数 Linux 发行版中，也可以通过 apt-get 命令进行安装。</p>
 <p>例如，您可以使用以下命令来安装 nano 编辑器：</p>
 <p>apt-get update &amp;&amp; apt-get install -y nano<br>然后，使用 nano 命令来编辑 HTML 文件：</p>
@@ -434,7 +441,7 @@
 </div>
 
           <div class="followme">
-  <span>文章距今多时,请灵活应用.有偿协助请联系</span>
+  <span>若文章为您解决燃眉之急或是带来些许明朗,不妨打赏一杯香茶或是可乐</span>
 
   <div class="social-list">
 
@@ -460,18 +467,21 @@
           </a>
       </div>
   </div>
-      <span class="post-meta-item">
+      <span>
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-10-04 19:21:25" itemprop="dateModified" datetime="2023-10-04T19:21:25+08:00">2023-10-04</time>
+        <time title="修改时间：2023-11-01 15:03:52" itemprop="dateModified" datetime="2023-11-01T15:03:52+08:00">2023-11-01</time>
       </span>
+
 </div>
 
           <div class="post-tags">
               <a href="/tags/%E5%8A%A8%E6%80%81%E5%85%AC%E7%BD%91IP/" rel="tag"># 动态公网IP</a>
               <a href="/tags/SRS/" rel="tag"># SRS</a>
+              <a href="/tags/Obs/" rel="tag"># Obs</a>
+              <a href="/tags/vMix/" rel="tag"># vMix</a>
           </div>
 
         
@@ -518,13 +528,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 772k</span>
+    <span title="站点总字数">站点总字数 778k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 23:23</span>
+    <span title="站点阅读时长">站点阅读时长 23:35</span>
   </span>
 </div>
 <div class="busuanzi-count">
