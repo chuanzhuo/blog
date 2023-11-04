@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="解锁iPad的激活锁，绕过iPad激活验证; 解决问题：已越狱的ipad，ios12，激活失败 解开开机锁屏密码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iPad解锁激活锁苹果平板绕激活锁经验">
+<meta property="og:url" content="https://www.carlzeng.top/202311042118.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="解锁iPad的激活锁，绕过iPad激活验证; 解决问题：已越狱的ipad，ios12，激活失败 解开开机锁屏密码">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.evernote.com/shard/s122/sh/cb185f8d-dbee-4e5b-a450-96b3185cc5f8/BNWw481lYWyIXz6Zia9Or6bk5iFCTjy0yDy3JMlQXkwHwYGVg10t0lEJeg/deep/0/image.png">
+<meta property="og:image" content="https://download-cdn.123pan.cn/123-312/e25314b5/1811939854-0/e25314b54db9fda25fd9ccc5d13d7d38/c-m17?v=5&t=1699192154&s=169919215431bd2bf6d52b86a7f6330092b8d1de2c&r=F2FV8Q&bzc=1&bzs=0&filename=MAC%E7%89%88%E4%BA%91%E7%A9%BA%E9%97%B4OFF.png">
+<meta property="og:image" content="https://download-cdn.123pan.cn/123-416/bf16630d/1811939854-0/bf16630d9548d6970416786a2e5119a0/c-m17?v=5&t=1699192154&s=169919215405a999659db3b4b41bbbde0495b46d2f&r=7EACGO&bzc=1&bzs=0&filename=win%E7%89%88%E4%BA%91%E7%A9%BA%E9%97%B4OFF.png">
+<meta property="article:published_time" content="2023-11-04T13:18:14.000Z">
+<meta property="article:modified_time" content="2023-11-04T13:58:44.137Z">
+<meta property="article:author" content="Carl Zeng">
+<meta property="article:tag" content="iPad">
+<meta property="article:tag" content="激活锁">
+<meta property="article:tag" content="苹果平板">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.evernote.com/shard/s122/sh/cb185f8d-dbee-4e5b-a450-96b3185cc5f8/BNWw481lYWyIXz6Zia9Or6bk5iFCTjy0yDy3JMlQXkwHwYGVg10t0lEJeg/deep/0/image.png">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/202311042118.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/202311042118.html","path":"202311042118.html","title":"iPad解锁激活锁苹果平板绕激活锁经验"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>iPad解锁激活锁苹果平板绕激活锁经验 | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 NetSuite 个人随笔</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="全站检索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>文章列表</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>全站检索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.</span> <span class="nav-text">工具下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E7%9B%B8%E5%85%B3%E7%9A%84%E5%B7%A5%E5%85%B7%E7%85%A7%E7%89%87"><span class="nav-number">3.1.</span> <span class="nav-text">一些相关的工具照片</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">4.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">眼观心察</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">304</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:carl.zeng@icloud.com" title="E-Mail → mailto:carl.zeng@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://unpkg.com/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+
+    <!-- recent posts -->
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔Recently
+        </div>
+        <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item">
+                  <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+                  iPad解锁激活锁苹果平板绕激活锁经验
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+                  Nginx Proxy Manager修复笔记
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+                  Hexo定制之家宽部署artalk评论
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+                  任天堂Switch全部记录
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202310202241.html" title="安卓手机root与小黄鸟抓包" target="">
+                  安卓手机root与小黄鸟抓包
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
+                  Debian初体验之基础设置
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202310132055.html" title="海康萤石摄像头C3HC学习" target="">
+                  海康萤石摄像头C3HC学习
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202310131750.html" title="汽车保养之三滤和清洗节气门" target="">
+                  汽车保养之三滤和清洗节气门
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202310110855.html" title="UTM虚拟机在MAC M1下Kali Linux实战" target="">
+                  UTM虚拟机在MAC M1下Kali Linux实战
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202310082305.html" title="NetSuite query SQL" target="">
+                  NetSuite query SQL
+                  </a>
+                </li>
+        </ul>
+      </div>
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202311042118.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="眼观心察">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="iPad解锁激活锁苹果平板绕激活锁经验 | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          iPad解锁激活锁苹果平板绕激活锁经验
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-04 21:58:44" itemprop="dateModified" datetime="2023-11-04T21:58:44+08:00">2023-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/iPad/" itemprop="url" rel="index"><span itemprop="name">iPad</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/202311042118.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/202311042118.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202311042118.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://www.evernote.com/shard/s122/sh/cb185f8d-dbee-4e5b-a450-96b3185cc5f8/BNWw481lYWyIXz6Zia9Or6bk5iFCTjy0yDy3JMlQXkwHwYGVg10t0lEJeg/deep/0/image.png">
+解锁iPad的激活锁，绕过iPad激活验证; 解决问题：已越狱的ipad，ios12，激活失败
+解开开机锁屏密码
+
+<span id="more"></span>
+<p>3天的经历总结：有一个许久不用的老iPad air忘记了密码，多长尝试以后被锁住了；根据客服及网上的资料知道可知通过刷机，越狱，解锁的方式可以解决。以下是具体的过程：<br>下一步我讲把它做成电子相册。</p>
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>解锁iPad的激活锁，绕过iPad激活验证; 解决问题：已越狱的ipad，ios12，激活失败<br>解开开机锁屏密码</p>
+<h1 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h1><ol>
+<li>网盘下载<a target="_blank" rel="noopener" href="https://www.123pan.com/s/MJUDVv-xixph.html">太极激活工具V7.8.dmg</a><br> 如果这123网盘地址失效，你可以联系我(不过仅仅只有工具是没用的)</li>
+<li>花钱找买家，激活工具注册，是对应iPad的ECID的<br> 不得不提及我自己实践摸索的工具iFRPFile All In One v2.8.6，搞死了我的Windows虚拟机，不怎么满足它的条件，安装iTune，安装特定版本的.NET Framework，都无法成功；非常失望；</li>
+</ol>
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>我的Ipad air A1474 已经越狱成功了， 使用的是如图的（右上角的软件）<br>ipad air以前旧的信息在左下角的截图<br> 那是一个截图，i4助手 工具在windows里面。</p>
+<p>现在是 激活失败</p>
+<p>ipad已经连接到这台MAC苹果电脑的usb，右上角所示： Normal mode</p>
+<p>你帮忙激活一下（我尝试了激活的工具没成功），谢谢</p>
+<p>如果你需要传文件就用wx？</p>
+<p>我之前越狱 成功，需要进到这个工具的源代码里吗，你稍等。你要越狱<br>稍等，马上我在越狱一次；很快就好了，稍等一下下。 昨天就是这么可以成功越狱的</p>
+<p>我就是无法激活； 卡在了Hello界面激活步骤，我自己的ipad，我有icloud账号</p>
+<p>大佬说：修改过底层数据了 	<br>我说：- 我听不明白，我2015年买的，很久都放着不用，结果锁屏密码忘记了，最近想在拿出来给孩子玩玩，结果尝试多次密码失败了，刷机就变成这样了（被逼着只能越狱，然后解锁）目前卡在‘激活’的步骤（ 我尝试了各种办法，无法成功，不知道问题出现哪里，还有windows工具） 请你帮忙激活一下<br>我之前都是可以正常使用的，放在抽屉里面吃灰状态（2015年淘宝购买的，具体是被动过的ipad，以前我不知道。现在联系不上商家了 :( 怎么办？激活</p>
+<p>……(远程协助中)……</p>
+<p>可以了！ 大哥牛X！！！<br>问：是需要把ECID注册到哪里吗？<br>答：闲鱼确认一下收货<br>问：好的没问题，可否解答一下我疑惑？<br>答：这个是激活工具注册的<br>    可以理解为工具是收费的</p>
+<p>问：明白！，以后怎么下载app，用其他的市场吗？比如<br>    自带软件<br>    还需要用我原来的icloud账号吗？<br>答：你试试看能不能登录id商店<br>正在登录。。。。断开远程了</p>
+<p>问：感谢大佬！我怎么安装群晖的photo app啊？<br>    登录失败，无法验证<br>    那 我要怎么安装群晖的photo app啊？</p>
+<pre><code>id商店要怎么用呢？？ 看不懂
+</code></pre>
+<h2 id="一些相关的工具照片"><a href="#一些相关的工具照片" class="headerlink" title="一些相关的工具照片"></a>一些相关的工具照片</h2><img class="lozad" data-src="https://download-cdn.123pan.cn/123-312/e25314b5/1811939854-0/e25314b54db9fda25fd9ccc5d13d7d38/c-m17?v=5&t=1699192154&s=169919215431bd2bf6d52b86a7f6330092b8d1de2c&r=F2FV8Q&bzc=1&bzs=0&filename=MAC%E7%89%88%E4%BA%91%E7%A9%BA%E9%97%B4OFF.png">
+
+<img class="lozad" data-src="https://download-cdn.123pan.cn/123-416/bf16630d/1811939854-0/bf16630d9548d6970416786a2e5119a0/c-m17?v=5&t=1699192154&s=169919215405a999659db3b4b41bbbde0495b46d2f&r=7EACGO&bzc=1&bzs=0&filename=win%E7%89%88%E4%BA%91%E7%A9%BA%E9%97%B4OFF.png">
+
+<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p>海鲜市场人才济济</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Carl Zeng
+    <a href='https://www.carlzeng.top/202311042118.html'> 《iPad解锁激活锁苹果平板绕激活锁经验》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.carlzeng.top/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验">https://www.carlzeng.top/202311042118.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>若文章为您解决燃眉之急或是带来些许明朗,不妨打赏一杯香茶或是可乐</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2023-11-04 21:58:44" itemprop="dateModified" datetime="2023-11-04T21:58:44+08:00">2023-11-04</time>
+      </span>
+
+</div>
+
+
+<div class="post-nav">
+<div class="post-nav-item">
+    <div class="pjax">
+    </div>
+</div>
+
+<div class="post-nav-item">
+<!-- recent posts -->
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔Recently
+    </div>
+    <ul class="pjax recent-posts-list">
+            <li class="popular-posts-item">
+              <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+              iPad解锁激活锁苹果平板绕激活锁经验
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+              Nginx Proxy Manager修复笔记
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+              Hexo定制之家宽部署artalk评论
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+              任天堂Switch全部记录
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310202241.html" title="安卓手机root与小黄鸟抓包" target="">
+              安卓手机root与小黄鸟抓包
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
+              Debian初体验之基础设置
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310132055.html" title="海康萤石摄像头C3HC学习" target="">
+              海康萤石摄像头C3HC学习
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310131750.html" title="汽车保养之三滤和清洗节气门" target="">
+              汽车保养之三滤和清洗节气门
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310110855.html" title="UTM虚拟机在MAC M1下Kali Linux实战" target="">
+              UTM虚拟机在MAC M1下Kali Linux实战
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310082305.html" title="NetSuite query SQL" target="">
+              NetSuite query SQL
+              </a>
+            </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/iPad/" rel="tag"># iPad</a>
+              <a href="/tags/%E6%BF%80%E6%B4%BB%E9%94%81/" rel="tag"># 激活锁</a>
+              <a href="/tags/%E8%8B%B9%E6%9E%9C%E5%B9%B3%E6%9D%BF/" rel="tag"># 苹果平板</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202311032202.html" rel="prev" title="Nginx Proxy Manager修复笔记">
+                  <i class="fa fa-angle-left"></i> Nginx Proxy Manager修复笔记
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接, 如涉嫌侵犯您的合法权益, 请联系本站删除处理</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">站点总字数 785k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">站点阅读时长 23:47</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+  <script type="text/javascript">
+  var sc_project=12934590;
+  var sc_invisible=0;
+  var sc_security="122fb52f";
+  var scJsHost = "https://";
+  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="View My Stats"
+  href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a target="_blank" rel="noopener" href='https://netlify.carlzeng.top/atom.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://netlify.carlzeng.top">Netlify</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/202311042118.html","pageTitle":"iPad解锁激活锁苹果平板绕激活锁经验"}</script>
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>
