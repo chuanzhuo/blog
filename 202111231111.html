@@ -253,20 +253,6 @@
       How to setup oAuth 1.0 in NetSuite RESTlet API 如何在NetSuite中设置RESTlet API的oAuth认证-CarlZeng
       </a>
     </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310011555.html" rel="bookmark">
-        <time class="popular-posts-time">2023-10-01</time>
-        <br>
-      go语言学习与应用日志
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201705041115.html" rel="bookmark">
-        <time class="popular-posts-time">2017-05-04</time>
-        <br>
-      Google Sheet NetSuite Integration 设计理念-CarlZeng
-      </a>
-    </li>
   </ul>
 
           </div>
@@ -446,7 +432,7 @@
 <h3 id="Solutions-for-Operation-timed-out"><a href="#Solutions-for-Operation-timed-out" class="headerlink" title="Solutions for: Operation timed out"></a>Solutions for: Operation timed out</h3><ol>
 <li>Fix the hosts to make sure the ssh connection between your Computer and github.com is availble(修复连接到github.com)</li>
 </ol>
-<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#103;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#103;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a></p>
+<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#x6d;</a></p>
 <p>1.1 记录下github的IP地址, 把IP Address 记录下来</p>
 <p>打开<a target="_blank" rel="noopener" href="https://github.com.ipaddress.com/">https://github.com.ipaddress.com/</a></p>
 <p>打开<a target="_blank" rel="noopener" href="https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo">https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo</a></p>
@@ -459,7 +445,7 @@
 <p>1.4 如果之前用ssh proxy，取消它</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global https.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
 
-<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#105;&#116;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#109;">&#103;&#105;&#116;&#x40;&#103;&#105;&#116;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#109;</a></p>
+<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#103;&#x69;&#116;&#64;&#103;&#105;&#116;&#104;&#x75;&#98;&#46;&#99;&#111;&#109;">&#103;&#x69;&#116;&#64;&#103;&#105;&#116;&#104;&#x75;&#98;&#46;&#99;&#111;&#109;</a></p>
 <p>新的错误可能和授权有关，至少证明连接到github.com是通的。</p>
 <hr>
 <h3 id="Solutions-for-Authentication"><a href="#Solutions-for-Authentication" class="headerlink" title="Solutions for: Authentication"></a>Solutions for: Authentication</h3><ol start="2">
@@ -473,7 +459,7 @@
 <p>Username for ‘<a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a>‘:  （这个地方输入登录github网址用的用户名，我的是用9个英文字母）<br>Password for ‘https:&#x2F;&#x2F;***@github.com’:  （这个地方要是输入#2.1中得到的Token）</p>
 <p>2.3 判断一下连接和授权，如果需要ssh连接，继续添加配置以下。</p>
 <p>2.4 生成ssh密钥。Generating a new SSH key and adding it to the ssh-agent。具体步骤简要如下：</p>
-<p>$ ssh-keygen -t ed25519 -C “your_<a href="mailto:&#x65;&#109;&#97;&#x69;&#108;&#64;&#x65;&#120;&#97;&#x6d;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;">&#x65;&#109;&#97;&#x69;&#108;&#64;&#x65;&#120;&#97;&#x6d;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;</a>“</p>
+<p>$ ssh-keygen -t ed25519 -C “your_<a href="mailto:&#101;&#109;&#97;&#x69;&#108;&#x40;&#101;&#120;&#97;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;">&#101;&#109;&#97;&#x69;&#108;&#x40;&#101;&#120;&#97;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;</a>“</p>
 <blockquote>
 <p>Enter a file in which to save the key (&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_algorithm): [Press enter] &gt; Enter passphrase (empty for no passphrase): [Type a passphrase] &gt; Enter same passphrase again: [Type passphrase again] -————————————————— $ eval “$(ssh-agent -s)”<br>Agent pid 59566</p>
 </blockquote>
@@ -614,20 +600,6 @@
       How to setup oAuth 1.0 in NetSuite RESTlet API 如何在NetSuite中设置RESTlet API的oAuth认证-CarlZeng
       </a>
     </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310011555.html" rel="bookmark">
-        <time class="popular-posts-time">2023-10-01</time>
-        <br>
-      go语言学习与应用日志
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201705041115.html" rel="bookmark">
-        <time class="popular-posts-time">2017-05-04</time>
-        <br>
-      Google Sheet NetSuite Integration 设计理念-CarlZeng
-      </a>
-    </li>
   </ul>
 
       </div>
@@ -681,6 +653,66 @@
             <li class="popular-posts-item">
               <a href="/202310131750.html" title="汽车保养之三滤和清洗节气门" target="">
               汽车保养之三滤和清洗节气门
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310110855.html" title="UTM虚拟机在MAC M1下Kali Linux实战" target="">
+              UTM虚拟机在MAC M1下Kali Linux实战
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310082305.html" title="NetSuite query SQL" target="">
+              NetSuite query SQL
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310081055.html" title="转载-收藏夹" target="">
+              转载-收藏夹
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310080855.html" title="Node.js开发环境及应用实例" target="">
+              Node.js开发环境及应用实例
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310051715.html" title="(转载)Clash for Windows 设置方法入门(适用于Windows+Mac)" target="">
+              (转载)Clash for Windows 设置方法入门(适用于Windows+Mac)
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310051529.html" title="网络影视资源 - IPTV直播之电视台直播源" target="">
+              网络影视资源 - IPTV直播之电视台直播源
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310041555.html" title="Hexo定制之文章排序" target="">
+              Hexo定制之文章排序
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310021555.html" title="博客迁移说明(2023年中秋国庆)" target="">
+              博客迁移说明(2023年中秋国庆)
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310011555.html" title="go语言学习与应用日志" target="">
+              go语言学习与应用日志
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202310010555.html" title="NetSuite Test Driver Account 如何查看系统邮件发送历史记录" target="">
+              NetSuite Test Driver Account 如何查看系统邮件发送历史记录
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202309291329.html" title="网络影视资源 - 2023中秋国庆分享" target="">
+              网络影视资源 - 2023中秋国庆分享
+              </a>
+            </li>
+            <li class="popular-posts-item">
+              <a href="/202309222344.html" title="Hello hexo" target="">
+              Hello hexo
               </a>
             </li>
     </ul>
@@ -779,7 +811,7 @@
 
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a target="_blank" rel="noopener" href='https://netlify.carlzeng.top/atom.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/atom.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
   </div>
 
     </div>
