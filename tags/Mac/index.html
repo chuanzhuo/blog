@@ -367,6 +367,7 @@
 
 
   
+  <script size="300" alpha="0.6" zIndex="-1" src="https://unpkg.com/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
   <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
@@ -389,6 +390,41 @@
 
 
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/tags/MAC/"}</script>
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>
+talk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/tags/Mac/"}</script>
 
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
 <style>.artalk{width:initial;}</style>
