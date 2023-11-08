@@ -256,7 +256,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201811161744.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202011242038.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -274,7 +274,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/201811161744.html" class="post-title-link" itemprop="url">How to setup oAuth 1.0 in NetSuite RESTlet API 如何在NetSuite中设置RESTlet API的oAuth认证-CarlZeng</a>
+          <a href="/202011242038.html" class="post-title-link" itemprop="url">How to install NetSuite SuiteCloud plug-in to WebStorm (Updated2021.11)-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -303,7 +303,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/201811161744.html" ></span>
+            <span id="ArtalkPV" data-page-key="/202011242038.html" ></span>
           </span>
         
       
@@ -313,8 +313,8 @@
               <i class="far fa-comment"></i>
             </span>
             <span class="post-meta-item-text">评论：</span>
-            <a href="/201811161744.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201811161744.html" itemprop="commentCount"></span>
+            <a href="/202011242038.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202011242038.html" itemprop="commentCount"></span>
             </a>
           </span>
         
@@ -325,14 +325,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>778</span>
+      <span>2.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -343,10 +343,169 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          步骤如下： 1. Got Restlet URL 访问RESTlet的Deployment，这样获取WebService要Post或访问到的具体URL地址， 如果你疑惑RESTlet是什么，那要等我下一篇文章再介绍。 2. Setup Roles for Token user, goes to em
+          <h1 id="Install-WebStorm-2020-1-to-Mac"><a href="#Install-WebStorm-2020-1-to-Mac" class="headerlink" title="Install WebStorm 2020.1 to Mac"></a>Install WebStorm 2020.1 to Mac</h1><h3 id="2021-11-Notes"><a href="#2021-11-Notes" class="headerlink" title="2021-11 Notes"></a>2021-11 Notes</h3><ol>
+<li>The latest version of SuiteCloud IDE plugin from NetSuite is incompatible with WebStorm 2021 or Intellij IDEA; the key to resolve this is: using the old version’s plugin. copy the plugin file(com.netsuite.ide.webstorm) to editor’s plugins folder. Steps:</li>
+<li>unzip file com.netsuite.ide.webstorm.app-2020.2.0.zip, got a file call: com.netsuite.ide.webstorm</li>
+<li>Copy this com.netsuite.ide.webstorm to plugins folder on Mac: &#x2F;Users&#x2F;{username}&#x2F;Library&#x2F;Application Support&#x2F;JetBrains&#x2F;WebStorm2020.1&#x2F;plugins<ol>
+<li>There are all other versions of WebStorm under JetBrains folder. I.e. IntelliJIdea2020.1, WebStorm2020.1 etc…</li>
+<li>Make sure copy the plugin file com.netsuite.ide.webstorm to the plugins folder, restart your IDE, the NetSuite menu and feature is available.</li>
+</ol>
+</li>
+<li>Please note: these are only for research, don’t use for other purpose.</li>
+</ol>
+<p> </p>
+<hr>
+<p>1. Download the old version 2020.1 in <a target="_blank" rel="noopener" href="https://www.jetbrains.com/idea/download">https://www.jetbrains.com/idea/download</a></p>
+<p>2. Purchase the license or Download <a target="_blank" rel="noopener" href="https://www.macfz.com/a/Jetbrainscrack.html">https://www.macfz.com/a/Jetbrainscrack.html</a> or <a target="_blank" rel="noopener" href="https://www.lanzoux.com/iGI7kfzyy6j">https://www.lanzoux.com/iGI7kfzyy6j</a></p>
+<ul>
+<li>Sample: </li>
+<li><blockquote>
+<p>Finally got a jetbrains-agent.zip</p>
+<p>本Agent仅供学习研究之用，请勿用于商业用途！<br>商业用途请联系Jetbrains购买正版，请支持正版！</p>
+<h2 id="2-https-www-macfz-com-a-agent-html"><a href="#2-https-www-macfz-com-a-agent-html" class="headerlink" title="2. https://www.macfz.com/a/agent.html"></a>2. <a target="_blank" rel="noopener" href="https://www.macfz.com/a/agent.html">https://www.macfz.com/a/agent.html</a></h2><h2 id="3-开始激活"><a href="#3-开始激活" class="headerlink" title="3. 开始激活"></a>3. 开始激活</h2><ol>
+<li>以下以 「IDEAIntelliJ IDEA」为例，JetBrains 系列安装激活方法都是一样的。</li>
+<li>运行你的 IDE，进行基本的配置后会弹出激活窗口，选择Evaluate for free，然后点击Evaluate按钮。（如果试用过期请点击「OK」或者「Enter Key」）</li>
+<li>点击后会关闭试用窗口并出现「项目创建管理窗口」(也就是「Welcome to IDEAIntelliJ IDEA」窗口)，先不要动。(如果你之前创建过项目可能会直接进入项目，把项目关掉就会出现啦)</li>
+<li>将安装包内的「破解补丁」文件夹下面的 jetbrains-agent.zip 拖拽到你喜欢的位置（此文件你拖到你喜欢的位置后未来不能删除！）</li>
+<li>将 jetbrains-agent.zip 拖拽到「项目创建管理窗口」中，然后点击 Restart 按钮重新启动。</li>
+<li>重新启动后出现「JetbrainsAgent 配置助手」窗口，在安装参数处复制粘贴下面的安装参数，然后点击为 IDEAIntelliJ IDEA 安装，最后点击 是，会重新启动。</li>
+<li>重新启动后点击菜单栏的「IDEAIntelliJ IDEA」，再点击「Preferences…」打开软件的偏好设置，左上角的搜索框处输入「update」,取消勾选右侧的「Automatically check updates」，然后点击「OK」（为了不必要的麻烦，请务必操作！）</li>
+</ol>
+<h3 id="安装参数"><a href="#安装参数" class="headerlink" title="安装参数"></a>安装参数</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Qr7EpuKzNtnTuEmGcLg/YnYyVEcnvR4iflCYTHc6dwuB8Jbx7e6E43CPRA+KjL2O/D/C+hj/rDFrwCNgGAvLcJd3bcaJ8UTMh8FPxd2EfjDt0eopoRIRQKtw8Ua3hlm2i+GvhYnaJ5/F1XN7H/8uEtYqFQlJc9auMxAL3gdnsmY</span><br></pre></td></tr></table></figure>
+
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>此方法来自于：zhile.io 小麦在这里要感谢大佬们的辛苦开发。</p>
+<h3 id="后要申明的是："><a href="#后要申明的是：" class="headerlink" title="后要申明的是："></a>后要申明的是：</h3><ul>
+<li>资金允许的话建议<a target="_blank" rel="noopener" href="https://store.lizhi.io/site/search_list?cid=rs038qvx&order_by=2&word=&coupon_uuid=0&category_id=35&is_pro_dis=0">【购买正版】</a></li>
+<li>创业公司可享<a target="_blank" rel="noopener" href="https://www.jetbrains.com/shop/eform/startup">【5折购买】</a></li>
+<li>学生凭学生证可免费申请<a target="_blank" rel="noopener" href="https://sales.jetbrains.com/hc/zh-cn/articles/207154369-%E5%AD%A6%E7%94%9F%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7%E6%96%B9%E5%BC%8F">【正版授权】</a>！</li>
+<li>破解补丁全系列通用的，也就是说可以激活 JetBrains 全系列的产品。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h1 id="Install-NetSuite-SuiteCloud-plug-in-to-WebStorm"><a href="#Install-NetSuite-SuiteCloud-plug-in-to-WebStorm" class="headerlink" title="Install NetSuite SuiteCloud plug-in to WebStorm"></a>Install NetSuite SuiteCloud plug-in to WebStorm</h1><p>3. Download SuiteCloud IDE <a target="_blank" rel="noopener" href="http://system.netsuite.com/download/suitecloud-sdk/ideplugin/webstorm/20.2/com.netsuite.ide.webstorm.app-2020.2.0.zip">http://system.netsuite.com/download/suitecloud-sdk/ideplugin/webstorm/20.2/com.netsuite.ide.webstorm.app-2020.2.0.zip</a></p>
+<ol>
+<li>This link is not available anymore, I can provide this version’s file persently, for research only.</li>
+</ol>
+<p>4. Open WebStorm and create(or open) a project. Drag and Drop com.netsuite.ide.webstorm.app-2020.2.0.zip to WebStorm to manual install the plug-in.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200812081210.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="眼观心察 沉淀共享">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/200812081210.html" class="post-title-link" itemprop="url">JS导出txt文本文件,Netsuite方案-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/200812081210.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/200812081210.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200812081210.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>12 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          //传入一个table的id，将table的全部内容导出excel文件function AutomateExcel(objTable){// Start Excel and get Application object.var oXL = new ActiveXObject("Excel.Application");// Get a new workbook.var oWB = oXL.Workb...
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/201811161744.html#more" rel="contents">
+              <a class="btn" href="/200812081210.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -473,128 +632,6 @@
 <p>Select which Bundle to download</p>
 <h2 id="7-How-to-use-suitecloud-for-deployment"><a href="#7-How-to-use-suitecloud-for-deployment" class="headerlink" title="7. How to use suitecloud for deployment?"></a>7. How to use suitecloud for deployment?</h2><p>Please reference to <a target="_blank" rel="noopener" href="https://www.cnblogs.com/backuper/p/sdf/_cli/_for/_node/_js.html">https://www.cnblogs.com/backuper/p/sdf\_cli\_for\_node\_js.html</a> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/backuper/p/sdf_cli_for_node_js.html">How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command</a></p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200812081210.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Zeng">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="眼观心察 沉淀共享">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/200812081210.html" class="post-title-link" itemprop="url">JS导出txt文本文件,Netsuite方案-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/200812081210.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/200812081210.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200812081210.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>6.6k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>12 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          //传入一个table的id，将table的全部内容导出excel文件function AutomateExcel(objTable){// Start Excel and get Application object.var oXL = new ActiveXObject("Excel.Application");// Get a new workbook.var oWB = oXL.Workb...
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/200812081210.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -1062,128 +1099,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201811151045.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Zeng">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="眼观心察 沉淀共享">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/201811151045.html" class="post-title-link" itemprop="url">NetSuite Data Migration Implementation NetSuite数据批量更新思路-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/201811151045.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/201811151045.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201811151045.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>291</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          应用背景 多线程，多个QUEUE，加速大数据量更新 实现思路 User Event implement data migration rule， CSV Import to trigger data migration logic/user event。 To be continue...
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/201811151045.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201703162254.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1306,7 +1221,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201706231632.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201811151045.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1324,7 +1239,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/201706231632.html" class="post-title-link" itemprop="url">NetSuite SuiteScript 2.0 SFTP API Usage Sample-CarlZeng</a>
+          <a href="/201811151045.html" class="post-title-link" itemprop="url">NetSuite Data Migration Implementation NetSuite数据批量更新思路-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1353,7 +1268,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/201706231632.html" ></span>
+            <span id="ArtalkPV" data-page-key="/201811151045.html" ></span>
           </span>
         
       
@@ -1363,8 +1278,8 @@
               <i class="far fa-comment"></i>
             </span>
             <span class="post-meta-item-text">评论：</span>
-            <a href="/201706231632.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201706231632.html" itemprop="commentCount"></span>
+            <a href="/201811151045.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201811151045.html" itemprop="commentCount"></span>
             </a>
           </span>
         
@@ -1375,14 +1290,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>6.6k</span>
+      <span>291</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>12 分钟</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -1393,10 +1308,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          Background: Created a test SuiteLet script, after correct credential, it will do: 1. Upload/Sent specific NS File Cabinet file to SFTP server.(NS -> S
+          应用背景 多线程，多个QUEUE，加速大数据量更新 实现思路 User Event implement data migration rule， CSV Import to trigger data migration logic/user event。 To be continue...
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/201706231632.html#more" rel="contents">
+              <a class="btn" href="/201811151045.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -3479,7 +3394,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202104081715.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201706231632.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -3497,7 +3412,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/202104081715.html" class="post-title-link" itemprop="url">NetSuite generated bank files and the Bank Reconciliation process-CarlZeng</a>
+          <a href="/201706231632.html" class="post-title-link" itemprop="url">NetSuite SuiteScript 2.0 SFTP API Usage Sample-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -3526,7 +3441,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/202104081715.html" ></span>
+            <span id="ArtalkPV" data-page-key="/201706231632.html" ></span>
           </span>
         
       
@@ -3536,8 +3451,8 @@
               <i class="far fa-comment"></i>
             </span>
             <span class="post-meta-item-text">评论：</span>
-            <a href="/202104081715.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202104081715.html" itemprop="commentCount"></span>
+            <a href="/201706231632.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201706231632.html" itemprop="commentCount"></span>
             </a>
           </span>
         
@@ -3548,14 +3463,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.9k</span>
+      <span>6.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>7 分钟</span>
+      <span>12 分钟</span>
     </span>
 </div>
 
@@ -3566,10 +3481,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          NetSuite generated bank files and the Bank Reconciliation process
+          Background: Created a test SuiteLet script, after correct credential, it will do: 1. Upload/Sent specific NS File Cabinet file to SFTP server.(NS -> S
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/202104081715.html#more" rel="contents">
+              <a class="btn" href="/201706231632.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -3692,6 +3607,128 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/201705082038.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202104081715.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="眼观心察 沉淀共享">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/202104081715.html" class="post-title-link" itemprop="url">NetSuite generated bank files and the Bank Reconciliation process-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/202104081715.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/202104081715.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202104081715.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          NetSuite generated bank files and the Bank Reconciliation process
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/202104081715.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -3984,7 +4021,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 24:12</span>
+    <span title="站点阅读时长">站点阅读时长 24:13</span>
   </span>
 </div>
 <div class="busuanzi-count">
