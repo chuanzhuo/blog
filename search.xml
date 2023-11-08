@@ -1253,11 +1253,7 @@ hidden: true
 <p><a href="https://www.dwz.lc/">老牌免费短网址工具</a><br>      <a href="http://s8u.cn/HIG7o">http://s8u.cn/HIG7o</a><br>      优美，但无法接受：先跳转到一个链接以后，在恢复原始网址。</p>
 <p>转变思路：<br>      还是用自己的域名做Nname更短，<br>      [done]切换<a href="http://www.carlzeng.top/">www.carlzeng.top</a> 到 netlify</p>
 <p>a.carlzeng.top<br>      新增github.carlzeng.top; 修改github deployment的CNAME互相对应到github.carlzeng.top<br>      修改<a href="http://www.carlzeng.top/">www.carlzeng.top</a> cname指向sage-halva-bac054.netlify.app<br>      pending commit and push….</p>
-<p>详细请参考独立的链接：实测Docker搭建短链接服务YOURLS</p>
-<p>自己搭建一个短网址服务；短链接服务<br><a href="https://blog.laoda.de/archives/docker-compose-install-yourls/index.html">https://blog.laoda.de/archives/docker-compose-install-yourls/index.html</a><br><a href="https://www.youtube.com/watch?v=pz3XZG_QZ-U">https://www.youtube.com/watch?v=pz3XZG_QZ-U</a><br>  旧版<a href="https://www.cnblogs.com/CyLee/p/16152673.html">https://www.cnblogs.com/CyLee/p/16152673.html</a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">version: &quot;3.5&quot;</span><br><span class="line">services:</span><br><span class="line"></span><br><span class="line">  mysql:</span><br><span class="line">    image: mysql:5.7.42   # 如果遇到不正确的数据库配置，或无法连接到数据库PDOException: SQLSTATE[HY000] [1045] 用户&#x27;yourls&#x27;@&#x27;yourls_service.yourls_default&#x27;的访问被拒绝（使用密码：是）   可以把5.7.22 改为 5.7</span><br><span class="line">    environment:</span><br><span class="line">      - MYSQL_ROOT_PASSWORD=my-secret-pw</span><br><span class="line">      - MYSQL_DATABASE=yourls</span><br><span class="line">      - MYSQL_USER=yourls</span><br><span class="line">      - MYSQL_PASSWORD=yourls</span><br><span class="line">    volumes:</span><br><span class="line">      - ./mysql/db/:/var/lib/mysql</span><br><span class="line">      - ./mysql/conf/:/etc/mysql/conf.d</span><br><span class="line">    restart: always</span><br><span class="line">    container_name: yourls_mysql</span><br><span class="line">  </span><br><span class="line">  yourls:</span><br><span class="line">    image: yourls</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;8200:80&quot;</span><br><span class="line">    environment:</span><br><span class="line">      YOURLS_DB_HOST: mysql</span><br><span class="line">      YOURLS_DB_USER: carlZeng</span><br><span class="line">      YOURLS_DB_PASS: carlZengYYDS</span><br><span class="line">      YOURLS_DB_NAME: yourls</span><br><span class="line">      YOURLS_USER: admin      # 自己起一个名字</span><br><span class="line">      YOURLS_PASS: admin      # 自己换一个登陆密码</span><br><span class="line">      YOURLS_SITE: https://c.carlzeng.top:4443  # 换成你自己的域名</span><br><span class="line">      YOURLS_HOURS_OFFSET: 8</span><br><span class="line">    volumes:</span><br><span class="line">      - ./yourls_data/:/var/www/html   </span><br><span class="line">    container_name: yourls_service</span><br><span class="line">    links:</span><br><span class="line">      - mysql:mysql</span><br></pre></td></tr></table></figure>
-
-<p>报错误：<br>yours_mysql     | 2023-11-07 13:33:44+00:00 [Note] [Entrypoint]: Switching to dedicated user ‘mysql’<br>yours_mysql     | 2023-11-07 13:33:44+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 5.7.44-1.el7 started.<br>yours_mysql     | 2023-11-07 13:33:44+00:00 [ERROR] [Entrypoint]: mysqld failed while attempting to check config<br>yours_mysql     |       command was: mysqld –verbose –help –log-bin-index&#x3D;&#x2F;tmp&#x2F;tmp.5snRuPe4br<br>yours_mysql     |       mysqld: Can’t read dir of ‘&#x2F;etc&#x2F;mysql&#x2F;conf.d&#x2F;‘ (Errcode: 13 - Permission denied)<br>yours_mysql     | mysqld: [ERROR] Fatal error in defaults handling. Program aborted!<br>yours_mysql exited with code 1<br>yours_mysql     | 2023-11-07 13:33:57+00:00 [Note] [Entrypoint]: Switching to dedicated user ‘mysql’<br>yours_mysql     | 2023-11-07 13:33:57+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 5.7.44-1.el7 started.<br>yours_mysql     | 2023-11-07 13:33:57+00:00 [ERROR] [Entrypoint]: mysqld failed while attempting to check config<br>yours_mysql     |       command was: mysqld –verbose –help –log-bin-index&#x3D;&#x2F;tmp&#x2F;tmp.atOD1yOw77<br>yours_mysql     |       mysqld: Can’t read dir of ‘&#x2F;etc&#x2F;mysql&#x2F;conf.d&#x2F;‘ (Errcode: 13 - Permission denied)<br>yours_mysql     | mysqld: [ERROR] Fatal error in defaults handling. Program aborted!</p>
+<p>详细请参考独立的链接：<a href="https://www.carlzeng.top/202311081003">实测Docker搭建短链接服务YOURLS</a></p>
 <h4 id="相关文章-related-posts-如何增加到10条？"><a href="#相关文章-related-posts-如何增加到10条？" class="headerlink" title="相关文章 related_posts 如何增加到10条？"></a>相关文章 related_posts 如何增加到10条？</h4><p>实践证明，那些related_posts weight 参数是有效的！<br>    必须要要在源码的位置修改才生效！<br>    比如filter_threshold: 0.001 #必须到源码调节一下这些参数才生效，<br>位置(我的环境)：&#x2F;Users&#x2F;carlzeng&#x2F;AppTesting&#x2F;blog&#x2F;node_modules&#x2F;hexo-related-posts&#x2F;index.js</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">新增 “相关文章” section到页脚位置，方便手机用户衍生阅读</span><br><span class="line">    &#123;%- if theme.related_posts.enable %&#125;</span><br><span class="line">      &#123;%- if theme.pjax %&#125;</span><br><span class="line">        &lt;div class=&quot;pjax&quot;&gt;</span><br><span class="line">      &#123;%- endif %&#125;</span><br><span class="line">      &#123;%- if page.related_posts and page.related_posts.length &gt; 0 %&#125;</span><br><span class="line">        &lt;div class=&quot;sidebar-inner sidebar-post-related&quot;&gt;</span><br><span class="line">          &lt;div class=&quot;animated&quot;&gt;</span><br><span class="line">            &#123;&#123; partial(&#x27;_partials/post/post-related.njk&#x27;) &#125;&#125;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &#123;%- endif %&#125;</span><br><span class="line">      &#123;%- if theme.pjax %&#125;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &#123;%- endif %&#125;</span><br><span class="line">    &#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="主要的配置参数说明"><a href="#主要的配置参数说明" class="headerlink" title="主要的配置参数说明"></a>主要的配置参数说明</h5><p>以后要重视填写tags, categories，也符合我的个人习惯。<br>分享我个人目前修改过的配置，适合我的参数：</p>
@@ -12670,7 +12666,7 @@ var CN\_INTEGER = "整";
 </li>
 <li><p>打开Terminal</p>
 <ol>
-<li>　　<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffmpeg -i &quot;http://host/视频地址/file.m3u8&quot; -bsf:a aac\_adtstoasc -vcodec copy -c copy -crf 50 file.mp4</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">请更换参数中的 URL地址 和 末尾要保存的mp4文件名(已测试可用)。</span></span><br></pre></td></tr></table></figure></li>
+<li>　　<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffmpeg -i &quot;http://host/视频地址/file.m3u8&quot; -bsf:a aac_adtstoasc -vcodec copy -c copy -crf 50 file.mp4</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">请更换参数中的 URL地址 和 末尾要保存的mp4文件名(已测试可用)。</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
 <li><p>如果该网络的URL地址需要Proxy才能访问，需要用到-http_proxy 参数。</p>
@@ -12678,10 +12674,10 @@ var CN\_INTEGER = "整";
 <li>实例演示，假设已存在本机http proxy信息如下（很实用，因为即便已下载.m3u8文件，而其中所指向的具体视频分段地址还是需要proxy才能访问）</li>
 <li></li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffmpeg -http\_proxy &quot;http://127.0.0.1:7890&quot; -i &quot;http://host/folder/file.m3u8&quot; -bsf:a aac\_adtstoasc -vcodec copy -c copy -crf 50 file1.mp4</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ffmpeg -http_proxy &quot;http://127.0.0.1:7890&quot; -i &quot;http://host/folder/file.m3u8&quot; -bsf:a aac_adtstoasc -vcodec copy -c copy -crf 50 file1.mp4</span><br></pre></td></tr></table></figure></li>
 </ol>
-<pre><code>    　
-</code></pre>
+<h3 id="下载循环录播资源"><a href="#下载循环录播资源" class="headerlink" title="下载循环录播资源"></a>下载循环录播资源</h3><p>下载循环录播专为单mp4文件，<br>长期实践的发现ffmpeg用来下载直播流也是666<br>比如, 实际的命令就像这样：<br>ffmpeg -http_proxy “<a href="http://127.0.0.1:7890/">http://127.0.0.1:7890</a>“ -i “<a href="https://hls.vdtuzv.com/videos2/77e1a56ec7cb38182c7df417d22f0b9a/77e1a56ec7cb38182c7df417d22f0b9a.m3u8?auth_key=1699418332-654b10dc8a7a2-0-498db8173470eb197016a656ac0ec821&v=2">https://hls.vdtuzv.com/videos2/77e1a56ec7cb38182c7df417d22f0b9a/77e1a56ec7cb38182c7df417d22f0b9a.m3u8?auth_key=1699418332-654b10dc8a7a2-0-498db8173470eb197016a656ac0ec821&amp;v=2</a>“ -bsf:a aac_adtstoasc -vcodec copy -c copy -crf 50 file1108.mp4</p>
+<p>很多m3u8, 地址的加密方案是在url参数中增加auth_key；而且这个auth_key是会变更的。<br>这样维护源文件就简单了，放到特定地网盘（比如说）以后，由专门的软件负责循环直播这些mp4资源，其实就是录播，走实时的IPTV流量一样的原理。这样不暴露源文件的原始url链接，访问速度快（因为是分段式在内存下载），又能统计和分析视频的访问量等信息。<br>ffmpeg可以拼接这些分段式的.ts文件，最终转化成单个mp4文件。</p>
 <h2 id="步骤（方案二）"><a href="#步骤（方案二）" class="headerlink" title="步骤（方案二）"></a>步骤（方案二）</h2><p>这个方案假设m3u8内容可以本机直接访问的情况下，We can use VLC to convert easily, File &gt; Convert &#x2F; Stream：</p>
 <ol>
 <li>Drop media here</li>
@@ -12690,8 +12686,14 @@ var CN\_INTEGER = "整";
 </ol>
 <p>20231006实测吐槽：尽量别用这第二个方案（的MAC版下VLC来保存短视频），因为会无限循环提示是否重写或者保留原有的文件。</p>
 ]]></content>
+      <categories>
+        <category>ffmpeg</category>
+      </categories>
       <tags>
         <tag>ffmpeg</tag>
+        <tag>m3u8</tag>
+        <tag>m3u</tag>
+        <tag>mp4</tag>
       </tags>
   </entry>
   <entry>
