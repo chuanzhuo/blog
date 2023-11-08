@@ -12641,6 +12641,13 @@ https://www.hellosanta.com.tw/knowledge/category-38/post-219
 
 <p>成功了，原来是sql的 docker-compose，映射，写错了，<br>          - .&#x2F;mysql&#x2F;conf&#x2F;:&#x2F;etc&#x2F;mysql&#x2F;conf.d<br>          应该是：<br>          - .&#x2F;mysql&#x2F;conf&#x2F;:&#x2F;etc&#x2F;mysql&#x2F;conf</p>
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p>Yourls项目地址：<a href="https://github.com/YOURLS/YOURLS">https://github.com/YOURLS/YOURLS</a><br>旧版本docker说明（实践后无法使用）：<a href="https://hub.docker.com/_/yourls?tab=description">https://hub.docker.com/_/yourls?tab=description</a><br><a href="https://iwanlab.com/docker-compose-install-yourls/">https://iwanlab.com/docker-compose-install-yourls/</a><br><a href="https://blog.laoda.de/archives/yourls-building/">https://blog.laoda.de/archives/yourls-building/</a><br><a href="https://www.hellosanta.com.tw/knowledge/category-38/post-219">https://www.hellosanta.com.tw/knowledge/category-38/post-219</a></p>
+<hr>
+<h1 id="Docker安装X-UI"><a href="#Docker安装X-UI" class="headerlink" title="Docker安装X-UI"></a>Docker安装X-UI</h1><p>docker 搭建 支持单端口多用户、多协议的 xray 面板，究极缝合怪</p>
+<p>使用FranzKafkaYu&#x2F;x-ui版本，仅需要讲上述镜像修改为 enwaiax&#x2F;x-ui:alpha-zh<br>由于telegram bot暂时没用，切换回第一个默认<a href="https://github.com/vaxilu/x-ui">https://github.com/vaxilu/x-ui</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">version: &quot;3.9&quot;</span><br><span class="line">services:</span><br><span class="line">  xui:</span><br><span class="line">    image: enwaiax/x-ui</span><br><span class="line">    container_name: xui</span><br><span class="line">    volumes:</span><br><span class="line">      - $PWD/db/:/etc/x-ui/</span><br><span class="line">      - $PWD/cert/:/root/cert/</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    network_mode: host</span><br></pre></td></tr></table></figure>
+<p>新建目录，并把上面的配置放到x-ui.yaml中<br>root@Debian11:&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;x-ui&#x2F;template# docker-compose -f x-ui.yaml up</p>
+<p>配置的方案follow：<a href="https://iwanlab.com/npm-xui/">https://iwanlab.com/npm-xui/</a><br>相关的视频：<a href="https://www.youtube.com/watch?v=V3nsDicSMBc">https://www.youtube.com/watch?v=V3nsDicSMBc</a></p>
+<p>待测试：vless:&#x2F;&#x2F;<a href="mailto:&#51;&#57;&#102;&#100;&#x65;&#50;&#100;&#x32;&#x2d;&#x63;&#56;&#56;&#x63;&#45;&#x34;&#98;&#x65;&#97;&#x2d;&#100;&#52;&#x39;&#x31;&#x2d;&#x66;&#98;&#54;&#57;&#57;&#x30;&#100;&#x34;&#57;&#55;&#x34;&#49;&#x40;&#118;&#x6d;&#x65;&#x73;&#x73;&#46;&#x63;&#x61;&#114;&#108;&#x7a;&#101;&#110;&#103;&#x2e;&#116;&#111;&#x70;">&#51;&#57;&#102;&#100;&#x65;&#50;&#100;&#x32;&#x2d;&#x63;&#56;&#56;&#x63;&#45;&#x34;&#98;&#x65;&#97;&#x2d;&#100;&#52;&#x39;&#x31;&#x2d;&#x66;&#98;&#54;&#57;&#57;&#x30;&#100;&#x34;&#57;&#55;&#x34;&#49;&#x40;&#118;&#x6d;&#x65;&#x73;&#x73;&#46;&#x63;&#x61;&#114;&#108;&#x7a;&#101;&#110;&#103;&#x2e;&#116;&#111;&#x70;</a>:17866?type&#x3D;ws&amp;security&#x3D;none&amp;path&#x3D;%2Fgugu#gugugee</p>
 ]]></content>
       <categories>
         <category>Docker</category>
@@ -15012,9 +15019,11 @@ addScript(id,str)
     <title>转载-收藏夹</title>
     <url>/202310081055.html</url>
     <content><![CDATA[<p>个人收藏夹，待学习的一些文字或网址</p>
+<span id="more"></span>
 <h1 id="思想类"><a href="#思想类" class="headerlink" title="思想类"></a>思想类</h1><p><a href="https://www.starduster.me/2023/04/12/talk-about-engineering-education">也谈我的前东家，也谈一点工程本科教育</a></p>
 <p><a href="https://yoouu.cn/2023-05-21-about-haoel/">左耳朵耗子的话</a></p>
-<span id="more"></span>
+<hr>
+<h1 id="老游戏资源"><a href="#老游戏资源" class="headerlink" title="老游戏资源"></a>老游戏资源</h1><p><a href="https://dos.lol/">中文 DOS 游戏合集，目前共有 1898 款游戏</a><br><a href="https://zaixianwan.app/">红白机、超任、任天堂64、GB&#x2F;GBC&#x2F;GBA、NDS、PlayStation、世嘉MD、世嘉土星等三万多款游戏</a></p>
 <hr>
 <p>软路由（operwrt）通过ShadowSocksr Plus+ 科学上网教程<br>    <a href="https://clashgithub.com/shadowsocksrplus.html">https://clashgithub.com/shadowsocksrplus.html</a></p>
 <p>这两家网站是做了自动化的(分享节点)，很认真，严谨的感觉<br>    <a href="https://clashgithub.com/category/clashnode">https://clashgithub.com/category/clashnode</a><br>    <a href="https://oss.v2rayse.com/proxies">https://oss.v2rayse.com/proxies</a></p>
