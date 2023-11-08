@@ -272,8 +272,7 @@
 <hr>
 <hr>
 <h1 id="Clash-for-Android"><a href="#Clash-for-Android" class="headerlink" title="Clash for Android"></a>Clash for Android</h1><p>Clash for Android GitHub 仓库地址为：<a href="https://github.com/Kr328/ClashForAndroid">https://github.com/Kr328/ClashForAndroid</a></p>
-<p>Clash for Android 下载地址为：<a href="https://github.com/Kr328/ClashForAndroid/releases">https://github.com/Kr328/ClashForAndroid/releases</a><br>备份线路(20231108待测试)：<a href="https://github.com/MetaCubeX/ClashMetaForAndroid/releases">https://github.com/MetaCubeX/ClashMetaForAndroid/releases</a></p>
-<p>注意，新手使用建议下载最新稳定版本，即版本号后标记为 Latest 的版本。<br><img class="lozad" data-src=https://www.evernote.com/shard/s122/sh/95766b11-c8f3-4bb9-ba2b-1b5a758e0ed4/2OJRUc1jGqyxwKsIZQ2cPndYJwI1RCiueDa9u3LbC8HIexUWul2hMsujIg/deep/0/image.png></p>
+<p>Clash for Android 下载地址为：<a href="https://github.com/Kr328/ClashForAndroid/releases">https://github.com/Kr328/ClashForAndroid/releases</a><br>备份线路(20231108待测试)：<a href="https://github.com/MetaCubeX/ClashMetaForAndroid/releases">https://github.com/MetaCubeX/ClashMetaForAndroid/releases</a><br>已实测版本：cfa-2.5.12-foss-arm64-v8a-release.apk<br>新手使用建议下载最新稳定版本，即版本号后标记为 Latest 的版本。<br><img class="lozad" data-src=https://www.evernote.com/shard/s122/sh/95766b11-c8f3-4bb9-ba2b-1b5a758e0ed4/2OJRUc1jGqyxwKsIZQ2cPndYJwI1RCiueDa9u3LbC8HIexUWul2hMsujIg/deep/0/image.png></p>
 <h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p>安装教程很简单，如果是通过应用商店下载的，那么直接根据提示下载并安装即可，如果是通过官网下载或其他第三方下载的，下载完后获得文件为 cfa_x-x-x.apk 文件，其中后缀 .apk 为安卓系统的安装包，然后点击安装即可，十分简单。</p>
 <h2 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h2><p>节点即软件中的服务器，在使用之前，首先需要添加一个 Clash for Android 节点 即服务端才能使用代理上网功能，更多节点可参考本站节点订阅地址。</p>
 <h2 id="免费节点"><a href="#免费节点" class="headerlink" title="免费节点"></a>免费节点</h2><p>由于软件支持Shadowsocks、ShadowsocksR、Socks、Snell、V2Ray、Trojan等代理协议，如需免费节点可以使用搜索引擎搜索。</p>
@@ -1254,6 +1253,7 @@ hidden: true
 <p><a href="https://www.dwz.lc/">老牌免费短网址工具</a><br>      <a href="http://s8u.cn/HIG7o">http://s8u.cn/HIG7o</a><br>      优美，但无法接受：先跳转到一个链接以后，在恢复原始网址。</p>
 <p>转变思路：<br>      还是用自己的域名做Nname更短，<br>      [done]切换<a href="http://www.carlzeng.top/">www.carlzeng.top</a> 到 netlify</p>
 <p>a.carlzeng.top<br>      新增github.carlzeng.top; 修改github deployment的CNAME互相对应到github.carlzeng.top<br>      修改<a href="http://www.carlzeng.top/">www.carlzeng.top</a> cname指向sage-halva-bac054.netlify.app<br>      pending commit and push….</p>
+<p>详细请参考独立的链接：实测Docker搭建短链接服务YOURLS</p>
 <p>自己搭建一个短网址服务；短链接服务<br><a href="https://blog.laoda.de/archives/docker-compose-install-yourls/index.html">https://blog.laoda.de/archives/docker-compose-install-yourls/index.html</a><br><a href="https://www.youtube.com/watch?v=pz3XZG_QZ-U">https://www.youtube.com/watch?v=pz3XZG_QZ-U</a><br>  旧版<a href="https://www.cnblogs.com/CyLee/p/16152673.html">https://www.cnblogs.com/CyLee/p/16152673.html</a></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">version: &quot;3.5&quot;</span><br><span class="line">services:</span><br><span class="line"></span><br><span class="line">  mysql:</span><br><span class="line">    image: mysql:5.7.42   # 如果遇到不正确的数据库配置，或无法连接到数据库PDOException: SQLSTATE[HY000] [1045] 用户&#x27;yourls&#x27;@&#x27;yourls_service.yourls_default&#x27;的访问被拒绝（使用密码：是）   可以把5.7.22 改为 5.7</span><br><span class="line">    environment:</span><br><span class="line">      - MYSQL_ROOT_PASSWORD=my-secret-pw</span><br><span class="line">      - MYSQL_DATABASE=yourls</span><br><span class="line">      - MYSQL_USER=yourls</span><br><span class="line">      - MYSQL_PASSWORD=yourls</span><br><span class="line">    volumes:</span><br><span class="line">      - ./mysql/db/:/var/lib/mysql</span><br><span class="line">      - ./mysql/conf/:/etc/mysql/conf.d</span><br><span class="line">    restart: always</span><br><span class="line">    container_name: yourls_mysql</span><br><span class="line">  </span><br><span class="line">  yourls:</span><br><span class="line">    image: yourls</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;8200:80&quot;</span><br><span class="line">    environment:</span><br><span class="line">      YOURLS_DB_HOST: mysql</span><br><span class="line">      YOURLS_DB_USER: carlZeng</span><br><span class="line">      YOURLS_DB_PASS: carlZengYYDS</span><br><span class="line">      YOURLS_DB_NAME: yourls</span><br><span class="line">      YOURLS_USER: admin      # 自己起一个名字</span><br><span class="line">      YOURLS_PASS: admin      # 自己换一个登陆密码</span><br><span class="line">      YOURLS_SITE: https://c.carlzeng.top:4443  # 换成你自己的域名</span><br><span class="line">      YOURLS_HOURS_OFFSET: 8</span><br><span class="line">    volumes:</span><br><span class="line">      - ./yourls_data/:/var/www/html   </span><br><span class="line">    container_name: yourls_service</span><br><span class="line">    links:</span><br><span class="line">      - mysql:mysql</span><br></pre></td></tr></table></figure>
 
@@ -15152,6 +15152,49 @@ addScript(id,str)
         <tag>安卓手机</tag>
         <tag>音乐</tag>
         <tag>音乐播放器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实测Docker搭建短链接服务YOURLS</title>
+    <url>/202311081003.html</url>
+    <content><![CDATA[<img class="lozad" data-src="https://www.evernote.com/shard/s122/sh/da92cf63-633f-4527-800e-0c6360c55eac/hQ1AvljDYWbfCVIJtDV8YmhOlX9tUiGxUde88Fthy09LJZmfcf5yPozqCw/deep/0/image.png">
+URL缩短服务。可以让你在自己的服务器上运行的URL缩短服务
+URL简化, 还可以完全控制自己的数据，包括统计、分析、还可以安装一些插件。
+<span id="more"></span>
+
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>URL缩短服务。可以让你在自己的服务器上运行的URL缩短服务<br>URL简化, 还可以完全控制自己的数据，包括统计、分析、还可以安装一些插件。</p>
+<p>网上现成的其他方案，有的弊端很明显（有的进行隐藏式特殊的跳转）</p>
+<h2 id="现成网址缩短-url"><a href="#现成网址缩短-url" class="headerlink" title="现成网址缩短 url"></a>现成网址缩短 url</h2><p><a href="https://www.sina.lt/">短网址</a><br>      <a href="https://t.hk.uy/b5kg">https://t.hk.uy/b5kg</a><br>      <a href="https://netlify.carlzeng.top/">https://netlify.carlzeng.top</a> 暂不支持您输入的域名(后缀)。<br>      使用这个网址来缩短： <a href="https://sage-halva-bac054.netlify.app/">https://sage-halva-bac054.netlify.app</a><br>      <a href="https://t.hk.uy/b6qy">https://t.hk.uy/b6qy</a></p>
+<p><a href="https://goo.su/lang/zh">轻松缩短链接</a><br>      <a href="https://goo.su/BwRaE1T">https://goo.su/BwRaE1T</a><br>      <a href="https://goo.su/prTA5T5">https://goo.su/prTA5T5</a></p>
+<p><a href="https://www.ifreesite.com/shorturl/">縮短網址產生器</a><br>      <a href="https://tinyurl.com/yurgh2fm">https://tinyurl.com/yurgh2fm</a></p>
+<p><a href="https://www.dwz.lc/">老牌免费短网址工具</a><br>      <a href="http://s8u.cn/HIG7o">http://s8u.cn/HIG7o</a><br>      优美，但无法接受：先跳转到一个链接以后，在恢复原始网址。</p>
+<p>转变思路：<br>      还是用自己的域名做Nname更短，<br>自己搭建一个短网址服务；短链接服务</p>
+<h1 id="实现方法及过程笔记"><a href="#实现方法及过程笔记" class="headerlink" title="实现方法及过程笔记"></a>实现方法及过程笔记</h1><h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><pre><code>https://iwanlab.com/docker-compose-install-yourls/
+https://www.hellosanta.com.tw/knowledge/category-38/post-219
+</code></pre>
+<h2 id="过程-遇到的问题及解决方案"><a href="#过程-遇到的问题及解决方案" class="headerlink" title="过程+遇到的问题及解决方案"></a>过程+遇到的问题及解决方案</h2><p>bt 中新建docker-compose模版，<br>          docker-compose -f yours.yml up<br>          然后防火墙开放8200</p>
+<pre><code>      添加了一条防火墙规则后，无法连接bt面板了；
+</code></pre>
+<p>自己搭建一个短网址服务；短链接服务<br><a href="https://blog.laoda.de/archives/docker-compose-install-yourls/index.html">https://blog.laoda.de/archives/docker-compose-install-yourls/index.html</a><br><a href="https://www.youtube.com/watch?v=pz3XZG_QZ-U">https://www.youtube.com/watch?v=pz3XZG_QZ-U</a><br>  旧版<a href="https://www.cnblogs.com/CyLee/p/16152673.html">https://www.cnblogs.com/CyLee/p/16152673.html</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">version: &quot;3.5&quot;</span><br><span class="line">services:</span><br><span class="line"></span><br><span class="line">  mysql:</span><br><span class="line">    image: mysql:5.7.42   # 如果遇到不正确的数据库配置，或无法连接到数据库PDOException: SQLSTATE[HY000] [1045] 用户&#x27;yourls&#x27;@&#x27;yourls_service.yourls_default&#x27;的访问被拒绝（使用密码：是）   可以把5.7.22 改为 5.7</span><br><span class="line">    environment:</span><br><span class="line">      - MYSQL_ROOT_PASSWORD=my-secret-pw</span><br><span class="line">      - MYSQL_DATABASE=yourls</span><br><span class="line">      - MYSQL_USER=yourls</span><br><span class="line">      - MYSQL_PASSWORD=yourls</span><br><span class="line">    volumes:</span><br><span class="line">      - ./mysql/db/:/var/lib/mysql</span><br><span class="line">      - ./mysql/conf/:/etc/mysql/conf # 此处要注意，原教程作者就是多了一个.d字符（估计是debian下的tab自动输入导致），花了半小时才脑补后排查成功</span><br><span class="line">    restart: always</span><br><span class="line">    container_name: yourls_mysql #是的这样命名可以避免docker多了以后，名字重复的问题；还一目了然</span><br><span class="line">  </span><br><span class="line">  yourls:</span><br><span class="line">    image: yourls</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;8200:80&quot;</span><br><span class="line">    environment:</span><br><span class="line">      YOURLS_DB_HOST: mysql</span><br><span class="line">      YOURLS_DB_USER: admin</span><br><span class="line">      YOURLS_DB_PASS: admin</span><br><span class="line">      YOURLS_DB_NAME: yourls</span><br><span class="line">      YOURLS_USER: admin      # 自己起一个名字</span><br><span class="line">      YOURLS_PASS: 123admin@@      # 自己换一个登陆密码</span><br><span class="line">      YOURLS_SITE: https://c.carlzeng.top:4443  # 换成你自己的域名，然后让Nginx Proxy Manager指向这个地址</span><br><span class="line">      YOURLS_HOURS_OFFSET: 8</span><br><span class="line">    volumes:</span><br><span class="line">      - ./yourls_data/:/var/www/html   </span><br><span class="line">    container_name: yourls_service</span><br><span class="line">    links:</span><br><span class="line">      - mysql:mysql</span><br></pre></td></tr></table></figure>
+
+<p>报错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yours_mysql     | 2023-11-07 13:33:44+00:00 [Note] [Entrypoint]: Switching to dedicated user &#x27;mysql&#x27;</span><br><span class="line">yours_mysql     | 2023-11-07 13:33:44+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 5.7.44-1.el7 started.</span><br><span class="line">yours_mysql     | 2023-11-07 13:33:44+00:00 [ERROR] [Entrypoint]: mysqld failed while attempting to check config</span><br><span class="line">yours_mysql     |       command was: mysqld --verbose --help --log-bin-index=/tmp/tmp.5snRuPe4br</span><br><span class="line">yours_mysql     |       mysqld: Can&#x27;t read dir of &#x27;/etc/mysql/conf.d/&#x27; (Errcode: 13 - Permission denied)</span><br><span class="line">yours_mysql     | mysqld: [ERROR] Fatal error in defaults handling. Program aborted!</span><br><span class="line">yours_mysql exited with code 1</span><br><span class="line">yours_mysql     | 2023-11-07 13:33:57+00:00 [Note] [Entrypoint]: Switching to dedicated user &#x27;mysql&#x27;</span><br><span class="line">yours_mysql     | 2023-11-07 13:33:57+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 5.7.44-1.el7 started.</span><br><span class="line">yours_mysql     | 2023-11-07 13:33:57+00:00 [ERROR] [Entrypoint]: mysqld failed while attempting to check config</span><br><span class="line">yours_mysql     |       command was: mysqld --verbose --help --log-bin-index=/tmp/tmp.atOD1yOw77</span><br><span class="line">yours_mysql     |       mysqld: Can&#x27;t read dir of &#x27;/etc/mysql/conf.d/&#x27; (Errcode: 13 - Permission denied)</span><br><span class="line">yours_mysql     | mysqld: [ERROR] Fatal error in defaults handling. Program aborted!</span><br></pre></td></tr></table></figure>
+
+<p>成功了，原来是sql的 docker-compose，映射，写错了，<br>          - .&#x2F;mysql&#x2F;conf&#x2F;:&#x2F;etc&#x2F;mysql&#x2F;conf.d<br>          应该是：<br>          - .&#x2F;mysql&#x2F;conf&#x2F;:&#x2F;etc&#x2F;mysql&#x2F;conf</p>
+<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p>Yourls项目地址：<a href="https://github.com/YOURLS/YOURLS">https://github.com/YOURLS/YOURLS</a><br>旧版本docker说明（实践后无法使用）：<a href="https://hub.docker.com/_/yourls?tab=description">https://hub.docker.com/_/yourls?tab=description</a><br><a href="https://iwanlab.com/docker-compose-install-yourls/">https://iwanlab.com/docker-compose-install-yourls/</a><br><a href="https://blog.laoda.de/archives/yourls-building/">https://blog.laoda.de/archives/yourls-building/</a><br><a href="https://www.hellosanta.com.tw/knowledge/category-38/post-219">https://www.hellosanta.com.tw/knowledge/category-38/post-219</a></p>
+]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>debian</tag>
+        <tag>docker</tag>
+        <tag>短链接</tag>
+        <tag>YOURLS</tag>
+        <tag>URL缩短</tag>
+        <tag>NPM</tag>
+        <tag>docker-compose</tag>
       </tags>
   </entry>
 </search>
