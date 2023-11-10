@@ -676,7 +676,7 @@ https://www.oldking.net/350.html
   <entry>
     <title>[GitHub] fatal: unable to access &#39;https://github.com/&#39;: Failed to connect to github.com port 443: Operation timed out</title>
     <url>/202111231111.html</url>
-    <content><![CDATA[<p>2021年11月，由于天朝众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解题思路，希望对你有帮助：</p>
+    <content><![CDATA[<p>2021年11月，由于众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解题思路，希望对你有帮助：</p>
 <h3 id="Errors"><a href="#Errors" class="headerlink" title="Errors"></a>Errors</h3><ul>
 <li>fatal: unable to access ‘<a href="https://github.com/">https://github.com/</a>‘: Failed to connect to github.com port 443: Operation timed out</li>
 <li>fatal: Authentication failed for ‘<a href="https://github.com/">https://github.com/</a>‘</li>
@@ -687,7 +687,7 @@ https://www.oldking.net/350.html
 <h3 id="Solutions-for-Operation-timed-out"><a href="#Solutions-for-Operation-timed-out" class="headerlink" title="Solutions for: Operation timed out"></a>Solutions for: Operation timed out</h3><ol>
 <li>Fix the hosts to make sure the ssh connection between your Computer and github.com is availble(修复连接到github.com)</li>
 </ol>
-<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#109;">&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#109;</a></p>
+<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#103;&#x69;&#116;&#104;&#117;&#98;&#46;&#x63;&#111;&#x6d;">&#103;&#105;&#116;&#64;&#103;&#x69;&#116;&#104;&#117;&#98;&#46;&#x63;&#111;&#x6d;</a></p>
 <p>1.1 记录下github的IP地址, 把IP Address 记录下来</p>
 <p>打开<a href="https://github.com.ipaddress.com/">https://github.com.ipaddress.com/</a></p>
 <p>打开<a href="https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo">https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo</a></p>
@@ -700,7 +700,7 @@ https://www.oldking.net/350.html
 <p>1.4 如果之前用ssh proxy，取消它</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global https.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
 
-<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;">&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;</a></p>
+<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#105;&#116;&#104;&#117;&#x62;&#46;&#99;&#111;&#x6d;">&#x67;&#105;&#x74;&#64;&#x67;&#105;&#116;&#104;&#117;&#x62;&#46;&#99;&#111;&#x6d;</a></p>
 <p>新的错误可能和授权有关，至少证明连接到github.com是通的。</p>
 <hr>
 <h3 id="Solutions-for-Authentication"><a href="#Solutions-for-Authentication" class="headerlink" title="Solutions for: Authentication"></a>Solutions for: Authentication</h3><ol start="2">
@@ -723,8 +723,9 @@ https://www.oldking.net/350.html
 <p><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token</a></p>
 <p><a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/</a></p>
 <h2 id="Node-js也被同样错误卡"><a href="#Node-js也被同样错误卡" class="headerlink" title="Node.js也被同样错误卡"></a>Node.js也被同样错误卡</h2><p>hexo d<br>…<br>fatal: unable to access ‘<a href="https://github.com/@@@@@.git/">https://github.com/@@@@@.git/</a>‘: LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443<br>FATAL Something’s wrong. Maybe you can find the solution here: <a href="https://hexo.io/docs/troubleshooting.html">https://hexo.io/docs/troubleshooting.html</a><br>…</p>
-<p>git config –global –unset http.proxy<br>git config –global –unset https.proxy</p>
-<p>问题依旧，</p>
+<div class="tabs" id="尝试"><ul class="nav-tabs"><li class="tab active"><a href="#尝试-1">尝试 1</a></li><li class="tab"><a href="#尝试-2">尝试 2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="尝试-1"><p>git config –global http.proxy <a href="http://127.0.0.1:1080/">http://127.0.0.1:1080</a><br>git config –global https.proxy <a href="http://127.0.0.1:1080/">http://127.0.0.1:1080</a><br>重试hexo d</p></div><div class="tab-pane" id="尝试-2"><p>git config –global –unset http.proxy<br>git config –global –unset https.proxy<br>重试hexo d</p></div></div></div>
+
+<p>解决办法后来是因为hexo没有检测到内容变动，不去push。<br>hexo clean<br>然后在 hexo g &amp;&amp; hexo d 就解决了</p>
 ]]></content>
       <categories>
         <category>github</category>
@@ -7687,7 +7688,7 @@ Email:
     <url>/202310011555.html</url>
     <content><![CDATA[<p>记录go语言学习与应用日志<br> <span id="more"></span></p>
 <h1 id="Proxypool-WebFuzzSub"><a href="#Proxypool-WebFuzzSub" class="headerlink" title="Proxypool - WebFuzzSub"></a>Proxypool - WebFuzzSub</h1><p>审查所有使用这个类型的站点，需要定期去维护。</p>
-<h1 id="安装步骤："><a href="#安装步骤：" class="headerlink" title="安装步骤："></a>安装步骤：</h1><p>1.安装 go install github.com&#x2F;ssrlive&#x2F;proxypool@latest<br>2.将生成的proxypool 可执行文件，复制到整个项目的集体目录下. i.e. &#x2F;Users&#x2F;carlzeng&#x2F;go&#x2F;pkg&#x2F;mod&#x2F;github.com&#x2F;ssrlive&#x2F;<a href="mailto:&#112;&#114;&#111;&#x78;&#121;&#112;&#111;&#x6f;&#x6c;&#x40;&#118;&#x30;&#46;&#55;&#46;&#x31;&#x32;">&#112;&#114;&#111;&#x78;&#121;&#112;&#111;&#x6f;&#x6c;&#x40;&#118;&#x30;&#46;&#55;&#46;&#x31;&#x32;</a><br>3.配置文件config.yaml 和 source.yaml<br>4.运行 .&#x2F;proxypool -c config_proxypool.yaml</p>
+<h1 id="安装步骤："><a href="#安装步骤：" class="headerlink" title="安装步骤："></a>安装步骤：</h1><p>1.安装 go install github.com&#x2F;ssrlive&#x2F;proxypool@latest<br>2.将生成的proxypool 可执行文件，复制到整个项目的集体目录下. i.e. &#x2F;Users&#x2F;carlzeng&#x2F;go&#x2F;pkg&#x2F;mod&#x2F;github.com&#x2F;ssrlive&#x2F;<a href="mailto:&#x70;&#x72;&#x6f;&#120;&#x79;&#x70;&#111;&#x6f;&#x6c;&#64;&#118;&#48;&#x2e;&#x37;&#x2e;&#49;&#50;">&#x70;&#x72;&#x6f;&#120;&#x79;&#x70;&#111;&#x6f;&#x6c;&#64;&#118;&#48;&#x2e;&#x37;&#x2e;&#49;&#50;</a><br>3.配置文件config.yaml 和 source.yaml<br>4.运行 .&#x2F;proxypool -c config_proxypool.yaml</p>
 <p>以后只要搜索proxypool的source.yaml即可，拓展爬虫目标列表，<br>i.e. <a href="https://github.com/newcastlecy/proxypool-1/blob/master/source.yaml">https://github.com/newcastlecy/proxypool-1/blob/master/source.yaml</a></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">proxypool  -c config_proxypool.json</span><br></pre></td></tr></table></figure>
 
@@ -7728,7 +7729,7 @@ go build.
 
 测试YouTube的视频，Connection Speed 3824 Kbps，自动1080P60HD，清洗流畅许多
 </code></pre>
-<img class="lozad" data-src=https://user-images.githubusercontent.com/24421888/106300180-1a8a8e00-6291-11eb-985b-96aa9405fa3f.png>
+<p>实践测试表明，把interval设置成300，是最优解。<br>调整proxypool的refresh 300s, 每5分钟循环检测线路可用性<br><img class="lozad" data-src=https://www.evernote.com/shard/s122/sh/e0e9dbbe-1eb9-48cf-bbf5-30a8f370f3db/4I0jznSGW6ySfNUYKX3t9YZOFHxNIOQWVjzSMPQb5Z2Zv53Xh3VnfbI0xA/deep/0/image.png></p>
 ]]></content>
       <categories>
         <category>go</category>
