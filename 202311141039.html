@@ -20,27 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="远程数据传输服务 iMTS传输 http:&#x2F;&#x2F;qzjdrj.com&#x2F;newsshow.asp?id&#x3D;29&amp;mc&#x3D;%BD%F0%B5%FBK3%B3%A3%BC%FB%CE%CA%CC%E2%BD%E2%BE%F6%B7%BD%B7%A8&amp;url&#x3D;zszx.asp&amp;mnid&#x3D;34579&amp;classna">
+    <meta name="description" content="有什么用管理Linux防火墙开启Openwrt上的clash服务中转">
 <meta property="og:type" content="article">
-<meta property="og:title" content="远程数据库同步 &gt; 远程数据传输服务-CarlZeng">
-<meta property="og:url" content="https://www.carlzeng.top/201604291333.html">
+<meta property="og:title" content="iptables应用">
+<meta property="og:url" content="https://www.carlzeng.top/202311141039.html">
 <meta property="og:site_name" content="随笔 Carl Notes">
-<meta property="og:description" content="远程数据传输服务 iMTS传输 http:&#x2F;&#x2F;qzjdrj.com&#x2F;newsshow.asp?id&#x3D;29&amp;mc&#x3D;%BD%F0%B5%FBK3%B3%A3%BC%FB%CE%CA%CC%E2%BD%E2%BE%F6%B7%BD%B7%A8&amp;url&#x3D;zszx.asp&amp;mnid&#x3D;34579&amp;classna">
+<meta property="og:description" content="有什么用管理Linux防火墙开启Openwrt上的clash服务中转">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2016-04-29T05:33:00.000Z">
-<meta property="article:modified_time" content="2023-10-02T02:27:29.033Z">
+<meta property="article:published_time" content="2023-11-14T02:39:43.000Z">
+<meta property="article:modified_time" content="2023-11-14T02:43:55.935Z">
 <meta property="article:author" content="Carl Zeng">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.carlzeng.top/201604291333.html">
+<link rel="canonical" href="https://www.carlzeng.top/202311141039.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/201604291333.html","path":"201604291333.html","title":"远程数据库同步 > 远程数据传输服务-CarlZeng"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/202311141039.html","path":"202311141039.html","title":"iptables应用"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>远程数据库同步 > 远程数据传输服务-CarlZeng | 随笔 Carl Notes</title>
+<title>iptables应用 | 随笔 Carl Notes</title>
   
 
 
@@ -129,7 +129,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -142,6 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iptables-%E5%BA%94%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">iptables 应用</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -185,43 +186,43 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200810072319.html" rel="bookmark">
-      getElementByClass in Javascript - 两种代码-CarlZeng
+      <a class="popular-posts-link" href="/201603222129.html" rel="bookmark">
+      OpenWrt >  ADSL单线多拨，负载均衡（仅供参考）-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200906091053.html" rel="bookmark">
-      netsuite 子标签 tab 显示原理-CarlZeng
+      <a class="popular-posts-link" href="/202311042118.html" rel="bookmark">
+      iPad解锁激活锁苹果平板绕激活锁经验
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201002251627.html" rel="bookmark">
-      prototype.js源码解读(二)-CarlZeng
+      <a class="popular-posts-link" href="/202301101115.html" rel="bookmark">
+      (强大的ffmpeg)如何下载并转化网络M3U8文件为mp4文件-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200810080045.html" rel="bookmark">
-      doAddEditexpense-CarlZeng
+      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
+      Nginx Proxy Manager修复笔记
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/" rel="bookmark">
-      
+      <a class="popular-posts-link" href="/202211220913.html" rel="bookmark">
+      如何使用youtube-dl下载Youtube上面的音视频，油管视频(23年11月已更新)
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200909221418.html" rel="bookmark">
-      html js 跨域 p3p-CarlZeng
+      <a class="popular-posts-link" href="/202310261222.html" rel="bookmark">
+      Hexo定制之家宽部署artalk评论
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200901041808.html" rel="bookmark">
-      js post 应用-CarlZeng
+      <a class="popular-posts-link" href="/202303051903.html" rel="bookmark">
+      tor 网络-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200812301028.html" rel="bookmark">
-      js 多维数组 应用-CarlZeng
+      <a class="popular-posts-link" href="/202303051904.html" rel="bookmark">
+      tor，网，络-CarlZeng
       </a>
     </li>
   </ul>
@@ -296,7 +297,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201604291333.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202311141039.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -309,12 +310,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="远程数据库同步 > 远程数据传输服务-CarlZeng | 随笔 Carl Notes">
+      <meta itemprop="name" content="iptables应用 | 随笔 Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          远程数据库同步 > 远程数据传输服务-CarlZeng
+          iptables应用
         </h1>
 
         <div class="post-meta-container">
@@ -324,7 +325,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+      <time title="修改时间：2023-11-14 10:43:55" itemprop="dateModified" datetime="2023-11-14T10:43:55+08:00">2023-11-14</time>
     </span>
 
   
@@ -334,7 +335,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/201604291333.html" ></span>
+            <span id="ArtalkPV" data-page-key="/202311141039.html" ></span>
           </span>
         
       
@@ -344,8 +345,8 @@
               <i class="far fa-comment"></i>
             </span>
             <span class="post-meta-item-text">评论：</span>
-            <a href="/201604291333.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201604291333.html" itemprop="commentCount"></span>
+            <a href="/202311141039.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202311141039.html" itemprop="commentCount"></span>
             </a>
           </span>
         
@@ -356,14 +357,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>661</span>
+      <span>2.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
@@ -373,33 +374,17 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>远程数据传输服务 iMTS传输 <a target="_blank" rel="noopener" href="http://qzjdrj.com/newsshow.asp?id=29&mc=%EF%BF%BD%EF%BF%BD%EF%BF%BDK3%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD&url=zszx.asp&mnid=34579&classna">http://qzjdrj.com/newsshow.asp?id=29&amp;mc=%BD%F0%B5%FBK3%B3%A3%BC%FB%CE%CA%CC%E2%BD%E2%BE%F6%B7%BD%B7%A8&amp;url=zszx.asp&amp;mnid=34579&amp;classna</a></p>
-<!-- more -->
-<p>传输所应用的系统　</p>
-<p>支持的传输方式</p>
-<p>应用特点</p>
-<p>远程数据传输服务</p>
-<p>iMTS传输</p>
-<p>1.可传输k&#x2F;3账套、金蝶2000账套、文件</p>
-<p> </p>
-<p> </p>
-<p>2.自动定时传输，并对K&#x2F;3账套进行远程自动化备份恢复处理，全部操作由系统后台自动完成。</p>
-<p> </p>
-<p> </p>
-<p>3. 支持增量传输方式</p>
-<p> </p>
-<p> </p>
-<p>4.和代理服务结合，实现拉式传输，总部可以直接通过操作电脑，远程下达命令拉取分公司的数据，传输回总部，这符合集团总部主动监控分支机构的思路。目前拉式传输在业界处于领先地位</p>
-<p> </p>
-<p> </p>
-<p>可以同时容纳两种传输方式的优点，根据不同的事务处理选择不同的传输方式</p>
-<p> </p>
-<p> </p>
-<p>数据服务调用的是代理服务，主要是集团公司用来传递数据文件</p>
-<p> </p>
-<p> </p>
-<p>传输对适时性交互有一定要求，使用Socket传输方式</p>
-<p><a target="_blank" rel="noopener" href="http://qzjdrj.com/newsshow.asp?id=29&mc=%EF%BF%BD%EF%BF%BD%EF%BF%BDK3%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD&url=zszx.asp&mnid=34579&classname=%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%EF%BF%BD%D2%B5%D6%AA%CA%B6">http://qzjdrj.com/newsshow.asp?id=29&amp;mc=%BD%F0%B5%FBK3%B3%A3%BC%FB%CE%CA%CC%E2%BD%E2%BE%F6%B7%BD%B7%A8&amp;url=zszx.asp&amp;mnid=34579&amp;classname=%C8%ED%BC%FE%D0%D0%D2%B5%D6%AA%CA%B6</a></p>
+    <div class="post-body" itemprop="articleBody"><h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>管理Linux防火墙<br>开启Openwrt上的clash服务中转</p>
+<span id="more"></span>
+
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><hr>
+<hr>
+<h1 id="iptables-应用"><a href="#iptables-应用" class="headerlink" title="iptables 应用"></a>iptables 应用</h1><p>在OpenWrt上面，<br>开放OpenWrt中OpenClash的HTTP &amp; SOCKS5 Proxy Port</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 7893 -j ACCEPT</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">service iptables restart ## 这个是可选的，没执行成功</span><br><span class="line">## OpenWrt上会自动马上生效，估计重启OP会重置，所以需要加到配置文件中</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">##查询 iptables 所有列表</span><br><span class="line">iptables -L -n</span><br><span class="line">可以查询到当前列表中的所有项目，包括新增进去的section</span><br><span class="line"></span><br><span class="line">Chain INPUT (policy DROP)</span><br><span class="line">target     prot opt source               destination         </span><br><span class="line">SSR-SERVER-RULE  all  --  0.0.0.0/0            0.0.0.0/0           </span><br><span class="line">REJECT     udp  --  0.0.0.0/0            0.0.0.0/0            udp dpt:443 /* OpenClash QUIC REJECT */ ! match-set china_ip_route dst reject-with icmp-port-unreachable</span><br><span class="line">openclash_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            ! match-set localnetwork src</span><br><span class="line">openclash_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            ! match-set localnetwork src</span><br><span class="line">openclash_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            ! match-set localnetwork src</span><br><span class="line">openclash_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            ! match-set localnetwork src</span><br><span class="line">openclash_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            ! match-set localnetwork src</span><br><span class="line">ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0            tcp dpt:7893</span><br><span class="line">ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">input_rule  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3: Custom input rule chain */</span><br><span class="line">ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED /* !fw3 */</span><br><span class="line">DROP       all  --  0.0.0.0/0            0.0.0.0/0            ctstate INVALID /* !fw3 */</span><br><span class="line">syn_flood  tcp  --  0.0.0.0/0            0.0.0.0/0            tcp flags:0x17/0x02 /* !fw3 */</span><br><span class="line">zone_lan_input  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">zone_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">zone_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">zone_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">zone_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">zone_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">zone_docker_input  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">reject     all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<img class="lozad" data-src="">
 
     </div>
 
@@ -414,11 +399,11 @@
 <ul>
   <li class="post-copyright-author">
       <strong>本文作者： </strong>Carl Zeng
-    <a href='https://www.carlzeng.top/201604291333.html'> 《远程数据库同步 > 远程数据传输服务-CarlZeng》</a>
+    <a href='https://www.carlzeng.top/202311141039.html'> 《iptables应用》</a>
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.carlzeng.top/201604291333.html" title="远程数据库同步 &gt; 远程数据传输服务-CarlZeng">https://www.carlzeng.top/201604291333.html</a>
+      <a href="https://www.carlzeng.top/202311141039.html" title="iptables应用">https://www.carlzeng.top/202311141039.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
@@ -600,14 +585,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/201604271644.html" rel="prev" title="远程接入 > CS程序远程接入至总部-CarlZeng">
-                  <i class="fa fa-angle-left"></i> 远程接入 > CS程序远程接入至总部-CarlZeng
+                <a href="/202311081003.html" rel="prev" title="实测Docker搭建短链接服务YOURLS">
+                  <i class="fa fa-angle-left"></i> 实测Docker搭建短链接服务YOURLS
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/201605152224.html" rel="next" title="SAML 2.0 setup steps, 效果图-CarlZeng">
-                  SAML 2.0 setup steps, 效果图-CarlZeng <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -734,9 +716,9 @@
 
 
   <script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/201604291333.html"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/202311141039.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
-<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/201604291333.html","pageTitle":"远程数据库同步 > 远程数据传输服务-CarlZeng"}</script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/202311141039.html","pageTitle":"iptables应用"}</script>
 
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
 <style>.artalk{width:initial;}</style>
