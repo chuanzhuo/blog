@@ -378,7 +378,7 @@
   <entry>
     <title>E900V21C - Android联通 机顶盒 安装APP实例-CarlZeng</title>
     <url>/202211181240.html</url>
-    <content><![CDATA[<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>实现往Android联通机顶盒安装APP，比如投屏类APP（比如：乐播投屏），桌面类APP（比如：沙发桌面，当贝桌面）</p>
+    <content><![CDATA[<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>实现往Android联通机顶盒安装APP，比如投屏类APP（比如：乐播投屏），桌面类APP（比如：沙发桌面，当贝桌面）<br>已选择N1盒子等性能更强劲的硬件的朋友，可参见: <a href="https://www.carlzeng.top/202310051529.html">网络影视资源 - IPTV直播之电视台直播源</a></p>
 <span id="more"></span>
 <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>联通 创维机顶盒：E900V21C</p>
 <p>Mac（windows也一样，找相应平台的软件即可）</p>
@@ -1085,6 +1085,7 @@ hidden: true
 </ul>
 </li>
 <li>hexo new page netsuite<br>单独拉出NetSuite做一个分类，暂时先用简单的link<br>NetSuite: <a href="https://www.carlzeng.top/tags/netsuite/">https://www.carlzeng.top/tags/netsuite/</a> || fa fa-calendar</li>
+<li>主题：Fluid 亮点 本文最后更新于：2023年2月20日 中午<br><a href="https://github.com/fluid-dev/hexo-theme-fluid">https://github.com/fluid-dev/hexo-theme-fluid</a><br>实例：<a href="https://blog.dov.moe/posts/49102/">https://blog.dov.moe/posts/49102/</a></li>
 </ul>
 <p>Best</p>
 ]]></content>
@@ -12886,13 +12887,14 @@ https://www.hellosanta.com.tw/knowledge/category-38/post-219
 <li>cd volumes&#x2F;</li>
 <li>ls<br>  backingFsBlockDev  metadata.db<br>  没有发现视频中说的额外的volume，也就无从删除</li>
 </ol>
+<p>20231120 无法解决；直接更换docker的映射目录，全部重装。数据丢失（包含缩短网址的数据和访问统计数据）。<br>这样配置的端地址的列表，要支持导出（或备份）；在特殊情况下，直接全部重来（更省时）<br>TODO：待更新</p>
 <hr>
 <h1 id="Docker安装X-UI"><a href="#Docker安装X-UI" class="headerlink" title="Docker安装X-UI"></a>Docker安装X-UI</h1><p>docker 搭建 支持单端口多用户、多协议的 xray 面板，究极缝合怪</p>
 <p>使用FranzKafkaYu&#x2F;x-ui版本，仅需要讲上述镜像修改为 enwaiax&#x2F;x-ui:alpha-zh<br>由于telegram bot暂时没用，切换回第一个默认<a href="https://github.com/vaxilu/x-ui">https://github.com/vaxilu/x-ui</a></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">version: &quot;3.9&quot;</span><br><span class="line">services:</span><br><span class="line">  xui:</span><br><span class="line">    image: enwaiax/x-ui</span><br><span class="line">    container_name: xui</span><br><span class="line">    volumes:</span><br><span class="line">      - $PWD/db/:/etc/x-ui/</span><br><span class="line">      - $PWD/cert/:/root/cert/</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    network_mode: host</span><br></pre></td></tr></table></figure>
 <p>新建目录，并把上面的配置放到x-ui.yaml中<br>root@Debian11:&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;x-ui&#x2F;template# docker-compose -f x-ui.yaml up</p>
 <p><a href="https://www.amadues.link/archives/dockerda-jian-jie-dian-vless-ws-tls-web">https://www.amadues.link/archives/dockerda-jian-jie-dian-vless-ws-tls-web</a><br>docker-compose.yaml的方案follow：<a href="https://hostloc.com/thread-1108468-1-1.html">https://hostloc.com/thread-1108468-1-1.html</a><br>配置的方案follow：<a href="https://iwanlab.com/npm-xui/">https://iwanlab.com/npm-xui/</a><br>相关的视频：<a href="https://www.youtube.com/watch?v=V3nsDicSMBc">https://www.youtube.com/watch?v=V3nsDicSMBc</a></p>
-<p>待测试：vless:&#x2F;&#x2F;<a href="mailto:&#51;&#x39;&#x66;&#100;&#x65;&#x32;&#x64;&#x32;&#x2d;&#x63;&#x38;&#x38;&#x63;&#45;&#x34;&#x62;&#101;&#97;&#45;&#x64;&#x34;&#57;&#x31;&#x2d;&#102;&#98;&#54;&#57;&#x39;&#48;&#100;&#52;&#57;&#55;&#x34;&#49;&#x40;&#118;&#x6d;&#101;&#115;&#x73;&#46;&#99;&#97;&#114;&#108;&#122;&#x65;&#x6e;&#x67;&#x2e;&#x74;&#111;&#112;">&#51;&#x39;&#x66;&#100;&#x65;&#x32;&#x64;&#x32;&#x2d;&#x63;&#x38;&#x38;&#x63;&#45;&#x34;&#x62;&#101;&#97;&#45;&#x64;&#x34;&#57;&#x31;&#x2d;&#102;&#98;&#54;&#57;&#x39;&#48;&#100;&#52;&#57;&#55;&#x34;&#49;&#x40;&#118;&#x6d;&#101;&#115;&#x73;&#46;&#99;&#97;&#114;&#108;&#122;&#x65;&#x6e;&#x67;&#x2e;&#x74;&#111;&#112;</a>:17866?type&#x3D;ws&amp;security&#x3D;none&amp;path&#x3D;%2Fgugu#gugugee</p>
+<p>待测试：vless:&#x2F;&#x2F;<a href="mailto:&#x33;&#x39;&#102;&#100;&#x65;&#50;&#100;&#50;&#45;&#x63;&#x38;&#56;&#99;&#x2d;&#52;&#98;&#x65;&#x61;&#45;&#100;&#52;&#57;&#x31;&#x2d;&#102;&#98;&#54;&#x39;&#57;&#48;&#x64;&#x34;&#x39;&#x37;&#52;&#x31;&#x40;&#118;&#109;&#101;&#x73;&#115;&#46;&#x63;&#x61;&#x72;&#108;&#122;&#x65;&#x6e;&#103;&#x2e;&#x74;&#111;&#x70;">&#x33;&#x39;&#102;&#100;&#x65;&#50;&#100;&#50;&#45;&#x63;&#x38;&#56;&#99;&#x2d;&#52;&#98;&#x65;&#x61;&#45;&#100;&#52;&#57;&#x31;&#x2d;&#102;&#98;&#54;&#x39;&#57;&#48;&#x64;&#x34;&#x39;&#x37;&#52;&#x31;&#x40;&#118;&#109;&#101;&#x73;&#115;&#46;&#x63;&#x61;&#x72;&#108;&#122;&#x65;&#x6e;&#103;&#x2e;&#x74;&#111;&#x70;</a>:17866?type&#x3D;ws&amp;security&#x3D;none&amp;path&#x3D;%2Fgugu#gugugee</p>
 <p>没成功…期待更多的客户端连接测试, 等救援</p>
 <div class="tabs" id="名称"><ul class="nav-tabs"><li class="tab active"><a href="#名称-1">名称 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="名称-1"><p>待续。。。</p></div></div></div>
 ]]></content>
@@ -14545,10 +14547,31 @@ html document if you wanna to use the script.
 </li>
 <li><p>定制tvbox<br><a href="https://www.right.com.cn/forum/thread-8305337-1-1.html">tvbox(进恩哥版)内置源，TVBox自带配置地址</a><br><a href="https://wwp.lanzoup.com/i241I18g8qdi">https://wwp.lanzoup.com/i241I18g8qdi</a></p>
 </li>
-<li><p>根据这篇文章里面的搜索（<a href="https://chuanzhuo.github.io/blog/2023/05/19/%E5%A6%82%E6%9E%9C%E4%BD%A0%E5%AF%B9IPTV%EF%BC%88%E5%85%A8%E5%9C%B0%E7%90%83%E7%9A%84%EF%BC%89%E6%84%9F%E5%85%B4%E8%B6%A3-CarlZeng/?highlight=%E7%9B%B4%E6%92%AD%EF%BC%89%EF%BC%8C">https://chuanzhuo.github.io/blog/2023/05/19/%E5%A6%82%E6%9E%9C%E4%BD%A0%E5%AF%B9IPTV%EF%BC%88%E5%85%A8%E5%9C%B0%E7%90%83%E7%9A%84%EF%BC%89%E6%84%9F%E5%85%B4%E8%B6%A3-CarlZeng/?highlight=%E7%9B%B4%E6%92%AD），</a><br>把搜索结果实时抓取；配合上测速和聚合功能…</p>
+<li><p>根据这篇文章里面的搜索 <a href="https://github.carlzeng.top/202305190844.html?highlight=%E5%A6%82%E6%9E%9C%E4%BD%A0%E5%AF%B9iptv%EF%BC%88%E5%85%A8%E5%9C%B0%E7%90%83%E7%9A%84%EF%BC%89%E6%84%9F%E5%85%B4%E8%B6%A3">https://github.carlzeng.top/202305190844.html?highlight=%E5%A6%82%E6%9E%9C%E4%BD%A0%E5%AF%B9iptv%EF%BC%88%E5%85%A8%E5%9C%B0%E7%90%83%E7%9A%84%EF%BC%89%E6%84%9F%E5%85%B4%E8%B6%A3</a><br>把搜索结果实时抓取；配合上测速和聚合功能…</p>
 </li>
 </ol>
 <p>FongMi影视、TVBox、猫影视配置文件。<br>所有资源均来自于各路大神无私分享，如有侵权，请联系删除。</p>
+<hr>
+<hr>
+<p>2023年11月22日<br>直播壳子+直播源将会未来普通老百姓用盒子或手机网络看电视直播的方向</p>
+<p>转载一个DIYP方案<a href="https://x-x-xxx.github.io/diyp/diyp.html">https://x-x-xxx.github.io/diyp/diyp.html</a></p>
+<h1 id="DIYP影音经典版-强大且良心的盒子直播"><a href="#DIYP影音经典版-强大且良心的盒子直播" class="headerlink" title="DIYP影音经典版 强大且良心的盒子直播"></a>DIYP影音经典版 强大且良心的盒子直播</h1><p>DIYP影音，这是一个盒子播放器，非常不错的盒子播放器，支持的解码类型非常多，基本上常见的都支持；</p>
+<p><img data-src="https://www.sharerw.com/uploads/allimg/200509/1-200509101020-50.jpg" alt="圖片1"><br><img data-src="https://www.sharerw.com/uploads/allimg/200509/1-200509101020-51.jpg" alt="圖片2"></p>
+<p>这个软件是对标百川音影的，我个人觉得DIYP影音比百川音影更好用；</p>
+<p>首先DIYP非常干净，无任何多余信息；</p>
+<p>其次DIYP内置有EPG，只需自己导入直播源即可；</p>
+<p>再一个，DIYP还支持小窗口播放（此功能适合手机使用）；</p>
+<p><img data-src="https://www.sharerw.com/uploads/allimg/200509/1-200509101020.jpg" alt="圖片3"></p>
+<p>软件安装后，依然是需要自己添加直播源，这里我也会提供：</p>
+<p><img data-src="https://www.sharerw.com/uploads/allimg/200509/1-200509101019-50.jpg" alt="圖片4"></p>
+<p>最新直播源：<code>https://x-x-xxx.github.io/diyp/tv.txt</code></p>
+<p>此软件非常好的一个地方就是内置有epg，导入源之后会自行匹配；</p>
+<p><img data-src="https://www.sharerw.com/uploads/allimg/200509/1-200509101019-51.jpg" alt="圖片5"></p>
+<p>连湾湾台都有epg了；</p>
+<h4 id="老司机福利："><a href="#老司机福利：" class="headerlink" title="老司机福利："></a>老司机福利：</h4><p>另外小惊喜，支持频道分类隐藏，老司机应该都知道怎么用DIYP影音经典版 强大且良心的盒子直播 </p>
+<p><img data-src="https://www.sharerw.com/uploads/allimg/200509/1-200509101019-52.jpg" alt="圖片6"></p>
+<p>这款软件我刚才也说了，就是对标百川、分享者增强版这类空壳来说的，我个人觉得这个最好用，而且软件非常干净，所以我也没必要去改动啥（比如去广告啥的），直接分享给大家；</p>
+<p>喜欢DIY看电视的，不妨试试这个； <a href="http://x-x-xxx.github.io/diyp/DIYP%E5%BD%B1%E9%9F%B3%E7%BB%8F%E5%85%B8%E7%89%88.apk">點擊下載 Download</a></p>
 ]]></content>
       <categories>
         <category>IPTV</category>
@@ -14557,6 +14580,8 @@ html document if you wanna to use the script.
         <tag>andriod</tag>
         <tag>IPTV</tag>
         <tag>网络影视资源</tag>
+        <tag>直播</tag>
+        <tag>livetv</tag>
       </tags>
   </entry>
   <entry>
@@ -15123,7 +15148,8 @@ addScript(id,str)
     <content><![CDATA[<p>个人收藏夹，待学习的一些文字或网址</p>
 <span id="more"></span>
 
-<p>IP地址查询物理地址<br><a href="http://www.iplocation.net/">www.iplocation.net</a></p>
+<hr>
+<h2 id="不定期收集-整理和编写常用优秀软件和服务的-Dockerfile-文件-https-docker-ioiox-com-https-github-com-stilleshan-dockerfiles-本仓库不定期收集、整理、编写常用优秀软件和服务的-Dockerfile-文件。-分享成熟、稳定、好用的-docker-命令和-docker-compose-yml-部署配置文件。"><a href="#不定期收集-整理和编写常用优秀软件和服务的-Dockerfile-文件-https-docker-ioiox-com-https-github-com-stilleshan-dockerfiles-本仓库不定期收集、整理、编写常用优秀软件和服务的-Dockerfile-文件。-分享成熟、稳定、好用的-docker-命令和-docker-compose-yml-部署配置文件。" class="headerlink" title="不定期收集,整理和编写常用优秀软件和服务的 Dockerfile 文件. https://docker.ioiox.com    https://github.com/stilleshan/dockerfiles    本仓库不定期收集、整理、编写常用优秀软件和服务的 Dockerfile 文件。    分享成熟、稳定、好用的 docker 命令和 docker-compose.yml 部署配置文件。"></a>不定期收集,整理和编写常用优秀软件和服务的 Dockerfile 文件. <a href="https://docker.ioiox.com/">https://docker.ioiox.com</a><br>    <a href="https://github.com/stilleshan/dockerfiles">https://github.com/stilleshan/dockerfiles</a><br>    本仓库不定期收集、整理、编写常用优秀软件和服务的 Dockerfile 文件。<br>    分享成熟、稳定、好用的 docker 命令和 docker-compose.yml 部署配置文件。</h2><p>IP地址查询物理地址<br><a href="http://www.iplocation.net/">www.iplocation.net</a></p>
 <p>IP地址查询<br>ip.skk.moe</p>
 <h1 id="思想类"><a href="#思想类" class="headerlink" title="思想类"></a>思想类</h1><p><a href="https://www.starduster.me/2023/04/12/talk-about-engineering-education">也谈我的前东家，也谈一点工程本科教育</a></p>
 <p><a href="https://yoouu.cn/2023-05-21-about-haoel/">左耳朵耗子的话</a></p>
@@ -15267,8 +15293,13 @@ https://www.appinn.com/wechat-video-downloader/
   <entry>
     <title>听音乐(音乐播放器)</title>
     <url>/202302201139.html</url>
-    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>听音乐，音乐APP等等个人自用分享</p>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>下载，听音乐，音乐APP等等个人自用分享</p>
 <span id="more"></span>
+
+
+<h2 id="下载后转化为mp3"><a href="#下载后转化为mp3" class="headerlink" title="下载后转化为mp3"></a>下载后转化为mp3</h2><p>更强大的下载音频参加：<a href="https://www.carlzeng.top/202211220913.html">如何使用youtube-dl下载Youtube上面的音视频，油管视频</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i &quot;file1.mp4&quot; &quot;file2.mp3&quot;</span><br></pre></td></tr></table></figure>
+
 
 <p>【待实践】有一个有趣的项目：<br><a href="https://github.com/injahow/meting-api">https://github.com/injahow/meting-api</a></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">API-Demo:</span><br><span class="line"></span><br><span class="line">https://api.injahow.cn/meting/?type=url&amp;id=416892104</span><br><span class="line">https://api.injahow.cn/meting/?type=song&amp;id=591321</span><br><span class="line">https://api.injahow.cn/meting/?type=playlist&amp;id=2619366284</span><br><span class="line">APlayer-Demo:</span><br><span class="line"></span><br><span class="line">https://injahow.github.io/meting-api/</span><br><span class="line">https://injahow.github.io/meting-api/?id=2904749230</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -15312,6 +15343,7 @@ https://www.appinn.com/wechat-video-downloader/
         <tag>安卓手机</tag>
         <tag>音乐</tag>
         <tag>音乐播放器</tag>
+        <tag>音乐下载</tag>
       </tags>
   </entry>
   <entry>
@@ -15425,5 +15457,129 @@ https://www.appinn.com/wechat-video-downloader/
   </div>
 </div>
 <script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+  </entry>
+  <entry>
+    <title>Docker搭建自动售货系统-独角数卡</title>
+    <url>/202311201654.html</url>
+    <content><![CDATA[<img class="lozad" data-src="">
+自动售货系统-独角数卡
+<span id="more"></span>
+
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>自动售货系统-独角数卡<br>尝试按教材和视频搭建失败了（详见章节：搭建失败的历史记录），<br>鼓起勇气，重新选用新的方案：<a href="https://blog.dov.moe/posts/49102/">https://blog.dov.moe/posts/49102/</a></p>
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /www/server/panel/data/compose/dujiaoka/template</span><br><span class="line"></span><br><span class="line">mkdir Shop &amp;&amp; cd Shop</span><br><span class="line">mkdir storage uploads</span><br><span class="line">chmod 777 storage uploads</span><br><span class="line">❗注意此处文件夹权限一定要给！</span><br><span class="line"></span><br><span class="line">chmod -R 777 env.conf</span><br><span class="line"># 重要步骤</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">version: &quot;3&quot;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  faka:</span><br><span class="line">    image: ghcr.io/apocalypsor/dujiaoka:latest</span><br><span class="line">    # 国内服务器可以用 hkccr.ccs.tencentyun.com/apocalypsor/dujiaoka:latest</span><br><span class="line">    container_name: faka</span><br><span class="line">    environment:</span><br><span class="line">        # - INSTALL=false</span><br><span class="line">        - INSTALL=true</span><br><span class="line">        # - MODIFY=true</span><br><span class="line">    volumes:</span><br><span class="line">      - ./env.conf:/dujiaoka/.env</span><br><span class="line">      - ./uploads:/dujiaoka/public/uploads</span><br><span class="line">      - ./storage:/dujiaoka/storage</span><br><span class="line">      - ./start-hook.sh:/dujiaoka/start-hook.sh</span><br><span class="line">      # 网站图标 32X32 favicon.ico 4kb，默认模版只需第一处，其他模版需要第二处</span><br><span class="line">	  - ./favicon.ico:/dujiaoka/public/favicon.ico:ro</span><br><span class="line">	  - ./favicon.ico:/dujiaoka/public/assets/style/favicon.ico:ro</span><br><span class="line">	  # 默认商品图片 512x512 default.jpg 18kb（网站 LOGO 共享此图，与后台自定义 LOGO 和商品图片不冲突）</span><br><span class="line">	  - ./default.png:/dujiaoka/public/assets/common/images/default.jpg:ro</span><br><span class="line">	  # Luna 主题网站背景 1920x1224 background.png 198kb</span><br><span class="line">	  - ./background.png:/dujiaoka/public/assets/luna/img/background.png:ro</span><br><span class="line">    ports:</span><br><span class="line">      - 4444:80</span><br><span class="line">    restart: always</span><br><span class="line"> </span><br><span class="line">  db:</span><br><span class="line">    image: mariadb:focal</span><br><span class="line">    container_name: faka-data</span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">      - MYSQL_ROOT_PASSWORD=mariadb</span><br><span class="line">      - MYSQL_DATABASE=dujiaoka</span><br><span class="line">      - MYSQL_USER=dujiaoka</span><br><span class="line">      - MYSQL_PASSWORD=dujiaokapassword</span><br><span class="line">    volumes:</span><br><span class="line">      - ./data:/var/lib/mysql</span><br><span class="line"></span><br><span class="line">  redis:</span><br><span class="line">    image: redis:alpine</span><br><span class="line">    container_name: faka-redis</span><br><span class="line">    restart: always</span><br><span class="line">    volumes:</span><br><span class="line">      - ./redis:/data</span><br></pre></td></tr></table></figure>
+
+<p>编辑 .env 文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">APP_NAME=Carl的小店</span><br><span class="line">APP_ENV=local</span><br><span class="line">APP_KEY=base64:hDVkYhfkUjaePiaI1tcBT7G8bh2A8RQxwWIGkq7BO18=</span><br><span class="line">APP_DEBUG=false</span><br><span class="line">APP_URL=http://192.168.6.116:4444</span><br><span class="line">#ADMIN_HTTPS=true</span><br><span class="line"></span><br><span class="line">LOG_CHANNEL=stack</span><br><span class="line"></span><br><span class="line"># 数据库配置</span><br><span class="line">DB_CONNECTION=mysql</span><br><span class="line">DB_HOST=db</span><br><span class="line">DB_PORT=3306</span><br><span class="line">DB_DATABASE=dujiaoka</span><br><span class="line">DB_USERNAME=dujiaoka</span><br><span class="line">DB_PASSWORD=dujiaokapassword</span><br><span class="line"></span><br><span class="line"># redis 配置</span><br><span class="line">REDIS_HOST=redis</span><br><span class="line">REDIS_PASSWORD=</span><br><span class="line">REDIS_PORT=6379</span><br><span class="line"></span><br><span class="line">BROADCAST_DRIVER=log</span><br><span class="line">SESSION_DRIVER=file</span><br><span class="line">SESSION_LIFETIME=120</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 缓存配置</span><br><span class="line"># file 为磁盘文件  redis 为内存级别</span><br><span class="line"># redis 为内存需要安装好 redis 服务端并配置</span><br><span class="line">CACHE_DRIVER=redis</span><br><span class="line"></span><br><span class="line"># 异步消息队列</span><br><span class="line"># sync 为同步  redis 为异步</span><br><span class="line"># 使用 redis 异步需要安装好 redis 服务端并配置</span><br><span class="line">QUEUE_CONNECTION=redis</span><br><span class="line"></span><br><span class="line"># 后台语言</span><br><span class="line">## zh_CN 简体中文</span><br><span class="line">## zh_TW 繁体中文</span><br><span class="line">## en    英文</span><br><span class="line">DUJIAO_ADMIN_LANGUAGE=zh_CN</span><br><span class="line"></span><br><span class="line"># 后台登录地址</span><br><span class="line">ADMIN_ROUTE_PREFIX=/admin</span><br></pre></td></tr></table></figure>
+
+<p>一直无法下载成功……<br>修改使用：stilleshan&#x2F;dujiaoka</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker-compose+如何使用代理提速</span><br><span class="line">		https://neucrack.com/p/286</span><br><span class="line">	workaournd：手动让OpenClash不停在线（不在线就重新刷新取获取最新节点信息）</span><br></pre></td></tr></table></figure>
+
+<p>终于下载成功后，启动失败</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: error mounting &quot;/www/server/panel/data/compose/dujiaoka/template/Shop/favicon.ico&quot; to rootfs at &quot;/dujiaoka/public/favicon.ico&quot;: mount /www/server/panel/data/compose/dujiaoka/template/Shop/favicon.ico:/dujiaoka/public/favicon.ico (via /proc/self/fd/6), flags: 0x5001: not a directory: unknown: Are you trying to mount a directory onto a file (or vice-versa)? Check if the specified host path exists and is the expected type</span><br></pre></td></tr></table></figure>
+<p>注释掉那几个自定义的文件映射，就好了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">faka        | The environment file is invalid!</span><br><span class="line">faka        | Failed to parse dotenv file due to unexpected whitespace. Failed at [Carl Shop].</span><br></pre></td></tr></table></figure>
+<p>返回修改把前后加上引号。</p>
+<p>修改了端口映射出4444后，错误：<br>500<br>Server Error</p>
+<p>❗注意环境变量如果写的不对可能导致 500，可以开 APP_DEBUG&#x3D;true 看看具体是哪里写错了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">   throw new RuntimeException(&#x27;The only supported ciphers are AES-128-CBC and AES-256-CBC with the correct key lengths.&#x27;);</span><br><span class="line"></span><br><span class="line">解决办法：修改APP_KEY=base64:hDVkYhfkUjaePiaI1tcBT7G8bh2A8RQxwWIGkq7BO18=</span><br><span class="line">--------------</span><br><span class="line"></span><br><span class="line">file_put_contents(/dujiaoka/.env): failed to open stream: Permission denied</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>本地访问成功：<a href="http://192.168.6.116:4444/">http://192.168.6.116:4444</a></p>
+<hr>
+<h1 id="搭建失败的历史记录"><a href="#搭建失败的历史记录" class="headerlink" title="搭建失败的历史记录"></a>搭建失败的历史记录</h1><p>独角数卡<br>开源式站长自动化售货解决方案、高效、稳定、快速！</p>
+<p>徒手搭建独角数发卡网站 经营自己的小店！ - 六月 26, 2023<br><a href="https://kejilion.blogspot.com/2023/06/blog-post_26.html">https://kejilion.blogspot.com/2023/06/blog-post_26.html</a></p>
+<p>配置docker-compose<br><a href="https://github.com/kejilion/docker/blob/main/LNMP-docker-compose.yml">https://github.com/kejilion/docker/blob/main/LNMP-docker-compose.yml</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">version: &#x27;3.8&#x27;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  nginx:</span><br><span class="line">    image: nginx:1.22</span><br><span class="line">    container_name: nginx</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - 882:80</span><br><span class="line">      - 4444:443      </span><br><span class="line">    volumes:</span><br><span class="line">      - ./nginx.conf:/etc/nginx/nginx.conf</span><br><span class="line">      - ./certs:/etc/nginx/certs      </span><br><span class="line">      - ./html:/var/www/html</span><br><span class="line"></span><br><span class="line">  php:</span><br><span class="line">    image: php:7.4.33-fpm</span><br><span class="line">    container_name: php</span><br><span class="line">    restart: always</span><br><span class="line">    volumes:</span><br><span class="line">      - ./html:/var/www/html</span><br><span class="line"></span><br><span class="line">  mysql:</span><br><span class="line">    image: mysql:5.7.42</span><br><span class="line">    container_name: mysql</span><br><span class="line">    restart: always</span><br><span class="line">    volumes:</span><br><span class="line">      - ./mysql:/var/lib/mysql</span><br><span class="line">    environment:</span><br><span class="line">      - MYSQL_ROOT_PASSWORD=webroot</span><br><span class="line">      - MYSQL_DATABASE=web</span><br><span class="line">      - MYSQL_USER=carlZeng</span><br><span class="line">      - MYSQL_PASSWORD=carlZengYYDS</span><br><span class="line"></span><br><span class="line">  redis:</span><br><span class="line">    image: redis:latest</span><br><span class="line">    container_name: redis</span><br><span class="line">    restart: always</span><br><span class="line">    volumes:</span><br><span class="line">      - ./redis:/data</span><br></pre></td></tr></table></figure>
+<p>修改了独角数卡的端口</p>
+<p>申请证书, 下载证书;</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">直接去NPM中下载证书解压缩后重命名放到debian的目录：</span><br><span class="line">/home/web/certs</span><br><span class="line">    key.pem</span><br><span class="line">    cert.pem</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>继续配置nginx.conf</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">events &#123;</span><br><span class="line">    worker_connections 1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line"></span><br><span class="line">    include       /etc/nginx/mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line">    </span><br><span class="line">    client_max_body_size 1000m;  </span><br><span class="line">    #上传限制参数1G以内文件可上传</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # HTTP server</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        server_name shop.carlzeng.top;</span><br><span class="line"></span><br><span class="line">        # Redirect all HTTP requests to HTTPS</span><br><span class="line">        return 301 https://$host$request_uri;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # HTTPS server</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 443 ssl http2;</span><br><span class="line">        server_name shop.carlzeng.top;</span><br><span class="line"></span><br><span class="line">        # http2 on;</span><br><span class="line">            </span><br><span class="line">        ssl_certificate /etc/nginx/certs/cert.pem;</span><br><span class="line">        ssl_certificate_key /etc/nginx/certs/key.pem;</span><br><span class="line"></span><br><span class="line">        root /var/www/html/dujiaoka/public/;</span><br><span class="line">        index index.php;</span><br><span class="line"></span><br><span class="line">        try_files $uri $uri/ /index.php?$query_string;    </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        # PHP-FPM configuration</span><br><span class="line">        location ~ \.php$ &#123;</span><br><span class="line">            fastcgi_pass php:9000;</span><br><span class="line">            fastcgi_index index.php;</span><br><span class="line">            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">            include fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>cd &#x2F;home&#x2F;web&#x2F;html &amp;&amp; wget <a href="https://ghproxy.com/https://github.com/assimon/dujiaoka/releases/download/2.0.6/2.0.6-antibody.tar.gz">https://ghproxy.com/https://github.com/assimon/dujiaoka/releases/download/2.0.6/2.0.6-antibody.tar.gz</a> &amp;&amp; apt install -y tar &amp;&amp; tar -zxvf 2.0.6-antibody.tar.gz &amp;&amp; rm 2.0.6-antibody.tar.gz</p>
+<p>安装PHP扩展</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec php apt update &amp;&amp; docker exec php apt install -y libmariadb-dev-compat libmariadb-dev libzip-dev libmagickwand-dev imagemagick</span><br><span class="line"></span><br><span class="line">卡死在这一步，分解如下：</span><br><span class="line">    docker exec php apt install -y libmariadb-dev-compat</span><br><span class="line">    docker exec php apt install -y libmariadb-dev</span><br><span class="line">    docker exec php apt install -y libzip-dev</span><br><span class="line">    docker exec php apt install -y libmagickwand-dev</span><br><span class="line">        libmagickwand-dev is already the newest version (8:6.9.11.60+dfsg-1.3+deb11u1).</span><br><span class="line">    docker exec php apt install -y imagemagick</span><br><span class="line">        Build process completed successfully</span><br><span class="line">        Installing &#x27;/usr/local/lib/php/extensions/no-debug-non-zts-20190902/redis.so&#x27;</span><br><span class="line">        install ok: channel://pecl.php.net/redis-6.0.2</span><br><span class="line">        configuration option &quot;php_ini&quot; is not set to php.ini location</span><br><span class="line">        You should add &quot;extension=redis.so&quot; to php.ini</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker exec php docker-php-ext-install pdo_mysql zip bcmath gd intl opcache &amp;&amp; docker exec php pecl install redis &amp;&amp; docker exec php sh -c &#x27;echo &quot;extension=redis.so&quot; &gt; /usr/local/etc/php/conf.d/docker-php-ext-redis.ini&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>如果登录时报错再使用该命令，解除HTTPS限制</p>
+<p>sed -i ‘s&#x2F;ADMIN_HTTPS&#x3D;false&#x2F;ADMIN_HTTPS&#x3D;true&#x2F;g’ &#x2F;home&#x2F;web&#x2F;html&#x2F;dujiaoka&#x2F;.env</p>
+<p>错误以及解决办法<br>不同时期再网页页面，点击安装后出现的错误</p>
+<h4 id="数据库配置错误-could-not-find-driver-SQL-select-1-limit-1"><a href="#数据库配置错误-could-not-find-driver-SQL-select-1-limit-1" class="headerlink" title="数据库配置错误 :could not find driver (SQL: select 1 limit 1)"></a>数据库配置错误 :could not find driver (SQL: select 1 limit 1)</h4><pre><code>解决：修改了nginx.conf，确保80和443端口（docker中的端口占用，默认即可）
+确认了php docker中的PHP扩展，确保所有插件都安装成功
+</code></pre>
+<h3 id="Redis配置错误-php-network-getaddresses-getaddrinfo-failed-Name-or-service-not-known"><a href="#Redis配置错误-php-network-getaddresses-getaddrinfo-failed-Name-or-service-not-known" class="headerlink" title="Redis配置错误 :php_network_getaddresses: getaddrinfo failed: Name or service not known"></a>Redis配置错误 :php_network_getaddresses: getaddrinfo failed: Name or service not known</h3><pre><code>解决：sed -i &#39;s/ADMIN_HTTPS=false/ADMIN_HTTPS=true/g&#39; /home/web/html/dujiaoka/.env
+核查了php docker中 安装PHP拓展部分于redis相关的；
+docker-php-ext-redis.ini（已包含内容：extension=redis.so）
+
+原来是redis 写成了radis，纠正后重试
+</code></pre>
+<h3 id="数据库配置错误-SQLSTATE-HY000-1045-Access-denied-for-user-‘carlZEng‘-’172-24-0-5’-using-password-YES-SQL-select-1-limit-1"><a href="#数据库配置错误-SQLSTATE-HY000-1045-Access-denied-for-user-‘carlZEng‘-’172-24-0-5’-using-password-YES-SQL-select-1-limit-1" class="headerlink" title="数据库配置错误 :SQLSTATE[HY000] [1045] Access denied for user ‘carlZEng‘@’172.24.0.5’ (using password: YES) (SQL: select 1 limit 1)"></a>数据库配置错误 :SQLSTATE[HY000] [1045] Access denied for user ‘carlZEng‘@’172.24.0.5’ (using password: YES) (SQL: select 1 limit 1)</h3><pre><code>解决：MySQL用户名填写错误，纠正后重试
+</code></pre>
+<h4 id="数据库配置错误-could-not-find-driver-SQL-select-1-limit-1-1"><a href="#数据库配置错误-could-not-find-driver-SQL-select-1-limit-1-1" class="headerlink" title="数据库配置错误 :could not find driver (SQL: select 1 limit 1)"></a>数据库配置错误 :could not find driver (SQL: select 1 limit 1)</h4><pre><code>解决：
+检测：docker exec -it php php -i |grep mysqlnd  排查是否启用了mysql驱动
+    mysqlnd
+    mysqlnd =&gt; enabled
+    Version =&gt; mysqlnd 7.4.3
+
+docker exec -it php /bin/bash
+docker-php-ext-install pdo pdo_mysql
+docker-compose restart php
+
+这个好像没有被永久保存住，这导致每次docker-compose restart php都会出现这个错误,
+按照上面解决好以后，紧接着就是下面这个Redis错误
+
+这次是修正后，最后是通过docker restart php 解决了错误
+测试 docker-compose restart 会不会把数据在继续破坏了，重新拉取？
+    也是正常的！ 那下一次怎么办？继续如此修复即可
+</code></pre>
+<h4 id="Please-make-sure-the-PHP-Redis-extension-is-installed-and-enabled"><a href="#Please-make-sure-the-PHP-Redis-extension-is-installed-and-enabled" class="headerlink" title="Please make sure the PHP Redis extension is installed and enabled."></a>Please make sure the PHP Redis extension is installed and enabled.</h4><pre><code>docker exec -it php /bin/bash
+pecl install redis
+    checking for igbinary includes... configure: error: Cannot find igbinary.h
+        ERROR: `/tmp/pear/temp/redis/configure --with-php-config=/usr/local/bin/php-config --enable-redis-igbinary=yes --enable-redis-lzf=yes --enable-redis-zstd=yes --enable-redis-msgpack=yes --enable-redis-lz4=yes --with-liblz4&#39; failed
+Build process completed successfully
+Installing &#39;/usr/local/lib/php/extensions/no-debug-non-zts-20190902/redis.so&#39;
+install ok: channel://pecl.php.net/redis-6.0.2
+configuration option &quot;php_ini&quot; is not set to php.ini location
+You should add &quot;extension=redis.so&quot; to php.ini
+
+解决：docker exec php docker-php-ext-install pdo_mysql zip bcmath gd intl opcache &amp;&amp; docker exec php pecl install redis &amp;&amp; docker exec php sh -c &#39;echo &quot;extension=redis.so&quot; &gt; /usr/local/etc/php/conf.d/docker-php-ext-redis.ini&#39;
+解决分解，并逐一确认执行成功
+    docker exec -it php /bin/bash
+        docker-php-ext-install pdo_mysql zip bcmath gd intl opcache
+        pecl install redis
+        sh -c &#39;echo &quot;extension=redis.so&quot; &gt; /usr/local/etc/php/conf.d/docker-php-ext-redis.ini&#39;
+在 bash 下，一一执行，检查结果
+
+最后，需要docker-compose restart
+之前都是重启php容器docker restart php 无法解决问题。需要的是：docker-compose restart
+</code></pre>
+<h4 id="0-error"><a href="#0-error" class="headerlink" title="0 error"></a>0 error</h4><pre><code>安装成功后 redirect https://192.168.6.116:4444/admin/auth/login
+# 后台登录出现0err或者其他登录异常问题，大概率是开启了https而后台没有开启，把下面的false改为true即可
+ADMIN_HTTPS=false
+解决：sed -i &#39;s/ADMIN_HTTPS=false/ADMIN_HTTPS=true/g&#39; /home/web/html/dujiaoka/.env
+
+成功了，本地局域网可访问。
+下一步是为何无法NPM反代https://192.168.6.116:4444
+</code></pre>
+<h4 id="outstanding-创建订单出错-Symfony-Component-Debug-Exception-FatalThrowableError"><a href="#outstanding-创建订单出错-Symfony-Component-Debug-Exception-FatalThrowableError" class="headerlink" title="[outstanding]创建订单出错 Symfony\Component\Debug\Exception\FatalThrowableError"></a>[outstanding]创建订单出错 Symfony\Component\Debug\Exception\FatalThrowableError</h4><pre><code>Call to undefined function App\Service\bcmul()
+https://192.168.6.116:4444/create-order
+</code></pre>
+<h4 id="outstanding-npm更换二级域名后反代成功-https-buy-carlzeng-top-4443-导致问题：所有的图片那些指向的链接-没有加端口号，导致图片全部失效-buy链接也没有端口号…"><a href="#outstanding-npm更换二级域名后反代成功-https-buy-carlzeng-top-4443-导致问题：所有的图片那些指向的链接-没有加端口号，导致图片全部失效-buy链接也没有端口号…" class="headerlink" title="[outstanding]npm更换二级域名后反代成功 https://buy.carlzeng.top:4443/ 导致问题：所有的图片那些指向的链接 没有加端口号，导致图片全部失效, buy链接也没有端口号…"></a>[outstanding]npm更换二级域名后反代成功 <a href="https://buy.carlzeng.top:4443/">https://buy.carlzeng.top:4443/</a> 导致问题：所有的图片那些指向的链接 没有加端口号，导致图片全部失效, buy链接也没有端口号…</h4><h4 id="重命名install-lock-重装"><a href="#重命名install-lock-重装" class="headerlink" title="重命名install.lock 重装"></a>重命名install.lock 重装</h4><pre><code>重装后数据重新配置，导致设置的商品等等全部清零；上面问题待测试
+URL自动携带端口，没有解决。
+</code></pre>
+]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>debian</tag>
+        <tag>docker</tag>
+        <tag>NPM</tag>
+        <tag>docker-compose</tag>
+        <tag>自动售货系统</tag>
+        <tag>独角数卡</tag>
+      </tags>
   </entry>
 </search>

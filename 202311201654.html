@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="自动售货系统-独角数卡">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker搭建自动售货系统-独角数卡">
+<meta property="og:url" content="https://www.carlzeng.top/202311201654.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="自动售货系统-独角数卡">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-20T08:54:57.000Z">
+<meta property="article:modified_time" content="2023-11-21T07:30:36.686Z">
+<meta property="article:author" content="Carl Zeng">
+<meta property="article:tag" content="debian">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="NPM">
+<meta property="article:tag" content="docker-compose">
+<meta property="article:tag" content="自动售货系统">
+<meta property="article:tag" content="独角数卡">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/202311201654.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/202311201654.html","path":"202311201654.html","title":"Docker搭建自动售货系统-独角数卡"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Docker搭建自动售货系统-独角数卡 | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 NetSuite 个人随笔</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="全站检索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">106</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">31</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>文章列表<span class="badge">308</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>全站检索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA%E5%A4%B1%E8%B4%A5%E7%9A%84%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95"><span class="nav-number">3.</span> <span class="nav-text">搭建失败的历史记录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE%E9%94%99%E8%AF%AF-could-not-find-driver-SQL-select-1-limit-1"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">数据库配置错误 :could not find driver (SQL: select 1 limit 1)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E9%85%8D%E7%BD%AE%E9%94%99%E8%AF%AF-php-network-getaddresses-getaddrinfo-failed-Name-or-service-not-known"><span class="nav-number">3.0.1.</span> <span class="nav-text">Redis配置错误 :php_network_getaddresses: getaddrinfo failed: Name or service not known</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE%E9%94%99%E8%AF%AF-SQLSTATE-HY000-1045-Access-denied-for-user-%E2%80%98carlZEng%E2%80%98-%E2%80%99172-24-0-5%E2%80%99-using-password-YES-SQL-select-1-limit-1"><span class="nav-number">3.0.2.</span> <span class="nav-text">数据库配置错误 :SQLSTATE[HY000] [1045] Access denied for user ‘carlZEng‘@’172.24.0.5’ (using password: YES) (SQL: select 1 limit 1)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE%E9%94%99%E8%AF%AF-could-not-find-driver-SQL-select-1-limit-1-1"><span class="nav-number">3.0.2.1.</span> <span class="nav-text">数据库配置错误 :could not find driver (SQL: select 1 limit 1)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Please-make-sure-the-PHP-Redis-extension-is-installed-and-enabled"><span class="nav-number">3.0.2.2.</span> <span class="nav-text">Please make sure the PHP Redis extension is installed and enabled.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-error"><span class="nav-number">3.0.2.3.</span> <span class="nav-text">0 error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#outstanding-%E5%88%9B%E5%BB%BA%E8%AE%A2%E5%8D%95%E5%87%BA%E9%94%99-Symfony-Component-Debug-Exception-FatalThrowableError"><span class="nav-number">3.0.2.4.</span> <span class="nav-text">[outstanding]创建订单出错 Symfony\Component\Debug\Exception\FatalThrowableError</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#outstanding-npm%E6%9B%B4%E6%8D%A2%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E5%90%8E%E5%8F%8D%E4%BB%A3%E6%88%90%E5%8A%9F-https-buy-carlzeng-top-4443-%E5%AF%BC%E8%87%B4%E9%97%AE%E9%A2%98%EF%BC%9A%E6%89%80%E6%9C%89%E7%9A%84%E5%9B%BE%E7%89%87%E9%82%A3%E4%BA%9B%E6%8C%87%E5%90%91%E7%9A%84%E9%93%BE%E6%8E%A5-%E6%B2%A1%E6%9C%89%E5%8A%A0%E7%AB%AF%E5%8F%A3%E5%8F%B7%EF%BC%8C%E5%AF%BC%E8%87%B4%E5%9B%BE%E7%89%87%E5%85%A8%E9%83%A8%E5%A4%B1%E6%95%88-buy%E9%93%BE%E6%8E%A5%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%AB%AF%E5%8F%A3%E5%8F%B7%E2%80%A6"><span class="nav-number">3.0.2.5.</span> <span class="nav-text">[outstanding]npm更换二级域名后反代成功 https:&#x2F;&#x2F;buy.carlzeng.top:4443&#x2F; 导致问题：所有的图片那些指向的链接 没有加端口号，导致图片全部失效, buy链接也没有端口号…</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%91%BD%E5%90%8Dinstall-lock-%E9%87%8D%E8%A3%85"><span class="nav-number">3.0.2.6.</span> <span class="nav-text">重命名install.lock 重装</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】本站采取合并文章持续更新的方案, 注重：更新时间与内容拓展应用</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">308</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">106</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311081003.html" rel="bookmark">
+      实测Docker搭建短链接服务YOURLS
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
+      Nginx Proxy Manager修复笔记
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202110151829.html" rel="bookmark">
+      How to learn React-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310261222.html" rel="bookmark">
+      Hexo定制之家宽部署artalk评论
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/" rel="bookmark">
+      
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202304131736.html" rel="bookmark">
+      动态公网IP 和 SRS-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
+      云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201411051808.html" rel="bookmark">
+      嵌入式Linux > 简易安装思路，步骤记录-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+                  Docker搭建自动售货系统-独角数卡
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311152248.html" title="气到下不动班" target="">
+                  气到下不动班
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311141039.html" title="iptables应用" target="">
+                  iptables应用
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+                  实测Docker搭建短链接服务YOURLS
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+                  iPad解锁激活锁苹果平板绕激活锁经验
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+                  Nginx Proxy Manager修复笔记
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+                  Hexo定制之家宽部署artalk评论
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+                  任天堂Switch全部记录
+                  </a>
+                </li>
+        </ul>
+      </div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202311201654.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】本站采取合并文章持续更新的方案, 注重：更新时间与内容拓展应用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Docker搭建自动售货系统-独角数卡 | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Docker搭建自动售货系统-独角数卡
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-21 15:30:36" itemprop="dateModified" datetime="2023-11-21T15:30:36+08:00">2023-11-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/202311201654.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/202311201654.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202311201654.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>11k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>19 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="">
+自动售货系统-独角数卡
+<span id="more"></span>
+
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>自动售货系统-独角数卡<br>尝试按教材和视频搭建失败了（详见章节：搭建失败的历史记录），<br>鼓起勇气，重新选用新的方案：<a target="_blank" rel="noopener" href="https://blog.dov.moe/posts/49102/">https://blog.dov.moe/posts/49102/</a></p>
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd /www/server/panel/data/compose/dujiaoka/template</span><br><span class="line"></span><br><span class="line">mkdir Shop &amp;&amp; cd Shop</span><br><span class="line">mkdir storage uploads</span><br><span class="line">chmod 777 storage uploads</span><br><span class="line">❗注意此处文件夹权限一定要给！</span><br><span class="line"></span><br><span class="line">chmod -R 777 env.conf</span><br><span class="line"># 重要步骤</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3&quot;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  faka:</span><br><span class="line">    image: ghcr.io/apocalypsor/dujiaoka:latest</span><br><span class="line">    # 国内服务器可以用 hkccr.ccs.tencentyun.com/apocalypsor/dujiaoka:latest</span><br><span class="line">    container_name: faka</span><br><span class="line">    environment:</span><br><span class="line">        # - INSTALL=false</span><br><span class="line">        - INSTALL=true</span><br><span class="line">        # - MODIFY=true</span><br><span class="line">    volumes:</span><br><span class="line">      - ./env.conf:/dujiaoka/.env</span><br><span class="line">      - ./uploads:/dujiaoka/public/uploads</span><br><span class="line">      - ./storage:/dujiaoka/storage</span><br><span class="line">      - ./start-hook.sh:/dujiaoka/start-hook.sh</span><br><span class="line">      # 网站图标 32X32 favicon.ico 4kb，默认模版只需第一处，其他模版需要第二处</span><br><span class="line">	  - ./favicon.ico:/dujiaoka/public/favicon.ico:ro</span><br><span class="line">	  - ./favicon.ico:/dujiaoka/public/assets/style/favicon.ico:ro</span><br><span class="line">	  # 默认商品图片 512x512 default.jpg 18kb（网站 LOGO 共享此图，与后台自定义 LOGO 和商品图片不冲突）</span><br><span class="line">	  - ./default.png:/dujiaoka/public/assets/common/images/default.jpg:ro</span><br><span class="line">	  # Luna 主题网站背景 1920x1224 background.png 198kb</span><br><span class="line">	  - ./background.png:/dujiaoka/public/assets/luna/img/background.png:ro</span><br><span class="line">    ports:</span><br><span class="line">      - 4444:80</span><br><span class="line">    restart: always</span><br><span class="line"> </span><br><span class="line">  db:</span><br><span class="line">    image: mariadb:focal</span><br><span class="line">    container_name: faka-data</span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">      - MYSQL_ROOT_PASSWORD=mariadb</span><br><span class="line">      - MYSQL_DATABASE=dujiaoka</span><br><span class="line">      - MYSQL_USER=dujiaoka</span><br><span class="line">      - MYSQL_PASSWORD=dujiaokapassword</span><br><span class="line">    volumes:</span><br><span class="line">      - ./data:/var/lib/mysql</span><br><span class="line"></span><br><span class="line">  redis:</span><br><span class="line">    image: redis:alpine</span><br><span class="line">    container_name: faka-redis</span><br><span class="line">    restart: always</span><br><span class="line">    volumes:</span><br><span class="line">      - ./redis:/data</span><br></pre></td></tr></table></figure>
+
+<p>编辑 .env 文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">APP_NAME=Carl的小店</span><br><span class="line">APP_ENV=local</span><br><span class="line">APP_KEY=base64:hDVkYhfkUjaePiaI1tcBT7G8bh2A8RQxwWIGkq7BO18=</span><br><span class="line">APP_DEBUG=false</span><br><span class="line">APP_URL=http://192.168.6.116:4444</span><br><span class="line">#ADMIN_HTTPS=true</span><br><span class="line"></span><br><span class="line">LOG_CHANNEL=stack</span><br><span class="line"></span><br><span class="line"># 数据库配置</span><br><span class="line">DB_CONNECTION=mysql</span><br><span class="line">DB_HOST=db</span><br><span class="line">DB_PORT=3306</span><br><span class="line">DB_DATABASE=dujiaoka</span><br><span class="line">DB_USERNAME=dujiaoka</span><br><span class="line">DB_PASSWORD=dujiaokapassword</span><br><span class="line"></span><br><span class="line"># redis 配置</span><br><span class="line">REDIS_HOST=redis</span><br><span class="line">REDIS_PASSWORD=</span><br><span class="line">REDIS_PORT=6379</span><br><span class="line"></span><br><span class="line">BROADCAST_DRIVER=log</span><br><span class="line">SESSION_DRIVER=file</span><br><span class="line">SESSION_LIFETIME=120</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 缓存配置</span><br><span class="line"># file 为磁盘文件  redis 为内存级别</span><br><span class="line"># redis 为内存需要安装好 redis 服务端并配置</span><br><span class="line">CACHE_DRIVER=redis</span><br><span class="line"></span><br><span class="line"># 异步消息队列</span><br><span class="line"># sync 为同步  redis 为异步</span><br><span class="line"># 使用 redis 异步需要安装好 redis 服务端并配置</span><br><span class="line">QUEUE_CONNECTION=redis</span><br><span class="line"></span><br><span class="line"># 后台语言</span><br><span class="line">## zh_CN 简体中文</span><br><span class="line">## zh_TW 繁体中文</span><br><span class="line">## en    英文</span><br><span class="line">DUJIAO_ADMIN_LANGUAGE=zh_CN</span><br><span class="line"></span><br><span class="line"># 后台登录地址</span><br><span class="line">ADMIN_ROUTE_PREFIX=/admin</span><br></pre></td></tr></table></figure>
+
+<p>一直无法下载成功……<br>修改使用：stilleshan&#x2F;dujiaoka</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker-compose+如何使用代理提速</span><br><span class="line">		https://neucrack.com/p/286</span><br><span class="line">	workaournd：手动让OpenClash不停在线（不在线就重新刷新取获取最新节点信息）</span><br></pre></td></tr></table></figure>
+
+<p>终于下载成功后，启动失败</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: error mounting &quot;/www/server/panel/data/compose/dujiaoka/template/Shop/favicon.ico&quot; to rootfs at &quot;/dujiaoka/public/favicon.ico&quot;: mount /www/server/panel/data/compose/dujiaoka/template/Shop/favicon.ico:/dujiaoka/public/favicon.ico (via /proc/self/fd/6), flags: 0x5001: not a directory: unknown: Are you trying to mount a directory onto a file (or vice-versa)? Check if the specified host path exists and is the expected type</span><br></pre></td></tr></table></figure>
+<p>注释掉那几个自定义的文件映射，就好了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">faka        | The environment file is invalid!</span><br><span class="line">faka        | Failed to parse dotenv file due to unexpected whitespace. Failed at [Carl Shop].</span><br></pre></td></tr></table></figure>
+<p>返回修改把前后加上引号。</p>
+<p>修改了端口映射出4444后，错误：<br>500<br>Server Error</p>
+<p>❗注意环境变量如果写的不对可能导致 500，可以开 APP_DEBUG&#x3D;true 看看具体是哪里写错了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   throw new RuntimeException(&#x27;The only supported ciphers are AES-128-CBC and AES-256-CBC with the correct key lengths.&#x27;);</span><br><span class="line"></span><br><span class="line">解决办法：修改APP_KEY=base64:hDVkYhfkUjaePiaI1tcBT7G8bh2A8RQxwWIGkq7BO18=</span><br><span class="line">--------------</span><br><span class="line"></span><br><span class="line">file_put_contents(/dujiaoka/.env): failed to open stream: Permission denied</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>本地访问成功：<a target="_blank" rel="noopener" href="http://192.168.6.116:4444/">http://192.168.6.116:4444</a></p>
+<hr>
+<h1 id="搭建失败的历史记录"><a href="#搭建失败的历史记录" class="headerlink" title="搭建失败的历史记录"></a>搭建失败的历史记录</h1><p>独角数卡<br>开源式站长自动化售货解决方案、高效、稳定、快速！</p>
+<p>徒手搭建独角数发卡网站 经营自己的小店！ - 六月 26, 2023<br><a target="_blank" rel="noopener" href="https://kejilion.blogspot.com/2023/06/blog-post_26.html">https://kejilion.blogspot.com/2023/06/blog-post_26.html</a></p>
+<p>配置docker-compose<br><a target="_blank" rel="noopener" href="https://github.com/kejilion/docker/blob/main/LNMP-docker-compose.yml">https://github.com/kejilion/docker/blob/main/LNMP-docker-compose.yml</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;3.8&#x27;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  nginx:</span><br><span class="line">    image: nginx:1.22</span><br><span class="line">    container_name: nginx</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - 882:80</span><br><span class="line">      - 4444:443      </span><br><span class="line">    volumes:</span><br><span class="line">      - ./nginx.conf:/etc/nginx/nginx.conf</span><br><span class="line">      - ./certs:/etc/nginx/certs      </span><br><span class="line">      - ./html:/var/www/html</span><br><span class="line"></span><br><span class="line">  php:</span><br><span class="line">    image: php:7.4.33-fpm</span><br><span class="line">    container_name: php</span><br><span class="line">    restart: always</span><br><span class="line">    volumes:</span><br><span class="line">      - ./html:/var/www/html</span><br><span class="line"></span><br><span class="line">  mysql:</span><br><span class="line">    image: mysql:5.7.42</span><br><span class="line">    container_name: mysql</span><br><span class="line">    restart: always</span><br><span class="line">    volumes:</span><br><span class="line">      - ./mysql:/var/lib/mysql</span><br><span class="line">    environment:</span><br><span class="line">      - MYSQL_ROOT_PASSWORD=webroot</span><br><span class="line">      - MYSQL_DATABASE=web</span><br><span class="line">      - MYSQL_USER=carlZeng</span><br><span class="line">      - MYSQL_PASSWORD=carlZengYYDS</span><br><span class="line"></span><br><span class="line">  redis:</span><br><span class="line">    image: redis:latest</span><br><span class="line">    container_name: redis</span><br><span class="line">    restart: always</span><br><span class="line">    volumes:</span><br><span class="line">      - ./redis:/data</span><br></pre></td></tr></table></figure>
+<p>修改了独角数卡的端口</p>
+<p>申请证书, 下载证书;</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">直接去NPM中下载证书解压缩后重命名放到debian的目录：</span><br><span class="line">/home/web/certs</span><br><span class="line">    key.pem</span><br><span class="line">    cert.pem</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>继续配置nginx.conf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">events &#123;</span><br><span class="line">    worker_connections 1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line"></span><br><span class="line">    include       /etc/nginx/mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line">    </span><br><span class="line">    client_max_body_size 1000m;  </span><br><span class="line">    #上传限制参数1G以内文件可上传</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # HTTP server</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        server_name shop.carlzeng.top;</span><br><span class="line"></span><br><span class="line">        # Redirect all HTTP requests to HTTPS</span><br><span class="line">        return 301 https://$host$request_uri;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # HTTPS server</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 443 ssl http2;</span><br><span class="line">        server_name shop.carlzeng.top;</span><br><span class="line"></span><br><span class="line">        # http2 on;</span><br><span class="line">            </span><br><span class="line">        ssl_certificate /etc/nginx/certs/cert.pem;</span><br><span class="line">        ssl_certificate_key /etc/nginx/certs/key.pem;</span><br><span class="line"></span><br><span class="line">        root /var/www/html/dujiaoka/public/;</span><br><span class="line">        index index.php;</span><br><span class="line"></span><br><span class="line">        try_files $uri $uri/ /index.php?$query_string;    </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        # PHP-FPM configuration</span><br><span class="line">        location ~ \.php$ &#123;</span><br><span class="line">            fastcgi_pass php:9000;</span><br><span class="line">            fastcgi_index index.php;</span><br><span class="line">            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">            include fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>cd &#x2F;home&#x2F;web&#x2F;html &amp;&amp; wget <a target="_blank" rel="noopener" href="https://ghproxy.com/https://github.com/assimon/dujiaoka/releases/download/2.0.6/2.0.6-antibody.tar.gz">https://ghproxy.com/https://github.com/assimon/dujiaoka/releases/download/2.0.6/2.0.6-antibody.tar.gz</a> &amp;&amp; apt install -y tar &amp;&amp; tar -zxvf 2.0.6-antibody.tar.gz &amp;&amp; rm 2.0.6-antibody.tar.gz</p>
+<p>安装PHP扩展</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">docker exec php apt update &amp;&amp; docker exec php apt install -y libmariadb-dev-compat libmariadb-dev libzip-dev libmagickwand-dev imagemagick</span><br><span class="line"></span><br><span class="line">卡死在这一步，分解如下：</span><br><span class="line">    docker exec php apt install -y libmariadb-dev-compat</span><br><span class="line">    docker exec php apt install -y libmariadb-dev</span><br><span class="line">    docker exec php apt install -y libzip-dev</span><br><span class="line">    docker exec php apt install -y libmagickwand-dev</span><br><span class="line">        libmagickwand-dev is already the newest version (8:6.9.11.60+dfsg-1.3+deb11u1).</span><br><span class="line">    docker exec php apt install -y imagemagick</span><br><span class="line">        Build process completed successfully</span><br><span class="line">        Installing &#x27;/usr/local/lib/php/extensions/no-debug-non-zts-20190902/redis.so&#x27;</span><br><span class="line">        install ok: channel://pecl.php.net/redis-6.0.2</span><br><span class="line">        configuration option &quot;php_ini&quot; is not set to php.ini location</span><br><span class="line">        You should add &quot;extension=redis.so&quot; to php.ini</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker exec php docker-php-ext-install pdo_mysql zip bcmath gd intl opcache &amp;&amp; docker exec php pecl install redis &amp;&amp; docker exec php sh -c &#x27;echo &quot;extension=redis.so&quot; &gt; /usr/local/etc/php/conf.d/docker-php-ext-redis.ini&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>如果登录时报错再使用该命令，解除HTTPS限制</p>
+<p>sed -i ‘s&#x2F;ADMIN_HTTPS&#x3D;false&#x2F;ADMIN_HTTPS&#x3D;true&#x2F;g’ &#x2F;home&#x2F;web&#x2F;html&#x2F;dujiaoka&#x2F;.env</p>
+<p>错误以及解决办法<br>不同时期再网页页面，点击安装后出现的错误</p>
+<h4 id="数据库配置错误-could-not-find-driver-SQL-select-1-limit-1"><a href="#数据库配置错误-could-not-find-driver-SQL-select-1-limit-1" class="headerlink" title="数据库配置错误 :could not find driver (SQL: select 1 limit 1)"></a>数据库配置错误 :could not find driver (SQL: select 1 limit 1)</h4><pre><code>解决：修改了nginx.conf，确保80和443端口（docker中的端口占用，默认即可）
+确认了php docker中的PHP扩展，确保所有插件都安装成功
+</code></pre>
+<h3 id="Redis配置错误-php-network-getaddresses-getaddrinfo-failed-Name-or-service-not-known"><a href="#Redis配置错误-php-network-getaddresses-getaddrinfo-failed-Name-or-service-not-known" class="headerlink" title="Redis配置错误 :php_network_getaddresses: getaddrinfo failed: Name or service not known"></a>Redis配置错误 :php_network_getaddresses: getaddrinfo failed: Name or service not known</h3><pre><code>解决：sed -i &#39;s/ADMIN_HTTPS=false/ADMIN_HTTPS=true/g&#39; /home/web/html/dujiaoka/.env
+核查了php docker中 安装PHP拓展部分于redis相关的；
+docker-php-ext-redis.ini（已包含内容：extension=redis.so）
+
+原来是redis 写成了radis，纠正后重试
+</code></pre>
+<h3 id="数据库配置错误-SQLSTATE-HY000-1045-Access-denied-for-user-‘carlZEng‘-’172-24-0-5’-using-password-YES-SQL-select-1-limit-1"><a href="#数据库配置错误-SQLSTATE-HY000-1045-Access-denied-for-user-‘carlZEng‘-’172-24-0-5’-using-password-YES-SQL-select-1-limit-1" class="headerlink" title="数据库配置错误 :SQLSTATE[HY000] [1045] Access denied for user ‘carlZEng‘@’172.24.0.5’ (using password: YES) (SQL: select 1 limit 1)"></a>数据库配置错误 :SQLSTATE[HY000] [1045] Access denied for user ‘carlZEng‘@’172.24.0.5’ (using password: YES) (SQL: select 1 limit 1)</h3><pre><code>解决：MySQL用户名填写错误，纠正后重试
+</code></pre>
+<h4 id="数据库配置错误-could-not-find-driver-SQL-select-1-limit-1-1"><a href="#数据库配置错误-could-not-find-driver-SQL-select-1-limit-1-1" class="headerlink" title="数据库配置错误 :could not find driver (SQL: select 1 limit 1)"></a>数据库配置错误 :could not find driver (SQL: select 1 limit 1)</h4><pre><code>解决：
+检测：docker exec -it php php -i |grep mysqlnd  排查是否启用了mysql驱动
+    mysqlnd
+    mysqlnd =&gt; enabled
+    Version =&gt; mysqlnd 7.4.3
+
+docker exec -it php /bin/bash
+docker-php-ext-install pdo pdo_mysql
+docker-compose restart php
+
+这个好像没有被永久保存住，这导致每次docker-compose restart php都会出现这个错误,
+按照上面解决好以后，紧接着就是下面这个Redis错误
+
+这次是修正后，最后是通过docker restart php 解决了错误
+测试 docker-compose restart 会不会把数据在继续破坏了，重新拉取？
+    也是正常的！ 那下一次怎么办？继续如此修复即可
+</code></pre>
+<h4 id="Please-make-sure-the-PHP-Redis-extension-is-installed-and-enabled"><a href="#Please-make-sure-the-PHP-Redis-extension-is-installed-and-enabled" class="headerlink" title="Please make sure the PHP Redis extension is installed and enabled."></a>Please make sure the PHP Redis extension is installed and enabled.</h4><pre><code>docker exec -it php /bin/bash
+pecl install redis
+    checking for igbinary includes... configure: error: Cannot find igbinary.h
+        ERROR: `/tmp/pear/temp/redis/configure --with-php-config=/usr/local/bin/php-config --enable-redis-igbinary=yes --enable-redis-lzf=yes --enable-redis-zstd=yes --enable-redis-msgpack=yes --enable-redis-lz4=yes --with-liblz4&#39; failed
+Build process completed successfully
+Installing &#39;/usr/local/lib/php/extensions/no-debug-non-zts-20190902/redis.so&#39;
+install ok: channel://pecl.php.net/redis-6.0.2
+configuration option &quot;php_ini&quot; is not set to php.ini location
+You should add &quot;extension=redis.so&quot; to php.ini
+
+解决：docker exec php docker-php-ext-install pdo_mysql zip bcmath gd intl opcache &amp;&amp; docker exec php pecl install redis &amp;&amp; docker exec php sh -c &#39;echo &quot;extension=redis.so&quot; &gt; /usr/local/etc/php/conf.d/docker-php-ext-redis.ini&#39;
+解决分解，并逐一确认执行成功
+    docker exec -it php /bin/bash
+        docker-php-ext-install pdo_mysql zip bcmath gd intl opcache
+        pecl install redis
+        sh -c &#39;echo &quot;extension=redis.so&quot; &gt; /usr/local/etc/php/conf.d/docker-php-ext-redis.ini&#39;
+在 bash 下，一一执行，检查结果
+
+最后，需要docker-compose restart
+之前都是重启php容器docker restart php 无法解决问题。需要的是：docker-compose restart
+</code></pre>
+<h4 id="0-error"><a href="#0-error" class="headerlink" title="0 error"></a>0 error</h4><pre><code>安装成功后 redirect https://192.168.6.116:4444/admin/auth/login
+# 后台登录出现0err或者其他登录异常问题，大概率是开启了https而后台没有开启，把下面的false改为true即可
+ADMIN_HTTPS=false
+解决：sed -i &#39;s/ADMIN_HTTPS=false/ADMIN_HTTPS=true/g&#39; /home/web/html/dujiaoka/.env
+
+成功了，本地局域网可访问。
+下一步是为何无法NPM反代https://192.168.6.116:4444
+</code></pre>
+<h4 id="outstanding-创建订单出错-Symfony-Component-Debug-Exception-FatalThrowableError"><a href="#outstanding-创建订单出错-Symfony-Component-Debug-Exception-FatalThrowableError" class="headerlink" title="[outstanding]创建订单出错 Symfony\Component\Debug\Exception\FatalThrowableError"></a>[outstanding]创建订单出错 Symfony\Component\Debug\Exception\FatalThrowableError</h4><pre><code>Call to undefined function App\Service\bcmul()
+https://192.168.6.116:4444/create-order
+</code></pre>
+<h4 id="outstanding-npm更换二级域名后反代成功-https-buy-carlzeng-top-4443-导致问题：所有的图片那些指向的链接-没有加端口号，导致图片全部失效-buy链接也没有端口号…"><a href="#outstanding-npm更换二级域名后反代成功-https-buy-carlzeng-top-4443-导致问题：所有的图片那些指向的链接-没有加端口号，导致图片全部失效-buy链接也没有端口号…" class="headerlink" title="[outstanding]npm更换二级域名后反代成功 https://buy.carlzeng.top:4443/ 导致问题：所有的图片那些指向的链接 没有加端口号，导致图片全部失效, buy链接也没有端口号…"></a>[outstanding]npm更换二级域名后反代成功 <a target="_blank" rel="noopener" href="https://buy.carlzeng.top:4443/">https://buy.carlzeng.top:4443/</a> 导致问题：所有的图片那些指向的链接 没有加端口号，导致图片全部失效, buy链接也没有端口号…</h4><h4 id="重命名install-lock-重装"><a href="#重命名install-lock-重装" class="headerlink" title="重命名install.lock 重装"></a>重命名install.lock 重装</h4><pre><code>重装后数据重新配置，导致设置的商品等等全部清零；上面问题待测试
+URL自动携带端口，没有解决。
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Carl Zeng
+    <a href='https://www.carlzeng.top/202311201654.html'> 《Docker搭建自动售货系统-独角数卡》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.carlzeng.top/202311201654.html" title="Docker搭建自动售货系统-独角数卡">https://www.carlzeng.top/202311201654.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+  </li>
+</ul>
+</div>
+
+          <div class="post-nav">
+<div class="post-nav-item">
+    <div class="pjax">
+    </div>
+</div>
+
+<div class="post-nav-item">
+<!-- recent posts -->
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="pjax recent-posts-list">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+              Docker搭建自动售货系统-独角数卡
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311152248.html" title="气到下不动班" target="">
+              气到下不动班
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311141039.html" title="iptables应用" target="">
+              iptables应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+              实测Docker搭建短链接服务YOURLS
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+              iPad解锁激活锁苹果平板绕激活锁经验
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+              Nginx Proxy Manager修复笔记
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+              Hexo定制之家宽部署artalk评论
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+              任天堂Switch全部记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310202241.html" title="安卓手机root与小黄鸟抓包" target="">
+              安卓手机root与小黄鸟抓包
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
+              Debian初体验之基础设置
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310132055.html" title="海康萤石摄像头C3HC学习" target="">
+              海康萤石摄像头C3HC学习
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310131750.html" title="汽车保养之三滤和清洗节气门" target="">
+              汽车保养之三滤和清洗节气门
+              </a>
+            </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
+<div class="followme">
+  <span>若文章为您解决燃眉之急或是带来些许明朗,不妨打赏</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2023-11-16 00:36:58" itemprop="dateModified" datetime="2023-11-16T00:36:58+08:00">2023-11-16</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/debian/" rel="tag"># debian</a>
+              <a href="/tags/docker/" rel="tag"># docker</a>
+              <a href="/tags/NPM/" rel="tag"># NPM</a>
+              <a href="/tags/docker-compose/" rel="tag"># docker-compose</a>
+              <a href="/tags/%E8%87%AA%E5%8A%A8%E5%94%AE%E8%B4%A7%E7%B3%BB%E7%BB%9F/" rel="tag"># 自动售货系统</a>
+              <a href="/tags/%E7%8B%AC%E8%A7%92%E6%95%B0%E5%8D%A1/" rel="tag"># 独角数卡</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202311152248.html" rel="prev" title="气到下不动班">
+                  <i class="fa fa-angle-left"></i> 气到下不动班
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">站点总字数 983k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">站点阅读时长 29:47</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+  <script type="text/javascript">
+  var sc_project=12934590;
+  var sc_invisible=0;
+  var sc_security="122fb52f";
+  var scJsHost = "https://";
+  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="View My Stats"
+  href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+     | <a href='https://www.carlzeng.top/rss2.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
+  </div>
+
+<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-56K8X7SRX4"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-56K8X7SRX4');
+	</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://unpkg.com/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/202311201654.html"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/202311201654.html","pageTitle":"Docker搭建自动售货系统-独角数卡"}</script>
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>
