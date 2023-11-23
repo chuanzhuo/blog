@@ -20,16 +20,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="URL缩短服务。可以让你在自己的服务器上运行的URL缩短服务 URL简化, 还可以完全控制自己的数据，包括统计、分析、还可以安装一些插件。">
+    <meta name="description" content="URL缩短服务。可以让你在自己的服务器上运行的URL缩短服务URL简化可以完全控制自己的数据，包括简单的统计、分析和许多插件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实测Docker搭建短链接服务YOURLS">
 <meta property="og:url" content="https://www.carlzeng.top/202311081003.html">
 <meta property="og:site_name" content="随笔 Carl Notes">
-<meta property="og:description" content="URL缩短服务。可以让你在自己的服务器上运行的URL缩短服务 URL简化, 还可以完全控制自己的数据，包括统计、分析、还可以安装一些插件。">
+<meta property="og:description" content="URL缩短服务。可以让你在自己的服务器上运行的URL缩短服务URL简化可以完全控制自己的数据，包括简单的统计、分析和许多插件">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/da92cf63-633f-4527-800e-0c6360c55eac/hQ1AvljDYWbfCVIJtDV8YmhOlX9tUiGxUde88Fthy09LJZmfcf5yPozqCw/deep/0/image.png">
 <meta property="article:published_time" content="2023-11-08T02:03:29.000Z">
-<meta property="article:modified_time" content="2023-11-20T08:46:07.189Z">
+<meta property="article:modified_time" content="2023-11-23T02:47:18.450Z">
 <meta property="article:author" content="Carl Zeng">
 <meta property="article:tag" content="debian">
 <meta property="article:tag" content="docker">
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E6%88%90%E7%BD%91%E5%9D%80%E7%BC%A9%E7%9F%AD-url"><span class="nav-number">1.1.</span> <span class="nav-text">现成网址缩短 url</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E5%8F%8A%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0"><span class="nav-number">2.</span> <span class="nav-text">实现方法及过程笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">图文教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B-%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.2.</span> <span class="nav-text">过程+遇到的问题及解决方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">灵感来源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-yours-mysql%E4%B8%8D%E6%96%AD%E9%87%8D%E5%90%AF%E7%9A%84"><span class="nav-number">4.</span> <span class="nav-text">Docker yours_mysql不断重启的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker%E5%AE%89%E8%A3%85X-UI"><span class="nav-number">5.</span> <span class="nav-text">Docker安装X-UI</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E6%88%90%E7%BD%91%E5%9D%80%E7%BC%A9%E7%9F%AD-url"><span class="nav-number">1.1.</span> <span class="nav-text">现成网址缩短 url</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E5%8F%8A%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0"><span class="nav-number">2.</span> <span class="nav-text">实现方法及过程笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">图文教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B-%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.2.</span> <span class="nav-text">过程+遇到的问题及解决方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">灵感来源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-yours-mysql%E4%B8%8D%E6%96%AD%E9%87%8D%E5%90%AF%E7%9A%84"><span class="nav-number">3.1.</span> <span class="nav-text">Docker yours_mysql不断重启的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E4%B8%80%E6%9D%A1%E9%93%BE%E6%8E%A5%E5%AF%B9%E5%BA%94%E5%A4%9A%E4%B8%AA%E7%9F%AD%E9%93%BE%E6%8E%A5"><span class="nav-number">3.2.</span> <span class="nav-text">同一条链接对应多个短链接</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -225,13 +225,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310081055.html" rel="bookmark">
-      转载-收藏夹
+      <a class="popular-posts-link" href="/200812081403.html" rel="bookmark">
+      关于netsuite创建组合按钮的方法,合并按钮,netsuite API-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310171918.html" rel="bookmark">
-      Debian初体验之基础设置
+      <a class="popular-posts-link" href="/200810011925.html" rel="bookmark">
+      jseclipse_plugin_040207.zip-CarlZeng
       </a>
     </li>
   </ul>
@@ -334,7 +334,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-20 16:46:07" itemprop="dateModified" datetime="2023-11-20T16:46:07+08:00">2023-11-20</time>
+      <time title="修改时间：2023-11-23 10:47:18" itemprop="dateModified" datetime="2023-11-23T10:47:18+08:00">2023-11-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -375,14 +375,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>6.7k</span>
+      <span>7.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>12 分钟</span>
+      <span>14 分钟</span>
     </span>
 </div>
 
@@ -393,8 +393,8 @@
     
     
     <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://www.evernote.com/shard/s122/sh/da92cf63-633f-4527-800e-0c6360c55eac/hQ1AvljDYWbfCVIJtDV8YmhOlX9tUiGxUde88Fthy09LJZmfcf5yPozqCw/deep/0/image.png">
-URL缩短服务。可以让你在自己的服务器上运行的URL缩短服务
-URL简化, 还可以完全控制自己的数据，包括统计、分析、还可以安装一些插件。
+
+<p>URL缩短服务。可以让你在自己的服务器上运行的URL缩短服务<br>URL简化可以完全控制自己的数据，包括简单的统计、分析和许多<a target="_blank" rel="noopener" href="https://github.com/YOURLS/awesome#plugins">插件</a></p>
 <span id="more"></span>
 
 <h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>URL缩短服务。可以让你在自己的服务器上运行的URL缩短服务<br>URL简化, 还可以完全控制自己的数据，包括统计、分析、还可以安装一些插件。<br>发布clash的url链接，进行管理 【done yourls setup】</p>
@@ -404,9 +404,7 @@ URL简化, 还可以完全控制自己的数据，包括统计、分析、还可
 <p><a target="_blank" rel="noopener" href="https://www.ifreesite.com/shorturl/">縮短網址產生器</a><br>      <a target="_blank" rel="noopener" href="https://tinyurl.com/yurgh2fm">https://tinyurl.com/yurgh2fm</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.dwz.lc/">老牌免费短网址工具</a><br>      <a target="_blank" rel="noopener" href="http://s8u.cn/HIG7o">http://s8u.cn/HIG7o</a><br>      优美，但无法接受：先跳转到一个链接以后，在恢复原始网址。</p>
 <p>转变思路：<br>      还是用自己的域名做Nname更短，<br>自己搭建一个短网址服务；短链接服务</p>
-<h1 id="实现方法及过程笔记"><a href="#实现方法及过程笔记" class="headerlink" title="实现方法及过程笔记"></a>实现方法及过程笔记</h1><h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><pre><code>https://iwanlab.com/docker-compose-install-yourls/
-https://www.hellosanta.com.tw/knowledge/category-38/post-219
-</code></pre>
+<h1 id="实现方法及过程笔记"><a href="#实现方法及过程笔记" class="headerlink" title="实现方法及过程笔记"></a>实现方法及过程笔记</h1><h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><a target="_blank" rel="noopener" href="https://iwanlab.com/docker-compose-install-yourls/">【好玩儿的Docker项目】10分钟搭建一个自己的短链接服务——YOURLS</a><br><a target="_blank" rel="noopener" href="https://www.hellosanta.com.tw/knowledge/category-38/post-219">【伺服器】如何使用Docker自架私有短網址YOURLS服務</a></p>
 <h2 id="过程-遇到的问题及解决方案"><a href="#过程-遇到的问题及解决方案" class="headerlink" title="过程+遇到的问题及解决方案"></a>过程+遇到的问题及解决方案</h2><p>bt 中新建docker-compose模版，<br>          docker-compose -f yours.yml up<br>          然后防火墙开放8200</p>
 <pre><code>      添加了一条防火墙规则后，无法连接bt面板了；
 </code></pre>
@@ -419,7 +417,7 @@ https://www.hellosanta.com.tw/knowledge/category-38/post-219
 <p>成功了，原来是sql的 docker-compose，映射，写错了，<br>          - .&#x2F;mysql&#x2F;conf&#x2F;:&#x2F;etc&#x2F;mysql&#x2F;conf.d<br>          应该是：<br>          - .&#x2F;mysql&#x2F;conf&#x2F;:&#x2F;etc&#x2F;mysql&#x2F;conf</p>
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><div class="tabs" id="来源"><ul class="nav-tabs"><li class="tab active"><a href="#来源-1">来源 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="来源-1"><p>Yourls项目地址：<a target="_blank" rel="noopener" href="https://github.com/YOURLS/YOURLS">https://github.com/YOURLS/YOURLS</a><br>旧版本docker说明（实践后无法使用）：<a target="_blank" rel="noopener" href="https://hub.docker.com/_/yourls?tab=description">https://hub.docker.com/_/yourls?tab=description</a><br><a target="_blank" rel="noopener" href="https://iwanlab.com/docker-compose-install-yourls/">https://iwanlab.com/docker-compose-install-yourls/</a><br><a target="_blank" rel="noopener" href="https://blog.laoda.de/archives/yourls-building/">https://blog.laoda.de/archives/yourls-building/</a><br><a target="_blank" rel="noopener" href="https://www.hellosanta.com.tw/knowledge/category-38/post-219">https://www.hellosanta.com.tw/knowledge/category-38/post-219</a></p></div></div></div>
 
-<h1 id="Docker-yours-mysql不断重启的"><a href="#Docker-yours-mysql不断重启的" class="headerlink" title="Docker yours_mysql不断重启的"></a>Docker yours_mysql不断重启的</h1><p>yours_mysql，查看日志：</p>
+<h2 id="Docker-yours-mysql不断重启的"><a href="#Docker-yours-mysql不断重启的" class="headerlink" title="Docker yours_mysql不断重启的"></a>Docker yours_mysql不断重启的</h2><p>yours_mysql，查看日志：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">2023-11-19 11:58:34+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 5.7.44-1.el7 started.</span><br><span class="line">2023-11-19 11:58:34+00:00 [Note] [Entrypoint]: Switching to dedicated user &#x27;mysql&#x27;</span><br><span class="line">2023-11-19 11:58:34+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 5.7.44-1.el7 started.</span><br><span class="line">2023-11-19 11:58:34+00:00 [Note] [Entrypoint]: Initializing database files</span><br><span class="line">2023-11-19T11:58:34.668526Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).</span><br><span class="line">2023-11-19T11:58:34.671001Z 0 [ERROR] --initialize specified but the data directory has files in it. Aborting.</span><br><span class="line">2023-11-19T11:58:34.671049Z 0 [ERROR] Aborting</span><br></pre></td></tr></table></figure>
 
 <p>安装目录：cd &#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;yourls_service&#x2F;template</p>
@@ -434,14 +432,40 @@ https://www.hellosanta.com.tw/knowledge/category-38/post-219
 <li>cd volumes&#x2F;</li>
 <li>ls<br>  backingFsBlockDev  metadata.db<br>  没有发现视频中说的额外的volume，也就无从删除</li>
 </ol>
-<p>20231120 无法解决；直接更换docker的映射目录，全部重装。数据丢失（包含缩短网址的数据和访问统计数据）。<br>这样配置的端地址的列表，要支持导出（或备份）；在特殊情况下，直接全部重来（更省时）<br>TODO：待更新</p>
-<hr>
-<h1 id="Docker安装X-UI"><a href="#Docker安装X-UI" class="headerlink" title="Docker安装X-UI"></a>Docker安装X-UI</h1><p>docker 搭建 支持单端口多用户、多协议的 xray 面板，究极缝合怪</p>
-<p>使用FranzKafkaYu&#x2F;x-ui版本，仅需要讲上述镜像修改为 enwaiax&#x2F;x-ui:alpha-zh<br>由于telegram bot暂时没用，切换回第一个默认<a target="_blank" rel="noopener" href="https://github.com/vaxilu/x-ui">https://github.com/vaxilu/x-ui</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3.9&quot;</span><br><span class="line">services:</span><br><span class="line">  xui:</span><br><span class="line">    image: enwaiax/x-ui</span><br><span class="line">    container_name: xui</span><br><span class="line">    volumes:</span><br><span class="line">      - $PWD/db/:/etc/x-ui/</span><br><span class="line">      - $PWD/cert/:/root/cert/</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    network_mode: host</span><br></pre></td></tr></table></figure>
-<p>新建目录，并把上面的配置放到x-ui.yaml中<br>root@Debian11:&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;x-ui&#x2F;template# docker-compose -f x-ui.yaml up</p>
+<p>20231120 无法解决[已解决]；直接更换docker的映射目录，全部重装。数据丢失（包含缩短网址的数据和访问统计数据）。<br>这样配置的端地址的列表，要支持导出（或备份）；在特殊情况下，直接全部重来（更省时）</p>
+<p>完成的方案是：使用<a target="_blank" rel="noopener" href="https://github.com/GautamGupta/YOURLS-Import-Export">GautamGupta&#x2F;YOURLS-Import-Export</a>插件即可轻松实现导出和导入功能<br>详细的安装步骤为</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/GautamGupta/YOURLS-Import-Export/zipball/master">Download the zip</a>.</li>
+<li>Extract the zip.</li>
+<li>Put the YOURLS-Import-Export folder in the user&#x2F;plugins directory.</li>
+<li>Activate the plugin.</li>
+<li>Restart the docker<br>  docker-compose -f ‘yourls_service.yaml’ restart</li>
+</ol>
+<p>感受：非常好用，比如导出了一个当前的所有链接yourls_export.csv</p>
+<p>衍生阅读：<a target="_blank" rel="noopener" href="https://github.com/YOURLS/awesome#plugins">https://github.com/YOURLS/awesome#plugins</a><br>这个Plugins列表是按英文字母的顺序分类排列的，具体还是在页面上搜索文本来查找所需的功能</p>
+<h2 id="同一条链接对应多个短链接"><a href="#同一条链接对应多个短链接" class="headerlink" title="同一条链接对应多个短链接"></a>同一条链接对应多个短链接</h2><p>同样是在刚刚修改语言的地方…&#x2F;yourls_data&#x2F;user&#x2F;config.php<br>下面一行，把这个改成true就可以了~ （正常应该改成false才对的，感觉是个BUG &#x3D; &#x3D;）</p>
+<img class="lozad" data-src=https://img.laoda.de/i/2022/05/08/ls484i-0.webp>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/** Allow multiple short URLs for a same long URL</span><br><span class="line"> ** Set to true to have only one pair of shortURL/longURL (default YOURLS behavior)</span><br><span class="line"> ** Set to false to allow multiple short URLs pointing to the same long URL (bit.ly behavior) */</span><br><span class="line">define( &#x27;YOURLS_UNIQUE_URLS&#x27;, getenv(&#x27;YOURLS_UNIQUE_URLS&#x27;) === true ?: filter_var(getenv(&#x27;YOURLS_UNIQUE_URLS&#x27;), FILTER_VALIDATE_BOOLEAN) );</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+记得重启容器：
+docker-compose -f 'yourls_service.yaml' restart
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">## 新增其他功能列表</span><br><span class="line">[YOURLS Password Protection](https://github.com/MatthewC/yourls-password-protection)</span><br><span class="line">  https://c.carlzeng.top:3/yourls</span><br><span class="line"></span><br><span class="line">## Next TODO</span><br><span class="line">功能：分析用户的具体属性信息，比如IP地址，GEO地址，类似于statcounter.com那样的详细列表</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------</span><br><span class="line"># Docker安装X-UI</span><br><span class="line"></span><br><span class="line">docker 搭建 支持单端口多用户、多协议的 xray 面板，究极缝合怪</span><br><span class="line"></span><br><span class="line">使用FranzKafkaYu/x-ui版本，仅需要讲上述镜像修改为 enwaiax/x-ui:alpha-zh</span><br><span class="line">由于telegram bot暂时没用，切换回第一个默认https://github.com/vaxilu/x-ui</span><br></pre></td></tr></table></figure>
+version: "3.9"
+services:
+  xui:
+    image: enwaiax/x-ui
+    container_name: xui
+    volumes:
+      - $PWD/db/:/etc/x-ui/
+      - $PWD/cert/:/root/cert/
+    restart: unless-stopped
+    network_mode: host
+```
+新建目录，并把上面的配置放到x-ui.yaml中
+root@Debian11:/www/server/panel/data/compose/x-ui/template# docker-compose -f x-ui.yaml up
+
+
 <p><a target="_blank" rel="noopener" href="https://www.amadues.link/archives/dockerda-jian-jie-dian-vless-ws-tls-web">https://www.amadues.link/archives/dockerda-jian-jie-dian-vless-ws-tls-web</a><br>docker-compose.yaml的方案follow：<a target="_blank" rel="noopener" href="https://hostloc.com/thread-1108468-1-1.html">https://hostloc.com/thread-1108468-1-1.html</a><br>配置的方案follow：<a target="_blank" rel="noopener" href="https://iwanlab.com/npm-xui/">https://iwanlab.com/npm-xui/</a><br>相关的视频：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=V3nsDicSMBc">https://www.youtube.com/watch?v=V3nsDicSMBc</a></p>
-<p>待测试：vless:&#x2F;&#x2F;<a href="mailto:&#x33;&#x39;&#102;&#100;&#x65;&#50;&#100;&#50;&#45;&#x63;&#x38;&#56;&#99;&#x2d;&#52;&#98;&#x65;&#x61;&#45;&#100;&#52;&#57;&#x31;&#x2d;&#102;&#98;&#54;&#x39;&#57;&#48;&#x64;&#x34;&#x39;&#x37;&#52;&#x31;&#x40;&#118;&#109;&#101;&#x73;&#115;&#46;&#x63;&#x61;&#x72;&#108;&#122;&#x65;&#x6e;&#103;&#x2e;&#x74;&#111;&#x70;">&#x33;&#x39;&#102;&#100;&#x65;&#50;&#100;&#50;&#45;&#x63;&#x38;&#56;&#99;&#x2d;&#52;&#98;&#x65;&#x61;&#45;&#100;&#52;&#57;&#x31;&#x2d;&#102;&#98;&#54;&#x39;&#57;&#48;&#x64;&#x34;&#x39;&#x37;&#52;&#x31;&#x40;&#118;&#109;&#101;&#x73;&#115;&#46;&#x63;&#x61;&#x72;&#108;&#122;&#x65;&#x6e;&#103;&#x2e;&#x74;&#111;&#x70;</a>:17866?type&#x3D;ws&amp;security&#x3D;none&amp;path&#x3D;%2Fgugu#gugugee</p>
+<p>待测试：vless:&#x2F;&#x2F;<a href="mailto:&#x33;&#x39;&#102;&#x64;&#x65;&#x32;&#x64;&#x32;&#45;&#99;&#x38;&#56;&#x63;&#45;&#52;&#98;&#101;&#x61;&#x2d;&#100;&#52;&#x39;&#49;&#45;&#x66;&#x62;&#54;&#x39;&#x39;&#x30;&#x64;&#52;&#57;&#x37;&#52;&#49;&#64;&#118;&#x6d;&#101;&#115;&#115;&#x2e;&#99;&#x61;&#114;&#x6c;&#122;&#101;&#x6e;&#103;&#x2e;&#116;&#x6f;&#112;">&#x33;&#x39;&#102;&#x64;&#x65;&#x32;&#x64;&#x32;&#45;&#99;&#x38;&#56;&#x63;&#45;&#52;&#98;&#101;&#x61;&#x2d;&#100;&#52;&#x39;&#49;&#45;&#x66;&#x62;&#54;&#x39;&#x39;&#x30;&#x64;&#52;&#57;&#x37;&#52;&#49;&#64;&#118;&#x6d;&#101;&#115;&#115;&#x2e;&#99;&#x61;&#114;&#x6c;&#122;&#101;&#x6e;&#103;&#x2e;&#116;&#x6f;&#112;</a>:17866?type&#x3D;ws&amp;security&#x3D;none&amp;path&#x3D;%2Fgugu#gugugee</p>
 <p>没成功…期待更多的客户端连接测试, 等救援</p>
 <div class="tabs" id="名称"><ul class="nav-tabs"><li class="tab active"><a href="#名称-1">名称 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="名称-1"><p>待续。。。</p></div></div></div>
 
@@ -632,7 +656,7 @@ https://www.hellosanta.com.tw/knowledge/category-38/post-219
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-11-21 15:30:36" itemprop="dateModified" datetime="2023-11-21T15:30:36+08:00">2023-11-21</time>
+        <time title="修改时间：2023-11-22 20:18:30" itemprop="dateModified" datetime="2023-11-22T20:18:30+08:00">2023-11-22</time>
       </span>
 
 </div>
@@ -695,13 +719,13 @@ https://www.hellosanta.com.tw/knowledge/category-38/post-219
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 985k</span>
+    <span title="站点总字数">站点总字数 989k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 29:51</span>
+    <span title="站点阅读时长">站点阅读时长 29:58</span>
   </span>
 </div>
 <div class="busuanzi-count">
