@@ -188,6 +188,18 @@
     </div>
 
     
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.carlzeng.top/" title="https:&#x2F;&#x2F;www.carlzeng.top">Title</a>
+            </li>
+        </ul>
+      </div>
+    </div>
         <div class="pjax">
         <div class="sidebar-inner sidebar-post-related">
           <div class="animated">
@@ -407,8 +419,8 @@
 <li>Root大师安装后验证：经过漫长的root等待，显示root成功，实际不然。</li>
 </ul>
 <p>继续寻找： 一加5T 安卓9 root</p>
-<p><a target="_blank" rel="noopener" href="https://bbs.oneplus.com/thread/4590424">一加5 安卓9 root教程 - Magisk</a></p>
-<p>步骤：<br><a target="_blank" rel="noopener" href="https://bbs.oneplus.com/thread/3798911">「解答组出品」一加手机5T工具箱标准版V2.2.1「停止更新」</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iYnMub25lcGx1cy5jb20vdGhyZWFkLzQ1OTA0MjQ=" rel="noopener external nofollow noreferrer">一加5 安卓9 root教程 - Magisk</a></p>
+<p>步骤：<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iYnMub25lcGx1cy5jb20vdGhyZWFkLzM3OTg5MTE=" rel="noopener external nofollow noreferrer">「解答组出品」一加手机5T工具箱标准版V2.2.1「停止更新」</a></p>
 <p>root是否会删除所有用户数据?<br>一加5T，安卓9，好像没有这个特别的提醒；默认它不会动数据啦<br>    - 实际上都需要经历解BL锁（BootLoader）, 而这个步骤必然删除所有用户数据</p>
 <p>状态：<br>到了J4125的虚拟机Win2008以后，<br>USB连接手机没有直通给Windows，导致无法识别已连接手机</p>
 <p>如何让虚拟机Win2008USB‘直通’？<br>直通USB用于连接键盘鼠标<br>这一步比较简单，接上键盘鼠标之后，选择添加USB设备，使用USB3视情况勾选：<br><img data-src='https://cdn.simaek.com/usr/uploads/2020/08/3906704411.png'></p>
@@ -422,14 +434,14 @@
 
 <h2 id="解决su获取root权限"><a href="#解决su获取root权限" class="headerlink" title="解决su获取root权限"></a>解决su获取root权限</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">carlzeng@Carls-MBP scrapy % adb shell</span><br><span class="line">OnePlus5T:/ $ su</span><br><span class="line">Permission denied</span><br><span class="line">1|OnePlus5T:/ $ su                                                                                                  </span><br><span class="line">OnePlus5T:/ # pwd </span><br><span class="line">/</span><br><span class="line">127|OnePlus5T:/ # ls</span><br><span class="line">acct        charger     default.prop init                  init.usb.configfs.rc odm     res      storage    </span><br><span class="line">bin         charger_log dev          init.environ.rc       init.usb.rc          oem     root     sys        </span><br><span class="line">bt_firmware config      dsp          init.oem_ftm.rc       init.zygote32.rc     persist sbin     system     </span><br><span class="line">bugreports  d           etc          init.rc               init.zygote64_32.rc  proc    sdcard   ueventd.rc </span><br><span class="line">cache       data        firmware     init.recovery.qcom.rc mnt                  product sepolicy vendor     </span><br><span class="line">OnePlus5T:/ # cd /sy</span><br><span class="line">sys/     system/</span><br><span class="line">OnePlus5T:/ # cd /system/                                                                                           </span><br><span class="line">OnePlus5T:/system # ls</span><br><span class="line">app build.prop               fake-libs   framework lost+found product                usr    </span><br><span class="line">bin compatibility_matrix.xml fake-libs64 lib       media      recovery-from-boot.bak vendor </span><br><span class="line">bpm etc                      fonts       lib64     priv-app   reserve                xbin   </span><br><span class="line">OnePlus5T:/system # cd etc/security/cacerts                                                                         </span><br><span class="line">OnePlus5T:/system/etc/security/cacerts # </span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>输入su后 Magisk会弹出提示框，确认是否赋于其root权限？<br>必须要点确定给予root权限，su之后的命令才会拥有最高权限<br><img data-src='https://bbsstatic.oneplus.com/data/attachment/forum/201901/26/155648mcpoballqbda0ua9.jpg'><br>Magisk左侧菜单<br>    - #超级用户： 这个菜单点进去，显示所有已获得root授权或被拒绝的记录</p>
-<h2 id="抓包m3u8"><a href="#抓包m3u8" class="headerlink" title="抓包m3u8"></a>抓包m3u8</h2><p>搜索后，点击播放某一部戏曲，<br>查看小黄鸟抓取的数据包1.8M+的数据包是具体的.ts分段媒体文件<br>往前找（下拉）继续找m3u8的流媒体列表文件。<br>获取最终的m3u8<br><a target="_blank" rel="noopener" href="http://lyhott.a283.ottcn.com/sv/44a9f28d-17e0a4dcf3a/44a9f28d-17e0a4dcf3a.m3u8?auth_key=1697811146-a09a4583096141489d7d8a4c6b75808a-0-c3377f7ef782d4be8b17b06010fa8a20">http://lyhott.a283.ottcn.com/sv/44a9f28d-17e0a4dcf3a/44a9f28d-17e0a4dcf3a.m3u8?auth_key=1697811146-a09a4583096141489d7d8a4c6b75808a-0-c3377f7ef782d4be8b17b06010fa8a20</a></p>
+<h2 id="抓包m3u8"><a href="#抓包m3u8" class="headerlink" title="抓包m3u8"></a>抓包m3u8</h2><p>搜索后，点击播放某一部戏曲，<br>查看小黄鸟抓取的数据包1.8M+的数据包是具体的.ts分段媒体文件<br>往前找（下拉）继续找m3u8的流媒体列表文件。<br>获取最终的m3u8<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2x5aG90dC5hMjgzLm90dGNuLmNvbS9zdi80NGE5ZjI4ZC0xN2UwYTRkY2YzYS80NGE5ZjI4ZC0xN2UwYTRkY2YzYS5tM3U4P2F1dGhfa2V5PTE2OTc4MTExNDYtYTA5YTQ1ODMwOTYxNDE0ODlkN2Q4YTRjNmI3NTgwOGEtMC1jMzM3N2Y3ZWY3ODJkNGJlOGIxN2IwNjAxMGZhOGEyMA==" rel="noopener external nofollow noreferrer">http://lyhott.a283.ottcn.com/sv/44a9f28d-17e0a4dcf3a/44a9f28d-17e0a4dcf3a.m3u8?auth_key=1697811146-a09a4583096141489d7d8a4c6b75808a-0-c3377f7ef782d4be8b17b06010fa8a20</a></p>
 <p>1697888267-bded1e63d15a4f66a9ed3a1abfb2256e-0-6bb4eaf2384998f38de13d4f284b8e6b</p>
 <p>1021 md5<br>GYWmhK2MfuQtDc9Cj8Fbw9hGoJwQ+f3Wy+&#x2F;xiVD9ch6xsYaUXD2xWw&#x3D;&#x3D;</p>
 <p>1022 md5<br>GYWmhK2MfuQtDc9Cj8Fbw9hGoJwQ+f3W35nVrfK1cdEex9b+JFT0mw&#x3D;&#x3D;</p>
-<p><a target="_blank" rel="noopener" href="https://ip.chinaz.com/">https://ip.chinaz.com/</a><br>lyhott.a283.ottcn.com<br>apidr.a283.ottcn.com<br>ucas.a283.ottcn.com</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9pcC5jaGluYXouY29tLw==" rel="noopener external nofollow noreferrer">https://ip.chinaz.com/</a><br>lyhott.a283.ottcn.com<br>apidr.a283.ottcn.com<br>ucas.a283.ottcn.com</p>
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p>手机的应用，需要抓取底层的数据包，来分析学习：与服务器之间的通讯</p>
-<h1 id="杂七杂八"><a href="#杂七杂八" class="headerlink" title="杂七杂八"></a>杂七杂八</h1><p>root待实操：<br>【解锁与ROOT教程】OnePlus 5T Android 10 教程 更新至公测第二版<br><a target="_blank" rel="noopener" href="https://bbs.oneplus.com/thread/5398217">https://bbs.oneplus.com/thread/5398217</a><br>第一步：解BL锁（BootLoader）<br>注意解完BL锁后会清楚所有的用户数据，提前做好备份<br>第二步：ROOT（安装Magisk）</p>
-<h2 id="脑补"><a href="#脑补" class="headerlink" title="脑补:"></a>脑补:</h2><p><a target="_blank" rel="noopener" href="https://ak-ioi.com/1003-oneplus-flash-root/">[搞机] 一加（OnePlus）手机刷机 Root</a></p>
+<h1 id="杂七杂八"><a href="#杂七杂八" class="headerlink" title="杂七杂八"></a>杂七杂八</h1><p>root待实操：<br>【解锁与ROOT教程】OnePlus 5T Android 10 教程 更新至公测第二版<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iYnMub25lcGx1cy5jb20vdGhyZWFkLzUzOTgyMTc=" rel="noopener external nofollow noreferrer">https://bbs.oneplus.com/thread/5398217</a><br>第一步：解BL锁（BootLoader）<br>注意解完BL锁后会清楚所有的用户数据，提前做好备份<br>第二步：ROOT（安装Magisk）</p>
+<h2 id="脑补"><a href="#脑补" class="headerlink" title="脑补:"></a>脑补:</h2><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hay1pb2kuY29tLzEwMDMtb25lcGx1cy1mbGFzaC1yb290Lw==" rel="noopener external nofollow noreferrer">[搞机] 一加（OnePlus）手机刷机 Root</a></p>
 
     </div>
 
@@ -451,7 +463,7 @@
       <a href="https://www.carlzeng.top/202310202241.html" title="安卓手机root与小黄鸟抓包">https://www.carlzeng.top/202310202241.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -680,13 +692,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 977k</span>
+    <span title="站点总字数">站点总字数 978k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 29:36</span>
+    <span title="站点阅读时长">站点阅读时长 29:38</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -722,8 +734,8 @@
 
 
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 强力驱动
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
   </div>
 
 <!-- Google tag (gtag.js) -->

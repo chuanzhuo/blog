@@ -179,6 +179,18 @@
     </div>
 
     
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.carlzeng.top/" title="https:&#x2F;&#x2F;www.carlzeng.top">Title</a>
+            </li>
+        </ul>
+      </div>
+    </div>
         <div class="pjax">
         <div class="sidebar-inner sidebar-post-related">
           <div class="animated">
@@ -393,9 +405,9 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f=<span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;IFRAME&quot;</span>);  </span><br><span class="line">f.<span class="property">id</span> = <span class="string">&quot;iframe01&quot;</span>;  </span><br><span class="line">f.<span class="property">name</span>= <span class="string">&quot;iframe01&quot;</span>;  </span><br><span class="line">f.<span class="property">height</span>=<span class="number">1000</span>;  </span><br><span class="line">f.<span class="property">width</span>=<span class="number">1000</span>;  </span><br><span class="line">f.<span class="property">src</span>=<span class="string">&#x27;https://system.netsuite.com/app/accounting/transactions/inventory/inventorynumbereditor.nl?l=T&amp;tranid=745&amp;lineid=1&#x27;</span>; <span class="comment">//&quot;about:blank&quot;  </span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(f);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> header= <span class="keyword">new</span> <span class="title class_">Array</span>();  </span><br><span class="line">header\[<span class="string">&#x27;P3P: CP&#x27;</span>\]= <span class="string">&#x27;CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR&#x27;</span>;  </span><br><span class="line">header\[<span class="string">&#x27;Set-Cookie&#x27;</span>\]= <span class="string">&#x27;test=axis; expires=Sun, 23-Dec-2018 08:13:02 GMT; domain=.google.com; path=/&#x27;</span>;  </span><br><span class="line"><span class="keyword">var</span> url =<span class="string">&#x27;https://mail.google.com/mail/#inbox&#x27;</span>;  </span><br><span class="line"><span class="title function_">nlapiRequestURL</span>(url, <span class="literal">null</span>, header);</span><br></pre></td></tr></table></figure>
 <p>如上代码失败可知：ajax不支持跨域， 这样跨域必须要用到php,jsp或者c++等动态语言服务端的代理。</p>
 <p>详细见：</p>
-<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/lanmao100/archive/2008/04/25/2328491.aspx">http://blog.csdn.net/lanmao100/archive/2008/04/25/2328491.aspx</a> 用P3P header解决iframe跨域访问cookie&#x2F;session</p>
-<p><a target="_blank" rel="noopener" href="http://viralpatel.net/blogs/2008/12/how-to-set-third-party-cookies-with-iframe.html">http://viralpatel.net/blogs/2008/12/how-to-set-third-party-cookies-with-iframe.html</a> How to set third-party cookies with iframe</p>
-<p><a target="_blank" rel="noopener" href="http://hi.baidu.com/aullik5/blog/item/cde7f31efc3953f2e0fe0b46.html">http://hi.baidu.com/aullik5/blog/item/cde7f31efc3953f2e0fe0b46.html</a> P3P Header Tips</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGFubWFvMTAwL2FyY2hpdmUvMjAwOC8wNC8yNS8yMzI4NDkxLmFzcHg=" rel="noopener external nofollow noreferrer">http://blog.csdn.net/lanmao100/archive/2008/04/25/2328491.aspx</a> 用P3P header解决iframe跨域访问cookie&#x2F;session</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3ZpcmFscGF0ZWwubmV0L2Jsb2dzLzIwMDgvMTIvaG93LXRvLXNldC10aGlyZC1wYXJ0eS1jb29raWVzLXdpdGgtaWZyYW1lLmh0bWw=" rel="noopener external nofollow noreferrer">http://viralpatel.net/blogs/2008/12/how-to-set-third-party-cookies-with-iframe.html</a> How to set third-party cookies with iframe</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2hpLmJhaWR1LmNvbS9hdWxsaWs1L2Jsb2cvaXRlbS9jZGU3ZjMxZWZjMzk1M2YyZTBmZTBiNDYuaHRtbA==" rel="noopener external nofollow noreferrer">http://hi.baidu.com/aullik5/blog/item/cde7f31efc3953f2e0fe0b46.html</a> P3P Header Tips</p>
 
     </div>
 
@@ -417,7 +429,7 @@
       <a href="https://www.carlzeng.top/200909221418.html" title="html js 跨域 p3p-CarlZeng">https://www.carlzeng.top/200909221418.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -642,13 +654,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 977k</span>
+    <span title="站点总字数">站点总字数 978k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 29:36</span>
+    <span title="站点阅读时长">站点阅读时长 29:38</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -684,8 +696,8 @@
 
 
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 强力驱动
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
   </div>
 
 <!-- Google tag (gtag.js) -->

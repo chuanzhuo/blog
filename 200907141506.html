@@ -178,6 +178,18 @@
     </div>
 
     
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.carlzeng.top/" title="https:&#x2F;&#x2F;www.carlzeng.top">Title</a>
+            </li>
+        </ul>
+      </div>
+    </div>
         <div class="pjax">
         <div class="sidebar-inner sidebar-post-related">
           <div class="animated">
@@ -376,7 +388,7 @@
     
     <div class="post-body" itemprop="articleBody"><p>如何优化JavaScript脚本的性能 作者：ShiningRay @ Nirvana Studio 随着网络的发展，网速和机器速度的提高，越来越多的网站用到了丰富客户端技术。而现在Ajax则是最为流行的一种方式。JavaScript是一种解释型语言，所以能无法达到和C&#x2F;Java之类的水平，限制了它能在客户端所做的事情，为了能改进他的性能，我想基于我以前给JavaScript做过的很多测试来谈谈…</p>
 <!-- more -->
-<h2 id="如何优化JavaScript脚本的性能"><a href="#如何优化JavaScript脚本的性能" class="headerlink" title="如何优化JavaScript脚本的性能"></a>如何优化JavaScript脚本的性能</h2><p>作者：ShiningRay @ <a target="_blank" rel="noopener" href="http://www.nirvanastudio.org/">Nirvana Studio</a></p>
+<h2 id="如何优化JavaScript脚本的性能"><a href="#如何优化JavaScript脚本的性能" class="headerlink" title="如何优化JavaScript脚本的性能"></a>如何优化JavaScript脚本的性能</h2><p>作者：ShiningRay @ <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5uaXJ2YW5hc3R1ZGlvLm9yZy8=" rel="noopener external nofollow noreferrer">Nirvana Studio</a></p>
 <p>随着网络的发展，网速和机器速度的提高，越来越多的网站用到了丰富客户端技术。而现在Ajax则是最为流行的一种方式。JavaScript是一种解释型语言，所以能无法达到和C&#x2F;Java之类的水平，限制了它能在客户端所做的事情，为了能改进他的性能，我想基于我以前给JavaScript做过的很多测试来谈谈自己的经验，希望能帮助大家改进自己的JavaScript脚本性能。</p>
 <h1 id="语言层次方面"><a href="#语言层次方面" class="headerlink" title="语言层次方面"></a>语言层次方面</h1><h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>循环是很常用的一个控制结构，大部分东西要依靠它来完成，在JavaScript中，我们可以使用<code>for(;;),while(),for(in)</code>三种循环，事实上，这三种循环中<code>for(in)</code>的效率极差，因为他需要查询散列键，只要可以就应该尽量少用。<code>for(;;)</code>和<code>while</code>循环的性能应该说基本（平时使用时）等价。</p>
 <p>而事实上，如何使用这两个循环，则有很大讲究。我在测试中有些很有意思的情况，见附录。最后得出的结论是：</p>
@@ -448,9 +460,9 @@
 <p>同时，一些基本的算法上的优化，同样可以用在JavaScript中，比如运算结构的调整，这里就不再赘述了。但是由于JavaScript是解释型的，一般不会在运行时对字节码进行优化，所以这些优化仍然是很重要的。</p>
 <p>当然，其实这里的一些技巧同样使用在其他的一些解释型语言中，大家也可以进行参考。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><p><a target="_blank" rel="noopener" href="http://www.umsu.de/jsperf/">http://www.umsu.de/jsperf/</a> 各种浏览器的测试对比</p>
+<li><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy51bXN1LmRlL2pzcGVyZi8=" rel="noopener external nofollow noreferrer">http://www.umsu.de/jsperf/</a> 各种浏览器的测试对比</p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="http://home.earthlink.net/~kendrasg/info/js_opt/">http://home.earthlink.net/~kendrasg&#x2F;info&#x2F;js_opt&#x2F;</a></p>
+<li><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2hvbWUuZWFydGhsaW5rLm5ldC9+a2VuZHJhc2cvaW5mby9qc19vcHQv" rel="noopener external nofollow noreferrer">http://home.earthlink.net/~kendrasg&#x2F;info&#x2F;js_opt&#x2F;</a></p>
 </li>
 </ul>
 <h1 id="附录1"><a href="#附录1" class="headerlink" title="附录1"></a>附录1</h1><p>由于是以前做过的测试，测试代码已经不全，我补充了一部分如下：</p>
@@ -562,7 +574,7 @@ while(i&lt;100)&#123;        i++;    &#125;
       <a href="https://www.carlzeng.top/200907141506.html" title="如何优化JavaScript脚本的性能[装载]-CarlZeng">https://www.carlzeng.top/200907141506.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -781,13 +793,13 @@ while(i&lt;100)&#123;        i++;    &#125;
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 977k</span>
+    <span title="站点总字数">站点总字数 978k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 29:36</span>
+    <span title="站点阅读时长">站点阅读时长 29:38</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -823,8 +835,8 @@ while(i&lt;100)&#123;        i++;    &#125;
 
 
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 强力驱动
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
   </div>
 
 <!-- Google tag (gtag.js) -->

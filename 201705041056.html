@@ -181,6 +181,18 @@
     </div>
 
     
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.carlzeng.top/" title="https:&#x2F;&#x2F;www.carlzeng.top">Title</a>
+            </li>
+        </ul>
+      </div>
+    </div>
         <div class="pjax">
         <div class="sidebar-inner sidebar-post-related">
           <div class="animated">
@@ -392,7 +404,7 @@
 <p>and efficient. The Node.js package ecosystem, npm, is the largest ecosystem of open source libraries in the world.</p>
 <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>Instructions for running Node program on Windows server</p>
 <ol>
-<li><p>Download node <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
+<li><p>Download node <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ub2RlanMub3JnL2VuL2Rvd25sb2FkLw==" rel="noopener external nofollow noreferrer">https://nodejs.org/en/download/</a></p>
 </li>
 <li><p>Create code, I.e.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#x27;hello world&#x27;);</span><br></pre></td></tr></table></figure>
@@ -412,8 +424,8 @@
 <p>console.log (“email argument is required.”); return;</p>
 <p>} var sm &#x3D; new Soap();</p>
 <p>});</p>
-<p>Login and SSOLogin are very similar XML. The function below returns the cookie header array. &#x2F;&#x2F; login to the NS web service using the ssoLogin token &#x2F;&#x2F; return the Set-Cookie header for subsequent requests because it contains the JSESSIONID<br>function sso_login(ws_url, ws_token)<br>{ var account &#x3D; nlapiGetContext().getCompany(); var ret_val &#x3D; null; var headers &#x3D; {};<br>    headers[‘Content-Type’]&#x3D; ‘application&#x2F;soap+xml’;<br>    headers[‘SOAPAction’] &#x3D; ‘ssoLogin’; var sso_login_xml &#x3D; ‘&lt;soap:Envelope xmlns:xsd&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2001/XMLSchema">http://www.w3.org/2001/XMLSchema</a>“ xmlns:soap&#x3D;”<a target="_blank" rel="noopener" href="http://schemas.xmlsoap.org/soap/envelope/">http://schemas.xmlsoap.org/soap/envelope/</a>“ xmlns:xsi&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2001/XMLSchema-instance%22%3E">http://www.w3.org/2001/XMLSchema-instance&quot;&gt;</a>‘ +<br>    ‘<a href="soap:Body">soap:Body</a>‘ +<br>    ‘<ssoLogin xmlns="urn:messages\_2013\_1.platform.webservices.netsuite.com">‘ +<br>    ‘<ssoPassport>‘+<br>        ‘<authenticationToken xmlns="urn:core\_2013\_1.platform.webservices.netsuite.com">‘ + ws_token + ‘</authenticationToken>‘+<br>        ‘<partnerId xmlns="urn:core\_2013\_1.platform.webservices.netsuite.com">‘+CONST_PARTNERID+’</partnerId>‘+<br>        ‘<partnerAccount xmlns="urn:core\_2013\_1.platform.webservices.netsuite.com">‘+account+’</partnerAccount>‘+<br>    ‘</ssoPassport>‘+<br>    ‘</ssoLogin>‘+<br>    ‘</soap:Body>‘+<br>    ‘</soap:Envelope>‘; var login_response &#x3D; nlapiRequestURL(ws_url_ver(ws_url,’NetSuitePort_2013_1’), sso_login_xml, headers); if(login_response){<br>        ret_val = login_response.getHeaders(‘Set-Cookie’);<br>        nlapiLogExecution(‘DEBUG’, ‘cookies returned’, join_cookies(ret_val)); if(g_Devmode){ var hdrs &#x3D; login_response.getAllHeaders(); for (var i&#x3D;0; i&lt;hdrs.length; i++){<br>                nlapiLogExecution(‘DEBUG’, hdrs[i] , login_response.getHeader(hdrs[i]));<br>            }<br>        }<br>    } return ret_val;<br>} &#x2F;&#x2F; Call API – pass in the cookie array set_cookie<br>function call_ws(xml, soap_action, sUrl, set_cookie){ &#x2F;&#x2F;Setting up Headers<br>  var headers &#x3D; new Array();<br>  headers[‘User-Agent-x’] &#x3D; ‘SuiteScript-Call’;<br>  headers[‘Content-Type’]&#x3D; ‘application&#x2F;soap+xml’;<br>  headers[‘SOAPAction’] &#x3D; soap_action; if (set_cookie){<br>      headers[‘Cookie’] &#x3D; join_cookies(set_cookie);<br>  } var      resp &#x3D; nlapiRequestURL( url, xml , headers ); return resp.getBody();<br>} &#x2F;&#x2F; assemble array for header to send back with next request<br>function join_cookies(cookie){ var joined &#x3D; cookie[0]; for(var _i &#x3D; 1;_i &lt; cookie.length;_i++){<br>        joined +&#x3D; “, “ + cookie[_i];<br>    } return joined;<br>}</p>
-<p>Instructions for running node program for on a Windows server<br>1. Download node <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a><br>2. Create code <custom nodejs code><br>3. Go to folder via command line<br>4. npm install<br>5. node start.js –email&#x3D;<emailAddress> </p>
+<p>Login and SSOLogin are very similar XML. The function below returns the cookie header array. &#x2F;&#x2F; login to the NS web service using the ssoLogin token &#x2F;&#x2F; return the Set-Cookie header for subsequent requests because it contains the JSESSIONID<br>function sso_login(ws_url, ws_token)<br>{ var account &#x3D; nlapiGetContext().getCompany(); var ret_val &#x3D; null; var headers &#x3D; {};<br>    headers[‘Content-Type’]&#x3D; ‘application&#x2F;soap+xml’;<br>    headers[‘SOAPAction’] &#x3D; ‘ssoLogin’; var sso_login_xml &#x3D; ‘&lt;soap:Envelope xmlns:xsd&#x3D;”<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWE=" rel="noopener external nofollow noreferrer">http://www.w3.org/2001/XMLSchema</a>“ xmlns:soap&#x3D;”<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvc29hcC9lbnZlbG9wZS8=" rel="noopener external nofollow noreferrer">http://schemas.xmlsoap.org/soap/envelope/</a>“ xmlns:xsi&#x3D;”<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UlMjIlM0U=" rel="noopener external nofollow noreferrer">http://www.w3.org/2001/XMLSchema-instance&quot;&gt;</a>‘ +<br>    ‘<a href="soap:Body">soap:Body</a>‘ +<br>    ‘<ssoLogin xmlns="urn:messages\_2013\_1.platform.webservices.netsuite.com">‘ +<br>    ‘<ssoPassport>‘+<br>        ‘<authenticationToken xmlns="urn:core\_2013\_1.platform.webservices.netsuite.com">‘ + ws_token + ‘</authenticationToken>‘+<br>        ‘<partnerId xmlns="urn:core\_2013\_1.platform.webservices.netsuite.com">‘+CONST_PARTNERID+’</partnerId>‘+<br>        ‘<partnerAccount xmlns="urn:core\_2013\_1.platform.webservices.netsuite.com">‘+account+’</partnerAccount>‘+<br>    ‘</ssoPassport>‘+<br>    ‘</ssoLogin>‘+<br>    ‘</soap:Body>‘+<br>    ‘</soap:Envelope>‘; var login_response &#x3D; nlapiRequestURL(ws_url_ver(ws_url,’NetSuitePort_2013_1’), sso_login_xml, headers); if(login_response){<br>        ret_val = login_response.getHeaders(‘Set-Cookie’);<br>        nlapiLogExecution(‘DEBUG’, ‘cookies returned’, join_cookies(ret_val)); if(g_Devmode){ var hdrs &#x3D; login_response.getAllHeaders(); for (var i&#x3D;0; i&lt;hdrs.length; i++){<br>                nlapiLogExecution(‘DEBUG’, hdrs[i] , login_response.getHeader(hdrs[i]));<br>            }<br>        }<br>    } return ret_val;<br>} &#x2F;&#x2F; Call API – pass in the cookie array set_cookie<br>function call_ws(xml, soap_action, sUrl, set_cookie){ &#x2F;&#x2F;Setting up Headers<br>  var headers &#x3D; new Array();<br>  headers[‘User-Agent-x’] &#x3D; ‘SuiteScript-Call’;<br>  headers[‘Content-Type’]&#x3D; ‘application&#x2F;soap+xml’;<br>  headers[‘SOAPAction’] &#x3D; soap_action; if (set_cookie){<br>      headers[‘Cookie’] &#x3D; join_cookies(set_cookie);<br>  } var      resp &#x3D; nlapiRequestURL( url, xml , headers ); return resp.getBody();<br>} &#x2F;&#x2F; assemble array for header to send back with next request<br>function join_cookies(cookie){ var joined &#x3D; cookie[0]; for(var _i &#x3D; 1;_i &lt; cookie.length;_i++){<br>        joined +&#x3D; “, “ + cookie[_i];<br>    } return joined;<br>}</p>
+<p>Instructions for running node program for on a Windows server<br>1. Download node <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ub2RlanMub3JnL2VuL2Rvd25sb2FkLw==" rel="noopener external nofollow noreferrer">https://nodejs.org/en/download/</a><br>2. Create code <custom nodejs code><br>3. Go to folder via command line<br>4. npm install<br>5. node start.js –email&#x3D;<emailAddress> </p>
 <p>Note:</p>
 <p>After Install node-v6.10.0.pkg, you will see:</p>
 <!-- p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Lucida Grande'} p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Lucida Grande'; min-height: 16.0px} -->
@@ -442,7 +454,7 @@
       <a href="https://www.carlzeng.top/201705041056.html" title="Node.js Application Node.js应用-CarlZeng">https://www.carlzeng.top/201705041056.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -666,13 +678,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 977k</span>
+    <span title="站点总字数">站点总字数 978k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 29:36</span>
+    <span title="站点阅读时长">站点阅读时长 29:38</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -708,8 +720,8 @@
 
 
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 强力驱动
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
   </div>
 
 <!-- Google tag (gtag.js) -->

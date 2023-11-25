@@ -177,6 +177,18 @@
     </div>
 
     
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.carlzeng.top/" title="https:&#x2F;&#x2F;www.carlzeng.top">Title</a>
+            </li>
+        </ul>
+      </div>
+    </div>
         <div class="pjax">
         <div class="sidebar-inner sidebar-post-related">
           <div class="animated">
@@ -373,7 +385,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>目录：需求和思路分析具体实现步骤理解CrontabCrontab具体参数详细说明最近碰到一个想要实现定时自动关机的功能，关机的指令无非就是:shutdown -h time调用openwebif的指令 wget -q -O - “<a target="_blank" rel="noopener" href="http://127.0.0.1/web/powerstate?new">http://127.0.0.1/web/powerstate?new</a>…</p>
+    <div class="post-body" itemprop="articleBody"><p>目录：需求和思路分析具体实现步骤理解CrontabCrontab具体参数详细说明最近碰到一个想要实现定时自动关机的功能，关机的指令无非就是:shutdown -h time调用openwebif的指令 wget -q -O - “<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzEyNy4wLjAuMS93ZWIvcG93ZXJzdGF0ZT9uZXc=" rel="noopener external nofollow noreferrer">http://127.0.0.1/web/powerstate?new</a>…</p>
 <!-- more -->
 <p>目录：</p>
 <ol>
@@ -386,7 +398,7 @@
 <p>最近碰到一个想要实现定时自动关机的功能，关机的指令无非就是:</p>
 <ul>
 <li>shutdown -h time</li>
-<li>调用openwebif的指令  wget -q -O - “<a target="_blank" rel="noopener" href="http://127.0.0.1/web/powerstate?newstate=1">http://127.0.0.1/web/powerstate?newstate=1</a>“ &gt;&#x2F;dev&#x2F;null</li>
+<li>调用openwebif的指令  wget -q -O - “<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzEyNy4wLjAuMS93ZWIvcG93ZXJzdGF0ZT9uZXdzdGF0ZT0x" rel="noopener external nofollow noreferrer">http://127.0.0.1/web/powerstate?newstate=1</a>“ &gt;&#x2F;dev&#x2F;null</li>
 <li>halt，reboot</li>
 </ul>
 <p>自动调用方式:</p>
@@ -423,7 +435,7 @@
 <p>上面的步骤就可以实现定时执行关机任务（每天夜里11点关机），当然其他的定时任务也是一样的道理。</p>
 <p>下面分析一下具体的原理，核心命令解释：</p>
 <hr>
-<p>特定介绍一下crontab的理解（来源：<a target="_blank" rel="noopener" href="http://blog.csdn.net/suer0101/article/details/8052592%EF%BC%89">http://blog.csdn.net/suer0101/article/details/8052592）</a></p>
+<p>特定介绍一下crontab的理解（来源：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3VlcjAxMDEvYXJ0aWNsZS9kZXRhaWxzLzgwNTI1OTIlRUYlQkMlODk=" rel="noopener external nofollow noreferrer">http://blog.csdn.net/suer0101/article/details/8052592）</a></p>
 <p>crond是一个服务，一个守护进程。crond 是linux用来定期执行程序的命令，crond命令每分锺会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。</p>
 <p>crontab 是用来让使用者在固定时间或固定间隔执行程序之用，换句话说，也就是类似使用者的时程表。</p>
 <p>按照网上查找的资料执行时经常会碰到这种错误：</p>
@@ -443,7 +455,7 @@
 <p>在紧接着其中的vi界面内，添加 比如（代表每天的23点0分执行）：</p>
 <p>0 23 * * * &#x2F;usr&#x2F;script&#x2F;shutdown.sh</p>
 <hr>
-<p> 具体参数说明（来源：<a target="_blank" rel="noopener" href="http://blog.hexu.org/archives/703.shtml%EF%BC%89">http://blog.hexu.org/archives/703.shtml）</a></p>
+<p> 具体参数说明（来源：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2Jsb2cuaGV4dS5vcmcvYXJjaGl2ZXMvNzAzLnNodG1sJUVGJUJDJTg5" rel="noopener external nofollow noreferrer">http://blog.hexu.org/archives/703.shtml）</a></p>
 <p>名称 : crontab<br>使用权限 : 所有使用者<br>使用方式 : crontab [ -u user ] file crontab [ -u user ] { -l | -r | -e }<br>说明 : crontab 是用来让使用者在固定时间或固定间隔执行程序之用，换句话说，也就是类似使用者的时程表。 -u user 是指设定指定 user 的时程表，这个前提是你必须要有其权限(比如说是 root)才能够指定他人的时程表。如果不使用 -u user 的话，就是表示设定自己的时程表。 -e : 编辑，执行文字编辑器来设定时程表，内定的文字编辑器是 VI，如果你想用别的文字编辑器，则请先设定 VISUAL 环境变数来指定使用那个文字编辑器(比如说 setenv VISUAL joe) -r : 删除目前的时程表 -l : 列出目前的已经设置的列表，格式如下:f1 f2 f3 f4 f5 program 其中f1&#x2F;f2&#x2F;f3&#x2F;f4&#x2F;f5 分别表示分钟&#x2F;小时&#x2F;一个月的第几日&#x2F;月&#x2F;一个星期中的第几天。program 表示要执行的程序。</p>
 <p>当 f1 为 * 时表示每分钟都要执行 program，<br>当 f1 为 a-b 时表示从第 a 分钟到第 b 分钟这段时间内要执行，<br>当 f1 为 *&#x2F;n 时表示每 n 分钟个时间间隔执行一次，<br>当 f1 为 a, b, c,… 时表示第 a, b, c,… 分钟要执行，</p>
 <p>当 f2 为 * 时表示每小时都要执行程序，其余类推.<br>当 f2 为 a-b 时表示从第 a 到第 b 小时都要执行，其余类推<br>当 f2 为 *&#x2F;n 表示每 n 小时个时间间隔执行一次，其余类推<br>当 f2 为 a, b, c,… 时表示第 a, b, c…个小时要执行，其余类推</p>
@@ -471,7 +483,7 @@
       <a href="https://www.carlzeng.top/201504071919.html" title="SunRay4(新蕾4) 定时自动关机方案, Linux后台自动任务crontab实践-CarlZeng">https://www.carlzeng.top/201504071919.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -690,13 +702,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 977k</span>
+    <span title="站点总字数">站点总字数 978k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 29:36</span>
+    <span title="站点阅读时长">站点阅读时长 29:38</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -732,8 +744,8 @@
 
 
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 强力驱动
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
   </div>
 
 <!-- Google tag (gtag.js) -->

@@ -178,6 +178,18 @@
     </div>
 
     
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.carlzeng.top/" title="https:&#x2F;&#x2F;www.carlzeng.top">Title</a>
+            </li>
+        </ul>
+      </div>
+    </div>
         <div class="pjax">
         <div class="sidebar-inner sidebar-post-related">
           <div class="animated">
@@ -385,14 +397,14 @@
     
     <div class="post-body" itemprop="articleBody"><p>在system的 Enhancement Voting &gt; Search Results &gt; Enhancement Voting 中,我们能看到Netsuite是如何实现一个系统的评论功能,个人分析如下: 1.在Netsuite总账户中,主站点的’标签’中建立New Release Info 和 Enhancement Voting的标签,配置相应的权限,2.建立记录类型,大致字段内容如下:…</p>
 <!-- more -->
-<p>在system的  <a target="_blank" rel="noopener" href="https://debugger.netsuite.com/app/center/center.nl?sc=62">Enhancement Voting</a> &gt; Search Results &gt;<br>Enhancement Voting 中,我们能看到Netsuite是如何实现一个系统的评论功能,<br>个人分析如下:  </p>
+<p>在system的  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9kZWJ1Z2dlci5uZXRzdWl0ZS5jb20vYXBwL2NlbnRlci9jZW50ZXIubmw/c2M9NjI=" rel="noopener external nofollow noreferrer">Enhancement Voting</a> &gt; Search Results &gt;<br>Enhancement Voting 中,我们能看到Netsuite是如何实现一个系统的评论功能,<br>个人分析如下:  </p>
 <p>1.在Netsuite总账户中,主站点的’标签’中建立New Release Info  和 Enhancement Voting的标签,配置相应的权限,<br>2.建立记录类型,大致字段内容如下:<br>Enh No.<br>   <br>Product Area<br>   <br>Abstract<br>   <br>Status<br>   <br>Release Target<br>   <br>Your Rating<br>   <br>Click To Vote<br>   <br>View Comments<br>   <br>Total Votes  </p>
 <p>3.发布一个特定的搜索到Enhancement Voting标签下,(或者我猜测更像一个suitelet)<br>功能包括：搜索、提交选举(Vote)和查看用户评论(View  Comment).  </p>
 <p>这里我主要讲一下这个提交选举结果（vote）和View  Comment的实现：  </p>
-<p>4.  vote： 我们可以看到<a target="_blank" rel="noopener" href="https://debugger.netsuite.com/app/site/hosting/scriptlet.nl?script=customscript%5C_enh%5C_vote%5C_suitelet&deploy=customdeploy%5C_enh%5C_vote%5C_suitelet&l=T&issue=844925">https://debugger.netsuite.com/app/site/hosting/scriptlet.nl?script=customscript\_enh\_vote\_suitelet&amp;deploy=customdeploy\_enh\_vote\_suitelet&amp;l=T&amp;issue=844925</a>  </p>
+<p>4.  vote： 我们可以看到<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9kZWJ1Z2dlci5uZXRzdWl0ZS5jb20vYXBwL3NpdGUvaG9zdGluZy9zY3JpcHRsZXQubmw/c2NyaXB0PWN1c3RvbXNjcmlwdCU1Q19lbmglNUNfdm90ZSU1Q19zdWl0ZWxldCZkZXBsb3k9Y3VzdG9tZGVwbG95JTVDX2VuaCU1Q192b3RlJTVDX3N1aXRlbGV0Jmw9VCZpc3N1ZT04NDQ5MjU=" rel="noopener external nofollow noreferrer">https://debugger.netsuite.com/app/site/hosting/scriptlet.nl?script=customscript\_enh\_vote\_suitelet&amp;deploy=customdeploy\_enh\_vote\_suitelet&amp;l=T&amp;issue=844925</a>  </p>
 <p>一看ok ， this is a suitelet, named(internalId):customscript_enh_vote_suitelet<br>and has been deploy to be:customdeploy_enh_vote_suitelet.<br>我们来看这个suitelet还有两个参数。l 和issue; l猜测是列表方式，issue就是netsuite内部issue的编号。  </p>
 <p> 在customscript_enh_vote_suitelet这个suitelet中，issue显然被当作一个参数来保存到这个特定的记录类型，以便用户内部标示和关联。<br>功能描述：suitelet create some field  for description. a TEXTAREA and a speciel control for input level.(用来浏览和界定用户关心程度)；submit后系统保存这条记录到这个特定的记录类型，并且更新Total Votes数量等信息。  </p>
-<p>5。也就是查看评论功能：<a target="_blank" rel="noopener" href="https://debugger.netsuite.com/app/site/hosting/scriptlet.nl?script=customscript%5C_enh%5C_vote%5C_seevotes&deploy=customdeploy%5C_enh%5C_vote%5C_seevotes&l=T&issue=844925">https://debugger.netsuite.com/app/site/hosting/scriptlet.nl?script=customscript\_enh\_vote\_seevotes&amp;deploy=customdeploy\_enh\_vote\_seevotes&amp;l=T&amp;issue=844925</a><br>   我们可以得出这个也是一个suitelet，internalId：customscript_enh_vote_seevotes；deploy:customdeploy_enh_vote_seevotes<br>同样具备l参数和issue参数传递进来用来判断这个view comment能浏览到的内容列表。  </p>
+<p>5。也就是查看评论功能：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9kZWJ1Z2dlci5uZXRzdWl0ZS5jb20vYXBwL3NpdGUvaG9zdGluZy9zY3JpcHRsZXQubmw/c2NyaXB0PWN1c3RvbXNjcmlwdCU1Q19lbmglNUNfdm90ZSU1Q19zZWV2b3RlcyZkZXBsb3k9Y3VzdG9tZGVwbG95JTVDX2VuaCU1Q192b3RlJTVDX3NlZXZvdGVzJmw9VCZpc3N1ZT04NDQ5MjU=" rel="noopener external nofollow noreferrer">https://debugger.netsuite.com/app/site/hosting/scriptlet.nl?script=customscript\_enh\_vote\_seevotes&amp;deploy=customdeploy\_enh\_vote\_seevotes&amp;l=T&amp;issue=844925</a><br>   我们可以得出这个也是一个suitelet，internalId：customscript_enh_vote_seevotes；deploy:customdeploy_enh_vote_seevotes<br>同样具备l参数和issue参数传递进来用来判断这个view comment能浏览到的内容列表。  </p>
 <p>功能描述：suitelet根据参数搜索得出searchresult.根据searchresult功能生成 HTML的内容页面，和一个close按钮(window.close)。  </p>
 <p>这样一个内部的评论系统就实现了。<br>以上是一些个人思路，希望对您有点帮助。author:zeng.cz 200811192232<br>Today is my girlfriend’s birthday. write this ,wish her Happy Birthday!</p>
 
@@ -416,7 +428,7 @@
       <a href="https://www.carlzeng.top/200811192231.html" title="关于NetSuite内部Enhancement发表及查看的实现(netsuite论坛,netsuite留言本,netsuite评论的实现)-CarlZeng">https://www.carlzeng.top/200811192231.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -640,13 +652,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 977k</span>
+    <span title="站点总字数">站点总字数 978k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 29:36</span>
+    <span title="站点阅读时长">站点阅读时长 29:38</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -682,8 +694,8 @@
 
 
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 强力驱动
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
   </div>
 
 <!-- Google tag (gtag.js) -->

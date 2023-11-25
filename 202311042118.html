@@ -188,6 +188,18 @@
     </div>
 
     
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.carlzeng.top/" title="https:&#x2F;&#x2F;www.carlzeng.top">Title</a>
+            </li>
+        </ul>
+      </div>
+    </div>
         <div class="pjax">
         <div class="sidebar-inner sidebar-post-related">
           <div class="animated">
@@ -401,7 +413,7 @@
 <p>3天的经历总结：有一个许久不用的老iPad air忘记了密码，多长尝试以后被锁住了；根据客服及网上的资料知道可知通过刷机，越狱，解锁的方式可以解决。以下是具体的过程：<br>下一步我讲把它做成电子相册。</p>
 <h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>解锁iPad的激活锁，绕过iPad激活验证; 解决问题：已越狱的ipad，ios12，激活失败<br>解开开机锁屏密码</p>
 <h1 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h1><ol>
-<li>网盘下载<a target="_blank" rel="noopener" href="https://www.123pan.com/s/MJUDVv-xixph.html">太极激活工具V7.8.dmg</a><br> 如果这123网盘地址失效，你可以联系我(不过仅仅只有工具是没用的)</li>
+<li>网盘下载<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuMTIzcGFuLmNvbS9zL01KVURWdi14aXhwaC5odG1s" rel="noopener external nofollow noreferrer">太极激活工具V7.8.dmg</a><br> 如果这123网盘地址失效，你可以联系我(不过仅仅只有工具是没用的)</li>
 <li>花钱找买家，激活工具注册，是对应iPad的ECID的<br> 不得不提及我自己实践摸索的工具iFRPFile All In One v2.8.6，搞死了我的Windows虚拟机，不怎么满足它的条件，安装iTune，安装特定版本的.NET Framework，都无法成功；非常失望；</li>
 </ol>
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>我的Ipad air A1474 已经越狱成功了， 使用的是如图的（右上角的软件）<br>ipad air以前旧的信息在左下角的截图<br> 那是一个截图，i4助手 工具在windows里面。</p>
@@ -443,7 +455,7 @@ https://www.youtube.com/watch?v=SPFZ3GIaVHA&amp;list=PLOdANL4wTocRWdhMLhiLWqSwuF
 (最终失败了)
 </code></pre>
 <h2 id="NAS-开启服务给iPad访问照片音频视频等"><a href="#NAS-开启服务给iPad访问照片音频视频等" class="headerlink" title="NAS 开启服务给iPad访问照片音频视频等"></a>NAS 开启服务给iPad访问照片音频视频等</h2><p>越狱解锁以后下一步就是安装群晖的APP，访问NAS中的照片，音乐和视频。发现最新版的群晖PhotosAPP需要IOS版本太高，而我的iPad air只有IOS 12。而其他的低版本可安装的：DS Photo 和 Moments 和群晖918的软件又不匹配。好尴尬的局面，只能借助最新的直播知识给的感悟，有nPlayer等APP可以通过通用协议：Web dav，SMB，AFP，FTP，SFTP等等<br>最终开启了NAS的SFTP，由于仅用于局域网内播放，还需要封锁iPad的互联网访问。</p>
-<h2 id="iPad-关闭外网访问，限制外网"><a href="#iPad-关闭外网访问，限制外网" class="headerlink" title="iPad 关闭外网访问，限制外网"></a>iPad 关闭外网访问，限制外网</h2><p>可以iptables里加一条规则<br>    选择2：使用 上网时间控制，设置客户端禁止访问互联网的时间<br>        <a target="_blank" rel="noopener" href="http://192.168.6.1/cgi-bin/luci/admin/services/mia">http://192.168.6.1/cgi-bin/luci/admin/services/mia</a><br>    实际上，开启针对iPad的禁止上网时间控制后，导致它连本地局域网的NAS服务器都无法连接，尴尬了<br>    选择3: 在<a target="_blank" rel="noopener" href="http://192.168.6.1/cgi-bin/luci/admin/network/firewall/rules">“防火墙”</a>页面添加了一条<br>        想要设置ipad drop外网的数据包，结果现在是所有的本地往外网数据全部都drop，导致全设备断网了<br>        解决：用终端中执行命令：<br>        iptables -L OUTPUT<br>            里面有一条drop所有数据包的，用下面-F删除<br>        iptables -F<br>            重启OpenWrt，无效<br>        疑问：这个iptables -F是实时生效的吗？还是需要重启什么服务？<br>    选择4: UI的防火墙UI是提交修改后台的这个文件<br>        找到解决办法了： &#x2F;etc&#x2F;config&#x2F;firewall<br>        修改后需要这样生效： &#x2F;etc&#x2F;init.d&#x2F;firewall reload<br>        成功修复；<br>        思路来源，搜索：openwrt 的防火墙配置页面 修改了哪个文件</p>
+<h2 id="iPad-关闭外网访问，限制外网"><a href="#iPad-关闭外网访问，限制外网" class="headerlink" title="iPad 关闭外网访问，限制外网"></a>iPad 关闭外网访问，限制外网</h2><p>可以iptables里加一条规则<br>    选择2：使用 上网时间控制，设置客户端禁止访问互联网的时间<br>        <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xL2NnaS1iaW4vbHVjaS9hZG1pbi9zZXJ2aWNlcy9taWE=" rel="noopener external nofollow noreferrer">http://192.168.6.1/cgi-bin/luci/admin/services/mia</a><br>    实际上，开启针对iPad的禁止上网时间控制后，导致它连本地局域网的NAS服务器都无法连接，尴尬了<br>    选择3: 在<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xL2NnaS1iaW4vbHVjaS9hZG1pbi9uZXR3b3JrL2ZpcmV3YWxsL3J1bGVz" rel="noopener external nofollow noreferrer">“防火墙”</a>页面添加了一条<br>        想要设置ipad drop外网的数据包，结果现在是所有的本地往外网数据全部都drop，导致全设备断网了<br>        解决：用终端中执行命令：<br>        iptables -L OUTPUT<br>            里面有一条drop所有数据包的，用下面-F删除<br>        iptables -F<br>            重启OpenWrt，无效<br>        疑问：这个iptables -F是实时生效的吗？还是需要重启什么服务？<br>    选择4: UI的防火墙UI是提交修改后台的这个文件<br>        找到解决办法了： &#x2F;etc&#x2F;config&#x2F;firewall<br>        修改后需要这样生效： &#x2F;etc&#x2F;init.d&#x2F;firewall reload<br>        成功修复；<br>        思路来源，搜索：openwrt 的防火墙配置页面 修改了哪个文件</p>
 <h3 id="如何关闭iPad外网访问？"><a href="#如何关闭iPad外网访问？" class="headerlink" title="如何关闭iPad外网访问？"></a>如何关闭iPad外网访问？</h3><p>防火墙 - 自定义规则<br>    自定义规则允许您执行不属于防火墙框架的任意 iptables 命令。每次重启防火墙时，这些命令在默认的规则运行后立即执行。<br>    1. iptables -I FORWARD  -m mac –mac-source C8:F6:50:B7:@@:@@ -j DROP<br>    2. 修改后需要这样生效： &#x2F;etc&#x2F;init.d&#x2F;firewall reload</p>
 
     </div>
@@ -466,7 +478,7 @@ https://www.youtube.com/watch?v=SPFZ3GIaVHA&amp;list=PLOdANL4wTocRWdhMLhiLWqSwuF
       <a href="https://www.carlzeng.top/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验">https://www.carlzeng.top/202311042118.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -695,13 +707,13 @@ https://www.youtube.com/watch?v=SPFZ3GIaVHA&amp;list=PLOdANL4wTocRWdhMLhiLWqSwuF
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 977k</span>
+    <span title="站点总字数">站点总字数 978k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 29:36</span>
+    <span title="站点阅读时长">站点阅读时长 29:38</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -737,8 +749,8 @@ https://www.youtube.com/watch?v=SPFZ3GIaVHA&amp;list=PLOdANL4wTocRWdhMLhiLWqSwuF
 
 
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 强力驱动
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
   </div>
 
 <!-- Google tag (gtag.js) -->

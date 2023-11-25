@@ -178,6 +178,18 @@
     </div>
 
     
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.carlzeng.top/" title="https:&#x2F;&#x2F;www.carlzeng.top">Title</a>
+            </li>
+        </ul>
+      </div>
+    </div>
         <div class="pjax">
         <div class="sidebar-inner sidebar-post-related">
           <div class="animated">
@@ -374,10 +386,10 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>一种真正意义上的Session劫持 Author: jianxin [80sec] EMail: jianxin#80sec.com Site: <a target="_blank" rel="noopener" href="http://www.80sec.com/">http://www.80sec.com</a> Date: 2008-12-24 From: <a target="_blank" rel="noopener" href="http://www.80sec.com/release/session-hijacking.txt">http://www.80sec.com/release/session-hijacking.txt</a> [ 目录 ] 0×00 应用程序认证设计背景 0×01…</p>
+    <div class="post-body" itemprop="articleBody"><p>一种真正意义上的Session劫持 Author: jianxin [80sec] EMail: jianxin#80sec.com Site: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy44MHNlYy5jb20v" rel="noopener external nofollow noreferrer">http://www.80sec.com</a> Date: 2008-12-24 From: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy44MHNlYy5jb20vcmVsZWFzZS9zZXNzaW9uLWhpamFja2luZy50eHQ=" rel="noopener external nofollow noreferrer">http://www.80sec.com/release/session-hijacking.txt</a> [ 目录 ] 0×00 应用程序认证设计背景 0×01…</p>
 <!-- more -->
 <h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>一种真正意义上的Session劫持</p>
-<p>Author: jianxin [80sec]<br>EMail: jianxin#80sec.com<br>Site: <a target="_blank" rel="noopener" href="http://www.80sec.com/">http://www.80sec.com</a><br>Date: 2008-12-24<br>From: <a target="_blank" rel="noopener" href="http://www.80sec.com/release/session-hijacking.txt">http://www.80sec.com/release/session-hijacking.txt</a></p>
+<p>Author: jianxin [80sec]<br>EMail: jianxin#80sec.com<br>Site: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy44MHNlYy5jb20v" rel="noopener external nofollow noreferrer">http://www.80sec.com</a><br>Date: 2008-12-24<br>From: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy44MHNlYy5jb20vcmVsZWFzZS9zZXNzaW9uLWhpamFja2luZy50eHQ=" rel="noopener external nofollow noreferrer">http://www.80sec.com/release/session-hijacking.txt</a></p>
 <p>[ 目录 ]</p>
 <p>0×00 应用程序认证设计背景<br>0×01 常规攻击思路及缺陷<br>0×02 利用应用程序设计缺陷进行Session劫持的攻击原理<br>0×03 Session劫持的大致思路及意义<br>0×04 如何防御这种攻击</p>
 <p>0×00 应用程序认证设计背景  </p>
@@ -391,7 +403,7 @@
 <p>这样我们的思路就很清晰，我们要实现的是Session劫持，而不是传统的Session窃取，我们通过覆盖这个Session Token为一个无效值，服务器会认为用户身份为未登录，然后会要求用户再次登陆，在这个时候我们可以窃取到有效的Session Token值。用户再次登陆之后，他获得新的Session Token，而由于应用程序的机制，之前的Session Token并没有失效，这样服务器上就存在两个有效的Session Token了。我们通过研究应用程序的Session超时机制和心跳包机制，就可以长久地使这个Session有效。而接下来假设用户很注意安全，他有退出应用程序的使用习惯，他销毁了他的Session Token，但是仍然有一个Session Token被我们掌握。这种方法的狠毒在于，即使用户意识到Session Token被窃取，如果某些应用程序的设计有问题，即使用户修改密码，他也不能控制服务器注销掉被我们掌握的会话，他的Session永远被我们掌握了，他也永远不知道这个Session Token是多少。</p>
 <p>0×04 如何防御这种攻击</p>
 <p>我们可以看到，这种攻击是由于应用程序在设计的时候考虑不周造成的，我们可以在设计认证的时候就强行要求客户端必须唯一，并且认证信息在多少天之后就过期的机制，但是很明显这样会和将COOKIE和ip绑定一样，可能带来不好的用户体验，如何在设计的时候意识到这个问题并且权衡应用和安全的平衡点才是 web应用程序设计者要考虑的难题。</p>
-<p>本站内容均为原创，转载请务必保留署名与链接！<br><a target="_blank" rel="noopener" href="http://www.80sec.com/session-hijackin.html" title="一种真正意义上的Session劫持">一种真正意义上的Session劫持</a>:<a target="_blank" rel="noopener" href="http://www.80sec.com/session-hijackin.html" title="一种真正意义上的Session劫持">http://www.80sec.com/session-hijackin.html</a></p>
+<p>本站内容均为原创，转载请务必保留署名与链接！<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy44MHNlYy5jb20vc2Vzc2lvbi1oaWphY2tpbi5odG1s" rel="noopener external nofollow noreferrer" title="一种真正意义上的Session劫持">一种真正意义上的Session劫持</a>:<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy44MHNlYy5jb20vc2Vzc2lvbi1oaWphY2tpbi5odG1s" rel="noopener external nofollow noreferrer" title="一种真正意义上的Session劫持">http://www.80sec.com/session-hijackin.html</a></p>
 
     </div>
 
@@ -413,7 +425,7 @@
       <a href="https://www.carlzeng.top/200911261203.html" title="转载 Session劫持-CarlZeng">https://www.carlzeng.top/200911261203.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -632,13 +644,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 977k</span>
+    <span title="站点总字数">站点总字数 978k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 29:36</span>
+    <span title="站点阅读时长">站点阅读时长 29:38</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -674,8 +686,8 @@
 
 
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 强力驱动
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
   </div>
 
 <!-- Google tag (gtag.js) -->

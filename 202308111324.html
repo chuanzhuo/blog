@@ -178,6 +178,18 @@
     </div>
 
     
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.carlzeng.top/" title="https:&#x2F;&#x2F;www.carlzeng.top">Title</a>
+            </li>
+        </ul>
+      </div>
+    </div>
         <div class="pjax">
         <div class="sidebar-inner sidebar-post-related">
           <div class="animated">
@@ -382,12 +394,12 @@
 <p>另外更加人性化的数据库字段搜索，索引与关联等。</p>
 <p>总体感觉：非常简洁，直观，方便，快速</p>
 <h2 id="源地址"><a href="#源地址" class="headerlink" title="源地址"></a>源地址</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://timdietrich.me/netsuite-suitescripts/suiteql-query-tool/downloads/">https://timdietrich.me/netsuite-suitescripts/suiteql-query-tool/downloads/</a><ul>
+<li><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aW1kaWV0cmljaC5tZS9uZXRzdWl0ZS1zdWl0ZXNjcmlwdHMvc3VpdGVxbC1xdWVyeS10b29sL2Rvd25sb2Fkcy8=" rel="noopener external nofollow noreferrer">https://timdietrich.me/netsuite-suitescripts/suiteql-query-tool/downloads/</a><ul>
 <li>浏览器全局‘魔法’访问时可以打开</li>
-<li><a target="_blank" rel="noopener" href="https://timdietrich.me/blog/netsuite-suiteql-query-tool-2021-2/">说明书地址（Version2021.2）</a></li>
+<li><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aW1kaWV0cmljaC5tZS9ibG9nL25ldHN1aXRlLXN1aXRlcWwtcXVlcnktdG9vbC0yMDIxLTIv" rel="noopener external nofollow noreferrer">说明书地址（Version2021.2）</a></li>
 </ul>
 </li>
-<li><a target="_blank" rel="noopener" href="https://github.com/chuanzhuo/suiteqlquerytool/_cli">https://github.com/chuanzhuo/suiteqlquerytool\_cli</a><ul>
+<li><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2NodWFuemh1by9zdWl0ZXFscXVlcnl0b29sL19jbGk=" rel="noopener external nofollow noreferrer">https://github.com/chuanzhuo/suiteqlquerytool\_cli</a><ul>
 <li>我的版本更新历史（包含对国内的各种优化）</li>
 <li>我的这个版本用SDF，可以直接一键发布到NetSuite上</li>
 </ul>
@@ -397,7 +409,7 @@
 <p>期间我做了很多优化，试图解决这个尴尬的首次页面加载速度问题，包括：关闭的远程加载Query库的功能，关闭更新，关闭所有不常用的加载项（workbook等）</p>
 <p>虽然有所改善，但始终无法达到令我满意的局面（是的，我苛刻了）</p>
 <p>今天终于在Chrome的分析工具下找到了原因：bootstrap库的压缩JS和CSS CDN链接在国内失效了（天朝就是如此神奇）。</p>
-<p>* Replace the URL FROM * <a target="_blank" rel="noopener" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js</a><br>* <a target="_blank" rel="noopener" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css</a><br>* TO * <a target="_blank" rel="noopener" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js">https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js</a><br>* <a target="_blank" rel="noopener" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css</a></p>
+<p>* Replace the URL FROM * <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9tYXhjZG4uYm9vdHN0cmFwY2RuLmNvbS9ib290c3RyYXAvNC41LjIvanMvYm9vdHN0cmFwLm1pbi5qcw==" rel="noopener external nofollow noreferrer">https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js</a><br>* <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9tYXhjZG4uYm9vdHN0cmFwY2RuLmNvbS9ib290c3RyYXAvNC41LjIvY3NzL2Jvb3RzdHJhcC5taW4uY3Nz" rel="noopener external nofollow noreferrer">https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css</a><br>* TO * <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG4uYm9vdGNkbi5uZXQvYWpheC9saWJzL3R3aXR0ZXItYm9vdHN0cmFwLzQuNS4yL2pzL2Jvb3RzdHJhcC5taW4uanM=" rel="noopener external nofollow noreferrer">https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js</a><br>* <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG4uYm9vdGNkbi5uZXQvYWpheC9saWJzL3R3aXR0ZXItYm9vdHN0cmFwLzQuNS4yL2Nzcy9ib290c3RyYXAubWluLmNzcw==" rel="noopener external nofollow noreferrer">https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css</a></p>
 <p>优化后，速度杠杠的！ Yeah. 感恩🙏</p>
 
     </div>
@@ -420,7 +432,7 @@
       <a href="https://www.carlzeng.top/202308111324.html" title="SuiteQL Query Tool-CarlZeng">https://www.carlzeng.top/202308111324.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -639,13 +651,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 977k</span>
+    <span title="站点总字数">站点总字数 978k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 29:36</span>
+    <span title="站点阅读时长">站点阅读时长 29:38</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -681,8 +693,8 @@
 
 
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 强力驱动
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
   </div>
 
 <!-- Google tag (gtag.js) -->

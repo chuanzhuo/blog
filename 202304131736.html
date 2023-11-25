@@ -182,6 +182,18 @@
     </div>
 
     
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.carlzeng.top/" title="https:&#x2F;&#x2F;www.carlzeng.top">Title</a>
+            </li>
+        </ul>
+      </div>
+    </div>
         <div class="pjax">
         <div class="sidebar-inner sidebar-post-related">
           <div class="animated">
@@ -389,25 +401,25 @@
     
     <div class="post-body" itemprop="articleBody"><p>动态公网IP（Dynamic Public IP）是指由互联网服务提供商（ISP）分配给用户的动态IP地址，该地址是公共的，可以在公共互联网上访问。<br>与静态公网IP不同，动态公网IP是临时分配的，并且在一段时间后可能会更改。这意味着每次重新连接到互联网时，用户可能会被分配一个新的动态公网IP地址。</p>
 <p>动态公网IP通常用于个人用户或小型企业，因为它们相对便宜，而且不需要用户进行任何配置或管理。但是，由于其不稳定性和易变性，动态公网IP可能不适合需要稳定和持久的互联网连接的大型企业或组织。</p>
-<p>联通的adsl用户可以打10010 叫客服打开“动态公网IP” + 路由器桥接。（<a target="_blank" rel="noopener" href="https://www.mi-d.cn/1590">缘由：需要动态公网ip做监控或者访问服务</a>）</p>
+<p>联通的adsl用户可以打10010 叫客服打开“动态公网IP” + 路由器桥接。（<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cubWktZC5jbi8xNTkw" rel="noopener external nofollow noreferrer">缘由：需要动态公网ip做监控或者访问服务</a>）</p>
 <p>开启动态公网IP+路由器桥接以后, 路由器上拨号即可得到一个公网IP.</p>
 <p>OpenWRT 路由器 设置端口映射， 即可将局域网内主机的端口 映射到公网IP的特定上。</p>
 <p>题外话（弯路）：（Padavan的系统，在端口映射是使用单独的工具（socat耗内存）来实现端口数据转发，OpenWrt的iptables更可靠，扎实稳定）</p>
 <p>下面以mac电脑，架设SRS服务器 来：分享流媒体至互联网。</p>
 <h1 id="1-安装SRS步骤"><a href="#1-安装SRS步骤" class="headerlink" title="1. 安装SRS步骤"></a>1. 安装SRS步骤</h1><p>(安装Docker.dmg后, 运行下面的指令)</p>
-<p>SRS文档：<a target="_blank" rel="noopener" href="https://ossrs.net/lts/zh-cn/docs/v4/doc/getting-started">https:&#x2F;&#x2F;</a><a target="_blank" rel="noopener" href="https://ossrs.net/lts/zh-cn/docs/v4/doc/getting-started">ossrs.net&#x2F;lts&#x2F;zh-cn&#x2F;docs&#x2F;v4&#x2F;doc&#x2F;getting-started</a><br>首先要先把安装好的Docker启动，屏幕右上角会出现鲸鱼背楼的图标，确保其正在运行。<br> Steps to run docker: </p>
+<p>SRS文档：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9vc3Nycy5uZXQvbHRzL3poLWNuL2RvY3MvdjQvZG9jL2dldHRpbmctc3RhcnRlZA==" rel="noopener external nofollow noreferrer">https:&#x2F;&#x2F;</a><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9vc3Nycy5uZXQvbHRzL3poLWNuL2RvY3MvdjQvZG9jL2dldHRpbmctc3RhcnRlZA==" rel="noopener external nofollow noreferrer">ossrs.net&#x2F;lts&#x2F;zh-cn&#x2F;docs&#x2F;v4&#x2F;doc&#x2F;getting-started</a><br>首先要先把安装好的Docker启动，屏幕右上角会出现鲸鱼背楼的图标，确保其正在运行。<br> Steps to run docker: </p>
 <ol>
 <li>cd &#x2F;Users&#x2F;abc&#x2F;WebstormProjects&#x2F;srs&#x2F;srs&#x2F;trunk </li>
 <li>运行：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -it -p 1935:1935 -p 1985:1985 -p 8080:8080 registry.cn-hangzhou.aliyuncs.com/ossrs/srs:4 ./objs/srs -c conf/docker.conf </span><br></pre></td></tr></table></figure></li>
 <li>推流（循环读取音视频文件，进行推送）<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -re -stream_loop -1 -i &#x27;./...&#x27; -c copy -f flv rtmp://localhost/live/livestream</span><br></pre></td></tr></table></figure>
 备注：-stream_loop 中 -1 表示无限循环；0表示 不循环；适合于小文件</li>
 </ol>
-<h1 id="4-播放观看"><a href="#4-播放观看" class="headerlink" title="4. 播放观看"></a>4. 播放观看</h1><p><a target="_blank" rel="noopener" href="http://localhost:8080/players/srs_player.html">http://localhost:8080/players/srs_player.html</a></p>
-<h1 id="5-外网映射"><a href="#5-外网映射" class="headerlink" title="5. 外网映射"></a>5. 外网映射</h1><p>注意: 映射的时候不能使用8080端口, 建议使用60000以上的端口 (因isp防火墙已封锁这些特殊的端口)<br>建议使用frp，具体的配置方法可参考<a target="_blank" rel="noopener" href="https://freefrp.net/docs">https://freefrp.net/docs</a>，<br>或后续的相关文字 ，运行命令：.&#x2F;frpc -c frpc.ini </p>
+<h1 id="4-播放观看"><a href="#4-播放观看" class="headerlink" title="4. 播放观看"></a>4. 播放观看</h1><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2xvY2FsaG9zdDo4MDgwL3BsYXllcnMvc3JzX3BsYXllci5odG1s" rel="noopener external nofollow noreferrer">http://localhost:8080/players/srs_player.html</a></p>
+<h1 id="5-外网映射"><a href="#5-外网映射" class="headerlink" title="5. 外网映射"></a>5. 外网映射</h1><p>注意: 映射的时候不能使用8080端口, 建议使用60000以上的端口 (因isp防火墙已封锁这些特殊的端口)<br>建议使用frp，具体的配置方法可参考<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mcmVlZnJwLm5ldC9kb2Nz" rel="noopener external nofollow noreferrer">https://freefrp.net/docs</a>，<br>或后续的相关文字 ，运行命令：.&#x2F;frpc -c frpc.ini </p>
 <h1 id="2-推流方案"><a href="#2-推流方案" class="headerlink" title="2. 推流方案"></a>2. 推流方案</h1><h2 id="使用obs推流"><a href="#使用obs推流" class="headerlink" title="使用obs推流"></a>使用obs推流</h2><p>下载并安装 obs-studio-29.0.2-macos-arm64.dmg</p>
 <p>Obs 打开后右下角的设置 &gt;直播 &gt;服务选择自定义服务器为rtmp:&#x2F;&#x2F;localhost&#x2F;live&#x2F;, 推流码为1(可以是任意数字和字母，可理解为房间号)<br> 添加内容（音频，视频）后，点击开始直播。</p>
 <p>———播放部分———</p>
-<p>最终得到的 播放地址为： <a target="_blank" rel="noopener" href="http://localhost:60080/live/1.flv">http://localhost:60080/live/1.flv</a><br>工具可选用VLC或者网页形式<a target="_blank" rel="noopener" href="http://localhost:8080/players/srs_player.html">http://localhost:8080/players/srs_player.html</a></p>
+<p>最终得到的 播放地址为： <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2xvY2FsaG9zdDo2MDA4MC9saXZlLzEuZmx2" rel="noopener external nofollow noreferrer">http://localhost:60080/live/1.flv</a><br>工具可选用VLC或者网页形式<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2xvY2FsaG9zdDo4MDgwL3BsYXllcnMvc3JzX3BsYXllci5odG1s" rel="noopener external nofollow noreferrer">http://localhost:8080/players/srs_player.html</a></p>
 <p>经验：</p>
 <p>使用ffmpeg3流远程m3u8媒体时，经常会容易断流或电脑休眠后会断流， 这时我们最好使用 obs 转播来源为window capture的方案。</p>
 <p>20230419 Update</p>
@@ -418,7 +430,7 @@
 <h3 id="5-optional-将新的镜像推送到-Docker-镜像仓库中（如果需要）。"><a href="#5-optional-将新的镜像推送到-Docker-镜像仓库中（如果需要）。" class="headerlink" title="5. [optional]将新的镜像推送到 Docker 镜像仓库中（如果需要）。"></a>5. [optional]将新的镜像推送到 Docker 镜像仓库中（如果需要）。</h3><p>docker push <NEW_IMAGE_TAG></p>
 <h3 id="6-在部署-SRS-服务时，使用新的镜像标签来启动容器。"><a href="#6-在部署-SRS-服务时，使用新的镜像标签来启动容器。" class="headerlink" title="6. 在部署 SRS 服务时，使用新的镜像标签来启动容器。"></a>6. 在部署 SRS 服务时，使用新的镜像标签来启动容器。</h3><p>docker run -it -p 1935:1935 -p 1985:1985 -p 8080:8080 <NEW_IMAGE_TAG> 需要注意的是，这种方式只适用于修改镜像中的某个特定的文件。如果您需要对 SRS 的配置文件或者其他文件进行修改，建议使用 Dockerfile 来自定义 SRS 镜像。 ————————————————————————  </p>
 <h2 id="使用vMix推流"><a href="#使用vMix推流" class="headerlink" title="使用vMix推流"></a>使用vMix推流</h2><p>vMix: Live Video Streaming Software</p>
-<p>vMix<br><a target="_blank" rel="noopener" href="https://www.vmix.com/">https://www.vmix.com</a><br>vMix is a live streaming and live production software video mixer and switcher for Windows. Easily Produce, Record and Live Stream professional looking …</p>
+<p>vMix<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cudm1peC5jb20v" rel="noopener external nofollow noreferrer">https://www.vmix.com</a><br>vMix is a live streaming and live production software video mixer and switcher for Windows. Easily Produce, Record and Live Stream professional looking …</p>
 <p>VS OBS, it sounds like vMix is better</p>
 <p>状态：待测试</p>
 <h1 id="错误及解决方案"><a href="#错误及解决方案" class="headerlink" title="错误及解决方案"></a>错误及解决方案</h1><p>问题：vi index.html. 提示错误：bash: vi: command not found。 我要怎么办？<br>如果在容器中执行 vi 命令时提示 command not found 错误，说明容器中没有安装 vi 编辑器。</p>
@@ -447,7 +459,7 @@
       <a href="https://www.carlzeng.top/202304131736.html" title="动态公网IP 和 SRS-CarlZeng">https://www.carlzeng.top/202304131736.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -674,13 +686,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 977k</span>
+    <span title="站点总字数">站点总字数 978k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 29:36</span>
+    <span title="站点阅读时长">站点阅读时长 29:38</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -716,8 +728,8 @@
 
 
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 强力驱动
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
   </div>
 
 <!-- Google tag (gtag.js) -->

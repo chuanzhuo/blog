@@ -186,6 +186,18 @@
     </div>
 
     
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.carlzeng.top/" title="https:&#x2F;&#x2F;www.carlzeng.top">Title</a>
+            </li>
+        </ul>
+      </div>
+    </div>
         <div class="pjax">
         <div class="sidebar-inner sidebar-post-related">
           <div class="animated">
@@ -410,7 +422,7 @@
 <h3 id="一些-Docker-Compose-常用命令"><a href="#一些-Docker-Compose-常用命令" class="headerlink" title="一些 Docker Compose 常用命令"></a>一些 Docker Compose 常用命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker-compose restart  <span class="comment"># 重启容器</span></span><br><span class="line">docker-compose stop     <span class="comment"># 暂停容器</span></span><br><span class="line">docker-compose down     <span class="comment"># 删除容器</span></span><br><span class="line">docker-compose pull     <span class="comment"># 更新镜像</span></span><br><span class="line">docker-compose <span class="built_in">exec</span> artalk bash <span class="comment"># 进入容器</span></span><br></pre></td></tr></table></figure>
 
 <p>carlzeng@Debian11:&#x2F;data&#x2F;artalk$ ls<br>artalk.db  artalk.yml</p>
-<p><a href="http://192.168.@@@:82/sidebar/#/login">http://192.168.@@@:82/sidebar/#/login</a></p>
+<p><a href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguQEBAOjgyL3NpZGViYXIvIy9sb2dpbg==" rel="noopener external nofollow noreferrer">http://192.168.@@@:82/sidebar/#/login</a></p>
 <p>carlzeng@Debian11:&#x2F;$ docker exec -it artalk artalk admin<br>permission denied while trying to connect to the Docker daemon socket at unix:&#x2F;&#x2F;&#x2F;var&#x2F;run&#x2F;docker.sock: Get “http:&#x2F;&#x2F;%2Fvar%2Frun%2Fdocker.sock&#x2F;v1.24&#x2F;containers&#x2F;artalk&#x2F;json”: dial unix &#x2F;var&#x2F;run&#x2F;docker.sock: connect: permission denied<br>carlzeng@Debian11:&#x2F;$ su<br>Password:<br>root@Debian11:&#x2F;# docker exec -it artalk artalk admin<br>Error response from daemon: No such container: artalk</p>
 <p>检测了BT面板里面的artalk容器配置，发现异常如下：<br>“Name” : “&#x2F;q18qdroglehghc”,</p>
 <p>用第二种方法：直接在ssh中输入docker命令</p>
@@ -419,7 +431,7 @@
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it artalk artalk admin</span><br><span class="line"></span><br><span class="line">WARN[0000] 未找到 IP 数据库文件：&quot;./data/ip2region.xdb&quot;，IP 归属地功能已禁用，参考链接：https://artalk.js.org/guide/frontend/ip-region.html</span><br><span class="line">--------------------------------</span><br><span class="line"> Create admin account</span><br><span class="line">--------------------------------</span><br><span class="line">Enter Username: ***</span><br><span class="line">Enter Email: zeng.@icloud.com</span><br><span class="line">Enter Password: </span><br><span class="line">Retype Password: </span><br><span class="line">--------------------------------</span><br><span class="line">  Name: ***</span><br><span class="line">  Mail: zeng.@icloud.com</span><br><span class="line">--------------------------------</span><br></pre></td></tr></table></figure>
 
-<p>可以在正常在本地提交评论<a target="_blank" rel="noopener" href="http://localhost:4000/blog/202309222344.html#Next">http://localhost:4000/blog/202309222344.html#Next</a><br>下一步：</p>
+<p>可以在正常在本地提交评论<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2xvY2FsaG9zdDo0MDAwL2Jsb2cvMjAyMzA5MjIyMzQ0Lmh0bWwjTmV4dA==" rel="noopener external nofollow noreferrer">http://localhost:4000/blog/202309222344.html#Next</a><br>下一步：</p>
 <h2 id="添加到NexT的页脚模版comment位置"><a href="#添加到NexT的页脚模版comment位置" class="headerlink" title="添加到NexT的页脚模版comment位置"></a>添加到NexT的页脚模版comment位置</h2><pre><code>done, added in comments.njk
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- if page.comments %&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- CSS --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- JS --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- Artalk --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;Comments&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="title class_">Artalk</span>.<span class="title function_">init</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">el</span>:        <span class="string">&#x27;#Comments&#x27;</span>,               <span class="comment">// 绑定元素的 Selector</span></span></span><br><span class="line"><span class="language-javascript">    <span class="attr">pageKey</span>:   <span class="string">&#x27;&#x27;</span>,                          <span class="comment">// 固定链接 (留空自动获取)</span></span></span><br><span class="line"><span class="language-javascript">    <span class="attr">pageTitle</span>: <span class="string">&#x27;&#x27;</span>,                          <span class="comment">// 页面标题 (留空自动获取)</span></span></span><br><span class="line"><span class="language-javascript">    <span class="attr">server</span>:    <span class="string">&#x27;http://192.168.@@@:82&#x27;</span>,  <span class="comment">// 后端地址</span></span></span><br><span class="line"><span class="language-javascript">    <span class="attr">site</span>:      <span class="string">&#x27;@@@@ Notes - Local&#x27;</span>,         <span class="comment">// 你的站点名</span></span></span><br><span class="line"><span class="language-javascript">  &#125;)</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  ....</span><br></pre></td></tr></table></figure>
 .post-nav &#123; border-bottom: 20px solid $gainsboro;
@@ -429,7 +441,7 @@
 </code></pre>
 <h2 id="修改NexT的电脑端背景色为白色，（同步于手机端样式）"><a href="#修改NexT的电脑端背景色为白色，（同步于手机端样式）" class="headerlink" title="修改NexT的电脑端背景色为白色，（同步于手机端样式）"></a>修改NexT的电脑端背景色为白色，（同步于手机端样式）</h2><pre><code>修改配置文件 darkmode: false
 </code></pre>
-<h2 id="映射或反向代理，提供给外网使用：https-chuanzhuo-github-io-blog"><a href="#映射或反向代理，提供给外网使用：https-chuanzhuo-github-io-blog" class="headerlink" title="映射或反向代理，提供给外网使用：https://chuanzhuo.github.io/blog/"></a>映射或反向代理，提供给外网使用：<a target="_blank" rel="noopener" href="https://chuanzhuo.github.io/blog/">https://chuanzhuo.github.io/blog/</a></h2><pre><code>如何给docker中的服务配置二级域名？
+<h2 id="映射或反向代理，提供给外网使用：https-chuanzhuo-github-io-blog"><a href="#映射或反向代理，提供给外网使用：https-chuanzhuo-github-io-blog" class="headerlink" title="映射或反向代理，提供给外网使用：https://chuanzhuo.github.io/blog/"></a>映射或反向代理，提供给外网使用：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jaHVhbnpodW8uZ2l0aHViLmlvL2Jsb2cv" rel="noopener external nofollow noreferrer">https://chuanzhuo.github.io/blog/</a></h2><pre><code>如何给docker中的服务配置二级域名？
 https页面可否嵌入http服务？
     需要升级到https
     Nginx Proxy Manager也可以代劳
@@ -543,7 +555,7 @@ npm install hexo-next-artalk
 DNS TOKEN: 7u0Y_5-t_TTn1biQDfdtHg@@@@@@
 </code></pre>
 <p>10:36am 回归源头错误：<br>    code”:6103,”message”:”Invalid format for X-Auth-Key header</p>
-<p>比对了Openwrt中的源文件：<br>        ‘&#x2F;usr&#x2F;lib&#x2F;ddns&#x2F;update_cloudflare_com_v4.sh’<br>        <a target="_blank" rel="noopener" href="https://github.com/msva/openwrt-packages/blob/master/net/ddns-scripts/files/update_cloudflare_com_v4.sh">https://github.com/msva/openwrt-packages/blob/master/net/ddns-scripts/files/update_cloudflare_com_v4.sh</a><br>    发现我Openwrt中的.sh文件已经是最新版，看来还是配置出问题了。</p>
+<p>比对了Openwrt中的源文件：<br>        ‘&#x2F;usr&#x2F;lib&#x2F;ddns&#x2F;update_cloudflare_com_v4.sh’<br>        <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL21zdmEvb3BlbndydC1wYWNrYWdlcy9ibG9iL21hc3Rlci9uZXQvZGRucy1zY3JpcHRzL2ZpbGVzL3VwZGF0ZV9jbG91ZGZsYXJlX2NvbV92NC5zaA==" rel="noopener external nofollow noreferrer">https://github.com/msva/openwrt-packages/blob/master/net/ddns-scripts/files/update_cloudflare_com_v4.sh</a><br>    发现我Openwrt中的.sh文件已经是最新版，看来还是配置出问题了。</p>
 <pre><code>检查.sh源文件，发现的解决问题的办法：
 用户名需要使用： Bearer
 密码使用：API Token，编辑区域 DNS API 令牌已成功创建
@@ -579,7 +591,7 @@ carlzeng.top
       <a href="https://www.carlzeng.top/202310261222.html" title="Hexo定制之家宽部署artalk评论">https://www.carlzeng.top/202310261222.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -807,13 +819,13 @@ carlzeng.top
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 977k</span>
+    <span title="站点总字数">站点总字数 978k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 29:36</span>
+    <span title="站点阅读时长">站点阅读时长 29:38</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -849,8 +861,8 @@ carlzeng.top
 
 
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 强力驱动
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
   </div>
 
 <!-- Google tag (gtag.js) -->

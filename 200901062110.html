@@ -178,6 +178,18 @@
     </div>
 
     
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.carlzeng.top/" title="https:&#x2F;&#x2F;www.carlzeng.top">Title</a>
+            </li>
+        </ul>
+      </div>
+    </div>
         <div class="pjax">
         <div class="sidebar-inner sidebar-post-related">
           <div class="animated">
@@ -444,12 +456,12 @@ INPUT {display:none}
 <p>总体方案的确认：</p>
 <p>一、<strong>浏览器的打印功能菜单</strong><br>这种方案的优势是不需要对浏览器作任何扩充，是最简单的办法，但问题也最多，如：<br>1. 不能精确分页。<br>浏览器一般是根据用户设置的页面大小，web页面的内容多少，来自行决定分页位置，程序员很难控制。会有页脚页眉干扰。<br>2. 不能准确对齐边边距及打印文字。<br>3. 不能解决连续打印。<br>比如，不是仅打印一张票据，而是连续一次打印若干个票据。  </p>
 <p>二、<strong>使用webbrowser****控件+ javascript</strong><br>这实际上，是浏览器打印功能菜单的一种程序调用，与打印功能菜单没什么两样。分页的问题仍然存在，只不过，可以让用户不用去点菜单，直接在网页中的一个按钮，或一个链接里面调用罢了。  </p>
-<p>三、<strong>使用print css</strong><br>这是一种最理想的实现web套打的方法。这种方法通过在html文档中，嵌入打印相关的css样式，来实现对html文档输出打印的控制，比如设置纸张大小，纸张纵横方向，打印边距，分页等。显而易见，这种方式成本小，不需要下载任何插件，而且跨平台性非常好。print css推出已经有些时日，但遗憾的是，至今<br>没有一个厂商的浏览器很好地实现了这些标准，这使得程序员目前还不能利用print css进行实际的开发。关于打印css，参见<a target="_blank" rel="noopener" href="http://css-discuss.incutio.com/?page=PrintStylesheets">http://css-discuss.incutio.com/?page=PrintStylesheets</a>  </p>
+<p>三、<strong>使用print css</strong><br>这是一种最理想的实现web套打的方法。这种方法通过在html文档中，嵌入打印相关的css样式，来实现对html文档输出打印的控制，比如设置纸张大小，纸张纵横方向，打印边距，分页等。显而易见，这种方式成本小，不需要下载任何插件，而且跨平台性非常好。print css推出已经有些时日，但遗憾的是，至今<br>没有一个厂商的浏览器很好地实现了这些标准，这使得程序员目前还不能利用print css进行实际的开发。关于打印css，参见<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2Nzcy1kaXNjdXNzLmluY3V0aW8uY29tLz9wYWdlPVByaW50U3R5bGVzaGVldHM=" rel="noopener external nofollow noreferrer">http://css-discuss.incutio.com/?page=PrintStylesheets</a>  </p>
 <p>四、<strong>使用pdf文件</strong><br>用这种方式，就是从服务器端下载一个pdf文件流，在IE中用adobe插件打开，然后用adobe的打印菜单进行打印，虽然这种方案，也能实现精确套打，但需要下载adobe插件。这是国外报表工具经常推荐的一种打印方法，但在pdf不那么普及的中国，这种方案不是最好选择。</p>
 <p>七、<strong>轻量级的ActiveX****打印方式</strong><br>这是本公司应客户要求，最新推出的一种最具创意的web套打解决方案。<br>杰表作为一款纯java的报表工具，以前的提供的web套打方案也是基于Applet的，Applet也做到了尽可能的小(只有24kb)，但用户还是抱怨，因为jre太大，安装需要耐心。另外，用Applet方式，很难实现客户端的批量打印功能。  </p>
 <p>我们采用轻量级的ActiveX打印方案，很好地解决了客户的问题。以下是一个典型的该种方案的示例。</p>
 <p>轻量级的ActiveX打印方案的<strong>优点</strong>是：<br>1．效率高。可以直接打印指定的html文档，不必向后台再次提起请求。<br>2．能做到精确打印，分页；<br>3．功能丰富。可以利用该控件，实现对当前票据文档的打印，预览，及多个html文档的连续打印。<br>4．成本低廉，ActiveX只有20kb。、</p>
-<p><a target="_blank" rel="noopener" href="http://www.jatools.com/print/">http://www.jatools.com/print/</a> 这是一个收费的东西，可以找找那些绿色版的，</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5qYXRvb2xzLmNvbS9wcmludC8=" rel="noopener external nofollow noreferrer">http://www.jatools.com/print/</a> 这是一个收费的东西，可以找找那些绿色版的，</p>
 <p>=&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<strong>netsuite凭证批量打印中涉及的html分页打印问题,页面的部分打印</strong></p>
 <p>window.print() 实际上，是浏览器打印功能菜单的一种程序调用。与点击打印功能菜单一样，不能精确分页，不能设置纸型，套打的问题更加无从谈起，只不过，可以让用户不用去点菜单，直接点击网页中的一个按钮，或一个链接里面调用罢了。事实上，很多用户都是采用这种方式打印，但是这种方式最致命的缺点是不能设置打印参数，比如纸型，页边距，选择打印机等等。</p>
 <p>需要指出的是这种方法提供一个打印前和打印后的事件onbeforeprint、onafterprint。可以在打印前的时候重新编辑一些格式，专门送去打印，打印后又处理回来。<br>function window.onbeforeprint()<br>{<br>&#x2F;&#x2F;将一些不需要打印的隐藏<br>}<br>function window.onafterprint()<br>{<br>&#x2F;&#x2F;放开隐藏的元素<br>}</p>
@@ -475,7 +487,7 @@ INPUT {display:none}
       <a href="https://www.carlzeng.top/200901062110.html" title="netsuite凭证批量打印中涉及的html分页打印问题,页面的部分打印-CarlZeng">https://www.carlzeng.top/200901062110.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -699,13 +711,13 @@ INPUT {display:none}
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 977k</span>
+    <span title="站点总字数">站点总字数 978k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 29:36</span>
+    <span title="站点阅读时长">站点阅读时长 29:38</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -741,8 +753,8 @@ INPUT {display:none}
 
 
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 强力驱动
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
   </div>
 
 <!-- Google tag (gtag.js) -->

@@ -178,6 +178,18 @@
     </div>
 
     
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://www.carlzeng.top/" title="https:&#x2F;&#x2F;www.carlzeng.top">Title</a>
+            </li>
+        </ul>
+      </div>
+    </div>
         <div class="pjax">
         <div class="sidebar-inner sidebar-post-related">
           <div class="animated">
@@ -376,7 +388,7 @@
     
     <div class="post-body" itemprop="articleBody"><p>来自Nine Javascript Gotchas, 以下是JavaScript容易犯错的九个陷阱。虽然不是什么很高深的技术问题，但注意一下，会使您的编程轻松些，即所谓make life easier. 笔者对某些陷阱会混杂一些评点。最后一个逗号如这段代码，注意最后一个逗号，按语言学角度来说应该是不错的（python的类似数据类型辞典dictionary就允许如此）。IE会报语法错误，但语焉不详，…</p>
 <!-- more -->
-<p>来自<a target="_blank" rel="noopener" href="http://www.fitzblog.com/tabid/17782/bid/2127/Nine-Javascript-Gotchas.aspx">Nine Javascript Gotchas</a>, 以下是JavaScript容易犯错的九个陷阱。虽然不是什么很高深的技术问题，但注意一下，会使您的编程轻松些，即所谓make life easier. 笔者对某些陷阱会混杂一些评点。</p>
+<p>来自<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5maXR6YmxvZy5jb20vdGFiaWQvMTc3ODIvYmlkLzIxMjcvTmluZS1KYXZhc2NyaXB0LUdvdGNoYXMuYXNweA==" rel="noopener external nofollow noreferrer">Nine Javascript Gotchas</a>, 以下是JavaScript容易犯错的九个陷阱。虽然不是什么很高深的技术问题，但注意一下，会使您的编程轻松些，即所谓make life easier. 笔者对某些陷阱会混杂一些评点。</p>
 <ol>
 <li><h4 id="最后一个逗号"><a href="#最后一个逗号" class="headerlink" title="最后一个逗号"></a>最后一个逗号</h4><p>如这段代码，注意最后一个逗号，按语言学角度来说应该是不错的（python的类似数据类型辞典dictionary就允许如此）。IE会报语法错误，但语焉不详，你只能用人眼从几千行代码中扫描。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var theObj = &#123;</span><br><span class="line">    city : &quot;Boston&quot;,</span><br><span class="line">    state : &quot;MA&quot;,</span><br><span class="line">    &#125;</span><br><span class="line">    &lt;/script&gt; </span><br></pre></td></tr></table></figure>
@@ -387,7 +399,7 @@
 <p>并不如你所愿，答案并不是”JavaScript rules”。在执行<code>MyObject.ClickHandler</code>时，代码中红色这行，<code>this</code>的引用实际上指向的是<code>document.getElementById(&quot;theText&quot;)</code>的引用。可以这么解决：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;button&quot; value=&quot;Gotcha!&quot; id=&quot;theText&quot; &gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    var MyObject = function () &#123;</span><br><span class="line">    var self = this;</span><br></pre></td></tr></table></figure>
 
-<p>实质上，这就是<a target="_blank" rel="noopener" href="http://realazy.org/blog/2007/07/18/scope-in-javascript/">JavaScript作用域的问题</a>。如果你看过，你会发现解决方案不止一种。</p>
+<p>实质上，这就是<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3JlYWxhenkub3JnL2Jsb2cvMjAwNy8wNy8xOC9zY29wZS1pbi1qYXZhc2NyaXB0Lw==" rel="noopener external nofollow noreferrer">JavaScript作用域的问题</a>。如果你看过，你会发现解决方案不止一种。</p>
 </li>
 <li><h4 id="标识盗贼"><a href="#标识盗贼" class="headerlink" title="标识盗贼"></a>标识盗贼</h4><p>在JavaScript中不要使用跟HTML的id一样的变量名。如下代码：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;button&quot; id=&quot;TheButton&quot;&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    TheButton = get(&quot;TheButton&quot;);</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure>
@@ -447,7 +459,7 @@
       <a href="https://www.carlzeng.top/200903231437.html" title="JavaScript的9个陷阱及评点  -转载-CarlZeng">https://www.carlzeng.top/200903231437.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -666,13 +678,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">站点总字数 977k</span>
+    <span title="站点总字数">站点总字数 978k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 29:36</span>
+    <span title="站点阅读时长">站点阅读时长 29:38</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -708,8 +720,8 @@
 
 
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" rel="noopener" href="https://sage-halva-bac054.netlify.app">Netlify</a> <a target="_blank" rel="noopener" href="https://github.carlzeng.top">GitHub</a>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 强力驱动
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
   </div>
 
 <!-- Google tag (gtag.js) -->
