@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="如何在网络包传输中捕获cookie？ 分解：cookie是否在网络数据包中包含？ 如果包含，如何读取？ 需要分开看是http的还是https的情况， https需要考虑使用硬件上的集线器监听解码或者MITM 来转变数据流。 ---------------转载：http:&#x2F;&#x2F;www.cppblog.com&#x2F;len&#x2F;archive&#x2F;2009&#x2F;05&#x2F;26&#x2F;54229.html 强大的网络传输工具cURL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在网络包传输中捕获cookie-CarlZeng">
+<meta property="og:url" content="https://www.carlzeng.top/en/200911251629.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="如何在网络包传输中捕获cookie？ 分解：cookie是否在网络数据包中包含？ 如果包含，如何读取？ 需要分开看是http的还是https的情况， https需要考虑使用硬件上的集线器监听解码或者MITM 来转变数据流。 ---------------转载：http:&#x2F;&#x2F;www.cppblog.com&#x2F;len&#x2F;archive&#x2F;2009&#x2F;05&#x2F;26&#x2F;54229.html 强大的网络传输工具cURL">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2009-11-25T08:29:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:29.009Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/en/200911251629.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/200911251629.html","path":"en/200911251629.html","title":"如何在网络包传输中捕获cookie-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>如何在网络包传输中捕获cookie-CarlZeng | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//unpkg.com/social-share.js@1.0.16/dist/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 NetSuite 个人随笔</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">111</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">33</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">310</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+      <div class="languages">
+        <label class="lang-select-label">
+          <i class="fa fa-language"></i>
+          <span>English</span>
+          <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </label>
+        <select class="lang-select" data-canonical="" aria-label="Select language">
+          
+            <option value="zh-CN" data-href="/200911251629.html" selected="">
+              简体中文
+            </option>
+          
+            <option value="en" data-href="/en/200911251629.html" selected="">
+              English
+            </option>
+          
+            <option value="ja" data-href="/ja/200911251629.html" selected="">
+              日本語
+            </option>
+          
+            <option value="ko" data-href="/ko/200911251629.html" selected="">
+              한국어
+            </option>
+          
+            <option value="ru" data-href="/ru/200911251629.html" selected="">
+              Английский
+            </option>
+          
+            <option value="zh-HK" data-href="/zh-HK/200911251629.html" selected="">
+              繁體中文（香港）
+            </option>
+          
+            <option value="zh-TW" data-href="/zh-TW/200911251629.html" selected="">
+              繁體中文
+            </option>
+          
+        </select>
+      </div>
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#curl%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">curl命令行工具使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL-%E8%AF%AD%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">URL 语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E5%BA%A6%E6%8C%87%E7%A4%BA%E5%99%A8"><span class="nav-number">2.3.</span> <span class="nav-text">进度指示器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84HTTP%E9%80%89%E9%A1%B9"><span class="nav-number">2.4.</span> <span class="nav-text">常用的HTTP选项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.5.</span> <span class="nav-text">简单示例</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】采用合并文章持续更新的方案</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">111</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200909221418.html" rel="bookmark">
+      html js 跨域 p3p-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201705041056.html" rel="bookmark">
+      Node.js Application Node.js应用-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/" rel="bookmark">
+      
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201811151126.html" rel="bookmark">
+      关于带宽与网速和用户体验 - DNS篇 20181115-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200901071735.html" rel="bookmark">
+      debit,credit,日记帐就是每天都要登的帐-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202301101115.html" rel="bookmark">
+      (强大的ffmpeg)如何下载并转化网络M3U8文件为mp4文件-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202303051904.html" rel="bookmark">
+      tor，网，络-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+                  zerotier多客户端实践应用记录
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+                  关于DNS配置记录与分析
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+                  Docker搭建自动售货系统-独角数卡
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311152248.html" title="气到下不动班" target="">
+                  气到下不动班
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311141039.html" title="iptables应用" target="">
+                  iptables应用
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+                  实测Docker搭建短链接服务YOURLS
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+                  iPad解锁激活锁苹果平板绕激活锁经验
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+                  Nginx Proxy Manager修复笔记
+                  </a>
+                </li>
+        </ul>
+      </div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200911251629.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="如何在网络包传输中捕获cookie-CarlZeng | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何在网络包传输中捕获cookie-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/200911251629.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论: </span>
+            <a href="/en/200911251629.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/en/200911251629.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>4.6k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>8 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>如何在网络包传输中捕获cookie？ 分解：cookie是否在网络数据包中包含？ 如果包含，如何读取？ 需要分开看是http的还是https的情况， https需要考虑使用硬件上的集线器监听解码或者MITM 来转变数据流。 —————转载：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS9sZW4vYXJjaGl2ZS8yMDA5LzA1LzI2LzU0MjI5Lmh0bWw=" rel="noopener external nofollow noreferrer">http://www.cppblog.com/len/archive/2009/05/26/54229.html</a> 强大的网络传输工具cURL…</p>
+<!-- more -->
+<p>如何在网络包传输中捕获cookie？</p>
+<p>分解：cookie是否在网络数据包中包含？</p>
+<p>如果包含，如何读取？</p>
+<p>需要分开看是http的还是https的情况，</p>
+<p>https需要考虑使用硬件上的集线器监听解码或者MITM 来转变数据流。</p>
+<p>-————–转载：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS9sZW4vYXJjaGl2ZS8yMDA5LzA1LzI2LzU0MjI5Lmh0bWw=" rel="noopener external nofollow noreferrer">http://www.cppblog.com/len/archive/2009/05/26/54229.html</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS9sZW4vYXJjaGl2ZS8yMDA4LzA2LzIxLzU0MjI5Lmh0bWw=" rel="noopener external nofollow noreferrer">强大的网络传输工具cURL和libcurl</a></p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>cURL 是一个利用URL语法的文件传输工具,是基于libcurl的前端命令行工具。它支持很多协议：FTP, FTPS, HTTP, HTTPS, GOPHER, TELNET, DICT, FILE 以及 LDAP。 它同样支持HTTPS认证，HTTP POST方法, HTTP PUT方法, FTP上传, kerberos认证, HTTP上传, 代理服务器, cookies, 用户名&#x2F;密码认证, 下载文件断点续传, 上载文件断点续传, http代理服务器管道（ proxy tunneling）, 甚至它还支持IPv6, socks5代理服务器,通过http代理服务器上传文件到FTP服务器等等，功能十分强大。</p>
+<p>除了使用curl命令行直接进行相关的网络操作，你也可以自由地使用libcurl,它是用C语言编写的，可以绑定到众多的编程语言中，如 C,C++,PHP,Python,Perl,Java等等。你可以很方便地利用libcurl，在程序中进行一些网络传输工作，来代替一些语言的内置，使你的知识可重用。在Unix工作环境下，你可以用curl代替wget和ftp等工具，并能将这种学习经验迁移到将来使用libcurl来完成一些自动化任务。</p>
+<p>curl是瑞典curl组织开发的，可以通过<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2N1cmwuaGF4eC5zZS8=" rel="noopener external nofollow noreferrer">http://curl.haxx.se/</a>来获取更详细的信息和下载文件。</p>
+<h3 id="curl命令行工具使用"><a href="#curl命令行工具使用" class="headerlink" title="curl命令行工具使用"></a>curl命令行工具使用</h3><p>curl太强大了，只能对其HTTP的部分作一简单的介绍，其他选项可以参见其附带的手册。它的后端库的使用也非常方便，主要也是在选项设置上，跟命令行基本无异。</p>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p><strong>curl [选项]</strong> [URL…]</p>
+<h4 id="URL-语法"><a href="#URL-语法" class="headerlink" title="URL 语法"></a>URL 语法</h4><p>URL语法是跟协议相关的，具体细节可参见RFC 3986<br>可以指定多个URLs或者部分URL地址，通过花括号{}进行分割：<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3NpdGUue29uZSx0d28sdGhyZWV9LmNvbS8=" rel="noopener external nofollow noreferrer">http://site.{one,two,three}.com</a><br>或者用[]使用字母序：<br><a href="ftp://ftp.numericals.com/file/[1-100/].txt">ftp://ftp.numericals.com/file\[1-100\].txt</a><br><a href="ftp://ftp.numericals.com/file/[001-100/].txt">ftp://ftp.numericals.com/file\[001-100\].txt</a> (有前导零)<br><a href="ftp://ftp.letters.com/file/[a-z/]/].txt">ftp://ftp.letters.com/file\[a-z\]\].txt</a></p>
+<p>当前序列嵌套不被支持，但是还是可以使用下列的样式：<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2FueS5vcmcvYXJjaGl2ZS9bMTk5Ni0xOTk5L10vdm9sL1sxLTQvXS9wYXJ0JTdCYSxiLGMlN0QuaHRtbA==" rel="noopener external nofollow noreferrer">http://any.org/archive\[1996-1999\]/vol\[1-4\]/part{a,b,c}.html</a><br>可以在命令行指定任意数量的URLs,它们将以指定的顺序被取回。</p>
+<p>从curl7.15.1开始指定可以范围步长，所以可以得到第n个数或字母：<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5udW1lcmljYWxzLmNvbS9maWxlL1sxLTEwMDoxMC9dLnR4dA==" rel="noopener external nofollow noreferrer">http://www.numericals.com/file\[1-100:10\].txt</a><br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5sZXR0ZXJzLmNvbS9maWxlL1thLXo6Mi9dLnR4dA==" rel="noopener external nofollow noreferrer">http://www.letters.com/file\[a-z:2\].txt</a></p>
+<p>如果使用了protocal:&#x2F;&#x2F;前缀，curl会将尝试你想使用的协议。它默认使用HTTP，但是其他一些协议也常被用作主机名。比如说，以”ftp”打头的主机名，curl会假定你想使用ftp协议。</p>
+<p>Curl会尝试对多文件传输使用重连接，可以使从同一服务器获取很多文件时，不会进行多次的连接。这种做法改进了速度，当然这只会在同一命令行中指定的文件启用，而不会在独立的Curl调用时使用。</p>
+<h4 id="进度指示器"><a href="#进度指示器" class="headerlink" title="进度指示器"></a>进度指示器</h4><p>curl通常在操作时会显示一个进度指示器，来指明当前的传输量，传输速度和预计的剩余时间等等。</p>
+<p>但是，即然curl默认将数据显示在终端，如果你调用curl进行操作，它会将数据打印到终端上，这时它会禁用掉进度指示器，否则这些会将输出信息搞乱掉。</p>
+<p>如果在进行HTTP的POST或PUT请求时，你想将输出重定向到文件中，可以使用shell的重定向符(&gt;)，或者类似的-o[file]选项。</p>
+<p>但是在FTP上传并不会这样，这些操作不会将数据插入到终端中。</p>
+<p>如果想使用进度栏，而不是常规的指示器，那么-#会非常有帮助。</p>
+<h4 id="常用的HTTP选项"><a href="#常用的HTTP选项" class="headerlink" title="常用的HTTP选项"></a>常用的HTTP选项</h4><p><strong>-A&#x2F;–user-agent<agent string></strong><br>(HTTP)指定用户代理字符串发送给HTTP服务器。如果这个字段没有被设为”Mozilla&#x2F;4.0”，某些CGIs将不会正常工作。如果在字符串中存在空白字符，需要用单引号标识。这个字段值也可用-H&#x2F;–header选项进行设置。<br>如果这选项被多次设置，最后的设置将起作用。</p>
+<p><strong>-b&#x2F;–cookie&lt;name&#x3D;data&gt;</strong><br>(HTTP)将data作为cookie传给HTTP服务器，这数据当然是在使用了”Set-Cookie:”后，先前从服务端接收到的。这数据应是”NAME1&#x3D;VALUE1;NAME2&#x3D;VALUE2”的格式。<br>如果没有”&#x3D;”字符，它将会当作先前存储cookie行的文件名，如果它能被匹配的话。使用这选项，也能激活”cookie parser”，它使curl记录传入的cookies数据。将它与-L&#x2F;–locaion选项组合将会更加便利。被读取cookie的文件格式应当是文本HTTP头或者Netscape&#x2F;Mozilla cookie文件格式。<br>注意：被-b&#x2F;–cookie指定的文件只能作为输入使用。没有cookie会存储在这文件中。为了存储cookie，应使用-c&#x2F;–cookie-jar选项或者直接将HTTP头输出到文件中，用-D &#x2F;–dump-header选项。这选项可以设置多次，但是只有最后一个起作用。</p>
+<p><strong>-connect-timeout<seconds></strong><br>以秒计的最大超时，用于进行服务器连接时。这只在连接阶段起作用，一旦curl连接建立，这选项将不再起作用。</p>
+<p><strong>-c&#x2F;–cookie-jar<file name></strong><br>指定在完成一系列操作后，需要将全部的cookie信息保存到哪个文件中。Curl会将先前读取的cookie的信息和从服务器返回的信息一起保存。如果没有cookie信息，则不会进行写文件。cookie信息的文件将与Netscape cookie文件格式保存。如果文件名被设置为’-‘，则将cookie打印至终端。<br><strong>注意：</strong>如果cookie-jar不能被创建写入，整个curl操作也不会失改，甚至不会向你报告错误.使用-v将会得到警告显示，但也只能在可能导致发生致命错误的情况才会显示。</p>
+<p><strong>--create-dirs</strong><br>这与-o选项配合使用，curl会在需要时建立本地文件夹结构。这选项会创建在-o选项中涉及到的文件夹。如果-o选项中的文件名没有使用到文件夹，或者所需的文件夹已经存在，则不会有文件夹创建。</p>
+<p><strong>-D&#x2F;–dump-header<file></strong><br>将协议头写到指定的文件中。当你想存储HTTP站点发给你的数据时，这选项非常有用。在协议头中的cookie将来可以用curl的另外调用来进行读取，那就是-b&#x2F;–cookie选项。但是-c&#x2F;–cookie-jar选项将会是更好的存储cookie信息的方法。<br>当使用FTP协议时，ftp服务器的应答信息将相应地当作成协议头，然后被存储。</p>
+<p><strong>-p&#x2F;-proxytunnel</strong><br>当HTTP代理被设置后(-x&#x2F;–proxy)，选项会使不是HTTP协议的传输试图通过代理隧道，而不是表现得HTTP类似的操作形为。代理隧道的方法是通过HTTP服务器直接使用CONNECT请求，让代理直接连接到curl隧道所请求的远程端口号的方式来实现的。</p>
+<p><strong>-o&#x2F;–output<file></strong><br>将输出信息打印到文件中，而不是终端。可使用{}或者[]取回多个文档，可在file指定格式中的’#’跟一数字，这样这变量将会由取回的URL字符串所取代。如下：<br>curl http:&#x2F;&#x2F;{one,two}.site.com -o “file_#1.txt”<br>如果有多个变量，可以写成下面的样子：<br>curl http:&#x2F;&#x2F;{site.host}.host[1-5].com -o “#1_#2”<br>你可对任意数量的URL使用同样多的这个选项</p>
+<p><strong>-x&#x2F;–proxy&lt;proxyhost[:port]&gt;</strong><br>使用指定的HTTP代理，如果端口号没有被指定，默认为1080.<br>这选项会覆盖环境变量中代理服务器的设置。如果环境变量中设置了代理，可将proxy设置为空字符串，来覆盖环境变量中的设置。<br><strong>注意：</strong>所有通过HTTP代理的操作都会自动转化为HTTP协议。这意味着一些特定协议的操作将会变得无效。这不会有问题，如果在设置了_-p&#x2F;–proxytunnel_选项来通过代理隧道进行操作。</p>
+<h4 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h4><p>获取cppblog首页，打印至终端</p>
+<p>&gt;curl <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
+<p>重定向，保存到文件cppblog.html</p>
+<p>&gt;curl <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
+<p>作用同上，使用选项</p>
+<p>&gt;curl -o baidu.html <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5iYWlkdS5jb20v" rel="noopener external nofollow noreferrer">http://www.baidu.com</a></p>
+<p>使用http代理，可指定IP和端口</p>
+<p>&gt;curl -x 202.127.98.43:80 -o baidu.html http:<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5iYWlkdS5jb20v" rel="noopener external nofollow noreferrer">www.baidu.com</a></p>
+<p>在访问一些论坛时，常常要求启用cookie，因为这些网站需要启用cookie来记录sessioin信息,这时需要选项-D，将cookie信息保存起来</p>
+<p>&gt;curl -o cpp.html -c <a href="mailto:&#x6c;&#101;&#x6e;&#64;&#x63;&#112;&#x70;&#x62;&#x6c;&#x6f;&#x67;&#x2e;&#99;&#x6f;&#109;">&#x6c;&#101;&#x6e;&#64;&#x63;&#112;&#x70;&#x62;&#x6c;&#x6f;&#x67;&#x2e;&#99;&#x6f;&#109;</a>[1].txt <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
+<p>先前保存的cookie信息返回给网站,这通常会传回你的一些用户信息。</p>
+<p>&gt;curl -o cpp.html -c <a href="mailto:&#x6c;&#101;&#x6e;&#64;&#x63;&#112;&#x70;&#x62;&#108;&#111;&#x67;&#46;&#x63;&#111;&#109;">&#x6c;&#101;&#x6e;&#64;&#x63;&#112;&#x70;&#x62;&#108;&#111;&#x67;&#46;&#x63;&#111;&#109;</a>[2].txt -b <a href="mailto:&#108;&#x65;&#110;&#x40;&#99;&#112;&#x70;&#98;&#x6c;&#111;&#x67;&#46;&#99;&#x6f;&#x6d;">&#108;&#x65;&#110;&#x40;&#99;&#112;&#x70;&#98;&#x6c;&#111;&#x67;&#46;&#99;&#x6f;&#x6d;</a>[1].txt <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="weibo,qq,wechat,tencent,douban,qzone,linkedin,diandian,facebook,twitter,google"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//unpkg.com/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Carl Zeng
+    <a href='https://www.carlzeng.top/200911251629.html'> 《如何在网络包传输中捕获cookie-CarlZeng》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://www.carlzeng.top/200911251629.html" title="如何在网络包传输中捕获cookie-CarlZeng">https://www.carlzeng.top/200911251629.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-nav">
+<div class="post-nav-item">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200909221418.html" rel="bookmark">
+      html js 跨域 p3p-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201705041056.html" rel="bookmark">
+      Node.js Application Node.js应用-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/" rel="bookmark">
+      
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201811151126.html" rel="bookmark">
+      关于带宽与网速和用户体验 - DNS篇 20181115-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200901071735.html" rel="bookmark">
+      debit,credit,日记帐就是每天都要登的帐-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202301101115.html" rel="bookmark">
+      (强大的ffmpeg)如何下载并转化网络M3U8文件为mp4文件-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202303051904.html" rel="bookmark">
+      tor，网，络-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="post-nav-item">
+<!-- recent posts -->
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="pjax recent-posts-list">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+              zerotier多客户端实践应用记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+              关于DNS配置记录与分析
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+              Docker搭建自动售货系统-独角数卡
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311152248.html" title="气到下不动班" target="">
+              气到下不动班
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311141039.html" title="iptables应用" target="">
+              iptables应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+              实测Docker搭建短链接服务YOURLS
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+              iPad解锁激活锁苹果平板绕激活锁经验
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+              Nginx Proxy Manager修复笔记
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+              Hexo定制之家宽部署artalk评论
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+              任天堂Switch全部记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310202241.html" title="安卓手机root与小黄鸟抓包" target="">
+              安卓手机root与小黄鸟抓包
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
+              Debian初体验之基础设置
+              </a>
+            </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
+<div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+      </span>
+
+</div>
+
+
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/200911201708.html" rel="prev" title="一中另类调试javascrīpt的好方法-CarlZeng">
+                  <i class="fa fa-angle-left"></i> 一中另类调试javascrīpt的好方法-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/200911261203.html" rel="next" title="转载 Session劫持-CarlZeng">
+                  转载 Session劫持-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>English</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="Select language">
+      
+        <option value="zh-CN" data-href="/200911251629.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/200911251629.html" selected="">
+          English
+        </option>
+      
+        <option value="ja" data-href="/ja/200911251629.html" selected="">
+          日本語
+        </option>
+      
+        <option value="ko" data-href="/ko/200911251629.html" selected="">
+          한국어
+        </option>
+      
+        <option value="ru" data-href="/ru/200911251629.html" selected="">
+          Английский
+        </option>
+      
+        <option value="zh-HK" data-href="/zh-HK/200911251629.html" selected="">
+          繁體中文（香港）
+        </option>
+      
+        <option value="zh-TW" data-href="/zh-TW/200911251629.html" selected="">
+          繁體中文
+        </option>
+      
+    </select>
+  </div>
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">站点总字数 981k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">站点阅读时长 29:44</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+  <script type="text/javascript">
+  var sc_project=12934590;
+  var sc_invisible=0;
+  var sc_security="122fb52f";
+  var scJsHost = "https://";
+  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="View My Stats"
+  href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+</div>
+  <div class="powered-by">Powered by <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a>
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://unpkg.com/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/en/200911251629.html"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/en/200911251629.html","pageTitle":"如何在网络包传输中捕获cookie-CarlZeng"}</script>
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>

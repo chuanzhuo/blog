@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="手机root之后的利弊不是本文的讨论范围，可自行脑补。 小黄鸟抓包可抓取APP与服务器的通讯数据包  有什么用&#x2F;实操学会root安卓手机后，你可以拥有手机的最高权限，应用广泛。比如：用来保护孩子的手机，删除应用商城防止乱下载APP等等如何抓取安卓APP： 梨园戏TV 源">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓手机root与小黄鸟抓包">
+<meta property="og:url" content="https://www.carlzeng.top/ko/202310202241.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="手机root之后的利弊不是本文的讨论范围，可自行脑补。 小黄鸟抓包可抓取APP与服务器的通讯数据包  有什么用&#x2F;实操学会root安卓手机后，你可以拥有手机的最高权限，应用广泛。比如：用来保护孩子的手机，删除应用商城防止乱下载APP等等如何抓取安卓APP： 梨园戏TV 源">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://bbsstatic.oneplus.com/data/attachment/forum/201711/28/232358bw0ov00m5nn7uhbo.png">
+<meta property="og:image" content="https://cdn.simaek.com/usr/uploads/2020/08/3906704411.png">
+<meta property="og:image" content="https://bbsstatic.oneplus.com/data/attachment/forum/201901/26/155648mcpoballqbda0ua9.jpg">
+<meta property="article:published_time" content="2023-10-20T14:41:52.000Z">
+<meta property="article:modified_time" content="2023-11-05T11:01:57.851Z">
+<meta property="article:author" content="Carl Zeng">
+<meta property="article:tag" content="andriod">
+<meta property="article:tag" content="安卓手机">
+<meta property="article:tag" content="手机">
+<meta property="article:tag" content="root">
+<meta property="article:tag" content="小黄鸟">
+<meta property="article:tag" content="抓包">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bbsstatic.oneplus.com/data/attachment/forum/201711/28/232358bw0ov00m5nn7uhbo.png">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/ko/202310202241.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"ko","comments":true,"permalink":"https://www.carlzeng.top/202310202241.html","path":"ko/202310202241.html","title":"安卓手机root与小黄鸟抓包"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>安卓手机root与小黄鸟抓包 | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//unpkg.com/social-share.js@1.0.16/dist/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 NetSuite 个人随笔</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="검색" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>홈</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>정보</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">111</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">33</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">310</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+      <div class="languages">
+        <label class="lang-select-label">
+          <i class="fa fa-language"></i>
+          <span>한국어</span>
+          <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </label>
+        <select class="lang-select" data-canonical="" aria-label="Select language">
+          
+            <option value="zh-CN" data-href="/202310202241.html" selected="">
+              简体中文
+            </option>
+          
+            <option value="en" data-href="/en/202310202241.html" selected="">
+              English
+            </option>
+          
+            <option value="ja" data-href="/ja/202310202241.html" selected="">
+              日本語
+            </option>
+          
+            <option value="ko" data-href="/ko/202310202241.html" selected="">
+              한국어
+            </option>
+          
+            <option value="ru" data-href="/ru/202310202241.html" selected="">
+              Английский
+            </option>
+          
+            <option value="zh-HK" data-href="/zh-HK/202310202241.html" selected="">
+              繁體中文（香港）
+            </option>
+          
+            <option value="zh-TW" data-href="/zh-TW/202310202241.html" selected="">
+              繁體中文
+            </option>
+          
+        </select>
+      </div>
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-%E5%AE%9E%E6%93%8D"><span class="nav-number">1.</span> <span class="nav-text">有什么用&#x2F;实操</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8BRoot%E7%8A%B6%E6%80%81%E7%9A%84%E6%96%B9%E6%B3%95%E4%B9%8B%E4%B8%80"><span class="nav-number">2.1.</span> <span class="nav-text">查看Root状态的方法之一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Cadb%EF%BC%8Csu"><span class="nav-number">2.2.</span> <span class="nav-text">运行adb，su</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3su%E8%8E%B7%E5%8F%96root%E6%9D%83%E9%99%90"><span class="nav-number">2.3.</span> <span class="nav-text">解决su获取root权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%93%E5%8C%85m3u8"><span class="nav-number">2.4.</span> <span class="nav-text">抓包m3u8</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">灵感来源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB"><span class="nav-number">4.</span> <span class="nav-text">杂七杂八</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%91%E8%A1%A5"><span class="nav-number">4.1.</span> <span class="nav-text">脑补:</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】采用合并文章持续更新的方案</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">111</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202304131802.html" rel="bookmark">
+      苹果电脑M1上唯一可用的安卓模拟器-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309190928.html" rel="bookmark">
+      安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309291329.html" rel="bookmark">
+      网络影视资源 - 2023中秋国庆分享
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310051715.html" rel="bookmark">
+      (转载)Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202104292230.html" rel="bookmark">
+      The result field Formula (Text) cannot be grouped. Please edit the search and omit this field or use a different summary function.-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202302201139.html" rel="bookmark">
+      听音乐(音乐播放器)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310051529.html" rel="bookmark">
+      网络影视资源 - IPTV直播之电视台直播源
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200907071652.html" rel="bookmark">
+      netsuite 记录类型 权限分配 use permissions-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+                  zerotier多客户端实践应用记录
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+                  关于DNS配置记录与分析
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+                  Docker搭建自动售货系统-独角数卡
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311152248.html" title="气到下不动班" target="">
+                  气到下不动班
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311141039.html" title="iptables应用" target="">
+                  iptables应用
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+                  实测Docker搭建短链接服务YOURLS
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+                  iPad解锁激活锁苹果平板绕激活锁经验
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+                  Nginx Proxy Manager修复笔记
+                  </a>
+                </li>
+        </ul>
+      </div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202310202241.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="安卓手机root与小黄鸟抓包 | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          安卓手机root与小黄鸟抓包
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Updated at: 2023-11-05 19:01:57" itemprop="dateModified" datetime="2023-11-05T19:01:57+08:00">2023-11-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">安卓手机</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/ko/202310202241.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论: </span>
+            <a href="/ko/202310202241.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/ko/202310202241.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>3.5k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>6 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://bbsstatic.oneplus.com/data/attachment/forum/201711/28/232358bw0ov00m5nn7uhbo.png">
+手机root之后的利弊不是本文的讨论范围，可自行脑补。
+小黄鸟抓包可抓取APP与服务器的通讯数据包
+
+<h1 id="有什么用-实操"><a href="#有什么用-实操" class="headerlink" title="有什么用&#x2F;实操"></a>有什么用&#x2F;实操</h1><p>学会root安卓手机后，你可以拥有手机的最高权限，应用广泛。<br>比如：用来保护孩子的手机，删除应用商城防止乱下载APP等等<br>如何抓取安卓APP： 梨园戏TV 源</p>
+ <span id="more"></span>
+
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>小黄鸟抓包<br>    需要安装系统级别根证书<br>    需要root安卓</p>
+<p>神话一键root v3.0<br>取消root，移除root权限</p>
+<ul>
+<li>神话一键root安装后验证：无法正常启动，包失败</li>
+<li>Root大师安装后验证：经过漫长的root等待，显示root成功，实际不然。</li>
+</ul>
+<p>继续寻找： 一加5T 安卓9 root</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iYnMub25lcGx1cy5jb20vdGhyZWFkLzQ1OTA0MjQ=" rel="noopener external nofollow noreferrer">一加5 安卓9 root教程 - Magisk</a></p>
+<p>步骤：<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iYnMub25lcGx1cy5jb20vdGhyZWFkLzM3OTg5MTE=" rel="noopener external nofollow noreferrer">「解答组出品」一加手机5T工具箱标准版V2.2.1「停止更新」</a></p>
+<p>root是否会删除所有用户数据?<br>一加5T，安卓9，好像没有这个特别的提醒；默认它不会动数据啦<br>    - 实际上都需要经历解BL锁（BootLoader）, 而这个步骤必然删除所有用户数据</p>
+<p>状态：<br>到了J4125的虚拟机Win2008以后，<br>USB连接手机没有直通给Windows，导致无法识别已连接手机</p>
+<p>如何让虚拟机Win2008USB‘直通’？<br>直通USB用于连接键盘鼠标<br>这一步比较简单，接上键盘鼠标之后，选择添加USB设备，使用USB3视情况勾选：<br><img data-src='https://cdn.simaek.com/usr/uploads/2020/08/3906704411.png'></p>
+<h2 id="查看Root状态的方法之一"><a href="#查看Root状态的方法之一" class="headerlink" title="查看Root状态的方法之一"></a>查看Root状态的方法之一</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">拨号界面输入：*#808#</span><br><span class="line">找到最后一个选项，显示：root成功</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行adb，su"><a href="#运行adb，su" class="headerlink" title="运行adb，su"></a>运行adb，su</h2><p>1|OnePlus5T:&#x2F; $ su<br>Permission denied</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb root </span><br><span class="line">	adbd cannot run as root in production builds</span><br></pre></td></tr></table></figure>
+<p>手机已经root了，但是在adb shell之后，输入su提示permission denied</p>
+<p>出现这个permission denied错误，或者adbd cannot run as root in production builds错误。<br>其实是缺少一个步骤，解决办法（第三步走起）：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. 先用数据线将手机与电脑连接起来，在手机里的‘USB偏好设置’选取‘文件传输’，将Magisk-v18.0(18000).zip【目前最新版，下面会附上附件】放入手机根目录。</span><br><span class="line"></span><br><span class="line">2. 在电脑上用工具箱根据作刷入第三方REC【工具箱这里推荐一加手机5工具箱 _2.2.1</span><br><span class="line">    这里面很多的选择和步骤，理解以后，理论上从上往下一步步操作即可。</span><br><span class="line"></span><br><span class="line">3. 接下来手机应该会进入TWRP【就是上面的第三方REC】，进入主界面里点‘安装’，在里面找到刚刚放进去的Magisk18000.zip，点击安装，等待完成后，点击右下角重启系统。</span><br><span class="line"></span><br><span class="line">4. 当我们手机启动后，手机会多出一个Magisk的软件。</span><br><span class="line">如果找不到就用5T的搜索功能，打开这个应用，它可以管理那些APP或者ADB可允许在ROOT模式</span><br></pre></td></tr></table></figure>
+
+<h2 id="解决su获取root权限"><a href="#解决su获取root权限" class="headerlink" title="解决su获取root权限"></a>解决su获取root权限</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">carlzeng@Carls-MBP scrapy % adb shell</span><br><span class="line">OnePlus5T:/ $ su</span><br><span class="line">Permission denied</span><br><span class="line">1|OnePlus5T:/ $ su                                                                                                  </span><br><span class="line">OnePlus5T:/ # pwd </span><br><span class="line">/</span><br><span class="line">127|OnePlus5T:/ # ls</span><br><span class="line">acct        charger     default.prop init                  init.usb.configfs.rc odm     res      storage    </span><br><span class="line">bin         charger_log dev          init.environ.rc       init.usb.rc          oem     root     sys        </span><br><span class="line">bt_firmware config      dsp          init.oem_ftm.rc       init.zygote32.rc     persist sbin     system     </span><br><span class="line">bugreports  d           etc          init.rc               init.zygote64_32.rc  proc    sdcard   ueventd.rc </span><br><span class="line">cache       data        firmware     init.recovery.qcom.rc mnt                  product sepolicy vendor     </span><br><span class="line">OnePlus5T:/ # cd /sy</span><br><span class="line">sys/     system/</span><br><span class="line">OnePlus5T:/ # cd /system/                                                                                           </span><br><span class="line">OnePlus5T:/system # ls</span><br><span class="line">app build.prop               fake-libs   framework lost+found product                usr    </span><br><span class="line">bin compatibility_matrix.xml fake-libs64 lib       media      recovery-from-boot.bak vendor </span><br><span class="line">bpm etc                      fonts       lib64     priv-app   reserve                xbin   </span><br><span class="line">OnePlus5T:/system # cd etc/security/cacerts                                                                         </span><br><span class="line">OnePlus5T:/system/etc/security/cacerts # </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>输入su后 Magisk会弹出提示框，确认是否赋于其root权限？<br>必须要点确定给予root权限，su之后的命令才会拥有最高权限<br><img data-src='https://bbsstatic.oneplus.com/data/attachment/forum/201901/26/155648mcpoballqbda0ua9.jpg'><br>Magisk左侧菜单<br>    - #超级用户： 这个菜单点进去，显示所有已获得root授权或被拒绝的记录</p>
+<h2 id="抓包m3u8"><a href="#抓包m3u8" class="headerlink" title="抓包m3u8"></a>抓包m3u8</h2><p>搜索后，点击播放某一部戏曲，<br>查看小黄鸟抓取的数据包1.8M+的数据包是具体的.ts分段媒体文件<br>往前找（下拉）继续找m3u8的流媒体列表文件。<br>获取最终的m3u8<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2x5aG90dC5hMjgzLm90dGNuLmNvbS9zdi80NGE5ZjI4ZC0xN2UwYTRkY2YzYS80NGE5ZjI4ZC0xN2UwYTRkY2YzYS5tM3U4P2F1dGhfa2V5PTE2OTc4MTExNDYtYTA5YTQ1ODMwOTYxNDE0ODlkN2Q4YTRjNmI3NTgwOGEtMC1jMzM3N2Y3ZWY3ODJkNGJlOGIxN2IwNjAxMGZhOGEyMA==" rel="noopener external nofollow noreferrer">http://lyhott.a283.ottcn.com/sv/44a9f28d-17e0a4dcf3a/44a9f28d-17e0a4dcf3a.m3u8?auth_key=1697811146-a09a4583096141489d7d8a4c6b75808a-0-c3377f7ef782d4be8b17b06010fa8a20</a></p>
+<p>1697888267-bded1e63d15a4f66a9ed3a1abfb2256e-0-6bb4eaf2384998f38de13d4f284b8e6b</p>
+<p>1021 md5<br>GYWmhK2MfuQtDc9Cj8Fbw9hGoJwQ+f3Wy+&#x2F;xiVD9ch6xsYaUXD2xWw&#x3D;&#x3D;</p>
+<p>1022 md5<br>GYWmhK2MfuQtDc9Cj8Fbw9hGoJwQ+f3W35nVrfK1cdEex9b+JFT0mw&#x3D;&#x3D;</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9pcC5jaGluYXouY29tLw==" rel="noopener external nofollow noreferrer">https://ip.chinaz.com/</a><br>lyhott.a283.ottcn.com<br>apidr.a283.ottcn.com<br>ucas.a283.ottcn.com</p>
+<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p>手机的应用，需要抓取底层的数据包，来分析学习：与服务器之间的通讯</p>
+<h1 id="杂七杂八"><a href="#杂七杂八" class="headerlink" title="杂七杂八"></a>杂七杂八</h1><p>root待实操：<br>【解锁与ROOT教程】OnePlus 5T Android 10 教程 更新至公测第二版<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iYnMub25lcGx1cy5jb20vdGhyZWFkLzUzOTgyMTc=" rel="noopener external nofollow noreferrer">https://bbs.oneplus.com/thread/5398217</a><br>第一步：解BL锁（BootLoader）<br>注意解完BL锁后会清楚所有的用户数据，提前做好备份<br>第二步：ROOT（安装Magisk）</p>
+<h2 id="脑补"><a href="#脑补" class="headerlink" title="脑补:"></a>脑补:</h2><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hay1pb2kuY29tLzEwMDMtb25lcGx1cy1mbGFzaC1yb290Lw==" rel="noopener external nofollow noreferrer">[搞机] 一加（OnePlus）手机刷机 Root</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="weibo,qq,wechat,tencent,douban,qzone,linkedin,diandian,facebook,twitter,google"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//unpkg.com/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>포스트 작성자:  </strong>Carl Zeng
+    <a href='https://www.carlzeng.top/202310202241.html'> 《安卓手机root与小黄鸟抓包》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://www.carlzeng.top/202310202241.html" title="安卓手机root与小黄鸟抓包">https://www.carlzeng.top/202310202241.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-nav">
+<div class="post-nav-item">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202304131802.html" rel="bookmark">
+      苹果电脑M1上唯一可用的安卓模拟器-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309190928.html" rel="bookmark">
+      安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309291329.html" rel="bookmark">
+      网络影视资源 - 2023中秋国庆分享
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310051715.html" rel="bookmark">
+      (转载)Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202104292230.html" rel="bookmark">
+      The result field Formula (Text) cannot be grouped. Please edit the search and omit this field or use a different summary function.-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202302201139.html" rel="bookmark">
+      听音乐(音乐播放器)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310051529.html" rel="bookmark">
+      网络影视资源 - IPTV直播之电视台直播源
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200907071652.html" rel="bookmark">
+      netsuite 记录类型 权限分配 use permissions-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="post-nav-item">
+<!-- recent posts -->
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="pjax recent-posts-list">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+              zerotier多客户端实践应用记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+              关于DNS配置记录与分析
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+              Docker搭建自动售货系统-独角数卡
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311152248.html" title="气到下不动班" target="">
+              气到下不动班
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311141039.html" title="iptables应用" target="">
+              iptables应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+              实测Docker搭建短链接服务YOURLS
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+              iPad解锁激活锁苹果平板绕激活锁经验
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+              Nginx Proxy Manager修复笔记
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+              Hexo定制之家宽部署artalk评论
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+              任天堂Switch全部记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310202241.html" title="安卓手机root与小黄鸟抓包" target="">
+              安卓手机root与小黄鸟抓包
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
+              Debian初体验之基础设置
+              </a>
+            </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
+<div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2023-11-05 19:01:57" itemprop="dateModified" datetime="2023-11-05T19:01:57+08:00">2023-11-05</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/andriod/" rel="tag"># andriod</a>
+              <a href="/tags/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/" rel="tag"># 安卓手机</a>
+              <a href="/tags/%E6%89%8B%E6%9C%BA/" rel="tag"># 手机</a>
+              <a href="/tags/root/" rel="tag"># root</a>
+              <a href="/tags/%E5%B0%8F%E9%BB%84%E9%B8%9F/" rel="tag"># 小黄鸟</a>
+              <a href="/tags/%E6%8A%93%E5%8C%85/" rel="tag"># 抓包</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202310171918.html" rel="prev" title="Debian初体验之基础设置">
+                  <i class="fa fa-angle-left"></i> Debian初体验之基础设置
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/202310221511.html" rel="next" title="任天堂Switch全部记录">
+                  任天堂Switch全部记录 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>한국어</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="Select language">
+      
+        <option value="zh-CN" data-href="/202310202241.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/202310202241.html" selected="">
+          English
+        </option>
+      
+        <option value="ja" data-href="/ja/202310202241.html" selected="">
+          日本語
+        </option>
+      
+        <option value="ko" data-href="/ko/202310202241.html" selected="">
+          한국어
+        </option>
+      
+        <option value="ru" data-href="/ru/202310202241.html" selected="">
+          Английский
+        </option>
+      
+        <option value="zh-HK" data-href="/zh-HK/202310202241.html" selected="">
+          繁體中文（香港）
+        </option>
+      
+        <option value="zh-TW" data-href="/zh-TW/202310202241.html" selected="">
+          繁體中文
+        </option>
+      
+    </select>
+  </div>
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">站点总字数 981k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">站点阅读时长 29:44</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+  <script type="text/javascript">
+  var sc_project=12934590;
+  var sc_invisible=0;
+  var sc_security="122fb52f";
+  var scJsHost = "https://";
+  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="View My Stats"
+  href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+</div>
+  <div class="powered-by">Powered by <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a>
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://unpkg.com/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/ko/202310202241.html"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/ko/202310202241.html","pageTitle":"安卓手机root与小黄鸟抓包"}</script>
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="CRM 自动化销售 n 区域跟踪和分配任务 Territory Tracking and Assignment n 销售线索路径 Lead Routing n 机会管理 n 报价单生成 n 销售订单输入 n 向上销售经理 n 离线销售 n 高级预测 n 电子...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NetSuite全功能介绍 totemsuite netsuite开发模块-CarlZeng">
+<meta property="og:url" content="https://www.carlzeng.top/en/200810132209.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="CRM 自动化销售 n 区域跟踪和分配任务 Territory Tracking and Assignment n 销售线索路径 Lead Routing n 机会管理 n 报价单生成 n 销售订单输入 n 向上销售经理 n 离线销售 n 高级预测 n 电子...">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.totemsuite.com/img/spacer.gif">
+<meta property="og:image" content="http://www.totemsuite.com/img/spacer.gif">
+<meta property="og:image" content="http://www.totemsuite.com/img/spacer.gif">
+<meta property="og:image" content="http://www.totemsuite.com/img/cylinder-suiteflex.jpg">
+<meta property="article:published_time" content="2008-10-13T14:09:00.000Z">
+<meta property="article:modified_time" content="2023-10-08T13:38:52.659Z">
+<meta property="article:author" content="Carl Zeng">
+<meta property="article:tag" content="NetSuite">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.totemsuite.com/img/spacer.gif">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/en/200810132209.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/200810132209.html","path":"en/200810132209.html","title":"NetSuite全功能介绍 totemsuite netsuite开发模块-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>NetSuite全功能介绍 totemsuite netsuite开发模块-CarlZeng | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//unpkg.com/social-share.js@1.0.16/dist/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 NetSuite 个人随笔</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">111</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">33</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">310</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+      <div class="languages">
+        <label class="lang-select-label">
+          <i class="fa fa-language"></i>
+          <span>English</span>
+          <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </label>
+        <select class="lang-select" data-canonical="" aria-label="Select language">
+          
+            <option value="zh-CN" data-href="/200810132209.html" selected="">
+              简体中文
+            </option>
+          
+            <option value="en" data-href="/en/200810132209.html" selected="">
+              English
+            </option>
+          
+            <option value="ja" data-href="/ja/200810132209.html" selected="">
+              日本語
+            </option>
+          
+            <option value="ko" data-href="/ko/200810132209.html" selected="">
+              한국어
+            </option>
+          
+            <option value="ru" data-href="/ru/200810132209.html" selected="">
+              Английский
+            </option>
+          
+            <option value="zh-HK" data-href="/zh-HK/200810132209.html" selected="">
+              繁體中文（香港）
+            </option>
+          
+            <option value="zh-TW" data-href="/zh-TW/200810132209.html" selected="">
+              繁體中文
+            </option>
+          
+        </select>
+      </div>
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E5%95%86%E5%8F%AF%E4%BB%A5%E5%9C%A8NetSuite%E4%B8%AD%E5%AE%9A%E5%88%B6%EF%BC%8C%E6%89%A9%E5%B1%95"><span class="nav-number">1.</span> <span class="nav-text">开发商可以在NetSuite中定制，扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E5%BB%BA%E7%AB%8B%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">并建立软件</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】采用合并文章持续更新的方案</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">111</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202102231121.html" rel="bookmark">
+      git tag and NetSuite deployment tracking-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200812051209.html" rel="bookmark">
+      Zach Nelson(NetSuite CEO) is comming to beijing today,netsuite中国-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201411202010.html" rel="bookmark">
+      Netsuite > Hierarchy of transactions in Inventory cost calculation-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200811121057.html" rel="bookmark">
+      netsuite弹出窗体的数据回传例子-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201410291734.html" rel="bookmark">
+      Netsuite订单审核问题-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201903222305.html" rel="bookmark">
+      How to use NetSuite SDF to download bundles/components-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201701151056.html" rel="bookmark">
+      How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202106220916.html" rel="bookmark">
+      More about NetSuite SDF manifest.xml and deploy.xml-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+                  zerotier多客户端实践应用记录
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+                  关于DNS配置记录与分析
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+                  Docker搭建自动售货系统-独角数卡
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311152248.html" title="气到下不动班" target="">
+                  气到下不动班
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311141039.html" title="iptables应用" target="">
+                  iptables应用
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+                  实测Docker搭建短链接服务YOURLS
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+                  iPad解锁激活锁苹果平板绕激活锁经验
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+                  Nginx Proxy Manager修复笔记
+                  </a>
+                </li>
+        </ul>
+      </div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200810132209.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="NetSuite全功能介绍 totemsuite netsuite开发模块-CarlZeng | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          NetSuite全功能介绍 totemsuite netsuite开发模块-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/200810132209.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论: </span>
+            <a href="/en/200810132209.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/en/200810132209.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>2.4k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>CRM 自动化销售 n 区域跟踪和分配任务 Territory Tracking and Assignment n 销售线索路径 Lead Routing n 机会管理 n 报价单生成 n 销售订单输入 n 向上销售经理 n 离线销售 n 高级预测 n 电子…</p>
+<!-- more -->
+<p> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy50b3RlbXN1aXRlLmNvbS8=" rel="noopener external nofollow noreferrer">CRM</a></p>
+<p>自动化销售</p>
+<p>n</p>
+<p>区域跟踪和分配任务</p>
+<p>Territory Tracking and Assignment</p>
+<p>n</p>
+<p>销售线索路径</p>
+<p>Lead Routing</p>
+<p>n</p>
+<p>机会管理</p>
+<p>n</p>
+<p>报价单生成</p>
+<p>n</p>
+<p>销售订单输入</p>
+<p>n</p>
+<p>向上销售经理</p>
+<p>n</p>
+<p>离线销售</p>
+<p>n</p>
+<p>高级预测</p>
+<p>n</p>
+<p>电子邮件与邮件合并</p>
+<p>n</p>
+<p>采购历史记录</p>
+<p>n</p>
+<p>客户支持历史记录</p>
+<p>n</p>
+<p>销售工具发布</p>
+<p>n</p>
+<p>销售可能性跟踪</p>
+<p>n</p>
+<p>实时佣金报告</p>
+<p>n</p>
+<p>交易逾期提醒</p>
+<p>n</p>
+<p>灵活的佣金日程</p>
+<p>n</p>
+<p>分层次佣金</p>
+<p>n</p>
+<p>实时信用卡授权</p>
+<p>n</p>
+<p>预测和配额管理</p>
+<p>n</p>
+<p>竞争对手跟踪</p>
+<p>n</p>
+<p>团队销售</p>
+<p>市场自动化</p>
+<p>n</p>
+<p>群发邮件</p>
+<p>n</p>
+<p>电话销售管理</p>
+<p>n</p>
+<p>打印管理</p>
+<p>n</p>
+<p>直邮管理</p>
+<p>n</p>
+<p>活动创意文件夹</p>
+<p>n</p>
+<p>向上销售活动向导</p>
+<p>n</p>
+<p>个性化信息</p>
+<p>n</p>
+<p>替代标签功能</p>
+<p>n</p>
+<p>活动日程安排</p>
+<p>n</p>
+<p>活动投资回报报告</p>
+<p>n</p>
+<p>优惠券和越区销售</p>
+<p>n</p>
+<p>可定制的在线线索表格</p>
+<p>n</p>
+<p>参照和促销代码跟踪</p>
+<p>n</p>
+<p>活动跟踪</p>
+<p>n</p>
+<p>线索来源管理</p>
+<p>n</p>
+<p>e-mail活动市场管理</p>
+<p>n</p>
+<p>由采购历史记录产生目标群体</p>
+<p>客户支持管理</p>
+<p>n</p>
+<p>案例管理中心</p>
+<p>n</p>
+<p>按照产品跟踪案例</p>
+<p>n</p>
+<p>优先跟踪</p>
+<p>n</p>
+<p>灵活的队列管理</p>
+<p>n</p>
+<p>任务分配</p>
+<p>n</p>
+<p>E-MAIL案例捕捉和建立</p>
+<p>n</p>
+<p>在线自我服务</p>
+<p>n</p>
+<p>上报和通告功能</p>
+<p>n</p>
+<p>自动上报功能</p>
+<p>n</p>
+<p>按照产品和服务跟踪案例</p>
+<p>n</p>
+<p>在线客户服务中心</p>
+<p>n</p>
+<p>知识库</p>
+<p>n</p>
+<p>基于案例的计费时间跟踪</p>
+<p>n</p>
+<p>问题管理</p>
+<p>合作伙伴关系管理</p>
+<p>n</p>
+<p>订单录入</p>
+<p>n</p>
+<p>合作伙伴行动报告</p>
+<p>n</p>
+<p>客户案例查看</p>
+<p>n</p>
+<p>协同销售线索管理</p>
+<p>n</p>
+<p>实时库存访问</p>
+<p>n</p>
+<p>奖励折扣</p>
+<p>n</p>
+<p>市场活动发布</p>
+<p>实时仪表盘</p>
+<p>n</p>
+<p>高官和基于角色的仪表板</p>
+<p>n</p>
+<p>可发布的版面</p>
+<p>n</p>
+<p>个性化拖放</p>
+<p>n</p>
+<p>关键绩效指标</p>
+<p>n</p>
+<p>快速搜索</p>
+<p>n</p>
+<p>图表和列表报告快照</p>
+<p>n</p>
+<p>从零自定义快照</p>
+<p>n</p>
+<p>RSS内容种子</p>
+<p>n</p>
+<p>可排期的和按需获取的仪表盘警报</p>
+<p>n</p>
+<p>客户仪表盘</p>
+<p>n</p>
+<p>KPI计分表</p>
+<p>效能工具</p>
+<p>n</p>
+<p>分组日历</p>
+<p>n</p>
+<p>记录的导入导出</p>
+<p>n</p>
+<p>Outlook与Plam的同步</p>
+<p>n</p>
+<p>任何时间与地点Web接入</p>
+<p>n</p>
+<p>高官仪表盘和关键指标</p>
+<p>n</p>
+<p>客户记录</p>
+<p>n</p>
+<p>拼写检查</p>
+<p>n</p>
+<p>重复记录坚持和合并</p>
+<p>n</p>
+<p>延期约会</p>
+<p>n</p>
+<p>可定制的报表</p>
+<p>n</p>
+<p>文件夹</p>
+<p>n</p>
+<p>提醒功能</p>
+<p>客户自定义</p>
+<p>n</p>
+<p>无编码配置</p>
+<p>n</p>
+<p>功能配置</p>
+<p>n</p>
+<p>用户特权</p>
+<p>n</p>
+<p>实时仪表盘</p>
+<p>n</p>
+<p>客户的记录和表格</p>
+<p>n</p>
+<p>术语管理</p>
+<p>n</p>
+<p>自定义编码</p>
+<p>n</p>
+<p>客户域</p>
+<p>n</p>
+<p>客户保存搜索</p>
+<p>n</p>
+<p>下拉式列表</p>
+<p>n</p>
+<p>表格</p>
+<p>n</p>
+<p>可定制角色</p>
+<p>n</p>
+<p>可定制仪表盘</p>
+<p>n</p>
+<p>网点开发工具</p>
+<p>n</p>
+<p>报告的发布和接受</p>
+<p>n</p>
+<p>分析可变的输入</p>
+<p>n</p>
+<p>改进的可定制域的URL</p>
+<p>ERP</p>
+<p>财务</p>
+<p>n</p>
+<p>总账</p>
+<p>n</p>
+<p>多层帐户图表</p>
+<p>n</p>
+<p>财务报告</p>
+<p>n</p>
+<p>应付帐户,多币种</p>
+<p>n</p>
+<p>应收帐户,多币种</p>
+<p>n</p>
+<p>薪金,直接存款</p>
+<p>n</p>
+<p>多重预算</p>
+<p>n</p>
+<p>高级计费</p>
+<p>n</p>
+<p>收入确认</p>
+<p>n</p>
+<p>公认会计准测报告</p>
+<p>n</p>
+<p>分摊</p>
+<p>n</p>
+<p>多层帐户图表</p>
+<p>n</p>
+<p>支票打印</p>
+<p>n</p>
+<p>网上银行</p>
+<p>n</p>
+<p>帐单支付</p>
+<p>n</p>
+<p>更新税收</p>
+<p>n</p>
+<p>可定制帐户图表</p>
+<p>n</p>
+<p>保留的分类帐科目</p>
+<p>n</p>
+<p>会计周期</p>
+<p>n</p>
+<p>信用卡地址校验</p>
+<p>n</p>
+<p>存储的交易事务</p>
+<p>n</p>
+<p>老化期</p>
+<p>n</p>
+<p>卖方EFT支付</p>
+<p>n</p>
+<p>高级项目会计</p>
+<p>n</p>
+<p>分期偿付安排</p>
+<p>库存管理</p>
+<p>n</p>
+<p>特定成本</p>
+<p>n</p>
+<p>产品包</p>
+<p>n</p>
+<p>产品图片</p>
+<p>n</p>
+<p>定价规则</p>
+<p>n</p>
+<p>库存调整的审计跟踪</p>
+<p>n</p>
+<p>库存补充预警</p>
+<p>n</p>
+<p>多地点库存</p>
+<p>n</p>
+<p>多重计量单位</p>
+<p>n</p>
+<p>包,配件</p>
+<p>n</p>
+<p>平均法, LIFO, FIFO 成本计算方式</p>
+<p>n</p>
+<p>产品的不同价格水平管理</p>
+<p>n</p>
+<p>首选供货商纪录</p>
+<p>n</p>
+<p>批量管理</p>
+<p>n</p>
+<p>条码</p>
+<p>n</p>
+<p>截止日期</p>
+<p>n</p>
+<p>按序列号管理</p>
+<p>n</p>
+<p>库存产品矩阵</p>
+<p>n</p>
+<p>再定购点跟踪和通知</p>
+<p>n</p>
+<p>库存盘点</p>
+<p>n</p>
+<p>货柜管理</p>
+<p>n</p>
+<p>到岸成本</p>
+<p>n</p>
+<p>按需求补充库存</p>
+<p>采购</p>
+<p>n</p>
+<p>倒序计划</p>
+<p>n</p>
+<p>采购历史</p>
+<p>n</p>
+<p>特殊顺序P.O.S.</p>
+<p>n</p>
+<p>审批路径</p>
+<p>n</p>
+<p>部分收据跟踪</p>
+<p>n</p>
+<p>申购</p>
+<p>n</p>
+<p>采购订单</p>
+<p>n</p>
+<p>购买请求跟踪</p>
+<p>n</p>
+<p>收货处理</p>
+<p>n</p>
+<p>应付帐款</p>
+<p>订单执行</p>
+<p>n</p>
+<p>多收货地址</p>
+<p>n</p>
+<p>多方支付</p>
+<p>n</p>
+<p>分客户跟踪</p>
+<p>n</p>
+<p>折扣计算</p>
+<p>n</p>
+<p>销售税</p>
+<p>n</p>
+<p>批量订单审批</p>
+<p>n</p>
+<p>部分出货处理</p>
+<p>n</p>
+<p>订单推迟</p>
+<p>n</p>
+<p>为客户进行订单跟踪</p>
+<p>n</p>
+<p>报价&#x2F;估价</p>
+<p>n</p>
+<p>订单处理</p>
+<p>n</p>
+<p>可接受订单量</p>
+<p>n</p>
+<p>承诺库存</p>
+<p>n</p>
+<p>定价与折扣</p>
+<p>n</p>
+<p>销售税</p>
+<p>n</p>
+<p>信用卡授权</p>
+<p>n</p>
+<p>配送&#x2F;包装&#x2F;运输</p>
+<p>n</p>
+<p>直送发货</p>
+<p>n</p>
+<p>特殊订单的采购订单</p>
+<p>n</p>
+<p>联邦航运发运整合</p>
+<p>n</p>
+<p>UPS航运发运整合</p>
+<p>n</p>
+<p>退货</p>
+<p>雇员管理</p>
+<p>n</p>
+<p>时间与费用输入和报告</p>
+<p>n</p>
+<p>远程时间输入</p>
+<p>n</p>
+<p>整合案例管理</p>
+<p>n</p>
+<p>HR 发布</p>
+<p>n</p>
+<p>日程安排和任务管理</p>
+<p>n</p>
+<p>员工记录</p>
+<p>n</p>
+<p>薪金,直接存款</p>
+<p>n</p>
+<p>费用报告</p>
+<p>n</p>
+<p>时间,费用,支付审批流程</p>
+<p>n</p>
+<p>提醒</p>
+<p>客户&#x2F;供应商中心</p>
+<p>n</p>
+<p>订单历史</p>
+<p>n</p>
+<p>交运追踪</p>
+<p>n</p>
+<p>退货订单</p>
+<p>n</p>
+<p>更新档案</p>
+<p>n</p>
+<p>支付发票</p>
+<p>n</p>
+<p>在线自助服务</p>
+<p>其他</p>
+<p>n</p>
+<p>CSV导入&#x2F;导出</p>
+<p>n</p>
+<p>总在线的审计追踪</p>
+<p>n</p>
+<p>用户特权</p>
+<p>n</p>
+<p>数据导出</p>
+<p>n</p>
+<p>全面的在线帮助</p>
+<p>n</p>
+<p>多用户选项</p>
+<p>n</p>
+<p>免费会计师</p>
+<p>n</p>
+<p>公司合并</p>
+<p> 电子商务</p>
+<p>网店</p>
+<p>n</p>
+<p>特价</p>
+<p>n</p>
+<p>消费者特殊定价</p>
+<p>n</p>
+<p>库存整合</p>
+<p>n</p>
+<p>定购和按期支付</p>
+<p>n</p>
+<p>批量定价更新</p>
+<p>n</p>
+<p>优待券处理</p>
+<p>n</p>
+<p>Paypal支付整合</p>
+<p>n</p>
+<p>信用卡在线处理</p>
+<p>n</p>
+<p>交叉销售</p>
+<p>n</p>
+<p>购物车</p>
+<p>n</p>
+<p>多货币购物车和结帐</p>
+<p>n</p>
+<p>消费者结帐单据</p>
+<p>n</p>
+<p>单据销售</p>
+<p>n</p>
+<p>订单确认</p>
+<p>n</p>
+<p>多种交运方式</p>
+<p>n</p>
+<p>税金计算</p>
+<p>n</p>
+<p>活动编码捕捉</p>
+<p>n</p>
+<p>促销URL</p>
+<p>n</p>
+<p>电子文件&#x2F;软件下载</p>
+<p>n</p>
+<p>自动向上销售推荐</p>
+<p>n</p>
+<p>礼品认证</p>
+<p>n</p>
+<p>折扣和产品优惠券</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy50b3RlbXN1aXRlLmNvbS8=" rel="noopener external nofollow noreferrer">网站</a></p>
+<p>n</p>
+<p>网站托管</p>
+<p>n</p>
+<p>多域名托管</p>
+<p>n</p>
+<p>域名</p>
+<p>n</p>
+<p>多域名路径</p>
+<p>n</p>
+<p>支持Meta标签</p>
+<p>n</p>
+<p>页面Meta标签</p>
+<p>n</p>
+<p>发布动态列表</p>
+<p>n</p>
+<p>高级网站建设</p>
+<p>n</p>
+<p>在线表格</p>
+<p>n</p>
+<p>多语言站点</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy50b3RlbXN1aXRlLmNvbS8=" rel="noopener external nofollow noreferrer">网站分析</a></p>
+<p>n</p>
+<p>访客点击流量分析</p>
+<p>n</p>
+<p>访客页面浏览分析</p>
+<p>n</p>
+<p>提交URL ROI报告</p>
+<p>n</p>
+<p>搜索术语ROI报告</p>
+<p>n</p>
+<p>站点活跃程度</p>
+<p>n</p>
+<p>购物车放弃分析</p>
+<p>客户管理</p>
+<p>n</p>
+<p>客户自服务</p>
+<p>n</p>
+<p>访问知识库</p>
+<p>n</p>
+<p>客户帐单支付</p>
+<p>n</p>
+<p>订单生成客户email</p>
+<p>n</p>
+<p>客户历史交易记录</p>
+<p>n</p>
+<p>在线案例表格</p>
+<p>表格和发布</p>
+<p>n</p>
+<p>案例</p>
+<p>n</p>
+<p>线索</p>
+<p>n</p>
+<p>客户</p>
+<p>n</p>
+<p>企业内网</p>
+<p>n</p>
+<p>互联网</p>
+<p> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy50b3RlbXN1aXRlLmNvbS9wcm9kdWN0" rel="noopener external nofollow noreferrer">网店开发工具包</a></p>
+<p>n</p>
+<p>购物车和产品</p>
+<p>n</p>
+<p>整合</p>
+<p>n</p>
+<p>密码保护的客户中心</p>
+<p>n</p>
+<p>经由XML传送数据</p>
+<p>n</p>
+<p>销售线索,客户信息,案例等在线表格</p>
+<p>n</p>
+<p>完全自定义的HTML 在线表格</p>
+<p>n</p>
+<p>在线销售线索获取的E-MAIL通知</p>
+<p>n</p>
+<p>自动在线线索路径规则和流程</p>
+<p> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy50b3RlbXN1aXRlLmNvbS8=" rel="noopener external nofollow noreferrer">报表</a></p>
+<p>n</p>
+<p>实时仪表盘</p>
+<p>n</p>
+<p>百余个标准报表</p>
+<p>n</p>
+<p>可定制报表</p>
+<p>n</p>
+<p>可保存搜索</p>
+<p>n</p>
+<p>报告输出</p>
+<p>n</p>
+<p>高级分析</p>
+<p>n</p>
+<p>关键业务指标快照</p>
+<p>n</p>
+<p>报告共享控制</p>
+<h2 id="开发商可以在NetSuite中定制，扩展"><a href="#开发商可以在NetSuite中定制，扩展" class="headerlink" title="开发商可以在NetSuite中定制，扩展"></a>开发商可以在NetSuite中定制，扩展</h2><h2 id="并建立软件"><a href="#并建立软件" class="headerlink" title="并建立软件"></a>并建立软件</h2><ul>
+<li>为精确的行业需求定制功能和业务流程</li>
+<li>建立并销售完整的新业务流程</li>
+<li>建立并销售完整的垂直软件</li>
+</ul>
+<p><img data-src="http://www.totemsuite.com/img/spacer.gif"></p>
+<p><img data-src="http://www.totemsuite.com/img/spacer.gif"></p>
+<p><img data-src="http://www.totemsuite.com/img/spacer.gif"></p>
+<p><img data-src="http://www.totemsuite.com/img/cylinder-suiteflex.jpg"><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy50b3RlbXN1aXRlLmNvbS9wcm9kdS1mbGV4LW1haW4uaHRtIw==" rel="noopener external nofollow noreferrer">SuiteBuilder</a><br>通过简单应用及指向点击工具来完成个性化配置NetSuit  </p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy50b3RlbXN1aXRlLmNvbS9wcm9kdS1mbGV4LW1haW4uaHRtIw==" rel="noopener external nofollow noreferrer">SuiteScript</a><br>建立新的功能、处理业务流程及整个软件，并将其托管到NetSuite中。  </p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy50b3RlbXN1aXRlLmNvbS9wcm9kdS1mbGV4LW1haW4uaHRtIw==" rel="noopener external nofollow noreferrer">SuiteTalk</a><br>将NetSuite无缝扩展到原有系统及第三方垂直软件中。  </p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy50b3RlbXN1aXRlLmNvbS9wcm9kdS1mbGV4LW1haW4uaHRtIw==" rel="noopener external nofollow noreferrer">SuiteScipt D-Bug</a><br>实时校验写入NS-BOS平台中的编码和元数据。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="weibo,qq,wechat,tencent,douban,qzone,linkedin,diandian,facebook,twitter,google"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//unpkg.com/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Carl Zeng
+    <a href='https://www.carlzeng.top/200810132209.html'> 《NetSuite全功能介绍 totemsuite netsuite开发模块-CarlZeng》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://www.carlzeng.top/200810132209.html" title="NetSuite全功能介绍 totemsuite netsuite开发模块-CarlZeng">https://www.carlzeng.top/200810132209.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-nav">
+<div class="post-nav-item">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202102231121.html" rel="bookmark">
+      git tag and NetSuite deployment tracking-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200812051209.html" rel="bookmark">
+      Zach Nelson(NetSuite CEO) is comming to beijing today,netsuite中国-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201411202010.html" rel="bookmark">
+      Netsuite > Hierarchy of transactions in Inventory cost calculation-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200811121057.html" rel="bookmark">
+      netsuite弹出窗体的数据回传例子-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201410291734.html" rel="bookmark">
+      Netsuite订单审核问题-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201903222305.html" rel="bookmark">
+      How to use NetSuite SDF to download bundles/components-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201701151056.html" rel="bookmark">
+      How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202106220916.html" rel="bookmark">
+      More about NetSuite SDF manifest.xml and deploy.xml-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="post-nav-item">
+<!-- recent posts -->
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="pjax recent-posts-list">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+              zerotier多客户端实践应用记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+              关于DNS配置记录与分析
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+              Docker搭建自动售货系统-独角数卡
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311152248.html" title="气到下不动班" target="">
+              气到下不动班
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311141039.html" title="iptables应用" target="">
+              iptables应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+              实测Docker搭建短链接服务YOURLS
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+              iPad解锁激活锁苹果平板绕激活锁经验
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+              Nginx Proxy Manager修复笔记
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+              Hexo定制之家宽部署artalk评论
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+              任天堂Switch全部记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310202241.html" title="安卓手机root与小黄鸟抓包" target="">
+              安卓手机root与小黄鸟抓包
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
+              Debian初体验之基础设置
+              </a>
+            </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
+<div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/NetSuite/" rel="tag"># NetSuite</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/200810132204.html" rel="prev" title="totemsuite与Netsuite OneWorld-CarlZeng">
+                  <i class="fa fa-angle-left"></i> totemsuite与Netsuite OneWorld-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/200810132243.html" rel="next" title="(today) oracle 获取当前日期 netsuite-CarlZeng">
+                  (today) oracle 获取当前日期 netsuite-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>English</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="Select language">
+      
+        <option value="zh-CN" data-href="/200810132209.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/200810132209.html" selected="">
+          English
+        </option>
+      
+        <option value="ja" data-href="/ja/200810132209.html" selected="">
+          日本語
+        </option>
+      
+        <option value="ko" data-href="/ko/200810132209.html" selected="">
+          한국어
+        </option>
+      
+        <option value="ru" data-href="/ru/200810132209.html" selected="">
+          Английский
+        </option>
+      
+        <option value="zh-HK" data-href="/zh-HK/200810132209.html" selected="">
+          繁體中文（香港）
+        </option>
+      
+        <option value="zh-TW" data-href="/zh-TW/200810132209.html" selected="">
+          繁體中文
+        </option>
+      
+    </select>
+  </div>
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">站点总字数 981k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">站点阅读时长 29:44</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+  <script type="text/javascript">
+  var sc_project=12934590;
+  var sc_invisible=0;
+  var sc_security="122fb52f";
+  var scJsHost = "https://";
+  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="View My Stats"
+  href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+</div>
+  <div class="powered-by">Powered by <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a>
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://unpkg.com/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/en/200810132209.html"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/en/200810132209.html","pageTitle":"NetSuite全功能介绍 totemsuite netsuite开发模块-CarlZeng"}</script>
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>

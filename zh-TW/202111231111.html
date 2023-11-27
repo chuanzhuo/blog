@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="由于众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解决思路，希望对你有帮助：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[GitHub] fatal: unable to access &#39;https:&#x2F;&#x2F;github.com&#x2F;&#39;: Failed to connect to github.com port 443: Operation timed out">
+<meta property="og:url" content="https://www.carlzeng.top/zh-TW/202111231111.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="由于众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解决思路，希望对你有帮助：">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-11-23T03:11:00.000Z">
+<meta property="article:modified_time" content="2023-11-26T06:07:17.623Z">
+<meta property="article:author" content="Carl Zeng">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/zh-TW/202111231111.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://www.carlzeng.top/202111231111.html","path":"zh-TW/202111231111.html","title":"[GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>[GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//unpkg.com/social-share.js@1.0.16/dist/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 NetSuite 个人随笔</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜尋" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">111</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">33</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">310</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+      <div class="languages">
+        <label class="lang-select-label">
+          <i class="fa fa-language"></i>
+          <span>繁體中文</span>
+          <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </label>
+        <select class="lang-select" data-canonical="" aria-label="選擇語言">
+          
+            <option value="zh-CN" data-href="/202111231111.html" selected="">
+              简体中文
+            </option>
+          
+            <option value="en" data-href="/en/202111231111.html" selected="">
+              English
+            </option>
+          
+            <option value="ja" data-href="/ja/202111231111.html" selected="">
+              日本語
+            </option>
+          
+            <option value="ko" data-href="/ko/202111231111.html" selected="">
+              한국어
+            </option>
+          
+            <option value="ru" data-href="/ru/202111231111.html" selected="">
+              Английский
+            </option>
+          
+            <option value="zh-HK" data-href="/zh-HK/202111231111.html" selected="">
+              繁體中文（香港）
+            </option>
+          
+            <option value="zh-TW" data-href="/zh-TW/202111231111.html" selected="">
+              繁體中文
+            </option>
+          
+        </select>
+      </div>
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E6%96%B0%E6%96%B9%E6%A1%88%EF%BC%882023%E5%B9%B411%E6%9C%88%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">最新方案（2023年11月）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%B9%B3%E5%9D%87%E9%80%9F%E5%BA%A6%E8%BE%BE%E5%88%B01M-s%E5%B7%A6%E5%8F%B3%EF%BC%9B%E6%8C%BA%E6%BB%A1%E6%84%8F%E4%BA%86"><span class="nav-number">2.</span> <span class="nav-text">单线程下载，平均速度达到1M&#x2F;s左右；挺满意了</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Errors"><span class="nav-number">2.1.</span> <span class="nav-text">Errors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notes"><span class="nav-number">2.2.</span> <span class="nav-text">Notes:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solutions-for-Operation-timed-out"><span class="nav-number">2.3.</span> <span class="nav-text">Solutions for: Operation timed out</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Github-End"><span class="nav-number"></span> <span class="nav-text">Github End</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solutions-for-Authentication"><span class="nav-number">0.1.</span> <span class="nav-text">Solutions for: Authentication</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%A7%81%E6%96%87%E6%A1%A3%EF%BC%9A"><span class="nav-number">0.2.</span> <span class="nav-text">参见文档：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js%E4%B9%9F%E8%A2%AB%E5%90%8C%E6%A0%B7%E9%94%99%E8%AF%AF%E5%8D%A1"><span class="nav-number">1.</span> <span class="nav-text">Node.js也被同样错误卡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-d-%E6%9B%B4%E6%96%B0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">hexo d 更新的解决办法</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】采用合并文章持续更新的方案</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">111</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相關文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309222329.html" rel="bookmark">
+      Hello World
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202103171250.html" rel="bookmark">
+      Global Search file content in Gitlab repositories, search across repositories, search across all files-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311231919.html" rel="bookmark">
+      关于DNS配置记录与分析
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309040941.html" rel="bookmark">
+      NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202101230038.html" rel="bookmark">
+      Version Control System, IntelliJ IDEA, Create a Git Repository for a Project and push to multiple remotes-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202302201139.html" rel="bookmark">
+      听音乐(音乐播放器)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202304041812.html" rel="bookmark">
+      Mac OS 安装/卸载 Homebrew-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202303051903.html" rel="bookmark">
+      tor 网络 科学上网
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+                  zerotier多客户端实践应用记录
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+                  关于DNS配置记录与分析
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+                  Docker搭建自动售货系统-独角数卡
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311152248.html" title="气到下不动班" target="">
+                  气到下不动班
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311141039.html" title="iptables应用" target="">
+                  iptables应用
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+                  实测Docker搭建短链接服务YOURLS
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+                  iPad解锁激活锁苹果平板绕激活锁经验
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+                  Nginx Proxy Manager修复笔记
+                  </a>
+                </li>
+        </ul>
+      </div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202111231111.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="[GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2023-11-26 14:07:17" itemprop="dateModified" datetime="2023-11-26T14:07:17+08:00">2023-11-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/github/" itemprop="url" rel="index"><span itemprop="name">github</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="閱讀次數">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">閱讀次數：</span>
+            <span id="ArtalkPV" data-page-key="/zh-TW/202111231111.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/zh-TW/202111231111.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/zh-TW/202111231111.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="文章字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">文章字數：</span>
+      <span>5.1k</span>
+    </span>
+    <span class="post-meta-item" title="所需閱讀時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
+      <span>9 分鐘</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>由于众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解决思路，希望对你有帮助：</p>
+<span id="more"></span>
+<h2 id="最新方案（2023年11月）"><a href="#最新方案（2023年11月）" class="headerlink" title="最新方案（2023年11月）"></a>最新方案（2023年11月）</h2><p>超级好用的命令行走代理方式：<br>  HTTPS_PROXY&#x3D;”socks5:&#x2F;&#x2F;127.0.0.1:7890” git clone <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3J1c3RkZXNrL3J1c3RkZXNr" rel="noopener external nofollow noreferrer">https://github.com/rustdesk/rustdesk</a> </p>
+<p>然后结合Clash For Window的 url-test 模式，选用最快的服务器；测试结果很满意：<br>  HTTPS_PROXY&#x3D;”socks5:&#x2F;&#x2F;127.0.0.1:7890” git clone <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3J1c3RkZXNrL3J1c3RkZXNr" rel="noopener external nofollow noreferrer">https://github.com/rustdesk/rustdesk</a><br>    Cloning into ‘rustdesk’…<br>    remote: Enumerating objects: 59934, done.<br>    remote: Counting objects: 100% (14388&#x2F;14388), done.<br>    remote: Compressing objects: 100% (326&#x2F;326), done.<br>    remote: Total 59934 (delta 14161), reused 14065 (delta 14062), pack-reused 45546<br>    Receiving objects: 100% (59934&#x2F;59934), 40.41 MiB | 956.00 KiB&#x2F;s, done.<br>    Resolving deltas: 100% (45272&#x2F;45272), done.</p>
+<h2 id="单线程下载，平均速度达到1M-s左右；挺满意了"><a href="#单线程下载，平均速度达到1M-s左右；挺满意了" class="headerlink" title="单线程下载，平均速度达到1M&#x2F;s左右；挺满意了"></a>单线程下载，平均速度达到1M&#x2F;s左右；挺满意了</h2><h3 id="Errors"><a href="#Errors" class="headerlink" title="Errors"></a>Errors</h3><ul>
+<li>fatal: unable to access ‘<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tLw==" rel="noopener external nofollow noreferrer">https://github.com/</a>‘: Failed to connect to github.com port 443: Operation timed out</li>
+<li>fatal: Authentication failed for ‘<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tLw==" rel="noopener external nofollow noreferrer">https://github.com/</a>‘</li>
+<li>fatal unable to access <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tLw==" rel="noopener external nofollow noreferrer">https://github.com</a> LibreSSL SSL_connect SSL_ERROR_SYSCALL in connection to github.com 443</li>
+</ul>
+<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes:"></a>Notes:</h3><p>Don’t verify the operation in editor(WebStorm,IntelliJ IDEA…etc), use command(Mac’s terminal.app), use terminal.app</p>
+<hr>
+<h3 id="Solutions-for-Operation-timed-out"><a href="#Solutions-for-Operation-timed-out" class="headerlink" title="Solutions for: Operation timed out"></a>Solutions for: Operation timed out</h3><ol>
+<li>Fix the hosts to make sure the ssh connection between your Computer and github.com is availble(修复连接到github.com)</li>
+</ol>
+<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#111;&#109;">&#103;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#111;&#109;</a></p>
+<p>1.1 记录下github的IP地址, 把IP Address 记录下来</p>
+<p>打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tLmlwYWRkcmVzcy5jb20v" rel="noopener external nofollow noreferrer">https://github.com.ipaddress.com/</a></p>
+<p>打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mYXN0bHkubmV0LmlwYWRkcmVzcy5jb20vZ2l0aHViLmdsb2JhbC5zc2wuZmFzdGx5Lm5ldCNpcGluZm8=" rel="noopener external nofollow noreferrer">https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo</a></p>
+<p>打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tLmlwYWRkcmVzcy5jb20vYXNzZXRzLWNkbi5naXRodWIuY29t" rel="noopener external nofollow noreferrer">https://github.com.ipaddress.com/assets-cdn.github.com</a></p>
+<p>1.2 打开电脑的hosts文件（&#x2F;private&#x2F;etc&#x2F;hosts），把下列的地址对应写入，然后保存即可（version2021.11.23）</p>
+<p># Github Start. Updated 20211123&#x2F;CZ 140.82.113.3 github.com 199.232.69.194 github.global.ssl.fastly.net 185.199.108.153 assets-cdn.github.com 185.199.109.153 assets-cdn.github.com 185.199.110.153 assets-cdn.github.com 185.199.111.153 assets-cdn.github.com</p>
+<h1 id="Github-End"><a href="#Github-End" class="headerlink" title="Github End"></a>Github End</h1><p>1.3 在终端在输以下指令刷新DNS（需要权限）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo killall -HUP mDNSResponder</span><br></pre></td></tr></table></figure>
+
+<p>1.4 如果之前用ssh proxy，取消它</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global https.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+
+<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;</a></p>
+<p>新的错误可能和授权有关，至少证明连接到github.com是通的。</p>
+<hr>
+<h3 id="Solutions-for-Authentication"><a href="#Solutions-for-Authentication" class="headerlink" title="Solutions for: Authentication"></a>Solutions for: Authentication</h3><ol start="2">
+<li>Create new Token and login to github.com (新建密钥并登陆进github.com)</li>
+</ol>
+<p>Verify Standard 判断标准：$ git pull</p>
+<p>2.1 Creating a personal access token at <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL3Rva2Vucw==" rel="noopener external nofollow noreferrer">https://github.com/settings/tokens</a></p>
+<p>授权_admin:org, admin:public_key, admin:repo_hook, gist, read:user, repo, <em>write:packages</em>_</p>
+<p>具体步骤：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vYXV0aGVudGljYXRpb24va2VlcGluZy15b3VyLWFjY291bnQtYW5kLWRhdGEtc2VjdXJlL2NyZWF0aW5nLWEtcGVyc29uYWwtYWNjZXNzLXRva2Vu" rel="noopener external nofollow noreferrer">https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token</a></p>
+<p>2.2 Terminal.app 命令行，运行 git pull（先要cd 到原来的git 根目录）</p>
+<p>Username for ‘<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tLw==" rel="noopener external nofollow noreferrer">https://github.com</a>‘:  （这个地方输入登录github网址用的用户名，我的是用9个英文字母）<br>Password for ‘https:&#x2F;&#x2F;***@github.com’:  （这个地方要是输入#2.1中得到的Token）</p>
+<p>2.3 判断一下连接和授权，如果需要ssh连接，继续添加配置以下。</p>
+<p>2.4 生成ssh密钥。Generating a new SSH key and adding it to the ssh-agent。具体步骤简要如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t ed25519 -C &quot;your\_email@example.com&quot;</span><br><span class="line"></span><br><span class="line">&gt; Enter a file in which to save the key (/Users/you/.ssh/id\_algorithm): \[Press enter\] \&gt; Enter passphrase (empty for no passphrase): \[Type a passphrase\] \&gt; Enter same passphrase again: \[Type passphrase again\] \---------------------------------------------------- $ eval &quot;$(ssh-agent -s)&quot;</span><br><span class="line">&gt; Agent pid 59566</span><br><span class="line"></span><br><span class="line">---------------------------------------------------- $ touch ~/.ssh/config  </span><br><span class="line">加入以下内容：</span><br><span class="line">Host \* AddKeysToAgent yes</span><br><span class="line">  UseKeychain yes</span><br><span class="line">  IdentityFile ~/.ssh/id\_ed25519 \---------------------------------------------------- $ ssh\-add -K ~/.ssh/id\_ed25519</span><br></pre></td></tr></table></figure>
+<p>2.5 协助排查：github服务端的日志，显示有用的连接信息，用来验证链路是否握手成功等等</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL3NlY3VyaXR5LWxvZw==" rel="noopener external nofollow noreferrer">https://github.com/settings/security-log</a></p>
+<p>尽量把验证都放在命令行中，这样更高效直接（在IDE中操作，在验证太费劲了），terminal成功以后，IDEA会自动也成功，因为它们分享相同的配置（git 根目录下面有.git的配置目录）</p>
+<h3 id="参见文档："><a href="#参见文档：" class="headerlink" title="参见文档："></a>参见文档：</h3><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9qdWVqaW4uY24vcG9zdC82ODQ0OTA0MTkzMTcwMzQxODk2" rel="noopener external nofollow noreferrer">https://juejin.cn/post/6844904193170341896</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vYXV0aGVudGljYXRpb24vY29ubmVjdGluZy10by1naXRodWItd2l0aC1zc2gvZ2VuZXJhdGluZy1hLW5ldy1zc2gta2V5LWFuZC1hZGRpbmctaXQtdG8tdGhlLXNzaC1hZ2VudA==" rel="noopener external nofollow noreferrer">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vYXV0aGVudGljYXRpb24va2VlcGluZy15b3VyLWFjY291bnQtYW5kLWRhdGEtc2VjdXJlL2NyZWF0aW5nLWEtcGVyc29uYWwtYWNjZXNzLXRva2Vu" rel="noopener external nofollow noreferrer">https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuYmxvZy8yMDIwLTEyLTE1LXRva2VuLWF1dGhlbnRpY2F0aW9uLXJlcXVpcmVtZW50cy1mb3ItZ2l0LW9wZXJhdGlvbnMv" rel="noopener external nofollow noreferrer">https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/</a></p>
+<h2 id="Node-js也被同样错误卡"><a href="#Node-js也被同样错误卡" class="headerlink" title="Node.js也被同样错误卡"></a>Node.js也被同样错误卡</h2><p>hexo d<br>…<br>fatal: unable to access ‘<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0BAQEBALmdpdC8=" rel="noopener external nofollow noreferrer">https://github.com/@@@@@.git/</a>‘: LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443<br>FATAL Something’s wrong. Maybe you can find the solution here: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=" rel="noopener external nofollow noreferrer">https://hexo.io/docs/troubleshooting.html</a><br>…</p>
+<div class="tabs" id="尝试"><ul class="nav-tabs"><li class="tab active"><a href="#尝试-1">尝试 1</a></li><li class="tab"><a href="#尝试-2">尝试 2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="尝试-1"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:7890 </span><br><span class="line">git config --global https.proxy http://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+<p>重试hexo d</p></div><div class="tab-pane" id="尝试-2"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+<p>重试hexo d<br>有的时候很奇怪：非要先proxy以后重试失败，然后在这样–unset以后重试，就能成功。<br>具体错误内容<br>fatal: unable to access ‘<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0BAQEBAQC5naXQv" rel="noopener external nofollow noreferrer">https://github.com/@@@@@@.git/</a>‘: LibreSSL SSL_connect: Connection reset by peer in connection to github.com:443 </p></div></div></div>
+
+<p>解决办法后来是因为hexo没有检测到内容变动，不去push。<br>hexo clean<br>然后在 hexo g &amp;&amp; hexo d 就解决了</p>
+<h3 id="hexo-d-更新的解决办法"><a href="#hexo-d-更新的解决办法" class="headerlink" title="hexo d 更新的解决办法"></a>hexo d 更新的解决办法</h3><p>运行命令行当时输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTTPS_PROXY=&quot;socks5://127.0.0.1:7890&quot; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<p>这样省去了来回切换的麻烦步骤。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="weibo,qq,wechat,tencent,douban,qzone,linkedin,diandian,facebook,twitter,google"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//unpkg.com/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>作者： </strong>Carl Zeng
+    <a href='https://www.carlzeng.top/202111231111.html'> 《[GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>文章連結：</strong>
+      <a href="https://www.carlzeng.top/202111231111.html" title="[GitHub] fatal: unable to access &#39;https:&#x2F;&#x2F;github.com&#x2F;&#39;: Failed to connect to github.com port 443: Operation timed out">https://www.carlzeng.top/202111231111.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 許可協議。轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+          <div class="post-nav">
+<div class="post-nav-item">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相關文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309222329.html" rel="bookmark">
+      Hello World
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202103171250.html" rel="bookmark">
+      Global Search file content in Gitlab repositories, search across repositories, search across all files-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311231919.html" rel="bookmark">
+      关于DNS配置记录与分析
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309040941.html" rel="bookmark">
+      NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202101230038.html" rel="bookmark">
+      Version Control System, IntelliJ IDEA, Create a Git Repository for a Project and push to multiple remotes-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202302201139.html" rel="bookmark">
+      听音乐(音乐播放器)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202304041812.html" rel="bookmark">
+      Mac OS 安装/卸载 Homebrew-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202303051903.html" rel="bookmark">
+      tor 网络 科学上网
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="post-nav-item">
+<!-- recent posts -->
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="pjax recent-posts-list">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+              zerotier多客户端实践应用记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+              关于DNS配置记录与分析
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+              Docker搭建自动售货系统-独角数卡
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311152248.html" title="气到下不动班" target="">
+              气到下不动班
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311141039.html" title="iptables应用" target="">
+              iptables应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+              实测Docker搭建短链接服务YOURLS
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+              iPad解锁激活锁苹果平板绕激活锁经验
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+              Nginx Proxy Manager修复笔记
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+              Hexo定制之家宽部署artalk评论
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+              任天堂Switch全部记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310202241.html" title="安卓手机root与小黄鸟抓包" target="">
+              安卓手机root与小黄鸟抓包
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
+              Debian初体验之基础设置
+              </a>
+            </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
+<div class="followme">
+  <span>歡迎關注我的其它發布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2023-11-26 14:07:17" itemprop="dateModified" datetime="2023-11-26T14:07:17+08:00">2023-11-26</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/github/" rel="tag"># github</a>
+              <a href="/tags/git/" rel="tag"># git</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202111081117.html" rel="prev" title="K2P刷机-坐标北京Unicom-CarlZeng">
+                  <i class="fa fa-angle-left"></i> K2P刷机-坐标北京Unicom-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/202112011808.html" rel="next" title="如何在手机（安卓）中搜索照片-CarlZeng">
+                  如何在手机（安卓）中搜索照片-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>繁體中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="選擇語言">
+      
+        <option value="zh-CN" data-href="/202111231111.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/202111231111.html" selected="">
+          English
+        </option>
+      
+        <option value="ja" data-href="/ja/202111231111.html" selected="">
+          日本語
+        </option>
+      
+        <option value="ko" data-href="/ko/202111231111.html" selected="">
+          한국어
+        </option>
+      
+        <option value="ru" data-href="/ru/202111231111.html" selected="">
+          Английский
+        </option>
+      
+        <option value="zh-HK" data-href="/zh-HK/202111231111.html" selected="">
+          繁體中文（香港）
+        </option>
+      
+        <option value="zh-TW" data-href="/zh-TW/202111231111.html" selected="">
+          繁體中文
+        </option>
+      
+    </select>
+  </div>
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="總字數">站点总字数 981k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="所需總閱讀時間">站点阅读时长 29:44</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+  <script type="text/javascript">
+  var sc_project=12934590;
+  var sc_invisible=0;
+  var sc_security="122fb52f";
+  var scJsHost = "https://";
+  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="View My Stats"
+  href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+</div>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 強力驅動
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://unpkg.com/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/zh-TW/202111231111.html"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/zh-TW/202111231111.html","pageTitle":"[GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out"}</script>
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>

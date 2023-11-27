@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Поиск...","empty":"По запросу ничего не найдено: ${query}","hits_time":"${hits} результатов найдено за ${time} мс","hits":"${hits} результатов найдено"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一、接口系统包含部分1、导入接口：从企业信息管理系统（财务软件、ERP&#x2F;MRPII、进销存、销售管理软等系统）导入待开票销售数据，或者使用EXCEL、TXT等文件直接导入进行管理的待开票数据，经税控接口系统处理后发送到防伪税控开票系统进行处理。2、回写接口：把发票号码、开票日期、打印标志等重要数据，通过与企业约定的方式和标准回写到企业内部信息管理系统中或导出成一个中间文件。3、金税接口：完成与防伪">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ERP软件与防伪税控开票系统的接口,税控开票系统接口(财务ERP软件与防伪税控开票系统的接口)-CarlZeng">
+<meta property="og:url" content="https://www.carlzeng.top/ru/200811141136.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="一、接口系统包含部分1、导入接口：从企业信息管理系统（财务软件、ERP&#x2F;MRPII、进销存、销售管理软等系统）导入待开票销售数据，或者使用EXCEL、TXT等文件直接导入进行管理的待开票数据，经税控接口系统处理后发送到防伪税控开票系统进行处理。2、回写接口：把发票号码、开票日期、打印标志等重要数据，通过与企业约定的方式和标准回写到企业内部信息管理系统中或导出成一个中间文件。3、金税接口：完成与防伪">
+<meta property="og:locale" content="ru_RU">
+<meta property="article:published_time" content="2008-11-14T03:36:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:28.930Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/ru/200811141136.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"ru","comments":true,"permalink":"https://www.carlzeng.top/200811141136.html","path":"ru/200811141136.html","title":"ERP软件与防伪税控开票系统的接口,税控开票系统接口(财务ERP软件与防伪税控开票系统的接口)-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ERP软件与防伪税控开票系统的接口,税控开票系统接口(财务ERP软件与防伪税控开票系统的接口)-CarlZeng | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//unpkg.com/social-share.js@1.0.16/dist/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Показать/скрыть меню" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 NetSuite 个人随笔</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Поиск" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Главная</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>О сайте</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Тэги<span class="badge">111</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Категории<span class="badge">33</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Архив<span class="badge">310</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Поиск
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Поиск..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+      <div class="languages">
+        <label class="lang-select-label">
+          <i class="fa fa-language"></i>
+          <span>Английский</span>
+          <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </label>
+        <select class="lang-select" data-canonical="" aria-label="Выберите язык">
+          
+            <option value="zh-CN" data-href="/200811141136.html" selected="">
+              简体中文
+            </option>
+          
+            <option value="en" data-href="/en/200811141136.html" selected="">
+              English
+            </option>
+          
+            <option value="ja" data-href="/ja/200811141136.html" selected="">
+              日本語
+            </option>
+          
+            <option value="ko" data-href="/ko/200811141136.html" selected="">
+              한국어
+            </option>
+          
+            <option value="ru" data-href="/ru/200811141136.html" selected="">
+              Английский
+            </option>
+          
+            <option value="zh-HK" data-href="/zh-HK/200811141136.html" selected="">
+              繁體中文（香港）
+            </option>
+          
+            <option value="zh-TW" data-href="/zh-TW/200811141136.html" selected="">
+              繁體中文
+            </option>
+          
+        </select>
+      </div>
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Содержание
+        </li>
+        <li class="sidebar-nav-overview">
+          Обзор
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】采用合并文章持续更新的方案</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-name">Архив</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">Категории</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">111</span>
+        <span class="site-state-item-name">Тэги</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Похожие записи
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/" rel="bookmark">
+      
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200909221418.html" rel="bookmark">
+      html js 跨域 p3p-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200901041808.html" rel="bookmark">
+      js post 应用-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200812301028.html" rel="bookmark">
+      js 多维数组 应用-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200811181613.html" rel="bookmark">
+      pdf to html-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202303051904.html" rel="bookmark">
+      tor，网，络-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201001111202.html" rel="bookmark">
+      win+e 失效-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200909151240.html" rel="bookmark">
+      关于'跳墙'-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+                  zerotier多客户端实践应用记录
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+                  关于DNS配置记录与分析
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+                  Docker搭建自动售货系统-独角数卡
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311152248.html" title="气到下不动班" target="">
+                  气到下不动班
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311141039.html" title="iptables应用" target="">
+                  iptables应用
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+                  实测Docker搭建短链接服务YOURLS
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+                  iPad解锁激活锁苹果平板绕激活锁经验
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+                  Nginx Proxy Manager修复笔记
+                  </a>
+                </li>
+        </ul>
+      </div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ru">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200811141136.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ERP软件与防伪税控开票系统的接口,税控开票系统接口(财务ERP软件与防伪税控开票系统的接口)-CarlZeng | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ERP软件与防伪税控开票系统的接口,税控开票系统接口(财务ERP软件与防伪税控开票系统的接口)-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Изменено</span>
+      <time title="Изменено: 2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Просмотров">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Просмотров: </span>
+            <span id="ArtalkPV" data-page-key="/ru/200811141136.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论: </span>
+            <a href="/ru/200811141136.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/ru/200811141136.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Кол-во символов в статье">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Кол-во символов в статье: </span>
+      <span>2.5k</span>
+    </span>
+    <span class="post-meta-item" title="Время чтения">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Время чтения &asymp;</span>
+      <span>4 мин.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>一、接口系统包含部分1、导入接口：从企业信息管理系统（财务软件、ERP&#x2F;MRPII、进销存、销售管理软等系统）导入待开票销售数据，或者使用EXCEL、TXT等文件直接导入进行管理的待开票数据，经税控接口系统处理后发送到防伪税控开票系统进行处理。2、回写接口：把发票号码、开票日期、打印标志等重要数据，通过与企业约定的方式和标准回写到企业内部信息管理系统中或导出成一个中间文件。3、金税接口：完成与防伪…</p>
+<!-- more -->
+<p>一、接口系统包含部分<br>1、导入接口：从企业信息管理系统（财务软件、ERP&#x2F;MRPII、进销存、销售管理软等系统）导入待开票销售数据，或者使用EXCEL、TXT等文件直接导入进行管理的待开票数据，经税控接口系统处理后发送到防伪税控开票系统进行处理。<br>2、回写接口：把发票号码、开票日期、打印标志等重要数据，通过与企业约定的方式和标<br>准回写到企业内部信息管理系统中或导出成一个中间文件。<br>3、金税接口：完成与防伪税控开票系统发票数据的交换。该接口是税控接口系统的核心部分。<br>4、凭证接口：税控接口系统将开出的发票，根据企业的记账需要转换成财务记账凭证。</p>
+<p>二、主要功能<br>１、数据导入：将企业内部信息管理系统（进销存软件、财务软件及MRPII&#x2F;ERP等）中的<br>待开票数据导入进行开票处理，或者使用EXCEL、TXT等文件进行管理的开<br>票数据。<br>２、数据校验：接口系统在导入待开票数据时，自动校验数据的合法性，并作出相<br>应提示；对已经导入过的待开票数据进行重复性检查，避免数据重<br>复导入。对不符合发票规范的，作出相应提示；<br>３、组合拆分：按客户的要求实现发票组合与拆分批量、自动处理，同时保留发票的手工组合与拆分功能；<br>４、发票加密：将处理过的开票数据直接发送到防伪税控开票系统进行批量加密、生成发<br>票；<br>５、发票打印：实现发票高速连续打印；<br>６、手工开票：当ERP系统发生故障无法导出数据时，接口系统保留了必要的手工<br>开票功能。<br>７、折扣处理：<br>①支持将明细中所有的折扣数据合并成一个总折扣来进行填开；<br>②支持将明细中的所有的折扣数据合并到发票的产品数据中，打印发票时不体现折扣数据；<br>③支持将总折扣数据平分到发票明细的每一行明细产品中，并且打印时打印出折扣数据；<br>④支持将总折扣数据平分到发票明细的第一行明细产品中，但打印时不打印折扣数据；<br>以上为常用的几种折扣处理，其它方式可根据企业情况而定。<br>８、发票回写：将发票数据主要字段（如发票号码、开票日期、打印标志等）回写到企业<br>信息管理系统中；<br>９、统计查询：可按客户、地区、时间段等多种方式，对已开、未开、暂不开、作废、冲红、是否打印等发票数据进行统计、查询。<br>１０、数据维护：包括发票的修改、维护、折扣处理、冲红、作废、数据处理、报表定制等；商品客户基本资料维护；发票数据备份与恢复；发票数据导出等。</p>
+<p>三、系统特点：<br>快速高效，降低成本：实现数据共享，避免数据重复录入；发票数据批量导入、批量导入、批量加密（生成发票）和批量打印，开票速度比原先提高50至100倍，减轻了办税人员工作负担，降低劳动成本。<br>发票数据准：税控接口系统开出的发票准确率达到100%，发票100%通过税局认证，100%满足电子申报系统对销项数据的采集规范；<br>安全性、稳定性好：每一套接口系统都经过严格的带两卡状态模拟环境测试，各项功能指标都通过后，才允许安装给用户使用；<br>自动化程度高：税控接口系统保留了必要的手工编辑和个性功能，真正实现高效、人性化、无误差开票流程；<br>操作简便，界面友好：WINDOWS标准界面操作，只须点几按钮就能自动完成整个开票流程，简单方便；<br>强大的统计和查询功能：对已开、未开、暂不开、作废、冲红、已打印、未打印、已回传、未回传等发票进行有效统计和查询。<br>报表打印：能根据发票数据打印一些企业所需的，而防伪税控机和信息管理系统中并没有提供的报表（如发标统计表、ERP单号和发票号码对照表等）。<br>数据处理：能够实现将打印之后的数据进行再加工，也可回传发票信息到信息管理系统中用户指定的位置，克服了原系统打印过的发票数据，只能保存在防伪税控机中不便查询、处理的难题。<br>日志查看：日志查看工具记录了操作员各时间段执行的所有操作，方便用户随时查阅历史操作记录。  </p>
+<p>四、接口方案实施的目的和意义<br>企业管理信息系统与税控机接口系统解决方案，其最终的目的在于充分利用企业的信息化资源，在整个公司内部实现数据共享，提高整个企业税务数据的安全性、准确性和快速性，为企业的办税业务提供强有力的支持。<br>同时，该方案的实施充分优化，整合了企业内部的信息化资源，规范了开票人员的日常业务操作，高效、自动化、一体化的开票流程和高度的数据共享要求，必将为企业蒸蒸日上的业务需求带来极大的帮助。</p>
+<p>辅助：开发方向，市场占有率。<br>五、税控接口软件分类<br>① 税控接口 —– 用友版 适合使用用友软件的企业。<br>② 税控接口 —– 金蝶版 适合使用金蝶软件的企业。<br>③ 税控接口 —– ERP版 适合使用各类ERP软件的企业。<br>④ 税控接口 —– 文本文件版 适合已经申请了航天文本接口的企业。<br>⑤ 税控接口 —– EXCEL文件版 适合用EXCEL文件导入开票的企业。<br>六、税控接口软件适用企业信息化软件范围:<br>用友软件产品：<br>１、用友U8 -ERP 系列 (U8-852、U8-860、U8-861、U8-870等)<br>２、用友通标准版财务业务一体化系列<br>３、用友通工业版财务业务一体化系列<br>４、用友业务通（采购、销售、库存）<br>５、用友商贸通<br>金蝶软件产品：<br>１、金蝶EAS系列<br>２、金蝶K&#x2F;3 ERP系列<br>３、金蝶KIS专业版系列<br>４、金蝶KIS标准版系列<br>５、金蝶KIS迷你版系列  </p>
+<p>浪潮ERP、新中大（ERP及财务软件）、金算盘软件、天思（ERP及进销存）、百胜服务ERP软件、SAP软件系列、ORACLE软件系列、博科软件系列、速达系列（ERP、进销存）、管家婆系列（ERP及进销存）、神州数码ERP、其它企业定制信息管理软件系列。</p>
+<p>图案事例：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5zdW5scS5jb20vZndza2twamsuaHRt" rel="noopener external nofollow noreferrer">http://www.sunlq.com/fwskkpjk.htm</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="weibo,qq,wechat,tencent,douban,qzone,linkedin,diandian,facebook,twitter,google"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//unpkg.com/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Автор записи:  </strong>Carl Zeng
+    <a href='https://www.carlzeng.top/200811141136.html'> 《ERP软件与防伪税控开票系统的接口,税控开票系统接口(财务ERP软件与防伪税控开票系统的接口)-CarlZeng》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>Ссылка на запись: </strong>
+      <a href="https://www.carlzeng.top/200811141136.html" title="ERP软件与防伪税控开票系统的接口,税控开票系统接口(财务ERP软件与防伪税控开票系统的接口)-CarlZeng">https://www.carlzeng.top/200811141136.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Информация об авторских правах:  </strong>Все записи на этом сайте защищены лицензией <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a>, если не указано дополнительно.
+  </li>
+</ul>
+</div>
+
+          <div class="post-nav">
+<div class="post-nav-item">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Похожие записи
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/" rel="bookmark">
+      
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200909221418.html" rel="bookmark">
+      html js 跨域 p3p-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200901041808.html" rel="bookmark">
+      js post 应用-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200812301028.html" rel="bookmark">
+      js 多维数组 应用-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200811181613.html" rel="bookmark">
+      pdf to html-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202303051904.html" rel="bookmark">
+      tor，网，络-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201001111202.html" rel="bookmark">
+      win+e 失效-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200909151240.html" rel="bookmark">
+      关于'跳墙'-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="post-nav-item">
+<!-- recent posts -->
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="pjax recent-posts-list">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+              zerotier多客户端实践应用记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+              关于DNS配置记录与分析
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+              Docker搭建自动售货系统-独角数卡
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311152248.html" title="气到下不动班" target="">
+              气到下不动班
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311141039.html" title="iptables应用" target="">
+              iptables应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+              实测Docker搭建短链接服务YOURLS
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+              iPad解锁激活锁苹果平板绕激活锁经验
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+              Nginx Proxy Manager修复笔记
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+              Hexo定制之家宽部署artalk评论
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+              任天堂Switch全部记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310202241.html" title="安卓手机root与小黄鸟抓包" target="">
+              安卓手机root与小黄鸟抓包
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
+              Debian初体验之基础设置
+              </a>
+            </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
+<div class="followme">
+  <span>Добро пожаловать на другие мои издательские каналы</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Изменено</span>
+        <time title="Изменено: 2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+      </span>
+
+</div>
+
+
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/200811141129.html" rel="prev" title="财务软件间的财务接口(转载)-CarlZeng">
+                  <i class="fa fa-angle-left"></i> 财务软件间的财务接口(转载)-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/200811171802.html" rel="next" title="( 年 月 日 下午 点 分) 日期格式的js生成-CarlZeng">
+                  ( 年 月 日 下午 点 分) 日期格式的js生成-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>Английский</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="Выберите язык">
+      
+        <option value="zh-CN" data-href="/200811141136.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/200811141136.html" selected="">
+          English
+        </option>
+      
+        <option value="ja" data-href="/ja/200811141136.html" selected="">
+          日本語
+        </option>
+      
+        <option value="ko" data-href="/ko/200811141136.html" selected="">
+          한국어
+        </option>
+      
+        <option value="ru" data-href="/ru/200811141136.html" selected="">
+          Английский
+        </option>
+      
+        <option value="zh-HK" data-href="/zh-HK/200811141136.html" selected="">
+          繁體中文（香港）
+        </option>
+      
+        <option value="zh-TW" data-href="/zh-TW/200811141136.html" selected="">
+          繁體中文
+        </option>
+      
+    </select>
+  </div>
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Общее кол-во символов">站点总字数 981k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Общее время чтения">站点阅读时长 29:44</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Всего посетителей">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Всего просмотров">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+  <script type="text/javascript">
+  var sc_project=12934590;
+  var sc_invisible=0;
+  var sc_security="122fb52f";
+  var scJsHost = "https://";
+  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="View My Stats"
+  href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+</div>
+  <div class="powered-by">Генератор — <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a>
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="В начало">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://unpkg.com/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/ru/200811141136.html"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/ru/200811141136.html","pageTitle":"ERP软件与防伪税控开票系统的接口,税控开票系统接口(财务ERP软件与防伪税控开票系统的接口)-CarlZeng"}</script>
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>

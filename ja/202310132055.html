@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"検索…","empty":"検索結果が見つかりませんでした: ${query}","hits_time":"${hits} の結果が ${time} ms で見つかりました","hits":"${hits} 件の結果が見つかりました"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="CVE-2017-7921 海康威视（Hikvision）摄像头漏洞复现     https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yier-G&#x2F;p&#x2F;16632842.html CVE-2021-36260漏洞复现     https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_50854662&#x2F;article&#x2F;details&#x2F;128700889     复现源代码：https:&#x2F;&#x2F;github.com">
+<meta property="og:type" content="article">
+<meta property="og:title" content="海康萤石摄像头C3HC学习">
+<meta property="og:url" content="https://www.carlzeng.top/ja/202310132055.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="CVE-2017-7921 海康威视（Hikvision）摄像头漏洞复现     https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yier-G&#x2F;p&#x2F;16632842.html CVE-2021-36260漏洞复现     https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_50854662&#x2F;article&#x2F;details&#x2F;128700889     复现源代码：https:&#x2F;&#x2F;github.com">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2023-10-13T12:55:48.000Z">
+<meta property="article:modified_time" content="2023-10-15T01:59:16.946Z">
+<meta property="article:author" content="Carl Zeng">
+<meta property="article:tag" content="摄像头">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/ja/202310132055.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"ja","comments":true,"permalink":"https://www.carlzeng.top/202310132055.html","path":"ja/202310132055.html","title":"海康萤石摄像头C3HC学习"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>海康萤石摄像头C3HC学习 | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//unpkg.com/social-share.js@1.0.16/dist/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="ナビゲーションバーの切り替え" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 NetSuite 个人随笔</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="検索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>ホーム</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>プロフィール</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>タグ<span class="badge">111</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>カテゴリ<span class="badge">33</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>アーカイブ<span class="badge">310</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>検索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="検索…" spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+      <div class="languages">
+        <label class="lang-select-label">
+          <i class="fa fa-language"></i>
+          <span>日本語</span>
+          <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </label>
+        <select class="lang-select" data-canonical="" aria-label="Select language">
+          
+            <option value="zh-CN" data-href="/202310132055.html" selected="">
+              简体中文
+            </option>
+          
+            <option value="en" data-href="/en/202310132055.html" selected="">
+              English
+            </option>
+          
+            <option value="ja" data-href="/ja/202310132055.html" selected="">
+              日本語
+            </option>
+          
+            <option value="ko" data-href="/ko/202310132055.html" selected="">
+              한국어
+            </option>
+          
+            <option value="ru" data-href="/ru/202310132055.html" selected="">
+              Английский
+            </option>
+          
+            <option value="zh-HK" data-href="/zh-HK/202310132055.html" selected="">
+              繁體中文（香港）
+            </option>
+          
+            <option value="zh-TW" data-href="/zh-TW/202310132055.html" selected="">
+              繁體中文
+            </option>
+          
+        </select>
+      </div>
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          見出し
+        </li>
+        <li class="sidebar-nav-overview">
+          概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E6%91%84%E5%83%8F%E5%A4%B4%E6%89%80%E5%9C%A8%E7%9A%84IP%E5%9C%B0%E5%9D%80%E6%AE%B5"><span class="nav-number">1.</span> <span class="nav-text">确定摄像头所在的IP地址段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CVE-2017-7921"><span class="nav-number">2.</span> <span class="nav-text">CVE-2017-7921</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CVE-2021-36260"><span class="nav-number">3.</span> <span class="nav-text">CVE-2021-36260</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E7%A0%81%E6%B5%81"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">主码流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%90%E7%A0%81%E6%B5%81"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">子码流</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E7%9A%84%E9%9A%8F%E7%AC%94"><span class="nav-number">4.</span> <span class="nav-text">杂七杂八的随笔</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】采用合并文章持续更新的方案</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-name">ポスト</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">カテゴリ</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">111</span>
+        <span class="site-state-item-name">タグ</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    関連記事
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309190928.html" rel="bookmark">
+      安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202103171250.html" rel="bookmark">
+      Global Search file content in Gitlab repositories, search across repositories, search across all files-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200904171039.html" rel="bookmark">
+      email feedback-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201701151056.html" rel="bookmark">
+      How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201702131003.html" rel="bookmark">
+      SuiteLet Building Block to Select Record  SuiteLet页面动态加载搜索结果后附加选择功能-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200810011929.html" rel="bookmark">
+      通过Performancing for Firefox发布Blog - 博客园-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202104292230.html" rel="bookmark">
+      The result field Formula (Text) cannot be grouped. Please edit the search and omit this field or use a different summary function.-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201003142023.html" rel="bookmark">
+      Saved search in customer center on tab-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+                  zerotier多客户端实践应用记录
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+                  关于DNS配置记录与分析
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+                  Docker搭建自动售货系统-独角数卡
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311152248.html" title="气到下不动班" target="">
+                  气到下不动班
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311141039.html" title="iptables应用" target="">
+                  iptables应用
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+                  实测Docker搭建短链接服务YOURLS
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+                  iPad解锁激活锁苹果平板绕激活锁经验
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+                  Nginx Proxy Manager修复笔记
+                  </a>
+                </li>
+        </ul>
+      </div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ja">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202310132055.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="海康萤石摄像头C3HC学习 | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          海康萤石摄像头C3HC学习
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">編集日</span>
+      <time title="修正日：2023-10-15 09:59:16" itemprop="dateModified" datetime="2023-10-15T09:59:16+08:00">2023-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">カテゴリ</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%91%84%E5%83%8F%E5%A4%B4/" itemprop="url" rel="index"><span itemprop="name">摄像头</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="閲覧数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">閲覧数：</span>
+            <span id="ArtalkPV" data-page-key="/ja/202310132055.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/ja/202310132055.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/ja/202310132055.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="単語数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">単語数：</span>
+      <span>4k</span>
+    </span>
+    <span class="post-meta-item" title="読書の時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">読書の時間 &asymp;</span>
+      <span>7 分</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img data-src=''>
+CVE-2017-7921 海康威视（Hikvision）摄像头漏洞复现
+    https://www.cnblogs.com/yier-G/p/16632842.html
+CVE-2021-36260漏洞复现
+    https://blog.csdn.net/qq_50854662/article/details/128700889
+    复现源代码：https://github.com/Cuerz/CVE-2021-36260
+
+ <span id="more"></span>
+<h1 id="确定摄像头所在的IP地址段"><a href="#确定摄像头所在的IP地址段" class="headerlink" title="确定摄像头所在的IP地址段"></a>确定摄像头所在的IP地址段</h1><p>网线连接到同一个路由器下，查看到路由器里面的DHCP客户端给摄像头分配了IP：192.168.2.218</p>
+<h1 id="CVE-2017-7921"><a href="#CVE-2017-7921" class="headerlink" title="CVE-2017-7921"></a>CVE-2017-7921</h1><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguMi4yMTgvU2VjdXJpdHkvdXNlcnM/YXV0aD1ZV1J0YVc0Nk1URUs=" rel="noopener external nofollow noreferrer">http://192.168.2.218/Security/users?auth=YWRtaW46MTEK</a><br>    Access Error: 405 – Method Not Allowed<br>    Requested method GET not supported for URL: &#x2F;Security&#x2F;users</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguMi4yMTgvb252aWYtaHR0cC9zbmFwc2hvdD9hdXRoPVlXUnRhVzQ2TVRFSw==" rel="noopener external nofollow noreferrer">http://192.168.2.218/onvif-http/snapshot?auth=YWRtaW46MTEK</a><br>    Access Error: 404 – Not Found<br>    Can’t locate document: &#x2F;onvif-http&#x2F;snapshot</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguMi4yMTgvU3lzdGVtL2NvbmZpZ3VyYXRpb25GaWxlP2F1dGg9WVdSdGFXNDZNVEVL" rel="noopener external nofollow noreferrer">http://192.168.2.218/System/configurationFile?auth=YWRtaW46MTEK</a><br>    Access Error: 405 – Method Not Allowed<br>    Requested method GET not supported for URL: &#x2F;System&#x2F;configurationFile</p>
+<h1 id="CVE-2021-36260"><a href="#CVE-2021-36260" class="headerlink" title="CVE-2021-36260"></a>CVE-2021-36260</h1><p>Put result</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document Error: Not Found<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Access Error: 404 -- Not Found<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Can&#x27;t open document: /mnt/mmc01/webPage/bic/ssoService/v1/applyCT<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>RTSP 弱密码</p>
+<h4 id="主码流"><a href="#主码流" class="headerlink" title="主码流"></a>主码流</h4><p>rtsp:&#x2F;&#x2F;admin:12345@IP:554&#x2F;h264&#x2F;ch1&#x2F;main&#x2F;av_stream<br>rtsp:&#x2F;&#x2F;admin:12345@IP:554&#x2F;MPEG-4&#x2F;ch1&#x2F;main&#x2F;av_stream</p>
+<h4 id="子码流"><a href="#子码流" class="headerlink" title="子码流"></a>子码流</h4><p>rtsp:&#x2F;&#x2F;admin:12345@IP&#x2F;mpeg4&#x2F;ch1&#x2F;sub&#x2F;av_stream<br>rtsp:&#x2F;&#x2F;admin:12345@IP&#x2F;h264&#x2F;ch1&#x2F;sub&#x2F;av_stream</p>
+<h1 id="杂七杂八的随笔"><a href="#杂七杂八的随笔" class="headerlink" title="杂七杂八的随笔"></a>杂七杂八的随笔</h1><p>多个海康摄像头 桥接<br>求大佬解答：<br>当面积很大的情况下（比如多个足球场），多个网络WIFI摄像头通过互相之间的桥接的方式，串成特定的网络拓扑；然后通过某个摄像头联网（局域网）来让手机（或电脑）可以查看所有这些WIFI网络摄像头的画面（或者连接到nvr）<br>有这种方案吗？或者技术上是怎么实现的？</p>
+<p>开启设备的AP热点<br>（AP的SSID为EZVIZ_XXXXXXXXX，其中XXXXXXXXX为设备序列号；<br>AP的默认密码为EZVIZ_YYYYYY，其中YYYYYY为设备的验证码）</p>
+<p>用1接1的链接方式，将第一个摄像头（已接入WIFI互联网）的开启热点adhoc，<br>第二个摄像头链接第一个摄像头的热点，（组成小火车厢相连接的结构），通过第一个摄像头的网络连接到互联网，也开启热点Adhoc。<br>第三个摄像头链接到第二个摄像头的热点，以此类推<br>20231007 确定了方案图纸，等待拍照获取序列号和验证码<br>    - 抓包<br>    - 社会工程</p>
+<ol>
+<li>大华 DahuaLoginBypass<br>Chrome extension that uses vulnerability CVE-2021-33044 to log in to Dahua IP cameras and VTH&#x2F;VTO (video intercom) devices without authentication.</li>
+</ol>
+<p>For other device types (NVR&#x2F;DVR&#x2F;XVR, etc), there exists CVE-2021-33045 which cannot be exploited with an ordinary web browser.</p>
+<p>These vulnerabilities are likely to be fixed in firmware released after Sept 2021.<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2JwMjAwOC9EYWh1YUxvZ2luQnlwYXNz" rel="noopener external nofollow noreferrer">https://github.com/bp2008/DahuaLoginBypass</a></p>
+<ol start="2">
+<li>海康威视摄像头密码找回非重置</li>
+</ol>
+<p>Hikvision IPC config preview tool<br>Requirements:</p>
+<ul>
+<li>Firmware must be 5.4.4 or lower.</li>
+<li>LAN access to camera</li>
+</ul>
+<p>Instructions</p>
+<ul>
+<li>Open the following URL in your browser:<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguMC42NC9TeXN0ZW0vY29uZmlndXJhdGlvbkZpbGU/YXV0aD1ZV1J0YVc0Nk1URUs=" rel="noopener external nofollow noreferrer">http://192.168.0.64/System/configurationFile?auth=YWRtaW46MTEK</a><br>You can find out IP using SADP Tool</li>
+<li>Submit ‘configurationFile’ using the form below</li>
+</ul>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL1dvcm1DaGlja2VuV2l6YXJkL2hpa3Zpc2lvbi1kZWNyeXB0ZXI=" rel="noopener external nofollow noreferrer">https://github.com/WormChickenWizard/hikvision-decrypter</a></p>
+<p>One you obtain the configuration file, simply load it into the program, decrypt it, and save it.Then you can use a hex editor to search for the passwords. At some point, I would like to implement the ability to read and edit the database from inside of the program.</p>
+<p>Reference：<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9pcGNhbXRhbGsuY29tL3RocmVhZHMvaGlrdmlzaW9uLWJhY2tkb29yLWlwLWNhbWVyYS40NjQ4Ni8=" rel="noopener external nofollow noreferrer">https://ipcamtalk.com/threads/hikvision-backdoor-ip-camera.46486/</a></p>
+<p>C3HC如何查看摄像头admin密码？<br>海康C3HC, 第一次或着重置后连接，会有修改admin为新密码的步骤：修改密码<br>请将默认加密密码修改为新的加密密码，默认密码为设备验证码（6位大写字母），你可以在设备标签上找到它。<br>新密码：<br>修改后，请牢记你的新密码，若密码丢失，将不能被找回，需重置设备恢复初始值，确定要修改？</p>
+<ol start="3">
+<li>思路：找海康摄像头漏洞，针对漏洞进行分析和利用<br> CVE-2017-7921 海康威视（Hikvision）摄像头漏洞复现<br>     <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20veWllci1HL3AvMTY2MzI4NDIuaHRtbA==" rel="noopener external nofollow noreferrer">https://www.cnblogs.com/yier-G/p/16632842.html</a><br><br> CVE-2017-7921复现（解密文件）<br>     <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNjE3MDM0L2FydGljbGUvZGV0YWlscy8xMTc1MjE3MzQ=" rel="noopener external nofollow noreferrer">https://blog.csdn.net/qq_41617034/article/details/117521734</a><br><br> 海康摄像头CVE-2021-36260漏洞复现<br>     <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUwODU0NjYyL2FydGljbGUvZGV0YWlscy8xMjg3MDA4ODk=" rel="noopener external nofollow noreferrer">https://blog.csdn.net/qq_50854662/article/details/128700889</a><br>     复现源代码：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0N1ZXJ6L0NWRS0yMDIxLTM2MjYw" rel="noopener external nofollow noreferrer">https://github.com/Cuerz/CVE-2021-36260</a></li>
+</ol>
+<p>肯定能找到漏洞复现；可是我无法连接到摄像头的网络，导致无法通信的尴尬！？</p>
+<p>疑问：<br>    1. 激活摄像头以后，热点的密码就变为激活密码了吗？<br>    2. 用网线连接后，可否找到IP？<br>    3. C3HC是否有这个漏洞？可否下载configurationFile；</p>
+<p>思路2，问问个人卖家；这样专业的实践知识有时Google很难及时收录。</p>
+<p>得到确认：WIFI和AP热点模式是不可能同时开启的！<br>20231011 C3HC大概率有这两个漏洞：<br>    搜索: C3HC 固件升级; 搜索结构还在固件版本V5.3.2 build 200312</p>
+<p>如何解绑定手机号<br>    拆下flash，上编程器，修改序列号和验证码即可<br>    具体视频：9号-10号，看了视频，丢失了链接<br>    萤石云摄像头固件修改，更换SN解绑手机，解邦教程<br>    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aWViYS5iYWlkdS5jb20vcC84MTk3NDIzMzk5" rel="noopener external nofollow noreferrer">https://tieba.baidu.com/p/8197423399</a></p>
+<p>海康威视CVE-2017-7921的一次实战利用<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jbi1zZWMuY29tL2FyY2hpdmVzLzE3ODg0MDMuaHRtbA==" rel="noopener external nofollow noreferrer">https://cn-sec.com/archives/1788403.html</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="weibo,qq,wechat,tencent,douban,qzone,linkedin,diandian,facebook,twitter,google"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//unpkg.com/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>著者： </strong>Carl Zeng
+    <a href='https://www.carlzeng.top/202310132055.html'> 《海康萤石摄像头C3HC学习》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>記事へのリンク：</strong>
+      <a href="https://www.carlzeng.top/202310132055.html" title="海康萤石摄像头C3HC学习">https://www.carlzeng.top/202310132055.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>著作権表示： </strong>このブログ内のすべての記事は、特別な記載がない限り <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> の下のライセンスで保護されています。
+  </li>
+</ul>
+</div>
+
+          <div class="post-nav">
+<div class="post-nav-item">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    関連記事
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309190928.html" rel="bookmark">
+      安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202103171250.html" rel="bookmark">
+      Global Search file content in Gitlab repositories, search across repositories, search across all files-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200904171039.html" rel="bookmark">
+      email feedback-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201701151056.html" rel="bookmark">
+      How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201702131003.html" rel="bookmark">
+      SuiteLet Building Block to Select Record  SuiteLet页面动态加载搜索结果后附加选择功能-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200810011929.html" rel="bookmark">
+      通过Performancing for Firefox发布Blog - 博客园-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202104292230.html" rel="bookmark">
+      The result field Formula (Text) cannot be grouped. Please edit the search and omit this field or use a different summary function.-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201003142023.html" rel="bookmark">
+      Saved search in customer center on tab-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="post-nav-item">
+<!-- recent posts -->
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="pjax recent-posts-list">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+              zerotier多客户端实践应用记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+              关于DNS配置记录与分析
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+              Docker搭建自动售货系统-独角数卡
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311152248.html" title="气到下不动班" target="">
+              气到下不动班
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311141039.html" title="iptables应用" target="">
+              iptables应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+              实测Docker搭建短链接服务YOURLS
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+              iPad解锁激活锁苹果平板绕激活锁经验
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+              Nginx Proxy Manager修复笔记
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+              Hexo定制之家宽部署artalk评论
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+              任天堂Switch全部记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310202241.html" title="安卓手机root与小黄鸟抓包" target="">
+              安卓手机root与小黄鸟抓包
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
+              Debian初体验之基础设置
+              </a>
+            </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
+<div class="followme">
+  <span>他の公開チャンネルへようこそ</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">編集日</span>
+        <time title="修正日：2023-10-15 09:59:16" itemprop="dateModified" datetime="2023-10-15T09:59:16+08:00">2023-10-15</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4/" rel="tag"># 摄像头</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202310131750.html" rel="prev" title="汽车保养之三滤和清洗节气门">
+                  <i class="fa fa-angle-left"></i> 汽车保养之三滤和清洗节气门
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/202310171918.html" rel="next" title="Debian初体验之基础设置">
+                  Debian初体验之基础设置 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>日本語</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="Select language">
+      
+        <option value="zh-CN" data-href="/202310132055.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/202310132055.html" selected="">
+          English
+        </option>
+      
+        <option value="ja" data-href="/ja/202310132055.html" selected="">
+          日本語
+        </option>
+      
+        <option value="ko" data-href="/ko/202310132055.html" selected="">
+          한국어
+        </option>
+      
+        <option value="ru" data-href="/ru/202310132055.html" selected="">
+          Английский
+        </option>
+      
+        <option value="zh-HK" data-href="/zh-HK/202310132055.html" selected="">
+          繁體中文（香港）
+        </option>
+      
+        <option value="zh-TW" data-href="/zh-TW/202310132055.html" selected="">
+          繁體中文
+        </option>
+      
+    </select>
+  </div>
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="単語の総数">站点总字数 981k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="読書の合計時間">站点阅读时长 29:44</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="合計閲覧者数">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="閲覧合計数">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+  <script type="text/javascript">
+  var sc_project=12934590;
+  var sc_invisible=0;
+  var sc_security="122fb52f";
+  var scJsHost = "https://";
+  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="View My Stats"
+  href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+</div>
+  <div class="powered-by">Powered by <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a>
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://unpkg.com/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/ja/202310132055.html"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/ja/202310132055.html","pageTitle":"海康萤石摄像头C3HC学习"}</script>
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>

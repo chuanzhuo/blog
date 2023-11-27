@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="NetSuite SDF CLI CLI for Node.js on Mac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command-CarlZeng">
+<meta property="og:url" content="https://www.carlzeng.top/ko/202011100824.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="NetSuite SDF CLI CLI for Node.js on Mac">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2020-11-10T00:24:00.000Z">
+<meta property="article:modified_time" content="2023-10-08T13:38:52.658Z">
+<meta property="article:author" content="Carl Zeng">
+<meta property="article:tag" content="NetSuite">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/ko/202011100824.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"ko","comments":true,"permalink":"https://www.carlzeng.top/202011100824.html","path":"ko/202011100824.html","title":"How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command-CarlZeng | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//unpkg.com/social-share.js@1.0.16/dist/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 NetSuite 个人随笔</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="검색" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>홈</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>정보</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그<span class="badge">111</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리<span class="badge">33</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>아카이브<span class="badge">310</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+      <div class="languages">
+        <label class="lang-select-label">
+          <i class="fa fa-language"></i>
+          <span>한국어</span>
+          <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </label>
+        <select class="lang-select" data-canonical="" aria-label="Select language">
+          
+            <option value="zh-CN" data-href="/202011100824.html" selected="">
+              简体中文
+            </option>
+          
+            <option value="en" data-href="/en/202011100824.html" selected="">
+              English
+            </option>
+          
+            <option value="ja" data-href="/ja/202011100824.html" selected="">
+              日本語
+            </option>
+          
+            <option value="ko" data-href="/ko/202011100824.html" selected="">
+              한국어
+            </option>
+          
+            <option value="ru" data-href="/ru/202011100824.html" selected="">
+              Английский
+            </option>
+          
+            <option value="zh-HK" data-href="/zh-HK/202011100824.html" selected="">
+              繁體中文（香港）
+            </option>
+          
+            <option value="zh-TW" data-href="/zh-TW/202011100824.html" selected="">
+              繁體中文
+            </option>
+          
+        </select>
+      </div>
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-run-SDF-CLI-for-Node-js"><span class="nav-number">2.</span> <span class="nav-text">How to run SDF CLI for Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CLI-for-Node-js-Commands"><span class="nav-number">3.</span> <span class="nav-text">CLI for Node.js Commands</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample"><span class="nav-number">4.</span> <span class="nav-text">Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Practice"><span class="nav-number">5.</span> <span class="nav-text">Practice</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%80%94%E2%80%93Troubleshooting%E2%80%94%E2%80%93"><span class="nav-number">5.0.1.</span> <span class="nav-text">—–Troubleshooting—–</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】采用合并文章持续更新的方案</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">111</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202106220916.html" rel="bookmark">
+      More about NetSuite SDF manifest.xml and deploy.xml-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201903222305.html" rel="bookmark">
+      How to use NetSuite SDF to download bundles/components-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202211182125.html" rel="bookmark">
+      netsuite query account balance-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201701151056.html" rel="bookmark">
+      How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202102231121.html" rel="bookmark">
+      git tag and NetSuite deployment tracking-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202011242038.html" rel="bookmark">
+      How to install NetSuite SuiteCloud plug-in to WebStorm (Updated2021.11)-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202104081715.html" rel="bookmark">
+      NetSuite generated bank files and the Bank Reconciliation process-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201703162254.html" rel="bookmark">
+      NetSuite Build-In Error Message: The record has been deleted since you have retrieved it.-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+                  zerotier多客户端实践应用记录
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+                  关于DNS配置记录与分析
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+                  Docker搭建自动售货系统-独角数卡
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311152248.html" title="气到下不动班" target="">
+                  气到下不动班
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311141039.html" title="iptables应用" target="">
+                  iptables应用
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+                  实测Docker搭建短链接服务YOURLS
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+                  iPad解锁激活锁苹果平板绕激活锁经验
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+                  Nginx Proxy Manager修复笔记
+                  </a>
+                </li>
+        </ul>
+      </div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ko">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202011100824.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command-CarlZeng | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Updated at: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/ko/202011100824.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论: </span>
+            <a href="/ko/202011100824.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/ko/202011100824.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>6.4k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>12 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>NetSuite SDF CLI CLI for Node.js on Mac</p>
+<!-- more -->
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a><strong>Installation</strong></h2><ol>
+<li><p><strong>Java SE Development Kit</strong> — CLI for Node.js requires <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cub3JhY2xlLmNvbS9qYXZhL3RlY2hub2xvZ2llcy9qYXZhc2UtamRrMTEtZG93bmxvYWRzLmh0bWw=" rel="noopener external nofollow noreferrer">Oracle JDK version 11</a>.</p>
+<ul>
+<li>　If you find your JAVA JDK version is not yet 11, you can download it from: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cub3JhY2xlLmNvbS9qYXZhL3RlY2hub2xvZ2llcy9qYXZhc2UtamRrMTEtZG93bmxvYWRzLmh0bWw=" rel="noopener external nofollow noreferrer">https://www.oracle.com/java/technologies/javase-jdk11-downloads.html</a></li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p><strong>Node.js</strong> — CLI for Node.js requires Node.js version 12.14.0 LTS or greater.</p>
+<ul>
+<li><p>　If you find your Node version is not yet 12.14.0, you can install it by Terminal: npm install -g @oracle&#x2F;suitecloud-cli.</p>
+</li>
+<li><p><em>Notes:</em> </p>
+<p><em>This package has installed:</em><br><em>• Node.js v12.14.0 to &#x2F;usr&#x2F;local&#x2F;bin&#x2F;node</em><br><em>• npm v6.13.4 to &#x2F;usr&#x2F;local&#x2F;bin&#x2F;npm</em><br><em>Make sure that &#x2F;usr&#x2F;local&#x2F;bin is in your $PATH.</em></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="How-to-run-SDF-CLI-for-Node-js"><a href="#How-to-run-SDF-CLI-for-Node-js" class="headerlink" title="How to run SDF CLI for Node.js"></a>How to run SDF CLI for Node.js</h2><ul>
+<li><p><strong>MacOS tools</strong></p>
+<ul>
+<li><strong>Terminal (Mac build-in)</strong></li>
+<li><strong>iTerm2</strong></li>
+</ul>
+</li>
+<li><h2 id="CLI-for-Node-js-Commands"><a href="#CLI-for-Node-js-Commands" class="headerlink" title="CLI for Node.js Commands"></a>CLI for Node.js Commands</h2><p>suitecloud <command> <option> <argument></p>
+<p>Command</p>
+<p>Description</p>
+<p>account:ci</p>
+<p>Set up an account to use with the SuiteCloud CLI for Node.js.</p>
+<p>This command only supports non-interactive mode.</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8tc2IxLmFwcC5uZXRzdWl0ZS5jb20vYXBwL2hlbHAvaGVscGNlbnRlci5ubD9maWQ9c2VjdGlvbl8xNTczMDQ5MzQxMTYuaHRtbA==" rel="noopener external nofollow noreferrer">account:manageauth</a></p>
+<p>Manages authentication IDs (authid) for all your projects.</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8tc2IxLmFwcC5uZXRzdWl0ZS5jb20vYXBwL2hlbHAvaGVscGNlbnRlci5ubD9maWQ9c2VjdGlvbl8xNTYwNDQ1Mjg4NDEuaHRtbA==" rel="noopener external nofollow noreferrer">account:setup</a></p>
+<p>Set up an account to use with the SuiteCloud CLI for Node.js.</p>
+<p>This command only supports interactive mode.</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8tc2IxLmFwcC5uZXRzdWl0ZS5jb20vYXBwL2hlbHAvaGVscGNlbnRlci5ubD9maWQ9c2VjdGlvbl8xNTYwNDQ0MjYyMzkuaHRtbA==" rel="noopener external nofollow noreferrer">config:proxy</a></p>
+<p>Configure a proxy server.</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8tc2IxLmFwcC5uZXRzdWl0ZS5jb20vYXBwL2hlbHAvaGVscGNlbnRlci5ubD9maWQ9c2VjdGlvbl8xNTYwNDE5NjMyNzMuaHRtbA==" rel="noopener external nofollow noreferrer">file:import</a></p>
+<p>Import files from an account to your account customization project.</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8tc2IxLmFwcC5uZXRzdWl0ZS5jb20vYXBwL2hlbHAvaGVscGNlbnRlci5ubD9maWQ9c2VjdGlvbl8xNTYwNDI5NjY0ODguaHRtbA==" rel="noopener external nofollow noreferrer">file:list</a></p>
+<p>Lists the files in the File Cabinet of your account.</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8tc2IxLmFwcC5uZXRzdWl0ZS5jb20vYXBwL2hlbHAvaGVscGNlbnRlci5ubD9maWQ9c2VjdGlvbl8xNTkwNjYwNzA2ODcuaHRtbA==" rel="noopener external nofollow noreferrer">file:upload</a></p>
+<p>Uploads files from your project to an account.</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8tc2IxLmFwcC5uZXRzdWl0ZS5jb20vYXBwL2hlbHAvaGVscGNlbnRlci5ubD9maWQ9c2VjdGlvbl8xNTYwNDIxODE4MjAuaHRtbA==" rel="noopener external nofollow noreferrer">object:import</a></p>
+<p>Import custom objects from an account to your SuiteCloud project.</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8tc2IxLmFwcC5uZXRzdWl0ZS5jb20vYXBwL2hlbHAvaGVscGNlbnRlci5ubD9maWQ9c2VjdGlvbl8xNTYwNDMzMDMyMzcuaHRtbA==" rel="noopener external nofollow noreferrer">object:list</a></p>
+<p>List the custom objects deployed in an account.</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8tc2IxLmFwcC5uZXRzdWl0ZS5jb20vYXBwL2hlbHAvaGVscGNlbnRlci5ubD9maWQ9c2VjdGlvbl8xNTYwNTA1NjY1NDcuaHRtbA==" rel="noopener external nofollow noreferrer">object:update</a></p>
+<p>Overwrite the custom objects in the project with the custom objects in an account.</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8tc2IxLmFwcC5uZXRzdWl0ZS5jb20vYXBwL2hlbHAvaGVscGNlbnRlci5ubD9maWQ9c2VjdGlvbl8xNTU5ODE0NTI0NjkuaHRtbA==" rel="noopener external nofollow noreferrer">project:adddependencies</a></p>
+<p>Adds missing dependencies to the manifest file.</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8tc2IxLmFwcC5uZXRzdWl0ZS5jb20vYXBwL2hlbHAvaGVscGNlbnRlci5ubD9maWQ9c2VjdGlvbl8xNTYwNDEzNDgzMjcuaHRtbA==" rel="noopener external nofollow noreferrer">project:create</a></p>
+<p>Create a SuiteCloud project, either a SuiteApp or an account customization project (ACP).</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8tc2IxLmFwcC5uZXRzdWl0ZS5jb20vYXBwL2hlbHAvaGVscGNlbnRlci5ubD9maWQ9c2VjdGlvbl8xNTYwNDQ2MzYzMjAuaHRtbA==" rel="noopener external nofollow noreferrer">project:deploy</a></p>
+<p>Deploy the folder containing the project.</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8tc2IxLmFwcC5uZXRzdWl0ZS5jb20vYXBwL2hlbHAvaGVscGNlbnRlci5ubD9maWQ9c2VjdGlvbl8xNTk1NTA5NzEzODguaHRtbA==" rel="noopener external nofollow noreferrer">project:package</a></p>
+<p>Generates a ZIP file from your project, respecting the structure specified in the deploy.xml file, and applying local validation.</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8tc2IxLmFwcC5uZXRzdWl0ZS5jb20vYXBwL2hlbHAvaGVscGNlbnRlci5ubD9maWQ9c2VjdGlvbl8xNTYwNDk4NDMxOTQuaHRtbA==" rel="noopener external nofollow noreferrer">project:validate</a></p>
+<p>Validate the folder containing the SuiteCloud project.</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8tc2IxLmFwcC5uZXRzdWl0ZS5jb20vYXBwL2hlbHAvaGVscGNlbnRlci5ubD9maWQ9c2VjdGlvbl8xNTYwNDM2OTE0ODIuaHRtbA==" rel="noopener external nofollow noreferrer">suitecommerce:localserver</a></p>
+<p>Generate a local server of your SuiteCommerce extensions and themes.</p>
+</li>
+</ul>
+<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><ol>
+<li>suitecloud account:setup</li>
+</ol>
+<p>Application SuiteCloud IDE &amp; CLI would like to access your account XXX (DEV) as Administrator &lt;carl.zeng@.com&gt;</p>
+<p>The authentication process will continue in your SuiteCloud SDK application. Close this window and go to your application to check the progress of the process.</p>
+<ol>
+<li>suitecloud object:import -i</li>
+</ol>
+<p>The following objects have been imported:</p>
+<p>- customrecordtype:</p>
+<p>- usereventscript:</p>
+<p>- Referenced SuiteScript files:</p>
+<ol>
+<li>suitecloud project:adddependencies<ul>
+<li>　　Added dependencies to profile</li>
+</ul>
+</li>
+<li>suitecloud account:setup<ul>
+<li>　　Setup login, 2FA, Token, for target NetSuite Account</li>
+</ul>
+</li>
+<li>suitecloudproject:deploy<ul>
+<li>　　Deploy imported elements to target NetSuite Account</li>
+</ul>
+</li>
+</ol>
+<hr>
+<hr>
+<h2 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h2><p>-—-DOWNLOAD—–</p>
+<p>(mkdir SDF_Top)</p>
+<p>cd SDF_Top</p>
+<p><strong>suitecloud project:create -i</strong></p>
+<p>　　- Created new project(SDF_Test1), it will create new <strong>folder</strong> under SDF_Top with project name: SDF_Test1.</p>
+<p>cd SDF_Test1</p>
+<p><strong>suitecloud account:setup</strong></p>
+<blockquote>
+<p>Now this folder is the main project folder</p>
+</blockquote>
+<p><strong>suitecloud object:import -i</strong></p>
+<blockquote>
+<p>? Do you want to import all object types? Yes</p>
+<p>? Do you want to enter a script ID to filter your list? Yes</p>
+<p>? Enter the full or partial script ID. _track</p>
+<p>? Select the objects you want to import (Press <space> to select, <a> to toggle all, <i> to invert selection)</p>
+</blockquote>
+<p>-—-UPLOAD—–</p>
+<p><strong>suitecloud account:setup</strong></p>
+<blockquote>
+<p>Create a new authentication ID (authID).</p>
+</blockquote>
+<p><strong>suitecloud project:adddependencies</strong></p>
+<p><strong>suitecloud project:validate</strong></p>
+<blockquote>
+<p>The validation process has finished.</p>
+</blockquote>
+<p><strong>suitecloud project:deploy</strong></p>
+<blockquote>
+<p>Installation COMPLETE</p>
+</blockquote>
+<hr>
+<h4 id="—–Troubleshooting—–"><a href="#—–Troubleshooting—–" class="headerlink" title="—–Troubleshooting—–"></a>—–Troubleshooting—–</h4><p>#1. Error message:</p>
+<blockquote>
+<p>An error occurred during file validation.<br>Details: Resource files can only be uploaded into the &#x2F;SuiteScripts&#x2F;,<br>&#x2F;Templates&#x2F;E-mail Templates&#x2F;,<br>&#x2F;Templates&#x2F;Marketing Templates&#x2F;,<br>&#x2F;Web Site Hosting Files&#x2F; folder.<br>File: ~&#x2F;FileCabinet&#x2F;.DS_Store</p>
+</blockquote>
+<p>For Mac, you might need to: rm ~&#x2F;FileCabinet&#x2F;.DS_Store  and rm ~&#x2F;FileCabinet&#x2F;Templates&#x2F;.DS_Store</p>
+<p>Since suitecloud project:deploy is trying to deploy those hidden files and trigger error: An error occurred during file validation. Details: Resource files can only be uploaded into the &#x2F;SuiteScripts&#x2F;, &#x2F;Templates&#x2F;E-mail Templates&#x2F;, &#x2F;Templates&#x2F;Marketing Templates&#x2F;, &#x2F;Web Site Hosting Files&#x2F; folder.</p>
+<p>#2. Error Message:</p>
+<blockquote>
+<p>An error occurred during account settings validation.<br>Details: The manifest contains a dependency on &#x2F;SuiteScripts&#x2F;Project_Name&#x2F;ScriptFileName.js file, but it is not in the account.</p>
+</blockquote>
+<p>When we saw this, it means we need to deploy the script file first.  We can upload them in filecabinet OR deploy like this:</p>
+<p>1. Deploy Files<br>1.1 Comment out Dependencies files in manifest.xml. I.e. &lt;!-<file>&#x2F;SuiteScripts&#x2F;Project_Name&#x2F;ScriptFileName.js</file> –&gt;<br>1.2 Comment out whole section in deploy.xml. I.e. &lt;!-<objects> ..&#x2F;Objects&#x2F;* </objects> –&gt;<br>1.3 suitecloud project:deploy</p>
+<p>#3. Error Message:</p>
+<blockquote>
+<p>An error occurred during deploy file validation.<br>Details: The deploy file is invalid at line 2, column(s) 20 - cvc-complex-type.2.4.a: Invalid content was found starting with element ‘configuration’. One of ‘{configurations, objects, files, translationimports}’ is expected..<br>File: ~&#x2F;deploy.xml</p>
+</blockquote>
+<p>We must comment out no need deployment section&#x2F;context by &lt;!-   –&gt;.  I.e.</p>
+<blockquote>
+<!-- <files>-->  
+<!-- <path>~/FileCabinet/\*</path>-->  
+<!-- </files>-->
+</blockquote>
+<p>#4. Error Message:  (When we deploy Script Record Object, we might facing error)</p>
+<blockquote>
+<p>Validation failed.</p>
+<p>An error occurred during custom object validation. (customscript_scriptinternalid)<br>Details: The file reference &#x2F;SuiteScripts&#x2F;Project_Name&#x2F;ScriptFileName.js is missing in the project and also not included in the dependencies list.<br>File: ~&#x2F;Objects&#x2F;customscript_ScriptFileName.xml</p>
+</blockquote>
+<p>We need to add(or uncomment) the dependencies in manifest.xml for script record object deployment; so usually we deploy by below sequences: </p>
+<p>1. Deploy Files(upload the files)<br>1.1 Comment out Dependencies files in manifest.xml. I.e. &lt;!-<file>&#x2F;SuiteScripts&#x2F;Project_Name&#x2F;ABC_UE_SalesOrder.js</file> –&gt;<br>1.2 Comment out whole section in deploy.xml. I.e. &lt;!-<objects> ..&#x2F;Objects&#x2F;* </objects> –&gt;<br>1.3 suitecloud project:deploy</p>
+<p>2. Deploy Script Records<br>2.1 Update manifest.xml to enable the dependency for all files section.<br>2.2 Update deploy.xml to enable the objects section and comment out the <files> section.  </p>
+<!--<files> -->  
+<!--<path>~/FileCabinet/\*</path>-->  
+<!--</files>-->  
+<p>2.3 suitecloud project:deploy</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="weibo,qq,wechat,tencent,douban,qzone,linkedin,diandian,facebook,twitter,google"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//unpkg.com/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>포스트 작성자:  </strong>Carl Zeng
+    <a href='https://www.carlzeng.top/202011100824.html'> 《How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command-CarlZeng》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://www.carlzeng.top/202011100824.html" title="How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command-CarlZeng">https://www.carlzeng.top/202011100824.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-nav">
+<div class="post-nav-item">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202106220916.html" rel="bookmark">
+      More about NetSuite SDF manifest.xml and deploy.xml-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201903222305.html" rel="bookmark">
+      How to use NetSuite SDF to download bundles/components-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202211182125.html" rel="bookmark">
+      netsuite query account balance-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201701151056.html" rel="bookmark">
+      How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202102231121.html" rel="bookmark">
+      git tag and NetSuite deployment tracking-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202011242038.html" rel="bookmark">
+      How to install NetSuite SuiteCloud plug-in to WebStorm (Updated2021.11)-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202104081715.html" rel="bookmark">
+      NetSuite generated bank files and the Bank Reconciliation process-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201703162254.html" rel="bookmark">
+      NetSuite Build-In Error Message: The record has been deleted since you have retrieved it.-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="post-nav-item">
+<!-- recent posts -->
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="pjax recent-posts-list">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+              zerotier多客户端实践应用记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+              关于DNS配置记录与分析
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+              Docker搭建自动售货系统-独角数卡
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311152248.html" title="气到下不动班" target="">
+              气到下不动班
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311141039.html" title="iptables应用" target="">
+              iptables应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+              实测Docker搭建短链接服务YOURLS
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+              iPad解锁激活锁苹果平板绕激活锁经验
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+              Nginx Proxy Manager修复笔记
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+              Hexo定制之家宽部署artalk评论
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+              任天堂Switch全部记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310202241.html" title="安卓手机root与小黄鸟抓包" target="">
+              安卓手机root与小黄鸟抓包
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
+              Debian初体验之基础设置
+              </a>
+            </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
+<div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Updated at: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/NetSuite/" rel="tag"># NetSuite</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/201903222305.html" rel="prev" title="How to use NetSuite SDF to download bundles/components-CarlZeng">
+                  <i class="fa fa-angle-left"></i> How to use NetSuite SDF to download bundles/components-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/202011200934.html" rel="next" title="(How can I use Node.js in Netsuite?) NetSuite to run Node.js packages/modules, i.e. mozilla/pdf.js-CarlZeng">
+                  (How can I use Node.js in Netsuite?) NetSuite to run Node.js packages/modules, i.e. mozilla/pdf.js-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>한국어</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="Select language">
+      
+        <option value="zh-CN" data-href="/202011100824.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/202011100824.html" selected="">
+          English
+        </option>
+      
+        <option value="ja" data-href="/ja/202011100824.html" selected="">
+          日本語
+        </option>
+      
+        <option value="ko" data-href="/ko/202011100824.html" selected="">
+          한국어
+        </option>
+      
+        <option value="ru" data-href="/ru/202011100824.html" selected="">
+          Английский
+        </option>
+      
+        <option value="zh-HK" data-href="/zh-HK/202011100824.html" selected="">
+          繁體中文（香港）
+        </option>
+      
+        <option value="zh-TW" data-href="/zh-TW/202011100824.html" selected="">
+          繁體中文
+        </option>
+      
+    </select>
+  </div>
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">站点总字数 981k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">站点阅读时长 29:44</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+  <script type="text/javascript">
+  var sc_project=12934590;
+  var sc_invisible=0;
+  var sc_security="122fb52f";
+  var scJsHost = "https://";
+  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="View My Stats"
+  href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+</div>
+  <div class="powered-by">Powered by <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a>
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://unpkg.com/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/ko/202011100824.html"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/ko/202011100824.html","pageTitle":"How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command-CarlZeng"}</script>
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>

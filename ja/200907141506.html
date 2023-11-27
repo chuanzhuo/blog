@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"検索…","empty":"検索結果が見つかりませんでした: ${query}","hits_time":"${hits} の結果が ${time} ms で見つかりました","hits":"${hits} 件の結果が見つかりました"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="如何优化JavaScript脚本的性能  作者：ShiningRay @ Nirvana Studio 随着网络的发展，网速和机器速度的提高，越来越多的网站用到了丰富客户端技术。而现在Ajax则是最为流行的一种方式。JavaScript是一种解释型语言，所以能无法达到和C&#x2F;Java之类的水平，限制了它能在客户端所做的事情，为了能改进他的性能，我想基于我以前给JavaScript做过的很多测试来谈谈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何优化JavaScript脚本的性能[装载]-CarlZeng">
+<meta property="og:url" content="https://www.carlzeng.top/ja/200907141506.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="如何优化JavaScript脚本的性能  作者：ShiningRay @ Nirvana Studio 随着网络的发展，网速和机器速度的提高，越来越多的网站用到了丰富客户端技术。而现在Ajax则是最为流行的一种方式。JavaScript是一种解释型语言，所以能无法达到和C&#x2F;Java之类的水平，限制了它能在客户端所做的事情，为了能改进他的性能，我想基于我以前给JavaScript做过的很多测试来谈谈">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2009-07-14T07:06:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:28.999Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/ja/200907141506.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"ja","comments":true,"permalink":"https://www.carlzeng.top/200907141506.html","path":"ja/200907141506.html","title":"如何优化JavaScript脚本的性能[装载]-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>如何优化JavaScript脚本的性能[装载]-CarlZeng | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//unpkg.com/social-share.js@1.0.16/dist/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="ナビゲーションバーの切り替え" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 NetSuite 个人随笔</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="検索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>ホーム</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>プロフィール</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>タグ<span class="badge">111</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>カテゴリ<span class="badge">33</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>アーカイブ<span class="badge">310</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>検索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="検索…" spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+      <div class="languages">
+        <label class="lang-select-label">
+          <i class="fa fa-language"></i>
+          <span>日本語</span>
+          <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </label>
+        <select class="lang-select" data-canonical="" aria-label="Select language">
+          
+            <option value="zh-CN" data-href="/200907141506.html" selected="">
+              简体中文
+            </option>
+          
+            <option value="en" data-href="/en/200907141506.html" selected="">
+              English
+            </option>
+          
+            <option value="ja" data-href="/ja/200907141506.html" selected="">
+              日本語
+            </option>
+          
+            <option value="ko" data-href="/ko/200907141506.html" selected="">
+              한국어
+            </option>
+          
+            <option value="ru" data-href="/ru/200907141506.html" selected="">
+              Английский
+            </option>
+          
+            <option value="zh-HK" data-href="/zh-HK/200907141506.html" selected="">
+              繁體中文（香港）
+            </option>
+          
+            <option value="zh-TW" data-href="/zh-TW/200907141506.html" selected="">
+              繁體中文
+            </option>
+          
+        </select>
+      </div>
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          見出し
+        </li>
+        <li class="sidebar-nav-overview">
+          概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96JavaScript%E8%84%9A%E6%9C%AC%E7%9A%84%E6%80%A7%E8%83%BD"><span class="nav-number">1.</span> <span class="nav-text">如何优化JavaScript脚本的性能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E5%B1%82%E6%AC%A1%E6%96%B9%E9%9D%A2"><span class="nav-number"></span> <span class="nav-text">语言层次方面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF"><span class="nav-number">1.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%92%8C%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">局部变量和全局变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E4%BD%BF%E7%94%A8Eval"><span class="nav-number">3.</span> <span class="nav-text">不使用Eval</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%8F%E5%B0%91%E5%AF%B9%E8%B1%A1%E6%9F%A5%E6%89%BE"><span class="nav-number">4.</span> <span class="nav-text">减少对象查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%9E%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">字符串连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">6.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%9B%B4%E6%8E%A5%E9%87%8F"><span class="nav-number">7.</span> <span class="nav-text">使用直接量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%81%8D%E5%8E%86%E6%93%8D%E4%BD%9C"><span class="nav-number">8.</span> <span class="nav-text">字符串遍历操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E5%AF%B9%E8%B1%A1"><span class="nav-number">9.</span> <span class="nav-text">高级对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM%E7%9B%B8%E5%85%B3"><span class="nav-number"></span> <span class="nav-text">DOM相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5HTML"><span class="nav-number">1.</span> <span class="nav-text">插入HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.</span> <span class="nav-text">对象查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BADOM%E8%8A%82%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">创建DOM节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">定时器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number"></span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E5%BC%95%E6%93%8E"><span class="nav-number">1.</span> <span class="nav-text">脚本引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E4%BC%98%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">文件优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number"></span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number"></span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%99%84%E5%BD%951"><span class="nav-number"></span> <span class="nav-text">附录1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%99%84%E5%BD%952"><span class="nav-number"></span> <span class="nav-text">附录2</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】采用合并文章持续更新的方案</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-name">ポスト</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">カテゴリ</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">111</span>
+        <span class="site-state-item-name">タグ</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    関連記事
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200901071017.html" rel="bookmark">
+      JavaScript While 循环-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200906051724.html" rel="bookmark">
+      js 取得几位小数点-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200912021103.html" rel="bookmark">
+      setTimeout和clearTimeout的用法 (转载)-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200906101022.html" rel="bookmark">
+      js 取得div高度-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201701052201.html" rel="bookmark">
+      NetSuite SuiteScript 2.0 export data to Excel file(xls)-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200901211505.html" rel="bookmark">
+      汉字转化编码为utf-8,查询-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200810170100.html" rel="bookmark">
+      javascript函数(日期的换算)-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200912081529.html" rel="bookmark">
+      (转载)向页面某处动态添加js的方法-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+                  zerotier多客户端实践应用记录
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+                  关于DNS配置记录与分析
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+                  Docker搭建自动售货系统-独角数卡
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311152248.html" title="气到下不动班" target="">
+                  气到下不动班
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311141039.html" title="iptables应用" target="">
+                  iptables应用
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+                  实测Docker搭建短链接服务YOURLS
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+                  iPad解锁激活锁苹果平板绕激活锁经验
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+                  Nginx Proxy Manager修复笔记
+                  </a>
+                </li>
+        </ul>
+      </div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ja">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200907141506.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="如何优化JavaScript脚本的性能[装载]-CarlZeng | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何优化JavaScript脚本的性能[装载]-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">編集日</span>
+      <time title="修正日：2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="閲覧数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">閲覧数：</span>
+            <span id="ArtalkPV" data-page-key="/ja/200907141506.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/ja/200907141506.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/ja/200907141506.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="単語数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">単語数：</span>
+      <span>6.6k</span>
+    </span>
+    <span class="post-meta-item" title="読書の時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">読書の時間 &asymp;</span>
+      <span>12 分</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>如何优化JavaScript脚本的性能 作者：ShiningRay @ Nirvana Studio 随着网络的发展，网速和机器速度的提高，越来越多的网站用到了丰富客户端技术。而现在Ajax则是最为流行的一种方式。JavaScript是一种解释型语言，所以能无法达到和C&#x2F;Java之类的水平，限制了它能在客户端所做的事情，为了能改进他的性能，我想基于我以前给JavaScript做过的很多测试来谈谈…</p>
+<!-- more -->
+<h2 id="如何优化JavaScript脚本的性能"><a href="#如何优化JavaScript脚本的性能" class="headerlink" title="如何优化JavaScript脚本的性能"></a>如何优化JavaScript脚本的性能</h2><p>作者：ShiningRay @ <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5uaXJ2YW5hc3R1ZGlvLm9yZy8=" rel="noopener external nofollow noreferrer">Nirvana Studio</a></p>
+<p>随着网络的发展，网速和机器速度的提高，越来越多的网站用到了丰富客户端技术。而现在Ajax则是最为流行的一种方式。JavaScript是一种解释型语言，所以能无法达到和C&#x2F;Java之类的水平，限制了它能在客户端所做的事情，为了能改进他的性能，我想基于我以前给JavaScript做过的很多测试来谈谈自己的经验，希望能帮助大家改进自己的JavaScript脚本性能。</p>
+<h1 id="语言层次方面"><a href="#语言层次方面" class="headerlink" title="语言层次方面"></a>语言层次方面</h1><h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>循环是很常用的一个控制结构，大部分东西要依靠它来完成，在JavaScript中，我们可以使用<code>for(;;),while(),for(in)</code>三种循环，事实上，这三种循环中<code>for(in)</code>的效率极差，因为他需要查询散列键，只要可以就应该尽量少用。<code>for(;;)</code>和<code>while</code>循环的性能应该说基本（平时使用时）等价。</p>
+<p>而事实上，如何使用这两个循环，则有很大讲究。我在测试中有些很有意思的情况，见附录。最后得出的结论是：</p>
+<ul>
+<li><p>如果是循环变量递增或递减，不要单独对循环变量赋值，应该在它最后一次读取的时候使用嵌套的<code>++</code>或<code>--</code>操作符。</p>
+</li>
+<li><p>如果要与数组的长度作比较，应该事先把数组的length属性放入一个局部变量中，减少查询次数。</p>
+</li>
+</ul>
+<p>举例，假设arr是一个数组，最佳的遍历元素方式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0, len = arr.length;i&lt;len;i++)&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或者，如果无所谓顺序的话：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for(var i=arr.length;i&gt;0;i--)&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="局部变量和全局变量"><a href="#局部变量和全局变量" class="headerlink" title="局部变量和全局变量"></a>局部变量和全局变量</h2><p>局部变量的速度要比全局变量的访问速度更快，因为全局变量其实是全局对象的成员，而局部变量是放在函数的栈当中的。</p>
+<h2 id="不使用Eval"><a href="#不使用Eval" class="headerlink" title="不使用Eval"></a>不使用Eval</h2><p>使用<code>eval</code>相当于在运行时再次调用解释引擎对内容进行运行，需要消耗大量时间。这时候使用JavaScript所支持的闭包可以实现函数模版（关于闭包的内容请参考函数式编程的有关内容）</p>
+<h2 id="减少对象查找"><a href="#减少对象查找" class="headerlink" title="减少对象查找"></a>减少对象查找</h2><p>因为JavaScript的解释性，所以<code>a.b.c.d.e</code>，需要进行至少4次查询操作，先检查a再检查a中的b，再检查b中的c，如此往下。所以如果这样的表达式重复出现，只要可能，应该尽量少出现这样的表达式，可以利用局部变量，把它放入一个临时的地方进行查询。</p>
+<p>这一点可以和循环结合起来，因为我们常常要根据字符串、数组的长度进行循环，而通常这个长度是不变的，比如每次查询<code>a.length</code>，就要额外进行一个操作，而预先把<code>var   len=a.length</code>，则就少了一次查询。</p>
+<h2 id="字符串连接"><a href="#字符串连接" class="headerlink" title="字符串连接"></a>字符串连接</h2><p>如果是追加字符串，最好使用<code>s+=anotherStr</code>操作，而不是要使用<code>s=s+anotherStr</code>。</p>
+<p>如果要连接多个字符串，应该少使用+&#x3D;，如</p>
+<p>s+&#x3D;a;<br>s+&#x3D;b;<br>s+&#x3D;c;</p>
+<p>应该写成</p>
+<p>s+&#x3D;a + b + c；</p>
+<p>而如果是收集字符串，比如多次对同一个字符串进行+&#x3D;操作的话，最好使用一个缓存。怎么用呢？使用JavaScript数组来收集，最后使用join方法连接起来，如下</p>
+<p>var buf &#x3D; new Array();<br>for(var i &#x3D; 0; i &lt; 100; i++){<br>       buf.push(i.toString());<br>}<br>var all &#x3D; buf.join(“”);</p>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>类型转换是大家常犯的错误，因为JavaScript是动态类型语言，你不能指定变量的类型。</p>
+<ol>
+<li>把数字转换成字符串，应用<code>&quot;&quot; + 1</code>，虽然看起来比较丑一点，但事实上这个效率是最高的，性能上来说：</li>
+</ol>
+<p><code>(&quot;&quot; + ) &gt; String() &gt; .toString() &gt; new String()</code></p>
+<p>这条其实和下面的”直接量”有点类似，尽量使用编译时就能使用的内部操作要比运行时使用的用户操作要快。</p>
+<p><code>String()</code>属于内部函数，所以速度很快，而<code>.toString()</code>要查询原型中的函数，所以速度逊色一些，<code>new String()</code>用于返回一个精确的副本。</p>
+<ol start="2">
+<li>浮点数转换成整型，这个更容易出错，很多人喜欢使用<code>parseInt()</code>，其实<code>parseInt()</code>是用于将字符串转换成数字，而不是浮点数和整型之间的转换，我们应该使用<code>Math.floor()</code>或者<code>Math.round()</code>。</li>
+</ol>
+<p>另外，和第二节的对象查找中的问题不一样，<code>Math</code>是内部对象，所以<code>Math.floor()</code>其实并没有多少查询方法和调用的时间，速度是最快的。</p>
+<ol start="3">
+<li>对于自定义的对象，如果定义了<code>toString()</code>方法来进行类型转换的话，推荐显式调用<code>toString()</code>，因为内部的操作在尝试所有可能性之后，会尝试对象的toString()方法尝试能否转化为String，所以直接调用这个方法效率会更高</li>
+</ol>
+<h2 id="使用直接量"><a href="#使用直接量" class="headerlink" title="使用直接量"></a>使用直接量</h2><p>其实这个影响倒比较小，可以忽略。什么叫使用直接量，比如，JavaScript支持使用<code>[param,param,param,...]</code>来直接表达一个数组，以往我们都使用<code>new Array(param,param,...)</code>，使用前者是引擎直接解释的，后者要调用一个<code>Array</code>内部构造器，所以要略微快一点点。</p>
+<p>同样，<code>var foo = &#123;&#125;</code>的方式也比<code>var foo = new Object();</code>快，<code>var reg = /../;</code>要比<code>var reg=new RegExp()</code>快。</p>
+<h2 id="字符串遍历操作"><a href="#字符串遍历操作" class="headerlink" title="字符串遍历操作"></a>字符串遍历操作</h2><p>对字符串进行循环操作，譬如替换、查找，应使用正则表达式，因为本身JavaScript的循环速度就比较慢，而正则表达式的操作是用C写成的语言的API，性能很好。</p>
+<h2 id="高级对象"><a href="#高级对象" class="headerlink" title="高级对象"></a>高级对象</h2><p>自定义高级对象和<code>Date</code>、<code>RegExp</code>对象在构造时都会消耗大量时间。如果可以复用，应采用缓存的方式。</p>
+<h1 id="DOM相关"><a href="#DOM相关" class="headerlink" title="DOM相关"></a>DOM相关</h1><h2 id="插入HTML"><a href="#插入HTML" class="headerlink" title="插入HTML"></a>插入HTML</h2><p>很多人喜欢在JavaScript中使用<code>document.write</code>来给页面生成内容。事实上这样的效率较低，如果需要直接插入HTML，可以找一个容器元素，比如指定一个div或者span，并设置他们的<code>innerHTML</code>来将自己的HTML代码插入到页面中。</p>
+<h2 id="对象查询"><a href="#对象查询" class="headerlink" title="对象查询"></a>对象查询</h2><p>使用<code>[&quot;&quot;]</code>查询要比<code>.items()</code>更快，这和前面的减少对象查找的思路是一样的，调用<code>.items()</code>增加了一次查询和函数的调用。</p>
+<h2 id="创建DOM节点"><a href="#创建DOM节点" class="headerlink" title="创建DOM节点"></a>创建DOM节点</h2><p>通常我们可能会使用字符串直接写HTML来创建节点，其实这样做</p>
+<ol>
+<li><p>无法保证代码的有效性</p>
+</li>
+<li><p>字符串操作效率低</p>
+</li>
+</ol>
+<p>所以应该是用<code>document.createElement()</code>方法，而如果文档中存在现成的样板节点，应该是用<code>cloneNode()</code>方法，因为使用<code>createElement()</code>方法之后，你需要设置多次元素的属性，使用<code>cloneNode()</code>则可以减少属性的设置次数–同样如果需要创建很多元素，应该先准备一个样板节点。</p>
+<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><p>如果针对的是不断运行的代码，不应该使用<code>setTimeout</code>，而应该是用<code>setInterval</code>。<code>setTimeout</code>每次要重新设置一个定时器。</p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="脚本引擎"><a href="#脚本引擎" class="headerlink" title="脚本引擎"></a>脚本引擎</h2><p>据我测试Microsoft的JScript的效率较Mozilla的Spidermonkey要差很多，无论是执行速度还是内存管理上，因为JScript现在基本也不更新了。但SpiderMonkey不能使用<code>ActiveXObject</code></p>
+<h2 id="文件优化"><a href="#文件优化" class="headerlink" title="文件优化"></a>文件优化</h2><p>文件优化也是一个很有效的手段，删除所有的空格和注释，把代码放入一行内，可以加快下载的速度，注意，是下载的速度而不是解析的速度，如果是本地，注释和空格并不会影响解释和执行速度。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本文总结了我在JavaScript编程中所找到的提高JavaScript运行性能的一些方法，其实这些经验都基于几条原则：</p>
+<ol>
+<li><p>直接拿手头现成的东西比较快，如局部变量比全局变量快，直接量比运行时构造对象快等等。</p>
+</li>
+<li><p>尽可能少地减少执行次数，比如先缓存需要多次查询的。</p>
+</li>
+<li><p>尽可能使用语言内置的功能，比如串链接。</p>
+</li>
+<li><p>尽可能使用系统提供的API，因为这些API是编译好的二进制代码，执行效率很高</p>
+</li>
+</ol>
+<p>同时，一些基本的算法上的优化，同样可以用在JavaScript中，比如运算结构的调整，这里就不再赘述了。但是由于JavaScript是解释型的，一般不会在运行时对字节码进行优化，所以这些优化仍然是很重要的。</p>
+<p>当然，其实这里的一些技巧同样使用在其他的一些解释型语言中，大家也可以进行参考。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy51bXN1LmRlL2pzcGVyZi8=" rel="noopener external nofollow noreferrer">http://www.umsu.de/jsperf/</a> 各种浏览器的测试对比</p>
+</li>
+<li><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2hvbWUuZWFydGhsaW5rLm5ldC9+a2VuZHJhc2cvaW5mby9qc19vcHQv" rel="noopener external nofollow noreferrer">http://home.earthlink.net/~kendrasg&#x2F;info&#x2F;js_opt&#x2F;</a></p>
+</li>
+</ul>
+<h1 id="附录1"><a href="#附录1" class="headerlink" title="附录1"></a>附录1</h1><p>由于是以前做过的测试，测试代码已经不全，我补充了一部分如下：</p>
+<p>var print;</p>
+<p>if(typeof document !&#x3D; “undefined” ){<br>    print &#x3D; function(){<br>                document.write(arguments[0]);<br>        }<br>}else if(typeof WScript !&#x3D; “undefined” ){<br>    print &#x3D; function(){<br>        WScript.Echo(arguments[0],arguments[1],arguments[2]);<br>    }<br>}</p>
+<p>function empty(){<br>}</p>
+<p>function benchmark(f){<br>    var i &#x3D; 0;<br>    var start &#x3D; (new Date()).getTime();</p>
+<pre><code>while(i &lt; pressure)&#123;
+    f(i++);
+&#125;
+var end = (new Date()).getTime();
+WScript.Echo(end-start);
+</code></pre>
+<p>}</p>
+<p>&#x2F;*<br>i&#x3D;0<br>start &#x3D; (new Date()).getTime();<br>while(i &lt; 60000){<br>    c &#x3D; [i,i,i,i,i,i,i,i,i,i];<br>    i++;<br>}<br>end &#x3D; (new Date()).getTime();<br>WScript.Echo(end-start);<br>i&#x3D;0<br>start &#x3D; (new Date()).getTime();<br>while(i &lt; 60000){<br>    c &#x3D; new Array(i,i,i,i,i,i,i,i,i,i);<br>    i++;<br>}<br>var end &#x3D; (new Date()).getTime();<br>WScript.Echo(end-start);<br>*&#x2F;</p>
+<p>function internCast(i){<br>    return “” + i;<br>}</p>
+<p>function StringCast(i){<br>    return String(i)<br>}<br>function newStringCast(i){<br>    return new String(i)<br>}<br>function toStringCast(i){<br>    return i.toString();<br>}<br>function ParseInt(){<br>    return parseInt(j);<br>}<br>function MathFloor(){<br>    return Math.floor(j);<br>}<br>function Floor(){<br>    return floor(j);<br>}<br>var pressure &#x3D; 50000;<br>var a  &#x3D; “”;<br>var floor &#x3D; Math.floor;<br>j &#x3D; 123.123;<br>print(“————-\nString Conversion Test”);<br>print(“The empty:”, benchmark(empty));<br>print(“intern:”, benchmark(internCast));<br>print(“String:”);<br>benchmark(StringCast);<br>print(“new String:”);<br>benchmark(newStringCast);<br>print(“toString:”);<br>benchmark(toStringCast);<br>print(“————-\nFloat to Int Conversion Test”);<br>print(“parseInt”);<br>benchmark(ParseInt);<br>print(“Math.floor”);<br>benchmark(MathFloor);<br>print(“floor”)<br>benchmark(Floor);</p>
+<p>function newObject(){<br>    return new Object();<br>}</p>
+<p>function internObject(){<br>    return {};<br>}<br>print(“————\nliteral Test”);<br>print(“runtime new object”, benchmark(newObject));<br>print(“literal object”, benchmark(internObject));</p>
+<h1 id="附录2"><a href="#附录2" class="headerlink" title="附录2"></a>附录2</h1><p>代码1：</p>
+<pre><code>for(var i=0;i&lt;100;i++)&#123;
+    arr\[i\]=0;
+&#125;
+</code></pre>
+<p>代码2：</p>
+<pre><code>var i = 0;
+while(i &lt; 100)&#123;
+    arr\[i++\]=0;
+&#125;
+</code></pre>
+<p>代码3：</p>
+<pre><code>var i = 0;
+while(i &lt; 100)&#123;
+    arr\[i\]=0;
+    i++;
+&#125;
+</code></pre>
+<p>在firefox下测试这两段代码，结果是代码2优于代码1和3，而代码1一般优于代码3，有时会被代码3超过；而在IE<br>6.0下，测试压力较大的时候（如测试10000次以上）代码2和3则有时候优于代码1，有时候就会远远落后代码1，而在测试压力较小（如5000次），则代码2&gt;代码3&gt;代码1。</p>
+<p>代码4：</p>
+<pre><code>var i = 0;
+var a;
+while(i &lt; 100)&#123;
+    a = 0;
+    i++;
+&#125;
+</code></pre>
+<p>代码5：</p>
+<pre><code>var a;
+for(var i=0;i&lt;100;i++)&#123;
+    a = 0;
+&#125;
+</code></pre>
+<p>上面两段代码在Firefox和IE下测试结果都是性能接近的。</p>
+<p>代码6：</p>
+<pre><code>var a;
+var i=0;
+while(i&lt;100)&#123;
+    a=i;
+    i++;
+&#125;
+</code></pre>
+<p>代码7：</p>
+<pre><code>var a;
+var i=0;
+while(i&lt;100)&#123;
+    a=i++;
+&#125;
+</code></pre>
+<p>代码8：</p>
+<pre><code>var a;
+for(var i=0;i&lt;100;i++)&#123;
+    a = i;
+&#125;
+</code></pre>
+<p>代码9：</p>
+<pre><code>var a;
+for(var i=0;i&lt;100;)&#123;
+    a = i++;
+&#125;
+</code></pre>
+<p>这四段代码在Firefox下6和8的性能接近，7和9的性能接近，而6,<br>8 &lt; 7, 9；</p>
+<p>最后我们来看一下空循环</p>
+<p>代码10：</p>
+<pre><code>for(var i=0;i&lt;100;i++)&#123;   &#125;
+</code></pre>
+<p>代码11：</p>
+<pre><code>var i;
+while(i&lt;100)&#123;        i++;    &#125;
+</code></pre>
+<p>最后的测试出现了神奇的结果，Firefox下代码10所花的时间与代码11所花的大约是24:1。所以它不具备参考价值，于是我没有放在一开始给大家看。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="weibo,qq,wechat,tencent,douban,qzone,linkedin,diandian,facebook,twitter,google"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//unpkg.com/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>著者： </strong>Carl Zeng
+    <a href='https://www.carlzeng.top/200907141506.html'> 《如何优化JavaScript脚本的性能[装载]-CarlZeng》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>記事へのリンク：</strong>
+      <a href="https://www.carlzeng.top/200907141506.html" title="如何优化JavaScript脚本的性能[装载]-CarlZeng">https://www.carlzeng.top/200907141506.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>著作権表示： </strong>このブログ内のすべての記事は、特別な記載がない限り <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> の下のライセンスで保護されています。
+  </li>
+</ul>
+</div>
+
+          <div class="post-nav">
+<div class="post-nav-item">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    関連記事
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200901071017.html" rel="bookmark">
+      JavaScript While 循环-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200906051724.html" rel="bookmark">
+      js 取得几位小数点-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200912021103.html" rel="bookmark">
+      setTimeout和clearTimeout的用法 (转载)-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200906101022.html" rel="bookmark">
+      js 取得div高度-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201701052201.html" rel="bookmark">
+      NetSuite SuiteScript 2.0 export data to Excel file(xls)-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200901211505.html" rel="bookmark">
+      汉字转化编码为utf-8,查询-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200810170100.html" rel="bookmark">
+      javascript函数(日期的换算)-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200912081529.html" rel="bookmark">
+      (转载)向页面某处动态添加js的方法-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="post-nav-item">
+<!-- recent posts -->
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="pjax recent-posts-list">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+              zerotier多客户端实践应用记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+              关于DNS配置记录与分析
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+              Docker搭建自动售货系统-独角数卡
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311152248.html" title="气到下不动班" target="">
+              气到下不动班
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311141039.html" title="iptables应用" target="">
+              iptables应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+              实测Docker搭建短链接服务YOURLS
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+              iPad解锁激活锁苹果平板绕激活锁经验
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+              Nginx Proxy Manager修复笔记
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+              Hexo定制之家宽部署artalk评论
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+              任天堂Switch全部记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310202241.html" title="安卓手机root与小黄鸟抓包" target="">
+              安卓手机root与小黄鸟抓包
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
+              Debian初体验之基础设置
+              </a>
+            </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
+<div class="followme">
+  <span>他の公開チャンネルへようこそ</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">編集日</span>
+        <time title="修正日：2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+      </span>
+
+</div>
+
+
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/200907091056.html" rel="prev" title="netsuite动态绑定事件-CarlZeng">
+                  <i class="fa fa-angle-left"></i> netsuite动态绑定事件-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/200907161433.html" rel="next" title="内建对话框-CarlZeng">
+                  内建对话框-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>日本語</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="Select language">
+      
+        <option value="zh-CN" data-href="/200907141506.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/200907141506.html" selected="">
+          English
+        </option>
+      
+        <option value="ja" data-href="/ja/200907141506.html" selected="">
+          日本語
+        </option>
+      
+        <option value="ko" data-href="/ko/200907141506.html" selected="">
+          한국어
+        </option>
+      
+        <option value="ru" data-href="/ru/200907141506.html" selected="">
+          Английский
+        </option>
+      
+        <option value="zh-HK" data-href="/zh-HK/200907141506.html" selected="">
+          繁體中文（香港）
+        </option>
+      
+        <option value="zh-TW" data-href="/zh-TW/200907141506.html" selected="">
+          繁體中文
+        </option>
+      
+    </select>
+  </div>
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="単語の総数">站点总字数 981k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="読書の合計時間">站点阅读时长 29:44</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="合計閲覧者数">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="閲覧合計数">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+  <script type="text/javascript">
+  var sc_project=12934590;
+  var sc_invisible=0;
+  var sc_security="122fb52f";
+  var scJsHost = "https://";
+  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="View My Stats"
+  href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+</div>
+  <div class="powered-by">Powered by <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a>
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://unpkg.com/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/ja/200907141506.html"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/ja/200907141506.html","pageTitle":"如何优化JavaScript脚本的性能[装载]-CarlZeng"}</script>
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"検索…","empty":"検索結果が見つかりませんでした: ${query}","hits_time":"${hits} の結果が ${time} ms で見つかりました","hits":"${hits} 件の結果が見つかりました"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一篇非常好的javascript Function应用文章。  原文地址： http:&#x2F;&#x2F;www.xfocus.net&#x2F;articles&#x2F;200712&#x2F;963.html   -----------------------------------------------------------------------------------------------   一、概述   javascri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈javascript函数劫持[转载]-CarlZeng">
+<meta property="og:url" content="https://www.carlzeng.top/ja/200911111431.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="一篇非常好的javascript Function应用文章。  原文地址： http:&#x2F;&#x2F;www.xfocus.net&#x2F;articles&#x2F;200712&#x2F;963.html   -----------------------------------------------------------------------------------------------   一、概述   javascri">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2009-11-11T06:31:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:29.007Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/ja/200911111431.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"ja","comments":true,"permalink":"https://www.carlzeng.top/200911111431.html","path":"ja/200911111431.html","title":"浅谈javascript函数劫持[转载]-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>浅谈javascript函数劫持[转载]-CarlZeng | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//unpkg.com/social-share.js@1.0.16/dist/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="ナビゲーションバーの切り替え" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 NetSuite 个人随笔</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="検索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>ホーム</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>プロフィール</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>タグ<span class="badge">111</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>カテゴリ<span class="badge">33</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>アーカイブ<span class="badge">310</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>検索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="検索…" spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+      <div class="languages">
+        <label class="lang-select-label">
+          <i class="fa fa-language"></i>
+          <span>日本語</span>
+          <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </label>
+        <select class="lang-select" data-canonical="" aria-label="Select language">
+          
+            <option value="zh-CN" data-href="/200911111431.html" selected="">
+              简体中文
+            </option>
+          
+            <option value="en" data-href="/en/200911111431.html" selected="">
+              English
+            </option>
+          
+            <option value="ja" data-href="/ja/200911111431.html" selected="">
+              日本語
+            </option>
+          
+            <option value="ko" data-href="/ko/200911111431.html" selected="">
+              한국어
+            </option>
+          
+            <option value="ru" data-href="/ru/200911111431.html" selected="">
+              Английский
+            </option>
+          
+            <option value="zh-HK" data-href="/zh-HK/200911111431.html" selected="">
+              繁體中文（香港）
+            </option>
+          
+            <option value="zh-TW" data-href="/zh-TW/200911111431.html" selected="">
+              繁體中文
+            </option>
+          
+        </select>
+      </div>
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          見出し
+        </li>
+        <li class="sidebar-nav-overview">
+          概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】采用合并文章持续更新的方案</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-name">ポスト</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">カテゴリ</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">111</span>
+        <span class="site-state-item-name">タグ</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    関連記事
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200811050845.html" rel="bookmark">
+      js动态修改某个页面对象的class-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200906101022.html" rel="bookmark">
+      js 取得div高度-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200812082329.html" rel="bookmark">
+      想让一个网站看起来疯狂吗？试试这段js代码 [好玩]-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200912291738.html" rel="bookmark">
+      js 动态方法绑定-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200906111238.html" rel="bookmark">
+      webex js 判断是否是ie 以及兼容性代码-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200810291734.html" rel="bookmark">
+      baidu空间提交评论的脚本,在netsuite中的应用。-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200811201140.html" rel="bookmark">
+      JS DOM推荐forum-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200906091053.html" rel="bookmark">
+      netsuite 子标签 tab 显示原理-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+                  zerotier多客户端实践应用记录
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+                  关于DNS配置记录与分析
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+                  Docker搭建自动售货系统-独角数卡
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311152248.html" title="气到下不动班" target="">
+                  气到下不动班
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311141039.html" title="iptables应用" target="">
+                  iptables应用
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+                  实测Docker搭建短链接服务YOURLS
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+                  iPad解锁激活锁苹果平板绕激活锁经验
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+                  Nginx Proxy Manager修复笔记
+                  </a>
+                </li>
+        </ul>
+      </div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="ja">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200911111431.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="浅谈javascript函数劫持[转载]-CarlZeng | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浅谈javascript函数劫持[转载]-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">編集日</span>
+      <time title="修正日：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="閲覧数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">閲覧数：</span>
+            <span id="ArtalkPV" data-page-key="/ja/200911111431.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/ja/200911111431.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/ja/200911111431.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="単語数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">単語数：</span>
+      <span>14k</span>
+    </span>
+    <span class="post-meta-item" title="読書の時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">読書の時間 &asymp;</span>
+      <span>25 分</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>一篇非常好的javascript Function应用文章。 原文地址： <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy54Zm9jdXMubmV0L2FydGljbGVzLzIwMDcxMi85NjMuaHRtbA==" rel="noopener external nofollow noreferrer">http://www.xfocus.net/articles/200712/963.html</a> ———————————————————————————————– 一、概述 javascri…</p>
+<!-- more -->
+<p>一篇非常好的javascript Function应用文章。<br>原文地址： <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy54Zm9jdXMubmV0L2FydGljbGVzLzIwMDcxMi85NjMuaHRtbA==" rel="noopener external nofollow noreferrer">http://www.xfocus.net/articles/200712/963.html</a>  </p>
+<p>-———————————————————————————————-  </p>
+<p><strong>一、概述</strong>  </p>
+<p>javascript函数劫持，也就是老外提到的javascript hijacking技术。最早还是和剑心同学讨论问题时偶然看到的一段代码，大概这样写的：<br>window.alert &#x3D; function(s) {};<br>觉得这种用法很巧妙新颖，和API Hook异曲同工，索性称之为javascript function hook，也就是函数劫持。通过替换js函数的实现来达到劫持这个函数调用的目的，一个完整的hook alert函数例子如下：  </p>
+<!--1.htm-->  
+<script type="text/javascript">  
+<!--  
+var \_alert = alert;  
+window.alert = function(s) {  
+if (confirm("是否要弹框框，内容是\\"" + s + "\\"？")) {  
+\_alert(s);  
+}  
+}  
+//-->  
+</script>  
+<html>  
+<body>  
+<input type="button" onclick="javascript: alert(Hello World!)" value="test" />  
+</body>  
+</html>  
+
+  
+  
+<p>搞过API Hook的同学们看到这个代码一定会心的一笑，先保存原函数实现，然后替换为我们自己的函数实现，添加我们自己的处理逻辑后最终再调用原来的函数实现，这样这个alert函数就被我们劫持了。原理非常简单，下面举些典型的应用来看看我们能利用它来做些什么。  </p>
+<p><strong>二、应用举例</strong>  </p>
+<p>1. 实现一个简易的javascript debugger，这里说是debugger比较标题党，其实只是有点类似于debugger的功能，主要利用js函数劫持来实现函数的break point，来看看个简单的例子：  </p>
+<script type="text/javascript">  
+<!--  
+var \_eval = eval;  
+eval = function(s) {  
+if (confirm("eval被调用\\n\\n调用函数\\n" + eval.caller + "\\n\\n调用参数\\n" + s)) {  
+\_eval(s);  
+}  
+}  
+//-->  
+</script>  
+<html>  
+<head>  
+</head>  
+<body>  
+<script type="text/javascript">  
+<!--  
+function test() {  
+var a = "alert(1)";  
+eval(a);  
+}  
+  
+<p>function t() {<br>test();<br>}  </p>
+<p>t();<br>&#x2F;&#x2F;–&gt;<br></script>  </p>
+</body>  
+</html>  
+
+  
+  
+<p>通过js函数劫持中断函数执行，并显示参数和函数调用者代码，来看一个完整例子的效果：  </p>
+<p>&gt;help<br>debug commands:  </p>
+<p>bp <function name> - set a breakpoint on a function, e.g. “bp window.alert”.<br>bl - list all breakpoints.<br>bc <breakpoint number> - remove a breakpoint by specified number, e.g. “bc 0”.<br>help - help information.  </p>
+<p>&gt;bp window.alert<br>* breakpoint on function “window.alert” added successfully.  </p>
+<p>&gt;bl<br>* 1 breakpoints:<br>0 - window.alert  </p>
+<p>&gt;bc 0<br>* breakpoint on function “window.alert” deleted successfully.  </p>
+<p>这里演示设置断点，察看断点和删除断点，完整代码在本文附录[1]给出。  </p>
+<p>2. 设置陷阱实时捕捉跨站测试者，搞跨站的人总习惯用alert来确认是否存在跨站，如果你要监控是否有人在测试你的网站xss的话，可以在你要监控的页面里hook alert函数，记录alert调用情况：  </p>
+<script type="text/javascript">  
+<!--  
+function log(s) {  
+var img = new Image();  
+img.style.width = img.style.height = 0;  
+img.src = "[http://yousite.com/log.php?caller="](http://yousite.com/log.php?caller=") + encodeURIComponent(s);  
+}  
+  
+var \_alert = alert;  
+window.alert = function(s) {  
+log(alert.caller);  
+\_alert(s);  
+}  
+//-->  
+</script>  
+
+<p>当然，你这个函数要加到页面的最开始，而且还要比较隐蔽一些，赫赫，你甚至可以使alert不弹框或者弹个警告框，让测试者抓狂一把。  </p>
+<p>3. 实现DOM XSS自动化扫描，目前一般的XSS自动化扫描的方法是从http返回结果中搜索特征来确定是否存在漏洞，但是这种方法不适用于扫描DOM XSS，因为DOM XSS是由客户端脚本造成的，比如前段时间剑心发现的google的跨站(见附录[2])原理如下：  </p>
+<p>document.write(document.location.hash);  </p>
+<p>这样的跨站无法反映在http response里，所以传统扫描方法没法扫描出来。但是如果你从上个例子里受到启发的话，一定会想到设置陷阱的办法，DOM XSS最终导致alert被执行，所以我们hook alert函数设置陷阱，如果XSS成功则会去调用alert函数，触发我们的陷阱记录结果，这样就可以实现DOM XSS的自动化扫描，陷阱代码类似于上面。  </p>
+<p>4. 灵活的使用js劫持辅助你的页面代码分析工作，比如分析网页木马时，经常会有通过eval或者document.write来进行加密的情况，于是我们编写段hook eval和document.write的小工具，辅助解密：  </p>
+<script type="text/javascript">  
+<!--  
+var \_eval = eval;  
+eval = window.execScript = window.document.write = window.document.writeln = function(s) {  
+document.getElementById("output").value = s;  
+}  
+//-->  
+</script>  
+<html>  
+<body>  
+input:  
+<!--<textarea id="input" cols="80" rows="10"></textarea>-->  
+<input type="button" onclick="javascript: \_eval(document.getElementById(input).value);" value="decode" />  
+<br />  
+output:  
+<!--<textarea id="output" cols="80" rows="10"></textarea>-->  
+</body>  
+</html>  
+
+  
+  
+<p>在input框里输入加密的代码：  </p>
+<p>eval(unescape(“%61%6C%65%72%74%28%31%29%3B”));  </p>
+<p>在output框里输出解码后的代码：  </p>
+<p>alert(1);  </p>
+<p>当然你还能想到更多的灵活应用：）  </p>
+<p><strong>三、反劫持</strong>  </p>
+<p>谈到劫持也就必然要谈谈反劫持的话题，假设你要写一个健壮的xss playload，就需要考虑反劫持，有两个问题要解决：  </p>
+<p>如何判断是否被劫持了？<br>如果发现被劫持了，如何反劫持？  </p>
+<p>1. 判断某个函数是否被劫持，这个好办，写个小程序对比一下一个函数被hook前后，有什么差别：  </p>
+<!--<textarea id="tb1" cols="80" rows="8"></textarea>-->  
+<script type="text/javascript">  
+<!--  
+document.getElementById("tb1").value = eval + "\\n";  
+var \_eval = eval;  
+eval = function(s) {  
+alert(s);  
+\_eval(s);  
+}  
+document.getElementById("tb1").value += eval;  
+//-->  
+</script>  
+
+<p>结果：  </p>
+<p>function eval() {<br>[native code]<br>}  </p>
+<p>function(s) {<br>alert(s);<br>_eval(s);<br>}  </p>
+<p>我们发现那些内置函数是[native code]，而自定义的则是具体的函数定义，用这个特征就可以简单的检测函数是否被劫持：  </p>
+<p>function checkHook(proc) {<br>if (proc.toString().indexOf(“[native code]“) &gt; 0) {<br>return false;<br>} else {<br>return true;<br>}<br>}  </p>
+<p>2. 如何反劫持，第一个想法就是恢复被劫持的函数，如果劫持的人把原函数保存在某个变量里那还好办，直接调用原函数就可以了，但是劫持者自己也没保存副本怎么办，只能自己创建个新的环境，然后用新环境里的干净的函数来恢复我们这里被hook了的，怎么创建新环境？整个新的iframe好了，里面就是个全新的环境。ok，动手吧：  </p>
+<p>function unHook(proc) {<br>var f &#x3D; document.createElement(“iframe”);<br>f.style.border &#x3D; “0”;<br>f.style.width &#x3D; “0”;<br>f.style.height &#x3D; “0”;<br>document.body.appendChild(f);  </p>
+<p>var d &#x3D; f.contentWindow.document;<br>d.write(“&lt;script type&#x3D;\“text&#x2F;javascript\“&gt;window.parent.escape &#x3D; escape;&lt;\&#x2F;script&gt;”);<br>d.close();<br>}  </p>
+<p>综合1、2节，整个测试代码如下：  </p>
+<!--antihook.htm-->  
+<script type="text/javascript">  
+<!--  
+escape = function(s) {  
+return s;  
+}  
+//-->  
+</script>  
+<html>  
+<body>  
+<input type="button" onclick="javascript: test();" value="test" />  
+<script type="text/javascript">  
+<!--  
+function test() {  
+alert(escape("s y"));  
+  
+<p>if (checkHook(escape)) {<br>unHook(escape);<br>}  </p>
+<p>alert(escape(“s y”));<br>}  </p>
+<p>function checkHook(proc) {<br>if (proc.toString().indexOf(“[native code]“) &gt; 0) {<br>return false;<br>} else {<br>return true;<br>}<br>}  </p>
+<p>function unHook(proc) {<br>var f &#x3D; document.createElement(“iframe”);<br>f.style.border &#x3D; “0”;<br>f.style.width &#x3D; “0”;<br>f.style.height &#x3D; “0”;<br>document.body.appendChild(f);  </p>
+<p>var d &#x3D; f.contentWindow.document;<br>d.write(“&lt;script type&#x3D;\“text&#x2F;javascript\“&gt;window.parent.escape &#x3D; escape;&lt;\&#x2F;script&gt;”);<br>d.close();<br>}<br>&#x2F;&#x2F;–&gt;<br></script>  </p>
+</body>  
+</html>  
+
+  
+  
+<p>3. 不是上面两个问题都解决了么，为什么要有第3节？因为那不是个最好的解决办法，既然我们可以创建全新的iframe，何不把代码直接放到全新iframe 里执行呢，这样做的话绿色环保，既不用考虑当前context里的hook问题，也不用改动当前context，不会影响本身的程序执行。给出两个比较通用点的函数：  </p>
+<p>function createIframe(w) {<br>var d &#x3D; w.document;<br>var newIframe &#x3D; d.createElement(“iframe”);<br>newIframe.style.width &#x3D; 0;<br>newIframe.style.height &#x3D; 0;<br>d.body.appendChild(newIframe);<br>newIframe.contentWindow.document.write(“<html><body></body></html>“);<br>return newIframe;<br>}  </p>
+<p>function injectScriptIntoIframe(f, proc) {<br>var d &#x3D; f.contentWindow.document;<br>var s &#x3D; “<script>\n(" + proc.toString() + ")();\n</script>“;<br>d.write(s);<br>}  </p>
+<p>把你的payload封装进一个函数，然后调用这两个方法来在iframe里执行：  </p>
+<p>function payload() {<br>&#x2F;&#x2F; your code goes here<br>}  </p>
+<p>var f &#x3D; createIframe(top);<br>injectScriptIntoIframe(f, payload);  </p>
+<p><strong>四、最后</strong>  </p>
+<p>由于国内很少有见文章提及这个东西，所以才草成这篇，希望能够抛砖引玉。由于本人水平有限，难免有错误或者疏漏之处请谅解，没有说清楚的地方，欢迎和我交流。  </p>
+<p>还有就是一些不得不感谢的人，感谢剑心一直以来毫无保留的交流，感谢黑锅多次鼓励我把自己的心得体会写成文字，感谢幻影所有的朋友们、B.C.T的朋友们以及群里那帮经常一起扯淡的朋友们。  </p>
+<p>广告一下，没法幻影blog的朋友，可以添加hosts来突破：<br>72.14.219.190 pstgroup.blogspot.com  </p>
+<p><strong>五、附录</strong>  </p>
+<p>[1] 简易的javascript inline debugger代码  </p>
+<!--test.htm-->  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "[http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><p>](<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlvbmFsLmR0ZCUyMiUzRQ==" rel="noopener external nofollow noreferrer">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</a>)  </p>
+<html xmlns="[http://www.w3.org/1999/xhtml">](http://www.w3.org/1999/xhtml">)  
+<head><title>Javascript Inline Debugger</title></head>  
+<body>  
+<script language="javascript" type="text/javascript" src="js\_inline\_debugger.js"></script>  
+<input type="button" value="hahaha" onclick="javascript: alert(this.value);" style="margin-left: 300px;" />  
+</body>  
+</html>  
+  
+  
+<p>&#x2F;*<br>FileName: js_inline_debugger.js<br>Author: luoluo<br>Contact: luoluonet_at_yahoo.cn<br>Date: 2007-6-27<br>Version: 0.1<br>Usage:<br><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "[http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">](<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlvbmFsLmR0ZCUyMiUzRQ==" rel="noopener external nofollow noreferrer">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</a>)  </p>
+<html xmlns="[http://www.w3.org/1999/xhtml">](http://www.w3.org/1999/xhtml">)  
+<head>  
+</head>  
+<body>  
+<script language="javascript" type="text/javascript" src="js\_inline\_debugger.js"></script>  
+</body>  
+</html>  
+Instruction:  
+It is a simple javascript inline debugger. You must add xhtml1-transitional dtd to your  
+html document if you wanna to use the script.  
+\*/  
+  
+<p>&#x2F;&#x2F;————————————————————————–&#x2F;&#x2F;<br>&#x2F;&#x2F; 公用的函数<br>&#x2F;&#x2F;————————————————————————–&#x2F;&#x2F;<br>&#x2F;&#x2F; 判断是否是IE<br>function isIE() {<br>return document.all &amp;&amp; window.external;<br>}  </p>
+<p>&#x2F;&#x2F; 去除字符串两边的空格<br>String.prototype.trim &#x3D; function() {<br>var re &#x3D; &#x2F;(^\s*)|(\s*)$&#x2F;g;<br>return this.replace(re, “”);<br>}  </p>
+<p>&#x2F;&#x2F; 删除数组中某个元素<br>Array.prototype.remove &#x3D; function(i) {<br>var o &#x3D; this[i];<br>for (var j &#x3D; i; j &lt; this.length - 1; j ++) {<br>this[j] &#x3D; this[j + 1];<br>}<br>-- this.length;<br>return o;<br>}  </p>
+<p>&#x2F;&#x2F; 判断一个数组中是否存在相同的元素<br>Array.prototype.search &#x3D; function(o) {<br>for (var i &#x3D; 0; i &lt; this.length; i ++) {<br>if (this[i] &#x3D;&#x3D; o) {<br>return i;<br>}<br>}  </p>
+<p>return -1;<br>}  </p>
+<p>&#x2F;&#x2F; html编码<br>function htmlEncode(s) {<br>s &#x3D; s.replace(&#x2F;&amp;&#x2F;g, “&amp;”);<br>s &#x3D; s.replace(&#x2F;&lt;&#x2F;g, “&lt;”);<br>s &#x3D; s.replace(&#x2F;&gt;&#x2F;g, “&gt;”);<br>s &#x3D; s.replace(&#x2F;\“&#x2F;g, “””);<br>s &#x3D; s.replace(&#x2F;\&#x2F;g, “””);  </p>
+<p>return s;<br>}  </p>
+<p>&#x2F;&#x2F; js编码<br>function jsEncode(s) {<br>s &#x3D; s.replace(&#x2F;\\&#x2F;g, “\\\\“);<br>s &#x3D; s.replace(&#x2F;\n&#x2F;g, “\\n”);<br>s &#x3D; s.replace(&#x2F;\“&#x2F;g, “\\\“”);<br>s &#x3D; s.replace(&#x2F;\&#x2F;g, “\\\“);<br>return s;<br>}  </p>
+<p>&#x2F;&#x2F;————————————————————–&#x2F;&#x2F;<br>&#x2F;&#x2F; 命令行窗口工具<br>&#x2F;&#x2F;————————————————————–&#x2F;&#x2F;<br>function Console(parentNode, processInputProc) {<br>&#x2F;&#x2F; 窗口<br>var panel &#x3D; document.createElement(“div”);<br>panel.style.width &#x3D; “250px”;<br>panel.style.height &#x3D; “250px”;<br>panel.style.borderColor &#x3D; “#666666”;<br>panel.style.borderWidth &#x3D; “1px”;<br>panel.style.backgroundColor &#x3D; “#ffffff”;<br>panel.style.borderStyle &#x3D; “solid”;<br>panel.style.position &#x3D; “absolute”;<br>panel.style.zIndex &#x3D; 100;<br>parentNode.appendChild(panel);  </p>
+<p>&#x2F;&#x2F; 标题栏<br>var title &#x3D; document.createElement(“div”);<br>title.style.width &#x3D; “250px”;<br>title.style.height &#x3D; “15px”;<br>title.style.backgroundColor &#x3D; “#dddddd”;<br>title.style.fontSize &#x3D; “12px”;<br>title.style.fontFamily &#x3D; “verdana,tahoma”;<br>panel.appendChild(title);  </p>
+<p>&#x2F;&#x2F; 标题栏拖动窗口功能<br>var isDragging &#x3D; false;<br>var startPos &#x3D; new Position(panel.offsetLeft, panel.offsetTop);<br>var startMousePos &#x3D; new Position(0, 0);  </p>
+<p>title.onmouseover &#x3D; function(evt) {<br>this.style.cursor &#x3D; “pointer”;<br>}  </p>
+<p>title.onmousedown &#x3D; function(evt) {<br>if (isDragging &#x3D;&#x3D; true) {<br>return;<br>}  </p>
+<p>var event &#x3D; evt || window.event;<br>startMousePos.x &#x3D; event.clientX;<br>startMousePos.y &#x3D; event.clientY;<br>isDragging &#x3D; true;<br>}  </p>
+<p>title.onmousemove &#x3D; function(evt) {<br>if (isDragging &#x3D;&#x3D; false) {<br>return;<br>}  </p>
+<p>activateWindow();<br>var event &#x3D; evt || window.event;<br>panel.style.left &#x3D; (event.clientX - startMousePos.x) + startPos.x + “px”;<br>panel.style.top &#x3D; (event.clientY - startMousePos.y) + startPos.y + “px”;<br>}  </p>
+<p>title.onmouseup &#x3D; function(evt) {<br>if (isDragging &#x3D;&#x3D; false) {<br>return;<br>}  </p>
+<p>var event &#x3D; evt || window.event;<br>startPos.x &#x3D; (event.clientX - startMousePos.x) + startPos.x;<br>panel.style.left &#x3D; startPos.x + “px”;<br>startPos.y &#x3D; (event.clientY - startMousePos.y) + startPos.y;<br>panel.style.top &#x3D; startPos.y + “px”;<br>isDragging &#x3D; false;<br>}  </p>
+<p>&#x2F;&#x2F; 关闭窗口功能<br>var closeButton &#x3D; document.createElement(“div”);<br>closeButton.style.width &#x3D; “13px”;<br>closeButton.style.height &#x3D; “13px”;<br>closeButton.style.backgroundColor &#x3D; “#ffffff”;<br>closeButton.style.styleFloat &#x3D; closeButton.style.cssFloat &#x3D; “left”;<br>closeButton.style.fontSize &#x3D; “12px”;<br>closeButton.style.borderWidth &#x3D; “1px”;<br>closeButton.style.borderColor &#x3D; “#999999”;<br>closeButton.style.borderStyle &#x3D; “solid”;<br>closeButton.style.paddingButton &#x3D; “2px”;<br>closeButton.innerHTML &#x3D; “&lt;div style&#x3D;\“margin-top: -2px;margin-left: 3px;\“&gt;x</div>“;<br>title.appendChild(closeButton);  </p>
+<p>var isVisible &#x3D; true;  </p>
+<p>&#x2F;&#x2F; 窗口关闭<br>closeButton.onclick &#x3D; function(evt) {<br>isVisible &#x3D; false;<br>panel.style.display &#x3D; “none”;<br>}  </p>
+<p>&#x2F;&#x2F; 标题栏文字<br>var titleLabel &#x3D; document.createElement(“div”);<br>titleLabel.style.height &#x3D; “14px”;<br>titleLabel.style.width &#x3D; “200px”;<br>titleLabel.style.fontSize &#x3D; “11px”;<br>titleLabel.style.color &#x3D; “#ffffff”;<br>titleLabel.style.styleFloat &#x3D; titleLabel.style.cssFloat &#x3D; “left”;<br>titleLabel.style.fontFamily &#x3D; “verdana,tahoma”;<br>titleLabel.innerHTML &#x3D; “Javascript Inline Debugger”;<br>&#x2F;&#x2F;titleLabel.style.marginTop &#x3D; isIE() ? -14 : “-14px”;<br>titleLabel.style.marginLeft &#x3D; isIE() ? 18 : “18px”;<br>title.appendChild(titleLabel);  </p>
+<p>&#x2F;&#x2F; 中间的显示部分<br>var showPanel &#x3D; document.createElement(“div”);<br>showPanel.style.width &#x3D; “250px”;<br>showPanel.style.height &#x3D; isIE() ? “221px” : “219px”;<br>showPanel.style.fontSize &#x3D; “11px”;<br>showPanel.style.padding &#x3D; “0”;<br>showPanel.style.margin &#x3D; “0”;<br>showPanel.style.overflow &#x3D; “auto”;<br>showPanel.style.marginTop &#x3D; isIE() ? -1 : “0”;<br>panel.appendChild(showPanel);  </p>
+<p>&#x2F;&#x2F; 命令输入框<br>var cmdArea &#x3D; document.createElement(“div”);<br>panel.appendChild(cmdArea);  </p>
+<p>var cmdTextbox &#x3D; document.createElement(“input”);<br>cmdTextbox.type &#x3D; “text”;<br>cmdTextbox.style.width &#x3D; “250px”;<br>cmdTextbox.style.height &#x3D; “12px”;<br>cmdTextbox.style.fontSize &#x3D; “12px”;<br>cmdTextbox.style.padding &#x3D; “0”;<br>cmdTextbox.style.margin &#x3D; “0”;<br>cmdTextbox.style.marginTop &#x3D; isIE() ? -2 : “0”;<br>cmdTextbox.style.borderWidth &#x3D; “0”;<br>cmdTextbox.style.borderTopWidth &#x3D; “1px”;<br>cmdTextbox.style.paddingTop &#x3D; “2px”;<br>cmdArea.appendChild(cmdTextbox);  </p>
+<p>&#x2F;&#x2F; 窗口激活或者不激活<br>var isActive &#x3D; false;  </p>
+<p>&#x2F;&#x2F; 激活窗口<br>var activateWindow &#x3D; function() {<br>if (! isVisible) {<br>return;<br>}  </p>
+<p>if (isActive) {<br>return;<br>}  </p>
+<p>cmdTextbox.focus();<br>title.style.backgroundColor &#x3D; “#015DF4”;<br>isActive &#x3D; true;<br>}  </p>
+<p>panel.onclick &#x3D; activateWindow;  </p>
+<p>&#x2F;&#x2F; 不激活窗口<br>var deactivateWindow &#x3D; function() {<br>if (! isVisible) {<br>return;<br>}  </p>
+<p>if (! isActive) {<br>return;<br>}  </p>
+<p>title.style.backgroundColor &#x3D; “#cccccc”;<br>isActive &#x3D; false;<br>}  </p>
+<p>cmdTextbox.onfocus &#x3D; activateWindow;<br>cmdTextbox.onblur &#x3D; deactivateWindow;  </p>
+<p>&#x2F;&#x2F; 输出函数<br>var dbgPrint &#x3D; function(s) {<br>showPanel.innerHTML +&#x3D; htmlEncode(s).replace(&#x2F;\n|(\r\n)&#x2F;g, “<br />“);  </p>
+<p>if (parseInt(showPanel.scrollHeight) &gt; parseInt(showPanel.style.height)) {<br>showPanel.scrollTop +&#x3D; parseInt(showPanel.scrollHeight) - parseInt(showPanel.style.height);<br>}<br>}  </p>
+<p>&#x2F;&#x2F; 调用输入处理回调函数<br>cmdTextbox.onkeydown &#x3D; function(evt) {<br>var event &#x3D; evt || window.event;  </p>
+<p>if (event.keyCode &#x3D;&#x3D; 0x0d) {<br>processInputProc(this.value, dbgPrint);<br>this.value &#x3D; “”;<br>}<br>}<br>}  </p>
+<p>&#x2F;&#x2F; 坐标类<br>function Position(x, y) {<br>this.x &#x3D; x;<br>this.y &#x3D; y;<br>}  </p>
+<p>&#x2F;&#x2F;————————————————————————–&#x2F;&#x2F;<br>&#x2F;&#x2F; 内联调试器类<br>&#x2F;&#x2F;————————————————————————–&#x2F;&#x2F;<br>function InlineDebugger() {<br>var bpList &#x3D; new Array();<br>var id_eval;  </p>
+<p>&#x2F;&#x2F; 设置断点<br>var bp &#x3D; function(funcName) {<br>&#x2F;&#x2F; 检查eval是否被hook<br>if ((new String(eval)).indexOf(“[native code]“) &lt; 0) {<br>return “error: eval function was hooked by other codes in the front.\n”;<br>}  </p>
+<p>&#x2F;&#x2F; 保存未被hooked的eval<br>id_eval &#x3D; eval;  </p>
+<p>var re &#x3D; &#x2F;^[a-zA-Z0-9_\.]+$&#x2F;i;<br>if (! re.test(funcName)) {<br>return “error: bad argument of command bp \“” + funcName + “\“.\n”;<br>}  </p>
+<p>try {<br>id_eval(“if (typeof(“ + funcName + “) &#x3D;&#x3D; \“object\“ || typeof(“ + funcName + “) &#x3D;&#x3D; \“function\“) {var obj &#x3D; “ + funcName + “;}”);<br>} catch (e) {<br>return “error: “ + e + “, invalid function name \“” + funcName + “\“.\n”;<br>}  </p>
+<p>if (obj &#x3D;&#x3D; undefined) {<br>return “error: the argument of command bp \“” + funcName + “\“ is not a function object.\n”;<br>}  </p>
+<p>if ((new String(obj)).indexOf(“function”) &lt; 0) {<br>return “error: the argument of command bp \“” + funcName + “\“ is a property, a function is required.\n”;<br>}  </p>
+<p>if (bpList.search(funcName) &gt;&#x3D; 0) {<br>return “error: there is a breakpoint on function \“” + funcName + “\“\n”;<br>}  </p>
+<p>try {<br>var sc &#x3D; “window.” + funcName.replace(&#x2F;\.&#x2F;g, “_“) + “_bak &#x3D; “ + funcName + “;\n” +<br>funcName + “ &#x3D; “ +<br>“function() {\n” +<br>“ var args &#x3D; \“\“;\n” +<br>“ for (var i &#x3D; 0; i &lt; arguments.length; i ++) {\n” +<br>“ args +&#x3D; arguments[i] + (i &#x3D;&#x3D; (arguments.length - 1) ? \“\“ : \“,\“);\n” +<br>“ }\n” +<br>“ if (confirm(\“function \\\“” + funcName + “\\\“ was called, execute it?\\n\\narguments:\\n\“ + args + \“\\n\\ncaller:\\n\“ + “ + funcName + “.caller)) {\n” +<br>“ id_eval(\“” + funcName.replace(&#x2F;\.&#x2F;g, “_“) + “_bak(\\\“\“ + jsEncode(args) + \“\\\“)\“);\n” +<br>“ }\n” +<br>“};” +<br>“\n”;<br>id_eval(sc);<br>bpList.push(funcName);<br>return “* breakpoint on function \“” + funcName + “\“ added successfully.\n”;<br>} catch (e) {<br>return “unkown error: “ + e + “.\n”;<br>}<br>}  </p>
+<p>&#x2F;&#x2F; 枚举所有的断点<br>var bl &#x3D; function() {<br>if (bpList.length &#x3D;&#x3D; 0) {<br>return “* no breakpoint.\n”;<br>}  </p>
+<p>var bps &#x3D; “* “ + bpList.length + “ breakpoints: \n”;  </p>
+<p>for (var i &#x3D; 0; i &lt; bpList.length; i ++) {<br>bps +&#x3D; i + “ - “ + bpList[i] + “\n”;<br>}  </p>
+<p>return bps;<br>}  </p>
+<p>&#x2F;&#x2F; 清除某个断点<br>var bc &#x3D; function(n) {<br>try {<br>n &#x3D; parseInt(n);<br>} catch (e) {<br>return “error: bc command requires a numeric argument.\n”;<br>}  </p>
+<p>if (bpList.length &#x3D;&#x3D; 0) {<br>return “error: no breakpoint.\n”;<br>}  </p>
+<p>var funcName &#x3D; bpList.remove(n);  </p>
+<p>try {<br>eval(funcName + “ &#x3D; window.” + funcName.replace(&#x2F;\.&#x2F;g, “_“) + “_bak;”);<br>return “* breakpoint on function \“” + funcName + “\“ deleted successfully.\n”;<br>} catch (e) {<br>return “error: “ + e + “.\n”;<br>}<br>}  </p>
+<p>&#x2F;&#x2F; 帮助<br>var help &#x3D; function() {<br>var s &#x3D; “debug commands:\n\n” +<br>“bp <function name> - set a breakpoint on a function, e.g. \“bp window.alert\“.\n” +<br>“bl - list all breakpoints.\n” +<br>“bc <breakpoint number> - remove a breakpoint by specified number, e.g. \“bc 0\“.\n” +<br>“help - help information.\n”<br>“\n”;<br>return s;<br>}  </p>
+<p>&#x2F;&#x2F; 处理命令<br>this.exeCmd &#x3D; function(cmd) {<br>cmd &#x3D; cmd.trim();<br>var cmdParts &#x3D; cmd.split(&#x2F;\s+&#x2F;g);<br>var cmdName;<br>var cmdArg;  </p>
+<p>if (cmdParts.length &#x3D;&#x3D; 1) {<br>cmdName &#x3D; cmd;<br>} else {<br>cmdName &#x3D; cmdParts[0];<br>cmdArg &#x3D; cmdParts[1];<br>}  </p>
+<p>switch (cmdName) {<br>case “bp”:<br>if (cmdArg &#x3D;&#x3D; undefined) {<br>return “error: bp command requires an argument.\n”;<br>} else {<br>return bp(cmdArg);<br>}<br>break;  </p>
+<p>case “bl”:<br>return bl();<br>break;  </p>
+<p>case “bc”:<br>if (cmdArg &#x3D;&#x3D; undefined) {<br>return “error: bc command requires an argument \“number of breakpoint\“.\n”;<br>} else {<br>return bc(cmdArg);<br>}<br>break;  </p>
+<p>case “help”:<br>return help();<br>break;  </p>
+<p>default: return “error: command \“” + cmdName + “\“ not found, you can get information by \“help\“ command.\n”;<br>break;<br>}<br>}<br>}  </p>
+<p>&#x2F;&#x2F;—————————————————————————–&#x2F;&#x2F;<br>&#x2F;&#x2F; 主过程<br>&#x2F;&#x2F;—————————————————————————–&#x2F;&#x2F;<br>&#x2F;*try {<br>debugger;<br>} catch (e) {}*&#x2F;<br>var id &#x3D; new InlineDebugger();<br>var console &#x3D; new Console(document.body, function(s, printProc){printProc(id.exeCmd(s));});</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="weibo,qq,wechat,tencent,douban,qzone,linkedin,diandian,facebook,twitter,google"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//unpkg.com/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>著者： </strong>Carl Zeng
+    <a href='https://www.carlzeng.top/200911111431.html'> 《浅谈javascript函数劫持[转载]-CarlZeng》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>記事へのリンク：</strong>
+      <a href="https://www.carlzeng.top/200911111431.html" title="浅谈javascript函数劫持[转载]-CarlZeng">https://www.carlzeng.top/200911111431.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>著作権表示： </strong>このブログ内のすべての記事は、特別な記載がない限り <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> の下のライセンスで保護されています。
+  </li>
+</ul>
+</div>
+
+          <div class="post-nav">
+<div class="post-nav-item">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    関連記事
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200811050845.html" rel="bookmark">
+      js动态修改某个页面对象的class-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200906101022.html" rel="bookmark">
+      js 取得div高度-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200812082329.html" rel="bookmark">
+      想让一个网站看起来疯狂吗？试试这段js代码 [好玩]-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200912291738.html" rel="bookmark">
+      js 动态方法绑定-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200906111238.html" rel="bookmark">
+      webex js 判断是否是ie 以及兼容性代码-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200810291734.html" rel="bookmark">
+      baidu空间提交评论的脚本,在netsuite中的应用。-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200811201140.html" rel="bookmark">
+      JS DOM推荐forum-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200906091053.html" rel="bookmark">
+      netsuite 子标签 tab 显示原理-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="post-nav-item">
+<!-- recent posts -->
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="pjax recent-posts-list">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+              zerotier多客户端实践应用记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+              关于DNS配置记录与分析
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+              Docker搭建自动售货系统-独角数卡
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311152248.html" title="气到下不动班" target="">
+              气到下不动班
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311141039.html" title="iptables应用" target="">
+              iptables应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+              实测Docker搭建短链接服务YOURLS
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+              iPad解锁激活锁苹果平板绕激活锁经验
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+              Nginx Proxy Manager修复笔记
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+              Hexo定制之家宽部署artalk评论
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+              任天堂Switch全部记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310202241.html" title="安卓手机root与小黄鸟抓包" target="">
+              安卓手机root与小黄鸟抓包
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
+              Debian初体验之基础设置
+              </a>
+            </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
+<div class="followme">
+  <span>他の公開チャンネルへようこそ</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">編集日</span>
+        <time title="修正日：2023-10-02 10:27:29" itemprop="dateModified" datetime="2023-10-02T10:27:29+08:00">2023-10-02</time>
+      </span>
+
+</div>
+
+
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/200911021816.html" rel="prev" title="xp setup https(装载)-CarlZeng">
+                  <i class="fa fa-angle-left"></i> xp setup https(装载)-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/200911111432.html" rel="next" title="多站点整合—单点登录简单方案{装载}-CarlZeng">
+                  多站点整合—单点登录简单方案{装载}-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>日本語</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="Select language">
+      
+        <option value="zh-CN" data-href="/200911111431.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/200911111431.html" selected="">
+          English
+        </option>
+      
+        <option value="ja" data-href="/ja/200911111431.html" selected="">
+          日本語
+        </option>
+      
+        <option value="ko" data-href="/ko/200911111431.html" selected="">
+          한국어
+        </option>
+      
+        <option value="ru" data-href="/ru/200911111431.html" selected="">
+          Английский
+        </option>
+      
+        <option value="zh-HK" data-href="/zh-HK/200911111431.html" selected="">
+          繁體中文（香港）
+        </option>
+      
+        <option value="zh-TW" data-href="/zh-TW/200911111431.html" selected="">
+          繁體中文
+        </option>
+      
+    </select>
+  </div>
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="単語の総数">站点总字数 981k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="読書の合計時間">站点阅读时长 29:44</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="合計閲覧者数">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="閲覧合計数">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+  <script type="text/javascript">
+  var sc_project=12934590;
+  var sc_invisible=0;
+  var sc_security="122fb52f";
+  var scJsHost = "https://";
+  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="View My Stats"
+  href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+</div>
+  <div class="powered-by">Powered by <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a>
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://unpkg.com/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/ja/200911111431.html"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/ja/200911111431.html","pageTitle":"浅谈javascript函数劫持[转载]-CarlZeng"}</script>
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 結果在 ${time} 毫秒找到","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="需要同步的数据应该分几大类。如：1。会计科目代号数据； 这个是基础的，科目必须对应。2。月份结存数据； 中国的财务都有一个会计期间，期初、期末的查询和同步。与国外有一个不同地方。国外的软件主要关心balance，需要国内的这个数据。如果没有可以考虑多张报表的合并，或者是单独的表来存储。3。凭证数据， 凭证的数据必须在两个系统之间可以同步。4。----------------------------">
+<meta property="og:type" content="article">
+<meta property="og:title" content="财务软件间的财务接口(转载)-CarlZeng">
+<meta property="og:url" content="https://www.carlzeng.top/zh-HK/200811141129.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="需要同步的数据应该分几大类。如：1。会计科目代号数据； 这个是基础的，科目必须对应。2。月份结存数据； 中国的财务都有一个会计期间，期初、期末的查询和同步。与国外有一个不同地方。国外的软件主要关心balance，需要国内的这个数据。如果没有可以考虑多张报表的合并，或者是单独的表来存储。3。凭证数据， 凭证的数据必须在两个系统之间可以同步。4。----------------------------">
+<meta property="og:locale" content="zh_HK">
+<meta property="og:image" content="http://it.mie168.com/fileupload/pic/127547662815000000.jpg">
+<meta property="og:image" content="http://www.mie168.com/fileupload/pic/127547662815937500.jpg">
+<meta property="og:image" content="http://www.mie168.com/fileupload/pic/127547662816406250.jpg">
+<meta property="og:image" content="http://www.mie168.com/fileupload/pic/127547662816562500.jpg">
+<meta property="og:image" content="http://www.mie168.com/fileupload/pic/127547662816718750.jpg">
+<meta property="og:image" content="http://www.mie168.com/fileupload/pic/127547662816875000.jpg">
+<meta property="article:published_time" content="2008-11-14T03:29:00.000Z">
+<meta property="article:modified_time" content="2023-10-02T02:27:28.929Z">
+<meta property="article:author" content="Carl Zeng">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://it.mie168.com/fileupload/pic/127547662815000000.jpg">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/zh-HK/200811141129.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-HK","comments":true,"permalink":"https://www.carlzeng.top/200811141129.html","path":"zh-HK/200811141129.html","title":"财务软件间的财务接口(转载)-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>财务软件间的财务接口(转载)-CarlZeng | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//unpkg.com/social-share.js@1.0.16/dist/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 NetSuite 个人随笔</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="檢索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">111</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">33</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">310</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>檢索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+      <div class="languages">
+        <label class="lang-select-label">
+          <i class="fa fa-language"></i>
+          <span>繁體中文（香港）</span>
+          <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </label>
+        <select class="lang-select" data-canonical="" aria-label="選擇語言">
+          
+            <option value="zh-CN" data-href="/200811141129.html" selected="">
+              简体中文
+            </option>
+          
+            <option value="en" data-href="/en/200811141129.html" selected="">
+              English
+            </option>
+          
+            <option value="ja" data-href="/ja/200811141129.html" selected="">
+              日本語
+            </option>
+          
+            <option value="ko" data-href="/ko/200811141129.html" selected="">
+              한국어
+            </option>
+          
+            <option value="ru" data-href="/ru/200811141129.html" selected="">
+              Английский
+            </option>
+          
+            <option value="zh-HK" data-href="/zh-HK/200811141129.html" selected="">
+              繁體中文（香港）
+            </option>
+          
+            <option value="zh-TW" data-href="/zh-TW/200811141129.html" selected="">
+              繁體中文
+            </option>
+          
+        </select>
+      </div>
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概覽
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】采用合并文章持续更新的方案</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">111</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相關文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/" rel="bookmark">
+      
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200909221418.html" rel="bookmark">
+      html js 跨域 p3p-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200901041808.html" rel="bookmark">
+      js post 应用-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200812301028.html" rel="bookmark">
+      js 多维数组 应用-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200811181613.html" rel="bookmark">
+      pdf to html-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202303051904.html" rel="bookmark">
+      tor，网，络-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201001111202.html" rel="bookmark">
+      win+e 失效-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200909151240.html" rel="bookmark">
+      关于'跳墙'-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+                  zerotier多客户端实践应用记录
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+                  关于DNS配置记录与分析
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+                  Docker搭建自动售货系统-独角数卡
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311152248.html" title="气到下不动班" target="">
+                  气到下不动班
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311141039.html" title="iptables应用" target="">
+                  iptables应用
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+                  实测Docker搭建短链接服务YOURLS
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+                  iPad解锁激活锁苹果平板绕激活锁经验
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+                  Nginx Proxy Manager修复笔记
+                  </a>
+                </li>
+        </ul>
+      </div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-HK">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200811141129.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="财务软件间的财务接口(转载)-CarlZeng | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          财务软件间的财务接口(转载)-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="閱讀次數">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">閱讀次數：</span>
+            <span id="ArtalkPV" data-page-key="/zh-HK/200811141129.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/zh-HK/200811141129.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/zh-HK/200811141129.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字數：</span>
+      <span>6k</span>
+    </span>
+    <span class="post-meta-item" title="閱讀時長">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">閱讀時長 &asymp;</span>
+      <span>11 分鍾</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>需要同步的数据应该分几大类。如：1。会计科目代号数据； 这个是基础的，科目必须对应。2。月份结存数据； 中国的财务都有一个会计期间，期初、期末的查询和同步。与国外有一个不同地方。国外的软件主要关心balance，需要国内的这个数据。如果没有可以考虑多张报表的合并，或者是单独的表来存储。3。凭证数据， 凭证的数据必须在两个系统之间可以同步。4。—————————-…</p>
+<!-- more -->
+<p>需要同步的数据应该分几大类。如：</p>
+<p>1。会计科目代号数据； 这个是基础的，科目必须对应。</p>
+<p>2。月份结存数据； 中国的财务都有一个会计期间，期初、期末的查询和同步。</p>
+<p>与国外有一个不同地方。国外的软件主要关心balance，需要国内的这个数据。如果没有可以考虑多张报表的合并，或者是单独的表来存储。</p>
+<p>3。凭证数据， 凭证的数据必须在两个系统之间可以同步。</p>
+<p>4。</p>
+<p>-————————————</p>
+<p>一个国外ERP本身已经具备完善而严谨的财务模块，为什么还要与国内财务软件作接口或数据传递呢？这也是我首先要阐明的一个问题，国外ERP的成本管理蕴含着西方管理会计的内容，而财务模块也使很多中国的财务人员不适应，举一个简单的功能来说，国内财务软件都又”反过帐”、”预过帐”等功能，而这些在国外ERP的财务模块中都是不存在，但其优秀的物流和成本管理等是目前国内ERP软件所缺乏的。</p>
+<p>但是在此我们就不讨论二者的优劣或管理水平思想观念之类的话了，下面我就二者集成的几种方案谈谈我的看法并就一个已经实现的实例做简单剖析。</p>
+<p>一、集成方案分析  </p>
+<p>　　物流与资金流本是密不可分的，在企业的生产、经营过程中的任何活动都有相应的成本费用或收益生成，同时产生相应的各种单据为凭据。ERP物料系统在生产经营的各个环节都能够提供原始凭证明细，如果能够经过分类汇总，以某种便利的方式提供给财务软件，以方便其进行帐务处理也就达到了基本集成的目的。下面就可能的接口方式：  </p>
+<p>　　方案一：传递凭单 1.系统总体应用模式（图） 物流系统使用ERP，财务由单独的专用财务软件  
+　　　</p>
+<p><img data-src="http://it.mie168.com/fileupload/pic/127547662815000000.jpg"></p>
+<p>财务处理使用普通财务软件。</p>
+<p>这样的做法基本上避免了两个软件各自的”缺点”，使它们各自的优点得到了充分的应用，因为ERP系统截去财务部分，仍不失为一个完美的物流和成本管理系统，而普通财务软件本来就是手工做帐，传递凭单对其现有的功能没有任何影响。</p>
+<p>接口功能简述：  </p>
+<p>　　日常订单管理、采购管理、存货管理、生产管理、成本核算等使用ERP系统进行处理，而往来帐、总帐、报表等可以用普通财务软件进行处理，但有一点是计划人员和财务人员之间必须加强配合，使用计算机自动传递凭单和数据。</p>
+<p>数据接口简述：  </p>
+<p>　　存货：依据普通财务系统的需求，ERP系统每月输出相关报表，然后，根据这些报表在普通财务系统做出相应手工凭证；  </p>
+<p>　　生产成本：ERP系统中车间日记帐时实的传递给普通财务系统；  </p>
+<p>　　应付帐款：供应商到票后，在ERP系统中处理暂估，同时生成凭单，把生成凭单时实的传递给普通财务系统，然后在普通财务系统进行审核和追加必要的参考信息，同时ERP系统随时可以输出供应商暂估明细和汇总数；  </p>
+<p>　　应收帐款：订单发货后，对客户开票或生成借项、贷项通知单，把生成的发票及借项、贷项通知单时实的传递给普通财务系统，然后在普通财务系统进行审核和追加必要的参考信息，同时ERP系统随时可以输出客户未开票报告；</p>
+<p>数据一致性：  </p>
+<p>　　（1）.ERP系统添加供应商、客户的同时，把供应商、客户信息时实的复制到普通财务系统中；<br>　　（2）. ERP系统在向普通财务系统传递凭单时，检索对应的供应商或客户的信息，若无此供应商或客户，复制该供应商或客户到普通系统中；</p>
+<p>（3）. 普通财务系统中添加其他类型的供应商、客户时，把供应商、客户信息时实的复制到ERP系统中；<br>　　（4）. 普通系统中添加会计科目时，同时复制到ERP系统会计科目表中。</p>
+<p>2.接口目标  </p>
+<p>　　ERP处理：存货、生产成本、暂估等  </p>
+<p>　　普通财务系统处理：总帐、往来帐等，存货和生产成本在此只有汇总数据</p>
+<p>4.优点与缺点  </p>
+<p>　　优点：  </p>
+<p>　　◆ 物流与资金流 运行同步、数量一致、帐务细化<br>　　◆ 财务人员基本不进行ERP应用操作<br>　　◆ 帐务处理方式不变；<br>　　◆ 节省部分输入凭证的时间<br>　　◆ 对计划人员有了监督功能<br>　　◆ 技术实现简单可行  </p>
+<p>　　缺点：  </p>
+<p>　　◆ 维护基础数据一致较为困难</p>
+<p>方案二：传递凭证 1．系统总体应用模式（图）</p>
+<p><img data-src="http://www.mie168.com/fileupload/pic/127547662815937500.jpg"></p>
+<p>这种方案是：物流系统和财务系统的应收应付都使用ERP系统，总帐管理、借款管理、财务结转和财务报表等使用普通财务软件。  </p>
+<p>　　这样的做法上保持了ERP物流系统的完整性，基本上保持了财务部分的主要功能，物流和资金流严格同步和统一，报表和总帐则使用普通财务软件。  </p>
+<p>　　每月月末，把ERP的所有相关日记帐自动传递给普通财务软件，这样ERP系统和普通财务软件都有完整的应收应付明细帐，但每月应收应付的初始凭证的生成或调整必须在ERP系统中进行，也就是说在进行总帐处理之前，应收应付凭证以ERP系统为准，如果要查某个供应商或客户的往来明细，两个系统都可进行查找，比较方便；另外， ERP系统中总帐将不完整，而普通财务软件存有完整的财务数据，日常事务（应收应付之外）管理主要使用普通财务软件。同上方案一样，计划人员和财务人员之间必须加强配合，使用 计算机自动传递凭单和数据。  </p>
+<p>　　数据接口简述<br>　<br>　　存货、生产成本：采购日记帐、库存日记帐、车间日记帐、订单日记帐每月进行一次压缩后，传递给普通财务系统；  </p>
+<p>　　应付帐款：所有的应付、付款、预付业务在ERP系统中进行操作，月末将供应商应付、付款明细传递给普通财务系统; ERP系统有完整的应付明细帐，总帐不完整，而普通财务系统中也有完整的应付明细帐和总帐；  </p>
+<p>　　应收帐款：所有的应收、收款、预收业务在ERP系统中进行操作，月末将客户应收、收款明细传递给普通财务系统; ERP系统有完整的应收明细帐，总帐不完整，而普通财务系统中也有完整的应收明细帐和总帐；  </p>
+<p>　　数据一致性：  </p>
+<p>　　（1）.ERP系统添加供应商、客户的同时，把供应商、客户信息时实的复制到普通系统中；<br>　　（2）. ERP系统在向普通系统传递往来凭证时，检索对应的供应商或客户的信息，若无此供应商或客户，复制该供应商或客户到普通系统中；<br>　　（3）.普通系统中添加其他类型的供应商、客户时，把供应商、客户信息时实的复制到ERP系统中;<br>　　（4）. 普通系统中添加会计科目时，同时复制到ERP系统会计科目表中。  </p>
+<p>　　2．接口目标  </p>
+<p>　　ERP处理：存货、生产成本、暂估、往来帐等<br>　　普通处理：所有财务数据</p>
+<p>优点与缺点  </p>
+<p>　　优点：<br>　　◆ 物流与资金流 运行同步、数量一致、帐务细化<br>　　◆ 查账方便<br>　　◆ 普通系统中有完整准确的财务数据<br>　　◆ 对计划人员有了监督功能<br>　　◆ 结转、反接转方便  </p>
+<p>　　缺点：<br>　　◆ 财务人员进行ERP应用操作;<br>　　◆ 应收冲应付必须引用过渡科目<br>　　◆ 不能反过帐；<br>　　◆ 部分科目数据两分，只有月末传递数据以后才能直接查看发生数和余额<br>　　◆ 技术实现比较复杂。</p>
+<p>方案三：同时使用（不做接口程序）  </p>
+<p>　　1．系统总体应用模式（图）  
+　</p>
+<p><img data-src="http://www.mie168.com/fileupload/pic/127547662816406250.jpg"></p>
+<p>　　这种方案是：物流系统（包括成本管理）使用ERP系统，财务处理使用普通财务软件。这样的做法基本上避免了两个软件各自的”缺点”，使它们各自的优点得到了充分的应用，因为ERP系统截去财务部分，仍不失为一个完美的物流和成本管理系统，而普通财务软件系统不受任何影响，财务人员业务方式不变，工作模式不变。也就是说，日常订单管理、采购管理、存货管理、生产管理、成本核算等使用ERP系统进行处理，只是每月月底，计划人员和仓库人员可以依靠ERP系统给财务部门提供比以往更可靠和可信的做帐依据。  </p>
+<p>　　2．接口目标  </p>
+<p>　　ERP处理：存货、生产成本、暂估等  </p>
+<p>　　普通处理：除存货、生产成本、暂估以外的所有财务数据  </p>
+<p>　　3．数据接口简述  </p>
+<p>　　存货、生产成本等：依据普通财务系统的需求，ERP系统每月输出相关报表，然后，根据这些报表或汇总数据在普通财务系统做出相应手工凭证；  </p>
+<p>　　4．优点与缺点  </p>
+<p>　　优点：  </p>
+<p>　　◆ 财务人员不作ERP应用操作；<br>　　◆ 帐务处理方式未发生变化；<br>　　◆ 物流管理得到了优化<br>　　◆ 不用开发程序  </p>
+<p>　　缺点：  </p>
+<p>　　◆ 物流与资金流的不统一<br>　　◆ 财务部分数据不严格<br>　　◆ ERP部分帐务不能冲销<br>　　◆ 所有凭证都必须手工录入普通</p>
+<p>问题综述：  </p>
+<p>　　不论那一种方案，我们都会面对一个共同的业务问题（只用ERP或只用普通也会存在同样的问题）：原来，计划人员或仓库管理人员在完成某个业务以后，手工记录且手工传递做帐凭据到财务部门，他们之间的”接口”是松散的或不严格的，换句话说，原来这部分工作的管理是不细的或者说是粗放的，所以财务部门也就无法采取优质的算法精确计算物料成本精确核算成品成本。  </p>
+<p>　　要把”手工传递做帐凭据”转变为”计算机自动传递做帐凭据”不仅仅是程序或软件的问题，也有”业务方式转变”的问题，计划人员必须及时提供相对标准的数据让计算机传递给财务部门，便于财务部门做帐；而财务部门必须及时以合适的方式准确核对和修改计算机自动生成的凭证，两方必须协调一致的进行工作。所以要达到帐务的细化和管理水平上的提高，恰当进行部分业务方式的转变将是必须的。  </p>
+<p>　　如果这个问题处理不得当，再好的接口都将不能使用，这将是解决接口问题中必须注意的一个问题</p>
+<p><img data-src="http://www.mie168.com/fileupload/pic/127547662816562500.jpg"></p>
+<p>=&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;二、集成实例剖析  </p>
+<p>　　我们公司使用方案一已经对实现了一种国外ERP与金蝶财务软件的接口，下图显示了ERP与普通财务集成业务示意图。左面的椭圆所包括的内容是ERP物流管理所涉及的范围，右面的椭圆所包括的内容是普通财务管理的涉及的范围，交叉部分是二者集成的数据接口部分，主要是各种报表、财务原始凭证。ERP系统实现销售管理、生产管理、BOM管理、存货管理及采购计划管理等，及时为财务部门提供生产经营过程中发生的各种单据、及原材料半成品、成品的成本明细。在ERP物流管理中可以看到有个小方框”MRP运算”，这是ERP系统的核心功能之一，它用来协调生产和采购、库房、销售等。普通系统实现应收帐、应付帐、成本管理、差旅费管理、总帐、固定资产管理、财务结算以及转账处理等，除部分明细报表外的所有财务报表全部由普通系统输出。其中应收、应付帐和成本管理要使用ERP 系统提供的数据。</p>
+<p><img data-src="http://www.mie168.com/fileupload/pic/127547662816718750.jpg"></p>
+<p>在企业生产和经营过程中，涉及两个系统的单据和报表传递的主要活动如下：  </p>
+<p>　　在收到客户订单后，市场部把客户信息、合同号、合同金额、产品类型、数量、要求交货期等参数录入ERP系统；对已发货订单，月末打印当月”主营业务成本”报表和”主营业务收入”报表送财务部门。  </p>
+<p>　　采购到货，仓库人员进行采购接收，同时打印出”采购接收单”，整理后送”采购计划员”处；如有其它收发，月末把所有”其他收发料单”直接送财务部门，打印当月”收发存报表”送财务部门。  </p>
+<p>　　供应商发票到票，采购人员核对发票与采购接收单，然后把”采购接收单和发票” 一起送财务，财务人员在ERP系统对送来的发票和采购接收单进行审核，审核结束在普通生成应付凭证。月底，所有未到票清单形成”暂估明细报表”，送财务部门做暂估帐。  </p>
+<p>　　生产中，每道工序完成后都要报完工，系统把各种费用计入生产成本，月末需要整理和计算当月生产中所发生的”生产成本－直接材料”、”生产成本－直接人工”和”生产成本－制造费用”；月末仍没有报完工的所有在制品就形成”在制明细表”，需送财务部门进帐。  </p>
+<p>　　销售部门开”发货通知单”、”提货单”等，送货人员执”提货单”到仓库提货；仓库人员做订单发货，同时打印订单”发货单”，送财务部门，财务部门开销售发票，财务人员在ERP系统对订单进行审核，审核结束在普通生成应收凭证。  </p>
+<p>　　以上只是资金流动过程的一个实例，如果财务部门也参与操作ERP系统，更多报表可由财务部门打印和输出，就不需要其他部门提交了。在此过程中，单据和报表产生的情况和时间如下：</p>
+<p><img data-src="http://www.mie168.com/fileupload/pic/127547662816875000.jpg"></p>
+<p>由上表可以看到，只有在与应收、应付有直接关系的”发货单”、”采购接收单和发票”需要随时输出，其他报表和数据一个月传递一次。原因是财务要及时根据发货单来开发票做应收帐，根据采购接收单和供应商发票来做应付帐。而收款、付款、预收、预付、差旅费管理、转账等都随时在普通中进行统一管理，与ERP没有直接的关系。  </p>
+<p>　　集成效果  </p>
+<p>　　a) 物流与资金流同步运行、数量一致、帐务细化<br>　　b) 财务人员仅在ERP进行采购单、订单的审核操作，打印成本明细报表<br>　　c) 帐务处理都在普通中进行<br>　　d) 由财务人员审核生成的应收凭证、应付凭证不用手工输入<br>　　e) 所有的记账凭证都可以从普通中打印机制凭证<br>　　f) 财务人员可以对计划人员、仓库管理员、价格管理员实现有效的监督功能<br>　　g) 技术实现简单可行，仅涉及系统的两个数据表<br>　　h) 即使这两个表在系统升级时发生了改变，程序也只需作部分简单修改<br>　<br>　　这样的做法基本使两个系统各自的优点得到了充分的应用，因为ERP系统截去财务部分，仍不失为一个完美的物流和成本管理系统，而普通财务软件则是处理中国财务的典范，传递数据对其现有的功能没有任何影响。</p>
+<p>相关文章：</p>
+<p>（源于银企直联：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5lY2ljZTA2LmNvbS9xaWthbi9tYW5hZ2Uvd2VuemhhbmcvMTctOTEucGRm" rel="noopener external nofollow noreferrer">http://www.ecice06.com/qikan/manage/wenzhang/17-91.pdf</a></p>
+<p>html版本：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzIwMy4yMDguMzkuOTkvc2VhcmNoP3E9Y2FjaGU6d3FhT3BtaHNPTzhKOnd3dy5lY2ljZTA2LmNvbS9xaWthbi9tYW5hZ2Uvd2VuemhhbmcvMTctOTEucGRmKyVFOCVCNCVBMiVFNSU4QSVBMSVFNyVCMyVCQiVFNyVCQiU5RiVFNiU4RSVBNSVFNSU4RiVBMyZobD16aC1DTiZjdD1jbG5rJmNkPTgmZ2w9Y24mY2xpZW50PWZpcmVmb3gtYSZzdF91c2c9QUxoZHkyLXpVY1JWYmVsTmxXTWFjVldIUVFfVnRhRzVnZw==" rel="noopener external nofollow noreferrer">http://203.208.39.99/search?q=cache:wqaOpmhsOO8J:www.ecice06.com/qikan/manage/wenzhang/17-91.pdf+%E8%B4%A2%E5%8A%A1%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3&hl=zh-CN&ct=clnk&cd=8&gl=cn&client=firefox-a&st_usg&#x3D;ALhdy2-zUcRVbelNlWMacVWHQQ_VtaG5gg</a></p>
+<p>）</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="weibo,qq,wechat,tencent,douban,qzone,linkedin,diandian,facebook,twitter,google"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//unpkg.com/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>博主： </strong>Carl Zeng
+    <a href='https://www.carlzeng.top/200811141129.html'> 《财务软件间的财务接口(转载)-CarlZeng》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>文章連結：</strong>
+      <a href="https://www.carlzeng.top/200811141129.html" title="财务软件间的财务接口(转载)-CarlZeng">https://www.carlzeng.top/200811141129.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 許可協議。轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+          <div class="post-nav">
+<div class="post-nav-item">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相關文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/" rel="bookmark">
+      
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200909221418.html" rel="bookmark">
+      html js 跨域 p3p-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200901041808.html" rel="bookmark">
+      js post 应用-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200812301028.html" rel="bookmark">
+      js 多维数组 应用-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200811181613.html" rel="bookmark">
+      pdf to html-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202303051904.html" rel="bookmark">
+      tor，网，络-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201001111202.html" rel="bookmark">
+      win+e 失效-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200909151240.html" rel="bookmark">
+      关于'跳墙'-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="post-nav-item">
+<!-- recent posts -->
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="pjax recent-posts-list">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+              zerotier多客户端实践应用记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+              关于DNS配置记录与分析
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+              Docker搭建自动售货系统-独角数卡
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311152248.html" title="气到下不动班" target="">
+              气到下不动班
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311141039.html" title="iptables应用" target="">
+              iptables应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+              实测Docker搭建短链接服务YOURLS
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+              iPad解锁激活锁苹果平板绕激活锁经验
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+              Nginx Proxy Manager修复笔记
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+              Hexo定制之家宽部署artalk评论
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+              任天堂Switch全部记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310202241.html" title="安卓手机root与小黄鸟抓包" target="">
+              安卓手机root与小黄鸟抓包
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
+              Debian初体验之基础设置
+              </a>
+            </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
+<div class="followme">
+  <span>歡迎關注我的其它發布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+      </span>
+
+</div>
+
+
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/200811132145.html" rel="prev" title="SQLEXPRESS sa登陆-CarlZeng">
+                  <i class="fa fa-angle-left"></i> SQLEXPRESS sa登陆-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/200811141136.html" rel="next" title="ERP软件与防伪税控开票系统的接口,税控开票系统接口(财务ERP软件与防伪税控开票系统的接口)-CarlZeng">
+                  ERP软件与防伪税控开票系统的接口,税控开票系统接口(财务ERP软件与防伪税控开票系统的接口)-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>繁體中文（香港）</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="選擇語言">
+      
+        <option value="zh-CN" data-href="/200811141129.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/200811141129.html" selected="">
+          English
+        </option>
+      
+        <option value="ja" data-href="/ja/200811141129.html" selected="">
+          日本語
+        </option>
+      
+        <option value="ko" data-href="/ko/200811141129.html" selected="">
+          한국어
+        </option>
+      
+        <option value="ru" data-href="/ru/200811141129.html" selected="">
+          Английский
+        </option>
+      
+        <option value="zh-HK" data-href="/zh-HK/200811141129.html" selected="">
+          繁體中文（香港）
+        </option>
+      
+        <option value="zh-TW" data-href="/zh-TW/200811141129.html" selected="">
+          繁體中文
+        </option>
+      
+    </select>
+  </div>
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站點總字數">站点总字数 981k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站點閱讀時長">站点阅读时长 29:44</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+  <script type="text/javascript">
+  var sc_project=12934590;
+  var sc_invisible=0;
+  var sc_security="122fb52f";
+  var scJsHost = "https://";
+  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="View My Stats"
+  href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+</div>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 強力驅動
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="回到頂部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://unpkg.com/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/zh-HK/200811141129.html"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/zh-HK/200811141129.html","pageTitle":"财务软件间的财务接口(转载)-CarlZeng"}</script>
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>

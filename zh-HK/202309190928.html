@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 結果在 ${time} 毫秒找到","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="背景苹果电脑如何显示和操作安卓手机呢？由于受限于已有的硬件、使用习惯和越来越多应用只支持手机端，而安卓模拟器无法实现100%完全模拟手机，这个需求有点偏门。总之主旨是实现在电脑上操作手机的目的，这样就可以用键盘和鼠标来操作手机（越来越多的手游接受键盘鼠标的操作，而且效率更高，更精准）苹果电脑如何（显示和）操作安卓手机?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng">
+<meta property="og:url" content="https://www.carlzeng.top/zh-HK/202309190928.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="背景苹果电脑如何显示和操作安卓手机呢？由于受限于已有的硬件、使用习惯和越来越多应用只支持手机端，而安卓模拟器无法实现100%完全模拟手机，这个需求有点偏门。总之主旨是实现在电脑上操作手机的目的，这样就可以用键盘和鼠标来操作手机（越来越多的手游接受键盘鼠标的操作，而且效率更高，更精准）苹果电脑如何（显示和）操作安卓手机?">
+<meta property="og:locale" content="zh_HK">
+<meta property="og:image" content="https://www.evernote.com/shard/s122/sh/69c9ad3b-154f-4a44-91ea-9ceb6a4dd84f/g7tbRhaLVWx4WifCj0q_PAtMa9Os3UjlhhhIBBDB5QzwcfwY8r2IrewOFg/deep/0/image.png">
+<meta property="article:published_time" content="2023-09-19T01:28:00.000Z">
+<meta property="article:modified_time" content="2023-11-24T15:48:45.137Z">
+<meta property="article:author" content="Carl Zeng">
+<meta property="article:tag" content="手机">
+<meta property="article:tag" content="同屏">
+<meta property="article:tag" content="投屏">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.evernote.com/shard/s122/sh/69c9ad3b-154f-4a44-91ea-9ceb6a4dd84f/g7tbRhaLVWx4WifCj0q_PAtMa9Os3UjlhhhIBBDB5QzwcfwY8r2IrewOFg/deep/0/image.png">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/zh-HK/202309190928.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-HK","comments":true,"permalink":"https://www.carlzeng.top/202309190928.html","path":"zh-HK/202309190928.html","title":"安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//unpkg.com/social-share.js@1.0.16/dist/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT技术 解决方案 NetSuite 个人随笔</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="檢索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">111</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">33</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">310</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>檢索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+      <div class="languages">
+        <label class="lang-select-label">
+          <i class="fa fa-language"></i>
+          <span>繁體中文（香港）</span>
+          <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </label>
+        <select class="lang-select" data-canonical="" aria-label="選擇語言">
+          
+            <option value="zh-CN" data-href="/202309190928.html" selected="">
+              简体中文
+            </option>
+          
+            <option value="en" data-href="/en/202309190928.html" selected="">
+              English
+            </option>
+          
+            <option value="ja" data-href="/ja/202309190928.html" selected="">
+              日本語
+            </option>
+          
+            <option value="ko" data-href="/ko/202309190928.html" selected="">
+              한국어
+            </option>
+          
+            <option value="ru" data-href="/ru/202309190928.html" selected="">
+              Английский
+            </option>
+          
+            <option value="zh-HK" data-href="/zh-HK/202309190928.html" selected="">
+              繁體中文（香港）
+            </option>
+          
+            <option value="zh-TW" data-href="/zh-TW/202309190928.html" selected="">
+              繁體中文
+            </option>
+          
+        </select>
+      </div>
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概覽
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E6%B8%85%E5%8D%95"><span class="nav-number">2.</span> <span class="nav-text">硬件清单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%B8%85%E5%8D%95"><span class="nav-number">3.</span> <span class="nav-text">软件清单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%B5%8B%E6%93%8D%E4%BD%9C%E4%BD%93%E9%AA%8C-%E5%BA%94%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">实测操作体验&#x2F;应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QtScrcpy"><span class="nav-number">5.</span> <span class="nav-text">QtScrcpy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">实际应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E8%B0%83%E8%AF%95%E4%B8%8E%E8%A7%A3%E5%86%B3"><span class="nav-number">7.</span> <span class="nav-text">错误信息调试与解决</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E6%B6%88%E6%81%AF-1%EF%BC%9A"><span class="nav-number">7.0.1.</span> <span class="nav-text">错误消息#1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E6%B6%88%E6%81%AF-2%EF%BC%9A"><span class="nav-number">7.0.2.</span> <span class="nav-text">错误消息#2：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF-3-1"><span class="nav-number">7.0.3.</span> <span class="nav-text">错误信息#3.1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E6%B6%88%E6%81%AF-3-2"><span class="nav-number">7.0.4.</span> <span class="nav-text">错误消息#3.2:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E4%BC%BC%E7%9A%84%E8%AF%B4%E6%98%8E-%E5%88%86%E4%BA%AB"><span class="nav-number">8.</span> <span class="nav-text">类似的说明&#x2F;分享</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Zeng</p>
+  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】采用合并文章持续更新的方案</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">111</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相關文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202304041812.html" rel="bookmark">
+      Mac OS 安装/卸载 Homebrew-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309040941.html" rel="bookmark">
+      NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200909161638.html" rel="bookmark">
+      /google/googleDocsGadget.jsp-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200904211504.html" rel="bookmark">
+      to display netsuite transactions detail-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202205110811.html" rel="bookmark">
+      NetSuite's next generation transaction - Inbound Shipment-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310081055.html" rel="bookmark">
+      转载-收藏夹
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310132055.html" rel="bookmark">
+      海康萤石摄像头C3HC学习
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200906111502.html" rel="bookmark">
+      NETSUITE ERROR: Invalid department reference key 24 及类似错误的处理办法-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+                  zerotier多客户端实践应用记录
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+                  关于DNS配置记录与分析
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+                  Docker搭建自动售货系统-独角数卡
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311152248.html" title="气到下不动班" target="">
+                  气到下不动班
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311141039.html" title="iptables应用" target="">
+                  iptables应用
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+                  实测Docker搭建短链接服务YOURLS
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+                  iPad解锁激活锁苹果平板绕激活锁经验
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+                  Nginx Proxy Manager修复笔记
+                  </a>
+                </li>
+        </ul>
+      </div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-HK">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202309190928.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2023-11-24 23:48:45" itemprop="dateModified" datetime="2023-11-24T23:48:45+08:00">2023-11-24</time>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="閱讀次數">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">閱讀次數：</span>
+            <span id="ArtalkPV" data-page-key="/zh-HK/202309190928.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/zh-HK/202309190928.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/zh-HK/202309190928.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字數">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字數：</span>
+      <span>3.4k</span>
+    </span>
+    <span class="post-meta-item" title="閱讀時長">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">閱讀時長 &asymp;</span>
+      <span>6 分鍾</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://www.evernote.com/shard/s122/sh/69c9ad3b-154f-4a44-91ea-9ceb6a4dd84f/g7tbRhaLVWx4WifCj0q_PAtMa9Os3UjlhhhIBBDB5QzwcfwY8r2IrewOFg/deep/0/image.png">
+
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>苹果电脑如何显示和操作安卓手机呢？由于受限于已有的硬件、使用习惯和越来越多应用只支持手机端，而安卓模拟器无法实现100%完全模拟手机，这个需求有点偏门。<br>总之主旨是实现在电脑上操作手机的目的，这样就可以用键盘和鼠标来操作手机（越来越多的手游接受键盘鼠标的操作，而且效率更高，更精准）<br>苹果电脑如何（显示和）操作安卓手机?</p>
+<span id="more"></span>
+
+<p>了解到应用：frpc穿透被控端手机B这个scrcpy端口到外网以后，然后主控端A连接进行原创控制手机。<br>同样也是要求要开启手机的ADB调试，显然这个方案对于远程协助老年人是很难实施的。不过思路很清晰，年轻人可灵活变通应用。</p>
+<h2 id="硬件清单"><a href="#硬件清单" class="headerlink" title="硬件清单"></a>硬件清单</h2><ol>
+<li>Mac M1</li>
+<li>安卓手机</li>
+</ol>
+<h2 id="软件清单"><a href="#软件清单" class="headerlink" title="软件清单"></a>软件清单</h2><ul>
+<li><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0dlbnltb2JpbGUvc2NyY3B5" rel="noopener external nofollow noreferrer">SCRCPY</a> (or Screen Copy) is a free and open-source application that allows you to display and control your Android device from your computer. 开源免费的屏幕复制应用，允许你在电脑上显示和控制你的安卓设备</li>
+<li>或者QtScrcpy.app，这个APP是UI界面版的scrcpy，对于初级用户更加友好。</li>
+</ul>
+<h2 id="实测操作体验-应用"><a href="#实测操作体验-应用" class="headerlink" title="实测操作体验&#x2F;应用"></a>实测操作体验&#x2F;应用</h2><p>请使用USB线直连电话，不能通过拓展坞。否则USB Debugger会无法检测到设备 </p>
+<ol>
+<li>将手机和电脑连接到同一局域网</li>
+<li>安卓手机端在开发者选项中打开 USB 调试<ol>
+<li>这个步骤不同的安卓手机会略微有差异，此处拿一加8T举例：打开设置</li>
+<li>拉到最下面找到并进入：“关于手机”</li>
+<li>找到并一直点击：“版本号”</li>
+<li>系统提示：“现在只需在进行3部操作即进入开发者模式”“现在只需在进行2部操作即进入开发者模式”“现在只需在进行1部操作即进入开发者模式”，输入您的设备数字密码以继续，“您现在处于开发者模式”</li>
+<li>开启后，如果继续点击“版本号”，会提示：“您已处于开发者模式，无需进行此操作”</li>
+<li>打开设置 》 系统 》开发者选项</li>
+<li>开启：“USB调试”，“网络ADB调试”，“无线调试”</li>
+</ol>
+</li>
+<li>通过 USB 连接安卓手机到电脑</li>
+<li>下面的步骤适用于scrcpy，下载后直接在Terminal中运行如下(二选一)：  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//这是在WIFI连接的情况下</span><br><span class="line">scrcpy -e</span><br><span class="line"></span><br><span class="line">//这是在USB连接的情况下</span><br><span class="line">scrcpy -d</span><br></pre></td></tr></table></figure>
+
+应用在录屏上的命令：<br>把手机屏幕录制并保存为mp4文件，scrcpy to record screen with sound，手机的声音也可以一起录制到视频中。 命令举例：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrcpy \-S -e -r test20230904.mp4</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="QtScrcpy"><a href="#QtScrcpy" class="headerlink" title="QtScrcpy"></a>QtScrcpy</h2><ol>
+<li><p>下面的步骤适用于QtScrcpy.app</p>
+<p>点击刷新设备，会看到有设备号更新出来<br>点击获取设备 IP<br>点击启动 adbd<br>无线连接<br>再次点击刷新设备，发现多出了一个 IP 地址开头的设备，选择这个设备<br>启动服务</p>
+</li>
+</ol>
+<h2 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h2><ol>
+<li>在电脑上玩安卓手游</li>
+<li>电脑上操作手机</li>
+<li>直播录屏</li>
+<li>保护眼睛，不受手机6.55英寸小屏幕的局限<br> 可以把整个手机屏幕在高清大电脑屏幕拉大</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">常用的命令，开启开发者选项以后，在开启WIFI调试</span></span><br><span class="line">scrcpy -d -S</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">第一次执行会提示：Device could not be connected (state=offline)，然后手机弹出：已连接到无线调试</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在执行一次</span></span><br><span class="line">scrcpy -d -S</span><br></pre></td></tr></table></figure>
+
+<h2 id="错误信息调试与解决"><a href="#错误信息调试与解决" class="headerlink" title="错误信息调试与解决"></a>错误信息调试与解决</h2><h4 id="错误消息-1："><a href="#错误消息-1：" class="headerlink" title="错误消息#1："></a>错误消息#1：</h4><pre><code>ERROR: Could not find any ADB device over TCP/IP:
+ERROR:           (usb)  adb-e0ddd964-c6dr8S._adb-tls-connect._tcp.           offline  
+ERROR: Server connection failed
+</code></pre>
+<p>已经尝试过多次开启和关闭”USB调试”无效。这个时候，还是需要用Typec线，把手机和电脑连接在一起，重新尝试。<br>运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrcpy --list-displays</span><br></pre></td></tr></table></figure>
+<p>会显示</p>
+<pre><code>scrcpy 2.1.1 &lt;https://github.com/Genymobile/scrcpy&gt;
+INFO: ADB device found:
+INFO:     --&gt;   (usb)  e0ddd964                        device  KB2000
+/opt/homebrew/Cellar/scrcpy/2.1.1/share/scrcpy/scrcpy-server: 1 file pushed, 0 skipped. 58.5 MB/s (56995 bytes in 0.001s)
+[server] INFO: List of displays:
+--display=0    (1080x2400)
+</code></pre>
+<p>说明设备已经被APP找到了，可见是（usb），这是可以使用scrcpy -d来连接。</p>
+<h4 id="错误消息-2："><a href="#错误消息-2：" class="headerlink" title="错误消息#2："></a>错误消息#2：</h4><pre><code>scrcpy 2.1.1 &lt;https://github.com/Genymobile/scrcpy&gt;
+ERROR: Could not find any ADB device over TCP/IP:
+ERROR:           (usb)  e0ddd964                        device  KB2000
+ERROR: Server connection failed
+</code></pre>
+<p>可能是使用错了命令，-e 是用于连接网络相连的手机， -d 是用于连接USB（Typec）的手机。<br>参数说明：</p>
+<pre><code>-e, --select-tcpip
+    Use TCP/IP device (if there is exactly one, like adb -e).
+    Also see -d (--select-usb).
+
+-d, --select-usb
+    Use USB device (if there is exactly one, like adb -d).
+    Also see -e (--select-tcpip).
+
+--list-displays
+    List device displays.
+
+-S, --turn-screen-off
+    Turn the device screen off immediately.
+</code></pre>
+<h4 id="错误信息-3-1"><a href="#错误信息-3-1" class="headerlink" title="错误信息#3.1"></a>错误信息#3.1</h4><pre><code>ERROR: Device could not be connected (state=offline)
+ERROR: Server connection failed
+</code></pre>
+<p>甚至手机端开启USB调试以后，依旧提示错误：<br>    ERROR: Could not find any ADB device<br>    ERROR: Server connection failed</p>
+<p>这是授权被取消的结果，需要重新使用USB连接，进行如下的授权确认步骤：</p>
+<h4 id="错误消息-3-2"><a href="#错误消息-3-2" class="headerlink" title="错误消息#3.2:"></a>错误消息#3.2:</h4><p>连接USB后 scrcpy -d -S  出错</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scrcpy 2.1.1 &lt;https://github.com/Genymobile/scrcpy&gt;</span><br><span class="line">ERROR: Device is unauthorized:</span><br><span class="line">ERROR:     --&gt;   (usb)  e0ddd964                  unauthorized  </span><br><span class="line">ERROR: A popup should open on the device to request authorization.</span><br><span class="line">ERROR: Check the FAQ: &lt;https://github.com/Genymobile/scrcpy/blob/master/FAQ.md&gt;</span><br><span class="line">ERROR: Server connection failed</span><br></pre></td></tr></table></figure>
+<p>这是手机设备上出现了提示框，没有确认（授权）<br>“允许USB调试吗？<br>这台计算机的RSA密钥指纹如下：。。。。<br>一律允许使用这台计算机进行调试”<br>取消，允许<br>必须选允许，才能授权成功</p>
+<p>还是失败的话，就需要去手机上关闭：”无线调试“，<br>在开启”无线调试“，在重新使用命令：scrcpy -d -S</p>
+<h2 id="类似的说明-分享"><a href="#类似的说明-分享" class="headerlink" title="类似的说明&#x2F;分享"></a>类似的说明&#x2F;分享</h2><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC82MjUxODYzMzk=" rel="noopener external nofollow noreferrer">好用工具第1期:手机电脑同屏QtScrcpy</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="weibo,qq,wechat,tencent,douban,qzone,linkedin,diandian,facebook,twitter,google"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//unpkg.com/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>博主： </strong>Carl Zeng
+    <a href='https://www.carlzeng.top/202309190928.html'> 《安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>文章連結：</strong>
+      <a href="https://www.carlzeng.top/202309190928.html" title="安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng">https://www.carlzeng.top/202309190928.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 許可協議。轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+          <div class="post-nav">
+<div class="post-nav-item">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相關文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202304041812.html" rel="bookmark">
+      Mac OS 安装/卸载 Homebrew-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309040941.html" rel="bookmark">
+      NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200909161638.html" rel="bookmark">
+      /google/googleDocsGadget.jsp-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200904211504.html" rel="bookmark">
+      to display netsuite transactions detail-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202205110811.html" rel="bookmark">
+      NetSuite's next generation transaction - Inbound Shipment-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310081055.html" rel="bookmark">
+      转载-收藏夹
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310132055.html" rel="bookmark">
+      海康萤石摄像头C3HC学习
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200906111502.html" rel="bookmark">
+      NETSUITE ERROR: Invalid department reference key 24 及类似错误的处理办法-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="post-nav-item">
+<!-- recent posts -->
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="pjax recent-posts-list">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
+              zerotier多客户端实践应用记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311231919.html" title="关于DNS配置记录与分析" target="">
+              关于DNS配置记录与分析
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311201654.html" title="Docker搭建自动售货系统-独角数卡" target="">
+              Docker搭建自动售货系统-独角数卡
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311152248.html" title="气到下不动班" target="">
+              气到下不动班
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311141039.html" title="iptables应用" target="">
+              iptables应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311081003.html" title="实测Docker搭建短链接服务YOURLS" target="">
+              实测Docker搭建短链接服务YOURLS
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
+              iPad解锁激活锁苹果平板绕激活锁经验
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
+              Nginx Proxy Manager修复笔记
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310261222.html" title="Hexo定制之家宽部署artalk评论" target="">
+              Hexo定制之家宽部署artalk评论
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310221511.html" title="任天堂Switch全部记录" target="">
+              任天堂Switch全部记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310202241.html" title="安卓手机root与小黄鸟抓包" target="">
+              安卓手机root与小黄鸟抓包
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
+              Debian初体验之基础设置
+              </a>
+            </li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
+<div class="followme">
+  <span>歡迎關注我的其它發布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2023-11-24 23:48:45" itemprop="dateModified" datetime="2023-11-24T23:48:45+08:00">2023-11-24</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/%E6%89%8B%E6%9C%BA/" rel="tag"># 手机</a>
+              <a href="/tags/%E5%90%8C%E5%B1%8F/" rel="tag"># 同屏</a>
+              <a href="/tags/%E6%8A%95%E5%B1%8F/" rel="tag"># 投屏</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202309040941.html" rel="prev" title="NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng">
+                  <i class="fa fa-angle-left"></i> NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/202309201518.html" rel="next" title="在线文字识别转换（通用OCR）ocr.wdku.net-CarlZeng">
+                  在线文字识别转换（通用OCR）ocr.wdku.net-CarlZeng <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>繁體中文（香港）</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="選擇語言">
+      
+        <option value="zh-CN" data-href="/202309190928.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/202309190928.html" selected="">
+          English
+        </option>
+      
+        <option value="ja" data-href="/ja/202309190928.html" selected="">
+          日本語
+        </option>
+      
+        <option value="ko" data-href="/ko/202309190928.html" selected="">
+          한국어
+        </option>
+      
+        <option value="ru" data-href="/ru/202309190928.html" selected="">
+          Английский
+        </option>
+      
+        <option value="zh-HK" data-href="/zh-HK/202309190928.html" selected="">
+          繁體中文（香港）
+        </option>
+      
+        <option value="zh-TW" data-href="/zh-TW/202309190928.html" selected="">
+          繁體中文
+        </option>
+      
+    </select>
+  </div>
+
+  <div class="copyright">
+    &copy; 2008 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站點總字數">站点总字数 981k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站點閱讀時長">站点阅读时长 29:44</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+  <script type="text/javascript">
+  var sc_project=12934590;
+  var sc_invisible=0;
+  var sc_security="122fb52f";
+  var scJsHost = "https://";
+  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+  "statcounter.com/counter/counter.js'></"+"script>");
+  </script>
+  <noscript><div class="statcounter"><a title="View My Stats"
+  href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+</div>
+  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 強力驅動
+     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="回到頂部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://unpkg.com/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://unpkg.com/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/zh-HK/202309190928.html"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/zh-HK/202309190928.html","pageTitle":"安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng"}</script>
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>
