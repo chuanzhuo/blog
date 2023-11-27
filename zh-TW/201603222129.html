@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="2021年11月更新：如果是K2P A2版本硬件，请参考更简易的步骤，更加高效，不需要太多代码知识。 K2P刷机-坐标北京Unicom  前题   硬件：路由器，刷入OpenWrt 一些背景知识和动手能力  目标效果图    步骤   使用SSH 登陆路由器。I.e. ssh &amp;#x72;&amp;#111;&amp;#x6f;&amp;#x74;&amp;#x40;&amp;#x31;&amp;#57;&amp;#x32;&amp;#46;&amp;#49;&amp;#x">
+    <meta name="description" content="2021年11月更新：如果是K2P A2版本硬件，请参考更简易的步骤，更加高效，不需要太多代码知识。 K2P刷机-坐标北京Unicom  前题   硬件：路由器，刷入OpenWrt 一些背景知识和动手能力  目标效果图    步骤   使用SSH 登陆路由器。I.e. ssh &amp;#114;&amp;#x6f;&amp;#x6f;&amp;#x74;&amp;#64;&amp;#49;&amp;#x39;&amp;#x32;&amp;#x2e;&amp;#49;&amp;#x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenWrt &gt;  ADSL单线多拨，负载均衡（仅供参考）-CarlZeng">
 <meta property="og:url" content="https://www.carlzeng.top/zh-TW/201603222129.html">
 <meta property="og:site_name" content="随笔 Carl Notes">
-<meta property="og:description" content="2021年11月更新：如果是K2P A2版本硬件，请参考更简易的步骤，更加高效，不需要太多代码知识。 K2P刷机-坐标北京Unicom  前题   硬件：路由器，刷入OpenWrt 一些背景知识和动手能力  目标效果图    步骤   使用SSH 登陆路由器。I.e. ssh &amp;#x72;&amp;#111;&amp;#x6f;&amp;#x74;&amp;#x40;&amp;#x31;&amp;#57;&amp;#x32;&amp;#46;&amp;#49;&amp;#x">
+<meta property="og:description" content="2021年11月更新：如果是K2P A2版本硬件，请参考更简易的步骤，更加高效，不需要太多代码知识。 K2P刷机-坐标北京Unicom  前题   硬件：路由器，刷入OpenWrt 一些背景知识和动手能力  目标效果图    步骤   使用SSH 登陆路由器。I.e. ssh &amp;#114;&amp;#x6f;&amp;#x6f;&amp;#x74;&amp;#64;&amp;#49;&amp;#x39;&amp;#x32;&amp;#x2e;&amp;#49;&amp;#x">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/41238/201603/41238-20160323125607870-97593375.jpg">
 <meta property="og:image" content="http://images2015.cnblogs.com/blog/41238/201603/41238-20160326151505526-1086117574.jpg">
@@ -329,6 +329,99 @@
         </ul>
       </div>
 
+    <style>
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      margin-top: 30px !important;
+      padding: clamp(17px, 5%, 40px) clamp(17px, 7%, 50px) !important;
+      max-width: none !important;
+      border-radius: 6px !important;
+      box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview *{
+      box-sizing: border-box !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading {
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5{
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
+      margin-top: 20px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      width: 100% !important;
+      height: 40px !important;
+      border-radius: 6px !important;
+      border: 2px solid #e9e8e8 !important;
+      background-color: #fff !important;
+      outline: none !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      color: #000000 !important;
+      font-family: "Montserrat" !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 20px !important;
+      text-align: center !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+      color: #000000 !important;
+      opacity: 1 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input:-ms-input-placeholder {
+      color: #000000 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::-ms-input-placeholder {
+      color: #000000 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
+      margin-top: 10px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+      width: 100% !important;
+      height: 40px !important;
+      border: 0 !important;
+      border-radius: 6px !important;
+      line-height: 0px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
+      cursor: pointer !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+      color: #231f20 !important;
+      font-family: "Montserrat" !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 25px !important;
+      text-align: center !important;
+      text-decoration: none !important;
+      display: flex !important;
+      width: 100% !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 10px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
+      margin-left: 10px !important;
+      height: 1.13em !important;
+      max-height: 1.13em !important;
+    }
+    </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
+      接收新文章Email投递:
+    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="Enter your email" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
+      Subscribe
+    </button></div></div></form></div>
+
   </aside>
 
 
@@ -438,7 +531,7 @@
 <p><strong>步骤</strong></p>
 <hr>
 <ol>
-<li><p>使用SSH 登陆路由器。I.e. ssh <a href="mailto:&#x72;&#111;&#x6f;&#x74;&#x40;&#x31;&#57;&#x32;&#46;&#49;&#x36;&#x38;&#x2e;&#50;&#46;&#x31;">&#x72;&#111;&#x6f;&#x74;&#x40;&#x31;&#57;&#x32;&#46;&#49;&#x36;&#x38;&#x2e;&#50;&#46;&#x31;</a></p>
+<li><p>使用SSH 登陆路由器。I.e. ssh <a href="mailto:&#114;&#x6f;&#x6f;&#x74;&#64;&#49;&#x39;&#x32;&#x2e;&#49;&#x36;&#x38;&#46;&#50;&#x2e;&#x31;">&#114;&#x6f;&#x6f;&#x74;&#64;&#49;&#x39;&#x32;&#x2e;&#49;&#x36;&#x38;&#46;&#50;&#x2e;&#x31;</a></p>
 </li>
 <li><p>运行&#x2F;usr&#x2F;bin&#x2F;duobo。日志类似：</p>
 </li>
@@ -656,7 +749,7 @@
 
 
 <div class="followme">
-  <span>歡迎關注我的其它發布渠道</span>
+  <span>若文章為您解決燃眉之急或是帶來些許明朗,不妨 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email訂閱</a> 或 打賞</span>
 
   <div class="social-list">
 
@@ -770,7 +863,7 @@
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
-    <span class="author" itemprop="copyrightHolder">转载请注明出处与原始链接</span>
+    <span class="author" itemprop="copyrightHolder"><span>转载请注明出处与原始链接 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer"><img src="/follow.png"/></a></span></span>
   </div>
 <div class="wordcount">
   <span class="post-meta-item">
