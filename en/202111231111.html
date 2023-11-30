@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="由于众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解决思路，希望对你有帮助：">
+    <meta name="description" content="解决Github连接错误的思路由于众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解决思路，希望对你有帮助：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[GitHub] fatal: unable to access &#39;https:&#x2F;&#x2F;github.com&#x2F;&#39;: Failed to connect to github.com port 443: Operation timed out">
 <meta property="og:url" content="https://www.carlzeng.top/en/202111231111.html">
 <meta property="og:site_name" content="随笔 Carl Notes">
-<meta property="og:description" content="由于众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解决思路，希望对你有帮助：">
+<meta property="og:description" content="解决Github连接错误的思路由于众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解决思路，希望对你有帮助：">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-11-23T03:11:00.000Z">
-<meta property="article:modified_time" content="2023-11-26T06:07:17.623Z">
+<meta property="article:modified_time" content="2023-11-29T02:26:04.712Z">
 <meta property="article:author" content="Carl Zeng">
 <meta property="article:tag" content="github">
 <meta property="article:tag" content="git">
@@ -93,7 +93,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">114</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">33</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">310</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">117</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">34</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">311</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -182,7 +182,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E6%96%B0%E6%96%B9%E6%A1%88%EF%BC%882023%E5%B9%B411%E6%9C%88%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">最新方案（2023年11月）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%B9%B3%E5%9D%87%E9%80%9F%E5%BA%A6%E8%BE%BE%E5%88%B01M-s%E5%B7%A6%E5%8F%B3%EF%BC%9B%E6%8C%BA%E6%BB%A1%E6%84%8F%E4%BA%86"><span class="nav-number">2.</span> <span class="nav-text">单线程下载，平均速度达到1M&#x2F;s左右；挺满意了</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Errors"><span class="nav-number">2.1.</span> <span class="nav-text">Errors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notes"><span class="nav-number">2.2.</span> <span class="nav-text">Notes:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solutions-for-Operation-timed-out"><span class="nav-number">2.3.</span> <span class="nav-text">Solutions for: Operation timed out</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Github-End"><span class="nav-number"></span> <span class="nav-text">Github End</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solutions-for-Authentication"><span class="nav-number">0.1.</span> <span class="nav-text">Solutions for: Authentication</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%A7%81%E6%96%87%E6%A1%A3%EF%BC%9A"><span class="nav-number">0.2.</span> <span class="nav-text">参见文档：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js%E4%B9%9F%E8%A2%AB%E5%90%8C%E6%A0%B7%E9%94%99%E8%AF%AF%E5%8D%A1"><span class="nav-number">1.</span> <span class="nav-text">Node.js也被同样错误卡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-d-%E6%9B%B4%E6%96%B0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">hexo d 更新的解决办法</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E6%96%B0%E6%96%B9%E6%A1%88%EF%BC%882023%E5%B9%B411%E6%9C%88%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">最新方案（2023年11月）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%B9%B3%E5%9D%87%E9%80%9F%E5%BA%A6%E8%BE%BE%E5%88%B01M-s%E5%B7%A6%E5%8F%B3%EF%BC%9B%E6%8C%BA%E6%BB%A1%E6%84%8F%E4%BA%86"><span class="nav-number">2.</span> <span class="nav-text">单线程下载，平均速度达到1M&#x2F;s左右；挺满意了</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Errors"><span class="nav-number">2.1.</span> <span class="nav-text">Errors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notes"><span class="nav-number">2.2.</span> <span class="nav-text">Notes:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solutions-for-Operation-timed-out"><span class="nav-number">2.3.</span> <span class="nav-text">Solutions for: Operation timed out</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Github-End"><span class="nav-number"></span> <span class="nav-text">Github End</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solutions-for-Authentication"><span class="nav-number">0.1.</span> <span class="nav-text">Solutions for: Authentication</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%A7%81%E6%96%87%E6%A1%A3%EF%BC%9A"><span class="nav-number">0.2.</span> <span class="nav-text">参见文档：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js%E4%B9%9F%E8%A2%AB%E5%90%8C%E6%A0%B7%E9%94%99%E8%AF%AF%E5%8D%A1"><span class="nav-number">1.</span> <span class="nav-text">Node.js也被同样错误卡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-d-%E6%9B%B4%E6%96%B0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">hexo d 更新的解决办法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E5%BD%93Github%E6%BA%90%E8%BF%9E%E5%90%8C%E8%B4%A6%E5%8F%B7%E8%A2%AB%E5%88%A0%E9%99%A4%E5%90%8E"><span class="nav-number">2.</span> <span class="nav-text">思路：当Github源连同账号被删除后</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -195,18 +195,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-count">311</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">114</span>
+        <span class="site-state-item-count">117</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -236,11 +236,6 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311231919.html" rel="bookmark">
-      关于DNS配置记录与分析
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202309040941.html" rel="bookmark">
       NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng
       </a>
@@ -248,6 +243,11 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202101230038.html" rel="bookmark">
       Version Control System, IntelliJ IDEA, Create a Git Repository for a Project and push to multiple remotes-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311231919.html" rel="bookmark">
+      关于DNS配置记录与分析
       </a>
     </li>
     <li class="popular-posts-item">
@@ -261,8 +261,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202303051903.html" rel="bookmark">
-      tor 网络 科学上网
+      <a class="popular-posts-link" href="/202103031116.html" rel="bookmark">
+      git Merge branches﻿-CarlZeng
       </a>
     </li>
   </ul>
@@ -278,6 +278,11 @@
                 最新随笔
         </div>
         <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311300758.html" title="Docker搭建在线网页代理实践记录" target="">
+                  Docker搭建在线网页代理实践记录
+                  </a>
+                </li>
                 <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
                   <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
                   zerotier多客户端实践应用记录
@@ -311,11 +316,6 @@
                 <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
                   <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
                   iPad解锁激活锁苹果平板绕激活锁经验
-                  </a>
-                </li>
-                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
-                  <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
-                  Nginx Proxy Manager修复笔记
                   </a>
                 </li>
         </ul>
@@ -458,7 +458,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-26 14:07:17" itemprop="dateModified" datetime="2023-11-26T14:07:17+08:00">2023-11-26</time>
+      <time title="Modified: 2023-11-29 10:26:04" itemprop="dateModified" datetime="2023-11-29T10:26:04+08:00">2023-11-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -499,14 +499,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>5.1k</span>
+      <span>5.6k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>9 mins.</span>
+      <span>10 mins.</span>
     </span>
 </div>
 
@@ -516,7 +516,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>由于众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解决思路，希望对你有帮助：</p>
+    <div class="post-body" itemprop="articleBody"><p>解决Github连接错误的思路<br>由于众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解决思路，希望对你有帮助：</p>
 <span id="more"></span>
 <h2 id="最新方案（2023年11月）"><a href="#最新方案（2023年11月）" class="headerlink" title="最新方案（2023年11月）"></a>最新方案（2023年11月）</h2><p>超级好用的命令行走代理方式：<br>  HTTPS_PROXY&#x3D;”socks5:&#x2F;&#x2F;127.0.0.1:7890” git clone <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3J1c3RkZXNrL3J1c3RkZXNr" rel="noopener external nofollow noreferrer">https://github.com/rustdesk/rustdesk</a> </p>
 <p>然后结合Clash For Window的 url-test 模式，选用最快的服务器；测试结果很满意：<br>  HTTPS_PROXY&#x3D;”socks5:&#x2F;&#x2F;127.0.0.1:7890” git clone <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3J1c3RkZXNrL3J1c3RkZXNr" rel="noopener external nofollow noreferrer">https://github.com/rustdesk/rustdesk</a><br>    Cloning into ‘rustdesk’…<br>    remote: Enumerating objects: 59934, done.<br>    remote: Counting objects: 100% (14388&#x2F;14388), done.<br>    remote: Compressing objects: 100% (326&#x2F;326), done.<br>    remote: Total 59934 (delta 14161), reused 14065 (delta 14062), pack-reused 45546<br>    Receiving objects: 100% (59934&#x2F;59934), 40.41 MiB | 956.00 KiB&#x2F;s, done.<br>    Resolving deltas: 100% (45272&#x2F;45272), done.</p>
@@ -530,7 +530,7 @@
 <h3 id="Solutions-for-Operation-timed-out"><a href="#Solutions-for-Operation-timed-out" class="headerlink" title="Solutions for: Operation timed out"></a>Solutions for: Operation timed out</h3><ol>
 <li>Fix the hosts to make sure the ssh connection between your Computer and github.com is availble(修复连接到github.com)</li>
 </ol>
-<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#109;">&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#109;</a></p>
+<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#117;&#98;&#46;&#99;&#x6f;&#x6d;">&#103;&#105;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#117;&#98;&#46;&#99;&#x6f;&#x6d;</a></p>
 <p>1.1 记录下github的IP地址, 把IP Address 记录下来</p>
 <p>打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tLmlwYWRkcmVzcy5jb20v" rel="noopener external nofollow noreferrer">https://github.com.ipaddress.com/</a></p>
 <p>打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mYXN0bHkubmV0LmlwYWRkcmVzcy5jb20vZ2l0aHViLmdsb2JhbC5zc2wuZmFzdGx5Lm5ldCNpcGluZm8=" rel="noopener external nofollow noreferrer">https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo</a></p>
@@ -543,7 +543,7 @@
 <p>1.4 如果之前用ssh proxy，取消它</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global https.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
 
-<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#105;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#111;&#x6d;">&#103;&#x69;&#x74;&#64;&#x67;&#105;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#111;&#x6d;</a></p>
 <p>新的错误可能和授权有关，至少证明连接到github.com是通的。</p>
 <hr>
 <h3 id="Solutions-for-Authentication"><a href="#Solutions-for-Authentication" class="headerlink" title="Solutions for: Authentication"></a>Solutions for: Authentication</h3><ol start="2">
@@ -574,6 +574,13 @@
 <h3 id="hexo-d-更新的解决办法"><a href="#hexo-d-更新的解决办法" class="headerlink" title="hexo d 更新的解决办法"></a>hexo d 更新的解决办法</h3><p>运行命令行当时输入：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTTPS_PROXY=&quot;socks5://127.0.0.1:7890&quot; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
 <p>这样省去了来回切换的麻烦步骤。</p>
+<h2 id="思路：当Github源连同账号被删除后"><a href="#思路：当Github源连同账号被删除后" class="headerlink" title="思路：当Github源连同账号被删除后"></a>思路：当Github源连同账号被删除后</h2><ul>
+<li><p>缓存，当Github源连同账号被删除后，用CDN可以继续访问到<br>比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">【已失效用下面的CDN缓存替换】curl -fksSL https://github.com/lmq8267/567/releases/download/scriptfile/install1.10.3.sh | sh</span><br><span class="line">  发现一个CDN的优点：当缓存完成后源站点内容被删除，CDN还是会保存着内容；也就是说这个同步是单方向的。</span><br><span class="line"></span><br><span class="line">curl -fkSL https://fastly.jsdelivr.net/gh/lmq8267/ZeroTierOne@master/install/installzero.sh | sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>还有一个思路：hub.docker.com<br>docker部署的缓存，仍然可以在一段时间内有效<br>比如：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS9yL2RyZWFtYWNyby9jbGFzaA==" rel="noopener external nofollow noreferrer">https://hub.docker.com/r/dreamacro/clash</a></p>
+</li>
+</ul>
 
     </div>
 
@@ -635,11 +642,6 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311231919.html" rel="bookmark">
-      关于DNS配置记录与分析
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202309040941.html" rel="bookmark">
       NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng
       </a>
@@ -647,6 +649,11 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202101230038.html" rel="bookmark">
       Version Control System, IntelliJ IDEA, Create a Git Repository for a Project and push to multiple remotes-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311231919.html" rel="bookmark">
+      关于DNS配置记录与分析
       </a>
     </li>
     <li class="popular-posts-item">
@@ -660,8 +667,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202303051903.html" rel="bookmark">
-      tor 网络 科学上网
+      <a class="popular-posts-link" href="/202103031116.html" rel="bookmark">
+      git Merge branches﻿-CarlZeng
       </a>
     </li>
   </ul>
@@ -679,6 +686,11 @@
             最新随笔
     </div>
     <ul class="pjax recent-posts-list">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202311300758.html" title="Docker搭建在线网页代理实践记录" target="">
+              Docker搭建在线网页代理实践记录
+              </a>
+            </li>
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
               zerotier多客户端实践应用记录
@@ -734,11 +746,6 @@
               安卓手机root与小黄鸟抓包
               </a>
             </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202310171918.html" title="Debian初体验之基础设置" target="">
-              Debian初体验之基础设置
-              </a>
-            </li>
     </ul>
   </div>
 </div>
@@ -777,7 +784,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-11-26 14:07:17" itemprop="dateModified" datetime="2023-11-26T14:07:17+08:00">2023-11-26</time>
+        <time title="Modified: 2023-11-29 10:26:04" itemprop="dateModified" datetime="2023-11-29T10:26:04+08:00">2023-11-29</time>
       </span>
 
 </div>
@@ -873,13 +880,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">站点总字数 986k</span>
+    <span title="Word count total">站点总字数 993k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">站点阅读时长 29:52</span>
+    <span title="Reading time total">站点阅读时长 30:05</span>
   </span>
 </div>
 <div class="busuanzi-count">

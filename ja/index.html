@@ -89,7 +89,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>ホーム</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>プロフィール</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>タグ<span class="badge">114</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>カテゴリ<span class="badge">33</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>アーカイブ<span class="badge">310</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>ホーム</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>プロフィール</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>タグ<span class="badge">117</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>カテゴリ<span class="badge">34</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>アーカイブ<span class="badge">311</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>検索
         </a>
@@ -190,18 +190,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-count">311</span>
           <span class="site-state-item-name">ポスト</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">カテゴリ</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">114</span>
+        <span class="site-state-item-count">117</span>
         <span class="site-state-item-name">タグ</span></a>
       </div>
   </nav>
@@ -223,6 +223,11 @@
                 最新随笔
         </div>
         <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202311300758.html" title="Docker搭建在线网页代理实践记录" target="">
+                  Docker搭建在线网页代理实践记录
+                  </a>
+                </li>
                 <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
                   <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
                   zerotier多客户端实践应用记录
@@ -256,11 +261,6 @@
                 <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
                   <a href="/202311042118.html" title="iPad解锁激活锁苹果平板绕激活锁经验" target="">
                   iPad解锁激活锁苹果平板绕激活锁经验
-                  </a>
-                </li>
-                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
-                  <a href="/202311032202.html" title="Nginx Proxy Manager修复笔记" target="">
-                  Nginx Proxy Manager修复笔记
                   </a>
                 </li>
         </ul>
@@ -374,6 +374,376 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202311300758.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/202311300758.html" class="post-title-link" itemprop="url">Docker搭建在线网页代理实践记录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">編集日</span>
+      <time title="修正日：2023-11-30 09:27:00" itemprop="dateModified" datetime="2023-11-30T09:27:00+08:00">2023-11-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">カテゴリ</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%9C%A8%E7%BA%BF%E7%BD%91%E9%A1%B5%E4%BB%A3%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">在线网页代理</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="閲覧数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">閲覧数：</span>
+            <span id="ArtalkPV" data-page-key="/202311300758.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/202311300758.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202311300758.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="単語数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">単語数：</span>
+      <span>6.1k</span>
+    </span>
+    <span class="post-meta-item" title="読書の時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">読書の時間 &asymp;</span>
+      <span>11 分</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <img class="lozad" data-src="https://www.evernote.com/shard/s122/sh/421da190-4c8e-4b8c-a338-a0f75b7a30f6/3PqfqVwmq2eNa_DZZX3yHBmcs0ixk7PanEjMncOW9YVNyYFVTJCxsi_haA/deep/0/image.png">
+
+<p>在线网页代理，docker-compose搭建：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">在线测试</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/202311300758.html#more" rel="contents">
+                続きを読む &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202303051903.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/202303051903.html" class="post-title-link" itemprop="url">tor 网络 科学上网</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">編集日</span>
+      <time title="修正日：2023-11-29 23:11:07" itemprop="dateModified" datetime="2023-11-29T23:11:07+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">カテゴリ</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A2%99/" itemprop="url" rel="index"><span itemprop="name">墙</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="閲覧数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">閲覧数：</span>
+            <span id="ArtalkPV" data-page-key="/202303051903.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/202303051903.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202303051903.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="単語数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">単語数：</span>
+      <span>5.2k</span>
+    </span>
+    <span class="post-meta-item" title="読書の時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">読書の時間 &asymp;</span>
+      <span>10 分</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>临时的浏览墙外网址</li>
+<li>如何从Tor Network里面提取使用Socks5代理呢？How to use the socks5 proxy in Tor Network?
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/202303051903.html#more" rel="contents">
+                続きを読む &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202310051715.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/202310051715.html" class="post-title-link" itemprop="url">(转载)Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">編集日</span>
+      <time title="修正日：2023-11-29 22:34:41" itemprop="dateModified" datetime="2023-11-29T22:34:41+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">カテゴリ</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%A2%99/" itemprop="url" rel="index"><span itemprop="name">墙</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="閲覧数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">閲覧数：</span>
+            <span id="ArtalkPV" data-page-key="/202310051715.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/202310051715.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202310051715.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="単語数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">単語数：</span>
+      <span>163k</span>
+    </span>
+    <span class="post-meta-item" title="読書の時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">読書の時間 &asymp;</span>
+      <span>4:56</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1-下载与安装"><a href="#1-下载与安装" class="headerlink" title="1. 下载与安装"></a>1. 下载与安装</h1><p>   访问 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0ZuZHJvaWQvY2xhc2hfZm9yX3dpbmRvd3NfcGtnL3JlbGVhc2Vz" rel="noopener external nofollow noreferrer">Clash for Windows 官方 Github Releases</a> 或搜索 Repo 更新网站下载客户端<br>   对于 Windows，下载 Clash.for.Windows.Setup.版本号.exe 文件，不要下载带 arm64 字样的 exe 运行文件<br>   对于 MacOS，下载 Clash.for.Windows-版本号.dmg 文件。<br>   对于 Andriod, 下载等等请参见下方 Clash for Android 章节。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/202310051715.html#more" rel="contents">
+                続きを読む &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202311081003.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -402,7 +772,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">編集日</span>
-      <time title="修正日：2023-11-28 22:08:26" itemprop="dateModified" datetime="2023-11-28T22:08:26+08:00">2023-11-28</time>
+      <time title="修正日：2023-11-29 16:13:22" itemprop="dateModified" datetime="2023-11-29T16:13:22+08:00">2023-11-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -498,7 +868,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202303051903.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202211181240.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -516,7 +886,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/202303051903.html" class="post-title-link" itemprop="url">tor 网络 科学上网</a>
+          <a href="/202211181240.html" class="post-title-link" itemprop="url">E900V21C - Android机顶盒 安装APP实例</a>
         </h2>
 
         <div class="post-meta-container">
@@ -526,7 +896,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">編集日</span>
-      <time title="修正日：2023-11-28 22:06:41" itemprop="dateModified" datetime="2023-11-28T22:06:41+08:00">2023-11-28</time>
+      <time title="修正日：2023-11-29 10:32:26" itemprop="dateModified" datetime="2023-11-29T10:32:26+08:00">2023-11-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -534,7 +904,7 @@
       </span>
       <span class="post-meta-item-text">カテゴリ</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A2%99/" itemprop="url" rel="index"><span itemprop="name">墙</span></a>
+          <a href="/categories/%E5%AE%89%E5%8D%93/" itemprop="url" rel="index"><span itemprop="name">安卓</span></a>
         </span>
     </span>
 
@@ -545,7 +915,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">閲覧数：</span>
-            <span id="ArtalkPV" data-page-key="/202303051903.html" ></span>
+            <span id="ArtalkPV" data-page-key="/202211181240.html" ></span>
           </span>
         
       
@@ -555,8 +925,8 @@
               <i class="far fa-comment"></i>
             </span>
             <span class="post-meta-item-text">评论：</span>
-            <a href="/202303051903.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202303051903.html" itemprop="commentCount"></span>
+            <a href="/202211181240.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202211181240.html" itemprop="commentCount"></span>
             </a>
           </span>
         
@@ -567,7 +937,129 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">単語数：</span>
-      <span>5.2k</span>
+      <span>2.4k</span>
+    </span>
+    <span class="post-meta-item" title="読書の時間">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">読書の時間 &asymp;</span>
+      <span>4 分</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>实现往Android联通机顶盒安装APP，比如投屏类APP（比如：乐播投屏），桌面类APP（比如：沙发桌面，当贝桌面）<br>已选择N1盒子等性能更强劲的硬件的朋友，可参见: <a href="https://www.carlzeng.top/202310051529.html">网络影视资源 - IPTV直播之电视台直播源</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/202211181240.html#more" rel="contents">
+                続きを読む &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202111231111.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Zeng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/202111231111.html" class="post-title-link" itemprop="url">[GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">編集日</span>
+      <time title="修正日：2023-11-29 10:26:04" itemprop="dateModified" datetime="2023-11-29T10:26:04+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">カテゴリ</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/github/" itemprop="url" rel="index"><span itemprop="name">github</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="閲覧数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">閲覧数：</span>
+            <span id="ArtalkPV" data-page-key="/202111231111.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/202111231111.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202111231111.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="単語数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">単語数：</span>
+      <span>5.6k</span>
     </span>
     <span class="post-meta-item" title="読書の時間">
       <span class="post-meta-item-icon">
@@ -585,12 +1077,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>临时的浏览墙外网址</li>
-<li>如何从Tor Network里面提取使用Socks5代理呢？How to use the socks5 proxy in Tor Network?
+          <p>解决Github连接错误的思路<br>由于众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解决思路，希望对你有帮助：</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/202303051903.html#more" rel="contents">
+              <a class="btn" href="/202111231111.html#more" rel="contents">
                 続きを読む &raquo;
               </a>
             </div>
@@ -1725,128 +2215,6 @@ ZeroTier（目前是墙外状态） Central provides a friendly web UI and API f
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202111231111.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Zeng">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/202111231111.html" class="post-title-link" itemprop="url">[GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">編集日</span>
-      <time title="修正日：2023-11-26 14:07:17" itemprop="dateModified" datetime="2023-11-26T14:07:17+08:00">2023-11-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">カテゴリ</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/github/" itemprop="url" rel="index"><span itemprop="name">github</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="閲覧数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">閲覧数：</span>
-            <span id="ArtalkPV" data-page-key="/202111231111.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/202111231111.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202111231111.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="単語数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">単語数：</span>
-      <span>5.1k</span>
-    </span>
-    <span class="post-meta-item" title="読書の時間">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">読書の時間 &asymp;</span>
-      <span>9 分</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>由于众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解决思路，希望对你有帮助：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/202111231111.html#more" rel="contents">
-                続きを読む &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202308242111.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2441,374 +2809,6 @@ ZeroTier（目前是墙外状态） Central provides a friendly web UI and API f
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202310051715.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Zeng">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/202310051715.html" class="post-title-link" itemprop="url">(转载)Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">編集日</span>
-      <time title="修正日：2023-11-23 19:41:04" itemprop="dateModified" datetime="2023-11-23T19:41:04+08:00">2023-11-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">カテゴリ</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%A2%99/" itemprop="url" rel="index"><span itemprop="name">墙</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="閲覧数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">閲覧数：</span>
-            <span id="ArtalkPV" data-page-key="/202310051715.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/202310051715.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202310051715.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="単語数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">単語数：</span>
-      <span>162k</span>
-    </span>
-    <span class="post-meta-item" title="読書の時間">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">読書の時間 &asymp;</span>
-      <span>4:55</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="1-下载与安装"><a href="#1-下载与安装" class="headerlink" title="1. 下载与安装"></a>1. 下载与安装</h1><p>   访问 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0ZuZHJvaWQvY2xhc2hfZm9yX3dpbmRvd3NfcGtnL3JlbGVhc2Vz" rel="noopener external nofollow noreferrer">Clash for Windows 官方 Github Releases</a> 或搜索 Repo 更新网站下载客户端<br>   对于 Windows，下载 Clash.for.Windows.Setup.版本号.exe 文件，不要下载带 arm64 字样的 exe 运行文件<br>   对于 MacOS，下载 Clash.for.Windows-版本号.dmg 文件。<br>   对于 Andriod, 下载等等请参见下方 Clash for Android 章节。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/202310051715.html#more" rel="contents">
-                続きを読む &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202311201654.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Zeng">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/202311201654.html" class="post-title-link" itemprop="url">Docker搭建自动售货系统-独角数卡</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">編集日</span>
-      <time title="修正日：2023-11-22 20:18:30" itemprop="dateModified" datetime="2023-11-22T20:18:30+08:00">2023-11-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">カテゴリ</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="閲覧数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">閲覧数：</span>
-            <span id="ArtalkPV" data-page-key="/202311201654.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/202311201654.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202311201654.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="単語数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">単語数：</span>
-      <span>11k</span>
-    </span>
-    <span class="post-meta-item" title="読書の時間">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">読書の時間 &asymp;</span>
-      <span>20 分</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <img class="lozad" data-src="https://www.evernote.com/shard/s122/sh/28cd0f84-7b75-402b-a78b-0fdbc30e7615/0Vihl8lVbSwR84f1sWlHCWkZdwVZjcmThrHc-x0gAzbTvCrzNM1ztoXh0g/deep/0/image.png">
-自动售货系统-独角数卡 dujiaoka
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/202311201654.html#more" rel="contents">
-                続きを読む &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202311032202.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Zeng">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】采用合并文章持续更新的方案">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/202311032202.html" class="post-title-link" itemprop="url">Nginx Proxy Manager修复笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">編集日</span>
-      <time title="修正日：2023-11-22 19:52:59" itemprop="dateModified" datetime="2023-11-22T19:52:59+08:00">2023-11-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">カテゴリ</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Nginx-Proxy-Manager/" itemprop="url" rel="index"><span itemprop="name">Nginx Proxy Manager</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="閲覧数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">閲覧数：</span>
-            <span id="ArtalkPV" data-page-key="/202311032202.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/202311032202.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202311032202.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="単語数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">単語数：</span>
-      <span>4.7k</span>
-    </span>
-    <span class="post-meta-item" title="読書の時間">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">読書の時間 &asymp;</span>
-      <span>8 分</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <img class="lozad" data-src="https://www.evernote.com/shard/s122/sh/ce8ceac4-b340-41f4-9e1e-4f4929ec58ce/OtBRkRas9WaV8LEDHgzPycXnbgoDdWkn62Q9mVuipiG8Ladqru7Q2G0Jlg/deep/0/image.png">
-排查Nginx Proxy Manager，反向代理，让网站变成HTTPS
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/202311032202.html#more" rel="contents">
-                続きを読む &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/ja/page/2/">2</a><a class="page-number" href="/ja/page/3/">3</a><a class="page-number" href="/ja/page/4/">4</a><a class="page-number" href="/ja/page/5/">5</a><a class="page-number" href="/ja/page/6/">6</a><a class="page-number" href="/ja/page/7/">7</a><a class="page-number" href="/ja/page/8/">8</a><a class="page-number" href="/ja/page/9/">9</a><a class="page-number" href="/ja/page/10/">10</a><a class="page-number" href="/ja/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/ja/page/16/">16</a><a class="extend next" rel="next" title="次のページ" aria-label="次のページ" href="/ja/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -2870,13 +2870,13 @@ ZeroTier（目前是墙外状态） Central provides a friendly web UI and API f
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="単語の総数">站点总字数 986k</span>
+    <span title="単語の総数">站点总字数 993k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="読書の合計時間">站点阅读时长 29:52</span>
+    <span title="読書の合計時間">站点阅读时长 30:05</span>
   </span>
 </div>
 <div class="busuanzi-count">
