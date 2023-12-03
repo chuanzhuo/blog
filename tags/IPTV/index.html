@@ -472,7 +472,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 30:22</span>
+    <span title="站点阅读时长">站点阅读时长 30:23</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -580,34 +580,6 @@
 <script data-pjax type="text/javascript">
 ;(function() {
   if (CONFIG.page.comments) {
-
-    NexT.utils.loadComments(CONFIG.artalk.el)
-      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
-        condition: window.Artalk 
-      }))
-      .then(() => {
-        Artalk.init(CONFIG.artalk);
-      });
-
-  } else {
-
-    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
-      condition: window.Artalk 
-    }).then(() => {
-      Artalk.loadCountWidget({
-        server: CONFIG.artalk.server,
-        site: CONFIG.artalk.site,
-        pvEl: '#ArtalkPV',
-        countEl: '#ArtalkCount',
-      });
-    })
-
-  }
-})();
-</script>
-</body>
-</html>
-CONFIG.page.comments) {
 
     NexT.utils.loadComments(CONFIG.artalk.el)
       .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
