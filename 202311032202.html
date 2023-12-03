@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/ce8ceac4-b340-41f4-9e1e-4f4929ec58ce/OtBRkRas9WaV8LEDHgzPycXnbgoDdWkn62Q9mVuipiG8Ladqru7Q2G0Jlg/deep/0/image.png">
 <meta property="article:published_time" content="2023-11-03T14:02:36.000Z">
-<meta property="article:modified_time" content="2023-12-01T03:33:47.202Z">
+<meta property="article:modified_time" content="2023-12-03T02:19:15.602Z">
 <meta property="article:author" content="Carl Zeng">
 <meta property="article:tag" content="docker-compose">
 <meta property="article:tag" content="docker">
@@ -188,7 +188,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%BC%96%E8%BE%91artalk%E7%9A%84robots-txt"><span class="nav-number">2.1.</span> <span class="nav-text">如何编辑artalk的robots.txt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian-11%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80"><span class="nav-number">2.2.</span> <span class="nav-text">Debian 11的一些基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%A9%E7%9F%ADURL%E4%B9%8B%E7%AE%80%E5%8C%964443%E7%AB%AF%E5%8F%A3%E6%88%903%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.3.</span> <span class="nav-text">缩短URL之简化4443端口成3端口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B9%8B%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5"><span class="nav-number">2.3.1.</span> <span class="nav-text">Docker端口映射之一对多的几种情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM%E5%BC%8A%E7%AB%AF%EF%BC%9F"><span class="nav-number">2.4.</span> <span class="nav-text">NPM弊端？</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%BC%96%E8%BE%91artalk%E7%9A%84robots-txt"><span class="nav-number">2.1.</span> <span class="nav-text">如何编辑artalk的robots.txt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian-11%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80"><span class="nav-number">2.2.</span> <span class="nav-text">Debian 11的一些基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%A9%E7%9F%ADURL%E4%B9%8B%E7%AE%80%E5%8C%964443%E7%AB%AF%E5%8F%A3%E6%88%903%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.3.</span> <span class="nav-text">缩短URL之简化4443端口成3端口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B9%8B%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5"><span class="nav-number">2.3.1.</span> <span class="nav-text">Docker端口映射之一对多的几种情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM%E5%BC%8A%E7%AB%AF%EF%BC%9F"><span class="nav-number">2.4.</span> <span class="nav-text">NPM弊端？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#J4125-pve%E5%8D%8A%E6%AD%BB%E7%8A%B6%E6%80%81"><span class="nav-number">2.5.</span> <span class="nav-text">J4125 pve半死状态</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -237,16 +237,6 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200810011925.html" rel="bookmark">
-      jseclipse_plugin_040207.zip-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200809301259.html" rel="bookmark">
-      jseclipse_plugin_040207.zip-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202310261222.html" rel="bookmark">
       Hexo定制之家宽部署artalk评论
       </a>
@@ -257,8 +247,18 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312011625.html" rel="bookmark">
-      Docker搭建站点统计程序Matomo
+      <a class="popular-posts-link" href="/200810011925.html" rel="bookmark">
+      jseclipse_plugin_040207.zip-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200809301259.html" rel="bookmark">
+      jseclipse_plugin_040207.zip-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
+      云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
@@ -267,8 +267,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
-      云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
       </a>
     </li>
   </ul>
@@ -464,7 +464,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-01 11:33:47" itemprop="dateModified" datetime="2023-12-01T11:33:47+08:00">2023-12-01</time>
+      <time title="修改时间：2023-12-03 10:19:15" itemprop="dateModified" datetime="2023-12-03T10:19:15+08:00">2023-12-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -505,14 +505,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.8k</span>
+      <span>6.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>9 分钟</span>
+      <span>11 分钟</span>
     </span>
 </div>
 
@@ -573,8 +573,7 @@ dns_cloudflare_api_token e385e19ce47c207b15bf@@@@@
 <ol>
 <li><p>修改配置nginx问题	root@Debian11:&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;NginxPorxyManager&#x2F;template&#x2F;data&#x2F;nginx&#x2F;proxy_host# vi 1.conf </p>
 </li>
-<li><p>重启NPM docker-compose<br> root@Debian11:&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;NginxPorxyManager&#x2F;template# docker-compose restart
- </p>
+<li><p>重启NPM docker-compose<br> root@Debian11:&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;NginxPorxyManager&#x2F;template# docker-compose restart</p>
 </li>
 <li><p>验证 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hcnRhbGsuY2FybHplbmcudG9wOjQ0NDMvcm9ib3RzLnR4dA==" rel="noopener external nofollow noreferrer">https://artalk.carlzeng.top:4443/robots.txt</a><br> User-agent: *<br> Allow:&#x2F;<br> Works perfect</p>
 </li>
@@ -599,6 +598,69 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 </ol>
 <h2 id="NPM弊端？"><a href="#NPM弊端？" class="headerlink" title="NPM弊端？"></a>NPM弊端？</h2><p>不知为何本地局域网可访问的<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxLw==" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/</a> 无法映射代理到外网，来实现npm自己代理自己的目标。</p>
 <p>真是奇怪，<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ucG0uY2FybHplbmcudG9wOjQ0NDMv" rel="noopener external nofollow noreferrer">https://npm.carlzeng.top:4443/</a> 更可能是NPM自己做了什么设置？无法自己代理自己的web管理服务？</p>
+<h2 id="J4125-pve半死状态"><a href="#J4125-pve半死状态" class="headerlink" title="J4125 pve半死状态"></a>J4125 pve半死状态</h2><p>这种状态大约半个月左右出现一次；难受；这次是（已启动13天1小时20分57秒）</p>
+<p>现象：</p>
+<ol>
+<li><p>各个设备终端上网正常</p>
+</li>
+<li><p>画面卡死，无法登录 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxL25naW54L3Byb3h5" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/nginx/proxy</a></p>
+</li>
+<li><p>SSH可以到达192.168.6.1</p>
+<ol>
+<li>web到OP也正常</li>
+</ol>
+</li>
+<li><p>无法连接pve <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8xOTIuMTY4LjYuMjo4MDA2Lw==" rel="noopener external nofollow noreferrer">https://192.168.6.2:8006</a></p>
+<ol>
+<li>This site can’t be reached192.168.6.2 took too long to respond.</li>
+</ol>
+</li>
+<li><p>SSH无法到达bebian .116的</p>
+<ol>
+<li>kex_exchange_identification: read: Operation timed out<br>banner exchange: Connection to 192.168.6.116 port 22: Operation timed out</li>
+</ol>
+</li>
+<li><p>metaUI无法正常打开，<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MC8jL292ZXJ2aWV3" rel="noopener external nofollow noreferrer">http://192.168.6.116:9090/#/overview</a></p>
+<ol>
+<li>This site can’t be reached192.168.6.116 took too long to respond.</li>
+</ol>
+</li>
+<li><p>StatCount 无法正常打开，<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODU5Ny9pbmRleC5waHA/bW9kdWxlPUNvcmVIb21lJmFjdGlvbj1pbmRleCZpZFNpdGU9MSZwZXJpb2Q9ZGF5JmRhdGU9eWVzdGVyZGF5Iz9wZXJpb2Q9ZGF5JmRhdGU9MjAyMy0xMi0wMSZpZFNpdGU9MSZjYXRlZ29yeT1EYXNoYm9hcmRfRGFzaGJvYXJkJnN1YmNhdGVnb3J5PTE=" rel="noopener external nofollow noreferrer">http://192.168.6.116:8597/index.php?module=CoreHome&amp;action=index&amp;idSite=1&amp;period=day&amp;date=yesterday#?period=day&amp;date=2023-12-01&amp;idSite=1&amp;category=Dashboard_Dashboard&amp;subcategory=1</a></p>
+</li>
+<li><p>This site can’t be reached192.168.6.116 took too long to respond.</p>
+</li>
+<li><p>IPNAS 无法打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4yMDM6NTAwMC8=" rel="noopener external nofollow noreferrer">http://192.168.6.203:5000/</a></p>
+<ol>
+<li>奇怪的是：用手机可以正常打开；反复测试中</li>
+</ol>
+</li>
+<li><p>NAS中的docker Aria2 可以正常使用 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hcmlhMi5jYXJsemVuZy50b3A6NDQ0My8jIS9kb3dubG9hZGluZw==" rel="noopener external nofollow noreferrer">https://aria2.carlzeng.top:4443/#!/downloading</a></p>
+</li>
+<li><p>Debian clash 的 7890无法正常使用</p>
+</li>
+<li><p>Debian</p>
+<ol>
+<li>artalk 正常</li>
+<li>bt 无法连接web</li>
+<li>dujiaoka正常<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9idXkuY2FybHplbmcudG9wOjQ0NDMv" rel="noopener external nofollow noreferrer">https://buy.carlzeng.top:4443/</a></li>
+<li>Yourls正常<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2FkbWluL2luZGV4LnBocA==" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:3/admin/index.php</a><ol>
+<li>Yourls后台可以正常登录查看<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2FkbWluL2luZGV4LnBocA==" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:3/admin/index.php</a></li>
+</ol>
+</li>
+<li>metaUI又能正常打开了，<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MC8jL292ZXJ2aWV3" rel="noopener external nofollow noreferrer">http://192.168.6.116:9090/#/overview</a><ol>
+<li>可是，仍然无法连接到<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MS8=" rel="noopener external nofollow noreferrer">http://192.168.6.116:9091</a></li>
+</ol>
+</li>
+<li>NPM无法正常打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxL25naW54L3Byb3h5" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/nginx/proxy</a></li>
+<li>Hnet Web首页正常了<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9wcm94eS5jYXJsemVuZy50b3A6NDQ0My8=" rel="noopener external nofollow noreferrer">https://proxy.carlzeng.top:4443/</a></li>
+<li>电脑端的statcounter无法打开，可是手机端（在系统中）可以正常查看各种信息<ol>
+<li>奇怪</li>
+</ol>
+</li>
+<li></li>
+</ol>
+</li>
+</ol>
 
     </div>
 
@@ -655,16 +717,6 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200810011925.html" rel="bookmark">
-      jseclipse_plugin_040207.zip-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200809301259.html" rel="bookmark">
-      jseclipse_plugin_040207.zip-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202310261222.html" rel="bookmark">
       Hexo定制之家宽部署artalk评论
       </a>
@@ -675,8 +727,18 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312011625.html" rel="bookmark">
-      Docker搭建站点统计程序Matomo
+      <a class="popular-posts-link" href="/200810011925.html" rel="bookmark">
+      jseclipse_plugin_040207.zip-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200809301259.html" rel="bookmark">
+      jseclipse_plugin_040207.zip-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
+      云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
@@ -685,8 +747,8 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
-      云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
       </a>
     </li>
   </ul>
@@ -802,7 +864,7 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-12-01 11:33:47" itemprop="dateModified" datetime="2023-12-01T11:33:47+08:00">2023-12-01</time>
+        <time title="修改时间：2023-12-03 10:19:15" itemprop="dateModified" datetime="2023-12-03T10:19:15+08:00">2023-12-03</time>
       </span>
 
 </div>
@@ -908,7 +970,7 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">站点阅读时长 30:19</span>
+    <span title="站点阅读时长">站点阅读时长 30:22</span>
   </span>
 </div>
 <div class="busuanzi-count">
