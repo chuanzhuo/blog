@@ -20,16 +20,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="在线网页代理，docker-compose搭建：在线测试">
+    <meta name="description" content="访问国际互联网 在线网页代理，docker-compose搭建访问国际互联网：在线测试访问国际互联网">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker搭建在线网页代理实践记录">
 <meta property="og:url" content="https://www.carlzeng.top/zh-TW/202311300758.html">
 <meta property="og:site_name" content="随笔 Carl Notes">
-<meta property="og:description" content="在线网页代理，docker-compose搭建：在线测试">
+<meta property="og:description" content="访问国际互联网 在线网页代理，docker-compose搭建访问国际互联网：在线测试访问国际互联网">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/421da190-4c8e-4b8c-a338-a0f75b7a30f6/3PqfqVwmq2eNa_DZZX3yHBmcs0ixk7PanEjMncOW9YVNyYFVTJCxsi_haA/deep/0/image.png">
 <meta property="article:published_time" content="2023-11-29T23:58:06.000Z">
-<meta property="article:modified_time" content="2023-12-03T06:21:11.054Z">
+<meta property="article:modified_time" content="2023-12-05T03:57:29.992Z">
 <meta property="article:author" content="Carl Zeng">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="docker-compose">
@@ -98,7 +98,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">126</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">37</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">314</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">126</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">38</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">314</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
         </a>
@@ -171,7 +171,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%93%E9%AA%8C-%E8%AF%95%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">体验+试用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E7%AB%AF"><span class="nav-number">3.1.</span> <span class="nav-text">安卓手机端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B5%E8%84%91%E7%AB%AF"><span class="nav-number">3.2.</span> <span class="nav-text">电脑端</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">4.</span> <span class="nav-text">灵感来源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8debian%E4%B8%AD%E6%90%AD%E5%BB%BAclash-meta"><span class="nav-number">5.</span> <span class="nav-text">如何在debian中搭建clash.meta</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E5%BE%88%E8%89%B0%E8%BE%9B"><span class="nav-number">5.1.</span> <span class="nav-text">过程很艰辛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%E6%9D%A5%E6%BA%90%E5%8F%8A%E5%85%B3%E8%81%94"><span class="nav-number">5.2.</span> <span class="nav-text">思路来源及关联</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%93%E9%AA%8C-%E8%AF%95%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">体验+试用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E7%AB%AF"><span class="nav-number">4.1.</span> <span class="nav-text">安卓手机端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B5%E8%84%91%E7%AB%AF"><span class="nav-number">4.2.</span> <span class="nav-text">电脑端</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">灵感来源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8debian%E4%B8%AD%E6%90%AD%E5%BB%BAclash-meta"><span class="nav-number">6.</span> <span class="nav-text">如何在debian中搭建clash.meta</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E5%BE%88%E8%89%B0%E8%BE%9B"><span class="nav-number">6.1.</span> <span class="nav-text">过程很艰辛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%E6%9D%A5%E6%BA%90%E5%8F%8A%E5%85%B3%E8%81%94"><span class="nav-number">6.2.</span> <span class="nav-text">思路来源及关联</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -190,7 +190,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -240,6 +240,11 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312031926.html" rel="bookmark">
+      Docker搭建FRP内网穿透服务
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202311201654.html" rel="bookmark">
       Docker搭建自动售货系统-独角数卡
       </a>
@@ -247,11 +252,6 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202303051903.html" rel="bookmark">
       tor 网络 科学上网
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312031926.html" rel="bookmark">
-      Docker搭建FRP内网穿透服务
       </a>
     </li>
   </ul>
@@ -447,7 +447,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-12-03 14:21:11" itemprop="dateModified" datetime="2023-12-03T14:21:11+08:00">2023-12-03</time>
+      <time title="修改時間：2023-12-05 11:57:29" itemprop="dateModified" datetime="2023-12-05T11:57:29+08:00">2023-12-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -488,14 +488,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">文章字數：</span>
-      <span>6.2k</span>
+      <span>6.4k</span>
     </span>
     <span class="post-meta-item" title="所需閱讀時間">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-      <span>11 分鐘</span>
+      <span>12 分鐘</span>
     </span>
 </div>
 
@@ -507,12 +507,20 @@
     
     <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://www.evernote.com/shard/s122/sh/421da190-4c8e-4b8c-a338-a0f75b7a30f6/3PqfqVwmq2eNa_DZZX3yHBmcs0ixk7PanEjMncOW9YVNyYFVTJCxsi_haA/deep/0/image.png">
 
-<p>在线网页代理，docker-compose搭建：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">在线测试</a></p>
+<p>访问国际互联网</p>
+<p>在线网页代理，docker-compose搭建访问国际互联网：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">在线测试访问国际互联网</a></p>
 <span id="more"></span>
 
-<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>在线网页代理，docker-compose搭建：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:3/web</a></p>
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>在线网页代理，docker-compose搭建访问国际互联网：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:3/web</a></p>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><ol>
+<li>打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">在线测试访问国际互联网</a></li>
+<li>在文本框中键盘按键输入要访问的网址( 比如: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5nb29nbGUuY29tLw==" rel="noopener external nofollow noreferrer">www.google.com</a>)</li>
+<li>键盘回车</li>
+<li>网页会弹出匿名访问的国际互联网google.com，或者输入<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy55b3V0dWJlLmNvbeWbnui9puiuv+mXri8=" rel="noopener external nofollow noreferrer">www.youtube.com回车访问</a></li>
+<li>在这访问的新页面就可以继续访问国际互联网（比如继续点击页面中的视频等…）</li>
+</ol>
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>个人安装路径（仅供参考）&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;hideipnetwork-web<br>最终版本的docker-compose.yml文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3&quot;</span><br><span class="line">services:</span><br><span class="line">  browser:</span><br><span class="line">    image: stilleshan/hideipnetwork-web</span><br><span class="line">    container_name: hideipnetwork</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - 56559:56559</span><br><span class="line">    volumes:</span><br><span class="line">    	#这里映射浏览网页时出J4125走的代理的地址</span><br><span class="line">      - ./socks5.txt:/app/proxy/socks5.txt </span><br><span class="line">      	#这个配置文件，要修改到MODO从normal到socks5</span><br><span class="line">      - ./.env:/app/.env</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3&quot;</span><br><span class="line">services:</span><br><span class="line">  browser:</span><br><span class="line">    image: stilleshan/hideipnetwork-web</span><br><span class="line">    container_name: hideipnetwork</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - 56559:56559</span><br><span class="line">    volumes:</span><br><span class="line">    	#这里映射浏览网页时出J4125走的代理的地址</span><br><span class="line">      - ./socks5.txt:/app/proxy/socks5.txt </span><br><span class="line">      	#这个配置文件，要修改到MODO从normal到socks5</span><br><span class="line">      - ./.env:/app/.env</span><br><span class="line">      - ./public/server/server.client.js:/app/public/server/server.client.js</span><br></pre></td></tr></table></figure>
 
 
 <p>这是具体的.env文件内容：</p>
@@ -647,6 +655,11 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312031926.html" rel="bookmark">
+      Docker搭建FRP内网穿透服务
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202311201654.html" rel="bookmark">
       Docker搭建自动售货系统-独角数卡
       </a>
@@ -654,11 +667,6 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202303051903.html" rel="bookmark">
       tor 网络 科学上网
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312031926.html" rel="bookmark">
-      Docker搭建FRP内网穿透服务
       </a>
     </li>
   </ul>
@@ -774,7 +782,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2023-12-03 14:21:11" itemprop="dateModified" datetime="2023-12-03T14:21:11+08:00">2023-12-03</time>
+        <time title="修改時間：2023-12-05 11:57:29" itemprop="dateModified" datetime="2023-12-05T11:57:29+08:00">2023-12-05</time>
       </span>
 
 </div>
@@ -863,7 +871,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">站点阅读时长 30:41</span>
+    <span title="所需總閱讀時間">站点阅读时长 30:44</span>
   </span>
 </div>
 <div class="busuanzi-count">
