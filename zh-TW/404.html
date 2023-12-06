@@ -28,7 +28,7 @@
 <meta property="og:description" content="&#x2F;&#x2F; A local search script with the help of [hexo-generator-search](https:&#x2F;&#x2F;github.com&#x2F;PaicHyperionDev&#x2F;hexo-generator-search) &#x2F;&#x2F; Copyright (C) 2015  &#x2F;&#x2F; Joseph Pan  &#x2F;&#x2F; Shuhao Mao  &#x2F;&#x2F; This l">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2023-10-15T14:22:31.000Z">
-<meta property="article:modified_time" content="2023-11-23T03:32:40.570Z">
+<meta property="article:modified_time" content="2023-12-05T23:54:42.546Z">
 <meta property="article:author" content="Carl Zeng">
 <meta name="twitter:card" content="summary">
 
@@ -490,7 +490,7 @@ url: $( "url" , this).text()
                                 // highlight all keywords
                                 keywords.forEach(function (keyword) {
                                     var regS = new RegExp(keyword, "gi");
-                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    match_content = match_content.replace(regS, "<mark class=\"search-keyword\">" + keyword + "</mark>");
                                 });
 
                                 str += "<p class=\"search-result\">" + match_content + "...</p>"
@@ -518,8 +518,7 @@ url: $( "url" , this).text()
 <li><a href="https://www.carlzeng.top/202211181240.html?highlight=iptv">E900V21C - Android联通 机顶盒 安装APP实例</a></li>
 <li><a href="https://www.carlzeng.top/202301101115.html?highlight=iptv">(强大的ffmpeg)如何下载并转化网络M3U8文件为mp4文件</a></li>
 </ul>
-<h2 id="请输入要搜索的内容"><a href="#请输入要搜索的内容" class="headerlink" title="请输入要搜索的内容"></a>请输入要搜索的内容</h2><p>为了更好地持续此项目，对原网址进行了升级改造；您所访问的内容依旧存在，可点击”全站检索”。<br>请直接修改(或在下方输入)关键字查找最新版的内容：</p>
-<div id="site_search">
+<h2 id="请输入要搜索的内容"><a href="#请输入要搜索的内容" class="headerlink" title="请输入要搜索的内容"></a>请输入要搜索的内容</h2><div id="site_search">
     <style>#site_search {
         padding-left: 10px;
     }</style>
@@ -638,7 +637,7 @@ url: $( "url" , this).text()
                                 // highlight all keywords
                                 keywords.forEach(function (keyword) {
                                     var regS = new RegExp(keyword, "gi");
-                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    match_content = match_content.replace(regS, "<mark class=\"search-keyword\">" + keyword + "</mark>");
                                 });
 
                                 str += "<p class=\"search-result\">" + match_content + "...</p>"
@@ -720,7 +719,7 @@ searchFunc_initPage(path, 'local-search-input', 'local-search-result');
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">站点阅读时长 30:52</span>
+    <span title="所需總閱讀時間">站点阅读时长 30:53</span>
   </span>
 </div>
 <div class="busuanzi-count">
