@@ -575,38 +575,3 @@
 </script>
 </body>
 </html>
-":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/tags/IPTV/"}</script>
-
-<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
-<style>.artalk{width:initial;}</style>
-
-<script data-pjax type="text/javascript">
-;(function() {
-  if (CONFIG.page.comments) {
-
-    NexT.utils.loadComments(CONFIG.artalk.el)
-      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
-        condition: window.Artalk 
-      }))
-      .then(() => {
-        Artalk.init(CONFIG.artalk);
-      });
-
-  } else {
-
-    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
-      condition: window.Artalk 
-    }).then(() => {
-      Artalk.loadCountWidget({
-        server: CONFIG.artalk.server,
-        site: CONFIG.artalk.site,
-        pvEl: '#ArtalkPV',
-        countEl: '#ArtalkCount',
-      });
-    })
-
-  }
-})();
-</script>
-</body>
-</html>
