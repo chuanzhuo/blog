@@ -728,7 +728,28 @@ URL自动携带端口，没有解决。
 <p>Request failed with status code 405 Method Not Allowed</p>
 <figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">BUG</span><br><span class="line">	zzzgydi/clash-verge </span><br><span class="line">	https://github.com/zzzgydi/clash-verge/issues/808</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	mixed-port: 7890</span><br><span class="line">	secret: **********</span><br><span class="line">	external-controller: 0.0.0.0:9090</span><br><span class="line"></span><br><span class="line">	终于按文档配置成功：https://github.com/MetaCubeX/metacubexd/tree/main</span><br><span class="line">	Enable external-controller in your config file</span><br><span class="line">		external-controller: 0.0.0.0:9090</span><br><span class="line">		Use pre-built assets from gh-pages branch</span><br><span class="line">		First time setup</span><br><span class="line"></span><br><span class="line">		git clone https://github.com/metacubex/metacubexd.git -b gh-pages /etc/clash-meta/ui</span><br><span class="line">		Make sure you have external-ui directory set correctly in your config file</span><br><span class="line"></span><br><span class="line">		external-ui: /etc/clash-meta/ui</span><br><span class="line">	works great: http://192.168.6.116:9090/<span class="comment">#/config</span></span><br><span class="line"></span><br><span class="line">	修改后端：http://192.168.6.116:9090/<span class="comment">#/setup</span></span><br><span class="line">		http://192.168.6.116:9091</span><br><span class="line">		**********</span><br><span class="line">	对应config.yaml中的配置</span><br></pre></td></tr></table></figure>
 <h2 id="思路来源及关联"><a href="#思路来源及关联" class="headerlink" title="思路来源及关联"></a>思路来源及关联</h2><p><a href ="">Clash for Windows 设置方法入门(适用于Windows+Mac)</a>)<br><a href ="/202310011555.html">go语言学习与应用日志-proxypool</a>)</p>
-<h1 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h1><iframe src="https://proxy.carlzeng.top:3" height="500px" width="100%" scrolling="auto" frameborder="0" style="box-shadow: 0px 0px 20px -10px"></iframe> 
+<h1 id="预览HNet"><a href="#预览HNet" class="headerlink" title="预览HNet"></a>预览HNet</h1><iframe src="https://proxy.carlzeng.top:3" height="500px" width="100%" scrolling="auto" frameborder="0" style="box-shadow: 0px 0px 20px -10px"></iframe> 
+
+
+
+<hr>
+<h1 id="Docker-container-for-Firefox"><a href="#Docker-container-for-Firefox" class="headerlink" title="Docker container for Firefox"></a>Docker container for Firefox</h1><p>这个方案脑洞大开了，This is a Docker container for Firefox.</p>
+<p>The GUI of the application is accessed through a modern web browser (no installation or configuration needed on the client side) or via any VNC client. Full documentation is available at <a href="https://github.com/jlesage/docker-firefox">https://github.com/jlesage/docker-firefox</a>.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name=firefox \</span><br><span class="line">    -p 5800:5800 \</span><br><span class="line">    -v ./firefox_config:/config \</span><br><span class="line">    jlesage/firefox</span><br><span class="line">    </span><br><span class="line">要用到这个</span><br><span class="line">-e &quot;FF_PREF_HTTP_PROXY=network.proxy.http=\&quot;proxy.example.com\&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line">services:</span><br><span class="line">  firefox:</span><br><span class="line">    image: jlesage/firefox</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;5800:5800&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - &quot;./firefox_config:/config&quot;</span><br><span class="line">    environment:</span><br><span class="line">    	- &quot;FF_PREF_PROXY_TYPE=network.proxy.type=1&quot;</span><br><span class="line">      - &quot;FF_PREF_HTTP_PROXY=network.proxy.http=192.168.6.116&quot;</span><br><span class="line">      - &quot;FF_PREF_HTTP_PROXY=network.proxy.http_port=7890&quot;</span><br><span class="line">      - &quot;FF_OPEN_URL=www.carlzeng.top&quot; #仅个人测试使用</span><br></pre></td></tr></table></figure>
+
+<p>开放5800端口，反代出<a href="https://c.carlzeng.top:4443/web2">https://c.carlzeng.top:4443/web2</a></p>
+<h2 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h2><p>用法和您本地的浏览器用法一样！</p>
+<ol>
+<li>打开<a href="https://c.carlzeng.top:4443/web2">在线浏览器</a></li>
+<li>输入您要访问的网址<ol>
+<li>比如：<a href="http://www.google.com/">www.google.com</a> 回车访问</li>
+<li>或输入：<a href="http://www.youtube.com/">www.youtube.com</a> 回车访问</li>
+</ol>
+</li>
+</ol>
+<h1 id="预览Firefox"><a href="#预览Firefox" class="headerlink" title="预览Firefox"></a>预览Firefox</h1><iframe src="https://c.carlzeng.top:3/web2" height="500px" width="100%" scrolling="auto" frameborder="0" style="box-shadow: 0px 0px 20px -10px"></iframe> 
 ]]></content>
       <categories>
         <category>在线网页代理</category>
@@ -739,6 +760,7 @@ URL自动携带端口，没有解决。
         <tag>家宽</tag>
         <tag>J4125</tag>
         <tag>HNet</tag>
+        <tag>firefox</tag>
       </tags>
   </entry>
   <entry>
@@ -15761,6 +15783,7 @@ html document if you wanna to use the script.
     <content><![CDATA[<p>直播源，自用直播源，思路探讨</p>
 <div class="note success"><p>2023年12月：docker搭建支持m3u链接、m3u源文件等IPTV源检查器</p>
 <p>打开试用<a href="https://c.carlzeng.top:4443/iptvcheck">IPTV Checker</a> 或拉到最下方的 <a href="https://carlzeng.top/202310051529.html#%E5%9C%A8%E7%BA%BFIPTV-%E6%A3%80%E6%9F%A5%E6%BA%90%E6%9C%89%E6%95%88%E6%80%A7">在线IPTV 检查源有效性</a>，<a href="https://www.carlzeng.top/202312081128.html">在线M3U8播放器</a></p>
+<p>Emby家庭媒体服务器：<a href="https://c.carlzeng.top:4443/iptv">观看IPTV直播，测试M3U直播源</a></p>
 </div>
 
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>IPTV (Internet Protocol television) 直播源，自用直播源</p>
@@ -15904,6 +15927,10 @@ html document if you wanna to use the script.
 <p><img data-src="https://www.evernote.com/shard/s122/sh/05487d3f-2c2e-4f4f-bf11-cd1d41195ee9/RA9ySrTBF0WdtsFcoOhGh4dQHro9OTm_lhde2pfe8plYZ3p1Epe8SUDLYA/deep/0/image.png" alt="CNA"></p>
 <p>输入M3U8地址，点击“立即播放”</p>
 <p>有网址打开不开情况，请复制网址然后粘贴到 <a href="https://c.carlzeng.top:4443/web">在线网络加速器</a> 打开</p>
+<h2 id="在线M3U播放器"><a href="#在线M3U播放器" class="headerlink" title="在线M3U播放器"></a>在线M3U播放器</h2><p>Emby家庭媒体服务器：<a href="https://c.carlzeng.top:4443/iptv">观看IPTV直播，测试M3U直播源</a><br>用户名和密码都是user</p>
+<p>观看IPTV直播，测试M3U直播源</p>
+<p><img data-src="https://www.evernote.com/shard/s122/sh/d4612f5d-0774-44d5-b839-12eb533f9da6/xmoBY6HxRDCpm0PXA0FyHuIdrFaGg71-sJBvB1pAzGtN5dlk_-QYV2Oo3A/deep/0/image.png" alt="EMBY-IPTV"></p>
+<p>访问：<a href="https://c.carlzeng.top:4443/iptv">观看IPTV直播，测试M3U直播源</a></p>
 <hr>
 <p>本文最新版地址: <a href="https://carlzeng.top/202310051529?highlight=iptv">https://carlzeng.top/202310051529?highlight=iptv</a></p>
 <h2 id="IPTV相关文章"><a href="#IPTV相关文章" class="headerlink" title="IPTV相关文章"></a>IPTV相关文章</h2><ul>
