@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://unpkg.com/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
   <script src="https://unpkg.com/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="The LEDE Project ssh修改80管理端口 排查及优化Openwrt内存占用">
 <meta property="og:type" content="article">
@@ -27,14 +27,19 @@
 <meta property="og:site_name" content="随笔 Carl Notes">
 <meta property="og:description" content="The LEDE Project ssh修改80管理端口 排查及优化Openwrt内存占用">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://www.evernote.com/shard/s122/sh/a104a5d9-edac-4c2f-8539-390534af86ba/OlRv4r57iAyhSvr2cNbJCVORou8YVWp9iTQq6vZy3zQkeyCrezsfcqvvJA/deep/0/image.png">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/51ce06fc-468a-443b-b402-898836f228cf/HxKZgH2mi1Fxiap5NixoZB1KLGeKaGoupvzg5CrUuaLdUh3JURpaWPmzYg/deep/0/image.png">
 <meta property="article:published_time" content="2023-08-24T13:11:00.000Z">
-<meta property="article:modified_time" content="2023-12-04T15:23:07.447Z">
+<meta property="article:modified_time" content="2023-12-10T02:08:35.509Z">
 <meta property="article:author" content="Carl Notes">
+<meta property="article:tag" content="家宽">
 <meta property="article:tag" content="OpenWrt">
 <meta property="article:tag" content="linux">
+<meta property="article:tag" content="路由器">
+<meta property="article:tag" content="Nginx">
+<meta property="article:tag" content="LEDE">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.evernote.com/shard/s122/sh/51ce06fc-468a-443b-b402-898836f228cf/HxKZgH2mi1Fxiap5NixoZB1KLGeKaGoupvzg5CrUuaLdUh3JURpaWPmzYg/deep/0/image.png">
+<meta name="twitter:image" content="https://www.evernote.com/shard/s122/sh/a104a5d9-edac-4c2f-8539-390534af86ba/OlRv4r57iAyhSvr2cNbJCVORou8YVWp9iTQq6vZy3zQkeyCrezsfcqvvJA/deep/0/image.png">
 
 
 <link rel="canonical" href="https://www.carlzeng.top/zh-TW/202308242111.html">
@@ -95,7 +100,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">132</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">39</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">317</span></a></li><li class="menu-item menu-item-ai问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>音乐</a></li><li class="menu-item menu-item-在线浏览器"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>在线浏览器</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">138</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">40</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">318</span></a></li><li class="menu-item menu-item-ai问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>音乐</a></li><li class="menu-item menu-item-在线浏览器"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>在线浏览器</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
         </a>
@@ -168,7 +173,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Btcp%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5"><span class="nav-number">2.</span> <span class="nav-text">查看tcp端口占用情况</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8ELEDE-OpenWrt"><span class="nav-number">3.</span> <span class="nav-text">关于LEDE OpenWrt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.1.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8EX86-64%E4%BD%8D%E6%9E%84%E6%9E%B6%E7%9A%84OpenWrt"><span class="nav-number">4.</span> <span class="nav-text">关于X86_64位构架的OpenWrt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E6%9F%A5%E5%8F%8A%E4%BC%98%E5%8C%96Openwrt%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8"><span class="nav-number">4.1.</span> <span class="nav-text">排查及优化Openwrt内存占用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9OpenWrt%E7%9A%84%E9%BB%98%E8%AE%A480%E7%AE%A1%E7%90%86%E7%AB%AF%E5%8F%A3"><span class="nav-number">4.2.</span> <span class="nav-text">修改OpenWrt的默认80管理端口</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Btcp%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5"><span class="nav-number">3.</span> <span class="nav-text">查看tcp端口占用情况</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8ELEDE-OpenWrt"><span class="nav-number">4.</span> <span class="nav-text">关于LEDE OpenWrt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">4.1.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8EX86-64%E4%BD%8D%E6%9E%84%E6%9E%B6%E7%9A%84OpenWrt"><span class="nav-number">5.</span> <span class="nav-text">关于X86_64位构架的OpenWrt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E6%9F%A5%E5%8F%8A%E4%BC%98%E5%8C%96Openwrt%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8"><span class="nav-number">5.1.</span> <span class="nav-text">排查及优化Openwrt内存占用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9OpenWrt%E7%9A%84%E9%BB%98%E8%AE%A480%E7%AE%A1%E7%90%86%E7%AB%AF%E5%8F%A3"><span class="nav-number">5.2.</span> <span class="nav-text">修改OpenWrt的默认80管理端口</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -181,18 +186,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">317</span>
+          <span class="site-state-item-count">318</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">132</span>
+        <span class="site-state-item-count">138</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -212,8 +217,18 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310110855.html" rel="bookmark">
+      UTM虚拟机在MAC M1下Kali Linux实战
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/201603222129.html" rel="bookmark">
       OpenWrt >  ADSL单线多拨，负载均衡(供参考)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
       </a>
     </li>
     <li class="popular-posts-item">
@@ -222,8 +237,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310110855.html" rel="bookmark">
-      UTM虚拟机在MAC M1下Kali Linux实战
+      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
+      Nginx Proxy Manager修复笔记
       </a>
     </li>
     <li class="popular-posts-item">
@@ -232,23 +247,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312031926.html" rel="bookmark">
+      Docker搭建FRP内网穿透服务
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/201903222305.html" rel="bookmark">
       How to use NetSuite SDF to download bundles/components-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202011100824.html" rel="bookmark">
-      How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202101230038.html" rel="bookmark">
-      Version Control System, IntelliJ IDEA, Create a Git Repository for a Project and push to multiple remotes-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201705041115.html" rel="bookmark">
-      Google Sheet NetSuite Integration 设计理念-CarlZeng
       </a>
     </li>
   </ul>
@@ -264,6 +269,11 @@
                 最新随笔
         </div>
         <ul class="links-of-blogroll-list recent-posts-list">
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202312101405.html" title="Hexo之相关内容CORS跨域实现方案" target="">
+                  Hexo之相关内容CORS跨域实现方案
+                  </a>
+                </li>
                 <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
                   <a href="/202312090910.html" title="网络影视资源 - Emby家庭媒体服务 - IPTV m3u播放器" target="">
                   网络影视资源 - Emby家庭媒体服务 - IPTV m3u播放器
@@ -297,11 +307,6 @@
                 <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
                   <a href="/202311300758.html" title="Docker搭建在线网页代理实践记录" target="">
                   Docker搭建在线网页代理实践记录
-                  </a>
-                </li>
-                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
-                  <a href="/202311260941.html" title="zerotier多客户端实践应用记录" target="">
-                  zerotier多客户端实践应用记录
                   </a>
                 </li>
         </ul>
@@ -395,8 +400,8 @@
       max-height: 1.13em !important;
     }
     </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
-      接收新文章Email投递:
-    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="Enter your email" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
+      接收新随笔Email投递:
+    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="Enter your email to receive new articles" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
       Subscribe
     </button></div></div></form></div>
 
@@ -444,7 +449,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-12-04 23:23:07" itemprop="dateModified" datetime="2023-12-04T23:23:07+08:00">2023-12-04</time>
+      <time title="修改時間：2023-12-10 10:08:35" itemprop="dateModified" datetime="2023-12-10T10:08:35+08:00">2023-12-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -492,6 +497,28 @@
 <li>排查及优化Openwrt内存占用<span id="more"></span></li>
 </ol>
 <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>我们网络环境的特殊性，尤其是跨越运营商时；80端口是很敏感而被封锁着的。那么如何把OpenWrt（路由器系统）的默认端口从默认的80端口改到其他的端口呢？SSH局域网内配置修改步骤如下。</p>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><p>如果您对相关的 <a href="https://www.carlzeng.top/search?q=linux">linux</a> 感兴趣，以下内容可能帮到您：</p>
+<ul>
+<li><p><a href="https://www.carlzeng.top/202311032202.html?highlight=nginx+proxy+manager%E4%BF%AE%E5%A4%8D%E7%AC%94%E8%AE%B0">Nginx Proxy Manager修复笔记</a></p>
+<p>排查Nginx Proxy Manager，反向代理，让网站变成HTTPS 有什么用排查Nginx Proxy Manager，反向代理，让网站变成HTTPS …</p>
+</li>
+<li><p><a href="https://www.carlzeng.top/202310261222.html?highlight=nginx+proxy+manager%E4%BF%AE%E5%A4%8D%E7%AC%94%E8%AE%B0">Hexo定制之家宽部署artalk评论</a></p>
+<p>需要升级到https Nginx Proxy Manager也可以代劳 家宽如何使用Nginx Proxy Manager反向代理 - YouTube <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly92dC53b28v" rel="noopener external nofollow noreferrer">https://vt.woo</a>…</p>
+</li>
+<li><p><a href="https://www.carlzeng.top/202310171918.html?highlight=nginx+proxy+manager%E4%BF%AE%E5%A4%8D%E7%AC%94%E8%AE%B0">Debian初体验之基础设置</a></p>
+<p>切换方案：wget….</p>
+</li>
+<li><p><a href="https://www.carlzeng.top/202310110855.html">utm虚拟机在mac m1下kali linux实战</a></p>
+<p>虚拟机软件 UTM，安装及使用KALI linux MAC M1 开源虚拟机UTM app<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9nZXR1dG0uYXBwLw==" rel="noopener external nofollow noreferrer">https://getutm.app</a> KALI linuxWorks Kali linux 2023.1…</p>
+</li>
+<li><p><a href="https://www.carlzeng.top/202311141039.html">iptables应用</a></p>
+<p>有什么用管理linux防火墙开启Openwrt上的clash服务中转 实现方法 iptables 应用在OpenWrt上面，开放OpenWrt中OpenClash的HTTP &amp; SOCK…</p>
+</li>
+<li><p><a href="https://www.carlzeng.top/202308262104.html">云盘转nas，云盘转化为本地磁盘，跨平台跨设备同步-carlzeng</a></p>
+<p>止DOS）同时也出现各种解决方法，比如：linux<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hdXIuYXJjaGxpbnV4Lm9yZy9wYWNrYWdlcy9hcmlhMi11bmxpbWl0ZWRodHRwczovL2dpdGh1Yi5jb20vUDNURVJY" rel="noopener external nofollow noreferrer">https://aur.archlinux.org/packages/aria2-unlimitedhttps://github.com/P3TERX</a>…</p>
+</li>
+</ul>
+<p>下一步TODO：我讲尝试API获取站内搜索的结果页面（仅内容+链接）返回HTML</p>
 <h1 id="查看tcp端口占用情况"><a href="#查看tcp端口占用情况" class="headerlink" title="查看tcp端口占用情况"></a>查看tcp端口占用情况</h1><p>Linux通用的命令：<strong>netstat -tln</strong></p>
 <p>这样查询以后就知道机器目前到底开放了那些tcp端口</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@K2P:/# netstat -tln</span><br><span class="line">Active Internet connections (only servers)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State</span><br><span class="line">tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN</span><br><span class="line">tcp        0      0 0.0.0.0:53              0.0.0.0:*               LISTEN</span><br><span class="line">tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN</span><br><span class="line">tcp        0      0 ::ffff:192.168.2.1:7681 :::*                    LISTEN</span><br><span class="line">tcp        0      0 :::5000                 :::*                    LISTEN</span><br><span class="line">tcp        0      0 :::80                   :::*                    LISTEN</span><br><span class="line">tcp        0      0 :::53                   :::*                    LISTEN</span><br><span class="line">tcp        0      0 :::22                   :::*                    LISTEN</span><br><span class="line">tcp        0      0 :::23                   :::*                    LISTEN</span><br></pre></td></tr></table></figure>
@@ -501,7 +528,7 @@
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
 <li><p>使用SSH连接到OpenWrt</p>
 </li>
-<li><p>Terminal 运行 ssh <a href="mailto:&#x72;&#111;&#111;&#116;&#64;&#x31;&#57;&#50;&#46;&#49;&#x36;&#x38;&#46;&#54;&#46;&#x31;">&#x72;&#111;&#111;&#116;&#64;&#x31;&#57;&#50;&#46;&#49;&#x36;&#x38;&#46;&#54;&#46;&#x31;</a> 如果提示错误：</p>
+<li><p>Terminal 运行 ssh <a href="mailto:&#x72;&#111;&#111;&#116;&#64;&#49;&#57;&#50;&#46;&#49;&#54;&#x38;&#46;&#x36;&#x2e;&#49;">&#x72;&#111;&#111;&#116;&#64;&#49;&#57;&#50;&#46;&#49;&#54;&#x38;&#46;&#x36;&#x2e;&#49;</a> 如果提示错误：</p>
 <pre><code>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -537,8 +564,7 @@ BusyBox v1.25.1 () built-in shell (ash)
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">top -m</span><br><span class="line"></span><br><span class="line">Mem: 430112K used, 65328K free, 33268K shrd, 6972K buff, 187200K cached</span><br><span class="line">CPU:   0% usr   1% sys   0% nic  97% idle   0% io   0% irq   0% sirq</span><br><span class="line">Load average: 0.17 0.18 0.09 1/236 19160</span><br><span class="line">  PID  PPID USER     STAT   VSZ %VSZ %CPU COMMAND</span><br><span class="line"> 6376     1 root     T     3192   1%   0% &#123;wrtbwmon&#125; /bin/sh /usr/sbin/wrtbwmon -46 -f /tmp/usage.db -p /tmp/usage.htm -u /et</span><br><span class="line">11165     1 root     SN   43924   9%   0% /usr/sbin/netdata -D -c /etc/netdata/netdata.conf</span><br><span class="line"> 4899  4880 root     S     1180   0%   0% /usr/sbin/umdns</span><br><span class="line">   54     2 root     IW       0   0%   0% [kworker/2:1-eve]</span><br><span class="line"> 5074     1 root     S     708m 146%   0% speedtest-web --listen_port 8989</span><br><span class="line"> 5492     1 root     S     702m 145%   0% /usr/sbin/quickstart serve</span><br><span class="line">30401     1 root     S    28028   6%   0% /usr/sbin/smbd -F</span><br><span class="line">30469 30401 root     S    26336   5%   0% &#123;smbd-cleanupd&#125; /usr/sbin/smbd -F</span><br><span class="line">30468 30401 root     S    26312   5%   0% &#123;smbd-notifyd&#125; /usr/sbin/smbd -F</span><br><span class="line">30402     1 root     S    17500   4%   0% /usr/sbin/nmbd -F</span><br><span class="line">11299 11165 root     SN   16780   3%   0% /usr/sbin/netdata --special-spawn-server</span><br><span class="line">29142  4459 root     S     8912   2%   0% nginx: worker process</span><br></pre></td></tr></table></figure>
 <pre><code>优化：在Openwrt的SSH中，请使用htop命令来监测系统性能及资源使用情况，它更加清晰，如下：
 </code></pre>
-<img class="lozad" data-src=https://www.evernote.com/shard/s122/sh/a104a5d9-edac-4c2f-8539-390534af86ba/OlRv4r57iAyhSvr2cNbJCVORou8YVWp9iTQq6vZy3zQkeyCrezsfcqvvJA/deep/0/image.png>
-
+<p><img data-src="https://www.evernote.com/shard/s122/sh/a104a5d9-edac-4c2f-8539-390534af86ba/OlRv4r57iAyhSvr2cNbJCVORou8YVWp9iTQq6vZy3zQkeyCrezsfcqvvJA/deep/0/image.png" alt="htop命令"></p>
 <p>杀死进程：speedtest-web<br>kill -9 @@@<br>内存使用率 从85% 降到 77.76%；</p>
 <ul>
 <li>发现：&#x2F;usr&#x2F;sbin&#x2F;wrtbwmon 是流量监控的进程<br>在OP的UI界面，切换到 状态 》 实时监控； 关闭了实时监控的按钮；Pause<br>内存使用率 从77% 降到 50%；</li>
@@ -546,7 +572,7 @@ BusyBox v1.25.1 () built-in shell (ash)
 <p>使用Netdata设置实时性能监控<br>这个进程杀死后也会自动在启动，而已有好多个进程ID，没有彻底解决这个性能占有问题</p>
 <h2 id="修改OpenWrt的默认80管理端口"><a href="#修改OpenWrt的默认80管理端口" class="headerlink" title="修改OpenWrt的默认80管理端口"></a>修改OpenWrt的默认80管理端口</h2><p>自编译的J4125的OpenWrt的UI，不是使用上面那个K2P版本的LEDE OpenWrt的httpd来管理web页面UI。</p>
 <p>这时候OpenWrt是NGINX来管理UI的，配置文件在&#x2F;etc&#x2F;config&#x2F;nginx<br>这个文件包含NGINX配置文档内容。应用保存后自动重启生效。</p>
-<p>如图：修改80端口为8080即可<br><img class="lozad" data-src="https://www.evernote.com/shard/s122/sh/51ce06fc-468a-443b-b402-898836f228cf/HxKZgH2mi1Fxiap5NixoZB1KLGeKaGoupvzg5CrUuaLdUh3JURpaWPmzYg/deep/0/image.png"></p>
+<p>如图：修改80端口为8080即可<br><img data-src="https://www.evernote.com/shard/s122/sh/51ce06fc-468a-443b-b402-898836f228cf/HxKZgH2mi1Fxiap5NixoZB1KLGeKaGoupvzg5CrUuaLdUh3JURpaWPmzYg/deep/0/image.png" alt="修改80端口为8080"></p>
 
     </div>
 
@@ -559,7 +585,7 @@ BusyBox v1.25.1 () built-in shell (ash)
     <div
       class="social-share"
       
-        data-sites="weibo,qq,wechat,tencent,douban,qzone,linkedin,diandian,facebook,twitter,google"
+        data-sites="wechat,weibo,qq,facebook,twitter,google"
       
       
         data-wechat-qrcode-title="微信扫一扫：分享"
@@ -599,8 +625,18 @@ BusyBox v1.25.1 () built-in shell (ash)
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310110855.html" rel="bookmark">
+      UTM虚拟机在MAC M1下Kali Linux实战
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/201603222129.html" rel="bookmark">
       OpenWrt >  ADSL单线多拨，负载均衡(供参考)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
       </a>
     </li>
     <li class="popular-posts-item">
@@ -609,8 +645,8 @@ BusyBox v1.25.1 () built-in shell (ash)
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310110855.html" rel="bookmark">
-      UTM虚拟机在MAC M1下Kali Linux实战
+      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
+      Nginx Proxy Manager修复笔记
       </a>
     </li>
     <li class="popular-posts-item">
@@ -619,23 +655,13 @@ BusyBox v1.25.1 () built-in shell (ash)
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312031926.html" rel="bookmark">
+      Docker搭建FRP内网穿透服务
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/201903222305.html" rel="bookmark">
       How to use NetSuite SDF to download bundles/components-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202011100824.html" rel="bookmark">
-      How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202101230038.html" rel="bookmark">
-      Version Control System, IntelliJ IDEA, Create a Git Repository for a Project and push to multiple remotes-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201705041115.html" rel="bookmark">
-      Google Sheet NetSuite Integration 设计理念-CarlZeng
       </a>
     </li>
   </ul>
@@ -653,6 +679,11 @@ BusyBox v1.25.1 () built-in shell (ash)
             最新随笔
     </div>
     <ul class="pjax recent-posts-list">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202312101405.html" title="Hexo之相关内容CORS跨域实现方案" target="">
+              Hexo之相关内容CORS跨域实现方案
+              </a>
+            </li>
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202312090910.html" title="网络影视资源 - Emby家庭媒体服务 - IPTV m3u播放器" target="">
               网络影视资源 - Emby家庭媒体服务 - IPTV m3u播放器
@@ -706,11 +737,6 @@ BusyBox v1.25.1 () built-in shell (ash)
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202311152248.html" title="气到下不动班" target="">
               气到下不动班
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202311141039.html" title="iptables应用" target="">
-              iptables应用
               </a>
             </li>
     </ul>
@@ -771,7 +797,7 @@ BusyBox v1.25.1 () built-in shell (ash)
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2023-12-04 23:23:07" itemprop="dateModified" datetime="2023-12-04T23:23:07+08:00">2023-12-04</time>
+        <time title="修改時間：2023-12-10 10:08:35" itemprop="dateModified" datetime="2023-12-10T10:08:35+08:00">2023-12-10</time>
       </span>
 
 </div>
@@ -780,8 +806,12 @@ BusyBox v1.25.1 () built-in shell (ash)
 
           <div class="post-tags">
             继续浏览有关
+              <a href="/tags/%E5%AE%B6%E5%AE%BD/" rel="tag"># 家宽</a>
               <a href="/tags/OpenWrt/" rel="tag"># OpenWrt</a>
               <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="tag"># 路由器</a>
+              <a href="/tags/Nginx/" rel="tag"># Nginx</a>
+              <a href="/tags/LEDE/" rel="tag"># LEDE</a>
             的文章
           </div>
 
@@ -891,8 +921,8 @@ BusyBox v1.25.1 () built-in shell (ash)
 
 
 </div>
-  <div class="powered-by">由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 強力驅動
-     | <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 本站多线部署：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a>
+  <div class="powered-by">
+    <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 选择服务器：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub. </a>由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 強力驅動
   </div>
 
     </div>
