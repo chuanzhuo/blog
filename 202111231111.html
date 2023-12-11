@@ -28,7 +28,7 @@
 <meta property="og:description" content="解决Github连接错误的思路由于众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解决思路，希望对你有帮助：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-23T03:11:00.000Z">
-<meta property="article:modified_time" content="2023-12-04T15:25:33.940Z">
+<meta property="article:modified_time" content="2023-12-11T07:36:59.995Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="github">
 <meta property="article:tag" content="git">
@@ -166,7 +166,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E6%96%B0%E6%96%B9%E6%A1%88%EF%BC%882023%E5%B9%B411%E6%9C%88%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">最新方案（2023年11月）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%B9%B3%E5%9D%87%E9%80%9F%E5%BA%A6%E8%BE%BE%E5%88%B01M-s%E5%B7%A6%E5%8F%B3%EF%BC%9B%E6%8C%BA%E6%BB%A1%E6%84%8F%E4%BA%86"><span class="nav-number">2.</span> <span class="nav-text">单线程下载，平均速度达到1M&#x2F;s左右；挺满意了</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Errors"><span class="nav-number">2.1.</span> <span class="nav-text">Errors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notes"><span class="nav-number">2.2.</span> <span class="nav-text">Notes:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solutions-for-Operation-timed-out"><span class="nav-number">2.3.</span> <span class="nav-text">Solutions for: Operation timed out</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Github-End"><span class="nav-number"></span> <span class="nav-text">Github End</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solutions-for-Authentication"><span class="nav-number">0.1.</span> <span class="nav-text">Solutions for: Authentication</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%A7%81%E6%96%87%E6%A1%A3%EF%BC%9A"><span class="nav-number">0.2.</span> <span class="nav-text">参见文档：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js%E4%B9%9F%E8%A2%AB%E5%90%8C%E6%A0%B7%E9%94%99%E8%AF%AF%E5%8D%A1"><span class="nav-number">1.</span> <span class="nav-text">Node.js也被同样错误卡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-d-%E6%9B%B4%E6%96%B0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">hexo d 更新的解决办法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E5%BD%93Github%E6%BA%90%E8%BF%9E%E5%90%8C%E8%B4%A6%E5%8F%B7%E8%A2%AB%E5%88%A0%E9%99%A4%E5%90%8E"><span class="nav-number">2.</span> <span class="nav-text">思路：当Github源连同账号被删除后</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E6%96%B0%E6%96%B9%E6%A1%88%EF%BC%882023%E5%B9%B411%E6%9C%88%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">最新方案（2023年11月）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%B9%B3%E5%9D%87%E9%80%9F%E5%BA%A6%E8%BE%BE%E5%88%B01M-s%E5%B7%A6%E5%8F%B3%EF%BC%9B%E6%8C%BA%E6%BB%A1%E6%84%8F%E4%BA%86"><span class="nav-number">2.</span> <span class="nav-text">单线程下载，平均速度达到1M&#x2F;s左右；挺满意了</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Errors"><span class="nav-number">2.1.</span> <span class="nav-text">Errors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notes"><span class="nav-number">2.2.</span> <span class="nav-text">Notes:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solutions-for-Operation-timed-out"><span class="nav-number">2.3.</span> <span class="nav-text">Solutions for: Operation timed out</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Github-End"><span class="nav-number"></span> <span class="nav-text">Github End</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solutions-for-Authentication"><span class="nav-number">0.1.</span> <span class="nav-text">Solutions for: Authentication</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%A7%81%E6%96%87%E6%A1%A3%EF%BC%9A"><span class="nav-number">0.2.</span> <span class="nav-text">参见文档：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js%E4%B9%9F%E8%A2%AB%E5%90%8C%E6%A0%B7%E9%94%99%E8%AF%AF%E5%8D%A1"><span class="nav-number">1.</span> <span class="nav-text">Node.js也被同样错误卡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-d-%E6%9B%B4%E6%96%B0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">hexo d 更新的解决办法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E5%BD%93Github%E6%BA%90%E8%BF%9E%E5%90%8C%E8%B4%A6%E5%8F%B7%E8%A2%AB%E5%88%A0%E9%99%A4%E5%90%8E"><span class="nav-number">2.</span> <span class="nav-text">思路：当Github源连同账号被删除后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ghproxy-com%E5%BE%85%E6%9B%B4%E6%96%B0"><span class="nav-number">3.</span> <span class="nav-text">ghproxy.com待更新</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -442,7 +442,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-04 23:25:33" itemprop="dateModified" datetime="2023-12-04T23:25:33+08:00">2023-12-04</time>
+      <time title="修改时间：2023-12-11 15:36:59" itemprop="dateModified" datetime="2023-12-11T15:36:59+08:00">2023-12-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -500,7 +500,7 @@
 <h3 id="Solutions-for-Operation-timed-out"><a href="#Solutions-for-Operation-timed-out" class="headerlink" title="Solutions for: Operation timed out"></a>Solutions for: Operation timed out</h3><ol>
 <li>Fix the hosts to make sure the ssh connection between your Computer and github.com is availble(修复连接到github.com)</li>
 </ol>
-<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#109;">&#103;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#109;</a></p>
+<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#105;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;">&#103;&#x69;&#x74;&#64;&#x67;&#105;&#116;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;</a></p>
 <p>1.1 记录下github的IP地址, 把IP Address 记录下来</p>
 <p>打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tLmlwYWRkcmVzcy5jb20v" rel="noopener external nofollow noreferrer">https://github.com.ipaddress.com/</a></p>
 <p>打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mYXN0bHkubmV0LmlwYWRkcmVzcy5jb20vZ2l0aHViLmdsb2JhbC5zc2wuZmFzdGx5Lm5ldCNpcGluZm8=" rel="noopener external nofollow noreferrer">https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo</a></p>
@@ -513,7 +513,7 @@
 <p>1.4 如果之前用ssh proxy，取消它</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global https.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
 
-<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#103;&#x69;&#116;&#64;&#103;&#105;&#116;&#104;&#117;&#98;&#x2e;&#99;&#x6f;&#109;">&#103;&#x69;&#116;&#64;&#103;&#105;&#116;&#104;&#117;&#98;&#x2e;&#99;&#x6f;&#109;</a></p>
+<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#104;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
 <p>新的错误可能和授权有关，至少证明连接到github.com是通的。</p>
 <hr>
 <h3 id="Solutions-for-Authentication"><a href="#Solutions-for-Authentication" class="headerlink" title="Solutions for: Authentication"></a>Solutions for: Authentication</h3><ol start="2">
@@ -551,6 +551,7 @@
 <li><p>还有一个思路：hub.docker.com<br>docker部署的缓存，仍然可以在一段时间内有效<br>比如：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS9yL2RyZWFtYWNyby9jbGFzaA==" rel="noopener external nofollow noreferrer">https://hub.docker.com/r/dreamacro/clash</a></p>
 </li>
 </ul>
+<h2 id="ghproxy-com待更新"><a href="#ghproxy-com待更新" class="headerlink" title="ghproxy.com待更新"></a>ghproxy.com待更新</h2><p>主域名 ghproxy.com 已喜提 GFW，已启用镜像站 mirror.ghproxy.com</p>
 
     </div>
 
@@ -775,7 +776,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-12-04 23:25:33" itemprop="dateModified" datetime="2023-12-04T23:25:33+08:00">2023-12-04</time>
+        <time title="修改时间：2023-12-11 15:36:59" itemprop="dateModified" datetime="2023-12-11T15:36:59+08:00">2023-12-11</time>
       </span>
 
 </div>
