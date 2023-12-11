@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/ce8ceac4-b340-41f4-9e1e-4f4929ec58ce/OtBRkRas9WaV8LEDHgzPycXnbgoDdWkn62Q9mVuipiG8Ladqru7Q2G0Jlg/deep/0/image.png">
 <meta property="article:published_time" content="2023-11-03T14:02:36.000Z">
-<meta property="article:modified_time" content="2023-12-10T00:24:02.350Z">
+<meta property="article:modified_time" content="2023-12-11T12:40:02.281Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="debian">
 <meta property="article:tag" content="docker">
@@ -38,6 +38,7 @@
 <meta property="article:tag" content="家宽">
 <meta property="article:tag" content="Nginx Proxy Manager">
 <meta property="article:tag" content="linux">
+<meta property="article:tag" content="pve">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.evernote.com/shard/s122/sh/ce8ceac4-b340-41f4-9e1e-4f4929ec58ce/OtBRkRas9WaV8LEDHgzPycXnbgoDdWkn62Q9mVuipiG8Ladqru7Q2G0Jlg/deep/0/image.png">
 
@@ -100,7 +101,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">140</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">40</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>文章列表<span class="badge">319</span></a></li><li class="menu-item menu-item-ai问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>音乐</a></li><li class="menu-item menu-item-在线浏览器"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>在线浏览器</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">141</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">40</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>文章列表<span class="badge">319</span></a></li><li class="menu-item menu-item-ai问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>音乐</a></li><li class="menu-item menu-item-在线浏览器"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>在线浏览器</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>全站检索
         </a>
@@ -197,7 +198,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">140</span>
+        <span class="site-state-item-count">141</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -449,7 +450,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-10 08:24:02" itemprop="dateModified" datetime="2023-12-10T08:24:02+08:00">2023-12-10</time>
+      <time title="修改时间：2023-12-11 20:40:02" itemprop="dateModified" datetime="2023-12-11T20:40:02+08:00">2023-12-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -648,6 +649,10 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 <p>重启一下MAC电脑，重新测试</p>
 </blockquote>
 <p>重启MAC，链接NPM又正常了！pve又可以链接了; 原来问题的根源不是在J4125；汗，而是在用来发现问题的MAC上，引以为戒。下次核查的时候要多设备核实（才能去硬重启J4125）</p>
+<hr>
+<p>无意间点进PVE，不看不知道，一看吓一跳：</p>
+<p>原来很可能是pve的磁盘占用 96.69% (104.62 GiB的108.20 GiB）</p>
+<p>我不知道&#x2F;dev&#x2F;sdb3(在SSD128上面, Reeinno CY128GB S1S3上面)为何就满了？里面放了什么了？<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1zbFozU3dGZmxIVQ==" rel="noopener external nofollow noreferrer">pve存储空间扩容 磁盘大小调整 proxmox6</a></p>
 
     </div>
 
@@ -872,7 +877,7 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-12-10 08:24:02" itemprop="dateModified" datetime="2023-12-10T08:24:02+08:00">2023-12-10</time>
+        <time title="修改时间：2023-12-11 20:40:02" itemprop="dateModified" datetime="2023-12-11T20:40:02+08:00">2023-12-11</time>
       </span>
 
 </div>
@@ -888,6 +893,7 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
               <a href="/tags/%E5%AE%B6%E5%AE%BD/" rel="tag"># 家宽</a>
               <a href="/tags/Nginx-Proxy-Manager/" rel="tag"># Nginx Proxy Manager</a>
               <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/pve/" rel="tag"># pve</a>
             的文章
           </div>
 
