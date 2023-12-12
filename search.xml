@@ -17356,14 +17356,16 @@ https://www.appinn.com/wechat-video-downloader/
 ]]></content>
   </entry>
   <entry>
-    <title>远程安卓盒子N1安装APP-远程查看机顶盒屏幕画面等</title>
+    <title>远程安卓盒子N1安装IPTV APP-远程查看机顶盒屏幕画面等</title>
     <url>/202312121225.html</url>
     <content><![CDATA[<p><img data-src="https://www.evernote.com/shard/s122/sh/730fc3eb-98b3-4cde-ab03-ff536d849762/cm5hCYYFRDdasMsamfd90jrI6Z1o_by7-z3SHX2OxujZN5bs1tYHmYExTw/deep/0/image.png" alt="N1RemoteControl"></p>
-<p>远程控制机顶盒（远程控制安卓电视），远程给家人的机顶盒安装APP，远程操作N1盒子</p>
+<p>实测远程协助安卓电视盒子，远程控制机顶盒（远程控制安卓电视），远程协助给家人的机顶盒安装APP（包括删除、管理APP等），远程操作N1电视盒子</p>
 <span id="more"></span>
 
 <h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>远程控制机顶盒，给老人的智能安卓机顶盒（或者安卓电视）安装IPTV类APP</p>
 <p>远程给家人的机顶盒安装APP，远程操作N1电视盒子</p>
+<p>充当遥控器，实现遥控器的绝大多数功能</p>
+<p>远程协助操作安卓电视盒子</p>
 <h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>（前提是你已经可以配置了路由器的远程，我已经用frps和frpc远程穿透连接起来，再使用了NPM反代出路由器的WEB控制页面，这样一顿操作，后续实现会丝滑许多）</p>
 <ol>
 <li>激活N1安卓电视盒子，开机，或者按机顶盒的遥控器<ol>
@@ -17447,44 +17449,30 @@ https://www.appinn.com/wechat-video-downloader/
 <h2 id="下一步-scrcpy的远程控制"><a href="#下一步-scrcpy的远程控制" class="headerlink" title="下一步 scrcpy的远程控制"></a>下一步 scrcpy的远程控制</h2><p>如何通过scrcpy的远程控制，给N1安卓电视盒子安装APP</p>
 <p>理论上adb命令，可以轻松执行这个安装APP的目标（好像我之前写过方法：<a href="http://www.carlzeng.top/202304131802.html?highlight=adb">苹果电脑M1上唯一可用的安卓模拟器-CarlZeng</a>）</p>
 <ol>
-<li><p>把要安装的APP，放在电脑本地的一个目录（假设～&#x2F;Downloads）</p>
-</li>
-<li><p>用命令adb install &#x2F;*.apk</p>
-</li>
-<li><pre><code class="shell">- adb devices                                                                               
-List of devices attached                                                                                            
-192.168.6.116:6006      offline                                                                                     
-192.168.6.216:5555      device  
-
-怎么手动选一个devices中的device?
-
-- adb install /Users/carlzeng/Downloads/DIYP影音经典版.apk
-adb: more than one device/emulator
-Use the -s option BEFORE the command to specify the device, for example:
-adb -s 192.168.232.2:5555 &lt;command&gt;
-
-adb -s 7f1c864e shell
-#这样的话，可以获得这个Android安卓设备的shell执行权限
-#这个参数的内容和scrcpy是一样的，只是指定参数的方式一点点不一样罢了
-
-adb -s 192.168.6.216:5555 install /Users/carlzeng/Downloads/DIYP影音经典版.apk
-Performing Streamed Install
-adb: failed to install /Users/carlzeng/Downloads/DIYP影音经典版.apk: Failure [INSTALL_FAILED_ALREADY_EXISTS: Attempt to re-install com.player.diyp2020 without first uninstalling.]
-
-adb -s 192.168.6.216:5555 install /Users/carlzeng/Downloads/Love\ TV\ 20231127/Love\ TV\  简约版.apk
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">这样就可以安装好安卓N1盒子上面的APP了</span><br><span class="line"></span><br><span class="line">打开前面一步的scrcpy --tcpip=192.168.6.116:6006进行远程控制画面，进去设置一下DIYP的源（老人控制遥控很有难度的）</span><br><span class="line"></span><br><span class="line">以后需要安装APP更新，换源等等，远程就能做到了，老人再也不用担心无法看电视。</span><br><span class="line"></span><br><span class="line">祝你好运</span><br><span class="line"></span><br><span class="line"># 故障与解决</span><br><span class="line"></span><br><span class="line">frp映射穿透过来的ssh服务，无法连接上去</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
+<li>把要安装的APP，放在电脑本地的一个目录（假设～&#x2F;Downloads）</li>
+<li>用命令adb install &#x2F;*.apk</li>
+<li>具体过程：</li>
 </ol>
-<p>ssh <a href="mailto:&#97;&#100;&#x6d;&#105;&#x6e;&#64;&#49;&#57;&#50;&#46;&#49;&#54;&#x38;&#x2e;&#x36;&#46;&#49;&#x31;&#x36;">&#97;&#100;&#x6d;&#105;&#x6e;&#64;&#49;&#57;&#50;&#46;&#49;&#54;&#x38;&#x2e;&#x36;&#46;&#49;&#x31;&#x36;</a> -p 6008<br>Unable to negotiate with 192.168.6.116 port 6008: no matching key exchange method found. Their offer: diffie-hellman<br>-group14-sha1,diffie-hellman-group1-sha1,<a href="mailto:&#107;&#101;&#x78;&#103;&#x75;&#101;&#115;&#115;&#x32;&#x40;&#109;&#x61;&#x74;&#116;&#x2e;&#117;&#x63;&#99;&#x2e;&#97;&#x73;&#110;&#46;&#97;&#x75;">&#107;&#101;&#x78;&#103;&#x75;&#101;&#115;&#115;&#x32;&#x40;&#109;&#x61;&#x74;&#116;&#x2e;&#117;&#x63;&#99;&#x2e;&#97;&#x73;&#110;&#46;&#97;&#x75;</a>  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">修改了 ～/.ssh/config后</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>KexAlgorithms +diffie-hellman-group1-sha1<br>Ciphers 3des-cbc</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">修改之后错误变成：</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line">Unable to negotiate with 192.168.6.116 port 6008: no matching host key type found. Their offer: ssh-rsa,ssh-dss     </span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">- adb devices                                                                               </span><br><span class="line">List of devices attached                                                                                            </span><br><span class="line">192.168.6.116:6006      offline                                                                                     </span><br><span class="line">192.168.6.216:5555      device  </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">怎么手动选一个devices中的device?</span></span><br><span class="line"></span><br><span class="line">- adb install /Users/carlzeng/Downloads/DIYP影音经典版.apk</span><br><span class="line">adb: more than one device/emulator</span><br><span class="line">Use the -s option BEFORE the command to specify the device, for example:</span><br><span class="line">adb -s 192.168.232.2:5555 &lt;command&gt;</span><br><span class="line"></span><br><span class="line">- adb -s 7f1c864e shell</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">这样的话，可以获得这个Android安卓设备的shell执行权限</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">这个参数的内容和scrcpy是一样的，只是指定参数的方式一点点不一样罢了</span></span><br><span class="line"></span><br><span class="line">- adb -s 192.168.6.216:5555 install /Users/carlzeng/Downloads/DIYP影音经典版.apk</span><br><span class="line">Performing Streamed Install</span><br><span class="line">adb: failed to install /Users/carlzeng/Downloads/DIYP影音经典版.apk: Failure [INSTALL_FAILED_ALREADY_EXISTS: Attempt to re-install com.player.diyp2020 without first uninstalling.]</span><br><span class="line"></span><br><span class="line">- adb -s 192.168.6.216:5555 install /Users/carlzeng/Downloads/Love\ TV\ 20231127/Love\ TV\  简约版.apk</span><br></pre></td></tr></table></figure>
 
 
 
-<p><strong>最后使用了解决办法：</strong></p>
+<p>这样就可以安装好安卓N1盒子上面的APP了</p>
+<p>打开前面一步的scrcpy –tcpip&#x3D;192.168.6.116:6006进行远程控制画面，进去设置一下DIYP的源（老人控制遥控很有难度的）</p>
+<p>以后需要安装APP更新，换源等等，远程就能做到了，老人再也不用担心无法看电视。</p>
+<p>祝你好运</p>
+<h1 id="故障与解决"><a href="#故障与解决" class="headerlink" title="故障与解决"></a>故障与解决</h1><p>frp映射穿透过来的ssh服务，无法连接上去</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh admin@192.168.6.116 -p 6008                                                     </span><br><span class="line">Unable to negotiate with 192.168.6.116 port 6008: no matching key exchange method found. Their offer: diffie-hellman</span><br><span class="line">-group14-sha1,diffie-hellman-group1-sha1,kexguess2@matt.ucc.asn.au  </span><br></pre></td></tr></table></figure>
+
+<p>修改了 ～&#x2F;.ssh&#x2F;config后</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">KexAlgorithms +diffie-hellman-group1-sha1                                                                         </span><br><span class="line">Ciphers 3des-cbc</span><br></pre></td></tr></table></figure>
+
+<p>修改之后错误变成：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Unable to negotiate with 192.168.6.116 port 6008: no matching host key type found. Their offer: ssh-rsa,ssh-dss     </span><br></pre></td></tr></table></figure>
+
+
+
+<p>最后使用了解决办法:</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa root@192.168.6.116 -p 6008</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">K2P SSH默认密码admin</span></span><br></pre></td></tr></table></figure>
 
 
