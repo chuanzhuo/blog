@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="随笔 Carl Notes">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2023-12-10T06:05:51.000Z">
-<meta property="article:modified_time" content="2023-12-10T06:14:06.263Z">
+<meta property="article:modified_time" content="2023-12-12T13:39:33.357Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="Javascript">
@@ -230,6 +230,11 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200909221418.html" rel="bookmark">
+      html js 跨域 p3p-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202101230038.html" rel="bookmark">
       Version Control System, IntelliJ IDEA, Create a Git Repository for a Project and push to multiple remotes-CarlZeng
       </a>
@@ -240,13 +245,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312081128.html" rel="bookmark">
-      M3U8播放器
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200909221418.html" rel="bookmark">
-      html js 跨域 p3p-CarlZeng
+      <a class="popular-posts-link" href="/200901041808.html" rel="bookmark">
+      js post 应用-CarlZeng
       </a>
     </li>
   </ul>
@@ -442,7 +442,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-12-10 14:14:06" itemprop="dateModified" datetime="2023-12-10T14:14:06+08:00">2023-12-10</time>
+      <time title="修改時間：2023-12-12 21:39:33" itemprop="dateModified" datetime="2023-12-12T21:39:33+08:00">2023-12-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -499,42 +499,22 @@
 <iframe style="box-shadow: 0px 0px 20px -10px;" src="https://www.carlzeng.top/search?q=Hexo之相关内容CORS跨域实现方案" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><p>hexo new page ‘interest’<br>    no</p>
-<pre><code>我曾经有试着拓展 Hexo 的功能性，诸如 hexo-generator-restful 和 hexo-generator-json-content 这些插件可以生成出 JSON，以供其他的功能需求。
-
-Strapi 提供了后端和一个方便数据模型和内容管理的后台，支持国际化，具有插件 API，更好的是，它有更加完善的账号的鉴权和权限管理。除此之外，它还能用 RESTful (是真的 RESTful) 和 GraphQL 两种方式来提供 API。
-11:29am 不是用rest api的方式来解决，
-    直接使用js ajax的方式，操作dom.div来展示html内容
-    对于相关内容，足够用了！
-
-Access to XMLHttpRequest at &#39;https://www.carlzeng.top/search.xml&#39; from origin &#39;http://localhost:4000&#39; has been blocked by CORS policy: No &#39;Access-Control-Allow-Origin&#39; header is present on the requested resource.
-
-[JS跨域笔记.md](https://github.com/AiYooooo/hexo-blog/blob/master/source/_posts/JS%E8%B7%A8%E5%9F%9F%E7%AC%94%E8%AE%B0.md)
-
-
-当发送网络请求时，如果同一协议、同一域名、同一端口三个条件有一个不满足，浏览器就会报错。 No &#39;Access-Control-Allow-Origin&#39; header is present on the requested resource
-
-总结一下常见的几种跨域方法。
-
-12:23pm
-    为 Hexo 博客创建本地搜索引擎
- https://liam.page/2017/09/21/local-search-engine-in-Hexo-site/
-
-[Ajax跨域问题(HTTP,HTTPS).md
-</code></pre>
-<p>](<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2Z1bjkwL2hleG8vYmxvYi9tYXN0ZXIvc291cmNlL19wb3N0cy9BamF4JUU4JUI3JUE4JUU1JTlGJTlGJUU5JTk3JUFFJUU5JUEyJTk4KEhUVFAsSFRUUFMpLm1k" rel="noopener external nofollow noreferrer">https://github.com/fun90/hexo/blob/master/source/_posts/Ajax%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98(HTTP,HTTPS).md</a>)</p>
-<pre><code> hexo 如何瘦身search.xml
- 	无法解决，属于是hexo的局限性
- 	https://github.com/iissnan/hexo-theme-next/issues/1146
- 	可以把模版修改成search.xml仅包含标题，技术上可行，可实际上不科学，更希望是截取多少个字符内的内容作为搜索的范围
-
-可以写一个自己的接口在，另外一台服务器上，然后缓存最新的search.xml文件；这样搜索都提交到新的WS服务器节点，这个节点在服务端全文检索之后，给出记过即可！
-    调用的服务不要去呼叫www.carlzeng.top,去呼叫本地映射到外网的服务；
-    需要一个framework来处理这样的请求；返回json或者html即可（然后本身就携带http Access-Control-Allow-Origin *）
-        搭配方案：https://github.com/AiYooooo/hexo-blog/blob/master/source/_posts/JS%E8%B7%A8%E5%9F%9F%E7%AC%94%E8%AE%B0.md#cors
-&gt;12:30pm
-
-1:50pm nodeJS对服务端的实现案例：[跨域](https://superdeng3.github.io/2019/04/03/%E8%B7%A8%E5%9F%9F/)
-</code></pre>
+<p>我曾经有试着拓展 Hexo 的功能性，诸如 hexo-generator-restful 和 hexo-generator-json-content 这些插件可以生成出 JSON，以供其他的功能需求。</p>
+<p>Strapi 提供了后端和一个方便数据模型和内容管理的后台，支持国际化，具有插件 API，更好的是，它有更加完善的账号的鉴权和权限管理。除此之外，它还能用 RESTful (是真的 RESTful) 和 GraphQL 两种方式来提供 API。<br>11:29am 不是用rest api的方式来解决，<br>    直接使用js ajax的方式，操作dom.div来展示html内容<br>    对于相关内容，足够用了！</p>
+<p>Access to XMLHttpRequest at ‘<a href="https://www.carlzeng.top/search.xml">https://www.carlzeng.top/search.xml</a>‘ from origin ‘<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2xvY2FsaG9zdDo0MDAwLw==" rel="noopener external nofollow noreferrer">http://localhost:4000</a>‘ has been blocked by CORS policy: No ‘Access-Control-Allow-Origin’ header is present on the requested resource.</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0FpWW9vb29vL2hleG8tYmxvZy9ibG9iL21hc3Rlci9zb3VyY2UvX3Bvc3RzL0pTJUU4JUI3JUE4JUU1JTlGJTlGJUU3JUFDJTk0JUU4JUFFJUIwLm1k" rel="noopener external nofollow noreferrer">JS跨域笔记.md</a></p>
+<p>当发送网络请求时，如果同一协议、同一域名、同一端口三个条件有一个不满足，浏览器就会报错。 No ‘Access-Control-Allow-Origin’ header is present on the requested resource</p>
+<p>总结一下常见的几种跨域方法。</p>
+<p>12:23pm<br>    为 Hexo 博客创建本地搜索引擎<br> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9saWFtLnBhZ2UvMjAxNy8wOS8yMS9sb2NhbC1zZWFyY2gtZW5naW5lLWluLUhleG8tc2l0ZS8=" rel="noopener external nofollow noreferrer">https://liam.page/2017/09/21/local-search-engine-in-Hexo-site/</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2Z1bjkwL2hleG8vYmxvYi9tYXN0ZXIvc291cmNlL19wb3N0cy9BamF4JUU4JUI3JUE4JUU1JTlGJTlGJUU5JTk3JUFFJUU5JUEyJTk4KEhUVFAsSFRUUFMpLm1k" rel="noopener external nofollow noreferrer">Ajax跨域问题(HTTP,HTTPS).md</a></p>
+<p> hexo 如何瘦身search.xml<br>     无法解决，属于是hexo的局限性<br>     <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2lpc3NuYW4vaGV4by10aGVtZS1uZXh0L2lzc3Vlcy8xMTQ2" rel="noopener external nofollow noreferrer">https://github.com/iissnan/hexo-theme-next/issues/1146</a><br>     可以把模版修改成search.xml仅包含标题，技术上可行，可实际上不科学，更希望是截取多少个字符内的内容作为搜索的范围</p>
+<p>可以写一个自己的接口在，另外一台服务器上，然后缓存最新的search.xml文件；这样搜索都提交到新的WS服务器节点，这个节点在服务端全文检索之后，给出记过即可！<br>    调用的服务不要去呼叫<a target="_blank" rel="noopener" href="http://www.carlzeng.top,去呼叫本地映射到外网的服务;/">www.carlzeng.top,去呼叫本地映射到外网的服务；</a><br>    需要一个framework来处理这样的请求；返回json或者html即可（然后本身就携带http Access-Control-Allow-Origin *）<br>        搭配方案：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0FpWW9vb29vL2hleG8tYmxvZy9ibG9iL21hc3Rlci9zb3VyY2UvX3Bvc3RzL0pTJUU4JUI3JUE4JUU1JTlGJTlGJUU3JUFDJTk0JUU4JUFFJUIwLm1kI2NvcnM=" rel="noopener external nofollow noreferrer">https://github.com/AiYooooo/hexo-blog/blob/master/source/_posts/JS%E8%B7%A8%E5%9F%9F%E7%AC%94%E8%AE%B0.md#cors</a></p>
+<blockquote>
+<p>12:30pm</p>
+</blockquote>
+<p>1:50pm nodeJS对服务端的实现案例：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zdXBlcmRlbmczLmdpdGh1Yi5pby8yMDE5LzA0LzAzLyVFOCVCNyVBOCVFNSU5RiU5Ri8=" rel="noopener external nofollow noreferrer">跨域</a></p>
+<hr>
+<p>node.js 处理ajax并发效率如何<br>    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8xMDMuMjExLjEyNC4xMTAvYXJ0aWNsZS8xNzU0MDcuaHRtbA==" rel="noopener external nofollow noreferrer">轻松创建nodejs服务器(8):非阻塞是如何实现的_node.js</a><br>    ws：是nodejs的一个WebSocket库，可以用来创建服务。<br>    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3dlYnNvY2tldHMvd3M=" rel="noopener external nofollow noreferrer">https://github.com/websockets/ws</a><br>    Web端，browser：<br>        <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2hlaW5laXVvL2lzb21vcnBoaWMtd3M=" rel="noopener external nofollow noreferrer">https://github.com/heineiuo/isomorphic-ws</a></p>
 
     </div>
 
@@ -607,6 +587,11 @@ Access to XMLHttpRequest at &#39;https://www.carlzeng.top/search.xml&#39; from o
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200909221418.html" rel="bookmark">
+      html js 跨域 p3p-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202101230038.html" rel="bookmark">
       Version Control System, IntelliJ IDEA, Create a Git Repository for a Project and push to multiple remotes-CarlZeng
       </a>
@@ -617,13 +602,8 @@ Access to XMLHttpRequest at &#39;https://www.carlzeng.top/search.xml&#39; from o
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312081128.html" rel="bookmark">
-      M3U8播放器
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200909221418.html" rel="bookmark">
-      html js 跨域 p3p-CarlZeng
+      <a class="popular-posts-link" href="/200901041808.html" rel="bookmark">
+      js post 应用-CarlZeng
       </a>
     </li>
   </ul>
@@ -759,7 +739,7 @@ Access to XMLHttpRequest at &#39;https://www.carlzeng.top/search.xml&#39; from o
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2023-12-10 14:14:06" itemprop="dateModified" datetime="2023-12-10T14:14:06+08:00">2023-12-10</time>
+        <time title="修改時間：2023-12-12 21:39:33" itemprop="dateModified" datetime="2023-12-12T21:39:33+08:00">2023-12-12</time>
       </span>
 
 </div>
@@ -882,7 +862,7 @@ Access to XMLHttpRequest at &#39;https://www.carlzeng.top/search.xml&#39; from o
 
 </div>
   <div class="powered-by">
-    <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 选择服务器：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub. </a>由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 強力驅動
+    <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 选择服务器：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">BlogCDN</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub. </a>由 <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZXhvLmlvLw==" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv" rel="noopener external nofollow noreferrer" target="_blank">NexT.Pisces</a> 強力驅動
   </div>
 
     </div>
