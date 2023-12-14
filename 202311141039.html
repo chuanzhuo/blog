@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
-
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -14,9 +14,9 @@
 
 
 
-<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
-  <link rel="stylesheet" href="/lib/pace-js/themes/blue/pace-theme-minimal.css">
-  <script src="/lib/pace-js/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
@@ -28,10 +28,12 @@
 <meta property="og:description" content="有什么用管理Linux防火墙开启Openwrt上的clash服务中转">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-14T02:39:43.000Z">
-<meta property="article:modified_time" content="2023-11-14T08:52:27.690Z">
+<meta property="article:modified_time" content="2023-12-14T05:30:52.034Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="debian">
+<meta property="article:tag" content="linux">
 <meta property="article:tag" content="iptables">
+<meta property="article:tag" content="openwrt">
 <meta name="twitter:card" content="summary">
 
 
@@ -51,7 +53,7 @@
 
 
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.top:4443">
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -220,13 +222,18 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311042118.html" rel="bookmark">
-      iPad解锁激活锁苹果平板绕激活锁经验
+      <a class="popular-posts-link" href="/202308242111.html" rel="bookmark">
+      如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202308242111.html" rel="bookmark">
-      如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng
+      <a class="popular-posts-link" href="/202312021028.html" rel="bookmark">
+      如何让路由器按要求定时发BTC价至手机
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311042118.html" rel="bookmark">
+      iPad解锁激活锁苹果平板绕激活锁经验
       </a>
     </li>
     <li class="popular-posts-item">
@@ -235,18 +242,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310261222.html" rel="bookmark">
-      Hexo定制之家宽部署artalk评论
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
       Nginx Proxy Manager修复笔记
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312031926.html" rel="bookmark">
-      Docker搭建FRP内网穿透服务
+      <a class="popular-posts-link" href="/202310261222.html" rel="bookmark">
+      Hexo定制之家宽部署artalk评论
       </a>
     </li>
   </ul>
@@ -442,7 +444,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-14 16:52:27" itemprop="dateModified" datetime="2023-11-14T16:52:27+08:00">2023-11-14</time>
+      <time title="修改时间：2023-12-14 13:30:52" itemprop="dateModified" datetime="2023-12-14T13:30:52+08:00">2023-12-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/openwrt/" itemprop="url" rel="index"><span itemprop="name">openwrt</span></a>
+        </span>
     </span>
 
   
@@ -549,13 +560,18 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311042118.html" rel="bookmark">
-      iPad解锁激活锁苹果平板绕激活锁经验
+      <a class="popular-posts-link" href="/202308242111.html" rel="bookmark">
+      如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202308242111.html" rel="bookmark">
-      如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng
+      <a class="popular-posts-link" href="/202312021028.html" rel="bookmark">
+      如何让路由器按要求定时发BTC价至手机
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311042118.html" rel="bookmark">
+      iPad解锁激活锁苹果平板绕激活锁经验
       </a>
     </li>
     <li class="popular-posts-item">
@@ -564,18 +580,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310261222.html" rel="bookmark">
-      Hexo定制之家宽部署artalk评论
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
       Nginx Proxy Manager修复笔记
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312031926.html" rel="bookmark">
-      Docker搭建FRP内网穿透服务
+      <a class="popular-posts-link" href="/202310261222.html" rel="bookmark">
+      Hexo定制之家宽部署artalk评论
       </a>
     </li>
   </ul>
@@ -711,7 +722,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-11-14 16:52:27" itemprop="dateModified" datetime="2023-11-14T16:52:27+08:00">2023-11-14</time>
+        <time title="修改时间：2023-12-14 13:30:52" itemprop="dateModified" datetime="2023-12-14T13:30:52+08:00">2023-12-14</time>
       </span>
 
 </div>
@@ -721,7 +732,9 @@
           <div class="post-tags">
             继续浏览有关
               <a href="/tags/debian/" rel="tag"># debian</a>
+              <a href="/tags/linux/" rel="tag"># linux</a>
               <a href="/tags/iptables/" rel="tag"># iptables</a>
+              <a href="/tags/openwrt/" rel="tag"># openwrt</a>
             的文章
           </div>
 
@@ -842,13 +855,13 @@
 
 
   
-  <script size="300" alpha="0.6" zIndex="-1" src="/lib/ribbon.js/dist/ribbon.min.js"></script>
-  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="/lib/@next-theme/pjax/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
-  <script src="/lib/lozad/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
-  <script src="/lib/hexo-generator-searchdb/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
 
 
@@ -864,29 +877,9 @@
 
 
 
-  <script src="/lib/quicklink/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/202311141039.html"}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":1000,"priority":false,"url":"https://www.carlzeng.top/202311141039.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
-<script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/202311141039.html","pageTitle":"iptables应用"}</script>
 
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
@@ -919,6 +912,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>
