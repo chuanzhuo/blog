@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/4b7d3a56-0a2d-4487-9f08-e6c43e555709/86GFchghtZNA_PORS9sjFaFm4lBQDuNRqyRMRJbnN2OWDYt5HVmMjmh8Eg/deep/0/image.png">
 <meta property="article:published_time" content="2023-12-07T08:25:36.000Z">
-<meta property="article:modified_time" content="2023-12-14T04:49:32.551Z">
+<meta property="article:modified_time" content="2023-12-14T13:36:02.639Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="路由器">
 <meta property="article:tag" content="手机">
@@ -220,13 +220,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310082305.html" rel="bookmark">
-      NetSuite query SQL
+      <a class="popular-posts-link" href="/202312081128.html" rel="bookmark">
+      M3U8播放器
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312081128.html" rel="bookmark">
-      M3U8播放器
+      <a class="popular-posts-link" href="/202310082305.html" rel="bookmark">
+      NetSuite query SQL
       </a>
     </li>
     <li class="popular-posts-item">
@@ -245,8 +245,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200906101022.html" rel="bookmark">
-      js 取得div高度-CarlZeng
+      <a class="popular-posts-link" href="/202311231919.html" rel="bookmark">
+      关于DNS配置记录与分析
       </a>
     </li>
     <li class="popular-posts-item">
@@ -298,8 +298,8 @@
                   </a>
                 </li>
                 <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
-                  <a href="/202312031926.html" title="Docker搭建FRP内网穿透服务" target="">
-                  Docker搭建FRP内网穿透服务
+                  <a href="/202312031926.html" title="Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)" target="">
+                  Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)
                   </a>
                 </li>
                 <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
@@ -447,7 +447,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-12-14 12:49:32" itemprop="dateModified" datetime="2023-12-14T12:49:32+08:00">2023-12-14</time>
+      <time title="修改時間：2023-12-14 21:36:02" itemprop="dateModified" datetime="2023-12-14T21:36:02+08:00">2023-12-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -517,39 +517,28 @@
 </li>
 </ol>
 <h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><p>如果您对相关的 <a href="https://www.carlzeng.top/search?q=openwrt">openwrt</a> 感兴趣，以下内容可能帮到您：</p>
-<input autocomplete="off" id="local-search-input" autocapitalize="off" size="45" maxlength="60" placeholder="请输入关键字搜索..." spellcheck="false" type="search" class="search-input">
+<input autocomplete="off" id="local-search-input" onchange="searchFunc_initPage()" autocapitalize="off" size="45" maxlength="60" placeholder="请输入关键字搜索..." spellcheck="false" type="search" class="search-input">
 
 <div id='local-search-result'></div>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript">
-var callbackFunc = function(data) {
-console.log(data);
-alert(data);
-}
-function showJsonp(obj){
-  console.log(obj.message);
-}
-var url = 'https://cdn.carlzeng.top/search?func=showJsonp'
-/*var script = document.createElement('script');
-script.setAttribute('src',url);
-script.setAttribute('type','text/javascript');
-document.getElementsByTagName('head')[0].appendChild(script);*/
-var searchFunc_initPage = function(path, search_id, content_id) {
+var searchFunc_initPage = function() {
 'use strict';
-$.ajax({
-  url: path,
-  dataType: "xml",
-  success: function( xmlResponse ) {
-  console.log(xmlResponse);
-  // get the contents from search data
-  var datas = $( "entry", xmlResponse ).map(function() {
-    return {
-    title: $( "title", this ).text(),
-    content: $("content",this).text(),
-    url: $( "url" , this).text()
-  };
-}).get();
-var $input = document.getElementById(search_id);
+var path = "https://hk.carlzeng.top/search.xml";
+var search_id = 'local-search-input';
+var content_id= 'local-search-result';
+    $.ajax({
+      url: path,
+      dataType: "xml",
+      success: function( xmlResponse ) {
+      window.datas = $( "entry", xmlResponse ).map(function() {
+        return {
+        title: $( "title", this ).text(),
+        content: $("content",this).text(),
+        url: $( "url" , this).text()
+      };
+    }).get();
+    var $input = document.getElementById(search_id);
      if (!$input) return;
         var $resultContent = document.getElementById(content_id);
         if ($("#local-search-input").length > 0) {
@@ -560,7 +549,7 @@ var $input = document.getElementById(search_id);
                     return;
                 }
                 // perform local searching
-                datas.forEach(function (data) {
+                window.datas.forEach(function (data) {
                     var isMatch = true;
                     var content_index = [];
                     if (!data.title || data.title.trim() === '') {
@@ -632,9 +621,9 @@ if (strContent.indexOf('search?q=') != -1)
 else 
     strContent = 'openwrt';
 $('#local-search-input').val(strContent);
-var path = "https://hk.carlzeng.top/search.xml"
-searchFunc_initPage(path, 'local-search-input', 'local-search-result');
+searchFunc_initPage();
 </script>
+
 
 
 
@@ -673,7 +662,7 @@ searchFunc_initPage(path, 'local-search-input', 'local-search-result');
 <li>（一次性设置）新建主机连接<ol>
 <li><p>右下角+号</p>
 </li>
-<li><p>输入（开启了SSH的）：用户名@路由的IP地址，比如：<a href="mailto:&#x72;&#111;&#x6f;&#116;&#x40;&#x31;&#x39;&#50;&#46;&#x31;&#x36;&#x38;&#46;&#x31;&#x32;&#x33;&#x2e;&#49;">&#x72;&#111;&#x6f;&#116;&#x40;&#x31;&#x39;&#50;&#46;&#x31;&#x36;&#x38;&#46;&#x31;&#x32;&#x33;&#x2e;&#49;</a></p>
+<li><p>输入（开启了SSH的）：用户名@路由的IP地址，比如：<a href="mailto:&#x72;&#x6f;&#x6f;&#116;&#64;&#x31;&#x39;&#50;&#x2e;&#49;&#54;&#x38;&#46;&#x31;&#50;&#x33;&#46;&#49;">&#x72;&#x6f;&#x6f;&#116;&#64;&#x31;&#x39;&#50;&#x2e;&#49;&#54;&#x38;&#46;&#x31;&#50;&#x33;&#46;&#49;</a></p>
 </li>
 <li><p>点击“使用密钥验证”</p>
 <ol>
@@ -748,7 +737,7 @@ searchFunc_initPage(path, 'local-search-input', 'local-search-result');
     <div
       class="social-share"
       
-        data-sites="wechat,weibo,qq,facebook,twitter,google"
+        data-sites="wechat,weibo,qq,facebook,twitter,diandian"
       
       
         data-wechat-qrcode-title="微信扫一扫：分享"
@@ -793,13 +782,13 @@ searchFunc_initPage(path, 'local-search-input', 'local-search-result');
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310082305.html" rel="bookmark">
-      NetSuite query SQL
+      <a class="popular-posts-link" href="/202312081128.html" rel="bookmark">
+      M3U8播放器
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312081128.html" rel="bookmark">
-      M3U8播放器
+      <a class="popular-posts-link" href="/202310082305.html" rel="bookmark">
+      NetSuite query SQL
       </a>
     </li>
     <li class="popular-posts-item">
@@ -818,8 +807,8 @@ searchFunc_initPage(path, 'local-search-input', 'local-search-result');
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200906101022.html" rel="bookmark">
-      js 取得div高度-CarlZeng
+      <a class="popular-posts-link" href="/202311231919.html" rel="bookmark">
+      关于DNS配置记录与分析
       </a>
     </li>
     <li class="popular-posts-item">
@@ -873,8 +862,8 @@ searchFunc_initPage(path, 'local-search-input', 'local-search-result');
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312031926.html" title="Docker搭建FRP内网穿透服务" target="">
-              Docker搭建FRP内网穿透服务
+              <a href="/202312031926.html" title="Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)" target="">
+              Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
@@ -960,7 +949,7 @@ searchFunc_initPage(path, 'local-search-input', 'local-search-result');
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2023-12-14 12:49:32" itemprop="dateModified" datetime="2023-12-14T12:49:32+08:00">2023-12-14</time>
+        <time title="修改時間：2023-12-14 21:36:02" itemprop="dateModified" datetime="2023-12-14T21:36:02+08:00">2023-12-14</time>
       </span>
 
 </div>
@@ -981,8 +970,8 @@ searchFunc_initPage(path, 'local-search-input', 'local-search-result');
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/202312031926.html" rel="prev" title="Docker搭建FRP内网穿透服务">
-                  <i class="fa fa-angle-left"></i> Docker搭建FRP内网穿透服务
+                <a href="/202312031926.html" rel="prev" title="Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)">
+                  <i class="fa fa-angle-left"></i> Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)
                 </a>
             </div>
             <div class="post-nav-item">
@@ -1119,7 +1108,7 @@ searchFunc_initPage(path, 'local-search-input', 'local-search-result');
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":1000,"priority":false,"url":"https://www.carlzeng.top/zh-TW/202312071625.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
-<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/zh-TW/202312071625.html","pageTitle":"孩子手机防沉迷之定时路由器端断网"}</script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/zh-TW/202312071625.html","pageTitle":"孩子手机防沉迷之定时路由器端断网"}</script>
 
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
 <style>.artalk{width:initial;}</style>

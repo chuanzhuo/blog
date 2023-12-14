@@ -239,7 +239,7 @@
     </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202312031926.html" rel="bookmark">
-      Docker搭建FRP内网穿透服务
+      Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)
       </a>
     </li>
     <li class="popular-posts-item">
@@ -301,8 +301,8 @@
                   </a>
                 </li>
                 <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
-                  <a href="/202312031926.html" title="Docker搭建FRP内网穿透服务" target="">
-                  Docker搭建FRP内网穿透服务
+                  <a href="/202312031926.html" title="Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)" target="">
+                  Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)
                   </a>
                 </li>
                 <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
@@ -578,7 +578,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3.9&quot;</span><br><span class="line">services:</span><br><span class="line">  xui:</span><br><span class="line">    image: enwaiax/x-ui</span><br><span class="line">    container_name: xui</span><br><span class="line">    volumes:</span><br><span class="line">      - $PWD/db/:/etc/x-ui/</span><br><span class="line">      - $PWD/cert/:/root/cert/</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    network_mode: host</span><br></pre></td></tr></table></figure>
 <p>新建目录，并把上面的配置放到x-ui.yaml中<br>root@Debian11:&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;x-ui&#x2F;template# docker-compose -f x-ui.yaml up</p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuYW1hZHVlcy5saW5rL2FyY2hpdmVzL2RvY2tlcmRhLWppYW4tamllLWRpYW4tdmxlc3Mtd3MtdGxzLXdlYg==" rel="noopener external nofollow noreferrer">https://www.amadues.link/archives/dockerda-jian-jie-dian-vless-ws-tls-web</a><br>docker-compose.yaml的方案follow：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ob3N0bG9jLmNvbS90aHJlYWQtMTEwODQ2OC0xLTEuaHRtbA==" rel="noopener external nofollow noreferrer">https://hostloc.com/thread-1108468-1-1.html</a><br>配置的方案follow：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9pd2FubGFiLmNvbS9ucG0teHVpLw==" rel="noopener external nofollow noreferrer">https://iwanlab.com/npm-xui/</a><br>相关的视频：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1WM25zRGljU01CYw==" rel="noopener external nofollow noreferrer">https://www.youtube.com/watch?v=V3nsDicSMBc</a></p>
-<p>待测试：vless:&#x2F;&#x2F;<a href="mailto:&#x33;&#x39;&#102;&#x64;&#101;&#50;&#x64;&#50;&#x2d;&#99;&#x38;&#x38;&#99;&#x2d;&#x34;&#x62;&#101;&#97;&#45;&#x64;&#52;&#x39;&#49;&#45;&#102;&#x62;&#54;&#57;&#x39;&#48;&#x64;&#52;&#57;&#x37;&#52;&#x31;&#x40;&#x76;&#x6d;&#101;&#x73;&#x73;&#46;&#x63;&#x61;&#x72;&#108;&#x7a;&#101;&#110;&#103;&#46;&#116;&#111;&#112;">&#x33;&#x39;&#102;&#x64;&#101;&#50;&#x64;&#50;&#x2d;&#99;&#x38;&#x38;&#99;&#x2d;&#x34;&#x62;&#101;&#97;&#45;&#x64;&#52;&#x39;&#49;&#45;&#102;&#x62;&#54;&#57;&#x39;&#48;&#x64;&#52;&#57;&#x37;&#52;&#x31;&#x40;&#x76;&#x6d;&#101;&#x73;&#x73;&#46;&#x63;&#x61;&#x72;&#108;&#x7a;&#101;&#110;&#103;&#46;&#116;&#111;&#112;</a>:17866?type&#x3D;ws&amp;security&#x3D;none&amp;path&#x3D;%2Fgugu#gugugee</p>
+<p>待测试：vless:&#x2F;&#x2F;<a href="mailto:&#51;&#x39;&#x66;&#x64;&#101;&#x32;&#100;&#x32;&#x2d;&#99;&#56;&#x38;&#99;&#45;&#52;&#98;&#101;&#x61;&#45;&#100;&#x34;&#x39;&#49;&#x2d;&#x66;&#x62;&#x36;&#x39;&#x39;&#x30;&#x64;&#x34;&#57;&#x37;&#52;&#x31;&#x40;&#x76;&#x6d;&#x65;&#115;&#x73;&#46;&#x63;&#97;&#x72;&#x6c;&#x7a;&#x65;&#x6e;&#x67;&#x2e;&#x74;&#x6f;&#x70;">&#51;&#x39;&#x66;&#x64;&#101;&#x32;&#100;&#x32;&#x2d;&#99;&#56;&#x38;&#99;&#45;&#52;&#98;&#101;&#x61;&#45;&#100;&#x34;&#x39;&#49;&#x2d;&#x66;&#x62;&#x36;&#x39;&#x39;&#x30;&#x64;&#x34;&#57;&#x37;&#52;&#x31;&#x40;&#x76;&#x6d;&#x65;&#115;&#x73;&#46;&#x63;&#97;&#x72;&#x6c;&#x7a;&#x65;&#x6e;&#x67;&#x2e;&#x74;&#x6f;&#x70;</a>:17866?type&#x3D;ws&amp;security&#x3D;none&amp;path&#x3D;%2Fgugu#gugugee</p>
 <p>可以打开后台配置 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6NTQzMjEvZmsveHVpLw==" rel="noopener external nofollow noreferrer">http://192.168.6.116:54321/fk/xui/</a><br>没成功…期待更多的客户端连接测试, 等救援</p>
 <p>思路有问题：x-ui是一个服务端的节点！</p>
 <div class="tabs" id="名称"><ul class="nav-tabs"><li class="tab active"><a href="#名称-1">名称 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="名称-1"><p>待续。。。</p></div></div></div>
@@ -594,7 +594,7 @@
     <div
       class="social-share"
       
-        data-sites="wechat,weibo,qq,facebook,twitter,google"
+        data-sites="wechat,weibo,qq,facebook,twitter,diandian"
       
       
         data-wechat-qrcode-title="微信扫一扫：分享"
@@ -655,7 +655,7 @@
     </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202312031926.html" rel="bookmark">
-      Docker搭建FRP内网穿透服务
+      Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)
       </a>
     </li>
     <li class="popular-posts-item">
@@ -719,8 +719,8 @@
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312031926.html" title="Docker搭建FRP内网穿透服务" target="">
-              Docker搭建FRP内网穿透服务
+              <a href="/202312031926.html" title="Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)" target="">
+              Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
@@ -967,7 +967,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":1000,"priority":false,"url":"https://www.carlzeng.top/202311081003.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
-<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/202311081003.html","pageTitle":"实测Docker搭建短链接服务YOURLS"}</script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202311081003.html","pageTitle":"实测Docker搭建短链接服务YOURLS"}</script>
 
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
 <style>.artalk{width:initial;}</style>
