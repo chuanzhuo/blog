@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
-<link rel="preconnect" href="https://cdn.staticfile.org" crossorigin>
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -14,11 +14,11 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/pace/1.2.4/themes/blue/pace-theme-minimal.css">
-  <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/config.min.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="记录go语言学习与应用日志">
 <meta property="og:type" content="article">
@@ -489,7 +489,7 @@
     
     <div class="post-body" itemprop="articleBody"><p>记录go语言学习与应用日志<br> <span id="more"></span></p>
 <h1 id="Proxypool-WebFuzzSub"><a href="#Proxypool-WebFuzzSub" class="headerlink" title="Proxypool - WebFuzzSub"></a>Proxypool - WebFuzzSub</h1><p>审查所有使用这个类型的站点，需要定期去维护。</p>
-<h1 id="安装步骤："><a href="#安装步骤：" class="headerlink" title="安装步骤："></a>安装步骤：</h1><p>1.安装 go install github.com&#x2F;ssrlive&#x2F;proxypool@latest<br>2.将生成的proxypool 可执行文件，复制到整个项目的集体目录下. i.e. &#x2F;Users&#x2F;carlzeng&#x2F;go&#x2F;pkg&#x2F;mod&#x2F;github.com&#x2F;ssrlive&#x2F;<a href="mailto:&#x70;&#x72;&#x6f;&#x78;&#121;&#x70;&#111;&#x6f;&#108;&#x40;&#x76;&#x30;&#x2e;&#x37;&#46;&#x31;&#50;">&#x70;&#x72;&#x6f;&#x78;&#121;&#x70;&#111;&#x6f;&#108;&#x40;&#x76;&#x30;&#x2e;&#x37;&#46;&#x31;&#50;</a><br>3.配置文件config.yaml 和 source.yaml<br>4.运行 .&#x2F;proxypool -c config_proxypool.yaml</p>
+<h1 id="安装步骤："><a href="#安装步骤：" class="headerlink" title="安装步骤："></a>安装步骤：</h1><p>1.安装 go install github.com&#x2F;ssrlive&#x2F;proxypool@latest<br>2.将生成的proxypool 可执行文件，复制到整个项目的集体目录下. i.e. &#x2F;Users&#x2F;carlzeng&#x2F;go&#x2F;pkg&#x2F;mod&#x2F;github.com&#x2F;ssrlive&#x2F;<a href="mailto:&#x70;&#x72;&#x6f;&#120;&#x79;&#112;&#111;&#x6f;&#108;&#64;&#118;&#48;&#x2e;&#55;&#46;&#49;&#x32;">&#x70;&#x72;&#x6f;&#120;&#x79;&#112;&#111;&#x6f;&#108;&#64;&#118;&#48;&#x2e;&#55;&#46;&#49;&#x32;</a><br>3.配置文件config.yaml 和 source.yaml<br>4.运行 .&#x2F;proxypool -c config_proxypool.yaml</p>
 <p>以后只要搜索proxypool的source.yaml即可，拓展爬虫目标列表，<br>i.e. <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL25ld2Nhc3RsZWN5L3Byb3h5cG9vbC0xL2Jsb2IvbWFzdGVyL3NvdXJjZS55YW1s" rel="noopener external nofollow noreferrer">https://github.com/newcastlecy/proxypool-1/blob/master/source.yaml</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxypool  -c config_proxypool.json</span><br></pre></td></tr></table></figure>
 
@@ -896,20 +896,20 @@ go build.
 
 
   
-  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.staticfile.org/ribbon.js/1.0.2/ribbon.min.js"></script>
-  <script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdn.staticfile.org/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
-  <script src="https://cdn.staticfile.org/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-<script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/comments.min.js"></script><script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/utils.min.js"></script><script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/next-boot.min.js"></script><script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/pjax.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
-  <script src="https://cdn.staticfile.org/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
-<script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/third-party/search/local-search.min.js"></script>
-
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
-  <script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/third-party/pace.min.js"></script>
+
+
+  <script src="/js/third-party/pace.js"></script>
 
 
   
@@ -918,9 +918,9 @@ go build.
 
 
 
-  <script src="https://cdn.staticfile.org/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/en/202310011555.html"}</script>
-  <script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/third-party/quicklink.min.js"></script>
+  <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/en/202310011555.html","pageTitle":"go语言学习与应用日志"}</script>
 
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
-<link rel="preconnect" href="https://cdn.staticfile.org" crossorigin>
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -14,11 +14,11 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/pace/1.2.4/themes/blue/pace-theme-minimal.css">
-  <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/config.min.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="URL缩短服务。可以让你在自己的服务器上运行的URL缩短服务URL简化可以完全控制自己的数据，包括简单的统计、分析和许多插件">
 <meta property="og:type" content="article">
@@ -578,7 +578,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3.9&quot;</span><br><span class="line">services:</span><br><span class="line">  xui:</span><br><span class="line">    image: enwaiax/x-ui</span><br><span class="line">    container_name: xui</span><br><span class="line">    volumes:</span><br><span class="line">      - $PWD/db/:/etc/x-ui/</span><br><span class="line">      - $PWD/cert/:/root/cert/</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    network_mode: host</span><br></pre></td></tr></table></figure>
 <p>新建目录，并把上面的配置放到x-ui.yaml中<br>root@Debian11:&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;x-ui&#x2F;template# docker-compose -f x-ui.yaml up</p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuYW1hZHVlcy5saW5rL2FyY2hpdmVzL2RvY2tlcmRhLWppYW4tamllLWRpYW4tdmxlc3Mtd3MtdGxzLXdlYg==" rel="noopener external nofollow noreferrer">https://www.amadues.link/archives/dockerda-jian-jie-dian-vless-ws-tls-web</a><br>docker-compose.yaml的方案follow：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ob3N0bG9jLmNvbS90aHJlYWQtMTEwODQ2OC0xLTEuaHRtbA==" rel="noopener external nofollow noreferrer">https://hostloc.com/thread-1108468-1-1.html</a><br>配置的方案follow：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9pd2FubGFiLmNvbS9ucG0teHVpLw==" rel="noopener external nofollow noreferrer">https://iwanlab.com/npm-xui/</a><br>相关的视频：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1WM25zRGljU01CYw==" rel="noopener external nofollow noreferrer">https://www.youtube.com/watch?v=V3nsDicSMBc</a></p>
-<p>待测试：vless:&#x2F;&#x2F;<a href="mailto:&#x33;&#57;&#x66;&#x64;&#x65;&#50;&#100;&#50;&#x2d;&#99;&#56;&#56;&#99;&#x2d;&#52;&#98;&#101;&#97;&#45;&#100;&#x34;&#x39;&#x31;&#45;&#x66;&#x62;&#x36;&#57;&#57;&#48;&#100;&#x34;&#57;&#x37;&#52;&#49;&#64;&#118;&#x6d;&#101;&#x73;&#115;&#46;&#x63;&#97;&#x72;&#108;&#122;&#x65;&#x6e;&#103;&#x2e;&#116;&#x6f;&#x70;">&#x33;&#57;&#x66;&#x64;&#x65;&#50;&#100;&#50;&#x2d;&#99;&#56;&#56;&#99;&#x2d;&#52;&#98;&#101;&#97;&#45;&#100;&#x34;&#x39;&#x31;&#45;&#x66;&#x62;&#x36;&#57;&#57;&#48;&#100;&#x34;&#57;&#x37;&#52;&#49;&#64;&#118;&#x6d;&#101;&#x73;&#115;&#46;&#x63;&#97;&#x72;&#108;&#122;&#x65;&#x6e;&#103;&#x2e;&#116;&#x6f;&#x70;</a>:17866?type&#x3D;ws&amp;security&#x3D;none&amp;path&#x3D;%2Fgugu#gugugee</p>
+<p>待测试：vless:&#x2F;&#x2F;<a href="mailto:&#51;&#x39;&#x66;&#x64;&#101;&#x32;&#100;&#50;&#45;&#x63;&#56;&#x38;&#99;&#x2d;&#x34;&#x62;&#x65;&#x61;&#x2d;&#x64;&#52;&#57;&#49;&#x2d;&#102;&#x62;&#x36;&#x39;&#x39;&#x30;&#100;&#x34;&#x39;&#55;&#52;&#49;&#64;&#118;&#x6d;&#x65;&#115;&#x73;&#46;&#x63;&#97;&#x72;&#108;&#122;&#101;&#x6e;&#103;&#46;&#116;&#x6f;&#112;">&#51;&#x39;&#x66;&#x64;&#101;&#x32;&#100;&#50;&#45;&#x63;&#56;&#x38;&#99;&#x2d;&#x34;&#x62;&#x65;&#x61;&#x2d;&#x64;&#52;&#57;&#49;&#x2d;&#102;&#x62;&#x36;&#x39;&#x39;&#x30;&#100;&#x34;&#x39;&#55;&#52;&#49;&#64;&#118;&#x6d;&#x65;&#115;&#x73;&#46;&#x63;&#97;&#x72;&#108;&#122;&#101;&#x6e;&#103;&#46;&#116;&#x6f;&#112;</a>:17866?type&#x3D;ws&amp;security&#x3D;none&amp;path&#x3D;%2Fgugu#gugugee</p>
 <p>可以打开后台配置 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6NTQzMjEvZmsveHVpLw==" rel="noopener external nofollow noreferrer">http://192.168.6.116:54321/fk/xui/</a><br>没成功…期待更多的客户端连接测试, 等救援</p>
 <p>思路有问题：x-ui是一个服务端的节点！</p>
 <div class="tabs" id="名称"><ul class="nav-tabs"><li class="tab active"><a href="#名称-1">名称 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="名称-1"><p>待续。。。</p></div></div></div>
@@ -950,20 +950,20 @@
 
 
   
-  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.staticfile.org/ribbon.js/1.0.2/ribbon.min.js"></script>
-  <script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdn.staticfile.org/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
-  <script src="https://cdn.staticfile.org/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-<script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/comments.min.js"></script><script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/utils.min.js"></script><script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/next-boot.min.js"></script><script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/pjax.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
-  <script src="https://cdn.staticfile.org/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
-<script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/third-party/search/local-search.min.js"></script>
-
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
-  <script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/third-party/pace.min.js"></script>
+
+
+  <script src="/js/third-party/pace.js"></script>
 
 
   
@@ -972,9 +972,9 @@
 
 
 
-  <script src="https://cdn.staticfile.org/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/en/202311081003.html"}</script>
-  <script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/third-party/quicklink.min.js"></script>
+  <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/en/202311081003.html","pageTitle":"实测Docker搭建短链接服务YOURLS"}</script>
 
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">

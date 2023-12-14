@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
-<link rel="preconnect" href="https://cdn.staticfile.org" crossorigin>
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -14,11 +14,11 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/pace/1.2.4/themes/blue/pace-theme-minimal.css">
-  <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/config.min.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="如何在网络包传输中捕获cookie？ 分解：cookie是否在网络数据包中包含？ 如果包含，如何读取？ 需要分开看是http的还是https的情况， https需要考虑使用硬件上的集线器监听解码或者MITM 来转变数据流。 ---------------转载：http:&#x2F;&#x2F;www.cppblog.com&#x2F;len&#x2F;archive&#x2F;2009&#x2F;05&#x2F;26&#x2F;54229.html 强大的网络传输工具cURL">
 <meta property="og:type" content="article">
@@ -516,9 +516,9 @@
 <p>使用http代理，可指定IP和端口</p>
 <p>&gt;curl -x 202.127.98.43:80 -o baidu.html http:<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5iYWlkdS5jb20v" rel="noopener external nofollow noreferrer">www.baidu.com</a></p>
 <p>在访问一些论坛时，常常要求启用cookie，因为这些网站需要启用cookie来记录sessioin信息,这时需要选项-D，将cookie信息保存起来</p>
-<p>&gt;curl -o cpp.html -c <a href="mailto:&#108;&#x65;&#110;&#64;&#99;&#x70;&#112;&#98;&#x6c;&#x6f;&#103;&#x2e;&#x63;&#x6f;&#109;">&#108;&#x65;&#110;&#64;&#99;&#x70;&#112;&#98;&#x6c;&#x6f;&#103;&#x2e;&#x63;&#x6f;&#109;</a>[1].txt <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
+<p>&gt;curl -o cpp.html -c <a href="mailto:&#x6c;&#x65;&#x6e;&#64;&#x63;&#x70;&#112;&#x62;&#108;&#x6f;&#x67;&#x2e;&#99;&#x6f;&#109;">&#x6c;&#x65;&#x6e;&#64;&#x63;&#x70;&#112;&#x62;&#108;&#x6f;&#x67;&#x2e;&#99;&#x6f;&#109;</a>[1].txt <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
 <p>先前保存的cookie信息返回给网站,这通常会传回你的一些用户信息。</p>
-<p>&gt;curl -o cpp.html -c <a href="mailto:&#108;&#x65;&#110;&#64;&#x63;&#x70;&#x70;&#x62;&#108;&#x6f;&#103;&#46;&#x63;&#x6f;&#109;">&#108;&#x65;&#110;&#64;&#x63;&#x70;&#x70;&#x62;&#108;&#x6f;&#103;&#46;&#x63;&#x6f;&#109;</a>[2].txt -b <a href="mailto:&#108;&#x65;&#x6e;&#64;&#x63;&#112;&#112;&#98;&#x6c;&#x6f;&#x67;&#x2e;&#x63;&#111;&#x6d;">&#108;&#x65;&#x6e;&#64;&#x63;&#112;&#112;&#98;&#x6c;&#x6f;&#x67;&#x2e;&#x63;&#111;&#x6d;</a>[1].txt <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
+<p>&gt;curl -o cpp.html -c <a href="mailto:&#x6c;&#101;&#110;&#64;&#x63;&#112;&#x70;&#98;&#108;&#x6f;&#x67;&#x2e;&#x63;&#x6f;&#x6d;">&#x6c;&#101;&#110;&#64;&#x63;&#112;&#x70;&#98;&#108;&#x6f;&#x67;&#x2e;&#x63;&#x6f;&#x6d;</a>[2].txt -b <a href="mailto:&#x6c;&#x65;&#x6e;&#64;&#x63;&#x70;&#112;&#98;&#108;&#x6f;&#x67;&#x2e;&#x63;&#x6f;&#109;">&#x6c;&#x65;&#x6e;&#64;&#x63;&#x70;&#112;&#98;&#108;&#x6f;&#x67;&#x2e;&#x63;&#x6f;&#109;</a>[1].txt <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
 
     </div>
 
@@ -755,8 +755,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/200911201708.html" rel="prev" title="一中另类调试javascrīpt的方法-CarlZeng">
-                  <i class="fa fa-angle-left"></i> 一中另类调试javascrīpt的方法-CarlZeng
+                <a href="/200911201708.html" rel="prev" title="一中另类调试javascrīpt的好方法-CarlZeng">
+                  <i class="fa fa-angle-left"></i> 一中另类调试javascrīpt的好方法-CarlZeng
                 </a>
             </div>
             <div class="post-nav-item">
@@ -876,20 +876,20 @@
 
 
   
-  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.staticfile.org/ribbon.js/1.0.2/ribbon.min.js"></script>
-  <script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdn.staticfile.org/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
-  <script src="https://cdn.staticfile.org/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-<script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/comments.min.js"></script><script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/utils.min.js"></script><script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/next-boot.min.js"></script><script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/pjax.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
-  <script src="https://cdn.staticfile.org/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
-<script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/third-party/search/local-search.min.js"></script>
-
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
-  <script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/third-party/pace.min.js"></script>
+
+
+  <script src="/js/third-party/pace.js"></script>
 
 
   
@@ -898,9 +898,9 @@
 
 
 
-  <script src="https://cdn.staticfile.org/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/en/200911251629.html"}</script>
-  <script src="https://cdn.staticfile.org/hexo-theme-next/8.19.1/third-party/quicklink.min.js"></script>
+  <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/en/200911251629.html","pageTitle":"如何在网络包传输中捕获cookie-CarlZeng"}</script>
 
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
