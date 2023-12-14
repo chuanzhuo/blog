@@ -14,9 +14,9 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/pace-js/themes/blue/pace-theme-minimal.css">
+  <script src="/lib/pace-js/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
@@ -47,7 +47,7 @@
 
 
 
-<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdn.staticfile.org/social-share.js/1.0.16/css/share.min.css">
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -358,7 +358,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200812081210.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201903222305.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -376,7 +376,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/200812081210.html" class="post-title-link" itemprop="url">JS导出txt文本文件,Netsuite方案-CarlZeng</a>
+          <a href="/201903222305.html" class="post-title-link" itemprop="url">How to use NetSuite SDF to download bundles/components-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -405,7 +405,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">閱讀次數：</span>
-            <span id="ArtalkPV" data-page-key="/200812081210.html" ></span>
+            <span id="ArtalkPV" data-page-key="/201903222305.html" ></span>
           </span>
         
       
@@ -415,8 +415,8 @@
               <i class="far fa-comment"></i>
             </span>
             <span class="post-meta-item-text">评论：</span>
-            <a href="/200812081210.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200812081210.html" itemprop="commentCount"></span>
+            <a href="/201903222305.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201903222305.html" itemprop="commentCount"></span>
             </a>
           </span>
         
@@ -430,10 +430,119 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          //传入一个table的id，将table的全部内容导出excel文件function AutomateExcel(objTable){// Start Excel and get Application object.var oXL = new ActiveXObject("Excel.Application");// Get a new workbook.var oWB = oXL.Workb...
+          <h2 id="1-Install-SuiteCloud-IDE-Eclipse-Plugin"><a href="#1-Install-SuiteCloud-IDE-Eclipse-Plugin" class="headerlink" title="1. Install SuiteCloud IDE(Eclipse + Plugin)"></a>1. Install SuiteCloud IDE(Eclipse + Plugin)</h2><p>1.1 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuZWNsaXBzZS5vcmcvZG93bmxvYWRzL3BhY2thZ2VzL3JlbGVhc2UvbWFycy8yL2VjbGlwc2UtaWRlLWphdmEtZWUtZGV2ZWxvcGVycw==" rel="noopener external nofollow noreferrer">https://www.eclipse.org/downloads/packages/release/mars/2/eclipse-ide-java-ee-developers</a>.<br>1.2 Updating Eclipse for Use with SuiteCloud IDE<br>1.3 Enable NS Features, SDF,<br>Setup &gt; Company &gt; Enable Features &gt; SuiteCloud &gt; SUITECLOUD DEVELOPMENT FRAMEWORK</p>
+<h2 id="2-Create-SuiteCloud-IDE-Project"><a href="#2-Create-SuiteCloud-IDE-Project" class="headerlink" title="2. Create SuiteCloud IDE, Project"></a>2. Create SuiteCloud IDE, Project</h2><p>File &gt; New &gt; SuiteCloud Project,<br>Account Customization<br>Project Name</p>
+<h2 id="3-NETSUITE-UI-Assign-Current-Employee-Record-with-“SDF-Developer-2FA-Off”-role"><a href="#3-NETSUITE-UI-Assign-Current-Employee-Record-with-“SDF-Developer-2FA-Off”-role" class="headerlink" title="3. NETSUITE UI, Assign Current Employee Record with “SDF Developer - 2FA Off” role"></a>3. NETSUITE UI, Assign Current Employee Record with “SDF Developer - 2FA Off” role</h2><p>Create an custom role, make sure the 2FA is off(mandatory uncheck and ‘Not required’) in: Setup &gt; Users&#x2F;Roles &gt; Two-Factor Authentication Roles</p>
+<h2 id="4-Configure-SuiteCloud-IDE-to-connect-with-NS-One-Time-Setup"><a href="#4-Configure-SuiteCloud-IDE-to-connect-with-NS-One-Time-Setup" class="headerlink" title="4. Configure SuiteCloud IDE to connect with NS (One-Time Setup)"></a>4. Configure SuiteCloud IDE to connect with NS (One-Time Setup)</h2><p>NetSuite<br>Manage Account<br>Add Account(s)<br>Setup &gt; Company &gt; Company Information<br>Issue Token (Token has been issued)</p>
+<h2 id="5-Eclipse-Right-click-NetSuite-Change-Project-Setting"><a href="#5-Eclipse-Right-click-NetSuite-Change-Project-Setting" class="headerlink" title="5. Eclipse, Right click, NetSuite &gt; Change Project Setting."></a>5. Eclipse, Right click, NetSuite &gt; Change Project Setting.</h2><h2 id="6-Eclipse-NetSuite-Import-Bundle-Components"><a href="#6-Eclipse-NetSuite-Import-Bundle-Components" class="headerlink" title="6. Eclipse, NetSuite &gt; Import Bundle Components"></a>6. Eclipse, NetSuite &gt; Import Bundle Components</h2><p>List Bundles</p>
+<p>Select which Bundle to download</p>
+<h2 id="7-How-to-use-suitecloud-for-deployment"><a href="#7-How-to-use-suitecloud-for-deployment" class="headerlink" title="7. How to use suitecloud for deployment?"></a>7. How to use suitecloud for deployment?</h2><p>Please reference to <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFja3VwZXIvcC9zZGYvX2NsaS9fZm9yL19ub2RlL19qcy5odG1s" rel="noopener external nofollow noreferrer">https://www.cnblogs.com/backuper/p/sdf\_cli\_for\_node\_js.html</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFja3VwZXIvcC9zZGZfY2xpX2Zvcl9ub2RlX2pzLmh0bWw=" rel="noopener external nofollow noreferrer">How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command</a></p>
+
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200906111502.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/200906111502.html" class="post-title-link" itemprop="url">NETSUITE ERROR: Invalid department reference key 24 及类似错误的处理办法-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="閱讀次數">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">閱讀次數：</span>
+            <span id="ArtalkPV" data-page-key="/200906111502.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/200906111502.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200906111502.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          NETSUITE ERROR: Invalid department reference key 24
+处理办法：
+分析原因，1，这个24的internalid for Field department 是肯定有的，而系统却给出了出错提示， 说明系统在做类似下拉菜单选中department为24的部门的时候 出现了无法选择的项 ， 所以系统认为这个下拉框中没有内容， so error popup....
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/200812081210.html#more" rel="contents">
+              <a class="btn" href="/200906111502.html#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -574,6 +683,114 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201811151045.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/201811151045.html" class="post-title-link" itemprop="url">NetSuite Data Migration Implementation NetSuite数据批量更新思路-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="閱讀次數">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">閱讀次數：</span>
+            <span id="ArtalkPV" data-page-key="/201811151045.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/201811151045.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201811151045.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          应用背景 多线程，多个QUEUE，加速大数据量更新 实现思路 User Event implement data migration rule， CSV Import to trigger data migration logic/user event。 To be continue...
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/201811151045.html#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202104100945.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -677,7 +894,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201811151045.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202308160901.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -695,7 +912,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/201811151045.html" class="post-title-link" itemprop="url">NetSuite Data Migration Implementation NetSuite数据批量更新思路-CarlZeng</a>
+          <a href="/202308160901.html" class="post-title-link" itemprop="url">NetSuite: Get specific Custom Record Types and related sub Custom Fields-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -724,7 +941,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">閱讀次數：</span>
-            <span id="ArtalkPV" data-page-key="/201811151045.html" ></span>
+            <span id="ArtalkPV" data-page-key="/202308160901.html" ></span>
           </span>
         
       
@@ -734,8 +951,8 @@
               <i class="far fa-comment"></i>
             </span>
             <span class="post-meta-item-text">评论：</span>
-            <a href="/201811151045.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201811151045.html" itemprop="commentCount"></span>
+            <a href="/202308160901.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202308160901.html" itemprop="commentCount"></span>
             </a>
           </span>
         
@@ -749,10 +966,118 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          应用背景 多线程，多个QUEUE，加速大数据量更新 实现思路 User Event implement data migration rule， CSV Import to trigger data migration logic/user event。 To be continue...
+          NetSuite: Get specific Custom Record Types and related sub Custom Fields
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/201811151045.html#more" rel="contents">
+              <a class="btn" href="/202308160901.html#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201706231632.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/201706231632.html" class="post-title-link" itemprop="url">NetSuite SuiteScript 2.0 SFTP API Usage Sample-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="閱讀次數">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">閱讀次數：</span>
+            <span id="ArtalkPV" data-page-key="/201706231632.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/201706231632.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201706231632.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Background: Created a test SuiteLet script, after correct credential, it will do: 1. Upload/Sent specific NS File Cabinet file to SFTP server.(NS -> S
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/201706231632.html#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -2700,114 +3025,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201706231632.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/201706231632.html" class="post-title-link" itemprop="url">NetSuite SuiteScript 2.0 SFTP API Usage Sample-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="閱讀次數">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">閱讀次數：</span>
-            <span id="ArtalkPV" data-page-key="/201706231632.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/201706231632.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201706231632.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          Background: Created a test SuiteLet script, after correct credential, it will do: 1. Upload/Sent specific NS File Cabinet file to SFTP server.(NS -> S
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/201706231632.html#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201705082038.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3024,217 +3241,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202205110811.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/202205110811.html" class="post-title-link" itemprop="url">NetSuite's next generation transaction - Inbound Shipment-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="閱讀次數">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">閱讀次數：</span>
-            <span id="ArtalkPV" data-page-key="/202205110811.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/202205110811.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202205110811.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>That could be next generation of NetSuite’s transaction. It’s loading faster, with totally different back-end design.</p>
-<h3 id="Items-sublist-column-fields"><a href="#Items-sublist-column-fields" class="headerlink" title="Items sublist column fields"></a>Items sublist column fields</h3><p><img data-src="https://img2022.cnblogs.com/blog/41238/202205/41238-20220511080952239-970404907.png"></p>
-<p>To be continue</p>
-
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202308160901.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/202308160901.html" class="post-title-link" itemprop="url">NetSuite: Get specific Custom Record Types and related sub Custom Fields-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="閱讀次數">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">閱讀次數：</span>
-            <span id="ArtalkPV" data-page-key="/202308160901.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/202308160901.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202308160901.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          NetSuite: Get specific Custom Record Types and related sub Custom Fields
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/202308160901.html#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201902191748.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3316,6 +3322,109 @@
 <p>Sample2:</p>
 <p>var arrayWithUrls &#x3D; [“&#x2F;core&#x2F;media&#x2F;media.nl?id&#x3D;theid&amp;c&#x3D;myaccoutn&amp;h&#x3D;1122&amp;_xt&#x3D;.pdf”, “&#x2F;core&#x2F;media&#x2F;media.nl?id&#x3D;theid&amp;c&#x3D;myaccount&amp;h&#x3D;2233&amp;_xt&#x3D;.pdf”] var xml &#x3D; “<?xml version=\\"1.0\\"?>\n<!DOCTYPE pdf PUBLIC \\"-//big.faceless.org//report\\" \\"report-1.1.dtd\\">\n” xml +&#x3D; “<pdfset>“ xml +&#x3D; “<pdf>\n&lt;body font-size&#x3D;\“12\“&gt;\n<h2>Merged PDF</h2>\n” xml +&#x3D; “<p></p>“ xml +&#x3D; “Document body” xml +&#x3D; “</body>\n</pdf>“ arrayWithUrls.map(function (x) { var cleanPdfURL &#x3D; mxml.escape({<br>xmlText: x<br>});<br>xml +&#x3D; ‘<pdf src="https://system.netsuite.com' + cleanPdfURL + '"></pdf>‘ })<br>xml +&#x3D; “</pdfset>“</p>
 <p> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9tZWRpdW0uY29tL0Btb3JyaXNkZXYvYXBwZW5kLW11bHRpcGxlLXBkZi1kb2N1bWVudHMtaW4tbmV0c3VpdGUtc3VpdGVzY3JpcHRzLTY1NDIzOTZhMjM0Mw==" rel="noopener external nofollow noreferrer">https://medium.com/@morrisdev/append-multiple-pdf-documents-in-netsuite-suitescripts-6542396a2343</a></p>
+
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202205110811.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/202205110811.html" class="post-title-link" itemprop="url">NetSuite's next generation transaction - Inbound Shipment-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="閱讀次數">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">閱讀次數：</span>
+            <span id="ArtalkPV" data-page-key="/202205110811.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/202205110811.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202205110811.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>That could be next generation of NetSuite’s transaction. It’s loading faster, with totally different back-end design.</p>
+<h3 id="Items-sublist-column-fields"><a href="#Items-sublist-column-fields" class="headerlink" title="Items sublist column fields"></a>Items sublist column fields</h3><p><img data-src="https://img2022.cnblogs.com/blog/41238/202205/41238-20220511080952239-970404907.png"></p>
+<p>To be continue</p>
 
       
     </div>
@@ -3528,116 +3637,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/201410231000.html#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200906111502.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/200906111502.html" class="post-title-link" itemprop="url">NETSUITE ERROR: Invalid department reference key 24 及类似错误的处理办法-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="閱讀次數">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">閱讀次數：</span>
-            <span id="ArtalkPV" data-page-key="/200906111502.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/200906111502.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200906111502.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          NETSUITE ERROR: Invalid department reference key 24
-处理办法：
-分析原因，1，这个24的internalid for Field department 是肯定有的，而系统却给出了出错提示， 说明系统在做类似下拉菜单选中department为24的部门的时候 出现了无法选择的项 ， 所以系统认为这个下拉框中没有内容， so error popup....
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/200906111502.html#more" rel="contents">
                 閱讀全文 &raquo;
               </a>
             </div>
@@ -4335,14 +4334,6 @@
   <noscript><p><img src="//statcounter.carlzeng.top:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
   <!-- End Matomo Code -->
 
-  <script type="text/javascript">
-  var sc_project=12934590;
-  var sc_invisible=0;
-  var sc_security="122fb52f";
-  var scJsHost = "https://";
-  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
-  "statcounter.com/counter/counter.js'></"+"script>");
-  </script>
   <noscript><div class="statcounter"><a title="View My Stats"
   href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
   src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
@@ -4369,13 +4360,13 @@
 
 
   
-  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/ribbon.js/dist/ribbon.min.js"></script>
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/lib/@next-theme/pjax/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="/lib/lozad/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+  <script src="/lib/hexo-generator-searchdb/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
 
 
@@ -4391,7 +4382,7 @@
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script src="/lib/quicklink/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":false,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/zh-TW/page/9/"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/zh-TW/page/9/"}</script>

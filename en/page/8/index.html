@@ -14,9 +14,9 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="/lib/pace-js/themes/blue/pace-theme-minimal.css">
+  <script src="/lib/pace-js/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
@@ -47,7 +47,7 @@
 
 
 
-<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdn.staticfile.org/social-share.js/1.0.16/css/share.min.css">
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -358,7 +358,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200811121057.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200907091056.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -376,7 +376,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/200811121057.html" class="post-title-link" itemprop="url">netsuite弹出窗体的数据回传例子-CarlZeng</a>
+          <a href="/200907091056.html" class="post-title-link" itemprop="url">netsuite动态绑定事件-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -405,7 +405,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/200811121057.html" ></span>
+            <span id="ArtalkPV" data-page-key="/200907091056.html" ></span>
           </span>
         
       
@@ -415,8 +415,8 @@
               <i class="far fa-comment"></i>
             </span>
             <span class="post-meta-item-text">评论: </span>
-            <a href="/200811121057.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200811121057.html" itemprop="commentCount"></span>
+            <a href="/200907091056.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200907091056.html" itemprop="commentCount"></span>
             </a>
           </span>
         
@@ -430,10 +430,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          netsuite弹出窗体的数据回传例子这样如果顺利，你就能很多开发出一个 弹出的窗体（实现特殊的货品列表），回传单个或多项的货品会销售或采购订单。------------------------------------User Event suitescript beforeloadform.getSubList('item').addButton('custpage_name_print', '...
+          这个能给一个指定的对象绑定多个重复的事件，执行顺序按照添加顺序来执行！已测试浏览器（ie7,firefox,chrome）
+
+
+var Bind = function(eventName, fun, obj) {
+ ///<summary>给对象绑定事件，未传入对象的话默认绑定window</summary>
+ ///<param name="eventName"&g...
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/200811121057.html#more" rel="contents">
+              <a class="btn" href="/200907091056.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -574,7 +579,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200902081432.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200811121057.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -592,7 +597,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/200902081432.html" class="post-title-link" itemprop="url">netsuite事务处理单据 列字段serialnumbers 的客户端验证函数validateInventoryNumbers-CarlZeng</a>
+          <a href="/200811121057.html" class="post-title-link" itemprop="url">netsuite弹出窗体的数据回传例子-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -621,7 +626,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/200902081432.html" ></span>
+            <span id="ArtalkPV" data-page-key="/200811121057.html" ></span>
           </span>
         
       
@@ -631,8 +636,8 @@
               <i class="far fa-comment"></i>
             </span>
             <span class="post-meta-item-text">评论: </span>
-            <a href="/200902081432.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200902081432.html" itemprop="commentCount"></span>
+            <a href="/200811121057.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200811121057.html" itemprop="commentCount"></span>
             </a>
           </span>
         
@@ -646,10 +651,118 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          function validateInventoryNumbers(bAddEdit) {2771 var addEditWhenDone = 'F';2772 if (bAddEdit) addEditWhenDone='T';2773 var isadvbill = document.forms['main_form'].elements['isadvbill'].value;2774 ...
+          netsuite弹出窗体的数据回传例子这样如果顺利，你就能很多开发出一个 弹出的窗体（实现特殊的货品列表），回传单个或多项的货品会销售或采购订单。------------------------------------User Event suitescript beforeloadform.getSubList('item').addButton('custpage_name_print', '...
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/200902081432.html#more" rel="contents">
+              <a class="btn" href="/200811121057.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200903300921.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/200903300921.html" class="post-title-link" itemprop="url">netsuite Bin Numbers 输入原理-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/200903300921.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论: </span>
+            <a href="/200903300921.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200903300921.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          重复利用：popupBinDiv(document.forms['item_form'].elements['itembinlist'].value,document.forms['inventory_form'].elements['binnumbers'], 0, document.forms['inventory_form'].elements['adjustqtyby']);显然netsu...
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/200903300921.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -758,114 +871,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/200901221316.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200810311408.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/200810311408.html" class="post-title-link" itemprop="url">netsuite内部ajax请求,返回Code: 500错误-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="Views">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/200810311408.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论: </span>
-            <a href="/200810311408.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200810311408.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          500是服务器本身的错误代码。+代表"Internal Server Error"。一般是500都是你响应数据的页面本身就不能正确执行function login(){//alert('in login script')var soap = '';soap += '';soap += 'http://schemas.xmlsoap.org/soap/envelope/">';soap += '';...
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/200810311408.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1551,6 +1556,251 @@ zeng.cz
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202103112129.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/202103112129.html" class="post-title-link" itemprop="url">FedEx Package Rate Integration with NetSuite direct integrate by WebServices-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/202103112129.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论: </span>
+            <a href="/202103112129.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202103112129.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Quick-TECHNICAL-Note"><a href="#Quick-TECHNICAL-Note" class="headerlink" title="Quick TECHNICAL Note"></a>Quick TECHNICAL Note</h1><p>Reality: UPS only support WebServices integration(or window platform exe application: FedEx Ship Manager® Lite), friendly for JAVA, PHP or C#.</p>
+<p>We need to calling UPS SOAP services in NetSuite directly, so there is JSON -&gt; XML for input expected XML parameters and parse API return result XML -&gt; JSON action. </p>
+<p>Different from UPS, There is high request for xml’s element order&#x2F;sequence for FedEx API.</p>
+<p><strong>This’s a re-usable framework for intergration with WebServices platform&#x2F;application.</strong></p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>Registration for the Developer Keys</p>
+<p>We will need registration on webside got</p>
+<p>Developer Test Key:   PFPtfQE9ME1N****<br>Required for FedEx Web Services for Intra Country Shipping in US and Global </p>
+<p>and the Email Box:</p>
+<p>Title: Your Developer Test Key Registration is complete</p>
+<p>Test Account Information<br>&lt;spacer.gif&gt;<br>Test URL: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93c2JldGEuZmVkZXguY29tL3dlYi1zZXJ2aWNlcw==" rel="noopener external nofollow noreferrer">https://wsbeta.fedex.com:443/web-services</a><br>Test Password: H6F4kyFrYIQxALXOTbH53**** </p>
+<p>FedEx Web Services Testing Information:<br>     FedEx Shipping Account Number: **0088000<br>     FedEx Meter Number: ***2012**</p>
+<p>On NetSuite Side we are targeting to achieve xml files like the sample:</p>
+<p>Example 1:Rate Request</p>
+<p>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV&#x3D;”<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvc29hcC9lbnZlbG9wZS8=" rel="noopener external nofollow noreferrer">http://schemas.xmlsoap.org/soap/envelope/</a>“ xmlns:SOAP-<br>ENC&#x3D;”<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvc29hcC9lbmNvZGluZy8=" rel="noopener external nofollow noreferrer">http://schemas.xmlsoap.org/soap/encoding/</a>“ xmlns:xsi&#x3D;”<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2U=" rel="noopener external nofollow noreferrer">http://www.w3.org/2001/XMLSchema-instance</a>“ xmlns:xsd&#x3D;”<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWE=" rel="noopener external nofollow noreferrer">http://www.w3.org/2001/XMLSchema</a>“ xmlns&#x3D;”<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2ZlZGV4LmNvbS93cy9yYXRlL3YyOCUyMiUzRQ==" rel="noopener external nofollow noreferrer">http://fedex.com/ws/rate/v28&quot;&gt;</a><br>   <a href="SOAP-ENV:Body">SOAP-ENV:Body</a><br>      <RateRequest><br>         <WebAuthenticationDetail><br>            <ParentCredential><br>               <Key>XXXXXX</Key><br>               <Password>XXXXXX</Password><br>            </ParentCredential><br>            <UserCredential><br>               <Key>XXXXXX</Key><br>               <Password>XXXXXX</Password><br>            </UserCredential><br>         </WebAuthenticationDetail><br>         <ClientDetail><br>            <AccountNumber>XXXXXX</AccountNumber><br>            <MeterNumber>XXXXXX</MeterNumber><br>         </ClientDetail><br>         <TransactionDetail><br>            <CustomerTransactionId>RateRequest_v28</CustomerTransactionId><br>         </TransactionDetail><br>         <Version><br>            <ServiceId>crs</ServiceId><br>            <Major>28</Major><br>            <Intermediate>0</Intermediate><br>            <Minor>0</Minor><br>         </Version><br>         <RequestedShipment><br>            <ShipTimestamp>2020-02-25T12:34:56-06:00</ShipTimestamp><br>            <DropoffType>REGULAR_PICKUP</DropoffType><br>            <ServiceType>PRIORITY_OVERNIGHT</ServiceType><br>            <PackagingType>FEDEX_BOX</PackagingType></p>
+<TotalWeight>
+   <Units>LB</Units>
+   <Value>20.0</Value>
+</TotalWeight>
+<Shipper>
+   <AccountNumber>XXXXXX</AccountNumber>
+   <Contact>
+      <CompanyName>FedEx-WAPI</CompanyName>
+      <PhoneNumber>XXXXXX</PhoneNumber>
+   </Contact>
+   <Address>
+      <StreetLines>SN2000 Test Meter 8</StreetLines>
+      <StreetLines>10 Fedex Parkway</StreetLines>
+      <City>AUSTIN</City>
+      <StateOrProvinceCode>TX</StateOrProvinceCode>
+      <PostalCode>XXXXXX</PostalCode>
+      <CountryCode>US</CountryCode>
+   </Address>
+</Shipper>
+<Recipient>
+   <AccountNumber>XXXXXX</AccountNumber>
+   <Contact>
+      <PersonName>Recipient Contact</PersonName>
+      <PhoneNumber>XXXXXX</PhoneNumber>
+   </Contact>
+   <Address>
+      <StreetLines>Recipient Address Line 1</StreetLines>
+      <StreetLines>Recipient Address Line 2</StreetLines>
+      <City>Collierville</City>
+      <StateOrProvinceCode>TN</StateOrProvinceCode>
+      <PostalCode>XXXXXX</PostalCode>
+      <CountryCode>US</CountryCode>
+   </Address>
+</Recipient>
+<ShippingChargesPayment>
+   <PaymentType>SENDER</PaymentType>
+   <Payor>
+      <ResponsibleParty>
+         <AccountNumber>XXXXXX</AccountNumber>
+         <Tins>
+            <TinType>BUSINESS\_STATE</TinType>
+            <Number>123456</Number>
+         </Tins>
+      </ResponsibleParty>
+   </Payor>
+</ShippingChargesPayment>
+<RateRequestTypes>LIST</RateRequestTypes>
+<PackageCount>1</PackageCount>
+<RequestedPackageLineItems>
+   <SequenceNumber>1</SequenceNumber>
+   <GroupNumber>1</GroupNumber>
+   <GroupPackageCount>1</GroupPackageCount>
+   <Weight>
+      <Units>LB</Units>
+      <Value>20.0</Value>
+   </Weight>
+   <Dimensions>
+      <Length>12</Length>
+      <Width>12</Width>
+      <Height>12</Height>
+      <Units>IN</Units>
+   </Dimensions>
+   <ContentRecords>
+      <PartNumber>XXXXXX</PartNumber>
+<ItemNumber>XXXXXX</ItemNumber>
+                  <ReceivedQuantity>12</ReceivedQuantity>
+                  <Description>ContentDescription</Description>
+               </ContentRecords>
+            </RequestedPackageLineItems>
+         </RequestedShipment>
+      </RateRequest>
+   </SOAP-ENV:Body>
+
+<p>And all above xml element is dynamically transfered from NetSuite Sales Order data(and also data from location, currency, custom record types, settings), We got those data(in expected order), using the Google Project’s X2JS to convert from JSON to XML.</p>
+<p>Next resolve the across domain ajax call by using NetSuite 2.0 API https.post</p>
+<p>var response &#x3D; https.post({<br>            url: ‘<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93c2JldGEuZmVkZXguY29tL3dlYi1zZXJ2aWNlcw==" rel="noopener external nofollow noreferrer">https://wsbeta.fedex.com:443/web-services</a>‘,<br>            body: new X2JS().json2xml_str(PostDataObj),<br>            headers: {<br>                “Accept”: “image&#x2F;gif, image&#x2F;jpeg, image&#x2F;pjpeg, text&#x2F;plain, text&#x2F;html, *&#x2F;*“,<br>                “Content-Type”: “text&#x2F;xml”,<br>                “Access-Control-Allow-Origin”: ‘*‘,<br>            }<br>        });</p>
+<p>Need to thanks this thread for useful notes: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNjI1MjMyNTEvY3JlYXRpbmctYS1odHRwLXBvc3QtY2FsbC1mb3ItZmVkZXgtd2ViLXNlcnZpY2Vz" rel="noopener external nofollow noreferrer">https://stackoverflow.com/questions/62523251/creating-a-http-post-call-for-fedex-web-services</a>　　</p>
+<h3 id="FedEx-Webservices-Errors"><a href="#FedEx-Webservices-Errors" class="headerlink" title="FedEx Webservices Errors"></a>FedEx Webservices Errors</h3><ul>
+<li><p>Response Code 400 or 500</p>
+<ul>
+<li>Accross domain Error</li>
+<li>Schema Error</li>
+</ul>
+<p> </p>
+</li>
+<li><p><cause>UnrecoverableClientError</cause><br><code>SchemaError</code><br><desc>validation failure for RateRequest Error:cvc-complex-type.2.4.a: Invalid content was found starting with element</p>
+<ul>
+<li>Check the XML object sent to FedEx, the order of the element MUST match to the WDSL schema</li>
+<li>Check the XML object elements if there is addtional property</li>
+</ul>
+</li>
+<li><p>FedEx 404 Unrecoverable ClientError</p>
+<ul>
+<li>Double check the target server url address</li>
+<li>test url: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93c2JldGEuZmVkZXguY29tL3dlYi1zZXJ2aWNlcw==" rel="noopener external nofollow noreferrer">https://wsbeta.fedex.com:443/web-services</a></li>
+<li>production url: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93cy5mZWRleC5jb20vd2ViLXNlcnZpY2Vz" rel="noopener external nofollow noreferrer">https://ws.fedex.com:443/web-services</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Share-tools-used-between-XML-and-JSON"><a href="#Share-tools-used-between-XML-and-JSON" class="headerlink" title="Share tools used between XML and JSON"></a>Share tools used between XML and JSON</h3><ul>
+<li>Testing&#x2F;xmlTOjson&#x2F;jsonTOxml: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9wZXRlcmRhdWdhYXJkcmFzbXVzc2VuLmNvbS9qc29uMnhtbC8=" rel="noopener external nofollow noreferrer">https://peterdaugaardrasmussen.com/json2xml/</a></li>
+<li>Source Code: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2FiZG9sZW5jZS94Mmpz" rel="noopener external nofollow noreferrer">https://github.com/abdolence/x2js</a><ul>
+<li>Useful Javascript framework for convention between XML and JSON</li>
+</ul>
+</li>
+<li>Format XML: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9qc29uZm9ybWF0dGVyLm9yZy94bWwtZm9ybWF0dGVy" rel="noopener external nofollow noreferrer">https://jsonformatter.org/xml-formatter</a></li>
+<li>Format JSON: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuc29qc29uLmNvbS9qc29uL2pzb24vX29ubGluZS5odG1s" rel="noopener external nofollow noreferrer">https://www.sojson.com/json/json\_online.html</a></li>
+<li>XML compare&#x2F;diff <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9leHRlbmRzY2xhc3MuY29tL3htbC1kaWZmLmh0bWw=" rel="noopener external nofollow noreferrer">https://extendsclass.com/xml-diff.html</a><ul>
+<li>Be careful, the result of the xml diff is not in element order, the diff not acurate for FedEx test</li>
+</ul>
+</li>
+<li>Comparing XML files: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9leHRlbmRzY2xhc3MuY29tL3htbC1kaWZmLmh0bWw=" rel="noopener external nofollow noreferrer">https://extendsclass.com/xml-diff.html</a></li>
+<li>POSTMAN simulate and compare the input and output<ul>
+<li>Powerful and Easy to use</li>
+</ul>
+</li>
+<li>XML Formatter <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuZnJlZWZvcm1hdHRlci5jb20veG1sLWZvcm1hdHRlci5odG1s" rel="noopener external nofollow noreferrer">https://www.freeformatter.com/xml-formatter.html</a><ul>
+<li>Make XML clean and clear</li>
+</ul>
+</li>
+<li>JSON Reviewer&#x2F;Formatter <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2pzb252aWV3ZXIuc3RhY2suaHUv" rel="noopener external nofollow noreferrer">http://jsonviewer.stack.hu</a> <ul>
+<li>Clean and clear</li>
+</ul>
+</li>
+<li>JSON to XML <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY29udmVydGpzb24uY29tL2pzb24tdG8teG1sLmh0bQ==" rel="noopener external nofollow noreferrer">https://www.convertjson.com/json-to-xml.htm</a></li>
+</ul>
+<h3 id="Estimate-Rate"><a href="#Estimate-Rate" class="headerlink" title="Estimate Rate"></a>Estimate Rate</h3><ul>
+<li>UPS <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cudGhldXBzc3RvcmUuY29tL3Rvb2xzL2VzdGltYXRlLXNoaXBwaW5nLWNvc3Q=" rel="noopener external nofollow noreferrer">https://www.theupsstore.com/tools/estimate-shipping-cost</a></li>
+<li>FedEx <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuZmVkZXguY29tL2VuLXVzL29ubGluZS9yYXRpbmcuaHRtbA==" rel="noopener external nofollow noreferrer">https://www.fedex.com/en-us/online/rating.html</a></li>
+</ul>
+<h3 id="Integrate-with-existing-UPS-integration"><a href="#Integrate-with-existing-UPS-integration" class="headerlink" title="Integrate with existing UPS integration"></a>Integrate with existing UPS integration</h3><p>While end-use switching shipping carries, we need to clean up the backend package list data and rebuild for current shipping carrier, since UPS and FedEx are using DIFFERENT formating and propertys.</p>
+
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201705041115.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1765,114 +2015,6 @@ zeng.cz
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201701151056.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/201701151056.html" class="post-title-link" itemprop="url">How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="Views">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/201701151056.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论: </span>
-            <a href="/201701151056.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201701151056.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          Background We all knows that: NetSuite filecabinet provided a feature to download a folder to a zip file. Sample URL in the link:&#160;https://system.na1.n
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/201701151056.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202011242038.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1991,6 +2133,114 @@ zeng.cz
 </ol>
 <p>4. Open WebStorm and create(or open) a project. Drag and Drop com.netsuite.ide.webstorm.app-2020.2.0.zip to WebStorm to manual install the plug-in.</p>
 
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201701151056.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/201701151056.html" class="post-title-link" itemprop="url">How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/201701151056.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论: </span>
+            <a href="/201701151056.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201701151056.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Background We all knows that: NetSuite filecabinet provided a feature to download a folder to a zip file. Sample URL in the link:&#160;https://system.na1.n
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/201701151056.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -2234,113 +2484,6 @@ zeng.cz
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201903222305.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/201903222305.html" class="post-title-link" itemprop="url">How to use NetSuite SDF to download bundles/components-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="Views">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/201903222305.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论: </span>
-            <a href="/201903222305.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201903222305.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="1-Install-SuiteCloud-IDE-Eclipse-Plugin"><a href="#1-Install-SuiteCloud-IDE-Eclipse-Plugin" class="headerlink" title="1. Install SuiteCloud IDE(Eclipse + Plugin)"></a>1. Install SuiteCloud IDE(Eclipse + Plugin)</h2><p>1.1 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuZWNsaXBzZS5vcmcvZG93bmxvYWRzL3BhY2thZ2VzL3JlbGVhc2UvbWFycy8yL2VjbGlwc2UtaWRlLWphdmEtZWUtZGV2ZWxvcGVycw==" rel="noopener external nofollow noreferrer">https://www.eclipse.org/downloads/packages/release/mars/2/eclipse-ide-java-ee-developers</a>.<br>1.2 Updating Eclipse for Use with SuiteCloud IDE<br>1.3 Enable NS Features, SDF,<br>Setup &gt; Company &gt; Enable Features &gt; SuiteCloud &gt; SUITECLOUD DEVELOPMENT FRAMEWORK</p>
-<h2 id="2-Create-SuiteCloud-IDE-Project"><a href="#2-Create-SuiteCloud-IDE-Project" class="headerlink" title="2. Create SuiteCloud IDE, Project"></a>2. Create SuiteCloud IDE, Project</h2><p>File &gt; New &gt; SuiteCloud Project,<br>Account Customization<br>Project Name</p>
-<h2 id="3-NETSUITE-UI-Assign-Current-Employee-Record-with-“SDF-Developer-2FA-Off”-role"><a href="#3-NETSUITE-UI-Assign-Current-Employee-Record-with-“SDF-Developer-2FA-Off”-role" class="headerlink" title="3. NETSUITE UI, Assign Current Employee Record with “SDF Developer - 2FA Off” role"></a>3. NETSUITE UI, Assign Current Employee Record with “SDF Developer - 2FA Off” role</h2><p>Create an custom role, make sure the 2FA is off(mandatory uncheck and ‘Not required’) in: Setup &gt; Users&#x2F;Roles &gt; Two-Factor Authentication Roles</p>
-<h2 id="4-Configure-SuiteCloud-IDE-to-connect-with-NS-One-Time-Setup"><a href="#4-Configure-SuiteCloud-IDE-to-connect-with-NS-One-Time-Setup" class="headerlink" title="4. Configure SuiteCloud IDE to connect with NS (One-Time Setup)"></a>4. Configure SuiteCloud IDE to connect with NS (One-Time Setup)</h2><p>NetSuite<br>Manage Account<br>Add Account(s)<br>Setup &gt; Company &gt; Company Information<br>Issue Token (Token has been issued)</p>
-<h2 id="5-Eclipse-Right-click-NetSuite-Change-Project-Setting"><a href="#5-Eclipse-Right-click-NetSuite-Change-Project-Setting" class="headerlink" title="5. Eclipse, Right click, NetSuite &gt; Change Project Setting."></a>5. Eclipse, Right click, NetSuite &gt; Change Project Setting.</h2><h2 id="6-Eclipse-NetSuite-Import-Bundle-Components"><a href="#6-Eclipse-NetSuite-Import-Bundle-Components" class="headerlink" title="6. Eclipse, NetSuite &gt; Import Bundle Components"></a>6. Eclipse, NetSuite &gt; Import Bundle Components</h2><p>List Bundles</p>
-<p>Select which Bundle to download</p>
-<h2 id="7-How-to-use-suitecloud-for-deployment"><a href="#7-How-to-use-suitecloud-for-deployment" class="headerlink" title="7. How to use suitecloud for deployment?"></a>7. How to use suitecloud for deployment?</h2><p>Please reference to <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFja3VwZXIvcC9zZGYvX2NsaS9fZm9yL19ub2RlL19qcy5odG1s" rel="noopener external nofollow noreferrer">https://www.cnblogs.com/backuper/p/sdf\_cli\_for\_node\_js.html</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFja3VwZXIvcC9zZGZfY2xpX2Zvcl9ub2RlX2pzLmh0bWw=" rel="noopener external nofollow noreferrer">How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command</a></p>
-
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202011100824.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2449,7 +2592,7 @@ zeng.cz
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202103112129.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200812081210.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -2467,7 +2610,7 @@ zeng.cz
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/202103112129.html" class="post-title-link" itemprop="url">FedEx Package Rate Integration with NetSuite direct integrate by WebServices-CarlZeng</a>
+          <a href="/200812081210.html" class="post-title-link" itemprop="url">JS导出txt文本文件,Netsuite方案-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -2496,7 +2639,7 @@ zeng.cz
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/202103112129.html" ></span>
+            <span id="ArtalkPV" data-page-key="/200812081210.html" ></span>
           </span>
         
       
@@ -2506,8 +2649,8 @@ zeng.cz
               <i class="far fa-comment"></i>
             </span>
             <span class="post-meta-item-text">评论: </span>
-            <a href="/202103112129.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202103112129.html" itemprop="commentCount"></span>
+            <a href="/200812081210.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200812081210.html" itemprop="commentCount"></span>
             </a>
           </span>
         
@@ -2521,152 +2664,15 @@ zeng.cz
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Quick-TECHNICAL-Note"><a href="#Quick-TECHNICAL-Note" class="headerlink" title="Quick TECHNICAL Note"></a>Quick TECHNICAL Note</h1><p>Reality: UPS only support WebServices integration(or window platform exe application: FedEx Ship Manager® Lite), friendly for JAVA, PHP or C#.</p>
-<p>We need to calling UPS SOAP services in NetSuite directly, so there is JSON -&gt; XML for input expected XML parameters and parse API return result XML -&gt; JSON action. </p>
-<p>Different from UPS, There is high request for xml’s element order&#x2F;sequence for FedEx API.</p>
-<p><strong>This’s a re-usable framework for intergration with WebServices platform&#x2F;application.</strong></p>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>Registration for the Developer Keys</p>
-<p>We will need registration on webside got</p>
-<p>Developer Test Key:   PFPtfQE9ME1N****<br>Required for FedEx Web Services for Intra Country Shipping in US and Global </p>
-<p>and the Email Box:</p>
-<p>Title: Your Developer Test Key Registration is complete</p>
-<p>Test Account Information<br>&lt;spacer.gif&gt;<br>Test URL: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93c2JldGEuZmVkZXguY29tL3dlYi1zZXJ2aWNlcw==" rel="noopener external nofollow noreferrer">https://wsbeta.fedex.com:443/web-services</a><br>Test Password: H6F4kyFrYIQxALXOTbH53**** </p>
-<p>FedEx Web Services Testing Information:<br>     FedEx Shipping Account Number: **0088000<br>     FedEx Meter Number: ***2012**</p>
-<p>On NetSuite Side we are targeting to achieve xml files like the sample:</p>
-<p>Example 1:Rate Request</p>
-<p>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV&#x3D;”<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvc29hcC9lbnZlbG9wZS8=" rel="noopener external nofollow noreferrer">http://schemas.xmlsoap.org/soap/envelope/</a>“ xmlns:SOAP-<br>ENC&#x3D;”<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvc29hcC9lbmNvZGluZy8=" rel="noopener external nofollow noreferrer">http://schemas.xmlsoap.org/soap/encoding/</a>“ xmlns:xsi&#x3D;”<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2U=" rel="noopener external nofollow noreferrer">http://www.w3.org/2001/XMLSchema-instance</a>“ xmlns:xsd&#x3D;”<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWE=" rel="noopener external nofollow noreferrer">http://www.w3.org/2001/XMLSchema</a>“ xmlns&#x3D;”<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2ZlZGV4LmNvbS93cy9yYXRlL3YyOCUyMiUzRQ==" rel="noopener external nofollow noreferrer">http://fedex.com/ws/rate/v28&quot;&gt;</a><br>   <a href="SOAP-ENV:Body">SOAP-ENV:Body</a><br>      <RateRequest><br>         <WebAuthenticationDetail><br>            <ParentCredential><br>               <Key>XXXXXX</Key><br>               <Password>XXXXXX</Password><br>            </ParentCredential><br>            <UserCredential><br>               <Key>XXXXXX</Key><br>               <Password>XXXXXX</Password><br>            </UserCredential><br>         </WebAuthenticationDetail><br>         <ClientDetail><br>            <AccountNumber>XXXXXX</AccountNumber><br>            <MeterNumber>XXXXXX</MeterNumber><br>         </ClientDetail><br>         <TransactionDetail><br>            <CustomerTransactionId>RateRequest_v28</CustomerTransactionId><br>         </TransactionDetail><br>         <Version><br>            <ServiceId>crs</ServiceId><br>            <Major>28</Major><br>            <Intermediate>0</Intermediate><br>            <Minor>0</Minor><br>         </Version><br>         <RequestedShipment><br>            <ShipTimestamp>2020-02-25T12:34:56-06:00</ShipTimestamp><br>            <DropoffType>REGULAR_PICKUP</DropoffType><br>            <ServiceType>PRIORITY_OVERNIGHT</ServiceType><br>            <PackagingType>FEDEX_BOX</PackagingType></p>
-<TotalWeight>
-   <Units>LB</Units>
-   <Value>20.0</Value>
-</TotalWeight>
-<Shipper>
-   <AccountNumber>XXXXXX</AccountNumber>
-   <Contact>
-      <CompanyName>FedEx-WAPI</CompanyName>
-      <PhoneNumber>XXXXXX</PhoneNumber>
-   </Contact>
-   <Address>
-      <StreetLines>SN2000 Test Meter 8</StreetLines>
-      <StreetLines>10 Fedex Parkway</StreetLines>
-      <City>AUSTIN</City>
-      <StateOrProvinceCode>TX</StateOrProvinceCode>
-      <PostalCode>XXXXXX</PostalCode>
-      <CountryCode>US</CountryCode>
-   </Address>
-</Shipper>
-<Recipient>
-   <AccountNumber>XXXXXX</AccountNumber>
-   <Contact>
-      <PersonName>Recipient Contact</PersonName>
-      <PhoneNumber>XXXXXX</PhoneNumber>
-   </Contact>
-   <Address>
-      <StreetLines>Recipient Address Line 1</StreetLines>
-      <StreetLines>Recipient Address Line 2</StreetLines>
-      <City>Collierville</City>
-      <StateOrProvinceCode>TN</StateOrProvinceCode>
-      <PostalCode>XXXXXX</PostalCode>
-      <CountryCode>US</CountryCode>
-   </Address>
-</Recipient>
-<ShippingChargesPayment>
-   <PaymentType>SENDER</PaymentType>
-   <Payor>
-      <ResponsibleParty>
-         <AccountNumber>XXXXXX</AccountNumber>
-         <Tins>
-            <TinType>BUSINESS\_STATE</TinType>
-            <Number>123456</Number>
-         </Tins>
-      </ResponsibleParty>
-   </Payor>
-</ShippingChargesPayment>
-<RateRequestTypes>LIST</RateRequestTypes>
-<PackageCount>1</PackageCount>
-<RequestedPackageLineItems>
-   <SequenceNumber>1</SequenceNumber>
-   <GroupNumber>1</GroupNumber>
-   <GroupPackageCount>1</GroupPackageCount>
-   <Weight>
-      <Units>LB</Units>
-      <Value>20.0</Value>
-   </Weight>
-   <Dimensions>
-      <Length>12</Length>
-      <Width>12</Width>
-      <Height>12</Height>
-      <Units>IN</Units>
-   </Dimensions>
-   <ContentRecords>
-      <PartNumber>XXXXXX</PartNumber>
-<ItemNumber>XXXXXX</ItemNumber>
-                  <ReceivedQuantity>12</ReceivedQuantity>
-                  <Description>ContentDescription</Description>
-               </ContentRecords>
-            </RequestedPackageLineItems>
-         </RequestedShipment>
-      </RateRequest>
-   </SOAP-ENV:Body>
-
-<p>And all above xml element is dynamically transfered from NetSuite Sales Order data(and also data from location, currency, custom record types, settings), We got those data(in expected order), using the Google Project’s X2JS to convert from JSON to XML.</p>
-<p>Next resolve the across domain ajax call by using NetSuite 2.0 API https.post</p>
-<p>var response &#x3D; https.post({<br>            url: ‘<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93c2JldGEuZmVkZXguY29tL3dlYi1zZXJ2aWNlcw==" rel="noopener external nofollow noreferrer">https://wsbeta.fedex.com:443/web-services</a>‘,<br>            body: new X2JS().json2xml_str(PostDataObj),<br>            headers: {<br>                “Accept”: “image&#x2F;gif, image&#x2F;jpeg, image&#x2F;pjpeg, text&#x2F;plain, text&#x2F;html, *&#x2F;*“,<br>                “Content-Type”: “text&#x2F;xml”,<br>                “Access-Control-Allow-Origin”: ‘*‘,<br>            }<br>        });</p>
-<p>Need to thanks this thread for useful notes: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNjI1MjMyNTEvY3JlYXRpbmctYS1odHRwLXBvc3QtY2FsbC1mb3ItZmVkZXgtd2ViLXNlcnZpY2Vz" rel="noopener external nofollow noreferrer">https://stackoverflow.com/questions/62523251/creating-a-http-post-call-for-fedex-web-services</a>　　</p>
-<h3 id="FedEx-Webservices-Errors"><a href="#FedEx-Webservices-Errors" class="headerlink" title="FedEx Webservices Errors"></a>FedEx Webservices Errors</h3><ul>
-<li><p>Response Code 400 or 500</p>
-<ul>
-<li>Accross domain Error</li>
-<li>Schema Error</li>
-</ul>
-<p> </p>
-</li>
-<li><p><cause>UnrecoverableClientError</cause><br><code>SchemaError</code><br><desc>validation failure for RateRequest Error:cvc-complex-type.2.4.a: Invalid content was found starting with element</p>
-<ul>
-<li>Check the XML object sent to FedEx, the order of the element MUST match to the WDSL schema</li>
-<li>Check the XML object elements if there is addtional property</li>
-</ul>
-</li>
-<li><p>FedEx 404 Unrecoverable ClientError</p>
-<ul>
-<li>Double check the target server url address</li>
-<li>test url: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93c2JldGEuZmVkZXguY29tL3dlYi1zZXJ2aWNlcw==" rel="noopener external nofollow noreferrer">https://wsbeta.fedex.com:443/web-services</a></li>
-<li>production url: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93cy5mZWRleC5jb20vd2ViLXNlcnZpY2Vz" rel="noopener external nofollow noreferrer">https://ws.fedex.com:443/web-services</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="Share-tools-used-between-XML-and-JSON"><a href="#Share-tools-used-between-XML-and-JSON" class="headerlink" title="Share tools used between XML and JSON"></a>Share tools used between XML and JSON</h3><ul>
-<li>Testing&#x2F;xmlTOjson&#x2F;jsonTOxml: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9wZXRlcmRhdWdhYXJkcmFzbXVzc2VuLmNvbS9qc29uMnhtbC8=" rel="noopener external nofollow noreferrer">https://peterdaugaardrasmussen.com/json2xml/</a></li>
-<li>Source Code: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2FiZG9sZW5jZS94Mmpz" rel="noopener external nofollow noreferrer">https://github.com/abdolence/x2js</a><ul>
-<li>Useful Javascript framework for convention between XML and JSON</li>
-</ul>
-</li>
-<li>Format XML: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9qc29uZm9ybWF0dGVyLm9yZy94bWwtZm9ybWF0dGVy" rel="noopener external nofollow noreferrer">https://jsonformatter.org/xml-formatter</a></li>
-<li>Format JSON: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuc29qc29uLmNvbS9qc29uL2pzb24vX29ubGluZS5odG1s" rel="noopener external nofollow noreferrer">https://www.sojson.com/json/json\_online.html</a></li>
-<li>XML compare&#x2F;diff <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9leHRlbmRzY2xhc3MuY29tL3htbC1kaWZmLmh0bWw=" rel="noopener external nofollow noreferrer">https://extendsclass.com/xml-diff.html</a><ul>
-<li>Be careful, the result of the xml diff is not in element order, the diff not acurate for FedEx test</li>
-</ul>
-</li>
-<li>Comparing XML files: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9leHRlbmRzY2xhc3MuY29tL3htbC1kaWZmLmh0bWw=" rel="noopener external nofollow noreferrer">https://extendsclass.com/xml-diff.html</a></li>
-<li>POSTMAN simulate and compare the input and output<ul>
-<li>Powerful and Easy to use</li>
-</ul>
-</li>
-<li>XML Formatter <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuZnJlZWZvcm1hdHRlci5jb20veG1sLWZvcm1hdHRlci5odG1s" rel="noopener external nofollow noreferrer">https://www.freeformatter.com/xml-formatter.html</a><ul>
-<li>Make XML clean and clear</li>
-</ul>
-</li>
-<li>JSON Reviewer&#x2F;Formatter <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2pzb252aWV3ZXIuc3RhY2suaHUv" rel="noopener external nofollow noreferrer">http://jsonviewer.stack.hu</a> <ul>
-<li>Clean and clear</li>
-</ul>
-</li>
-<li>JSON to XML <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY29udmVydGpzb24uY29tL2pzb24tdG8teG1sLmh0bQ==" rel="noopener external nofollow noreferrer">https://www.convertjson.com/json-to-xml.htm</a></li>
-</ul>
-<h3 id="Estimate-Rate"><a href="#Estimate-Rate" class="headerlink" title="Estimate Rate"></a>Estimate Rate</h3><ul>
-<li>UPS <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cudGhldXBzc3RvcmUuY29tL3Rvb2xzL2VzdGltYXRlLXNoaXBwaW5nLWNvc3Q=" rel="noopener external nofollow noreferrer">https://www.theupsstore.com/tools/estimate-shipping-cost</a></li>
-<li>FedEx <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuZmVkZXguY29tL2VuLXVzL29ubGluZS9yYXRpbmcuaHRtbA==" rel="noopener external nofollow noreferrer">https://www.fedex.com/en-us/online/rating.html</a></li>
-</ul>
-<h3 id="Integrate-with-existing-UPS-integration"><a href="#Integrate-with-existing-UPS-integration" class="headerlink" title="Integrate with existing UPS integration"></a>Integrate with existing UPS integration</h3><p>While end-use switching shipping carries, we need to clean up the backend package list data and rebuild for current shipping carrier, since UPS and FedEx are using DIFFERENT formating and propertys.</p>
-
+          //传入一个table的id，将table的全部内容导出excel文件function AutomateExcel(objTable){// Start Excel and get Application object.var oXL = new ActiveXObject("Excel.Application");// Get a new workbook.var oWB = oXL.Workb...
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/200812081210.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -2756,14 +2762,6 @@ zeng.cz
   <noscript><p><img src="//statcounter.carlzeng.top:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
   <!-- End Matomo Code -->
 
-  <script type="text/javascript">
-  var sc_project=12934590;
-  var sc_invisible=0;
-  var sc_security="122fb52f";
-  var scJsHost = "https://";
-  document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
-  "statcounter.com/counter/counter.js'></"+"script>");
-  </script>
   <noscript><div class="statcounter"><a title="View My Stats"
   href="https://statcounter.com/p12934590/?guest=1" target="_blank"><img class="statcounter"
   src="https://c.statcounter.com/12934590/0/122fb52f/0/" alt="web counter"
@@ -2790,13 +2788,13 @@ zeng.cz
 
 
   
-  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/ribbon.js/dist/ribbon.min.js"></script>
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="/lib/@next-theme/pjax/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="/lib/lozad/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+  <script src="/lib/hexo-generator-searchdb/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
 
 
@@ -2812,7 +2810,7 @@ zeng.cz
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script src="/lib/quicklink/dist/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":false,"home":false,"archive":false,"delay":false,"timeout":3000,"priority":true,"url":"https://www.carlzeng.top/en/page/8/"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":false,"useBackendConf":true,"el":"#comments","pageKey":"/en/page/8/"}</script>
