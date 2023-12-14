@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://xxx.jpg/">
 <meta property="og:image" content="http://yyy.jpg/">
 <meta property="article:published_time" content="2023-09-22T15:44:18.000Z">
-<meta property="article:modified_time" content="2023-12-14T06:00:11.789Z">
+<meta property="article:modified_time" content="2023-12-14T06:03:27.040Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="如何使用hexo">
@@ -446,7 +446,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-14 14:00:11" itemprop="dateModified" datetime="2023-12-14T14:00:11+08:00">2023-12-14</time>
+      <time title="修改时间：2023-12-14 14:03:27" itemprop="dateModified" datetime="2023-12-14T14:03:27+08:00">2023-12-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -508,6 +508,10 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">@next-theme/plugins</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#然后把配置文件更新</span></span><br><span class="line">  <span class="attr">plugins:</span> <span class="string">local</span></span><br></pre></td></tr></table></figure>
 
 <p>还是建议 npm uninstall @next-theme&#x2F;plugins 然后使用默认的cdnjs</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9nZXRxdWljay5saW5rLw==" rel="noopener external nofollow noreferrer">https://getquick.link</a><br>    quicklink:<br>          enable: true<br>      这就是哪个问题的配置；修改成</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">quicklink:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">delay:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">timeout:</span> <span class="number">1000</span></span><br><span class="line">  <span class="attr">priority:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>artalk的头像配置<br>    参考：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ibG9nLmltbGV0ZS5jbi9hcnRpY2xlL0hleG8tQXJ0YWxrLmh0bWwjJUU2JTg4JTkxJUU3JTlBJTg0MyVFNCVCOCVBQSVFNiU5NiU4NyVFNCVCQiVCNiVFOSU4NSU4RCVFNyVCRCVBRSVFNSU4NiU4NSVFNSVBRSVCOQ==" rel="noopener external nofollow noreferrer">Hexo-添加Artalk评论教程</a></p>
 <h4 id="文本颜色标签"><a href="#文本颜色标签" class="headerlink" title="文本颜色标签"></a>文本颜色标签</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">通过 note 标签可以为段落添加背景色，语法如下：</span><br><span class="line"></span><br><span class="line">&#123;% note class %&#125;</span><br><span class="line">文本内容 (支持行内标签)</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">支持的 class 种类包括 default primary success info warning danger，也可以不指定 class。</span><br></pre></td></tr></table></figure>
 
 <p>起到提醒的作用，还有这么多类型可以指定颜色，个人很喜欢</p>
@@ -525,7 +529,7 @@
 <p>  Hexo 博客导流微信公众号<br>  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3JxaDY1NjQxODUxMC9oZXhvLXJlYWRtb3Jl" rel="noopener external nofollow noreferrer">https://github.com/rqh656418510/hexo-readmore</a><br>  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cudGVjaGdyb3cuY24vcG9zdHMvYzg2MzcyYTIuaHRtbA==" rel="noopener external nofollow noreferrer">https://www.techgrow.cn/posts/c86372a2.html</a><br>  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9vcGVuLnRlY2hncm93LmNuLyMvcmVnaXN0ZXI=" rel="noopener external nofollow noreferrer">https://open.techgrow.cn/#/register</a></p>
 <p>  hexo to WX小程序<br>  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9odW50ZXJ4Lnh5ei90cnktd2VoZXhvLmh0bWw=" rel="noopener external nofollow noreferrer">尝试 Hexo 转小程序</a></p>
 <p>  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3NiZmtjZWwvdG93eG1sL2lzc3Vlcy82MA==" rel="noopener external nofollow noreferrer">https://github.com/sbfkcel/towxml/issues/60</a></p>
-<h4 id="social-share"><a href="#social-share" class="headerlink" title="social-share"></a>social-share</h4><p>wechat_qrcode<br>反复安装，测试切换三个不同的类型needmoreshare， likely， sharejs，<br>    最后启用sharejs，另外由于jsdelivr被墙，切换为unpkg，找到合适的文件地址：<br>      js: &#x2F;&#x2F;unpkg.com&#x2F;<a href="mailto:&#x73;&#x6f;&#99;&#105;&#x61;&#108;&#x2d;&#115;&#104;&#97;&#x72;&#x65;&#46;&#x6a;&#x73;&#64;&#49;&#46;&#48;&#x2e;&#49;&#54;">&#x73;&#x6f;&#99;&#105;&#x61;&#108;&#x2d;&#115;&#104;&#97;&#x72;&#x65;&#46;&#x6a;&#x73;&#64;&#49;&#46;&#48;&#x2e;&#49;&#54;</a>&#x2F;dist&#x2F;js&#x2F;social-share.min.js<br>        css: &#x2F;&#x2F;unpkg.com&#x2F;<a href="mailto:&#115;&#111;&#99;&#x69;&#x61;&#108;&#x2d;&#x73;&#104;&#97;&#114;&#x65;&#x2e;&#106;&#115;&#64;&#x31;&#46;&#x30;&#46;&#49;&#x36;">&#115;&#111;&#99;&#x69;&#x61;&#108;&#x2d;&#x73;&#104;&#97;&#114;&#x65;&#x2e;&#106;&#115;&#64;&#x31;&#46;&#x30;&#46;&#49;&#x36;</a>&#x2F;dist&#x2F;css&#x2F;share.min.css<br>social-share 能用吧，偶尔加载不出来，需要刷新页面<br>    感谢列表：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9la2Fyb3MuY24vMjAyMC8wMy8wMS9maXgtc2hhcmUtYnV0dG9uLw==" rel="noopener external nofollow noreferrer">https://ekaros.cn/2020/03/01/fix-share-button/</a><br>    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvaGV4by1uZXh0LXNoYXJl" rel="noopener external nofollow noreferrer">https://github.com/theme-next/hexo-next-share</a></p>
+<h4 id="social-share"><a href="#social-share" class="headerlink" title="social-share"></a>social-share</h4><p>wechat_qrcode<br>反复安装，测试切换三个不同的类型needmoreshare， likely， sharejs，<br>    最后启用sharejs，另外由于jsdelivr被墙，切换为unpkg，找到合适的文件地址：<br>      js: &#x2F;&#x2F;unpkg.com&#x2F;<a href="mailto:&#x73;&#x6f;&#99;&#x69;&#97;&#108;&#x2d;&#x73;&#104;&#x61;&#114;&#101;&#x2e;&#x6a;&#115;&#x40;&#x31;&#46;&#48;&#46;&#x31;&#x36;">&#x73;&#x6f;&#99;&#x69;&#97;&#108;&#x2d;&#x73;&#104;&#x61;&#114;&#101;&#x2e;&#x6a;&#115;&#x40;&#x31;&#46;&#48;&#46;&#x31;&#x36;</a>&#x2F;dist&#x2F;js&#x2F;social-share.min.js<br>        css: &#x2F;&#x2F;unpkg.com&#x2F;<a href="mailto:&#x73;&#x6f;&#x63;&#105;&#97;&#x6c;&#45;&#x73;&#x68;&#x61;&#114;&#101;&#x2e;&#106;&#x73;&#x40;&#x31;&#46;&#x30;&#x2e;&#x31;&#54;">&#x73;&#x6f;&#x63;&#105;&#97;&#x6c;&#45;&#x73;&#x68;&#x61;&#114;&#101;&#x2e;&#106;&#x73;&#x40;&#x31;&#46;&#x30;&#x2e;&#x31;&#54;</a>&#x2F;dist&#x2F;css&#x2F;share.min.css<br>social-share 能用吧，偶尔加载不出来，需要刷新页面<br>    感谢列表：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9la2Fyb3MuY24vMjAyMC8wMy8wMS9maXgtc2hhcmUtYnV0dG9uLw==" rel="noopener external nofollow noreferrer">https://ekaros.cn/2020/03/01/fix-share-button/</a><br>    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvaGV4by1uZXh0LXNoYXJl" rel="noopener external nofollow noreferrer">https://github.com/theme-next/hexo-next-share</a></p>
 <h4 id="Multi-languages-generator-for-hexo"><a href="#Multi-languages-generator-for-hexo" class="headerlink" title="Multi-languages generator for hexo."></a>Multi-languages generator for hexo.</h4><p>  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0phbWxpbmcvaGV4by1nZW5lcmF0b3ItaTE4bg==" rel="noopener external nofollow noreferrer">https://github.com/Jamling/hexo-generator-i18n</a><br>Next：<br>    - 如何让页面的点击，跳转等都携带语言选项，也就是继承最新的语言选择内容。<br>    - 如果能用Chatgpt自动翻译页面内容，哪怕是生产文章简介，汇总，总结&#x2F;小结也能提高体验度。<br>    - 发现目前不是真正的多语言版，sitemap也没有体现，语言也没有全部‘翻译’ TODO</p>
 <pre><code>取消google的分析，占用太多资源
 </code></pre>
@@ -987,7 +991,7 @@ hidden: true
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-12-14 14:00:11" itemprop="dateModified" datetime="2023-12-14T14:00:11+08:00">2023-12-14</time>
+        <time title="修改时间：2023-12-14 14:03:27" itemprop="dateModified" datetime="2023-12-14T14:03:27+08:00">2023-12-14</time>
       </span>
 
 </div>
