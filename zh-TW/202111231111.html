@@ -28,7 +28,7 @@
 <meta property="og:description" content="解决Github连接错误的思路由于众所周知的缘故，连接到github越来越微妙，分享一些MAC平台上的解决思路，希望对你有帮助：">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-11-23T03:11:00.000Z">
-<meta property="article:modified_time" content="2023-12-11T07:36:59.995Z">
+<meta property="article:modified_time" content="2023-12-14T14:55:36.343Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="github">
 <meta property="article:tag" content="git">
@@ -240,13 +240,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202304041812.html" rel="bookmark">
-      Mac OS 安装/卸载 Homebrew-CarlZeng
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202302201139.html" rel="bookmark">
-      听音乐(音乐播放器)
+      <a class="popular-posts-link" href="/202304041812.html" rel="bookmark">
+      Mac OS 安装/卸载 Homebrew-CarlZeng
       </a>
     </li>
   </ul>
@@ -442,7 +442,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-12-11 15:36:59" itemprop="dateModified" datetime="2023-12-11T15:36:59+08:00">2023-12-11</time>
+      <time title="修改時間：2023-12-14 22:55:36" itemprop="dateModified" datetime="2023-12-14T22:55:36+08:00">2023-12-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -500,7 +500,7 @@
 <h3 id="Solutions-for-Operation-timed-out"><a href="#Solutions-for-Operation-timed-out" class="headerlink" title="Solutions for: Operation timed out"></a>Solutions for: Operation timed out</h3><ol>
 <li>Fix the hosts to make sure the ssh connection between your Computer and github.com is availble(修复连接到github.com)</li>
 </ol>
-<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#x6d;</a></p>
+<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#109;">&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#109;</a></p>
 <p>1.1 记录下github的IP地址, 把IP Address 记录下来</p>
 <p>打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tLmlwYWRkcmVzcy5jb20v" rel="noopener external nofollow noreferrer">https://github.com.ipaddress.com/</a></p>
 <p>打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mYXN0bHkubmV0LmlwYWRkcmVzcy5jb20vZ2l0aHViLmdsb2JhbC5zc2wuZmFzdGx5Lm5ldCNpcGluZm8=" rel="noopener external nofollow noreferrer">https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo</a></p>
@@ -513,7 +513,7 @@
 <p>1.4 如果之前用ssh proxy，取消它</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global https.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
 
-<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#104;&#117;&#98;&#x2e;&#99;&#x6f;&#109;">&#103;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#104;&#117;&#98;&#x2e;&#99;&#x6f;&#109;</a></p>
+<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#103;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#105;&#116;&#64;&#103;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;</a></p>
 <p>新的错误可能和授权有关，至少证明连接到github.com是通的。</p>
 <hr>
 <h3 id="Solutions-for-Authentication"><a href="#Solutions-for-Authentication" class="headerlink" title="Solutions for: Authentication"></a>Solutions for: Authentication</h3><ol start="2">
@@ -542,8 +542,14 @@
 
 <p>解决办法后来是因为hexo没有检测到内容变动，不去push。<br>hexo clean<br>然后在 hexo g &amp;&amp; hexo d 就解决了</p>
 <h3 id="hexo-d-更新的解决办法"><a href="#hexo-d-更新的解决办法" class="headerlink" title="hexo d 更新的解决办法"></a>hexo d 更新的解决办法</h3><p>运行命令行当时输入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTTPS_PROXY=&quot;socks5://127.0.0.1:7890&quot; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTTPS_PROXY=&quot;socks5://127.0.0.1:7890&quot; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
 <p>这样省去了来回切换的麻烦步骤。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rewrite api/site.json (74%)                                                                                                      </span><br><span class="line">fatal: unable to access &#x27;https://github.com/@@@/blog.git/&#x27;: Failed to connect to github.com port 443: Operation timed out   </span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>持续问题这个错误，排查了网络连接到github也正常的。（由于另外一个窗口已经hexo g &amp;&amp; hexo s） 后来发现是命令要简化成：</p>
+<p>HTTPS_PROXY&#x3D;”socks5:&#x2F;&#x2F;127.0.0.1:7890” hexo d</p>
+</blockquote>
 <h2 id="思路：当Github源连同账号被删除后"><a href="#思路：当Github源连同账号被删除后" class="headerlink" title="思路：当Github源连同账号被删除后"></a>思路：当Github源连同账号被删除后</h2><ul>
 <li><p>缓存，当Github源连同账号被删除后，用CDN可以继续访问到<br>比如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">【已失效用下面的CDN缓存替换】curl -fksSL https://github.com/lmq8267/567/releases/download/scriptfile/install1.10.3.sh | sh</span><br><span class="line">  发现一个CDN的优点：当缓存完成后源站点内容被删除，CDN还是会保存着内容；也就是说这个同步是单方向的。</span><br><span class="line"></span><br><span class="line">curl -fkSL https://fastly.jsdelivr.net/gh/lmq8267/ZeroTierOne@master/install/installzero.sh | sh</span><br></pre></td></tr></table></figure>
@@ -564,7 +570,7 @@
     <div
       class="social-share"
       
-        data-sites="wechat,weibo,qq,facebook,twitter,diandian"
+        data-sites="wechat,weibo,qq,facebook"
       
       
         data-wechat-qrcode-title="微信扫一扫：分享"
@@ -634,13 +640,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202304041812.html" rel="bookmark">
-      Mac OS 安装/卸载 Homebrew-CarlZeng
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202302201139.html" rel="bookmark">
-      听音乐(音乐播放器)
+      <a class="popular-posts-link" href="/202304041812.html" rel="bookmark">
+      Mac OS 安装/卸载 Homebrew-CarlZeng
       </a>
     </li>
   </ul>
@@ -776,7 +782,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2023-12-11 15:36:59" itemprop="dateModified" datetime="2023-12-11T15:36:59+08:00">2023-12-11</time>
+        <time title="修改時間：2023-12-14 22:55:36" itemprop="dateModified" datetime="2023-12-14T22:55:36+08:00">2023-12-14</time>
       </span>
 
 </div>
@@ -932,6 +938,26 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":1000,"priority":false,"url":"https://www.carlzeng.top/zh-TW/202111231111.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
+<script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.js","cssUrl":"https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css","pvCount":true,"commentCount":true,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/zh-TW/202111231111.html","pageTitle":"[GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out"}</script>
 
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/artalk/2.6.4/Artalk.css">
@@ -964,26 +990,6 @@
 
   }
 })();
-</script><script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
