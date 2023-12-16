@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/ce8ceac4-b340-41f4-9e1e-4f4929ec58ce/OtBRkRas9WaV8LEDHgzPycXnbgoDdWkn62Q9mVuipiG8Ladqru7Q2G0Jlg/deep/0/image.png">
 <meta property="article:published_time" content="2023-11-03T14:02:36.000Z">
-<meta property="article:modified_time" content="2023-12-12T03:35:59.914Z">
+<meta property="article:modified_time" content="2023-12-16T01:33:44.054Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="NPM">
@@ -59,7 +59,7 @@
 
 
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.top:4443">
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -174,7 +174,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%BC%96%E8%BE%91artalk%E7%9A%84robots-txt"><span class="nav-number">2.1.</span> <span class="nav-text">如何编辑artalk的robots.txt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian-11%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80"><span class="nav-number">2.2.</span> <span class="nav-text">Debian 11的一些基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%A9%E7%9F%ADURL%E4%B9%8B%E7%AE%80%E5%8C%964443%E7%AB%AF%E5%8F%A3%E6%88%903%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.3.</span> <span class="nav-text">缩短URL之简化4443端口成3端口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B9%8B%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5"><span class="nav-number">2.3.1.</span> <span class="nav-text">Docker端口映射之一对多的几种情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM%E5%BC%8A%E7%AB%AF%EF%BC%9F"><span class="nav-number">2.4.</span> <span class="nav-text">NPM弊端？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#J4125-pve%E5%8D%8A%E6%AD%BB%E7%8A%B6%E6%80%81"><span class="nav-number">2.5.</span> <span class="nav-text">J4125 pve半死状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.6.</span> <span class="nav-text">Linux 查看当前开放端口</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%BC%96%E8%BE%91artalk%E7%9A%84robots-txt"><span class="nav-number">2.1.</span> <span class="nav-text">如何编辑artalk的robots.txt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian-11%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80"><span class="nav-number">2.2.</span> <span class="nav-text">Debian 11的一些基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%A9%E7%9F%ADURL%E4%B9%8B%E7%AE%80%E5%8C%964443%E7%AB%AF%E5%8F%A3%E6%88%903%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.3.</span> <span class="nav-text">缩短URL之简化4443端口成3端口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B9%8B%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5"><span class="nav-number">2.3.1.</span> <span class="nav-text">Docker端口映射之一对多的几种情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM%E5%BC%8A%E7%AB%AF%EF%BC%9F"><span class="nav-number">2.4.</span> <span class="nav-text">NPM弊端？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#J4125-pve%E5%8D%8A%E6%AD%BB%E7%8A%B6%E6%80%81"><span class="nav-number">2.5.</span> <span class="nav-text">J4125 pve半死状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.6.</span> <span class="nav-text">Linux 查看当前开放端口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E5%90%AFdocker%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.</span> <span class="nav-text">重启docker服务</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -228,6 +228,11 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
+      云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/200810011925.html" rel="bookmark">
       jseclipse_plugin_040207.zip-CarlZeng
       </a>
@@ -235,11 +240,6 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/200809301259.html" rel="bookmark">
       jseclipse_plugin_040207.zip-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
-      云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
@@ -253,8 +253,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
-      iptables应用
+      <a class="popular-posts-link" href="/202311300758.html" rel="bookmark">
+      Docker搭建在线网页代理实践记录
       </a>
     </li>
   </ul>
@@ -450,7 +450,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-12 11:35:59" itemprop="dateModified" datetime="2023-12-12T11:35:59+08:00">2023-12-12</time>
+      <time title="修改时间：2023-12-16 09:33:44" itemprop="dateModified" datetime="2023-12-16T09:33:44+08:00">2023-12-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -660,6 +660,22 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 <h2 id="Linux-查看当前开放端口"><a href="#Linux-查看当前开放端口" class="headerlink" title="Linux 查看当前开放端口"></a>Linux 查看当前开放端口</h2><p>在K2P的padavan或者openwrt里面都是适用</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">netstat -nl</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">tcpdump 不会用啊</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">想要查看那些客户端连接了？</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">通过padavan的UI查询：网络信息 &gt; 流量监控https://k2pzl.carlzeng.top:4443/Main_BWMon.asp</span></span><br><span class="line"></span><br><span class="line">找到了服务器上frps的192.168.6.116:6006, frpc映射至192.168.123.189:5555</span><br><span class="line">这样scrcpy -e</span><br><span class="line">就会显示两个客户端了！</span><br><span class="line">scrcpy -e</span><br><span class="line">scrcpy 2.1.1 &lt;https://github.com/Genymobile/scrcpy&gt;</span><br><span class="line">ERROR: Multiple (2) ADB devices over TCP/IP:</span><br><span class="line">ERROR:     --&gt; (tcpip)  192.168.6.116:6006              device  p230</span><br><span class="line">ERROR:     --&gt; (tcpip)  192.168.6.216:5555              device  p230</span><br><span class="line">ERROR: Select a device via -s (--serial), -d (--select-usb) or -e (--select-tcpip)</span><br><span class="line">ERROR: Server connection failed</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">手动指定连接到那一个adb 5555 客户端（即便是被frp映射过的也一样）</span></span><br><span class="line">scrcpy --tcpip=192.168.6.116:6006</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h1 id="重启docker服务"><a href="#重启docker服务" class="headerlink" title="重启docker服务"></a>重启docker服务</h1><p>这是一个类似于把整台软路由重启一样的指令</p>
+<p>磁盘占用率97%导致数据库无法写入，应用开始出错。  为什么重启？据说能减轻磁盘占用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">root@Debian11:/www/server/panel/data/compose/matomo# du -hs /var/lib/docker/                               </span><br><span class="line">11G     /var/lib/docker/ </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">docker system <span class="built_in">df</span></span></span><br><span class="line">TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE</span><br><span class="line">Images          17        14        5.674GB   624.4MB (11%)</span><br><span class="line">Containers      14        14        224.4MB   0B (0%)</span><br><span class="line">Local Volumes   0         0         0B        0B</span><br><span class="line">Build Cache     0         0         0B        0B</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">docker system prune -a</span></span><br><span class="line">y</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">docker system <span class="built_in">df</span></span></span><br><span class="line">TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE</span><br><span class="line">Images          14        14        5.057GB   7.335MB (0%)</span><br><span class="line">Containers      14        14        224.4MB   0B (0%)</span><br><span class="line">Local Volumes   0         0         0B        0B</span><br><span class="line">Build Cache     0         0         0B        0B</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart  docker</span><br></pre></td></tr></table></figure>
+
+<p>重启  以后 引导磁盘大小92.47% (45.23 GiB的48.91 GiB)</p>
+<p>重启以后，其他的服务都正常重启了，除了：Matomo，ChatgptNextWeb，和Firefox。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1. docker start chatgpt-next-web</span><br><span class="line"></span><br><span class="line">2. 添加</span><br><span class="line">restart: always</span><br><span class="line">到firefox的docker-compose.yml文件中</span><br><span class="line">启动巨慢，表面上docker已经启动完成的状态，可实际中，观察日志</span><br><span class="line">[cont-init   ] 15-cjk-font.sh: installing CJK font...</span><br><span class="line">[cont-init   ] 15-cjk-font.sh: fetch https://dl-cdn.alpinelinux.org/alpine/edge/community/x86_64/APKINDEX.tar.gz</span><br><span class="line">[cont-init   ] 15-cjk-font.sh: fetch https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/APKINDEX.tar.gz</span><br><span class="line">[cont-init   ] 15-cjk-font.sh: fetch https://dl-cdn.alpinelinux.org/alpine/v3.18/community/x86_64/APKINDEX.tar.gz</span><br><span class="line">[cont-init   ] 15-cjk-font.sh: (1/1) Installing font-wqy-zenhei (0.9.45-r3)</span><br><span class="line">要耗时4-5分钟左右</span><br><span class="line"></span><br><span class="line">3. Matomo已经有restart: on-failure:3比较尴尬。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>PVE 如何给docker debian虚拟机分配更多的磁盘空间？</p>
+<p>目前是50G 92%的占用率。</p>
 
     </div>
 
@@ -722,6 +738,11 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
+      云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/200810011925.html" rel="bookmark">
       jseclipse_plugin_040207.zip-CarlZeng
       </a>
@@ -729,11 +750,6 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/200809301259.html" rel="bookmark">
       jseclipse_plugin_040207.zip-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
-      云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
@@ -747,8 +763,8 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
-      iptables应用
+      <a class="popular-posts-link" href="/202311300758.html" rel="bookmark">
+      Docker搭建在线网页代理实践记录
       </a>
     </li>
   </ul>
@@ -884,7 +900,7 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-12-12 11:35:59" itemprop="dateModified" datetime="2023-12-12T11:35:59+08:00">2023-12-12</time>
+        <time title="修改时间：2023-12-16 09:33:44" itemprop="dateModified" datetime="2023-12-16T09:33:44+08:00">2023-12-16</time>
       </span>
 
 </div>

@@ -831,9 +831,8 @@ https://www.oldking.net/350.html
 <figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">BUG</span><br><span class="line">	zzzgydi/clash-verge </span><br><span class="line">	https://github.com/zzzgydi/clash-verge/issues/808</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	mixed-port: 7890</span><br><span class="line">	secret: **********</span><br><span class="line">	external-controller: 0.0.0.0:9090</span><br><span class="line"></span><br><span class="line">	终于按文档配置成功：https://github.com/MetaCubeX/metacubexd/tree/main</span><br><span class="line">	Enable external-controller in your config file</span><br><span class="line">		external-controller: 0.0.0.0:9090</span><br><span class="line">		Use pre-built assets from gh-pages branch</span><br><span class="line">		First time setup</span><br><span class="line"></span><br><span class="line">		git clone https://github.com/metacubex/metacubexd.git -b gh-pages /etc/clash-meta/ui</span><br><span class="line">		Make sure you have external-ui directory set correctly in your config file</span><br><span class="line"></span><br><span class="line">		external-ui: /etc/clash-meta/ui</span><br><span class="line">	works great: http://192.168.6.116:9090/<span class="comment">#/config</span></span><br><span class="line"></span><br><span class="line">	修改后端：http://192.168.6.116:9090/<span class="comment">#/setup</span></span><br><span class="line">		http://192.168.6.116:9091</span><br><span class="line">		**********</span><br><span class="line">	对应config.yaml中的配置</span><br></pre></td></tr></table></figure>
 
 <h2 id="思路来源及关联"><a href="#思路来源及关联" class="headerlink" title="思路来源及关联"></a>思路来源及关联</h2><p><a href ="">Clash for Windows 设置方法入门(适用于Windows+Mac)</a>)<br><a href ="/202310011555.html">go语言学习与应用日志-proxypool</a>)</p>
-<h1 id="预览HNet"><a href="#预览HNet" class="headerlink" title="预览HNet"></a>预览HNet</h1><pre><code>            HTML
-</code></pre>
-<p>​					<br>​				<br>​				<br>​						<br>​				<br>​			<br>​		 ​</p>
+<h1 id="预览HNet-​"><a href="#预览HNet-​" class="headerlink" title="预览HNet		 ​"></a>预览HNet		 ​</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://c.carlzeng.top:3/web" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
 <hr>
 <h1 id="Docker-container-for-Firefox"><a href="#Docker-container-for-Firefox" class="headerlink" title="Docker container for Firefox"></a>Docker container for Firefox</h1><p>这个方案脑洞大开了，This is a Docker container for Firefox.</p>
 <p>The GUI of the application is accessed through a modern web browser (no installation or configuration needed on the client side) or via any VNC client. Full documentation is available at <a href="https://github.com/jlesage/docker-firefox">https://github.com/jlesage/docker-firefox</a>.</p>
@@ -857,11 +856,10 @@ https://www.oldking.net/350.html
 <h3 id="IOS端（iPad）-1"><a href="#IOS端（iPad）-1" class="headerlink" title="IOS端（iPad）"></a>IOS端（iPad）</h3><p>Safari浏览器，显示不是太正常；无法正常使用</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">参数介绍</span></span><br><span class="line">-e TZ=Asia/Hong_Kong       # 设置时区</span><br><span class="line">-e DISPLAY_WIDTH=1920</span><br><span class="line">-e DISPLAY_HEIGHT=1080     #设置显示的高宽</span><br><span class="line">-e KEEP_APP_RUNNING=1      # 保持启动状态</span><br><span class="line">-e ENABLE_CJK_FONT=1       # 防止显示页面时中文乱码</span><br><span class="line">-e SECURE_CONNECTION=1     # 启用HTTPS功能</span><br><span class="line">-e VNC_PASSWORD=admin  #设置VNC的访问密码,自定义即可</span><br><span class="line">-p 5800:5800               #访问firefox的web端口</span><br><span class="line">-p 5900:5900               #VNC端口</span><br><span class="line">-v /data/irefox/config:/config:rw         # 容器挂载目录，存放firefox数据</span><br><span class="line">--shm-size 2g               # 设置容器的内存资源为2g </span><br></pre></td></tr></table></figure>
 
-<h1 id="预览Firefox"><a href="#预览Firefox" class="headerlink" title="预览Firefox"></a>预览Firefox</h1><pre><code>            HTML
-</code></pre>
-<p>​					<br>​				<br>​				<br>​						<br>​				<br>​			</p>
-<pre><code>     ​
-</code></pre>
+<h1 id="预览Firefox"><a href="#预览Firefox" class="headerlink" title="预览Firefox"></a>预览Firefox</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://c.carlzeng.top:3/web2" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+
+
 <p>中文字符的问题，实在无法接受</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://hub.docker.com/r/ich777/firefox 已测试，无效，卡住：</span><br><span class="line">firefox  | ---Starting...---</span><br><span class="line">firefox  | ---Firefox not installed, installing---</span><br></pre></td></tr></table></figure>
 
@@ -6773,6 +6771,22 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 <h2 id="Linux-查看当前开放端口"><a href="#Linux-查看当前开放端口" class="headerlink" title="Linux 查看当前开放端口"></a>Linux 查看当前开放端口</h2><p>在K2P的padavan或者openwrt里面都是适用</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">netstat -nl</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">tcpdump 不会用啊</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">想要查看那些客户端连接了？</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">通过padavan的UI查询：网络信息 &gt; 流量监控https://k2pzl.carlzeng.top:4443/Main_BWMon.asp</span></span><br><span class="line"></span><br><span class="line">找到了服务器上frps的192.168.6.116:6006, frpc映射至192.168.123.189:5555</span><br><span class="line">这样scrcpy -e</span><br><span class="line">就会显示两个客户端了！</span><br><span class="line">scrcpy -e</span><br><span class="line">scrcpy 2.1.1 &lt;https://github.com/Genymobile/scrcpy&gt;</span><br><span class="line">ERROR: Multiple (2) ADB devices over TCP/IP:</span><br><span class="line">ERROR:     --&gt; (tcpip)  192.168.6.116:6006              device  p230</span><br><span class="line">ERROR:     --&gt; (tcpip)  192.168.6.216:5555              device  p230</span><br><span class="line">ERROR: Select a device via -s (--serial), -d (--select-usb) or -e (--select-tcpip)</span><br><span class="line">ERROR: Server connection failed</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">手动指定连接到那一个adb 5555 客户端（即便是被frp映射过的也一样）</span></span><br><span class="line">scrcpy --tcpip=192.168.6.116:6006</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h1 id="重启docker服务"><a href="#重启docker服务" class="headerlink" title="重启docker服务"></a>重启docker服务</h1><p>这是一个类似于把整台软路由重启一样的指令</p>
+<p>磁盘占用率97%导致数据库无法写入，应用开始出错。  为什么重启？据说能减轻磁盘占用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">root@Debian11:/www/server/panel/data/compose/matomo# du -hs /var/lib/docker/                               </span><br><span class="line">11G     /var/lib/docker/ </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">docker system <span class="built_in">df</span></span></span><br><span class="line">TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE</span><br><span class="line">Images          17        14        5.674GB   624.4MB (11%)</span><br><span class="line">Containers      14        14        224.4MB   0B (0%)</span><br><span class="line">Local Volumes   0         0         0B        0B</span><br><span class="line">Build Cache     0         0         0B        0B</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">docker system prune -a</span></span><br><span class="line">y</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">docker system <span class="built_in">df</span></span></span><br><span class="line">TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE</span><br><span class="line">Images          14        14        5.057GB   7.335MB (0%)</span><br><span class="line">Containers      14        14        224.4MB   0B (0%)</span><br><span class="line">Local Volumes   0         0         0B        0B</span><br><span class="line">Build Cache     0         0         0B        0B</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart  docker</span><br></pre></td></tr></table></figure>
+
+<p>重启  以后 引导磁盘大小92.47% (45.23 GiB的48.91 GiB)</p>
+<p>重启以后，其他的服务都正常重启了，除了：Matomo，ChatgptNextWeb，和Firefox。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1. docker start chatgpt-next-web</span><br><span class="line"></span><br><span class="line">2. 添加</span><br><span class="line">restart: always</span><br><span class="line">到firefox的docker-compose.yml文件中</span><br><span class="line">启动巨慢，表面上docker已经启动完成的状态，可实际中，观察日志</span><br><span class="line">[cont-init   ] 15-cjk-font.sh: installing CJK font...</span><br><span class="line">[cont-init   ] 15-cjk-font.sh: fetch https://dl-cdn.alpinelinux.org/alpine/edge/community/x86_64/APKINDEX.tar.gz</span><br><span class="line">[cont-init   ] 15-cjk-font.sh: fetch https://dl-cdn.alpinelinux.org/alpine/v3.18/main/x86_64/APKINDEX.tar.gz</span><br><span class="line">[cont-init   ] 15-cjk-font.sh: fetch https://dl-cdn.alpinelinux.org/alpine/v3.18/community/x86_64/APKINDEX.tar.gz</span><br><span class="line">[cont-init   ] 15-cjk-font.sh: (1/1) Installing font-wqy-zenhei (0.9.45-r3)</span><br><span class="line">要耗时4-5分钟左右</span><br><span class="line"></span><br><span class="line">3. Matomo已经有restart: on-failure:3比较尴尬。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>PVE 如何给docker debian虚拟机分配更多的磁盘空间？</p>
+<p>目前是50G 92%的占用率。</p>
 ]]></content>
       <categories>
         <category>Nginx Proxy Manager</category>
@@ -6992,6 +7006,12 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 
 
 </li>
+<li><p>调试</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">On MacOS or Linux, run the app with this <span class="built_in">command</span>:</span></span><br><span class="line">DEBUG=myapp:* npm start</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">On Windows Command Prompt, use this <span class="built_in">command</span>:</span></span><br><span class="line">set DEBUG=myapp:* &amp; npm start</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li></li>
 <li></li>
 </ol>
 <h1 id="Node-js-Build-步骤"><a href="#Node-js-Build-步骤" class="headerlink" title="Node.js Build 步骤"></a>Node.js Build 步骤</h1><p>编译到当前项目的dist目录中： npm run build</p>
@@ -7000,9 +7020,10 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 <h2 id="Docker编译"><a href="#Docker编译" class="headerlink" title="Docker编译"></a>Docker编译</h2><p>​	docker build -t ipserver .</p>
 <hr>
 <h1 id="即将上线"><a href="#即将上线" class="headerlink" title="即将上线"></a>即将上线</h1><p>实测：Adding full text Search via FlexSearch to a Blog</p>
+<p>起步：<a href="https://expressjs.com/en/starter/installing.html">https://expressjs.com/en/starter/installing.html</a></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir blogsearch</span><br><span class="line"></span><br><span class="line">cd blogsearch </span><br><span class="line"></span><br><span class="line">npm init</span><br><span class="line">	entry point: (index.js) server.js</span><br><span class="line">	</span><br><span class="line">HTTPS_PROXY=&quot;http://127.0.0.1:7890&quot; npm install express</span><br><span class="line">	added 62 packages, and audited 63 packages in 10s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">HTTPS_PROXY=&quot;http://127.0.0.1:7890&quot; npm install --save flexsearch</span><br><span class="line">	added 1 package, and audited 64 packages in 3s</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const &#123; Index, Document, Worker &#125; = require(&quot;flexsearch&quot;);</span><br><span class="line">const index = new Index();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="title class_">Index</span>, <span class="title class_">Document</span>, <span class="title class_">Worker</span> &#125; = <span class="built_in">require</span>(<span class="string">&quot;flexsearch&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> index = <span class="keyword">new</span> <span class="title class_">Index</span>();</span><br></pre></td></tr></table></figure>
 
 
 
@@ -8562,6 +8583,11 @@ theform.submit();
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">##查询 iptables 所有列表</span><br><span class="line">iptables -L -n</span><br><span class="line">可以查询到当前列表中的所有项目，包括新增进去的section</span><br><span class="line"></span><br><span class="line">Chain INPUT (policy DROP)</span><br><span class="line">target     prot opt source               destination         </span><br><span class="line">SSR-SERVER-RULE  all  --  0.0.0.0/0            0.0.0.0/0           </span><br><span class="line">REJECT     udp  --  0.0.0.0/0            0.0.0.0/0            udp dpt:443 /* OpenClash QUIC REJECT */ ! match-set china_ip_route dst reject-with icmp-port-unreachable</span><br><span class="line">openclash_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            ! match-set localnetwork src</span><br><span class="line">openclash_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            ! match-set localnetwork src</span><br><span class="line">openclash_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            ! match-set localnetwork src</span><br><span class="line">openclash_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            ! match-set localnetwork src</span><br><span class="line">openclash_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            ! match-set localnetwork src</span><br><span class="line">ACCEPT     tcp  --  0.0.0.0/0            0.0.0.0/0            tcp dpt:7893</span><br><span class="line">ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">input_rule  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3: Custom input rule chain */</span><br><span class="line">ACCEPT     all  --  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED /* !fw3 */</span><br><span class="line">DROP       all  --  0.0.0.0/0            0.0.0.0/0            ctstate INVALID /* !fw3 */</span><br><span class="line">syn_flood  tcp  --  0.0.0.0/0            0.0.0.0/0            tcp flags:0x17/0x02 /* !fw3 */</span><br><span class="line">zone_lan_input  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">zone_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">zone_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">zone_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">zone_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">zone_wan_input  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">zone_docker_input  all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line">reject     all  --  0.0.0.0/0            0.0.0.0/0            /* !fw3 */</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <img class="lozad" data-src="">
+
+
+
+<h1 id="限制某个MAC-地址访问"><a href="#限制某个MAC-地址访问" class="headerlink" title="限制某个MAC 地址访问"></a>限制某个MAC 地址访问</h1><p>iptables -I FORWARD  -m mac –mac-source C8:F6:50:B7:@@:@@ -j DROP</p>
+<p>如果想要解除丢弃数据包的指令：<br>解除访问互联网 iptables -D FORWARD  -m mac –mac-source 98:5A:EB:8B:@@:@@ -j DROP</p>
 ]]></content>
       <categories>
         <category>openwrt</category>
