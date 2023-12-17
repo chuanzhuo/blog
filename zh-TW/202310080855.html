@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/dc99b8af-2a8b-4c92-80ae-53c85662c84e/EAOQ4Tvjt3XR_wnOW7aoUNhkXRSFxKDw74NLFTaMLLVKv_XDfXX-Lz2wOw/deep/0/image.png">
 <meta property="article:published_time" content="2023-10-08T00:55:48.000Z">
-<meta property="article:modified_time" content="2023-12-16T00:37:47.086Z">
+<meta property="article:modified_time" content="2023-12-17T05:24:25.642Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="Javascript">
 <meta property="article:tag" content="Node.js">
@@ -171,14 +171,14 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%BA%86%E6%89%B9%E9%87%8F%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6%E5%90%8D%E5%90%AB%E6%9C%89netsuite%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%EF%BC%8C%E6%B7%BB%E5%8A%A0tags-%E5%92%8C-categories"><span class="nav-number">1.</span> <span class="nav-text">实现了批量编辑文件名含有netsuite的所有文件，添加tags 和 categories</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sublime-Text-%E7%BC%96%E8%BE%91%E5%99%A8-%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">Sublime Text 编辑器 打开文件夹目录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js-Dev-%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">Node.js Dev 步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js-Build-%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">Node.js Build 步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E7%BC%96%E8%AF%91"><span class="nav-number">3.1.</span> <span class="nav-text">Docker编译</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%B3%E5%B0%86%E4%B8%8A%E7%BA%BF"><span class="nav-number">4.</span> <span class="nav-text">即将上线</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%BA%86%E6%89%B9%E9%87%8F%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6%E5%90%8D%E5%90%AB%E6%9C%89netsuite%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%EF%BC%8C%E6%B7%BB%E5%8A%A0tags-%E5%92%8C-categories"><span class="nav-number">1.</span> <span class="nav-text">实现了批量编辑文件名含有netsuite的所有文件，添加tags 和 categories</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sublime-Text-%E7%BC%96%E8%BE%91%E5%99%A8-%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">Sublime Text 编辑器 打开文件夹目录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js-Dev-%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">Node.js Dev 步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js-Build-%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">Node.js Build 步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E7%BC%96%E8%AF%91"><span class="nav-number">3.1.</span> <span class="nav-text">Docker编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js%E7%9A%84Docker%E5%AE%B9%E5%99%A8"><span class="nav-number">3.2.</span> <span class="nav-text">Node.js的Docker容器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%B3%E5%B0%86%E4%B8%8A%E7%BA%BF"><span class="nav-number">4.</span> <span class="nav-text">即将上线</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Carl Notes</p>
-  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用</div>
+  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
@@ -240,18 +240,18 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202103171250.html" rel="bookmark">
-      Global Search file content in Gitlab repositories, search across repositories, search across all files-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202310110855.html" rel="bookmark">
       UTM虚拟机在MAC M1下Kali Linux实战
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201903200846.html" rel="bookmark">
-      SuiteScript 2.0 Error: SSS_INVALID_SRCH_FILTER_EXPR_TYPE-CarlZeng
+      <a class="popular-posts-link" href="/200810042154.html" rel="bookmark">
+      js 获取当前日期+时间-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202103171250.html" rel="bookmark">
+      Global Search file content in Gitlab repositories, search across repositories, search across all files-CarlZeng
       </a>
     </li>
   </ul>
@@ -428,7 +428,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -447,7 +447,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-12-16 08:37:47" itemprop="dateModified" datetime="2023-12-16T08:37:47+08:00">2023-12-16</time>
+      <time title="修改時間：2023-12-17 13:24:25" itemprop="dateModified" datetime="2023-12-17T13:24:25+08:00">2023-12-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -538,6 +538,10 @@
 <p>详细步骤见</p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8yMXhyeC5jb20vQXJ0aWNsZXMvcmVhZF9hcnRpY2xlLzIzMzcwMg==" rel="noopener external nofollow noreferrer">Node.js项目打包和发布的实现方法</a></p>
 <h2 id="Docker编译"><a href="#Docker编译" class="headerlink" title="Docker编译"></a>Docker编译</h2><p>​	docker build -t ipserver .</p>
+<h2 id="Node-js的Docker容器"><a href="#Node-js的Docker容器" class="headerlink" title="Node.js的Docker容器"></a>Node.js的Docker容器</h2><p>目前完还不会打一整个docker的包，先搞一个Node.js的Docker容器，方便管理</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">    <span class="attr">node:</span></span><br><span class="line">        <span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">container_name:</span> <span class="string">nodejs</span></span><br><span class="line">        <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">        <span class="attr">volumes:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">&#x27;./app:/home/app&#x27;</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="number">3001</span><span class="string">:3000</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">node</span></span><br><span class="line">        <span class="attr">command:</span> <span class="string">bash</span></span><br></pre></td></tr></table></figure>
+
+<p>本小节思路来源：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8yMXhyeC5jb20vQXJ0aWNsZXMvcmVhZF9hcnRpY2xlLzE4NDg1Ng==" rel="noopener external nofollow noreferrer">Mac上安装Node.js的Docker容器</a></p>
 <hr>
 <h1 id="即将上线"><a href="#即将上线" class="headerlink" title="即将上线"></a>即将上线</h1><p>实测：Adding full text Search via FlexSearch to a Blog</p>
 <p>起步：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9leHByZXNzanMuY29tL2VuL3N0YXJ0ZXIvaW5zdGFsbGluZy5odG1s" rel="noopener external nofollow noreferrer">https://expressjs.com/en/starter/installing.html</a></p>
@@ -625,18 +629,18 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202103171250.html" rel="bookmark">
-      Global Search file content in Gitlab repositories, search across repositories, search across all files-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202310110855.html" rel="bookmark">
       UTM虚拟机在MAC M1下Kali Linux实战
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201903200846.html" rel="bookmark">
-      SuiteScript 2.0 Error: SSS_INVALID_SRCH_FILTER_EXPR_TYPE-CarlZeng
+      <a class="popular-posts-link" href="/200810042154.html" rel="bookmark">
+      js 获取当前日期+时间-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202103171250.html" rel="bookmark">
+      Global Search file content in Gitlab repositories, search across repositories, search across all files-CarlZeng
       </a>
     </li>
   </ul>
@@ -772,7 +776,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2023-12-16 08:37:47" itemprop="dateModified" datetime="2023-12-16T08:37:47+08:00">2023-12-16</time>
+        <time title="修改時間：2023-12-17 13:24:25" itemprop="dateModified" datetime="2023-12-17T13:24:25+08:00">2023-12-17</time>
       </span>
 
 </div>
@@ -931,6 +935,26 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":1000,"priority":false,"url":"https://www.carlzeng.top/zh-TW/202310080855.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
+<script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":true,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/zh-TW/202310080855.html","pageTitle":"Node.js开发环境及应用实例"}</script>
 
 <link rel="stylesheet" href="https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.css">
@@ -963,26 +987,6 @@
 
   }
 })();
-</script><script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>

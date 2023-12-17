@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/ce8ceac4-b340-41f4-9e1e-4f4929ec58ce/OtBRkRas9WaV8LEDHgzPycXnbgoDdWkn62Q9mVuipiG8Ladqru7Q2G0Jlg/deep/0/image.png">
 <meta property="article:published_time" content="2023-11-03T14:02:36.000Z">
-<meta property="article:modified_time" content="2023-12-16T07:02:42.102Z">
+<meta property="article:modified_time" content="2023-12-17T02:56:59.128Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="NPM">
@@ -174,14 +174,14 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%BC%96%E8%BE%91artalk%E7%9A%84robots-txt"><span class="nav-number">2.1.</span> <span class="nav-text">如何编辑artalk的robots.txt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian-11%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80"><span class="nav-number">2.2.</span> <span class="nav-text">Debian 11的一些基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%A9%E7%9F%ADURL%E4%B9%8B%E7%AE%80%E5%8C%964443%E7%AB%AF%E5%8F%A3%E6%88%903%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.3.</span> <span class="nav-text">缩短URL之简化4443端口成3端口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B9%8B%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5"><span class="nav-number">2.3.1.</span> <span class="nav-text">Docker端口映射之一对多的几种情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM%E5%BC%8A%E7%AB%AF%EF%BC%9F"><span class="nav-number">2.4.</span> <span class="nav-text">NPM弊端？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#J4125-pve%E5%8D%8A%E6%AD%BB%E7%8A%B6%E6%80%81"><span class="nav-number">2.5.</span> <span class="nav-text">J4125 pve半死状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.6.</span> <span class="nav-text">Linux 查看当前开放端口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E5%90%AFdocker%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.</span> <span class="nav-text">重启docker服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PVE-%E5%A6%82%E4%BD%95%E7%BB%99docker-debian%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%88%86%E9%85%8D%E6%9B%B4%E5%A4%9A%E7%9A%84%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">PVE 如何给docker debian虚拟机分配更多的磁盘空间？</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%BC%96%E8%BE%91artalk%E7%9A%84robots-txt"><span class="nav-number">2.1.</span> <span class="nav-text">如何编辑artalk的robots.txt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian-11%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80"><span class="nav-number">2.2.</span> <span class="nav-text">Debian 11的一些基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%A9%E7%9F%ADURL%E4%B9%8B%E7%AE%80%E5%8C%964443%E7%AB%AF%E5%8F%A3%E6%88%903%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.3.</span> <span class="nav-text">缩短URL之简化4443端口成3端口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B9%8B%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5"><span class="nav-number">2.3.1.</span> <span class="nav-text">Docker端口映射之一对多的几种情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM%E5%BC%8A%E7%AB%AF%EF%BC%9F"><span class="nav-number">2.4.</span> <span class="nav-text">NPM弊端？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#J4125-pve%E5%8D%8A%E6%AD%BB%E7%8A%B6%E6%80%81"><span class="nav-number">2.5.</span> <span class="nav-text">J4125 pve半死状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.6.</span> <span class="nav-text">Linux 查看当前开放端口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E5%90%AFdocker%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.</span> <span class="nav-text">重启docker服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PVE-%E5%A6%82%E4%BD%95%E7%BB%99docker-debian%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%88%86%E9%85%8D%E6%9B%B4%E5%A4%9A%E7%9A%84%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">PVE 如何给docker debian虚拟机分配更多的磁盘空间？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%B2%E6%AD%A2-Docker-%E6%97%A5%E5%BF%97%E5%A1%9E%E6%BB%A1%E7%A1%AC%E7%9B%98%EF%BC%88%E6%B3%AA%E7%9A%84%E6%95%99%E8%AE%AD%EF%BC%89"><span class="nav-number">3.1.1.</span> <span class="nav-text">防止 Docker 日志塞满硬盘（泪的教训）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%92%E6%9F%A5%E8%BF%87%E7%A8%8B"><span class="nav-number">3.1.2.</span> <span class="nav-text">排查过程</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Carl Notes</p>
-  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用</div>
+  <div class="site-description" itemprop="description">【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
@@ -431,7 +431,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人学习、研究之用">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -450,7 +450,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-16 15:02:42" itemprop="dateModified" datetime="2023-12-16T15:02:42+08:00">2023-12-16</time>
+      <time title="Modified: 2023-12-17 10:56:59" itemprop="dateModified" datetime="2023-12-17T10:56:59+08:00">2023-12-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -675,6 +675,33 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 
 
 <h2 id="PVE-如何给docker-debian虚拟机分配更多的磁盘空间？"><a href="#PVE-如何给docker-debian虚拟机分配更多的磁盘空间？" class="headerlink" title="PVE 如何给docker debian虚拟机分配更多的磁盘空间？"></a>PVE 如何给docker debian虚拟机分配更多的磁盘空间？</h2><p>目前是50G 92%的占用率。</p>
+<h3 id="防止-Docker-日志塞满硬盘（泪的教训）"><a href="#防止-Docker-日志塞满硬盘（泪的教训）" class="headerlink" title="防止 Docker 日志塞满硬盘（泪的教训）"></a>防止 Docker 日志塞满硬盘（泪的教训）</h3><p>&#x2F;etc&#x2F;docker&#x2F;daemon.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 增加：</span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;log-driver&quot;</span><span class="punctuation">:</span> <span class="string">&quot;json-file&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;log-opts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;max-size&quot;</span><span class="punctuation">:</span> <span class="string">&quot;20m&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;max-file&quot;</span><span class="punctuation">:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<p>无法解决问题，反而让docker无法启动数据库了（因为磁盘已满）</p>
+<p>rm -rf &#x2F;var&#x2F;log&#x2F;*</p>
+<p>终于找到原因了BT 默认备份功能（默认每天备份panel文件夹下的所有内容）害死我了</p>
+<p>采取行动：关闭宝塔面板自动备份功能</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash"><span class="built_in">cd</span> /</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash"><span class="built_in">du</span> -sh *</span></span><br><span class="line">。。。</span><br><span class="line">12G     var</span><br><span class="line">35G     www</span><br><span class="line">root@Debian11:/www# du -s /www/* | sort -nr                                                        </span><br><span class="line">31497608        /www/backup                                                                        </span><br><span class="line">4538716 /www/server                                                                                </span><br><span class="line">652     /www/dk_project                                                                            </span><br><span class="line">36      /www/wwwlogs                                                                               </span><br><span class="line">8       /www/wwwroot                                                                               </span><br><span class="line">4       /www/disk.pl                                                                               </span><br><span class="line">root@Debian11:/www# bt                                                                             </span><br><span class="line">===============宝塔面板命令行==================                                                    </span><br><span class="line">(1) 重启面板服务           (8) 改面板端口                                                          </span><br><span class="line">(2) 停止面板服务           (9) 清除面板缓存                                                        </span><br><span class="line">(3) 启动面板服务           (10) 清除登录限制                                                       </span><br><span class="line">(4) 重载面板服务           (11) 设置是否开启IP + User-Agent验证                                    </span><br><span class="line">(5) 修改面板密码           (12) 取消域名绑定限制                                                   </span><br><span class="line">(6) 修改面板用户名         (13) 取消IP访问限制                                                     </span><br><span class="line">(7) 强制修改MySQL密码      (14) 查看面板默认信息                                                   </span><br><span class="line">(22) 显示面板错误日志      (15) 清理系统垃圾                                                       </span><br><span class="line">(23) 关闭BasicAuth认证     (16) 修复面板(检查错误并更新面板文件到最新版)                           </span><br><span class="line">(24) 关闭动态口令认证          (17) 设置日志切割是否压缩                                           </span><br><span class="line">(25) 设置是否保存文件历史副本  (18) 设置是否自动备份面板                                           </span><br><span class="line">(26) 关闭面板ssl           (28) 修改面板安全入口                                                   </span><br><span class="line">(0) 取消                   (29) 取消访问设备验证                                                   </span><br><span class="line">===============================================                                                    </span><br><span class="line">请输入命令编号：18                                                                                 </span><br><span class="line">===============================================                                                    </span><br><span class="line">正在执行(18)...                                                                                    </span><br><span class="line">===============================================                                                    </span><br><span class="line">|-检测到已开启面板自动备份功能,正在关闭...                                                         </span><br><span class="line">|-已关闭面板自动备份功能                                                                           </span><br><span class="line">root@Debian11:/www#                                                                                </span><br></pre></td></tr></table></figure>
+
+<h3 id="排查过程"><a href="#排查过程" class="headerlink" title="排查过程"></a>排查过程</h3><ol>
+<li>cd &#x2F;. 然后 du -sh *<ol>
+<li>这样查找出来www目录占用了35G（不知情）</li>
+</ol>
+</li>
+<li>du -s &#x2F;www&#x2F;* | sort -nr<ol>
+<li>按文件占用大小排序，找出最大的占用空间文件夹： &#x2F;www&#x2F;backup</li>
+</ol>
+</li>
+<li>清除所有的文件：&#x2F;www&#x2F;backup</li>
+<li>运行bt 选18 关闭面板自动备份功能</li>
+</ol>
+<p>这个BT还是更适合方便+初级用户+快速上线，很高心释放出了30G空间。下一步：找BT替换方案。</p>
+<p>感谢列表：</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ydXhpLm9yZy8zODYuaHRtbA==" rel="noopener external nofollow noreferrer">一个反向代理神器——Nginx Proxy Manager&gt;修改Docker配置</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3JlYWQvY3YyMTg3MjUxNi8=" rel="noopener external nofollow noreferrer">一种给PVE虚拟机磁盘扩容的方法</a></p>
 
     </div>
 
@@ -899,7 +926,7 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-12-16 15:02:42" itemprop="dateModified" datetime="2023-12-16T15:02:42+08:00">2023-12-16</time>
+        <time title="Modified: 2023-12-17 10:56:59" itemprop="dateModified" datetime="2023-12-17T10:56:59+08:00">2023-12-17</time>
       </span>
 
 </div>
@@ -1061,6 +1088,26 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
   <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":1000,"priority":false,"url":"https://www.carlzeng.top/en/202311032202.html"}</script>
   <script src="/js/third-party/quicklink.js"></script>
+<script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":true,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202311032202.html","pageTitle":"Nginx Proxy Manager修复笔记"}</script>
 
 <link rel="stylesheet" href="https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.css">
@@ -1093,26 +1140,6 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 
   }
 })();
-</script><script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
