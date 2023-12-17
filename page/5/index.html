@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
 <meta property="og:type" content="website">
@@ -81,7 +81,6 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger" aria-label="全站检索" role="button">
-        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -90,59 +89,47 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">153</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">41</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>文章列表<span class="badge">322</span></a></li><li class="menu-item menu-item-ai问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>音乐</a></li><li class="menu-item menu-item-在线浏览器"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>在线浏览器</a></li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>全站检索
-        </a>
-      </li>
+    <li class="menu-item menu-item-search">
+      <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
+      <div class="popup search-popup">
+        <div class="search-header">
+        <div class="search-input-container">
+          <input name="q" autocomplete="off" autocapitalize="off" maxlength="28" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+        </div>
+        </div>
+      </div>
+      </form>
+    </li>
+    <li class="menu-item menu-item-search">
+      <div class="languages" style="text-align: left; padding-left: 22px">
+        <label class="lang-select-label">
+          <i class="fa fa-language"></i>
+          <span>简体中文</span>
+          <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </label>
+        <select class="lang-select" data-canonical="" aria-label="选择语言">
+          
+            <option value="zh-CN" data-href="/page/5/index.html" selected="">
+              简体中文
+            </option>
+          
+            <option value="en" data-href="/en/page/5/index.html" selected="">
+              English
+            </option>
+          
+            <option value="zh-TW" data-href="/zh-TW/page/5/index.html" selected="">
+              繁體中文
+            </option>
+          
+        </select>
+      </div>
+    </li>
   </ul>
-    <div class="languages" style="text-align: left; padding-left: 22px">
-      <label class="lang-select-label">
-        <i class="fa fa-language"></i>
-        <span>简体中文</span>
-        <i class="fa fa-angle-up" aria-hidden="true"></i>
-      </label>
-      <select class="lang-select" data-canonical="" aria-label="选择语言">
-        
-          <option value="zh-CN" data-href="/page/5/index.html" selected="">
-            简体中文
-          </option>
-        
-          <option value="en" data-href="/en/page/5/index.html" selected="">
-            English
-          </option>
-        
-          <option value="zh-TW" data-href="/zh-TW/page/5/index.html" selected="">
-            繁體中文
-          </option>
-        
-      </select>
-    </div>
+
 </nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
 
 </header>
         
@@ -358,114 +345,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200904171039.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/200904171039.html" class="post-title-link" itemprop="url">js date 格式-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 22:21:10" itemprop="dateModified" datetime="2023-10-08T22:21:10+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/200904171039.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/200904171039.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200904171039.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          var custbody_auditingno=datetime.getFullYear()+''+(datetime.getMonth()+1)+''+datetime.getDate()+''+datetime.getHours()+''+datetime.getMinutes()+''+datetime.getSeconds()+''+datetime.getMilliseconds();拼...
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/200904171039.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200810150015.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -542,330 +421,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/200810150015.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200901041808.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/200901041808.html" class="post-title-link" itemprop="url">js post 应用-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 22:21:10" itemprop="dateModified" datetime="2023-10-08T22:21:10+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/200901041808.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/200901041808.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200901041808.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          之前写了一篇关于 post和get的区别：http://www.cnblogs.com/backuper/archive/2008/10/10/1307807.html组建一个post的方法的应用是更加安全的：比如原始提交页面：查看如上，我们可以看到 html方式的一个post 把一个变量为：inputName，值是：post内容12312jlkjsdfo8asdfujsadfjsasf........
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/200901041808.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200904131139.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/200904131139.html" class="post-title-link" itemprop="url">js 判断浏览器是否ie-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 22:21:10" itemprop="dateModified" datetime="2023-10-08T22:21:10+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/200904131139.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/200904131139.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200904131139.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          var isIE = document.all ? true : false;var isNS = document.addEventListener ? true : false;js 判断浏览器是否ie
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/200904131139.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200812241201.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/200812241201.html" class="post-title-link" itemprop="url">js split-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 22:21:10" itemprop="dateModified" datetime="2023-10-08T22:21:10+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/200812241201.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/200812241201.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200812241201.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          var dateStr = "2002/07/03";dateArray = dateStr.split("/");Now:dateArray[0]="2002"dateArray[1]="07"dateArray[2]="03"
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/200812241201.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1114,6 +669,222 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200904131139.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/200904131139.html" class="post-title-link" itemprop="url">js 判断浏览器是否ie-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 22:21:10" itemprop="dateModified" datetime="2023-10-08T22:21:10+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/200904131139.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/200904131139.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200904131139.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          var isIE = document.all ? true : false;var isNS = document.addEventListener ? true : false;js 判断浏览器是否ie
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/200904131139.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200904171039.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/200904171039.html" class="post-title-link" itemprop="url">js date 格式-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 22:21:10" itemprop="dateModified" datetime="2023-10-08T22:21:10+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/200904171039.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/200904171039.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200904171039.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          var custbody_auditingno=datetime.getFullYear()+''+(datetime.getMonth()+1)+''+datetime.getDate()+''+datetime.getHours()+''+datetime.getMinutes()+''+datetime.getSeconds()+''+datetime.getMilliseconds();拼...
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/200904171039.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200912291738.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1223,7 +994,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201003171140.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200812241201.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1241,7 +1012,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/201003171140.html" class="post-title-link" itemprop="url">js 动态表格举例-CarlZeng</a>
+          <a href="/200812241201.html" class="post-title-link" itemprop="url">js split-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1270,7 +1041,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/201003171140.html" ></span>
+            <span id="ArtalkPV" data-page-key="/200812241201.html" ></span>
           </span>
         
       
@@ -1280,8 +1051,8 @@
               <i class="far fa-comment"></i>
             </span>
             <span class="post-meta-item-text">评论：</span>
-            <a href="/201003171140.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201003171140.html" itemprop="commentCount"></span>
+            <a href="/200812241201.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200812241201.html" itemprop="commentCount"></span>
             </a>
           </span>
         
@@ -1295,26 +1066,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          var i=0
-
-function drawTable(tableId)
-
-{
-
-var table=eval(tableId);
-
-var newCell=table.rows[0].insertCell();
-
-newCell.innerHTML='<input type="text" name="t'+(++i)+'">'
-
-alert("又加了一列！")
-
-}
-
-//--&gt...
+          var dateStr = "2002/07/03";dateArray = dateStr.split("/");Now:dateArray[0]="2002"dateArray[1]="07"dateArray[2]="03"
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/201003171140.html#more" rel="contents">
+              <a class="btn" href="/200812241201.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1425,6 +1180,114 @@ div.style.top = document.getElementById('div__header').clientHeight+document.get
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/200906101022.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200905311520.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/200905311520.html" class="post-title-link" itemprop="url">js 压缩和格式化（方便阅读）-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 22:21:10" itemprop="dateModified" datetime="2023-10-08T22:21:10+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/200905311520.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/200905311520.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200905311520.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Ajax除了自己要写js代码外，同样也免不了要使用其它第三方js库。当你在为提高了用户体验，做出了很绚丽的效果而欣喜的时候，是否想过优化一下JS的效率,比如微软的live，其中的js做了压缩处理。JS的速度分为两种，下载速度和执行速度。今天就先来说说下载速度。要想js的下载速度快，就需要尽量减小js文件的大小。这里我们可以使用一个工具ESC(ECMAScript cruncher)来帮我们完成这个...
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/200905311520.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1677,7 +1540,7 @@ Unix时间戳(Unix timestamp)，或称Unix时间(Unix time)、POSIX时间(POSIX 
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200812301028.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200901041808.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1695,7 +1558,7 @@ Unix时间戳(Unix timestamp)，或称Unix时间(Unix time)、POSIX时间(POSIX 
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/200812301028.html" class="post-title-link" itemprop="url">js 多维数组 应用-CarlZeng</a>
+          <a href="/200901041808.html" class="post-title-link" itemprop="url">js post 应用-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1724,7 +1587,7 @@ Unix时间戳(Unix timestamp)，或称Unix时间(Unix time)、POSIX时间(POSIX 
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/200812301028.html" ></span>
+            <span id="ArtalkPV" data-page-key="/200901041808.html" ></span>
           </span>
         
       
@@ -1734,8 +1597,8 @@ Unix时间戳(Unix timestamp)，或称Unix时间(Unix time)、POSIX时间(POSIX 
               <i class="far fa-comment"></i>
             </span>
             <span class="post-meta-item-text">评论：</span>
-            <a href="/200812301028.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200812301028.html" itemprop="commentCount"></span>
+            <a href="/200901041808.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200901041808.html" itemprop="commentCount"></span>
             </a>
           </span>
         
@@ -1749,10 +1612,10 @@ Unix时间戳(Unix timestamp)，或称Unix时间(Unix time)、POSIX时间(POSIX 
     
     
     <div class="post-body" itemprop="articleBody">
-          var aa=new Array();var aa[0]=new Array(1,2,3);var aa[1]=new Array(4,5,6);var bb=aa;alert(bb[0][1]);应用：for(var i=1;i<nlapiGetLineItemCount('itemmac');i++){if(nlapiGetLineItemValue('itemmac','custpage_c...
+          之前写了一篇关于 post和get的区别：http://www.cnblogs.com/backuper/archive/2008/10/10/1307807.html组建一个post的方法的应用是更加安全的：比如原始提交页面：查看如上，我们可以看到 html方式的一个post 把一个变量为：inputName，值是：post内容12312jlkjsdfo8asdfujsadfjsasf........
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/200812301028.html#more" rel="contents">
+              <a class="btn" href="/200901041808.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1893,7 +1756,7 @@ Unix时间戳(Unix timestamp)，或称Unix时间(Unix time)、POSIX时间(POSIX 
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200905311520.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201003171140.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1911,7 +1774,7 @@ Unix时间戳(Unix timestamp)，或称Unix时间(Unix time)、POSIX时间(POSIX 
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/200905311520.html" class="post-title-link" itemprop="url">js 压缩和格式化（方便阅读）-CarlZeng</a>
+          <a href="/201003171140.html" class="post-title-link" itemprop="url">js 动态表格举例-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1940,7 +1803,7 @@ Unix时间戳(Unix timestamp)，或称Unix时间(Unix time)、POSIX时间(POSIX 
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/200905311520.html" ></span>
+            <span id="ArtalkPV" data-page-key="/201003171140.html" ></span>
           </span>
         
       
@@ -1950,8 +1813,8 @@ Unix时间戳(Unix timestamp)，或称Unix时间(Unix time)、POSIX时间(POSIX 
               <i class="far fa-comment"></i>
             </span>
             <span class="post-meta-item-text">评论：</span>
-            <a href="/200905311520.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200905311520.html" itemprop="commentCount"></span>
+            <a href="/201003171140.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201003171140.html" itemprop="commentCount"></span>
             </a>
           </span>
         
@@ -1965,10 +1828,26 @@ Unix时间戳(Unix timestamp)，或称Unix时间(Unix time)、POSIX时间(POSIX 
     
     
     <div class="post-body" itemprop="articleBody">
-          Ajax除了自己要写js代码外，同样也免不了要使用其它第三方js库。当你在为提高了用户体验，做出了很绚丽的效果而欣喜的时候，是否想过优化一下JS的效率,比如微软的live，其中的js做了压缩处理。JS的速度分为两种，下载速度和执行速度。今天就先来说说下载速度。要想js的下载速度快，就需要尽量减小js文件的大小。这里我们可以使用一个工具ESC(ECMAScript cruncher)来帮我们完成这个...
+          var i=0
+
+function drawTable(tableId)
+
+{
+
+var table=eval(tableId);
+
+var newCell=table.rows[0].insertCell();
+
+newCell.innerHTML='<input type="text" name="t'+(++i)+'">'
+
+alert("又加了一列！")
+
+}
+
+//--&gt...
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/200905311520.html#more" rel="contents">
+              <a class="btn" href="/201003171140.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2195,6 +2074,114 @@ Unix时间戳(Unix timestamp)，或称Unix时间(Unix time)、POSIX时间(POSIX 
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/200812231646.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200812301028.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/200812301028.html" class="post-title-link" itemprop="url">js 多维数组 应用-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 22:21:10" itemprop="dateModified" datetime="2023-10-08T22:21:10+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/200812301028.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/200812301028.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200812301028.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          var aa=new Array();var aa[0]=new Array(1,2,3);var aa[1]=new Array(4,5,6);var bb=aa;alert(bb[0][1]);应用：for(var i=1;i<nlapiGetLineItemCount('itemmac');i++){if(nlapiGetLineItemValue('itemmac','custpage_c...
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/200812301028.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2641,9 +2628,7 @@ parent.frames[1].location.replace("https://totemsuite.webex.com.cn/mw0306l/myweb
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
-
+  
 
 
 

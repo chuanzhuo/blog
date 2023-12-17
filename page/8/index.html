@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
 <meta property="og:type" content="website">
@@ -81,7 +81,6 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger" aria-label="全站检索" role="button">
-        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -90,59 +89,47 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">153</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">41</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>文章列表<span class="badge">322</span></a></li><li class="menu-item menu-item-ai问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>音乐</a></li><li class="menu-item menu-item-在线浏览器"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>在线浏览器</a></li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>全站检索
-        </a>
-      </li>
+    <li class="menu-item menu-item-search">
+      <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
+      <div class="popup search-popup">
+        <div class="search-header">
+        <div class="search-input-container">
+          <input name="q" autocomplete="off" autocapitalize="off" maxlength="28" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+        </div>
+        </div>
+      </div>
+      </form>
+    </li>
+    <li class="menu-item menu-item-search">
+      <div class="languages" style="text-align: left; padding-left: 22px">
+        <label class="lang-select-label">
+          <i class="fa fa-language"></i>
+          <span>简体中文</span>
+          <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </label>
+        <select class="lang-select" data-canonical="" aria-label="选择语言">
+          
+            <option value="zh-CN" data-href="/page/8/index.html" selected="">
+              简体中文
+            </option>
+          
+            <option value="en" data-href="/en/page/8/index.html" selected="">
+              English
+            </option>
+          
+            <option value="zh-TW" data-href="/zh-TW/page/8/index.html" selected="">
+              繁體中文
+            </option>
+          
+        </select>
+      </div>
+    </li>
   </ul>
-    <div class="languages" style="text-align: left; padding-left: 22px">
-      <label class="lang-select-label">
-        <i class="fa fa-language"></i>
-        <span>简体中文</span>
-        <i class="fa fa-angle-up" aria-hidden="true"></i>
-      </label>
-      <select class="lang-select" data-canonical="" aria-label="选择语言">
-        
-          <option value="zh-CN" data-href="/page/8/index.html" selected="">
-            简体中文
-          </option>
-        
-          <option value="en" data-href="/en/page/8/index.html" selected="">
-            English
-          </option>
-        
-          <option value="zh-TW" data-href="/zh-TW/page/8/index.html" selected="">
-            繁體中文
-          </option>
-        
-      </select>
-    </div>
+
 </nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
 
 </header>
         
@@ -358,114 +345,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200902081432.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/200902081432.html" class="post-title-link" itemprop="url">netsuite事务处理单据 列字段serialnumbers 的客户端验证函数validateInventoryNumbers-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/200902081432.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/200902081432.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200902081432.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          function validateInventoryNumbers(bAddEdit) {2771 var addEditWhenDone = 'F';2772 if (bAddEdit) addEditWhenDone='T';2773 var isadvbill = document.forms['main_form'].elements['isadvbill'].value;2774 ...
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/200902081432.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200810311408.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -574,7 +453,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200901062110.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200811121806.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -592,7 +471,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/200901062110.html" class="post-title-link" itemprop="url">netsuite凭证批量打印中涉及的html分页打印问题,页面的部分打印-CarlZeng</a>
+          <a href="/200811121806.html" class="post-title-link" itemprop="url">netsuite中Mutiple Select的赋值问题的解决-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -621,7 +500,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/200901062110.html" ></span>
+            <span id="ArtalkPV" data-page-key="/200811121806.html" ></span>
           </span>
         
       
@@ -631,8 +510,8 @@
               <i class="far fa-comment"></i>
             </span>
             <span class="post-meta-item-text">评论：</span>
-            <a href="/200901062110.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200901062110.html" itemprop="commentCount"></span>
+            <a href="/200811121806.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200811121806.html" itemprop="commentCount"></span>
             </a>
           </span>
         
@@ -646,123 +525,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          zeng.cz在打印HTML页面时控制分页，可以使用层来动态控制。 具体的方法是，在需要分页的地方动态添加如下代码： 这是一个经典应用，如果netsuite中涉及的批量凭证打印 需要用这个来控制每张凭证的页面的。很重要，因为html打印是无法像pdf那样的位置决定性。如果一个页面中的表格被分摊到不同的页面来打印了：无标题文档每页都有的表头表格内容表格内容表格内容表格内容表格内容表格内容表格内容...
+          var fittingsitem = nlapiGetFieldValue('custrecord_fittingsitem');//var SelectedValues=fittingsitem.split('');然后在record.setFieldValue('custitem_fittingsitem', SelectedValues );ok就
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/200901062110.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200907091056.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/200907091056.html" class="post-title-link" itemprop="url">netsuite动态绑定事件-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/200907091056.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/200907091056.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200907091056.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          这个能给一个指定的对象绑定多个重复的事件，执行顺序按照添加顺序来执行！已测试浏览器（ie7,firefox,chrome）
-
-
-var Bind = function(eventName, fun, obj) {
- ///<summary>给对象绑定事件，未传入对象的话默认绑定window</summary>
- ///<param name="eventName"&g...
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/200907091056.html#more" rel="contents">
+              <a class="btn" href="/200811121806.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1011,6 +777,114 @@ var Bind = function(eventName, fun, obj) {
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200901062110.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/200901062110.html" class="post-title-link" itemprop="url">netsuite凭证批量打印中涉及的html分页打印问题,页面的部分打印-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/200901062110.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/200901062110.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200901062110.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          zeng.cz在打印HTML页面时控制分页，可以使用层来动态控制。 具体的方法是，在需要分页的地方动态添加如下代码： 这是一个经典应用，如果netsuite中涉及的批量凭证打印 需要用这个来控制每张凭证的页面的。很重要，因为html打印是无法像pdf那样的位置决定性。如果一个页面中的表格被分摊到不同的页面来打印了：无标题文档每页都有的表头表格内容表格内容表格内容表格内容表格内容表格内容表格内容...
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/200901062110.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200901221316.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1087,6 +961,119 @@ var Bind = function(eventName, fun, obj) {
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/200901221316.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200907091056.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/200907091056.html" class="post-title-link" itemprop="url">netsuite动态绑定事件-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/200907091056.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/200907091056.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200907091056.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          这个能给一个指定的对象绑定多个重复的事件，执行顺序按照添加顺序来执行！已测试浏览器（ie7,firefox,chrome）
+
+
+var Bind = function(eventName, fun, obj) {
+ ///<summary>给对象绑定事件，未传入对象的话默认绑定window</summary>
+ ///<param name="eventName"&g...
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/200907091056.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1340,114 +1327,6 @@ zeng.cz
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200811192231.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/200811192231.html" class="post-title-link" itemprop="url">关于NetSuite内部Enhancement发表及查看的实现(netsuite论坛,netsuite留言本,netsuite评论的实现)-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/200811192231.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/200811192231.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200811192231.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          在system的 Enhancement Voting > Search Results > Enhancement Voting 中,我们能看到Netsuite是如何实现一个系统的评论功能,个人分析如下: 1.在Netsuite总账户中,主站点的'标签'中建立New Release Info 和 Enhancement Voting的标签,配置相应的权限,2.建立记录类型,大致字段内容如下:...
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/200811192231.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200812011128.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1524,6 +1403,114 @@ zeng.cz
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/200812011128.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/200811192231.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/200811192231.html" class="post-title-link" itemprop="url">关于NetSuite内部Enhancement发表及查看的实现(netsuite论坛,netsuite留言本,netsuite评论的实现)-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/200811192231.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/200811192231.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/200811192231.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          在system的 Enhancement Voting > Search Results > Enhancement Voting 中,我们能看到Netsuite是如何实现一个系统的评论功能,个人分析如下: 1.在Netsuite总账户中,主站点的'标签'中建立New Release Info 和 Enhancement Voting的标签,配置相应的权限,2.建立记录类型,大致字段内容如下:...
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/200811192231.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1740,6 +1727,114 @@ zeng.cz
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/201701051001.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201705041115.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/201705041115.html" class="post-title-link" itemprop="url">Google Sheet NetSuite Integration 设计理念-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/201705041115.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/201705041115.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201705041115.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Background: ERP users always using Excel/Number in daily work, and also operation peoples. So how does they easily post those changing data to NetSuit
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/201705041115.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1990,222 +2085,6 @@ zeng.cz
 </ul>
 <h3 id="Integrate-with-existing-UPS-integration"><a href="#Integrate-with-existing-UPS-integration" class="headerlink" title="Integrate with existing UPS integration"></a>Integrate with existing UPS integration</h3><p>While end-use switching shipping carries, we need to clean up the backend package list data and rebuild for current shipping carrier, since UPS and FedEx are using DIFFERENT formating and propertys.</p>
 
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201705041115.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/201705041115.html" class="post-title-link" itemprop="url">Google Sheet NetSuite Integration 设计理念-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/201705041115.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/201705041115.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201705041115.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          Background: ERP users always using Excel/Number in daily work, and also operation peoples. So how does they easily post those changing data to NetSuit
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/201705041115.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201701151056.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/201701151056.html" class="post-title-link" itemprop="url">How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/201701151056.html" ></span>
-          </span>
-        
-      
-        
-          <span class="post-meta-item" title="评论">
-            <span class="post-meta-item-icon">
-              <i class="far fa-comment"></i>
-            </span>
-            <span class="post-meta-item-text">评论：</span>
-            <a href="/201701151056.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201701151056.html" itemprop="commentCount"></span>
-            </a>
-          </span>
-        
-      
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          Background We all knows that: NetSuite filecabinet provided a feature to download a folder to a zip file. Sample URL in the link:&#160;https://system.na1.n
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/201701151056.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -2484,7 +2363,7 @@ zeng.cz
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201902201642.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201701151056.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -2502,7 +2381,7 @@ zeng.cz
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/201902201642.html" class="post-title-link" itemprop="url">How to run a NetSuite scheduled script at every month end-CarlZeng</a>
+          <a href="/201701151056.html" class="post-title-link" itemprop="url">How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -2531,7 +2410,7 @@ zeng.cz
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/201902201642.html" ></span>
+            <span id="ArtalkPV" data-page-key="/201701151056.html" ></span>
           </span>
         
       
@@ -2541,8 +2420,8 @@ zeng.cz
               <i class="far fa-comment"></i>
             </span>
             <span class="post-meta-item-text">评论：</span>
-            <a href="/201902201642.html#comments" itemprop="discussionUrl">
-              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201902201642.html" itemprop="commentCount"></span>
+            <a href="/201701151056.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/201701151056.html" itemprop="commentCount"></span>
             </a>
           </span>
         
@@ -2556,10 +2435,10 @@ zeng.cz
     
     
     <div class="post-body" itemprop="articleBody">
-          Background Some times we need trigger a task at&#160;every month end, the last day of every month, i.e. cache business data. Run a NetSuite scheduled scrip
+          Background We all knows that: NetSuite filecabinet provided a feature to download a folder to a zip file. Sample URL in the link:&#160;https://system.na1.n
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/201902201642.html#more" rel="contents">
+              <a class="btn" href="/201701151056.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2692,6 +2571,114 @@ zeng.cz
 
 
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202011100824.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="【眼观心察 沉淀共享】文章版本持续更新 供个人参考、交流之用">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/202011100824.html" class="post-title-link" itemprop="url">How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/202011100824.html" ></span>
+          </span>
+        
+      
+        
+          <span class="post-meta-item" title="评论">
+            <span class="post-meta-item-icon">
+              <i class="far fa-comment"></i>
+            </span>
+            <span class="post-meta-item-text">评论：</span>
+            <a href="/202011100824.html#comments" itemprop="discussionUrl">
+              <span id="ArtalkCount" class="post-comments-count" data-page-key="/202011100824.html" itemprop="commentCount"></span>
+            </a>
+          </span>
+        
+      
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          NetSuite SDF CLI CLI for Node.js on Mac
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/202011100824.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -2794,9 +2781,7 @@ zeng.cz
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
-
+  
 
 
 

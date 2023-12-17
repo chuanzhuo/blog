@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="一、接口系统包含部分1、导入接口：从企业信息管理系统（财务软件、ERP&#x2F;MRPII、进销存、销售管理软等系统）导入待开票销售数据，或者使用EXCEL、TXT等文件直接导入进行管理的待开票数据，经税控接口系统处理后发送到防伪税控开票系统进行处理。2、回写接口：把发票号码、开票日期、打印标志等重要数据，通过与企业约定的方式和标准回写到企业内部信息管理系统中或导出成一个中间文件。3、金税接口：完成与防伪">
 <meta property="og:type" content="article">
@@ -83,7 +83,6 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger" aria-label="搜尋" role="button">
-        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -92,59 +91,47 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">153</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">41</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">322</span></a></li><li class="menu-item menu-item-ai问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>音乐</a></li><li class="menu-item menu-item-在线浏览器"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>在线浏览器</a></li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
-        </a>
-      </li>
+    <li class="menu-item menu-item-search">
+      <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
+      <div class="popup search-popup">
+        <div class="search-header">
+        <div class="search-input-container">
+          <input name="q" autocomplete="off" autocapitalize="off" maxlength="28" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+        </div>
+        </div>
+      </div>
+      </form>
+    </li>
+    <li class="menu-item menu-item-search">
+      <div class="languages" style="text-align: left; padding-left: 22px">
+        <label class="lang-select-label">
+          <i class="fa fa-language"></i>
+          <span>繁體中文</span>
+          <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </label>
+        <select class="lang-select" data-canonical="" aria-label="選擇語言">
+          
+            <option value="zh-CN" data-href="/200811141136.html" selected="">
+              简体中文
+            </option>
+          
+            <option value="en" data-href="/en/200811141136.html" selected="">
+              English
+            </option>
+          
+            <option value="zh-TW" data-href="/zh-TW/200811141136.html" selected="">
+              繁體中文
+            </option>
+          
+        </select>
+      </div>
+    </li>
   </ul>
-    <div class="languages" style="text-align: left; padding-left: 22px">
-      <label class="lang-select-label">
-        <i class="fa fa-language"></i>
-        <span>繁體中文</span>
-        <i class="fa fa-angle-up" aria-hidden="true"></i>
-      </label>
-      <select class="lang-select" data-canonical="" aria-label="選擇語言">
-        
-          <option value="zh-CN" data-href="/200811141136.html" selected="">
-            简体中文
-          </option>
-        
-          <option value="en" data-href="/en/200811141136.html" selected="">
-            English
-          </option>
-        
-          <option value="zh-TW" data-href="/zh-TW/200811141136.html" selected="">
-            繁體中文
-          </option>
-        
-      </select>
-    </div>
+
 </nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜尋..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
 
 </header>
         
@@ -232,13 +219,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202303051904.html" rel="bookmark">
-      tor，网，络-CarlZeng
+      <a class="popular-posts-link" href="/201001111202.html" rel="bookmark">
+      win+e 失效-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201001111202.html" rel="bookmark">
-      win+e 失效-CarlZeng
+      <a class="popular-posts-link" href="/202303051904.html" rel="bookmark">
+      tor，网，络-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
@@ -559,13 +546,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202303051904.html" rel="bookmark">
-      tor，网，络-CarlZeng
+      <a class="popular-posts-link" href="/201001111202.html" rel="bookmark">
+      win+e 失效-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201001111202.html" rel="bookmark">
-      win+e 失效-CarlZeng
+      <a class="popular-posts-link" href="/202303051904.html" rel="bookmark">
+      tor，网，络-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
@@ -837,9 +824,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
-
+  
 
 
 
