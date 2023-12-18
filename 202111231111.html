@@ -15,8 +15,6 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
@@ -462,7 +460,7 @@
 <h3 id="Solutions-for-Operation-timed-out"><a href="#Solutions-for-Operation-timed-out" class="headerlink" title="Solutions for: Operation timed out"></a>Solutions for: Operation timed out</h3><ol>
 <li>Fix the hosts to make sure the ssh connection between your Computer and github.com is availble(修复连接到github.com)</li>
 </ol>
-<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#105;&#x74;&#104;&#117;&#98;&#46;&#x63;&#x6f;&#109;">&#x67;&#105;&#116;&#x40;&#103;&#105;&#x74;&#104;&#117;&#98;&#46;&#x63;&#x6f;&#109;</a></p>
+<p>Verify Standard 判断标准：$ ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a></p>
 <p>1.1 记录下github的IP地址, 把IP Address 记录下来</p>
 <p>打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tLmlwYWRkcmVzcy5jb20v" rel="noopener external nofollow noreferrer">https://github.com.ipaddress.com/</a></p>
 <p>打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mYXN0bHkubmV0LmlwYWRkcmVzcy5jb20vZ2l0aHViLmdsb2JhbC5zc2wuZmFzdGx5Lm5ldCNpcGluZm8=" rel="noopener external nofollow noreferrer">https://fastly.net.ipaddress.com/github.global.ssl.fastly.net#ipinfo</a></p>
@@ -475,7 +473,7 @@
 <p>1.4 如果之前用ssh proxy，取消它</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global https.proxy http://127.0.0.1:1080 </span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
 
-<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;">&#103;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<p>1.5 重新尝试 ping github.com. 重新尝试 ssh -T <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#111;&#x6d;</a></p>
 <p>新的错误可能和授权有关，至少证明连接到github.com是通的。</p>
 <hr>
 <h3 id="Solutions-for-Authentication"><a href="#Solutions-for-Authentication" class="headerlink" title="Solutions for: Authentication"></a>Solutions for: Authentication</h3><ol start="2">
@@ -887,7 +885,6 @@
 
 
 
-  <script src="/js/third-party/pace.js"></script>
 
 
   
@@ -896,9 +893,26 @@
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":1000,"priority":false,"url":"https://www.carlzeng.top/202111231111.html"}</script>
-  <script src="/js/third-party/quicklink.js"></script>
+<script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":true,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202111231111.html","pageTitle":"[GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out"}</script>
 
 <link rel="stylesheet" href="https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.css">
@@ -931,26 +945,6 @@
 
   }
 })();
-</script><script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
