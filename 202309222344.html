@@ -14,7 +14,7 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://xxx.jpg/">
 <meta property="og:image" content="http://yyy.jpg/">
 <meta property="article:published_time" content="2023-09-22T15:44:18.000Z">
-<meta property="article:modified_time" content="2023-12-18T13:23:58.525Z">
+<meta property="article:modified_time" content="2023-12-22T02:46:47.191Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="如何使用hexo">
@@ -53,7 +53,7 @@
 
 
 
-<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.top:4443">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -406,7 +406,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 21:23:58" itemprop="dateModified" datetime="2023-12-18T21:23:58+08:00">2023-12-18</time>
+      <time title="修改时间：2023-12-22 10:46:47" itemprop="dateModified" datetime="2023-12-22T10:46:47+08:00">2023-12-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -453,7 +453,13 @@
     <div class="post-body" itemprop="articleBody"><h3 id="HEXO-加速速度优化二"><a href="#HEXO-加速速度优化二" class="headerlink" title="HEXO 加速速度优化二"></a>HEXO 加速速度优化二</h3><p>carlzeng.top 加载8-10s 完成<br>    优化页面的css？最大的文件all.min.css</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css	</span><br><span class="line"></span><br><span class="line">	css/all.min.css 替换为：</span><br><span class="line"></span><br><span class="line">https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css</span><br><span class="line">失去了图标，再换一个</span><br><span class="line">css/v5-font-face.min.css</span><br><span class="line">css/brands.min.css</span><br><span class="line">https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css</span><br><span class="line"></span><br><span class="line">font-awesome 替代？</span><br><span class="line">有解决办法，可是目前还没有掌握替换的方法，暂时先用轻量级的（无图标）的css/regular.min.css</span><br><span class="line">替换掉：css/all.min.css； 页面加载速度提升很明显。</span><br><span class="line">TODO： 替换font-awesome并加载图标。</span><br><span class="line"></span><br><span class="line">is that make the image load faster?</span><br><span class="line"></span><br><span class="line">https://wsrv.nl/?<span class="attr">url</span>=https://content.evernote.com/shard/s122/sh/<span class="number">6</span>ae8e607-<span class="number">5752</span>-<span class="number">4</span>cdb-<span class="number">97</span>e9-<span class="number">9</span>ca27c67ac34/n2UiZ8dhaEX3-Dps8Ws25YQ12vx-<span class="number">31</span>PUft2pMAg5ibbAf3qG4CGC2jR0qQ/deep/<span class="number">0</span>/image.png&amp;h=<span class="number">300</span></span><br><span class="line"></span><br><span class="line">压缩图片：https://www.iloveimg.com/zh-cn/compress-image</span><br><span class="line">done upload in local and server, next github	</span><br><span class="line"></span><br><span class="line">anime.min.js 这个不知道怎么取消掉；还能加速</span><br><span class="line"></span><br><span class="line">优化使用CDN查询：https://cdnjs.com/libraries/font-awesome/6.5.0</span><br><span class="line"></span><br><span class="line">下一步图片优化：https://wsrv.nl/?<span class="attr">url</span>=https://content.evernote.com/shard/s122/sh/<span class="number">6</span>ae8e607-<span class="number">5752</span>-<span class="number">4</span>cdb-<span class="number">97</span>e9-<span class="number">9</span>ca27c67ac34/n2UiZ8dhaEX3-Dps8Ws25YQ12vx-<span class="number">31</span>PUft2pMAg5ibbAf3qG4CGC2jR0qQ/deep/<span class="number">0</span>/image.png&amp;h=<span class="number">300</span></span><br></pre></td></tr></table></figure>
 
-
+<blockquote>
+<p>后记：发现仅仅替换_vendors.yml中file: css&#x2F;regular.min.css，会导致Chrome的验证失败而block掉这个css</p>
+<p>Failed to find a valid digest in the ‘integrity’ attribute for resource ‘<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG5qcy5jbG91ZGZsYXJlLmNvbS9hamF4L2xpYnMvZm9udC1hd2Vzb21lLzYuNS4wL2Nzcy9yZWd1bGFyLm1pbi5jc3M=" rel="noopener external nofollow noreferrer">https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css</a>‘ with computed SHA-256 integrity ‘9eDbr7V6F0HA2UC04tZP05BoY1A&#x2F;SpEM4qcNQaEcCJ4&#x3D;’. The resource has been blocked.</p>
+<p>是的，有SHA验证，还发现cdnjs还把原先的SHA-256升级到下面（目前）的sha512。有这个必要吗？浪费CPU资源（当然，绝大部分时候CPU资源绝大多数都是拿来浪费的）</p>
+<p>节选_vendors.yml文件如下：</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">fontawesome:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">&#x27;@fortawesome/fontawesome-free&#x27;</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">6.5</span><span class="number">.0</span></span><br><span class="line">  <span class="attr">file:</span> <span class="string">css/regular.min.css</span></span><br><span class="line">  <span class="attr">alias:</span> <span class="string">font-awesome</span></span><br><span class="line">  <span class="attr">integrity:</span> <span class="string">sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="HEXO配置JS-CSS-文件的CDN"><a href="#HEXO配置JS-CSS-文件的CDN" class="headerlink" title="HEXO配置JS CSS 文件的CDN"></a>HEXO配置JS CSS 文件的CDN</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vendors:</span></span><br><span class="line">	<span class="attr">internal:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">plugins:</span> <span class="string">custom</span></span><br><span class="line">  <span class="comment"># Custom CDN URL</span></span><br><span class="line">  <span class="attr">custom_cdn_url:</span> <span class="string">https://cdn.staticfile.org/$&#123;cdnjs_name&#125;/$&#123;version&#125;/$&#123;cdnjs_file&#125;</span></span><br></pre></td></tr></table></figure>
 
@@ -494,7 +500,7 @@
 <p>  Hexo 博客导流微信公众号<br>  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3JxaDY1NjQxODUxMC9oZXhvLXJlYWRtb3Jl" rel="noopener external nofollow noreferrer">https://github.com/rqh656418510/hexo-readmore</a><br>  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cudGVjaGdyb3cuY24vcG9zdHMvYzg2MzcyYTIuaHRtbA==" rel="noopener external nofollow noreferrer">https://www.techgrow.cn/posts/c86372a2.html</a><br>  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9vcGVuLnRlY2hncm93LmNuLyMvcmVnaXN0ZXI=" rel="noopener external nofollow noreferrer">https://open.techgrow.cn/#/register</a></p>
 <p>  hexo to WX小程序<br>  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9odW50ZXJ4Lnh5ei90cnktd2VoZXhvLmh0bWw=" rel="noopener external nofollow noreferrer">尝试 Hexo 转小程序</a></p>
 <p>  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3NiZmtjZWwvdG93eG1sL2lzc3Vlcy82MA==" rel="noopener external nofollow noreferrer">https://github.com/sbfkcel/towxml/issues/60</a></p>
-<h4 id="social-share"><a href="#social-share" class="headerlink" title="social-share"></a>social-share</h4><p>wechat_qrcode<br>反复安装，测试切换三个不同的类型needmoreshare， likely， sharejs，<br>    最后启用sharejs，另外由于jsdelivr被墙，切换为unpkg，找到合适的文件地址：<br>      js: &#x2F;&#x2F;unpkg.com&#x2F;<a href="mailto:&#115;&#111;&#99;&#x69;&#x61;&#x6c;&#45;&#x73;&#x68;&#97;&#x72;&#101;&#x2e;&#x6a;&#x73;&#64;&#49;&#x2e;&#48;&#46;&#49;&#x36;">&#115;&#111;&#99;&#x69;&#x61;&#x6c;&#45;&#x73;&#x68;&#97;&#x72;&#101;&#x2e;&#x6a;&#x73;&#64;&#49;&#x2e;&#48;&#46;&#49;&#x36;</a>&#x2F;dist&#x2F;js&#x2F;social-share.min.js<br>        css: &#x2F;&#x2F;unpkg.com&#x2F;<a href="mailto:&#x73;&#x6f;&#x63;&#x69;&#x61;&#108;&#x2d;&#x73;&#104;&#97;&#x72;&#x65;&#46;&#x6a;&#x73;&#64;&#49;&#x2e;&#48;&#46;&#49;&#54;">&#x73;&#x6f;&#x63;&#x69;&#x61;&#108;&#x2d;&#x73;&#104;&#97;&#x72;&#x65;&#46;&#x6a;&#x73;&#64;&#49;&#x2e;&#48;&#46;&#49;&#54;</a>&#x2F;dist&#x2F;css&#x2F;share.min.css<br>social-share 能用吧，偶尔加载不出来，需要刷新页面<br>    感谢列表：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9la2Fyb3MuY24vMjAyMC8wMy8wMS9maXgtc2hhcmUtYnV0dG9uLw==" rel="noopener external nofollow noreferrer">https://ekaros.cn/2020/03/01/fix-share-button/</a><br>    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvaGV4by1uZXh0LXNoYXJl" rel="noopener external nofollow noreferrer">https://github.com/theme-next/hexo-next-share</a></p>
+<h4 id="social-share"><a href="#social-share" class="headerlink" title="social-share"></a>social-share</h4><p>wechat_qrcode<br>反复安装，测试切换三个不同的类型needmoreshare， likely， sharejs，<br>    最后启用sharejs，另外由于jsdelivr被墙，切换为unpkg，找到合适的文件地址：<br>      js: &#x2F;&#x2F;unpkg.com&#x2F;<a href="mailto:&#115;&#x6f;&#x63;&#x69;&#x61;&#x6c;&#45;&#x73;&#104;&#x61;&#x72;&#101;&#46;&#106;&#x73;&#64;&#x31;&#46;&#x30;&#x2e;&#x31;&#54;">&#115;&#x6f;&#x63;&#x69;&#x61;&#x6c;&#45;&#x73;&#104;&#x61;&#x72;&#101;&#46;&#106;&#x73;&#64;&#x31;&#46;&#x30;&#x2e;&#x31;&#54;</a>&#x2F;dist&#x2F;js&#x2F;social-share.min.js<br>        css: &#x2F;&#x2F;unpkg.com&#x2F;<a href="mailto:&#x73;&#111;&#99;&#x69;&#97;&#x6c;&#45;&#x73;&#x68;&#97;&#114;&#x65;&#x2e;&#x6a;&#115;&#64;&#x31;&#x2e;&#x30;&#x2e;&#x31;&#x36;">&#x73;&#111;&#99;&#x69;&#97;&#x6c;&#45;&#x73;&#x68;&#97;&#114;&#x65;&#x2e;&#x6a;&#115;&#64;&#x31;&#x2e;&#x30;&#x2e;&#x31;&#x36;</a>&#x2F;dist&#x2F;css&#x2F;share.min.css<br>social-share 能用吧，偶尔加载不出来，需要刷新页面<br>    感谢列表：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9la2Fyb3MuY24vMjAyMC8wMy8wMS9maXgtc2hhcmUtYnV0dG9uLw==" rel="noopener external nofollow noreferrer">https://ekaros.cn/2020/03/01/fix-share-button/</a><br>    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvaGV4by1uZXh0LXNoYXJl" rel="noopener external nofollow noreferrer">https://github.com/theme-next/hexo-next-share</a></p>
 <blockquote>
 <p>2023年12月14日 unpkg.com 替换到 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuc3RhdGljZmlsZS5vcmcv" rel="noopener external nofollow noreferrer">七牛cdn</a></p>
 </blockquote>
@@ -913,6 +919,16 @@ hidden: true
   <div class="social-list">
 
       <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">电视直播</span>
+          </a>
+      </div>
+
+      <div class="social-item">
           <a target="_blank" class="social-link" href="https://www.carlzeng.top/202312081128.html">
             <span class="icon">
               <i class="fab fa-twitter"></i>
@@ -938,7 +954,7 @@ hidden: true
               <i class="fa fa-rss"></i>
             </span>
 
-            <span class="label">AI问答</span>
+            <span class="label">ChatGPT问答</span>
           </a>
       </div>
 
@@ -957,7 +973,7 @@ hidden: true
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-12-18 21:23:58" itemprop="dateModified" datetime="2023-12-18T21:23:58+08:00">2023-12-18</time>
+        <time title="修改时间：2023-12-22 10:46:47" itemprop="dateModified" datetime="2023-12-22T10:46:47+08:00">2023-12-22</time>
       </span>
 
 </div>
@@ -1108,6 +1124,26 @@ hidden: true
 
 
 
+<script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":true,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202309222344.html","pageTitle":"Hello hexo"}</script>
 
 <link rel="stylesheet" href="https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.css">
@@ -1140,26 +1176,6 @@ hidden: true
 
   }
 })();
-</script><script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>

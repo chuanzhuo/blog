@@ -14,7 +14,7 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/js/config.js"></script>
 
@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/730fc3eb-98b3-4cde-ab03-ff536d849762/cm5hCYYFRDdasMsamfd90jrI6Z1o_by7-z3SHX2OxujZN5bs1tYHmYExTw/deep/0/image.png">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/3e5002dc-29d3-4798-9afe-35c866fd1f44/dD8Wf6kSoMKVd4xGx3Dosd6cvB0qdU1-rUJaG3s9HNW0UI6r310tqvkE8A/deep/0/image.png">
 <meta property="article:published_time" content="2023-12-12T04:25:00.000Z">
-<meta property="article:modified_time" content="2023-12-20T02:57:53.263Z">
+<meta property="article:modified_time" content="2023-12-21T13:49:28.058Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="frpc">
 <meta property="article:tag" content="frps">
@@ -60,7 +60,7 @@
 
 
 
-<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.top:4443">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -186,6 +186,11 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312210934.html" rel="bookmark">
+      电视直播IPTV组播数据抓包过程
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202310051529.html" rel="bookmark">
       网络影视资源 - IPTV直播之电视台直播源
       </a>
@@ -213,11 +218,6 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202309190928.html" rel="bookmark">
       安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202211181240.html" rel="bookmark">
-      Android机顶盒 安装APP实例
       </a>
     </li>
   </ul>
@@ -413,7 +413,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-12-20 10:57:53" itemprop="dateModified" datetime="2023-12-20T10:57:53+08:00">2023-12-20</time>
+      <time title="修改時間：2023-12-21 21:49:28" itemprop="dateModified" datetime="2023-12-21T21:49:28+08:00">2023-12-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -466,25 +466,35 @@
 <p>远程协助操作安卓电视盒子</p>
 <h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>（前提是你已经可以配置了路由器的远程，我已经用frps和frpc远程穿透连接起来，再使用了NPM反代出路由器的WEB控制页面，这样一顿操作，后续实现会丝滑许多）</p>
 <ol>
-<li>激活N1安卓电视盒子，开机，或者按机顶盒的遥控器<ol>
+<li><p>激活N1安卓电视盒子，开机，或者按机顶盒的遥控器</p>
+<ol>
 <li>在路由器中找到安卓盒子（或者安卓电视）的IP地址</li>
 <li>检测是否激活设备的办法，ping 盒子的IP，如果已经ping通，请跳过这步</li>
 </ol>
 </li>
-<li>设置远程FRP服务器（服务端）<ol>
+<li><p>设置远程FRP服务器（服务端）</p>
+<ol>
 <li>具体参见文章：<a href="http://www.carlzeng.top/202312031926.html?highlight=docker%E6%90%AD%E5%BB%BAfrp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E6%9C%8D%E5%8A%A1">Docker搭建FRP内网穿透服务</a>，如果已有frps服务器可用，请跳过这步</li>
 </ol>
 </li>
-<li>设置受控端机顶盒所在的路由器上的frpc客户端<ol>
+<li><p>设置受控端机顶盒所在的路由器上的frpc客户端</p>
+<ol>
 <li>具体参见文章：<a href="http://www.carlzeng.top/202312031926.html?highlight=docker%E6%90%AD%E5%BB%BAfrp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E6%9C%8D%E5%8A%A1#%E8%AE%BE%E7%BD%AE%E5%BA%94%E7%94%A84">Docker搭建FRP内网穿透服务&gt;设置应用4</a></li>
 </ol>
 </li>
-<li>adb连接命令  adb connect 192.168.6.216:5555<ol>
+<li><p>adb连接命令  adb connect 192.168.6.216:5555</p>
+<ol>
 <li>检测是否connect就用： adb devices 看是否列出设备IP以及端口</li>
 </ol>
 </li>
-<li>[可选]adb安装命令 adb -s 192.168.6.216:5555 install ***.apk</li>
-<li>远程查看屏幕并控制 scrcpy –tcpip&#x3D;192.168.6.216:5555<ol>
+<li><p>[可选]adb安装命令 adb -s 192.168.6.216:5555 install ***.apk</p>
+<blockquote>
+<p>实例安装perfect player(注意：如果apk文件和路径复杂的话用双引号包裹)</p>
+<p>adb -s 192.168.6.216:5555 install “~&#x2F;Downloads&#x2F;com.niklabs.pp_1.6.0.1-60105_minAPI16(arm64-v8a)(nodpi)_apkmirror.com.apk”</p>
+</blockquote>
+</li>
+<li><p>远程查看屏幕并控制 scrcpy –tcpip&#x3D;192.168.6.216:5555</p>
+<ol>
 <li>具体参见文章：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2xvY2FsaG9zdDo0MDAwLzIwMjMwOTE5MDkyOC5odG1sP2hpZ2hsaWdodD0lRTUlQUUlODklRTUlOEQlOTMlRTYlODklOEIlRTYlOUMlQkElRTYlOEElOTUlRTUlQjElOEYlRTglODclQjMlRTclOTQlQjUlRTglODQlOTEsKyVFNyU5NCVCNSVFOCU4NCU5MSVFNiU5OCVCRSVFNyVBNCVCQSVFNSU5MiU4QyVFNiU4RSVBNyVFNSU4OCVCNiVFNSVBRSU4OSVFNSU4RCU5MyVFNiU4OSU4QiVFNiU5QyVCQSwrJUU2JTg5JThCJUU2JTlDJUJBJUU3JTk0JUI1JUU4JTg0JTkxJUU1JTkwJThDJUU1JUIxJThGJUU4JUJEJUFGJUU0JUJCJUI2c2NyY3B5JTVE" rel="noopener external nofollow noreferrer">安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy</a></li>
 <li>控制的目标是用鼠标和键盘操作机顶盒或电视，鼠标点击打开APP，点击设置，键盘输入IPTV直播源</li>
 <li>[可选]其他任何可以用遥控器在本地操作的动作</li>
@@ -684,6 +694,11 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312210934.html" rel="bookmark">
+      电视直播IPTV组播数据抓包过程
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202310051529.html" rel="bookmark">
       网络影视资源 - IPTV直播之电视台直播源
       </a>
@@ -711,11 +726,6 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202309190928.html" rel="bookmark">
       安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202211181240.html" rel="bookmark">
-      Android机顶盒 安装APP实例
       </a>
     </li>
   </ul>
@@ -805,6 +815,16 @@
   <div class="social-list">
 
       <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">电视直播</span>
+          </a>
+      </div>
+
+      <div class="social-item">
           <a target="_blank" class="social-link" href="https://www.carlzeng.top/202312081128.html">
             <span class="icon">
               <i class="fab fa-twitter"></i>
@@ -830,7 +850,7 @@
               <i class="fa fa-rss"></i>
             </span>
 
-            <span class="label">AI问答</span>
+            <span class="label">ChatGPT问答</span>
           </a>
       </div>
 
@@ -849,7 +869,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2023-12-20 10:57:53" itemprop="dateModified" datetime="2023-12-20T10:57:53+08:00">2023-12-20</time>
+        <time title="修改時間：2023-12-21 21:49:28" itemprop="dateModified" datetime="2023-12-21T21:49:28+08:00">2023-12-21</time>
       </span>
 
 </div>
@@ -1008,6 +1028,26 @@
 
 
 
+<script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":true,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/zh-TW/202312121225.html","pageTitle":"远程安卓盒子N1安装IPTV APP-远程查看机顶盒屏幕画面等"}</script>
 
 <link rel="stylesheet" href="https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.css">
@@ -1040,26 +1080,6 @@
 
   }
 })();
-</script><script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
