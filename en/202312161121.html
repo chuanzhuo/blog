@@ -18,16 +18,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="全站检索，全站内容搜索之自定义flexsearch实现【已上线，V0.0.0测试中】 引用拓展：大文本，多文本，多文件系统级文本字符低资源消耗高效急速搜索">
+    <meta name="description" content="全站检索，全站内容搜索之自定义flexsearch实现【已上线，V0.0.2测试中】 引用拓展：大文本，多文本，多文件系统级文本字符低资源消耗高效急速搜索">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node.js用FlexSearch给Hexo添加极速全站搜索">
 <meta property="og:url" content="https://www.carlzeng.top/en/202312161121.html">
 <meta property="og:site_name" content="随笔 Carl Notes">
-<meta property="og:description" content="全站检索，全站内容搜索之自定义flexsearch实现【已上线，V0.0.0测试中】 引用拓展：大文本，多文本，多文件系统级文本字符低资源消耗高效急速搜索">
+<meta property="og:description" content="全站检索，全站内容搜索之自定义flexsearch实现【已上线，V0.0.2测试中】 引用拓展：大文本，多文本，多文件系统级文本字符低资源消耗高效急速搜索">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/6ae8e607-5752-4cdb-97e9-9ca27c67ac34/n2UiZ8dhaEX3-Dps8Ws25YQ12vx-31PUft2pMAg5ibbAf3qG4CGC2jR0qQ/deep/0/image.png">
 <meta property="article:published_time" content="2023-12-16T03:21:33.000Z">
-<meta property="article:modified_time" content="2023-12-19T00:24:29.626Z">
+<meta property="article:modified_time" content="2023-12-23T03:00:03.514Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="Javascript">
 <meta property="article:tag" content="Node.js">
@@ -56,7 +56,7 @@
 
 
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.top:4443">
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -97,7 +97,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">156</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">42</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">324</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>音乐</a></li><li class="menu-item menu-item-在线浏览器"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>在线浏览器</a></li><li class="menu-item menu-item-电视直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电视直播IPTV</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">163</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">42</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">325</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>音乐</a></li><li class="menu-item menu-item-在线浏览器"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>在线浏览器</a></li><li class="menu-item menu-item-电视直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电视直播IPTV</a></li><li class="menu-item menu-item-远程文件分享"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>远程文件分享</a></li>
   </ul>
 
     <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
@@ -133,7 +133,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95-%E8%BF%87%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">实现方法&#x2F;过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Express-jade%E7%9B%B8%E5%85%B3"><span class="nav-number">4.1.</span> <span class="nav-text">Express,  jade相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FlexSearch%E7%9B%B8%E5%85%B3"><span class="nav-number">4.2.</span> <span class="nav-text">FlexSearch相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E9%81%BF%E5%9D%91%E4%BA%8B%E9%A1%B91"><span class="nav-number">4.2.1.</span> <span class="nav-text">注意避坑事项1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E9%81%BF%E5%9D%91%E4%BA%8B%E9%A1%B92"><span class="nav-number">4.2.2.</span> <span class="nav-text">注意避坑事项2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0CORS%E8%B7%A8%E7%AB%99%E6%94%AF%E6%8C%81"><span class="nav-number">4.3.</span> <span class="nav-text">添加CORS跨站支持</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker%E4%B8%ADProduction%E5%8F%91%E5%B8%83"><span class="nav-number">5.</span> <span class="nav-text">Docker中Production发布</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-for-node-js-refrence"><span class="nav-number">5.1.</span> <span class="nav-text">Sample for node.js refrence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="nav-number">5.2.</span> <span class="nav-text">下一步</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%84%9F%E6%83%B3"><span class="nav-number">6.</span> <span class="nav-text">感想</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9%E8%B7%A8%E7%AB%99%E6%8E%A5%E5%8F%A3"><span class="nav-number">6.1.</span> <span class="nav-text">相关内容跨站接口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">7.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95-%E8%BF%87%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">实现方法&#x2F;过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Express-jade%E7%9B%B8%E5%85%B3"><span class="nav-number">4.1.</span> <span class="nav-text">Express,  jade相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FlexSearch%E7%9B%B8%E5%85%B3"><span class="nav-number">4.2.</span> <span class="nav-text">FlexSearch相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E9%81%BF%E5%9D%91%E4%BA%8B%E9%A1%B91"><span class="nav-number">4.2.1.</span> <span class="nav-text">注意避坑事项1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E9%81%BF%E5%9D%91%E4%BA%8B%E9%A1%B92"><span class="nav-number">4.2.2.</span> <span class="nav-text">注意避坑事项2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0CORS%E8%B7%A8%E7%AB%99%E6%94%AF%E6%8C%81"><span class="nav-number">4.3.</span> <span class="nav-text">添加CORS跨站支持</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker%E4%B8%ADProduction%E5%8F%91%E5%B8%83"><span class="nav-number">5.</span> <span class="nav-text">Docker中Production发布</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-for-node-js-refrence"><span class="nav-number">5.1.</span> <span class="nav-text">Sample for node.js refrence</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0Release-Notes"><span class="nav-number">6.</span> <span class="nav-text">版本更新Release Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#V0-0-2"><span class="nav-number">6.1.</span> <span class="nav-text">V0.0.2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="nav-number">6.2.</span> <span class="nav-text">下一步</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%84%9F%E6%83%B3"><span class="nav-number">7.</span> <span class="nav-text">感想</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9%E8%B7%A8%E7%AB%99%E6%8E%A5%E5%8F%A3"><span class="nav-number">7.1.</span> <span class="nav-text">相关内容跨站接口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">8.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -146,7 +146,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">324</span>
+          <span class="site-state-item-count">325</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -157,7 +157,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">156</span>
+        <span class="site-state-item-count">163</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -230,6 +230,11 @@
         </div>
         <ul class="links-of-blogroll-list recent-posts-list">
                 <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
+                  <a href="/202312230940.html" title="Docker搭建轻量个人文件分享服务-文件传输自由" target="">
+                  Docker搭建轻量个人文件分享服务-文件传输自由
+                  </a>
+                </li>
+                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
                   <a href="/202312210934.html" title="电视直播IPTV组播数据抓包过程" target="">
                   电视直播IPTV组播数据抓包过程
                   </a>
@@ -262,11 +267,6 @@
                 <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
                   <a href="/202312101405.html" title="Hexo之相关内容CORS跨域实现方案" target="">
                   Hexo之相关内容CORS跨域实现方案
-                  </a>
-                </li>
-                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
-                  <a href="/202312090910.html" title="网络影视资源 - Emby家庭媒体服务 - IPTV m3u播放器" target="">
-                  网络影视资源 - Emby家庭媒体服务 - IPTV m3u播放器
                   </a>
                 </li>
         </ul>
@@ -409,7 +409,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-19 08:24:29" itemprop="dateModified" datetime="2023-12-19T08:24:29+08:00">2023-12-19</time>
+      <time title="Modified: 2023-12-23 11:00:03" itemprop="dateModified" datetime="2023-12-23T11:00:03+08:00">2023-12-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -454,7 +454,7 @@
     
     <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://www.evernote.com/shard/s122/sh/6ae8e607-5752-4cdb-97e9-9ca27c67ac34/n2UiZ8dhaEX3-Dps8Ws25YQ12vx-31PUft2pMAg5ibbAf3qG4CGC2jR0qQ/deep/0/image.png">
 
-<p>全站检索，全站内容搜索之自定义flexsearch实现【已上线，V0.0.0测试中】</p>
+<p>全站检索，全站内容搜索之自定义flexsearch实现【已上线，V0.0.2测试中】</p>
 <p>引用拓展：大文本，多文本，多文件系统级文本字符低资源消耗高效急速搜索</p>
 <span id="more"></span>
 
@@ -492,7 +492,7 @@
 <h1 id="Docker中Production发布"><a href="#Docker中Production发布" class="headerlink" title="Docker中Production发布"></a>Docker中Production发布</h1><p>Docker中发布是我首选项，高效简单易管理。</p>
 <p>发布文件列表：</p>
 <p>​	复制所有文件夹除了node_modules</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">进入nodejs容器，启动bash（用于执行node程序们）</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">docker <span class="built_in">exec</span> -it nodejs bash</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash"><span class="built_in">cd</span> home/app/blogsearch/</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node ./bin/www</span> </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">或者直接：</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node /home/app/blogsearch/bin/www</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">【首次安装node app】不需要重新 npm init, 但是需要添加express库</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">npm install express</span></span><br><span class="line"><span class="meta prompt_"> </span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node ./bin/www</span>  </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">成功：</span></span><br><span class="line">http://192.168.6.116:3001/appsearch?q=android</span><br><span class="line"></span><br><span class="line">如何常驻在后台运行？</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">NPM反代出来</span></span><br><span class="line">https://query.carlzeng.top:3/appsearch?q=android</span><br><span class="line">https://query.carlzeng.top:3/appsearch?q=iptv</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">添加matomo至模版</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">进入nodejs容器，启动bash（用于执行node程序们）</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">docker <span class="built_in">exec</span> -it nodejs bash</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">直接运行node程序：</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node /home/app/blogsearch/bin/www</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">或者进入目录在运行</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash"><span class="built_in">cd</span> home/app/blogsearch/</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node ./bin/www</span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">【首次安装node app】不需要重新 npm init, 但是需要添加express库</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">npm install express</span></span><br><span class="line"><span class="meta prompt_"> </span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node ./bin/www</span>  </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">成功：</span></span><br><span class="line">http://192.168.6.116:3001/appsearch?q=android</span><br><span class="line"></span><br><span class="line">如何常驻在后台运行？</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">NPM反代出来</span></span><br><span class="line">https://query.carlzeng.top:3/appsearch?q=android</span><br><span class="line">https://query.carlzeng.top:3/appsearch?q=iptv</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">添加matomo至模版</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 在模版中添加JS即可</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">[版本更新] docker中如何关闭某个node进程，重启，重新发布新版本</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">ps -falx | <span class="built_in">head</span> -1; ps -falx | grep <span class="string">&#x27;npm\|node&#x27;</span></span></span><br><span class="line">F   UID   PID  PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND</span><br><span class="line">4     0   173   134  20   0   3324  1536 pipe_r S+   pts/2      0:00  \_ grep npm\|node</span><br><span class="line">0     0    69     8  20   0 1145980 203676 do_epo Sl+ pts/1     7:32  \_ node /home/app/blogsearch/bin/www</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查到ppid为8，杀死进程；然后重启</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash"><span class="built_in">kill</span> -9 8</span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">node /home/app/blogsearch/bin/www</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="Sample-for-node-js-refrence"><a href="#Sample-for-node-js-refrence" class="headerlink" title="Sample for node.js refrence"></a>Sample for node.js refrence</h2><p>见上方：相关内容</p>
 <p>URL：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9xdWVyeS5jYXJsemVuZy50b3A6My9hcHBzZWFyY2g/cT1ub2RlLmpz" rel="noopener external nofollow noreferrer">https://query.carlzeng.top:3/appsearch?q=node.js</a></p>
@@ -517,6 +517,10 @@
 <p>如上的地址不够优雅，用CDN回源地址加端口的方式可以让地址变优雅一点</p>
 <p>BlogCDN中新建一个网站，然后把CNAME指向到‘新网站’自动获取的CNAME（类似：@@@@.cdn.blogcdn.net），源站设置中，配置好自定的端口；这样地址就能变成下面这样</p>
 <p>比如：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9qcC5jYXJsemVuZy50b3AvYXBwc2VhcmNoP3E9YWRzbA==" rel="noopener external nofollow noreferrer">https://jp.carlzeng.top/appsearch?q=adsl</a></p>
+<h1 id="版本更新Release-Notes"><a href="#版本更新Release-Notes" class="headerlink" title="版本更新Release Notes"></a>版本更新Release Notes</h1><h2 id="V0-0-2"><a href="#V0-0-2" class="headerlink" title="V0.0.2"></a>V0.0.2</h2><ul>
+<li>更新了模版，添加[首页]及连接</li>
+<li>把内容缩略的部分，做更精准的首次match，展示首个包含关键字的特定内容范围</li>
+</ul>
 <h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h2><p>还需要写一个trigger，在每次hexo g 或者 hexo d的时候，将.db文件sync到服务器中，供flexsearch作为最新的搜索数据源；目前先手动方式 :-)</p>
 <h1 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h1><p>Node.js 真的爱了，好简洁的框架，可以定制做很多实际需求，对我来说，很容易上手。据听说服务的效率很高占用资源很低，还高并发。我将持续期待并关注这个app的实际表现…</p>
 <h2 id="相关内容跨站接口"><a href="#相关内容跨站接口" class="headerlink" title="相关内容跨站接口"></a>相关内容跨站接口</h2><p>服务器后端nodejs FlexSearch实现</p>
@@ -628,6 +632,11 @@
     </div>
     <ul class="pjax recent-posts-list">
             <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202312230940.html" title="Docker搭建轻量个人文件分享服务-文件传输自由" target="">
+              Docker搭建轻量个人文件分享服务-文件传输自由
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
               <a href="/202312210934.html" title="电视直播IPTV组播数据抓包过程" target="">
               电视直播IPTV组播数据抓包过程
               </a>
@@ -680,11 +689,6 @@
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202312031926.html" title="Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)" target="">
               Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312021028.html" title="如何让路由器按要求定时发BTC价至手机" target="">
-              如何让路由器按要求定时发BTC价至手机
               </a>
             </li>
     </ul>
@@ -747,13 +751,23 @@
             <span class="label">网络加速器</span>
           </a>
       </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">远程文件分享</span>
+          </a>
+      </div>
   </div>
       <span>
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-12-19 08:24:29" itemprop="dateModified" datetime="2023-12-19T08:24:29+08:00">2023-12-19</time>
+        <time title="Modified: 2023-12-23 11:00:03" itemprop="dateModified" datetime="2023-12-23T11:00:03+08:00">2023-12-23</time>
       </span>
 
 </div>
@@ -909,26 +923,6 @@
 
 
 
-<script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":true,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202312161121.html","pageTitle":"Node.js用FlexSearch给Hexo添加极速全站搜索"}</script>
 
 <link rel="stylesheet" href="https://cdn.staticfile.org/artalk/2.6.4/Artalk.min.css">
@@ -961,6 +955,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdn.staticfile.org/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>
