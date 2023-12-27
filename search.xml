@@ -1444,6 +1444,7 @@ https://www.oldking.net/350.html
 
 <h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>自动售货系统-独角数卡<br>尝试按教材和视频搭建失败了（详见章节：搭建失败的历史记录），<br>鼓起勇气，重新选用新的方案：<a href="https://blog.dov.moe/posts/49102/">https://blog.dov.moe/posts/49102/</a></p>
 <p>举个🌰例子：<a href="https://dovshop.net/">https://dovshop.net/</a></p>
+<p><a href="https://ayangshop.com/buy/38">https://ayangshop.com/buy/38</a></p>
 <div class="note danger"><p>由于本人无法解决，反代以后的页面中链接没有自动携带端口好问题。放弃使用。</p>
 </div>
 
@@ -1516,6 +1517,72 @@ https://192.168.6.116:4444/create-order
 URL自动携带端口，没有解决。
 </code></pre>
 <p>​    </p>
+<h1 id="Debian-Manual"><a href="#Debian-Manual" class="headerlink" title="Debian Manual"></a>Debian Manual</h1><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><ul>
+<li>此教程专为有洁癖的宝宝们准备。不使用任何一键安装脚本。面板党可以退散了！！</li>
+<li>本人测试环境是 Debian 11 其他的没测试。</li>
+</ul>
+<h2 id="手动安装lnmp"><a href="#手动安装lnmp" class="headerlink" title="手动安装lnmp"></a>手动安装lnmp</h2><ul>
+<li>更新源</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt update  </span><br><span class="line">apt upgrade</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装Nginx<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install nginx</span><br></pre></td></tr></table></figure></li>
+<li>安装Mariadb<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install mariadb-server</span><br></pre></td></tr></table></figure></li>
+<li>配置Mariadb<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure>
+根据提示操作即可。</li>
+<li>创建数据库<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mariadb</span><br></pre></td></tr></table></figure>
+之后会显示<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span><br><span class="line">Your MariaDB connection <span class="built_in">id</span> is 74</span><br><span class="line">Server version: 10.3.15-MariaDB-1 Debian 10</span><br><span class="line">Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.</span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line">MariaDB [(none)]&gt; </span><br></pre></td></tr></table></figure>
+接下来输入命令 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE [这里替换为数据库名] ;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> [这里替换为数据库名].<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;[这里替换为用户名]&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;[这里替换为密码]&#x27;</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line">EXIT</span><br></pre></td></tr></table></figure></li>
+<li>安装PHP7.4<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install php php-fpm php-mysql php-gd php-zip php-opcache php-curl php-mbstring php-intl php-dom php-bcmath php-redis php-fileinfo</span><br></pre></td></tr></table></figure></li>
+<li>安装redis<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install redis</span><br></pre></td></tr></table></figure></li>
+<li>启用函数<br><code>nano /etc/php/7.4/fpm/php.ini</code>,<code>ctrl+w</code> 搜索 <code>putenv</code>，<code>proc_open</code>，<code>pcntl_signal</code>，<code>pcntl_alarm</code> 在<code>disable_functions</code> 一行 有就去掉。<br>之后 <code>/etc/init.d/php7.4-fpm reload</code></li>
+</ul>
+<h2 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/www/dujiaoka</span><br><span class="line">apt install git</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/assimon/dujiaoka.git </span><br><span class="line"><span class="built_in">chmod</span> 777 -R /var/www/dujiaoka</span><br></pre></td></tr></table></figure>
+<h2 id="配置-nginx"><a href="#配置-nginx" class="headerlink" title="配置 nginx"></a>配置 nginx</h2><ul>
+<li>假设你的域名是：<code>domain.com</code></li>
+<li>假设你的网站目录是：<code>/home/wwwroot/dujiaoka</code></li>
+<li>配置文件的存放目录是：<code>/usr/local/nginx/conf/vhost</code></li>
+<li>按下文教程配置时，注意修改演示配置中的域名和目录</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nano /etc/nginx/sites-enabled/dujiaoka </span><br></pre></td></tr></table></figure>
+<p>你可以参考我的配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server</span><br><span class="line">    &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">	listen [::]:80;</span><br><span class="line">        server_name domain.com ;</span><br><span class="line">        <span class="built_in">return</span> 301 https://$server_name<span class="variable">$request_uri</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">server</span><br><span class="line">    &#123;</span><br><span class="line">        listen 443 ssl http2;</span><br><span class="line">	listen [::]:443 ssl http2;</span><br><span class="line">        server_name domain.com ;</span><br><span class="line">        index index.html index.htm index.php default.html default.htm default.php;</span><br><span class="line">        root  /var/www/dujiaoka/public;</span><br><span class="line">        ssl_certificate /etc/nginx/sslcert/cert.crt;</span><br><span class="line">        ssl_certificate_key /etc/nginx/sslcert/key.key;</span><br><span class="line">        <span class="comment"># openssl dhparam -out /usr/local/nginx/conf/ssl/dhparam.pem 2048</span></span><br><span class="line">        <span class="comment">#ssl_dhparam /usr/local/nginx/conf/ssl/dhparam.pem;</span></span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">    try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.php?<span class="variable">$query_string</span>;</span><br><span class="line">&#125;</span><br><span class="line">        <span class="comment">#error_page   404   /404.html;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># Deny access to PHP files in specific directory</span></span><br><span class="line">        <span class="comment">#location ~ /(wp-content|uploads|wp-includes|images)/.*\.php$ &#123; deny all; &#125;</span></span><br><span class="line"></span><br><span class="line">        location ~ [^/]\.php(/|$)</span><br><span class="line">        &#123;</span><br><span class="line">          </span><br><span class="line">            fastcgi_pass  unix:/var/run/php/php7.4-fpm.sock;</span><br><span class="line">           </span><br><span class="line">            include snippets/fastcgi-php.conf;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$</span><br><span class="line">        &#123;</span><br><span class="line">            expires      30d;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ .*\.(js|css)?$</span><br><span class="line">        &#123;</span><br><span class="line">            expires      12h;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ /.well-known &#123;</span><br><span class="line">            allow all;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ /\.</span><br><span class="line">        &#123;</span><br><span class="line">            deny all;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        access_log off;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在 <code>/etc/nginx/sslcert/</code> 上传你的https证书 之后 <code>nginx -t</code> 没有报错就重启nginx <code>/etc/init.d/nginx restart</code></p>
+<h2 id="composer-安装"><a href="#composer-安装" class="headerlink" title="composer 安装"></a>composer 安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/www/dujiaoka</span><br><span class="line">php -r <span class="string">&quot;copy(&#x27;https://getcomposer.org/installer&#x27;, &#x27;composer-setup.php&#x27;);&quot;</span></span><br><span class="line">php composer-setup.php</span><br><span class="line">php -r <span class="string">&quot;unlink(&#x27;composer-setup.php&#x27;);&quot;</span></span><br><span class="line"><span class="built_in">mv</span> composer.phar /usr/local/bin/composer</span><br><span class="line">adduser user</span><br><span class="line">su user</span><br><span class="line">composer install</span><br><span class="line">composer update</span><br><span class="line">su</span><br></pre></td></tr></table></figure>
+<h2 id="访问安装页面"><a href="#访问安装页面" class="headerlink" title="访问安装页面"></a>访问安装页面</h2><p>访问你的域名，进行安装</p>
+<ul>
+<li>MySQL 数据库名：<code>dujiaoka</code></li>
+<li>MySQl 密码：<code>你设置的密码</code></li>
+<li>Redis 密码：<code>无需填写</code></li>
+<li>网站URL：你的域名，如 <code>https://domain.com</code></li>
+</ul>
+<p>##编辑配置文件</p>
+<p>编辑 <code>/var/www/dujiaoka/.env</code></p>
+<ul>
+<li>将 <code>APP_DEBUG=true</code> 改为 <code>APP_DEBUG=false</code></li>
+<li>另起一行，添加 <code>ADMIN_HTTPS=true</code></li>
+<li>尝试登入后台。如果提示 <code>0 error</code> ，刷新页面即可</li>
+</ul>
+<h2 id="配置-Supervisor"><a href="#配置-Supervisor" class="headerlink" title="配置 Supervisor"></a>配置 Supervisor</h2><p>先安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install supervisor</span><br></pre></td></tr></table></figure>
+<p>创建配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nano /etc/supervisor/conf.d/dujiaoka.conf</span><br></pre></td></tr></table></figure>
+<p>写入配置文件</p>
+<ul>
+<li>注意修改网站目录<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[program:laravel-worker]</span><br><span class="line">process_name=%(program_name)s_%(process_num)02d</span><br><span class="line"><span class="built_in">command</span>=php /home/wwwroot/dujiaoka/artisan queue:work</span><br><span class="line">autostart=<span class="literal">true</span></span><br><span class="line">autorestart=<span class="literal">true</span></span><br><span class="line">user=www</span><br><span class="line">numprocs=1</span><br><span class="line">redirect_stderr=<span class="literal">true</span></span><br><span class="line">stdout_logfile=/home/wwwlogs/worker.log</span><br></pre></td></tr></table></figure>
+启动<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">supervisorctl reread</span><br><span class="line">supervisorctl update</span><br><span class="line">supervisorctl start laravel-worker:*</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="参考来源"><a href="#参考来源" class="headerlink" title="参考来源"></a>参考来源</h2><p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mariadb-php-lemp-stack-on-debian-10">https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mariadb-php-lemp-stack-on-debian-10</a><br><a href="https://github.com/assimon/dujiaoka/wiki/2.x_linux_install">https://github.com/assimon/dujiaoka/wiki/2.x_linux_install</a></p>
+<h1 id="docker部署佰阅发卡卡密发卡系统kamifaka"><a href="#docker部署佰阅发卡卡密发卡系统kamifaka" class="headerlink" title="docker部署佰阅发卡卡密发卡系统kamifaka"></a>docker部署佰阅发卡卡密发卡系统kamifaka</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name kmfaka -itd -v /volume1/docker/kamifaka:/usr/src/app/public  -p 9200:8000 baiyuetribe/kamifaka:latest</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">    <span class="attr">kamifaka:</span></span><br><span class="line">        <span class="attr">container_name:</span> <span class="string">kmfaka</span></span><br><span class="line">        <span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">volumes:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">./:/usr/src/app/public</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="number">4445</span><span class="string">:8000</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">baiyuetribe/kamifaka:latest</span></span><br><span class="line">        <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>后台地址ip地址:9200&#x2F;admin。默认管理员账号<a href="mailto:&#x61;&#100;&#109;&#x69;&#x6e;&#x40;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;">&#x61;&#100;&#109;&#x69;&#x6e;&#x40;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;</a>，密码：123456。</p>
+<p>Reference</p>
+<p><a href="https://www.youtube.com/watch?v=UF24A3h2x3I">NAS用docker部署佰阅发卡卡密发卡系统kamifaka</a></p>
+<p><a href="http://dacongyun.com/archives/635595.html">球推荐一个发卡程序，除了独角风铃荔枝</a></p>
 ]]></content>
       <categories>
         <category>Docker</category>
@@ -1550,6 +1617,8 @@ URL自动携带端口，没有解决。
     <url>/202310051715.html</url>
     <content><![CDATA[<div class="note success"><p>2023年12月更新：正式替换Mac端Clash for Windows为：Clash Verge。详见以下章节目录‘Clash Verge (MAC)’</p>
 </div>
+
+<iframe style="box-shadow: 0px 0px 20px -10px;" src="https://c.carlzeng.top:3/web" frameborder="0" scrolling="auto" width="100%" height="600"></iframe>
 
 <h1 id="1-下载与安装"><a href="#1-下载与安装" class="headerlink" title="1. 下载与安装"></a>1. 下载与安装</h1><p>   访问 <a href="https://github.com/Fndroid/clash_for_windows_pkg/releases">Clash for Windows 官方 Github Releases [已失效]</a> 或搜索 Repo 更新网站下载客户端<br>   对于 Windows，下载 Clash.for.Windows.Setup.版本号.exe 文件，不要下载带 arm64 字样的 exe 运行文件<br>   对于 MacOS，下载 Clash.for.Windows-版本号.dmg 文件。<br>   对于 Andriod, 下载等等请参见下方 Clash for Android 章节。</p>
 <span id="more"></span>
@@ -1694,18 +1763,18 @@ URL自动携带端口，没有解决。
 <p><a href="https://github.com/MetaCubeX/metacubexd/tree/main">https://github.com/MetaCubeX/metacubexd/tree/main</a></p>
 <p>MetaCubeX UI 局域网访问： <a href="http://192.168.6.116:9090/#/setup">http://192.168.6.116:9090/#/setup</a><br>    后端地址及端口：<a href="http://192.168.6.116:9091/">http://192.168.6.116:9091</a><br>    后端密码：    ********<br>对应config.yaml中的配置；在Docker里面跑起来，稳定</p>
 <h2 id="Clash-Meta-更新配置文件步骤（Debian）"><a href="#Clash-Meta-更新配置文件步骤（Debian）" class="headerlink" title="Clash Meta 更新配置文件步骤（Debian）"></a>Clash Meta 更新配置文件步骤（Debian）</h2><pre><code> 1. 打开debian的/root/.config/clash
- ​		docker-compose中的映射 - /root/.config/clash:/root/.config/clash
- ​		所以配置文件指向了：/root/.config/clash
- ​	2. 替换config.yaml到最新版配置文件
- ​	3. cd /www/server/panel/data/compose/metacubexd
- ​	4. docker-compose restart
- ​	5. 检测状态：http://192.168.6.116:9090/#/proxies
+  ​		docker-compose中的映射 - /root/.config/clash:/root/.config/clash
+  ​		所以配置文件指向了：/root/.config/clash
+  ​	2. 替换config.yaml到最新版配置文件
+  ​	3. cd /www/server/panel/data/compose/metacubexd
+  ​	4. docker-compose restart
+  ​	5. 检测状态：http://192.168.6.116:9090/#/proxies
  2. 维护新的Clash Meta的config.yaml配置文件步骤：
-     1. (用途：剔除特定服务器，它的tcp可以通，但无法*墙)
-     2. 进server 的ssh
-     3.  vi /root/.config/clash/config.yaml
-     4. cd /www/server/panel/data/compose/metacubexd
-     5. docker-compose restart
+  	1. (用途：剔除特定服务器，它的tcp可以通，但无法*墙)
+  	2. 进server 的ssh
+  	3.  vi /root/.config/clash/config.yaml
+  	4. cd /www/server/panel/data/compose/metacubexd
+  	5. docker-compose restart
 </code></pre>
 ]]></content>
       <categories>
@@ -13532,10 +13601,10 @@ carlzeng.top.           3600    IN      A       75.2.60.5
       </tags>
   </entry>
   <entry>
-    <title>如何使用lux,youtube-dl下载Youtube上面的音视频，油管视频(23年11月已更新)</title>
+    <title>如何使用lux,youtube-dl下载各视频网站(含Youtube)上面的音视频，油管视频</title>
     <url>/202211220913.html</url>
     <content><![CDATA[<img class="lozad" data-src=https://www.evernote.com/shard/s122/sh/c97c28ac-6531-4ed9-8caf-7cc7f57bfb17/mTTlTjjxf5wrneheJyYQuIMgA0UoTUVkx-VewC1VOq7tTNWv7rIHv37RIA/deep/0/image.png>
-简单快速地视频音频下载神器
+简单快速地视频音频下载神器，支持各大视频站点
 
 
 <h2 id="2023年11月-切换方案至lux"><a href="#2023年11月-切换方案至lux" class="headerlink" title="2023年11月 切换方案至lux"></a>2023年11月 切换方案至lux</h2><span id="more"></span>
@@ -13543,6 +13612,14 @@ carlzeng.top.           3600    IN      A       75.2.60.5
 <p>默认墙内时，对于油管的下载支持不是太好；解决办法：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTTPS_PROXY=&quot;socks5://127.0.0.1:7890&quot; lux &quot;https://www.youtube.com/watch?v=5Dm9XTbnN-M&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> Site:      YouTube youtube.com</span><br><span class="line"> Title:     秋殇别恋</span><br><span class="line"> Type:      video</span><br><span class="line"> Stream:   </span><br><span class="line">     [137]  -------------------</span><br><span class="line">     Quality:         1080p video/mp4; codecs=&quot;avc1.640020&quot;</span><br><span class="line">     Size:            20.82 MiB (21836289 Bytes)</span><br><span class="line">     # download with: lux -f 137 ...</span><br><span class="line"></span><br><span class="line">20.82 MiB / 20.82 MiB [===========================================================================] 46.43 KiB p/s 100.00% 7m40s</span><br><span class="line">Merging video parts into 秋殇别恋.mp4</span><br></pre></td></tr></table></figure>
 <p>需要注意到的是，我们在命令行前面使用HTTPS_PROXY现在基本是都HTTPS了，闭着眼睛这样一条命令就好：<br>HTTPS_PROXY&#x3D;”可用的代理地址” lux “音乐播放的URL地址”</p>
+<hr>
+<blockquote>
+<p>2023.12更新：【待实践测试】</p>
+</blockquote>
+<h1 id="yt-dlp"><a href="#yt-dlp" class="headerlink" title="yt-dlp"></a>yt-dlp</h1><p>Python的一个实现，原来youtube-dl停更后，一个分支已经转为YT-DLP</p>
+<p>yt-dlp is a youtube-dl fork based on the now inactive youtube-dlc. The main focus of this project is adding new features and patches while also keeping up to date with the original project</p>
+<p>You can install yt-dlp using <a href="https://github.com/yt-dlp/yt-dlp#release-files">the binaries</a>, <a href="https://pypi.org/project/yt-dlp">pip</a> or one using a third-party package manager. See <a href="https://github.com/yt-dlp/yt-dlp/wiki/Installation">the wiki</a> for detailed instructions</p>
+<p><a href="https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#readme">https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#readme</a></p>
 <hr>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[youtube] cEEWJ9LcBXk: Downloading webpage</span><br><span class="line">WARNING: Unable to download webpage: &lt;urlopen error [Errno 54] Connection reset by peer&gt;</span><br><span class="line">[youtube] cEEWJ9LcBXk: Downloading API JSON</span><br><span class="line">ERROR: Unable to download API page: &lt;urlopen error [Errno 54] Connection reset by peer&gt; (caused by URLError(error(54, &#x27;Connection reset by peer&#x27;),))</span><br><span class="line"></span><br><span class="line">-------------</span><br><span class="line">[youtube] cEEWJ9LcBXk: Downloading webpage</span><br><span class="line">ERROR: Unable to extract uploader id; please report this issue on https://yt-dl.org/bug . Make sure you are using the latest version; type  youtube-dl -U  to update. Be sure to call youtube-dl with the --verbose flag and include its complete output.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">youtube-dl --update</span><br><span class="line">ERROR: can&#x27;t find the current version. Please try again later.</span><br><span class="line"></span><br><span class="line">sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl</span><br><span class="line">sudo chmod a+rx /usr/local/bin/youtube-dl</span><br><span class="line"></span><br><span class="line">youtube-dl --proxy &#x27;socks5://127.0.0.1:7890&#x27; &#x27;https://www.youtube.com/watch?v=cEEWJ9LcBXk&#x27;</span><br><span class="line">    /usr/local/bin/youtube-dl: line 1: syntax error near unexpected token `newline&#x27;</span><br><span class="line">    /usr/local/bin/youtube-dl: line 1: `&lt;h1&gt;Access denied&lt;/h1&gt;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>youtube-dl年久失修了，转用其他方案：比如you-get 或者 lux方案<br>you-get 一直下载不成功，放弃。<br>转用lux<br>项目地址<a href="https://github.com/iawia002/lux">https://github.com/iawia002/lux</a></p>
@@ -13558,34 +13635,12 @@ carlzeng.top.           3600    IN      A       75.2.60.5
 <h2 id="如何用ffmpeg将mp4转换为mp3"><a href="#如何用ffmpeg将mp4转换为mp3" class="headerlink" title="如何用ffmpeg将mp4转换为mp3"></a>如何用ffmpeg将mp4转换为mp3</h2><p>ffmpeg -i {输入文件} {输出文件}<br>好简单，明了</p>
 <hr>
 <h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><p>如果您对相关的 <a href="https://www.carlzeng.top/search?q=youtube">youtube</a> 感兴趣，以下内容可能帮到您：</p>
-<ul>
-<li><p><a href="https://www.carlzeng.top/202311300758.html">docker搭建在线网页代理实践记录</a></p>
-<p>网google.com，或者输入<a href="http://www.youtube.com回车访问/">www.youtube.com回车访问</a> 在这访问的新页面就可以继续访问国际互联网（比如继续点击页面中的视频等…） 实现方法个人安装路径（仅供参考）&#x2F;www&amp;…</p>
-</li>
-<li><p><a href="https://www.carlzeng.top/202310051715.html">(转载)clash for windows 设置方法入门(适用于windows+mac+安卓)</a></p>
-<p>Youku &amp; Tudou# youtube# Others ads in Video apps# Ads in Video apps end 上面都是 ******************…</p>
-</li>
-<li><p><a href="https://www.carlzeng.top/202310261222.html">hexo定制之家宽部署artalk评论</a></p>
-<p>Proxy Manager反向代理 - youtube <a href="https://vt.wooomooo.com/?p=67689">https://vt.wooomooo.com/?p=67689</a> 材料清单 家宽+公网IP 一级域名？ 反向代理步骤 …</p>
-</li>
-<li><p><a href="https://www.carlzeng.top/202304041812.html">mac os 安装&#x2F;卸载 homebrew-carlzeng</a></p>
-<p>0” lux “<a href="https://www.youtube.com/watch?v=5Dm9XTbnN-M%E2%80%9C">https://www.youtube.com/watch?v=5Dm9XTbnN-M“</a> 详见：如何使用lux,youtube-dl下载youtube上面的音视频，油管视频(23年11…</p>
-</li>
-<li><p><a href="https://www.carlzeng.top/202104081715.html">netsuite generated bank files and the bank reconciliation process-carlzeng</a></p>
-<p>ich LLP <a href="https://www.youtube.com/watch?v=JOE4EXxkTFk">https://www.youtube.com/watch?v=JOE4EXxkTFk</a> 2. Import online banking data and statement fun…</p>
-</li>
-<li><p><a href="https://www.carlzeng.top/202310011555.html">go语言学习与应用日志</a></p>
-<p>最快的节点. go build. 测试youtube的视频，Connection Speed 3824 Kbps，自动1080P60HD，清洗流畅许多 实践测试表明，把interval设置成300…</p>
-</li>
-<li><p><a href="https://www.carlzeng.top/202311042118.html">ipad解锁激活锁苹果平板绕激活锁经验</a></p>
-<p>eckra1n <a href="https://www.youtube.com/watch?v=y1J6CXgPAT0&t=309s">https://www.youtube.com/watch?v=y1J6CXgPAT0&amp;t=309s</a> [Windows] One click Bypass iCloud IO…</p>
-</li>
-<li><p><a href="https://www.carlzeng.top/202301101115.html">(强大的ffmpeg)如何下载并转化网络m3u8文件为mp4文件-carlzeng</a></p>
-<p>eg，怎么使用？ 也可以参考下：如何使用youtube-dl下载youtube上面的音视频，油管视频 Support SOCKS5 proxies #3373 步骤（方案一） 使用浏览器查看获取M…</p>
-</li>
-</ul>
-<hr>
-<h2 id="2023-6-20-测试，报错，此工具已无效了"><a href="#2023-6-20-测试，报错，此工具已无效了" class="headerlink" title="2023.6.20 测试，报错，此工具已无效了"></a>2023.6.20 测试，报错，此工具已无效了</h2><p>ERROR: Signature extraction failed</p>
+<iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=youtube" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+
+
+<h2 id="youtube-dl工具已无效了"><a href="#youtube-dl工具已无效了" class="headerlink" title="youtube_dl工具已无效了"></a>youtube_dl工具已无效了</h2><p>2023.6.20 测试，报错:</p>
+<p>ERROR: Signature extraction failed</p>
 <p>File “&#x2F;usr&#x2F;local&#x2F;bin&#x2F;youtube-dl&#x2F;youtube_dl&#x2F;extractor&#x2F;youtube.py”, line 1360, in _decrypt_signature</p>
 <p> func &#x3D; self._extract_signature_function(</p>
 <p> File “&#x2F;usr&#x2F;local&#x2F;bin&#x2F;youtube-dl&#x2F;youtube_dl&#x2F;extractor&#x2F;youtube.py”, line 1277, in _extract_signature_function</p>
@@ -13602,8 +13657,8 @@ carlzeng.top.           3600    IN      A       75.2.60.5
 <p>错误依旧，此工具方法已失效。</p>
 <!-- more -->
 <hr>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>下载视频或者音频越来越复杂，原因之一是现在的网站需要自动适配音视频的质量（声音的采样率和视频的分辨率），单独使用url的下载方法（一些浏览器插件的方法）会导致下载了视频而没有声音。</p>
-<p>没有*墙的情况下，请忽略本文。</p>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>下载视频或者音频越来越复杂，原因之一是现在的网站需要自动适配音视频的质量（声音的采样率和视频的分辨率），单独使用url的下载方法（一些浏览器插件的方法）会导致下载了视频而没有声音。</p>
+<p>没有*墙的情况下(又想要下载youtube音视频的话)，请忽略本文。（或使用<a href="https://c.carlzeng.top:3/web">网络加速器</a>访问youtube）</p>
 <h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p><a href="https://github.com/ytdl-org/youtube-dl">youtube-dl</a></p>
 <p>ffmpeg（可选）</p>
 <p>代理（比如socks5。没有*墙的情况下，请忽略本文）</p>
@@ -13632,6 +13687,7 @@ carlzeng.top.           3600    IN      A       75.2.60.5
         <tag>youtube-dl</tag>
         <tag>ffmpeg</tag>
         <tag>lux</tag>
+        <tag>yt-dlp</tag>
       </tags>
   </entry>
   <entry>
@@ -13969,6 +14025,7 @@ sh /usr/share/wechatpush/btc.sh
 <p>放弃在Openwrt中执行，因为日志输出无法正常，无法校验。<br>        放到NAS中去，群晖NAS<br>        新建 控制面板 - 计划任务<br>如何查看群晖NAS日志？ 日志中心；<br>        即便手动 运行也任何日志输出！ ssh中运行看看<br>    也是无法看到想要的预期效果，可以正常，看到NAS生成测试每分钟的日志文件（空内容）。</p>
 <figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">切换工具到debian中</span><br><span class="line"></span><br><span class="line">crontab -e</span><br><span class="line">	成功添加进每分钟执行的 命令：</span><br><span class="line">	*/1 * * * * /root/Documents/btc.sh</span><br></pre></td></tr></table></figure>
 
+<p>如何查询debian中的日志？</p>
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p>说明文档很清晰：<a href="https://openwrt.org/zh/docs/guide-user/base-system/cron">Cron 和 crontab</a></p>
 <p>现实应用，勉强能用…</p>
 <p>还是期待下一步的python实现</p>
@@ -14156,8 +14213,65 @@ sh /usr/share/wechatpush/btc.sh
     <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近几月迷上看书（用心的认真的看书）。「好书」让人沉静下来，净化灵魂。</p>
 <p>接受文学艺术熏陶一下，看看能否洗淡些许俗气。</p>
 <p>益处颇多，话不多说，写此文旨在可能可以帮到你：</p>
-<p>更快捷更舒适的获取这人类世界上的电子书籍（更墙裂推荐纸质版阅读）</p>
-<h2 id="方案与思路"><a href="#方案与思路" class="headerlink" title="方案与思路"></a>方案与思路</h2><p>1）根据书名，作者，出版社，ISBN等信息进行搜索。(注：很多源需要 ‘科’ 学 上网才能访问)</p>
+<p>更快捷更舒适的获取世界上的电子书籍（更墙裂推荐纸质版阅读）</p>
+<!-- more -->
+
+<blockquote>
+<p>2023.12更新</p>
+</blockquote>
+<p>试图用docker搭建：zlib-searcher，发现原作者（不知出于什么原因）删除了源仓库。找朋友找啊找啊找，找到一个，尝试</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull ghcr.io/puzzithinker/zlib-searcher:master</span><br></pre></td></tr></table></figure>
+
+<h1 id="下载电子书-预览"><a href="#下载电子书-预览" class="headerlink" title="下载电子书 预览"></a>下载电子书 预览</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://c.carlzeng.top:3/book" frameborder="0" scrolling="auto" width="100%" height="600"></iframe>
+
+<h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><ol>
+<li>浏览器打开网址：<a href="https://c.carlzeng.top:3/book">https://c.carlzeng.top:3/book</a> 输入&#x2F;粘贴后回车访问</li>
+<li>输入书名（在第一个文本框「Title」中），或者输入作者等信息查找（按tab或者回车）<ol>
+<li>右上角的”文A”图标，可以切换中英文</li>
+<li>假如搜索不到想要的书本，且书本确实存在准确的ISBN码：</li>
+<li>请尝试下一个章节的拓展工具：<a href="https://libgen.is/">Library Genesis</a></li>
+<li>或尝试<a href="https://zlib.qtoh.xyz/">https://zlib.qtoh.xyz/</a></li>
+</ol>
+</li>
+<li>在列表中找到书本后，请点击书本，出现下载网关的可选项，比如：cloudflare-ipfs.com, dweb.link, ipfs.io, gateware.pinata.cloud(四个选项任选其一，尝试下载)</li>
+<li></li>
+</ol>
+<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><blockquote>
+<p>2023.12更新</p>
+<p>试图用docker搭建：zlib-searcher，发现原作者（不知出于什么原因）删除了源仓库。找朋友找啊找啊找，找到一个，尝试</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull ghcr.io/puzzithinker/zlib-searcher:master</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>最终合并两个方案（一个是docker image源，一个是配置+思路）形成最终的搭建</p>
+<ol>
+<li>mkdir book-searcher &amp;&amp; cd book-searcher</li>
+<li>docker-compose.yml</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  book-searcher:</span><br><span class="line">    image: levizhao/zlib-search:0.0.1</span><br><span class="line">    #无法拉取ghcr.io/book-searcher-org/book-searcher:latest</span><br><span class="line">		#拉取成功，运行失败：dockerguagua/zbook:2023-10-21</span><br><span class="line">    #拉取失败：ghcr.io/zlib-searcher/zlib-searcher:latest</span><br><span class="line">    #成功了，但是搜索无结果ghcr.io/puzzithinker/zlib-searcher:master </span><br><span class="line">    container_name: book-searcher</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;7070:7070&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - ./index:/index</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>拉取Z-Library书库索引文件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd book-searcher  </span><br><span class="line"></span><br><span class="line">docker-compose up -d</span><br><span class="line"></span><br><span class="line">docker-compose run --rm -v &quot;$PWD:$PWD&quot; -w &quot;$PWD&quot; book-searcher /zlib-searcher index -f *.csv</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">这是关键步骤的关键命令，是zlib建立索引的过程（不可或缺，且直接影响书籍的目录库，确保了书籍可以被正确的查找到），详见下方截图：</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://www.evernote.com/shard/s122/sh/063bed14-28db-4252-bf3f-0e218202f441/JPzYTEPmeEx9_u5rFJKH0d92ZUsjjDndNtcyWrAzbPpu9432ezJ_rxxkXg/deep/0/image.png" alt="indexing"></p>
+<h3 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h3><p>检索程序版本：2022</p>
+<p>书本的索引版本：20230113</p>
+<h3 id="本章节感谢列表"><a href="#本章节感谢列表" class="headerlink" title="本章节感谢列表"></a>本章节感谢列表</h3><p><a href="https://yorg.top/10.html">https://yorg.top/10.html</a></p>
+<p><a href="https://github.com/puzzithinker/zlib-searcher">https://github.com/puzzithinker/zlib-searcher</a></p>
+<p><a href="https://od.007.al/OneDrive/book_index/">https://od.007.al/OneDrive/book_index/</a></p>
+<h2 id="Library-Genesis（2023-12附加-拓展）"><a href="#Library-Genesis（2023-12附加-拓展）" class="headerlink" title="Library Genesis（2023.12附加&#x2F;拓展）"></a>Library Genesis（2023.12附加&#x2F;拓展）</h2><p>发现很多旧的方式都过期了，新增一个新的渠道：</p>
+<p><a href="http://libgen.is/">http://libgen.is/</a></p>
+<p>使用方法：</p>
+<ol>
+<li>需要魔法访问，先打开<a href="https://c.carlzeng.top/web">https://c.carlzeng.top/web</a>,</li>
+<li>在输入上面的网址（<a href="http://libgen.is/%EF%BC%89%E5%9B%9E%E8%BD%A6%EF%BC%8C">http://libgen.is/）回车，</a></li>
+<li>打开网址后，搜索书名即可</li>
+</ol>
+<h3 id="libgen-is-预览"><a href="#libgen-is-预览" class="headerlink" title="libgen.is 预览"></a>libgen.is 预览</h3><p><img data-src="https://www.evernote.com/shard/s122/sh/4a91c018-9beb-4324-a180-8d7a7ccc7210/ST5IL7dMEOEftlo_OYbTFPK348UvAdEckte8orkNMw3Zko8UUKjoz6UiQw/deep/0/image.png" alt="libgen.is"></p>
+<p>感悟：</p>
+<p>下载到了书本：胡安焉 - 我在北京送快递-湖南文艺出版社 (2023).epub</p>
+<p>这本书在zlib里面没有找到，可是用libgen里面找到了，不容易</p>
+<h1 id="方案与思路（2022）"><a href="#方案与思路（2022）" class="headerlink" title="方案与思路（2022）"></a>方案与思路（2022）</h1><p>1）根据书名，作者，出版社，ISBN等信息进行搜索。(注：很多源需要 ‘科’ 学 上网才能访问)</p>
 <ol>
 <li>search.zhelper.net（2023年8月实测，表现不凡，下面的链接要全部复制使用）</li>
 </ol>
@@ -14214,9 +14328,24 @@ sh /usr/share/wechatpush/btc.sh
 <li>朋友家的Kinder低刷新率拓展眼界</li>
 <li>好奇（国货之光的电子墨水屏，实时同步显示原手机屏幕，成本高而抵挡欲望）</li>
 </ol>
+<h1 id="可替代-Z-Library"><a href="#可替代-Z-Library" class="headerlink" title="可替代 Z-Library"></a>可替代 Z-Library</h1><p>另一个可替代 Z-Library 网站：Library Genesis；libgen最新地址。</p>
+<ul>
+<li><a href="https://www.logovps.com/goto/lg4d">https://libgen.gs</a></li>
+<li><a href="https://www.logovps.com/goto/udcv">https://libgen.ee</a></li>
+<li><a href="https://www.logovps.com/goto/11rv">https://libgen.rocks</a></li>
+<li><a href="https://www.logovps.com/goto/5svx">http://libgen.rs</a></li>
+<li><a href="https://www.logovps.com/goto/aye2">http://libgen.is</a></li>
+<li><a href="https://www.logovps.com/goto/4z5x">http://libgen.st</a></li>
+</ul>
+<p>推荐一个网盘里面的 天涯神贴：</p>
+<p><a href="https://od.007.al/OneDrive/%E5%A4%A9%E6%B6%AF%E7%A5%9E%E8%B4%B4">https://od.007.al/OneDrive/%E5%A4%A9%E6%B6%AF%E7%A5%9E%E8%B4%B4</a></p>
 ]]></content>
+      <categories>
+        <category>看书</category>
+      </categories>
       <tags>
         <tag>看书</tag>
+        <tag>zlib-searcher</tag>
       </tags>
   </entry>
   <entry>
@@ -17129,6 +17258,11 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
 <li>盒子或者手机端，下载DIYP APP。安装方法详见：<a href="https://www.carlzeng.top/202211181240.html?highlight=android%E6%9C%BA%E9%A1%B6%E7%9B%92+%E5%AE%89%E8%A3%85app%E5%AE%9E%E4%BE%8B">Android机顶盒 安装APP实例</a></li>
 <li>打开盒子（或手机）上DIYP</li>
 <li>配置源地址：<a href="https://c.carlzeng.top:4443/tvu%EF%BC%88%E8%81%94%E9%80%9A%E5%AE%BD%E5%B8%A6%EF%BC%89https://c.carlzeng.top:4443/tvu%EF%BC%88%E7%A7%BB%E5%8A%A8%E5%AE%BD%E5%B8%A6%EF%BC%89">https://c.carlzeng.top:4443/tvu（联通宽带）https://c.carlzeng.top:4443/tvu（移动宽带）</a></li>
+<li><blockquote>
+<p>2023.12更新: 由于服务器不堪重负，暂时决定：无限期关停维护计划。</p>
+<p>确实有需要的朋友，请联系我索取，或动手能力强的参见：<a href="https://www.carlzeng.top/202312111310">IPTV组播数据收看方式</a></p>
+</blockquote>
+</li>
 </ol>
 </div>
 
@@ -17347,7 +17481,7 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">天微多仓接口地址1：http://tvkj.top/DC.txt</span><br><span class="line"></span><br><span class="line">多仓接口地址2：http://host855266926.s1169.pppf.com.cn/TVKJ2.txt</span><br><span class="line"></span><br><span class="line">天微单仓多线路地址1：http://tvkj.top/tw/api.json</span><br><span class="line"></span><br><span class="line">单仓多线路地址2：http://host855266926.s1169.pppf.com.cn/tw/api.json</span><br><span class="line"></span><br><span class="line">天微单仓svip线路地址1：http://tvkj.top/tv4k/svip.json</span><br><span class="line"></span><br><span class="line">单仓svip线路地址2：http://host855266926.s1169.pppf.com.cn/TV4K/svip.json</span><br><span class="line"></span><br><span class="line">天微电视直播源：http://tvkj.top/tvlive.txt</span><br><span class="line"></span><br><span class="line">新视界接口：http://tvkj.top/tv4k/apix.json</span><br><span class="line"></span><br><span class="line">饭太硬接口：http://tvkj.top/DC/fty/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">阿里接口：http://tvkj.top/DC/al/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">小米接口：http://tvkj.top/DC/xm/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">巧儿专线：http://tvkj.top/巧儿/api.json</span><br><span class="line"></span><br><span class="line">多多家庭：http://tvkj.top/DC/dd/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">道长接口：http://tvkj.top/DC/dz/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">肥猫接口：http://tvkj.top/DC/fm/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">讴歌专线：http://tvkj.top/DC/og/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">南风线路：http://tvkj.top/DC/nf/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">菜妮丝接口：http://tvkj.top/DC/cns/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">业余打发：http://tvkj.top/DC/yy/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">吾爱接口：http://tvkj.top/DC/wa/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">云星日记：http://tvkj.top/DC/yx/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">运输车：http://tvkj.top/DC/ysc/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">摸鱼专线：http://tvkj.top/DC/my/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">香雅情接口：http://tvkj.top/DC/xyq/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">蜂蜜接口：http://tvkj.top/DC/fmi/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">分享者接口：https://agit.ai/66666/mao/raw/branch/master/00/000.m3u8</span><br><span class="line"></span><br><span class="line">俊佬接口：http://tvkj.top/DC/jl/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">荷城茶秀：http://tvkj.top/DC/hccx/tvkj/svip.json</span><br><span class="line"></span><br><span class="line">高山流云：https://gh-proxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/js.json</span><br><span class="line"></span><br><span class="line">动漫频道：http://tvkj.top/动漫频道/api.json</span><br><span class="line"></span><br><span class="line">配置方法：打开影视仓或其他TVBOX软件，点击“设置”，</span><br><span class="line">点击“配置地址”然后会出现二维码，复制我们的接口地址，</span><br><span class="line">打开手机对着二维码扫一扫，点击“配置”在“点播”一栏</span><br><span class="line">粘贴我们复制的接口，点击“推送”即可.</span><br><span class="line">关注微信公众号：【天微科技】获取更多免费资源</span><br></pre></td></tr></table></figure>
 <p>转载来源：如上所示</p>
 <hr>
-<h1 id="寻找新的无广告APP"><a href="#寻找新的无广告APP" class="headerlink" title="寻找新的无广告APP"></a>寻找新的无广告APP</h1><p>测试中。。。</p>
+<h1 id="找到无广告APP"><a href="#找到无广告APP" class="headerlink" title="找到无广告APP"></a>找到无广告APP</h1><p>2023.12已测试数周：</p>
 <p>​	先测试第一个<strong>TVBox 影视 tv</strong> <em>@fongmi 魔改版</em>，我目前也是这样一个叫影视的APP（也是有赌博网站广告的）我很疑惑的，只能先试一试吧…</p>
 <blockquote>
 <p>20231222 解决办法：<a href="https://www.123pan.com/s/ZAzA-HnUwh.html"> 最新版下载</a> 用这个 <strong>TVBox 影视 tv</strong> <em>@fongmi 魔改版</em>，支持<strong>自动切换失效源</strong>。<br>下载这个tvbox不会弹出广告：</p>
@@ -18502,6 +18636,53 @@ docker-compose 部署restdesk服务器
         <tag>分享</tag>
         <tag>网盘</tag>
         <tag>Pingvin Share</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>加速Docker Pull或者docker-compose拉取镜像 - 适用github源</title>
+    <url>/202312262315.html</url>
+    <content><![CDATA[<img class="lozad" data-src="">
+
+<p>为github的docker源提速</p>
+<span id="more"></span>
+
+<p>下载zlib（github上的）非常幸苦，速度极慢</p>
+<p>找到了大神的文章：<a href="https://zu1k.com/posts/coding/speedup-docker-pull/#%E4%B8%BAdocker%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86">加速docker pull</a></p>
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>为github的docker源提速，比如：</p>
+<p>ghcr.io&#x2F;zlib-searcher&#x2F;zlib-searcher:latest</p>
+<p>ghcr.io&#x2F;puzzithinker&#x2F;zlib-searcher:master</p>
+<h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><ol>
+<li>配置http-proxy.conf</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir -p /etc/systemd/system/docker.service.d</span><br><span class="line">vim /etc/systemd/system/docker.service.d/http-proxy.conf</span><br><span class="line">[Service]</span><br><span class="line">Environment=&quot;HTTP_PROXY=http://192.168.1.1:7890&quot;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>配置https-proxy.conf</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">vim /etc/systemd/system/docker.service.d/https-proxy.conf</span><br><span class="line">[Service]</span><br><span class="line">Environment=&quot;HTTPS_PROXY=http://192.168.1.1:7890&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">这个设置是难点，踩坑折腾了半小时左右，一直监控着clash.meta的UI，docker pull过程到底有没有走proxy，设置对了以后，速度果然一下子，嗖.....</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>重启服务</li>
+</ol>
+   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>监控一下是否正常走了设置的代理</li>
+</ol>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=docker" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+
+<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a href="https://zu1k.com/posts/coding/speedup-docker-pull/#%E4%B8%BAdocker%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86">https://zu1k.com/posts/coding/speedup-docker-pull/#%E4%B8%BAdocker%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86</a></p>
+<h1 id="假如Docker-image的源repository被删除了"><a href="#假如Docker-image的源repository被删除了" class="headerlink" title="假如Docker image的源repository被删除了"></a>假如Docker image的源repository被删除了</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">You will need to save the Docker image as a tar file:</span><br><span class="line"></span><br><span class="line">&gt; docker save -o &lt;path for generated tar file&gt; &lt;image name&gt;</span><br><span class="line">Then copy your image to a new system with regular file transfer tools such as cp, scp, or rsync (preferred for big files). After that you will have to load the image into Docker:</span><br><span class="line"></span><br><span class="line">&gt; docker load -i &lt;path to image tar file&gt;</span><br><span class="line">You should add filename (not just directory) with -o, for example:</span><br><span class="line"></span><br><span class="line">&gt; docker save -o c:/myfile.tar centos:16</span><br><span class="line">PS: You may need to sudo all commands.</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://stackoverflow.com/questions/23935141/how-to-copy-docker-images-from-one-host-to-another-without-using-a-repository">https://stackoverflow.com/questions/23935141/how-to-copy-docker-images-from-one-host-to-another-without-using-a-repository</a></p>
+]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>docker-compose</tag>
+        <tag>Docker</tag>
       </tags>
   </entry>
 </search>
