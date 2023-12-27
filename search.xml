@@ -1579,7 +1579,7 @@ URL自动携带端口，没有解决。
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">    <span class="attr">kamifaka:</span></span><br><span class="line">        <span class="attr">container_name:</span> <span class="string">kmfaka</span></span><br><span class="line">        <span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">volumes:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">./:/usr/src/app/public</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="number">4445</span><span class="string">:8000</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">baiyuetribe/kamifaka:latest</span></span><br><span class="line">        <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
 
 <hr>
-<p>后台地址ip地址:9200&#x2F;admin。默认管理员账号<a href="mailto:&#x61;&#100;&#109;&#x69;&#x6e;&#x40;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;">&#x61;&#100;&#109;&#x69;&#x6e;&#x40;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;</a>，密码：123456。</p>
+<p>后台地址ip地址:9200&#x2F;admin。默认管理员账号<a href="mailto:&#97;&#100;&#109;&#x69;&#x6e;&#x40;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;">&#97;&#100;&#109;&#x69;&#x6e;&#x40;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;</a>，密码：123456。</p>
 <p>Reference</p>
 <p><a href="https://www.youtube.com/watch?v=UF24A3h2x3I">NAS用docker部署佰阅发卡卡密发卡系统kamifaka</a></p>
 <p><a href="http://dacongyun.com/archives/635595.html">球推荐一个发卡程序，除了独角风铃荔枝</a></p>
@@ -1618,10 +1618,11 @@ URL自动携带端口，没有解决。
     <content><![CDATA[<div class="note success"><p>2023年12月更新：正式替换Mac端Clash for Windows为：Clash Verge。详见以下章节目录‘Clash Verge (MAC)’</p>
 </div>
 
+<span id="more"></span>
+
 <iframe style="box-shadow: 0px 0px 20px -10px;" src="https://c.carlzeng.top:3/web" frameborder="0" scrolling="auto" width="100%" height="600"></iframe>
 
 <h1 id="1-下载与安装"><a href="#1-下载与安装" class="headerlink" title="1. 下载与安装"></a>1. 下载与安装</h1><p>   访问 <a href="https://github.com/Fndroid/clash_for_windows_pkg/releases">Clash for Windows 官方 Github Releases [已失效]</a> 或搜索 Repo 更新网站下载客户端<br>   对于 Windows，下载 Clash.for.Windows.Setup.版本号.exe 文件，不要下载带 arm64 字样的 exe 运行文件<br>   对于 MacOS，下载 Clash.for.Windows-版本号.dmg 文件。<br>   对于 Andriod, 下载等等请参见下方 Clash for Android 章节。</p>
-<span id="more"></span>
 <p>在 Windows 上，直接双击 exe 文件进行安装。如果提示“阻止了无法识别的应用启动”，请点击“更多信息”，然后再点击“仍要运行”进行安装。</p>
 <p>说明书：<a href="https://stash.wiki/en/proxy-protocols/proxy-groups">https://stash.wiki/en/proxy-protocols/proxy-groups</a></p>
 <h2 id="1-1-下载地址二"><a href="#1-1-下载地址二" class="headerlink" title="1.1 下载地址二"></a>1.1 下载地址二</h2><p>   v2rayN永久更新地址<br>   <a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></p>
@@ -14210,7 +14211,7 @@ sh /usr/share/wechatpush/btc.sh
   <entry>
     <title>学看书-CarlZeng</title>
     <url>/202303261112.html</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近几月迷上看书（用心的认真的看书）。「好书」让人沉静下来，净化灵魂。</p>
+    <content><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近几月迷上看书（用心的认真的看书）。「好书」让人沉静下来，净化灵魂。</p>
 <p>接受文学艺术熏陶一下，看看能否洗淡些许俗气。</p>
 <p>益处颇多，话不多说，写此文旨在可能可以帮到你：</p>
 <p>更快捷更舒适的获取世界上的电子书籍（更墙裂推荐纸质版阅读）</p>
@@ -14222,19 +14223,23 @@ sh /usr/share/wechatpush/btc.sh
 <p>试图用docker搭建：zlib-searcher，发现原作者（不知出于什么原因）删除了源仓库。找朋友找啊找啊找，找到一个，尝试</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull ghcr.io/puzzithinker/zlib-searcher:master</span><br></pre></td></tr></table></figure>
 
+
+
 <h1 id="下载电子书-预览"><a href="#下载电子书-预览" class="headerlink" title="下载电子书 预览"></a>下载电子书 预览</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://c.carlzeng.top:3/book" frameborder="0" scrolling="auto" width="100%" height="600"></iframe>
 
 <h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><ol>
-<li>浏览器打开网址：<a href="https://c.carlzeng.top:3/book">https://c.carlzeng.top:3/book</a> 输入&#x2F;粘贴后回车访问</li>
-<li>输入书名（在第一个文本框「Title」中），或者输入作者等信息查找（按tab或者回车）<ol>
+<li><p>浏览器打开网址：<a href="https://c.carlzeng.top:3/book">https://c.carlzeng.top:3/book</a> 输入&#x2F;粘贴后回车访问</p>
+</li>
+<li><p>输入书名（在第一个文本框「Title」中），或者输入作者等信息查找（按tab或者回车）</p>
+<ol>
 <li>右上角的”文A”图标，可以切换中英文</li>
 <li>假如搜索不到想要的书本，且书本确实存在准确的ISBN码：</li>
 <li>请尝试下一个章节的拓展工具：<a href="https://libgen.is/">Library Genesis</a></li>
 <li>或尝试<a href="https://zlib.qtoh.xyz/">https://zlib.qtoh.xyz/</a></li>
 </ol>
 </li>
-<li>在列表中找到书本后，请点击书本，出现下载网关的可选项，比如：cloudflare-ipfs.com, dweb.link, ipfs.io, gateware.pinata.cloud(四个选项任选其一，尝试下载)</li>
-<li></li>
+<li><p>在列表中找到书本后，请点击书本，出现下载网关的可选项，比如：cloudflare-ipfs.com, dweb.link, ipfs.io, gateware.pinata.cloud(四个选项任选其一，尝试下载)</p>
+</li>
 </ol>
 <h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><blockquote>
 <p>2023.12更新</p>
@@ -14322,7 +14327,7 @@ sh /usr/share/wechatpush/btc.sh
 </ol>
 <p>如果您有更好的思路，想法和工具，可以留言告诉我</p>
 <p>(注：很多源需要 ‘科’ ‘学’ 上网才能访问，如果你的网络无法使用上面的资源，可以参考<a href="https://www.cnblogs.com/backuper/p/tornetwork.html%E6%9D%A5%E8%87%AA%E5%8A%A9%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%EF%BC%8C%E6%88%96%E8%80%85vx%E7%95%99%E8%A8%80%E5%91%8A%E8%AF%89%E6%88%91%EF%BC%8C%E6%88%91%E6%89%BE%E6%97%B6%E9%97%B4%E4%B8%8B%E4%B8%80%E4%B8%8B">https://www.cnblogs.com/backuper/p/tornetwork.html来自助解决问题，或者vx留言告诉我，我找时间下一下</a>)</p>
-<h2 id="感谢与贡献："><a href="#感谢与贡献：" class="headerlink" title="感谢与贡献："></a>感谢与贡献：</h2><ol>
+<h2 id="感谢与贡献"><a href="#感谢与贡献" class="headerlink" title="感谢与贡献"></a>感谢与贡献</h2><ol>
 <li><a href="https://www.pennfly.net/archives/202zlibrary-zui-xin-ru-kou--xia-le-san-ben-shu">202：Zlibrary 最新入口，下了三本书</a></li>
 <li>我家宝贝的好老师们（不定期推荐好书和感想）</li>
 <li>朋友家的Kinder低刷新率拓展眼界</li>
@@ -18683,6 +18688,42 @@ docker-compose 部署restdesk服务器
       <tags>
         <tag>docker-compose</tag>
         <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由</title>
+    <url>/202312271328.html</url>
+    <content><![CDATA[<img class="lozad" data-src="">
+
+<p>提供多国语言翻译接口，为程序&#x2F;系统提供翻译服务</p>
+<span id="more"></span>
+
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>提供多国语言翻译接口，为程序&#x2F;系统提供翻译服务</p>
+<h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><p>post 到 <a href="http://192.168.6.116:1188/translate">http://192.168.6.116:1188/translate</a></p>
+<p>如果用get的话，打印出用法：</p>
+<p>{“code”:200,”message”:”DeepL Free APIGo to &#x2F;translate with POST.”}</p>
+<p>如果使用curl使用：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -X POST http://localhost:1188/translate \</span><br><span class="line">-H &quot;Content-Type: application/json&quot; \</span><br><span class="line">-H &quot;Authorization: Bearer your_access_token&quot; \</span><br><span class="line">-d &#x27;&#123;</span><br><span class="line">    &quot;text&quot;: &quot;Hello, world!&quot;,</span><br><span class="line">    &quot;source_lang&quot;: &quot;EN&quot;,</span><br><span class="line">    &quot;target_lang&quot;: &quot;DE&quot;</span><br><span class="line">&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<h1 id="延伸阅读"><a href="#延伸阅读" class="headerlink" title="延伸阅读"></a>延伸阅读</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=translate" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>一键启动</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">    <span class="attr">deepl:</span></span><br><span class="line">        <span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="number">1188</span><span class="string">:1188</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">artem1sobolev/deepl:1.0.1</span></span><br><span class="line">            <span class="comment">#same error: no route to. huiwushi/deepl_zu1k</span></span><br><span class="line">            <span class="comment">#zu1k/deepl</span></span><br><span class="line">        <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
+
+<p>开放防火墙1188，反代（如果有需求的话）</p>
+<h1 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h1><p>我要把中文语言的文章内容都意义传给这个API，翻译成英文版和繁体中文版，这样多国语言的功能就能完整；路途还有点远…</p>
+<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a href="https://github.com/zu1k/translator">translator简单、轻量、好用的划词翻译软件</a></p>
+<p><a href="https://github.com/OwO-Network/DeepLX">https://github.com/OwO-Network/DeepLX</a></p>
+]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>docker-compose</tag>
+        <tag>Docker</tag>
+        <tag>DeepL</tag>
+        <tag>API</tag>
+        <tag>translate</tag>
       </tags>
   </entry>
 </search>
