@@ -26,7 +26,7 @@
 <meta property="og:description" content="无需注册，分分钟让你直接使用免费的ChatGPT，持续更新维护 如何快速使用ChatGPT AI语言模型2023年12月更新： docker搭建国内可用GPT网页项目ChatGPT Next 打开试用ChatGPT Next 或拉到最下方的 ‘预览’">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-06-08T02:16:00.000Z">
-<meta property="article:modified_time" content="2023-12-06T12:38:10.933Z">
+<meta property="article:modified_time" content="2023-12-27T08:29:18.040Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="docker">
@@ -127,7 +127,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8ChatGPT-AI%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">如何快速使用ChatGPT AI语言模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">_</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">3.</span> <span class="nav-text">大语言模型的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%98"><span class="nav-number">4.</span> <span class="nav-text">大语言模型面临的挑战</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AI%E7%94%BB%E5%9B%BE%EF%BC%8CStable-Diffusion"><span class="nav-number"></span> <span class="nav-text">AI画图，Stable Diffusion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker%E6%90%AD%E5%BB%BA%E5%9B%BD%E5%86%85%E5%8F%AF%E7%94%A8GPT%E7%BD%91%E9%A1%B5%E9%A1%B9%E7%9B%AEChatGPT-Next"><span class="nav-number"></span> <span class="nav-text">docker搭建国内可用GPT网页项目ChatGPT Next</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%9F%E8%B0%A2%E5%88%97%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">感谢列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96ChatGPT%E7%9A%84api-key"><span class="nav-number">2.</span> <span class="nav-text">获取ChatGPT的api key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8API%E7%9A%84%E6%96%B9%E5%BC%8F%E4%BD%BF%E7%94%A8ChatGPT3-5"><span class="nav-number">3.</span> <span class="nav-text">如何使用API的方式使用ChatGPT3.5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">怎么用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%84%E8%A7%88"><span class="nav-number"></span> <span class="nav-text">预览</span></a></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E4%BD%BF%E7%94%A8ChatGPT-AI%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">如何快速使用ChatGPT AI语言模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">_</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">3.</span> <span class="nav-text">大语言模型的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%98"><span class="nav-number">4.</span> <span class="nav-text">大语言模型面临的挑战</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AI%E7%94%BB%E5%9B%BE%EF%BC%8CStable-Diffusion"><span class="nav-number"></span> <span class="nav-text">AI画图，Stable Diffusion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker%E6%90%AD%E5%BB%BA%E5%9B%BD%E5%86%85%E5%8F%AF%E7%94%A8GPT%E7%BD%91%E9%A1%B5%E9%A1%B9%E7%9B%AEChatGPT-Next"><span class="nav-number"></span> <span class="nav-text">docker搭建国内可用GPT网页项目ChatGPT Next</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-Update-%E8%AE%A9%E5%AE%B9%E5%99%A8%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF"><span class="nav-number">1.</span> <span class="nav-text">Docker Update 让容器自动重启</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%9F%E8%B0%A2%E5%88%97%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">感谢列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96ChatGPT%E7%9A%84api-key"><span class="nav-number">3.</span> <span class="nav-text">获取ChatGPT的api key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8API%E7%9A%84%E6%96%B9%E5%BC%8F%E4%BD%BF%E7%94%A8ChatGPT3-5"><span class="nav-number">4.</span> <span class="nav-text">如何使用API的方式使用ChatGPT3.5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">怎么用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%84%E8%A7%88"><span class="nav-number"></span> <span class="nav-text">预览</span></a></div>
         </div>
         <!--/noindex-->
 
@@ -191,23 +191,23 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311201654.html" rel="bookmark">
-      Docker搭建自动售货系统-独角数卡
+      <a class="popular-posts-link" href="/202311081003.html" rel="bookmark">
+      实测Docker搭建短链接服务YOURLS
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202303051903.html" rel="bookmark">
-      tor 网络 科学上网
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202103171250.html" rel="bookmark">
-      Global Search file content in Gitlab repositories, search across repositories, search across all files-CarlZeng
+      <a class="popular-posts-link" href="/202311300758.html" rel="bookmark">
+      Docker搭建在线网页代理实践记录
       </a>
     </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
       云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202303051903.html" rel="bookmark">
+      tor 网络 科学上网
       </a>
     </li>
   </ul>
@@ -217,54 +217,56 @@
         </div>
 
     <!-- recent posts -->
+    <div class="pjax">
       <div class="sidebar-inner sidebar-post-related">
             <div class="links-of-blogroll-title recent-posts-title">
           <i class="fa fa-history " aria-hidden="true"></i>
                 最新随笔
         </div>
-        <ul class="links-of-blogroll-list recent-posts-list">
-                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
-                  <a href="/202312271328.html" title="Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由" target="">
+        <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/202312271328.html" title="Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由" target=""  class="popular-posts-link">
                   Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由
                   </a>
                 </li>
-                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
-                  <a href="/202312262315.html" title="加速Docker Pull或者docker-compose拉取镜像 - 适用github源" target="">
+                <li class="popular-posts-item">
+                  <a href="/202312262315.html" title="加速Docker Pull或者docker-compose拉取镜像 - 适用github源" target=""  class="popular-posts-link">
                   加速Docker Pull或者docker-compose拉取镜像 - 适用github源
                   </a>
                 </li>
-                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
-                  <a href="/202312230940.html" title="Docker搭建轻量个人文件分享服务-文件传输自由" target="">
+                <li class="popular-posts-item">
+                  <a href="/202312230940.html" title="Docker搭建轻量个人文件分享服务-文件传输自由" target=""  class="popular-posts-link">
                   Docker搭建轻量个人文件分享服务-文件传输自由
                   </a>
                 </li>
-                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
-                  <a href="/202312210934.html" title="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源" target="">
+                <li class="popular-posts-item">
+                  <a href="/202312210934.html" title="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源" target=""  class="popular-posts-link">
                   联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源
                   </a>
                 </li>
-                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
-                  <a href="/202312180949.html" title="远程协助 国内用ToDesk 国外用RustDesk" target="">
+                <li class="popular-posts-item">
+                  <a href="/202312180949.html" title="远程协助 国内用ToDesk 国外用RustDesk" target=""  class="popular-posts-link">
                   远程协助 国内用ToDesk 国外用RustDesk
                   </a>
                 </li>
-                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
-                  <a href="/202312161121.html" title="Node.js用FlexSearch给Hexo添加极速全站搜索" target="">
+                <li class="popular-posts-item">
+                  <a href="/202312161121.html" title="Node.js用FlexSearch给Hexo添加极速全站搜索" target=""  class="popular-posts-link">
                   Node.js用FlexSearch给Hexo添加极速全站搜索
                   </a>
                 </li>
-                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
-                  <a href="/202312151117.html" title="全网搜-快速搜索页面" target="">
+                <li class="popular-posts-item">
+                  <a href="/202312151117.html" title="全网搜-快速搜索页面" target=""  class="popular-posts-link">
                   全网搜-快速搜索页面
                   </a>
                 </li>
-                <li class="popular-posts-item" style="text-align: left; padding-left: 22px">
-                  <a href="/202312121225.html" title="远程安卓盒子N1安装IPTV APP-远程查看机顶盒屏幕画面等" target="">
+                <li class="popular-posts-item">
+                  <a href="/202312121225.html" title="远程安卓盒子N1安装IPTV APP-远程查看机顶盒屏幕画面等" target=""  class="popular-posts-link">
                   远程安卓盒子N1安装IPTV APP-远程查看机顶盒屏幕画面等
                   </a>
                 </li>
         </ul>
       </div>
+    </div>
 
     <style>
     .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
@@ -403,7 +405,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-06 20:38:10" itemprop="dateModified" datetime="2023-12-06T20:38:10+08:00">2023-12-06</time>
+      <time title="修改时间：2023-12-27 16:29:18" itemprop="dateModified" datetime="2023-12-27T16:29:18+08:00">2023-12-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -543,6 +545,12 @@
 <p>开启防火墙3000端口</p>
 <p>yidadaa&#x2F;chatgpt-next-web <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6MzAwMC8jLw==" rel="noopener external nofollow noreferrer">http://192.168.6.116:3000/#/</a><br>        如果要求要输入API Key之类的auth，直接回车即可！</p>
 <p>NPM反代+shortener: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:3/chat</a></p>
+<h2 id="Docker-Update-让容器自动重启"><a href="#Docker-Update-让容器自动重启" class="headerlink" title="Docker Update 让容器自动重启"></a>Docker Update 让容器自动重启</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker update --restart=always chatgpt-next-web</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h2 id="感谢列表"><a href="#感谢列表" class="headerlink" title="感谢列表"></a>感谢列表</h2><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9wYW5kYTk5NS54eXovbmV0d29yay8zNzcxLmh0bWw=" rel="noopener external nofollow noreferrer"><strong>GPT使用太麻烦？教你如何用NAS搭建一个国内可用GPT网页项目</strong></a></p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL1lpZGFkYWEvQ2hhdEdQVC1OZXh0LVdlYi9ibG9iL21haW4vUkVBRE1FX0NOLm1kIyVFNyU4RSVBRiVFNSVBMiU4MyVFNSU4RiU5OCVFOSU4NyU4Rg==" rel="noopener external nofollow noreferrer">ChatGPT Next Web</a></p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL1lpZGFkYWEvQ2hhdEdQVC1OZXh0LVdlYi90cmVlL21haW4=" rel="noopener external nofollow noreferrer">https://github.com/Yidadaa/ChatGPT-Next-Web/tree/main</a></p>
@@ -618,8 +626,8 @@
 </ul>
 </div>
 
-          <div class="post-nav">
-<div class="post-nav-item">
+          <main class="main">
+<div class="column">
     <div class="pjax">
     <div class="sidebar-inner sidebar-post-related">
       <div class="animated">
@@ -648,23 +656,23 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311201654.html" rel="bookmark">
-      Docker搭建自动售货系统-独角数卡
+      <a class="popular-posts-link" href="/202311081003.html" rel="bookmark">
+      实测Docker搭建短链接服务YOURLS
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202303051903.html" rel="bookmark">
-      tor 网络 科学上网
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202103171250.html" rel="bookmark">
-      Global Search file content in Gitlab repositories, search across repositories, search across all files-CarlZeng
+      <a class="popular-posts-link" href="/202311300758.html" rel="bookmark">
+      Docker搭建在线网页代理实践记录
       </a>
     </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
       云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202303051903.html" rel="bookmark">
+      tor 网络 科学上网
       </a>
     </li>
   </ul>
@@ -674,78 +682,67 @@
     </div>
 </div>
 
-<div class="post-nav-item">
+<div class="column">
+<div class="pjax">
 <!-- recent posts -->
+<div class="animated">
   <div class="sidebar-inner sidebar-post-related">
         <div class="links-of-blogroll-title recent-posts-title">
       <i class="fa fa-history " aria-hidden="true"></i>
             最新随笔
     </div>
-    <ul class="pjax recent-posts-list">
+    <ul class="popular-posts">
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312271328.html" title="Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由" target="">
+              <a href="/202312271328.html" title="Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由" target="" class="popular-posts-link">
               Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312262315.html" title="加速Docker Pull或者docker-compose拉取镜像 - 适用github源" target="">
+              <a href="/202312262315.html" title="加速Docker Pull或者docker-compose拉取镜像 - 适用github源" target="" class="popular-posts-link">
               加速Docker Pull或者docker-compose拉取镜像 - 适用github源
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312230940.html" title="Docker搭建轻量个人文件分享服务-文件传输自由" target="">
+              <a href="/202312230940.html" title="Docker搭建轻量个人文件分享服务-文件传输自由" target="" class="popular-posts-link">
               Docker搭建轻量个人文件分享服务-文件传输自由
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312210934.html" title="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源" target="">
+              <a href="/202312210934.html" title="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源" target="" class="popular-posts-link">
               联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312180949.html" title="远程协助 国内用ToDesk 国外用RustDesk" target="">
+              <a href="/202312180949.html" title="远程协助 国内用ToDesk 国外用RustDesk" target="" class="popular-posts-link">
               远程协助 国内用ToDesk 国外用RustDesk
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312161121.html" title="Node.js用FlexSearch给Hexo添加极速全站搜索" target="">
+              <a href="/202312161121.html" title="Node.js用FlexSearch给Hexo添加极速全站搜索" target="" class="popular-posts-link">
               Node.js用FlexSearch给Hexo添加极速全站搜索
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312151117.html" title="全网搜-快速搜索页面" target="">
+              <a href="/202312151117.html" title="全网搜-快速搜索页面" target="" class="popular-posts-link">
               全网搜-快速搜索页面
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312121225.html" title="远程安卓盒子N1安装IPTV APP-远程查看机顶盒屏幕画面等" target="">
+              <a href="/202312121225.html" title="远程安卓盒子N1安装IPTV APP-远程查看机顶盒屏幕画面等" target="" class="popular-posts-link">
               远程安卓盒子N1安装IPTV APP-远程查看机顶盒屏幕画面等
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312111310.html" title="电视节目资源 - 实测联通移动IPTV组播转单播方案" target="">
+              <a href="/202312111310.html" title="电视节目资源 - 实测联通移动IPTV组播转单播方案" target="" class="popular-posts-link">
               电视节目资源 - 实测联通移动IPTV组播转单播方案
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312101405.html" title="Hexo之相关内容CORS跨域实现方案" target="">
-              Hexo之相关内容CORS跨域实现方案
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312090910.html" title="网络影视资源 - Emby家庭媒体服务 - IPTV m3u播放器" target="">
-              网络影视资源 - Emby家庭媒体服务 - IPTV m3u播放器
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312081128.html" title="M3U8播放器" target="">
-              M3U8播放器
               </a>
             </li>
     </ul>
   </div>
+  </div>
 </div>
 </div>
+</main>
 
 
 <div class="followme">
@@ -828,7 +825,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-12-06 20:38:10" itemprop="dateModified" datetime="2023-12-06T20:38:10+08:00">2023-12-06</time>
+        <time title="修改时间：2023-12-27 16:29:18" itemprop="dateModified" datetime="2023-12-27T16:29:18+08:00">2023-12-27</time>
       </span>
 
 </div>
