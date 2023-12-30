@@ -5,38 +5,38 @@
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/en/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/en/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/en/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/en/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/en/css/main.css">
 
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/en/","images":"/en/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/en/js/config.js"></script>
 
-    <meta name="description" content="URL缩短服务。可以让你在自己的服务器上运行的URL缩短服务URL简化可以完全控制自己的数据，包括简单的统计、分析和许多插件">
+    <meta name="description" content="A service for shortening URLs, allowing you to operate a URL shortening service on your own server. It provides complete control over your data, including simple statistics, analysis, and numerous plu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实测Docker搭建短链接服务YOURLS">
+<meta property="og:title" content="Practice Test - Docker Deployment of URL Shortening Service YOURLS">
 <meta property="og:url" content="https://www.carlzeng.top/en/202311081003.html">
 <meta property="og:site_name" content="Carl Notes">
-<meta property="og:description" content="URL缩短服务。可以让你在自己的服务器上运行的URL缩短服务URL简化可以完全控制自己的数据，包括简单的统计、分析和许多插件">
+<meta property="og:description" content="A service for shortening URLs, allowing you to operate a URL shortening service on your own server. It provides complete control over your data, including simple statistics, analysis, and numerous plu">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/da92cf63-633f-4527-800e-0c6360c55eac/hQ1AvljDYWbfCVIJtDV8YmhOlX9tUiGxUde88Fthy09LJZmfcf5yPozqCw/deep/0/image.png">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/9cdd27f6-a8d0-42eb-8b74-72c3635ffb2b/CkXm5XGWidMRJSsB7i3iEiczTZiTUNFkt5n6EKNcq98jQLOqQjDPsshZfg/deep/0/image.png">
 <meta property="article:published_time" content="2023-11-08T02:03:29.000Z">
-<meta property="article:modified_time" content="2023-12-16T06:54:54.458Z">
+<meta property="article:modified_time" content="2023-12-30T13:53:02.598Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="debian">
-<meta property="article:tag" content="docker-compose">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="NPM">
-<meta property="article:tag" content="短链接">
+<meta property="article:tag" content="docker-compose">
+<meta property="article:tag" content="URL Shortening">
 <meta property="article:tag" content="YOURLS">
-<meta property="article:tag" content="URL缩短">
+<meta property="article:tag" content="Link Shortening">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.evernote.com/shard/s122/sh/da92cf63-633f-4527-800e-0c6360c55eac/hQ1AvljDYWbfCVIJtDV8YmhOlX9tUiGxUde88Fthy09LJZmfcf5yPozqCw/deep/0/image.png">
 
@@ -45,10 +45,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/en/202311081003.html","path":"202311081003.html","title":"实测Docker搭建短链接服务YOURLS"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/en/202311081003.html","path":"202311081003.html","title":"Practice Test - Docker Deployment of URL Shortening Service YOURLS"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>实测Docker搭建短链接服务YOURLS | Carl Notes</title>
+<title>Practice Test - Docker Deployment of URL Shortening Service YOURLS | Carl Notes</title>
   
 
 
@@ -59,10 +59,10 @@
 
 <link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
   <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
+    <link rel="stylesheet" href="/en/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="Carl Notes" type="application/atom+xml">
-<link rel="alternate" href="/rss2.xml" title="Carl Notes" type="application/rss+xml">
+<link rel="alternate" href="/en/atom.xml" title="Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/en/rss2.xml" title="Carl Notes" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -81,7 +81,7 @@
 
   <div class="site-meta">
 
-    <a href="/" class="brand" rel="start">
+    <a href="/en/" class="brand" rel="start">
       <i class="logo-line"></i>
       <p class="site-title">Carl Notes</p>
       <i class="logo-line"></i>
@@ -98,7 +98,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">174</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">44</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">326</span></a></li><li class="menu-item menu-item-chatgpt"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>ChatGPT</a></li><li class="menu-item menu-item-proxy"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>Proxy</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-firefox"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Firefox</a></li><li class="menu-item menu-item-emby-iptv"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Emby IPTV</a></li><li class="menu-item menu-item-file-share"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>File Share</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">186</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">44</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">326</span></a></li><li class="menu-item menu-item-chatgpt"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>ChatGPT</a></li><li class="menu-item menu-item-proxy"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>Proxy</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-firefox"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Firefox</a></li><li class="menu-item menu-item-emby-iptv"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Emby IPTV</a></li><li class="menu-item menu-item-file-share"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>File Share</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li>
   </ul>
 
     <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
@@ -134,7 +134,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E6%88%90%E7%BD%91%E5%9D%80%E7%BC%A9%E7%9F%AD-url"><span class="nav-number">1.1.</span> <span class="nav-text">现成网址缩短 url</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E5%8F%8A%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0"><span class="nav-number">2.</span> <span class="nav-text">实现方法及过程笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">图文教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B-%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.2.</span> <span class="nav-text">过程+遇到的问题及解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85QR-Code%E6%8F%92%E4%BB%B6"><span class="nav-number">2.3.</span> <span class="nav-text">安装QR Code插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">灵感来源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-yours-mysql%E4%B8%8D%E6%96%AD%E9%87%8D%E5%90%AF%E7%9A%84"><span class="nav-number">3.1.</span> <span class="nav-text">Docker yours_mysql不断重启的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E4%B8%80%E6%9D%A1%E9%93%BE%E6%8E%A5%E5%AF%B9%E5%BA%94%E5%A4%9A%E4%B8%AA%E7%9F%AD%E9%93%BE%E6%8E%A5"><span class="nav-number">3.2.</span> <span class="nav-text">同一条链接对应多个短链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8"><span class="nav-number">3.3.</span> <span class="nav-text">新增其他功能列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next-TODO"><span class="nav-number">3.4.</span> <span class="nav-text">Next TODO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#yourls-geoip-update"><span class="nav-number">3.4.1.</span> <span class="nav-text">yourls-geoip-update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Yourls%E7%9A%84%E4%BC%98%E7%82%B9"><span class="nav-number">3.4.2.</span> <span class="nav-text">Yourls的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Yourls%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="nav-number">3.4.3.</span> <span class="nav-text">Yourls的缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker%E5%AE%89%E8%A3%85X-UI"><span class="nav-number">4.</span> <span class="nav-text">Docker安装X-UI</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Purpose"><span class="nav-number">1.</span> <span class="nav-text">Purpose</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Existing-URL-Shortening-Resources"><span class="nav-number">1.1.</span> <span class="nav-text">Existing URL Shortening Resources</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Implementation-Details-and-Process-Notes"><span class="nav-number">2.</span> <span class="nav-text">Implementation Details and Process Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Visual-Guide"><span class="nav-number">2.1.</span> <span class="nav-text">Visual Guide</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Process-Issues-Encountered-and-Solutions"><span class="nav-number">2.2.</span> <span class="nav-text">Process, Issues Encountered, and Solutions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next-Steps"><span class="nav-number">2.3.</span> <span class="nav-text">Next Steps</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#yourls-geoip-update"><span class="nav-number">2.3.1.</span> <span class="nav-text">yourls-geoip-update</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Advantages-and-Disadvantages"><span class="nav-number">2.4.</span> <span class="nav-text">Advantages and Disadvantages</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Advantages-of-Yourls"><span class="nav-number">2.4.1.</span> <span class="nav-text">Advantages of Yourls</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Disadvantages-of-Yourls"><span class="nav-number">2.4.2.</span> <span class="nav-text">Disadvantages of Yourls</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-Installation-of-X-UI"><span class="nav-number">3.</span> <span class="nav-text">Docker Installation of X-UI</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -146,19 +146,19 @@
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        <a href="/archives/">
+        <a href="/en/archives/">
           <span class="site-state-item-count">326</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-          <a href="/categories/">
+          <a href="/en/categories/">
         <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">174</span>
+          <a href="/en/tags/">
+        <span class="site-state-item-count">186</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -178,28 +178,28 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
-      Nginx Proxy Manager修复笔记
+      <a class="popular-posts-link" href="/en/202312262315.html" rel="bookmark">
+      
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312011625.html" rel="bookmark">
-      Docker搭建站点统计程序Matomo
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310261222.html" rel="bookmark">
-      Hexo定制之家宽部署artalk评论
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202304131736.html" rel="bookmark">
-      动态公网IP 和 SRS-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200810011925.html" rel="bookmark">
+      <a class="popular-posts-link" href="/en/200810011925.html" rel="bookmark">
       jseclipse_plugin_040207.zip-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/200809301259.html" rel="bookmark">
+      jseclipse_plugin_040207.zip-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202310080855.html" rel="bookmark">
+      Node.js Development Environment and Application Examples
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202312011625.html" rel="bookmark">
+      Docker搭建站点统计程序Matomo
       </a>
     </li>
   </ul>
@@ -217,27 +217,27 @@
         </div>
         <ul class="popular-posts">
                 <li class="popular-posts-item">
-                  <a href="/202312271328.html" title="Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由" target=""  class="popular-posts-link">
+                  <a href="/en/202312271328.html" title="Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由" target=""  class="popular-posts-link">
                   Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/202312262315.html" title="加速Docker Pull或者docker-compose拉取镜像 - 适用github源" target=""  class="popular-posts-link">
-                  加速Docker Pull或者docker-compose拉取镜像 - 适用github源
+                  <a href="/en/202312262315.html" title="" target=""  class="popular-posts-link">
+                  
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/202312230940.html" title="Docker搭建轻量个人文件分享服务-文件传输自由" target=""  class="popular-posts-link">
+                  <a href="/en/202312230940.html" title="Docker搭建轻量个人文件分享服务-文件传输自由" target=""  class="popular-posts-link">
                   Docker搭建轻量个人文件分享服务-文件传输自由
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/202312210934.html" title="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源" target=""  class="popular-posts-link">
+                  <a href="/en/202312210934.html" title="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源" target=""  class="popular-posts-link">
                   联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/202312180949.html" title="远程协助 国内用ToDesk 国外用RustDesk" target=""  class="popular-posts-link">
+                  <a href="/en/202312180949.html" title="远程协助 国内用ToDesk 国外用RustDesk" target=""  class="popular-posts-link">
                   远程协助 国内用ToDesk 国外用RustDesk
                   </a>
                 </li>
@@ -357,7 +357,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202311081003.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/en/images/avatar.gif">
       <meta itemprop="name" content="Carl Notes">
     </span>
 
@@ -367,12 +367,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="实测Docker搭建短链接服务YOURLS | Carl Notes">
+      <meta itemprop="name" content="Practice Test - Docker Deployment of URL Shortening Service YOURLS | Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          实测Docker搭建短链接服务YOURLS
+          Practice Test - Docker Deployment of URL Shortening Service YOURLS
         </h1>
 
         <div class="post-meta-container">
@@ -382,7 +382,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-16 14:54:54" itemprop="dateModified" datetime="2023-12-16T14:54:54+08:00">2023-12-16</time>
+      <time title="Modified: 2023-12-30 21:53:02" itemprop="dateModified" datetime="2023-12-30T21:53:02+08:00">2023-12-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -390,7 +390,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+          <a href="/en/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
         </span>
     </span>
 
@@ -401,7 +401,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/202311081003.html" ></span>
+            <span id="ArtalkPV" data-page-key="/en/202311081003.html" ></span>
           </span>
         
       
@@ -422,102 +422,75 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://www.evernote.com/shard/s122/sh/da92cf63-633f-4527-800e-0c6360c55eac/hQ1AvljDYWbfCVIJtDV8YmhOlX9tUiGxUde88Fthy09LJZmfcf5yPozqCw/deep/0/image.png">
-
-<p>URL缩短服务。可以让你在自己的服务器上运行的URL缩短服务<br>URL简化可以完全控制自己的数据，包括简单的统计、分析和许多<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL1lPVVJMUy9hd2Vzb21lI3BsdWdpbnM=" rel="noopener external nofollow noreferrer">插件</a></p>
+    <div class="post-body" itemprop="articleBody"><p>A service for shortening URLs, allowing you to operate a URL shortening service on your own server. It provides complete control over your data, including simple statistics, analysis, and numerous <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL1lPVVJMUy9hd2Vzb21lI3BsdWdpbnM=" rel="noopener external nofollow noreferrer">plugins</a>.</p>
 <span id="more"></span>
 
-<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>URL缩短服务。可以让你在自己的服务器上运行的URL缩短服务<br>URL简化, 还可以完全控制自己的数据，包括统计、分析、还可以安装一些插件。<br>发布clash的url链接，进行管理 【done yourls setup】</p>
-<p>网上现成的其他方案，有的弊端很明显（有的进行隐藏式特殊的跳转）</p>
-<h2 id="现成网址缩短-url"><a href="#现成网址缩短-url" class="headerlink" title="现成网址缩短 url"></a>现成网址缩短 url</h2><p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuc2luYS5sdC8=" rel="noopener external nofollow noreferrer">短网址</a><br>      <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly90LmhrLnV5L2I1a2c=" rel="noopener external nofollow noreferrer">https://t.hk.uy/b5kg</a><br>      <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9uZXRsaWZ5LmNhcmx6ZW5nLnRvcC8=" rel="noopener external nofollow noreferrer">https://netlify.carlzeng.top</a> 暂不支持您输入的域名(后缀)。<br>      使用这个网址来缩短： <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcC8=" rel="noopener external nofollow noreferrer">https://sage-halva-bac054.netlify.app</a><br>      <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly90LmhrLnV5L2I2cXk=" rel="noopener external nofollow noreferrer">https://t.hk.uy/b6qy</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9nb28uc3UvbGFuZy96aA==" rel="noopener external nofollow noreferrer">轻松缩短链接</a><br>      <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9nb28uc3UvQndSYUUxVA==" rel="noopener external nofollow noreferrer">https://goo.su/BwRaE1T</a><br>      <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9nb28uc3UvcHJUQTVUNQ==" rel="noopener external nofollow noreferrer">https://goo.su/prTA5T5</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuaWZyZWVzaXRlLmNvbS9zaG9ydHVybC8=" rel="noopener external nofollow noreferrer">縮短網址產生器</a><br>      <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly90aW55dXJsLmNvbS95dXJnaDJmbQ==" rel="noopener external nofollow noreferrer">https://tinyurl.com/yurgh2fm</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuZHd6LmxjLw==" rel="noopener external nofollow noreferrer">老牌免费短网址工具</a><br>      <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3M4dS5jbi9ISUc3bw==" rel="noopener external nofollow noreferrer">http://s8u.cn/HIG7o</a><br>      优美，但无法接受：先跳转到一个链接以后，在恢复原始网址。</p>
-<p>转变思路：<br>      还是用自己的域名做Nname更短，<br>自己搭建一个短网址服务；短链接服务</p>
-<h1 id="实现方法及过程笔记"><a href="#实现方法及过程笔记" class="headerlink" title="实现方法及过程笔记"></a>实现方法及过程笔记</h1><h2 id="图文教程"><a href="#图文教程" class="headerlink" title="图文教程"></a>图文教程</h2><p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9pd2FubGFiLmNvbS9kb2NrZXItY29tcG9zZS1pbnN0YWxsLXlvdXJscy8=" rel="noopener external nofollow noreferrer">【好玩儿的Docker项目】10分钟搭建一个自己的短链接服务——YOURLS</a><br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuaGVsbG9zYW50YS5jb20udHcva25vd2xlZGdlL2NhdGVnb3J5LTM4L3Bvc3QtMjE5" rel="noopener external nofollow noreferrer">【伺服器】如何使用Docker自架私有短網址YOURLS服務</a></p>
-<h2 id="过程-遇到的问题及解决方案"><a href="#过程-遇到的问题及解决方案" class="headerlink" title="过程+遇到的问题及解决方案"></a>过程+遇到的问题及解决方案</h2><p>bt 中新建docker-compose模版，<br>          docker-compose -f yours.yml up<br>          然后防火墙开放8200</p>
-<pre><code>      添加了一条防火墙规则后，无法连接bt面板了；
-</code></pre>
-<p>自己搭建一个短网址服务；短链接服务<br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9ibG9nLmxhb2RhLmRlL2FyY2hpdmVzL2RvY2tlci1jb21wb3NlLWluc3RhbGwteW91cmxzL2luZGV4Lmh0bWw=" rel="noopener external nofollow noreferrer">https://blog.laoda.de/archives/docker-compose-install-yourls/index.html</a><br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1wejNYWkdfUVotVQ==" rel="noopener external nofollow noreferrer">https://www.youtube.com/watch?v=pz3XZG_QZ-U</a><br>  旧版<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vQ3lMZWUvcC8xNjE1MjY3My5odG1s" rel="noopener external nofollow noreferrer">https://www.cnblogs.com/CyLee/p/16152673.html</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3.5&quot;</span><br><span class="line">services:</span><br><span class="line"></span><br><span class="line">  mysql:</span><br><span class="line">    image: mysql:5.7.42   # 如果遇到不正确的数据库配置，或无法连接到数据库PDOException: SQLSTATE[HY000] [1045] 用户&#x27;yourls&#x27;@&#x27;yourls_service.yourls_default&#x27;的访问被拒绝（使用密码：是）   可以把5.7.22 改为 5.7</span><br><span class="line">    environment:</span><br><span class="line">      - MYSQL_ROOT_PASSWORD=my-secret-pw</span><br><span class="line">      - MYSQL_DATABASE=yourls</span><br><span class="line">      - MYSQL_USER=yourls</span><br><span class="line">      - MYSQL_PASSWORD=yourls</span><br><span class="line">    volumes:</span><br><span class="line">      - ./mysql/db/:/var/lib/mysql</span><br><span class="line">      - ./mysql/conf/:/etc/mysql/conf # 此处要注意，原教程作者就是多了一个.d字符（估计是debian下的tab自动输入导致），花了半小时才脑补后排查成功</span><br><span class="line">    restart: always</span><br><span class="line">    container_name: yourls_mysql #是的这样命名可以避免docker多了以后，名字重复的问题；还一目了然</span><br><span class="line">  </span><br><span class="line">  yourls:</span><br><span class="line">    image: yourls</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;8200:80&quot;</span><br><span class="line">    environment:</span><br><span class="line">      YOURLS_DB_HOST: mysql</span><br><span class="line">      YOURLS_DB_USER: admin</span><br><span class="line">      YOURLS_DB_PASS: admin</span><br><span class="line">      YOURLS_DB_NAME: yourls</span><br><span class="line">      YOURLS_USER: admin      # 自己起一个名字</span><br><span class="line">      YOURLS_PASS: 123admin@@      # 自己换一个登陆密码</span><br><span class="line">      YOURLS_SITE: https://c.carlzeng.top:4443  # 换成你自己的域名，然后让Nginx Proxy Manager指向这个地址</span><br><span class="line">      YOURLS_HOURS_OFFSET: 8</span><br><span class="line">    volumes:</span><br><span class="line">      - ./yourls_data/:/var/www/html   </span><br><span class="line">    container_name: yourls_service</span><br><span class="line">    links:</span><br><span class="line">      - mysql:mysql</span><br></pre></td></tr></table></figure>
+<div class="note success"><p>December 30, 2023: Escaping the clutches of the MySQL database, embracing its branch, MariaDB.</p>
+<p>Reason: In the event of an unexpected power failure, MySQL reported errors when Docker was started, which could not be resolved. In comparison, MariaDB provides a better solution.</p>
+</div>
 
-<p>报错误：</p>
+<img class="lozad" data-src="https://www.evernote.com/shard/s122/sh/da92cf63-633f-4527-800e-0c6360c55eac/hQ1AvljDYWbfCVIJtDV8YmhOlX9tUiGxUde88Fthy09LJZmfcf5yPozqCw/deep/0/image.png">
+
+<h1 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h1><p>This is a URL shortening service that enables you to run a URL shortening service on your own server. Its features include complete control over your data, including statistics, analysis, and the ability to install various plugins. It also allows for the management of links related to Clash.</p>
+<p>Existing online URL shortening solutions often come with obvious drawbacks, some of which involve hidden and specific redirections.</p>
+<h2 id="Existing-URL-Shortening-Resources"><a href="#Existing-URL-Shortening-Resources" class="headerlink" title="Existing URL Shortening Resources"></a>Existing URL Shortening Resources</h2><p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuc2luYS5sdC8=" rel="noopener external nofollow noreferrer">Short Links</a><br>- <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly90LmhrLnV5L2I1a2c=" rel="noopener external nofollow noreferrer">https://t.hk.uy/b5kg</a><br>- <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9uZXRsaWZ5LmNhcmx6ZW5nLnRvcC8=" rel="noopener external nofollow noreferrer">https://netlify.carlzeng.top</a> currently does not support the domain name you entered. Use this URL to shorten: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcC8=" rel="noopener external nofollow noreferrer">https://sage-halva-bac054.netlify.app</a><br>- <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly90LmhrLnV5L2I2cXk=" rel="noopener external nofollow noreferrer">https://t.hk.uy/b6qy</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9nb28uc3UvbGFuZy96aA==" rel="noopener external nofollow noreferrer">Easily Shorten Links</a><br>- <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9nb28uc3UvQndSYUUxVA==" rel="noopener external nofollow noreferrer">https://goo.su/BwRaE1T</a><br>- <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9nb28uc3UvcHJUQTVUNQ==" rel="noopener external nofollow noreferrer">https://goo.su/prTA5T5</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuaWZyZWVzaXRlLmNvbS9zaG9ydHVybC8=" rel="noopener external nofollow noreferrer">URL Shortener</a><br>- <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly90aW55dXJsLmNvbS95dXJnaDJmbQ==" rel="noopener external nofollow noreferrer">https://tinyurl.com/yurgh2fm</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuZHd6LmxjLw==" rel="noopener external nofollow noreferrer">Traditional Free URL Shortening Tool</a><br>- <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3M4dS5jbi9ISUc3bw==" rel="noopener external nofollow noreferrer">http://s8u.cn/HIG7o</a><br>- Elegant, but unable to accept: first redirects to a link, then restores the original URL.</p>
+<p>Change of Perspective:<br>Use your own domain name for shorter ‘Nname’;<br>Setting up your own URL shortening service</p>
+<h1 id="Implementation-Details-and-Process-Notes"><a href="#Implementation-Details-and-Process-Notes" class="headerlink" title="Implementation Details and Process Notes"></a>Implementation Details and Process Notes</h1><h2 id="Visual-Guide"><a href="#Visual-Guide" class="headerlink" title="Visual Guide"></a>Visual Guide</h2><p>[Fun Docker Project] Setting up your own URL Shortening Service—YOURLS in 10 minutes](<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9pd2FubGFiLmNvbS9kb2NrZXItY29tcG9zZS1pbnN0YWxsLXlvdXJscy8=" rel="noopener external nofollow noreferrer">https://iwanlab.com/docker-compose-install-yourls/</a>)<br>[Server] How to Set Up Your Own Private Short URL Service Using Docker](<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuaGVsbG9zYW50YS5jb20udHcva25vd2xlZGdlL2NhdGVnb3J5LTM4L3Bvc3QtMjE5" rel="noopener external nofollow noreferrer">https://www.hellosanta.com.tw/knowledge/category-38/post-219</a>)</p>
+<h2 id="Process-Issues-Encountered-and-Solutions"><a href="#Process-Issues-Encountered-and-Solutions" class="headerlink" title="Process, Issues Encountered, and Solutions"></a>Process, Issues Encountered, and Solutions</h2><p>In the ‘bt’ directory, a docker-compose template was created,<br><code>docker-compose -f yours.yml up</code><br>Then, a firewall rule was added to allow traffic through port 8200</p>
+<p>After adding a firewall rule, it was impossible to connect to the ‘bt’ panel</p>
+<p>Setting up your own URL shortening service</p>
+<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vQ3lMZWUvcC8xNjE1MjY3My5odG1s" rel="noopener external nofollow noreferrer">Old Version</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3.5&quot;</span><br><span class="line">services:</span><br><span class="line"></span><br><span class="line">  mysql:</span><br><span class="line">    image: mysql:5.7.42   # If incorrect database configuration occurs, or there is a failure to connect to the database with the message: &quot;PDOException: SQLSTATE[HY000] [1045] Access denied for user &#x27;yourls&#x27;@&#x27;yourls_service.yourls_default&#x27; (using password: YES)&quot;, changing 5.7.22 to 5.7 may resolve it</span><br><span class="line">    environment:</span><br><span class="line">      - MYSQL_ROOT_PASSWORD=my-secret-pw</span><br><span class="line">      - MYSQL_DATABASE=yourls</span><br><span class="line">      - MYSQL_USER=yourls</span><br><span class="line">      - MYSQL_PASSWORD=yourls</span><br><span class="line">    volumes:</span><br><span class="line">      - ./mysql/db/:/var/lib/mysql</span><br><span class="line">      - ./mysql/conf/:/etc/mysql/conf.d # Caution: It is important to note that the original author added a &quot;.d&quot; character (probably due to automatic tab input in debian), which caused troubleshooting effort for half an hour before successful resolution</span><br><span class="line">    restart: always</span><br><span class="line">    container_name: yourls_mysql # This naming convention helps avoid problems with duplicate names when there are multiple Docker instances, and it provides clear documentation</span><br><span class="line">  </span><br><span class="line">  yourls:</span><br><span class="line">    image: yourls</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;8200:80&quot;</span><br><span class="line">    environment:</span><br><span class="line">      YOURLS_DB_HOST: mysql</span><br><span class="line">      YOURLS_DB_USER: admin</span><br><span class="line">      YOURLS_DB_PASS: admin</span><br><span class="line">      YOURLS_DB_NAME: yourls</span><br><span class="line">      YOURLS_USER: admin      # Choose your own username</span><br><span class="line">      YOURLS_PASS: 123admin@@      # Choose your own login password</span><br><span class="line">      YOURLS_SITE: https://c.carlzeng.top:4443  # Replace with your own domain and ensure that Nginx Proxy Manager points to this address</span><br><span class="line">      YOURLS_HOURS_OFFSET: 8</span><br><span class="line">    volumes:</span><br><span class="line">      - ./yourls_data/:/var/www/html   </span><br><span class="line">    container_name: yourls_service</span><br><span class="line">    links:</span><br><span class="line">      - mysql:mysql</span><br></pre></td></tr></table></figure>
+
+<p>Reported Error:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">yours_mysql     | 2023-11-07 13:33:44+00:00 [Note] [Entrypoint]: Switching to dedicated user &#x27;mysql&#x27;</span><br><span class="line">yours_mysql     | 2023-11-07 13:33:44+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 5.7.44-1.el7 started.</span><br><span class="line">yours_mysql     | 2023-11-07 13:33:44+00:00 [ERROR] [Entrypoint]: mysqld failed while attempting to check config</span><br><span class="line">yours_mysql     |       command was: mysqld --verbose --help --log-bin-index=/tmp/tmp.5snRuPe4br</span><br><span class="line">yours_mysql     |       mysqld: Can&#x27;t read dir of &#x27;/etc/mysql/conf.d/&#x27; (Errcode: 13 - Permission denied)</span><br><span class="line">yours_mysql     | mysqld: [ERROR] Fatal error in defaults handling. Program aborted!</span><br><span class="line">yours_mysql exited with code 1</span><br><span class="line">yours_mysql     | 2023-11-07 13:33:57+00:00 [Note] [Entrypoint]: Switching to dedicated user &#x27;mysql&#x27;</span><br><span class="line">yours_mysql     | 2023-11-07 13:33:57+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 5.7.44-1.el7 started.</span><br><span class="line">yours_mysql     | 2023-11-07 13:33:57+00:00 [ERROR] [Entrypoint]: mysqld failed while attempting to check config</span><br><span class="line">yours_mysql     |       command was: mysqld --verbose --help --log-bin-index=/tmp/tmp.atOD1yOw77</span><br><span class="line">yours_mysql     |       mysqld: Can&#x27;t read dir of &#x27;/etc/mysql/conf.d/&#x27; (Errcode: 13 - Permission denied)</span><br><span class="line">yours_mysql     | mysqld: [ERROR] Fatal error in defaults handling. Program aborted!</span><br></pre></td></tr></table></figure>
 
-<p>成功了，原来是sql的 docker-compose，映射，写错了，<br>          - .&#x2F;mysql&#x2F;conf&#x2F;:&#x2F;etc&#x2F;mysql&#x2F;conf.d<br>          应该是：<br>          - .&#x2F;mysql&#x2F;conf&#x2F;:&#x2F;etc&#x2F;mysql&#x2F;conf</p>
-<h2 id="安装QR-Code插件"><a href="#安装QR-Code插件" class="headerlink" title="安装QR Code插件"></a>安装QR Code插件</h2><p>过程非常简单：<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly95b3VybHMub3JnL2RvY3MvZGV2ZWxvcG1lbnQvZXhhbXBsZXMvcXJjb2Rl" rel="noopener external nofollow noreferrer">https://yourls.org/docs/development/examples/qrcode</a></p>
-<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><div class="tabs" id="来源"><ul class="nav-tabs"><li class="tab active"><a href="#来源-1">来源 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="来源-1"><p>Yourls项目地址：<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL1lPVVJMUy9ZT1VSTFM=" rel="noopener external nofollow noreferrer">https://github.com/YOURLS/YOURLS</a><br>旧版本docker说明（实践后无法使用）：<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS9fL3lvdXJscz90YWI9ZGVzY3JpcHRpb24=" rel="noopener external nofollow noreferrer">https://hub.docker.com/_/yourls?tab=description</a><br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9pd2FubGFiLmNvbS9kb2NrZXItY29tcG9zZS1pbnN0YWxsLXlvdXJscy8=" rel="noopener external nofollow noreferrer">https://iwanlab.com/docker-compose-install-yourls/</a><br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9ibG9nLmxhb2RhLmRlL2FyY2hpdmVzL3lvdXJscy1idWlsZGluZy8=" rel="noopener external nofollow noreferrer">https://blog.laoda.de/archives/yourls-building/</a><br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuaGVsbG9zYW50YS5jb20udHcva25vd2xlZGdlL2NhdGVnb3J5LTM4L3Bvc3QtMjE5" rel="noopener external nofollow noreferrer">https://www.hellosanta.com.tw/knowledge/category-38/post-219</a></p></div></div></div>
-
-<h2 id="Docker-yours-mysql不断重启的"><a href="#Docker-yours-mysql不断重启的" class="headerlink" title="Docker yours_mysql不断重启的"></a>Docker yours_mysql不断重启的</h2><p>yours_mysql，查看日志：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">2023-11-19 11:58:34+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 5.7.44-1.el7 started.</span><br><span class="line">2023-11-19 11:58:34+00:00 [Note] [Entrypoint]: Switching to dedicated user &#x27;mysql&#x27;</span><br><span class="line">2023-11-19 11:58:34+00:00 [Note] [Entrypoint]: Entrypoint script for MySQL Server 5.7.44-1.el7 started.</span><br><span class="line">2023-11-19 11:58:34+00:00 [Note] [Entrypoint]: Initializing database files</span><br><span class="line">2023-11-19T11:58:34.668526Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).</span><br><span class="line">2023-11-19T11:58:34.671001Z 0 [ERROR] --initialize specified but the data directory has files in it. Aborting.</span><br><span class="line">2023-11-19T11:58:34.671049Z 0 [ERROR] Aborting</span><br></pre></td></tr></table></figure>
-
-<p>安装目录：cd &#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;yourls_service&#x2F;template</p>
-<p>发现是mysql 的冲突了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    docker update --restart=no mysql</span><br><span class="line">    docker stop mysql</span><br><span class="line"></span><br><span class="line">    docker stop php nginx redis</span><br><span class="line"></span><br><span class="line">#先关闭</span><br><span class="line">docker-compose -f &#x27;yourls_service.yaml&#x27; down</span><br><span class="line">#再开启</span><br><span class="line">docker-compose -f &#x27;yourls_service.yaml&#x27; up</span><br></pre></td></tr></table></figure>
-
-<p>docker exec -it yourls_mysql &#x2F;bin&#x2F;bash<br>无法进入。</p>
-<p>the issue is about the volume.<br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1wRlFDMkY4U1JhZw==" rel="noopener external nofollow noreferrer">https://www.youtube.com/watch?v=pFQC2F8SRag</a></p>
-<ol>
-<li>docker info<br>Docker Root Dir: &#x2F;var&#x2F;lib&#x2F;docker</li>
-<li>cd &#x2F;var&#x2F;lib&#x2F;docker</li>
-<li>cd volumes&#x2F;</li>
-<li>ls<br> backingFsBlockDev  metadata.db<br> 没有发现视频中说的额外的volume，也就无从删除</li>
-</ol>
-<p>20231120 无法解决[已解决]；直接更换docker的映射目录，全部重装。数据丢失（包含缩短网址的数据和访问统计数据）。<br>这样配置的端地址的列表，要支持导出（或备份）；在特殊情况下，直接全部重来（更省时）</p>
-<p>完成的方案是：使用<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL0dhdXRhbUd1cHRhL1lPVVJMUy1JbXBvcnQtRXhwb3J0" rel="noopener external nofollow noreferrer">GautamGupta&#x2F;YOURLS-Import-Export</a>插件即可轻松实现导出和导入功能<br>详细的安装步骤为</p>
+<p>Resolved on 20231229[Resolved]: Updated the mapping directory for MySQL docker; reinstalled everything. Data Loss (including the shortened link data and access statistics data).</p>
+<p>The completed solution is to use the <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL0dhdXRhbUd1cHRhL1lPVVJMUy1JbXBvcnQtRXhwb3J0" rel="noopener external nofollow noreferrer">GautamGupta&#x2F;YOURLS-Import-Export</a> plugin for effortless export and import functionality.</p>
+<p>Detailed installation steps:</p>
 <ol>
 <li><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL0dhdXRhbUd1cHRhL1lPVVJMUy1JbXBvcnQtRXhwb3J0L3ppcGJhbGwvbWFzdGVy" rel="noopener external nofollow noreferrer">Download the zip</a>.</li>
 <li>Extract the zip.</li>
-<li>Put the YOURLS-Import-Export folder in the user&#x2F;plugins directory.</li>
+<li>Place the YOURLS-Import-Export folder in the user&#x2F;plugins directory.</li>
 <li>Activate the plugin.</li>
-<li>Restart the docker<br> docker-compose -f ‘yourls_service.yaml’ restart</li>
+<li>Restart Docker<br><code>docker-compose -f &#39;yourls_service.yaml&#39; restart</code></li>
 </ol>
-<p>感受：非常好用，比如导出了一个当前的所有链接yourls_export.csv</p>
-<p>衍生阅读：<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL1lPVVJMUy9hd2Vzb21lI3BsdWdpbnM=" rel="noopener external nofollow noreferrer">https://github.com/YOURLS/awesome#plugins</a><br>这个Plugins列表是按英文字母的顺序分类排列的，具体还是在页面上搜索文本来查找所需的功能</p>
-<h2 id="同一条链接对应多个短链接"><a href="#同一条链接对应多个短链接" class="headerlink" title="同一条链接对应多个短链接"></a>同一条链接对应多个短链接</h2><p>同样是在刚刚修改语言的地方…&#x2F;yourls_data&#x2F;user&#x2F;config.php<br>下面一行，把这个改成true就可以了~ （正常应该改成false才对的，感觉是个BUG &#x3D; &#x3D;）</p>
-<img class="lozad" data-src=https://img.laoda.de/i/2022/05/08/ls484i-0.webp>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/** Allow multiple short URLs for a same long URL</span><br><span class="line"> ** Set to true to have only one pair of shortURL/longURL (default YOURLS behavior)</span><br><span class="line"> ** Set to false to allow multiple short URLs pointing to the same long URL (bit.ly behavior) */</span><br><span class="line">define( &#x27;YOURLS_UNIQUE_URLS&#x27;, getenv(&#x27;YOURLS_UNIQUE_URLS&#x27;) === true ?: filter_var(getenv(&#x27;YOURLS_UNIQUE_URLS&#x27;), FILTER_VALIDATE_BOOLEAN) );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">记得重启容器：</span><br><span class="line">docker-compose -f &#x27;yourls_service.yaml&#x27; restart</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="新增其他功能列表"><a href="#新增其他功能列表" class="headerlink" title="新增其他功能列表"></a>新增其他功能列表</h2><p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL01hdHRoZXdDL3lvdXJscy1wYXNzd29yZC1wcm90ZWN0aW9u" rel="noopener external nofollow noreferrer">YOURLS Password Protection</a><br>  <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3lvdXJscw==" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:3/yourls</a></p>
-<h2 id="Next-TODO"><a href="#Next-TODO" class="headerlink" title="Next TODO"></a>Next TODO</h2><p>功能：分析用户的具体属性信息，比如IP地址，GEO地址，类似于statcounter.com那样的详细列表</p>
-<h3 id="yourls-geoip-update"><a href="#yourls-geoip-update" class="headerlink" title="yourls-geoip-update"></a>yourls-geoip-update</h3><p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9taXJyb3IuZ2hwcm94eS5jb20vaHR0cHM6Ly9naXRodWIuY29tL296aC95b3VybHMtZ2VvaXAtdXBkYXRlL2FyY2hpdmUvcmVmcy9oZWFkcy9tYXN0ZXIuemlw" rel="noopener external nofollow noreferrer">https://mirror.ghproxy.com/https://github.com/ozh/yourls-geoip-update/archive/refs/heads/master.zip</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Database not updated.</span><br><span class="line">Error downloading &quot;GeoLite2-Country&quot;. Invalid license key.</span><br></pre></td></tr></table></figure>
-<img class="lozad" data-src="https://www.evernote.com/shard/s122/sh/9cdd27f6-a8d0-42eb-8b74-72c3635ffb2b/CkXm5XGWidMRJSsB7i3iEiczTZiTUNFkt5n6EKNcq98jQLOqQjDPsshZfg/deep/0/image.png">
-尽力了，哪位大神来帮忙纠正一下子？
-
-<p>20231208 尝试在目录下手工更新mmdb数据库文件 .&#x2F;yourls_data20231120&#x2F;includes&#x2F;geo</p>
+<p>Experience: Very user-friendly; for example, the current all-link list can be exported (or backed up). In special situations, starting over from scratch (saving time).</p>
+<p>Derived Readings: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL1lPVVJMUy9hd2Vzb21lI3BsdWdpbnM=" rel="noopener external nofollow noreferrer">Plugins List</a>: This list of plugins is categorized alphabetically and can be searched for specific functionalities directly on the page.</p>
+<h2 id="Next-Steps"><a href="#Next-Steps" class="headerlink" title="Next Steps"></a>Next Steps</h2><p>Feature: Analyze specific user attribute information, such as IP addresses, GEO addresses, similar to the detailed list provided by statcounter.com</p>
+<h3 id="yourls-geoip-update"><a href="#yourls-geoip-update" class="headerlink" title="yourls-geoip-update"></a>yourls-geoip-update</h3><p>Unable to update the database.<br>Error downloading “GeoLite2-Country”. Invalid license key.</p>
+<p><img class="lozad" data-src="https://www.evernote.com/shard/s122/sh/9cdd27f6-a8d0-42eb-8b74-72c3635ffb2b/CkXm5XGWidMRJSsB7i3iEiczTZiTUNFkt5n6EKNcq98jQLOqQjDPsshZfg/deep/0/image.png"> Do your best; can someone correct this for me?</p>
+<p>On 20231216, attempts to update the mmdb database file in the directory .&#x2F;yourls_data20231120&#x2F;includes&#x2F;geo proved ineffective.</p>
 <ol>
-<li>上传GeoLite2-City.mmdb</li>
-<li>复制并覆盖原先的GeoLite2-Country.mmdb</li>
-<li>这样就有两个从原先5.41MB的文件变成了两个最新版64.34MB的文件</li>
-<li>TODO 静观其变</li>
+<li>Uploaded GeoLite2-City.mmdb</li>
+<li>Copied and replaced the original GeoLite2-Country.mmdb</li>
+<li>This resulted in two new 64.34MB files, up from the original 5.41MB files</li>
+<li>Todo: Observe the changes</li>
 </ol>
 <blockquote>
-<p>20231216 实践证明没有变化。下一步动作</p>
+<p>On 20231216, practical tests proved that there was no change. Next step:</p>
 <ol>
-<li><p>下载<a href="alecthw/mmdb_china_ip_list">alecthw&#x2F;mmdb_china_ip_list</a>获得文件Country.mmdb</p>
-</li>
-<li><p>上传至.&#x2F;yourls_data20231120&#x2F;includes&#x2F;geo，覆盖原先的GeoLite2-Country.mmdb. </p>
-</li>
-<li><p>重启Docker，TODO 静观其变</p>
-</li>
+<li>Download <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jaGF0LmNhcmx6ZW5nLnRvcDo0NDQzL2FsZWN0aHcvbW1kYl9jaGluYV9pcF9saXN0" rel="noopener external nofollow noreferrer">alecthw&#x2F;mmdb_china_ip_list</a> to obtain the Country.mmdb file</li>
+<li>Upload it to .&#x2F;yourls_data20231120&#x2F;includes&#x2F;geo and replace the original GeoLite2-Country.mmdb.</li>
+<li>Restart Docker, Todo: Observe the changes.</li>
 </ol>
 </blockquote>
-<h3 id="Yourls的优点"><a href="#Yourls的优点" class="headerlink" title="Yourls的优点"></a>Yourls的优点</h3><p>很多插件可以随意拼装。插件列表：<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL1lPVVJMUy9hd2Vzb21l" rel="noopener external nofollow noreferrer">https://github.com/YOURLS/awesome</a></p>
-<h3 id="Yourls的缺点"><a href="#Yourls的缺点" class="headerlink" title="Yourls的缺点"></a>Yourls的缺点</h3><p>统计功能很初级，很弱；基本上在搞笑的级别。</p>
-<p>文档也不清晰易得，GeoIP update失败，那么手动上传IP数据到那么目录呢？ 居然google不到</p>
+<h2 id="Advantages-and-Disadvantages"><a href="#Advantages-and-Disadvantages" class="headerlink" title="Advantages and Disadvantages"></a>Advantages and Disadvantages</h2><h3 id="Advantages-of-Yourls"><a href="#Advantages-of-Yourls" class="headerlink" title="Advantages of Yourls"></a>Advantages of Yourls</h3><p>Numerous plugins for flexible assembly. Plugin list: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL1lPVVJMUy9hd2Vzb21lI3BsdWdpbnM=" rel="noopener external nofollow noreferrer">YOURLS Awesome List</a>.</p>
+<h3 id="Disadvantages-of-Yourls"><a href="#Disadvantages-of-Yourls" class="headerlink" title="Disadvantages of Yourls"></a>Disadvantages of Yourls</h3><p>The statistical functionality is basic and weak, almost at a comical level.<br>The documentation is not clear and straightforward. In the case of a failed GeoIP update, how can IP data be manually uploaded to that directory? It is surprising that this information is not easily found through a search engine.</p>
 <hr>
-<h1 id="Docker安装X-UI"><a href="#Docker安装X-UI" class="headerlink" title="Docker安装X-UI"></a>Docker安装X-UI</h1><p>docker 搭建 支持单端口多用户、多协议的 xray 面板，究极缝合怪</p>
-<p>使用FranzKafkaYu&#x2F;x-ui版本，仅需要讲上述镜像修改为 enwaiax&#x2F;x-ui:alpha-zh<br>由于telegram bot暂时没用，切换回第一个默认<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL3ZheGlsdS94LXVp" rel="noopener external nofollow noreferrer">https://github.com/vaxilu/x-ui</a></p>
+<h1 id="Docker-Installation-of-X-UI"><a href="#Docker-Installation-of-X-UI" class="headerlink" title="Docker Installation of X-UI"></a>Docker Installation of X-UI</h1><p>Setting up Xray panel that supports multiple users and protocols on a single port - the ultimate chimera</p>
+<p>FranzKafkaYu&#x2F;x-ui version was used, only needing to modify the above image to enwaiax&#x2F;x-ui:alpha-zh. As the telegram bot was temporarily not in use, the default was switched back to <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL3ZheGlsdS94LXVp" rel="noopener external nofollow noreferrer">vaxilu&#x2F;x-ui</a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3.9&quot;</span><br><span class="line">services:</span><br><span class="line">  xui:</span><br><span class="line">    image: enwaiax/x-ui</span><br><span class="line">    container_name: xui</span><br><span class="line">    volumes:</span><br><span class="line">      - $PWD/db/:/etc/x-ui/</span><br><span class="line">      - $PWD/cert/:/root/cert/</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    network_mode: host</span><br></pre></td></tr></table></figure>
-<p>新建目录，并把上面的配置放到x-ui.yaml中<br>root@Debian11:&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;x-ui&#x2F;template# docker-compose -f x-ui.yaml up</p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuYW1hZHVlcy5saW5rL2FyY2hpdmVzL2RvY2tlcmRhLWppYW4tamllLWRpYW4tdmxlc3Mtd3MtdGxzLXdlYg==" rel="noopener external nofollow noreferrer">https://www.amadues.link/archives/dockerda-jian-jie-dian-vless-ws-tls-web</a><br>docker-compose.yaml的方案follow：<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9ob3N0bG9jLmNvbS90aHJlYWQtMTEwODQ2OC0xLTEuaHRtbA==" rel="noopener external nofollow noreferrer">https://hostloc.com/thread-1108468-1-1.html</a><br>配置的方案follow：<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9pd2FubGFiLmNvbS9ucG0teHVpLw==" rel="noopener external nofollow noreferrer">https://iwanlab.com/npm-xui/</a><br>相关的视频：<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1WM25zRGljU01CYw==" rel="noopener external nofollow noreferrer">https://www.youtube.com/watch?v=V3nsDicSMBc</a></p>
-<p>待测试：vless:&#x2F;&#x2F;<a href="mailto:&#x33;&#57;&#x66;&#x64;&#x65;&#x32;&#100;&#50;&#x2d;&#x63;&#56;&#56;&#x63;&#x2d;&#x34;&#98;&#101;&#97;&#45;&#100;&#52;&#57;&#49;&#x2d;&#x66;&#x62;&#x36;&#57;&#57;&#48;&#100;&#52;&#57;&#x37;&#52;&#49;&#64;&#118;&#x6d;&#x65;&#x73;&#x73;&#x2e;&#x63;&#x61;&#x72;&#108;&#122;&#x65;&#x6e;&#x67;&#x2e;&#x74;&#111;&#x70;">&#x33;&#57;&#x66;&#x64;&#x65;&#x32;&#100;&#50;&#x2d;&#x63;&#56;&#56;&#x63;&#x2d;&#x34;&#98;&#101;&#97;&#45;&#100;&#52;&#57;&#49;&#x2d;&#x66;&#x62;&#x36;&#57;&#57;&#48;&#100;&#52;&#57;&#x37;&#52;&#49;&#64;&#118;&#x6d;&#x65;&#x73;&#x73;&#x2e;&#x63;&#x61;&#x72;&#108;&#122;&#x65;&#x6e;&#x67;&#x2e;&#x74;&#111;&#x70;</a>:17866?type&#x3D;ws&amp;security&#x3D;none&amp;path&#x3D;%2Fgugu#gugugee</p>
-<p>可以打开后台配置 <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6NTQzMjEvZmsveHVpLw==" rel="noopener external nofollow noreferrer">http://192.168.6.116:54321/fk/xui/</a><br>没成功…期待更多的客户端连接测试, 等救援</p>
-<p>思路有问题：x-ui是一个服务端的节点！</p>
-<div class="tabs" id="名称"><ul class="nav-tabs"><li class="tab active"><a href="#名称-1">名称 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="名称-1"><p>待续。。。</p></div></div></div>
+
+<p>A new directory was created, and the above configuration was added to x-ui.yaml<br><code>docker-compose -f x-ui.yaml up</code></p>
+<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuYW1hZHVlcy5saW5rL2FyY2hpdmVzL2RvY2tlcmRhLWppYW4tamllLWRpYW4tdmxlc3Mtd3MtdGxzLXdlYg==" rel="noopener external nofollow noreferrer">https://www.amadues.link/archives/dockerda-jian-jie-dian-vless-ws-tls-web</a><br>Following the solution of docker-compose.yaml: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9ob3N0bG9jLmNvbS90aHJlYWQtMTEwODQ2OC0xLTEuaHRtbA==" rel="noopener external nofollow noreferrer">https://hostloc.com/thread-1108468-1-1.html</a><br>Following the configuration: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9pd2FubGFiLmNvbS9ucG0teHVpLw==" rel="noopener external nofollow noreferrer">https://iwanlab.com/npm-xui/</a><br>Related video: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1WM25zRGljU01CYw==" rel="noopener external nofollow noreferrer">https://www.youtube.com/watch?v=V3nsDicSMBc</a></p>
+<p>To be tested:<br><code>vless://39fde2d2-c88c-4bea-d491-fb6990d49741@vmess.carlzeng.top:17866?type=ws&amp;security=none&amp;path=%2Fgugu#gugugee</code></p>
+<p>On-premises configurations helped in viewing and editing the settings: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6NTQzMjEvZmsveHVpLw==" rel="noopener external nofollow noreferrer">http://192.168.6.116:54321/fk/xui/</a><br>Not successful…awaiting more client connection tests, waiting for rescue.</p>
+<p>Potential Resources:</p>
+<div class="tabs" id="source"><ul class="nav-tabs"><li class="tab active"><a href="#source-1">Source 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="source-1"><p>To be continued…</p></div></div></div>
 
     </div>
 
@@ -548,11 +521,11 @@
 <ul>
   <li class="post-copyright-author">
       <strong>Post author:  </strong>Carl Notes
-    <a href='https://www.carlzeng.top/en/202311081003.html'> 《实测Docker搭建短链接服务YOURLS》</a>
+    <a href='https://www.carlzeng.top/en/202311081003.html'> 《Practice Test - Docker Deployment of URL Shortening Service YOURLS》</a>
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://www.carlzeng.top/en/202311081003.html" title="实测Docker搭建短链接服务YOURLS">https://www.carlzeng.top/en/202311081003.html</a>
+      <a href="https://www.carlzeng.top/en/202311081003.html" title="Practice Test - Docker Deployment of URL Shortening Service YOURLS">https://www.carlzeng.top/en/202311081003.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
@@ -570,28 +543,28 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
-      Nginx Proxy Manager修复笔记
+      <a class="popular-posts-link" href="/en/202312262315.html" rel="bookmark">
+      
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312011625.html" rel="bookmark">
-      Docker搭建站点统计程序Matomo
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310261222.html" rel="bookmark">
-      Hexo定制之家宽部署artalk评论
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202304131736.html" rel="bookmark">
-      动态公网IP 和 SRS-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200810011925.html" rel="bookmark">
+      <a class="popular-posts-link" href="/en/200810011925.html" rel="bookmark">
       jseclipse_plugin_040207.zip-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/200809301259.html" rel="bookmark">
+      jseclipse_plugin_040207.zip-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202310080855.html" rel="bookmark">
+      Node.js Development Environment and Application Examples
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202312011625.html" rel="bookmark">
+      Docker搭建站点统计程序Matomo
       </a>
     </li>
   </ul>
@@ -612,48 +585,48 @@
     </div>
     <ul class="popular-posts">
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312271328.html" title="Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由" target="" class="popular-posts-link">
+              <a href="/en/202312271328.html" title="Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由" target="" class="popular-posts-link">
               Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312262315.html" title="加速Docker Pull或者docker-compose拉取镜像 - 适用github源" target="" class="popular-posts-link">
-              加速Docker Pull或者docker-compose拉取镜像 - 适用github源
+              <a href="/en/202312262315.html" title="" target="" class="popular-posts-link">
+              
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312230940.html" title="Docker搭建轻量个人文件分享服务-文件传输自由" target="" class="popular-posts-link">
+              <a href="/en/202312230940.html" title="Docker搭建轻量个人文件分享服务-文件传输自由" target="" class="popular-posts-link">
               Docker搭建轻量个人文件分享服务-文件传输自由
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312210934.html" title="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源" target="" class="popular-posts-link">
+              <a href="/en/202312210934.html" title="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源" target="" class="popular-posts-link">
               联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312180949.html" title="远程协助 国内用ToDesk 国外用RustDesk" target="" class="popular-posts-link">
+              <a href="/en/202312180949.html" title="远程协助 国内用ToDesk 国外用RustDesk" target="" class="popular-posts-link">
               远程协助 国内用ToDesk 国外用RustDesk
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312161121.html" title="Node.js用FlexSearch给Hexo添加极速全站搜索" target="" class="popular-posts-link">
-              Node.js用FlexSearch给Hexo添加极速全站搜索
+              <a href="/en/202312161121.html" title="Implementing High-speed Site-wide Search for Hexo with FlexSearch in Node.js" target="" class="popular-posts-link">
+              Implementing High-speed Site-wide Search for Hexo with FlexSearch in Node.js
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312151117.html" title="全网搜-快速搜索页面" target="" class="popular-posts-link">
+              <a href="/en/202312151117.html" title="全网搜-快速搜索页面" target="" class="popular-posts-link">
               全网搜-快速搜索页面
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312121225.html" title="远程安卓盒子N1安装IPTV APP-远程查看机顶盒屏幕画面等" target="" class="popular-posts-link">
-              远程安卓盒子N1安装IPTV APP-远程查看机顶盒屏幕画面等
+              <a href="/en/202312121225.html" title="Remote Installation of IPTV App on Android TV Box N1 - Remote Viewing of Set-Top Box Screen, and More" target="" class="popular-posts-link">
+              Remote Installation of IPTV App on Android TV Box N1 - Remote Viewing of Set-Top Box Screen, and More
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312111310.html" title="电视节目资源 - 实测联通移动IPTV组播转单播方案" target="" class="popular-posts-link">
-              电视节目资源 - 实测联通移动IPTV组播转单播方案
+              <a href="/en/202312111310.html" title="Television Program Resources - Testing China Unicom Mobile IPTV Multicast to Unicast Solution" target="" class="popular-posts-link">
+              Television Program Resources - Testing China Unicom Mobile IPTV Multicast to Unicast Solution
               </a>
             </li>
     </ul>
@@ -744,7 +717,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-12-16 14:54:54" itemprop="dateModified" datetime="2023-12-16T14:54:54+08:00">2023-12-16</time>
+        <time title="Modified: 2023-12-30 21:53:02" itemprop="dateModified" datetime="2023-12-30T21:53:02+08:00">2023-12-30</time>
       </span>
 
 </div>
@@ -753,13 +726,13 @@
 
           <div class="post-tags">
             继续浏览有关
-              <a href="/tags/debian/" rel="tag"># debian</a>
-              <a href="/tags/docker-compose/" rel="tag"># docker-compose</a>
-              <a href="/tags/docker/" rel="tag"># docker</a>
-              <a href="/tags/NPM/" rel="tag"># NPM</a>
-              <a href="/tags/%E7%9F%AD%E9%93%BE%E6%8E%A5/" rel="tag"># 短链接</a>
-              <a href="/tags/YOURLS/" rel="tag"># YOURLS</a>
-              <a href="/tags/URL%E7%BC%A9%E7%9F%AD/" rel="tag"># URL缩短</a>
+              <a href="/en/tags/debian/" rel="tag"># debian</a>
+              <a href="/en/tags/docker/" rel="tag"># docker</a>
+              <a href="/en/tags/NPM/" rel="tag"># NPM</a>
+              <a href="/en/tags/docker-compose/" rel="tag"># docker-compose</a>
+              <a href="/en/tags/URL-Shortening/" rel="tag"># URL Shortening</a>
+              <a href="/en/tags/YOURLS/" rel="tag"># YOURLS</a>
+              <a href="/en/tags/Link-Shortening/" rel="tag"># Link Shortening</a>
             的文章
           </div>
 
@@ -767,12 +740,12 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/202311042118.html" rel="prev" title="iPad解锁激活锁苹果平板绕激活锁经验">
+                <a href="/en/202311042118.html" rel="prev" title="iPad解锁激活锁苹果平板绕激活锁经验">
                   <i class="fa fa-angle-left"></i> iPad解锁激活锁苹果平板绕激活锁经验
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/202311141039.html" rel="next" title="iptables应用">
+                <a href="/en/202311141039.html" rel="next" title="iptables应用">
                   iptables应用 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
@@ -863,7 +836,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+<script src="/en/js/comments.js"></script><script src="/en/js/utils.js"></script><script src="/en/js/next-boot.js"></script><script src="/en/js/pjax.js"></script>
 
   
 
@@ -878,7 +851,7 @@
 
 
 
-<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202311081003.html","pageTitle":"实测Docker搭建短链接服务YOURLS"}</script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202311081003.html","pageTitle":"Practice Test - Docker Deployment of URL Shortening Service YOURLS"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css">
 <style>.artalk{width:initial;}</style>
