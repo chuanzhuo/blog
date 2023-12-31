@@ -306,7 +306,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202205110811.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201705082038.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -324,7 +324,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/202205110811.html" class="post-title-link" itemprop="url">NetSuite's next generation transaction - Inbound Shipment-CarlZeng</a>
+          <a href="/201705082038.html" class="post-title-link" itemprop="url">NetSuite SuiteScript 2.0 use DeferredDynamicRecord-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -353,7 +353,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/202205110811.html" ></span>
+            <span id="ArtalkPV" data-page-key="/201705082038.html" ></span>
           </span>
         
       
@@ -364,7 +364,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -375,10 +375,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>That could be next generation of NetSuite’s transaction. It’s loading faster, with totally different back-end design.</p>
-<h3 id="Items-sublist-column-fields"><a href="#Items-sublist-column-fields" class="headerlink" title="Items sublist column fields"></a>Items sublist column fields</h3><p><img data-src="https://img2022.cnblogs.com/blog/41238/202205/41238-20220511080952239-970404907.png"></p>
-<p>To be continue</p>
-
+          Background There is a case when we add dynamic sublists to NetSuite Transaction, for user to put in data. In server-side, how to read it in SuiteScrip
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/201705082038.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -406,7 +411,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201411051016.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201902191748.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -424,7 +429,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/201411051016.html" class="post-title-link" itemprop="url">Netsuite > Employee Record Name维护规则-CarlZeng</a>
+          <a href="/201902191748.html" class="post-title-link" itemprop="url">NetSuite merge PDF in SuiteScript 2.0 [in-progress]-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -453,7 +458,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/201411051016.html" ></span>
+            <span id="ArtalkPV" data-page-key="/201902191748.html" ></span>
           </span>
         
       
@@ -475,15 +480,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          Employee Record Name 维护规则 - 在NS系统设计中，默认的Field展现是：First Name, Middle Name, Last Name - 在General Preferences（Setup > Company > Genernal Prefrences）中，影响员
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/201411051016.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <p>An example below shows the how PDF files are being merged using <pdfset> tag. For compiled PDF files to be merged, use the src property of pdf.</p>
+<p>var xmlF &#x3D; ‘<?xml version=”1.0″?></p>
+<!DOCTYPE pdf PUBLIC “-//big.faceless.org//report” “report-1.1.dtd”><p>’;<br>xmlF +&#x3D; ‘<pdfset>’;</p>
+<p><em><pdf src="https://system.netsuite.com/core/media/media.nl?id=1"/></em></p>
+<p><em><pdf src="https://system.netsuite.com/core/media/media.nl?id=2"/></em></p>
+<p>xmlF +&#x3D; ‘</pdfset>‘;<br>xmlF &#x3D; xmlF.replace(&#x2F;&amp;(?!amp;)&#x2F;g, ‘&amp;’);<br>var file &#x3D; render.xmlToPdf({ xmlString: xmlF });<br>file.save();</p>
+<p>Sample2:</p>
+<p>var arrayWithUrls &#x3D; [“&#x2F;core&#x2F;media&#x2F;media.nl?id&#x3D;theid&amp;c&#x3D;myaccoutn&amp;h&#x3D;1122&amp;_xt&#x3D;.pdf”, “&#x2F;core&#x2F;media&#x2F;media.nl?id&#x3D;theid&amp;c&#x3D;myaccount&amp;h&#x3D;2233&amp;_xt&#x3D;.pdf”] var xml &#x3D; “<?xml version=\\"1.0\\"?>\n<!DOCTYPE pdf PUBLIC \\"-//big.faceless.org//report\\" \\"report-1.1.dtd\\">\n” xml +&#x3D; “<pdfset>“ xml +&#x3D; “<pdf>\n&lt;body font-size&#x3D;\“12\“&gt;\n<h2>Merged PDF</h2>\n” xml +&#x3D; “<p></p>“ xml +&#x3D; “Document body” xml +&#x3D; “</body>\n</pdf>“ arrayWithUrls.map(function (x) { var cleanPdfURL &#x3D; mxml.escape({<br>xmlText: x<br>});<br>xml +&#x3D; ‘<pdf src="https://system.netsuite.com' + cleanPdfURL + '"></pdf>‘ })<br>xml +&#x3D; “</pdfset>“</p>
+<p> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9tZWRpdW0uY29tL0Btb3JyaXNkZXYvYXBwZW5kLW11bHRpcGxlLXBkZi1kb2N1bWVudHMtaW4tbmV0c3VpdGUtc3VpdGVzY3JpcHRzLTY1NDIzOTZhMjM0Mw==" rel="noopener external nofollow noreferrer">https://medium.com/@morrisdev/append-multiple-pdf-documents-in-netsuite-suitescripts-6542396a2343</a></p>
+
       
     </div>
 
