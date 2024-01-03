@@ -26,7 +26,7 @@
 <meta property="og:description" content="目标实现往Android联通机顶盒安装APP，比如投屏类APP（比如：乐播投屏），桌面类APP（比如：沙发桌面，当贝桌面）已选择N1盒子等性能更强劲的硬件的朋友，可参见: 网络影视资源 - IPTV直播之电视台直播源">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-18T04:40:00.000Z">
-<meta property="article:modified_time" content="2023-12-22T13:36:29.838Z">
+<meta property="article:modified_time" content="2024-01-03T01:26:24.190Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="安卓">
 <meta property="article:tag" content="机顶盒">
@@ -52,7 +52,7 @@
 
 
 
-<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.top:4443">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -136,7 +136,7 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Carl Notes</p>
-  <div class="site-description" itemprop="description">[眼观心察 沉淀共享] 技术文章版本持续更新 供个人参考、交流</div>
+  <div class="site-description" itemprop="description">[眼观心察 沉淀共享] 技术文章版本持续更新</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
@@ -193,6 +193,16 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202301151812.html" rel="bookmark">
+      AI脸部识别，人脸比对，人脸识别-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202110151829.html" rel="bookmark">
+      How to learn React-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202302161639.html" rel="bookmark">
       打印相片, 如何从安卓手机发送大量照片到Mac电脑-CarlZeng
       </a>
@@ -200,16 +210,6 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/201410161027.html" rel="bookmark">
       学习日志 - Openwrt安装python然后wallproxy-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202304221641.html" rel="bookmark">
-      Mac中 ~/.bashrc 或 ~/.bash_profile 的问题 [转载]-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202301151812.html" rel="bookmark">
-      AI脸部识别，人脸比对，人脸识别-CarlZeng
       </a>
     </li>
   </ul>
@@ -373,7 +373,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="[眼观心察 沉淀共享] 技术文章版本持续更新 供个人参考、交流">
+      <meta itemprop="description" content="[眼观心察 沉淀共享] 技术文章版本持续更新">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -392,7 +392,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-22 21:36:29" itemprop="dateModified" datetime="2023-12-22T21:36:29+08:00">2023-12-22</time>
+      <time title="修改时间：2024-01-03 09:26:24" itemprop="dateModified" datetime="2024-01-03T09:26:24+08:00">2024-01-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -422,7 +422,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>12 分钟</span>
+      <span>13 分钟</span>
     </span>
 </div>
 
@@ -527,6 +527,12 @@
 </ol>
 <h1 id="关联：远程给机顶盒安装APP"><a href="#关联：远程给机顶盒安装APP" class="headerlink" title="关联：远程给机顶盒安装APP"></a>关联：远程给机顶盒安装APP</h1><p>要解决机顶盒连接二楼旁路由器，而远程协助的手机连接的是一楼的主路由</p>
 <p>如何知道悟空遥控是开放了什么端口？<br>这样打开才能正常扫描到机顶盒的</p>
+<blockquote>
+<p>2024.1</p>
+<p>不用这么麻烦frp把机顶盒的5555端口映射&#x2F;穿透出内网</p>
+<p>然后用adb -s frp的对应ip或域名:5555 install ***.apk</p>
+<p>比如： adb -s 192.168.6.216:5555 install ‘abc.apk’</p>
+</blockquote>
 <p>悟空遥控器 VPN</p>
 <p>悟空遥控器、遥控精灵、手机万能遥控器等是如何搜索本地局域网机顶盒？换句话说机顶盒端开放了那个tcp端口？</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用Zenmap扫描了一下：</span></span><br><span class="line">nmap -sV -T4 -O -F --version-light 192.168.6.216</span><br><span class="line">8080/tcp open			http-proxy?</span><br><span class="line">10000/tcp open    snet-sensor-mgmt?</span><br><span class="line">49152/tcp open    upnp           Portable SDK for UPnP devices 1.6.13(Linux 3.14.29; UPnP1.0)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">常规regular扫描</span></span><br><span class="line">nmap 192.168.6.216</span><br><span class="line">5555/tcp open freeciv</span><br><span class="line">7100/tcp open font-service</span><br><span class="line">8080/tcp open http-proxy</span><br><span class="line">8899/tcp open ospf-lite</span><br><span class="line">10000/tcp open snet-sensor-mgmt</span><br><span class="line">49152/tcp open unknown</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">自定义全面扫描？</span></span><br><span class="line">nmap -A 192.168.6.216</span><br><span class="line">5555/tcp open adb Andriod Debug Brdge device(name: p230 model: p230; device: p230; feature: cmd,shell_v2)</span><br><span class="line">7100/tcp open font-service?</span><br><span class="line">8080/tcp open http-proxy</span><br><span class="line">8899/tcp open http  Bukkit JSONAPI httpd for Minecraft game server 3.6.0 or older</span><br><span class="line">10000/tcp open snet-sensor-mgmt?</span><br><span class="line">49152/tcp open upnp Portable SD for UPnP devices 1.6.13 (Linux 3.14.29; UPnP 1.0)</span><br></pre></td></tr></table></figure>
@@ -614,6 +620,16 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202301151812.html" rel="bookmark">
+      AI脸部识别，人脸比对，人脸识别-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202110151829.html" rel="bookmark">
+      How to learn React-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202302161639.html" rel="bookmark">
       打印相片, 如何从安卓手机发送大量照片到Mac电脑-CarlZeng
       </a>
@@ -621,16 +637,6 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/201410161027.html" rel="bookmark">
       学习日志 - Openwrt安装python然后wallproxy-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202304221641.html" rel="bookmark">
-      Mac中 ~/.bashrc 或 ~/.bash_profile 的问题 [转载]-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202301151812.html" rel="bookmark">
-      AI脸部识别，人脸比对，人脸识别-CarlZeng
       </a>
     </li>
   </ul>
@@ -783,7 +789,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-12-22 21:36:29" itemprop="dateModified" datetime="2023-12-22T21:36:29+08:00">2023-12-22</time>
+        <time title="修改时间：2024-01-03 09:26:24" itemprop="dateModified" datetime="2024-01-03T09:26:24+08:00">2024-01-03</time>
       </span>
 
 </div>
@@ -906,6 +912,26 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202211181240.html","pageTitle":"Android机顶盒 安装APP实例"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css">
@@ -938,26 +964,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
