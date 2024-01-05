@@ -5,39 +5,39 @@
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/en/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/en/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/en/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/en/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/en/css/main.css">
 
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/en/","images":"/en/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/en/js/config.js"></script>
 
-    <meta name="description" content="适用于低延迟高速率要求的应用，据说传输效率可以加倍X2+">
+    <meta name="description" content="Suited for applications with low latency and high speed requirements, it is reputed to double the transmission efficiency X2+.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV">
+<meta property="og:title" content="Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV">
 <meta property="og:url" content="https://www.carlzeng.top/en/202401042040.html">
-<meta property="og:site_name" content="随笔 Carl Notes">
-<meta property="og:description" content="适用于低延迟高速率要求的应用，据说传输效率可以加倍X2+">
+<meta property="og:site_name" content="Carl Notes">
+<meta property="og:description" content="Suited for applications with low latency and high speed requirements, it is reputed to double the transmission efficiency X2+.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/xtaci/kcptun/raw/master/kcptun.png">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/8fe8d1c0-8160-4ae9-aeb2-cddb0a087fca/iaCsI3nyQOjiBjCc1mRkhgmzaTDboELpmQBi05oXUyhXQRD40JIM0Wkyxg/deep/0/image.png">
 <meta property="article:published_time" content="2024-01-04T12:40:33.000Z">
-<meta property="article:modified_time" content="2024-01-04T14:57:35.464Z">
+<meta property="article:modified_time" content="2024-01-04T15:00:49.020Z">
 <meta property="article:author" content="Carl Notes">
-<meta property="article:tag" content="linux">
-<meta property="article:tag" content="kcptun">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Kcptun">
 <meta property="article:tag" content="TCP">
 <meta property="article:tag" content="UDP">
 <meta property="article:tag" content="IPTV">
 <meta property="article:tag" content="udprxy">
-<meta property="article:tag" content="直播">
-<meta property="article:tag" content="加速器">
+<meta property="article:tag" content="live streaming">
+<meta property="article:tag" content="accelerator">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://github.com/xtaci/kcptun/raw/master/kcptun.png">
 
@@ -46,10 +46,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/202401042040.html","path":"en/202401042040.html","title":"kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/en/202401042040.html","path":"202401042040.html","title":"Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV | 随笔 Carl Notes</title>
+<title>Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV | Carl Notes</title>
   
 
 
@@ -60,10 +60,10 @@
 
 <link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
   <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
+    <link rel="stylesheet" href="/en/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
-<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+<link rel="alternate" href="/en/atom.xml" title="Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/en/rss2.xml" title="Carl Notes" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -82,12 +82,12 @@
 
   <div class="site-meta">
 
-    <a href="/" class="brand" rel="start">
+    <a href="/en/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">随笔 Carl Notes</p>
+      <p class="site-title">Carl Notes</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">IT科技 技术解决方案 NetSuite ERP</p>
+      <p class="site-subtitle" itemprop="description">Information Technology Solutions NetSuite ERP</p>
   </div>
 
   <div class="site-nav-right">
@@ -99,14 +99,14 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">178</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">46</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">329</span></a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-下载音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载音乐</a></li><li class="menu-item menu-item-电视直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电视直播IPTV</a></li><li class="menu-item menu-item-临时文件分享"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>临时文件分享</a></li><li class="menu-item menu-item-下载电子书"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载电子书</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">193</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">45</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">327</span></a></li><li class="menu-item menu-item-chatgpt"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>ChatGPT</a></li><li class="menu-item menu-item-hnet-web"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>HNet Web</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-firefox"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Firefox</a></li><li class="menu-item menu-item-emby-iptv"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Emby IPTV</a></li><li class="menu-item menu-item-file-share"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>File Share</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li><li class="menu-item menu-item-it-tools"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>IT-Tools</a></li>
   </ul>
 
     <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
     <div class="popup search-popup">
       <div class="search-header">
       <div class="search-input-container" style="text-align: left; padding-left: 22px">
-        <input name="q" autocomplete="off" autocapitalize="off" maxlength="28" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="28" placeholder="Enter to Search..." spellcheck="false" type="search" class="search-input">
       </div>
       </div>
     </div>
@@ -135,31 +135,31 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E7%94%A8%E4%BE%8B1%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">实际用例1：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E7%94%A8%E4%BE%8B2%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">实际用例2：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Purpose"><span class="nav-number">1.</span> <span class="nav-text">Purpose</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Application"><span class="nav-number">2.</span> <span class="nav-text">Application</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Practical-Example-1"><span class="nav-number">2.1.</span> <span class="nav-text">Practical Example 1:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Practical-Example-2"><span class="nav-number">2.2.</span> <span class="nav-text">Practical Example 2:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Related-Content"><span class="nav-number">3.</span> <span class="nav-text">Related Content</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Implementation-Approach"><span class="nav-number">4.</span> <span class="nav-text">Implementation Approach</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Source-of-Inspiration"><span class="nav-number">5.</span> <span class="nav-text">Source of Inspiration</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Carl Notes</p>
-  <div class="site-description" itemprop="description">[眼观心察 沉淀共享] 技术文章版本持续更新</div>
+  <div class="site-description" itemprop="description">[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">329</span>
+        <a href="/en/archives/">
+          <span class="site-state-item-count">327</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">46</span>
+          <a href="/en/categories/">
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">178</span>
+          <a href="/en/tags/">
+        <span class="site-state-item-count">193</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -179,43 +179,28 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310110855.html" rel="bookmark">
-      UTM虚拟机在MAC M1下Kali Linux实战
+      <a class="popular-posts-link" href="/en/202312262315.html" rel="bookmark">
+      Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202309222329.html" rel="bookmark">
+      <a class="popular-posts-link" href="/en/202309222329.html" rel="bookmark">
       Hello World
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311231919.html" rel="bookmark">
-      关于DNS配置记录与分析
+      <a class="popular-posts-link" href="/en/202312121225.html" rel="bookmark">
+      Remote Installation of IPTV App on Android TV Box N1 - Remote Viewing of Set-Top Box Screen, and More
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201410281110.html" rel="bookmark">
-      SuiteScript > Apply script to Assembly and Kit-CarlZeng
+      <a class="popular-posts-link" href="/en/202312180949.html" rel="bookmark">
+      Remote Assistance - ToDesk for Domestic Use and RustDesk for International Use
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310261222.html" rel="bookmark">
-      Hexo定制之家宽部署artalk评论
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202305190844.html" rel="bookmark">
-      如果你对IPTV（全地球的）感兴趣-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
-      Nginx Proxy Manager修复笔记
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312081128.html" rel="bookmark">
-      M3U8播放器
+      <a class="popular-posts-link" href="/en/202312111310.html" rel="bookmark">
+      Television Program Resources - Testing China Unicom Mobile IPTV Multicast to Unicast Solution
       </a>
     </li>
   </ul>
@@ -229,32 +214,32 @@
       <div class="sidebar-inner sidebar-post-related">
             <div class="links-of-blogroll-title recent-posts-title">
           <i class="fa fa-history " aria-hidden="true"></i>
-                最新随笔
+                Recent Posts
         </div>
         <ul class="popular-posts">
                 <li class="popular-posts-item">
-                  <a href="/202401042040.html" title="kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV" target=""  class="popular-posts-link">
-                  kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV
+                  <a href="/en/202401042040.html" title="Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV" target=""  class="popular-posts-link">
+                  Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/202312290851.html" title="PVE群晖NAS修复笔记" target=""  class="popular-posts-link">
-                  PVE群晖NAS修复笔记
+                  <a href="/en/202312271328.html" title="Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation" target=""  class="popular-posts-link">
+                  Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/202312281013.html" title="Hexo多语言解决方案实践记录" target=""  class="popular-posts-link">
-                  Hexo多语言解决方案实践记录
+                  <a href="/en/202312262315.html" title="Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source" target=""  class="popular-posts-link">
+                  Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/202312271328.html" title="Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由" target=""  class="popular-posts-link">
-                  Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由
+                  <a href="/en/202312230940.html" title="Setting Up Lightweight Personal File Sharing Service Using Docker - Freedom in File Transfers" target=""  class="popular-posts-link">
+                  Setting Up Lightweight Personal File Sharing Service Using Docker - Freedom in File Transfers
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/202312262315.html" title="加速Docker Pull或者docker-compose拉取镜像 - 适用github源" target=""  class="popular-posts-link">
-                  加速Docker Pull或者docker-compose拉取镜像 - 适用github源
+                  <a href="/en/202312210934.html" title="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源" target=""  class="popular-posts-link">
+                  联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源
                   </a>
                 </li>
         </ul>
@@ -349,7 +334,7 @@
       max-height: 1.13em !important;
     }
     </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
-      订阅新文章:
+      Subscribe New Article
     </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="Enter your email to receive new articles" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
       Subscribe
     </button></div></div></form></div>
@@ -370,25 +355,25 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202401042040.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202401042040.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/en/images/avatar.gif">
       <meta itemprop="name" content="Carl Notes">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="[眼观心察 沉淀共享] 技术文章版本持续更新">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV | 随笔 Carl Notes">
+      <meta itemprop="name" content="Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV | Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV
+          Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV
         </h1>
 
         <div class="post-meta-container">
@@ -398,7 +383,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-01-04 22:57:35" itemprop="dateModified" datetime="2024-01-04T22:57:35+08:00">2024-01-04</time>
+      <time title="Modified: 2024-01-04 23:00:49" itemprop="dateModified" datetime="2024-01-04T23:00:49+08:00">2024-01-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -406,7 +391,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/KCP/" itemprop="url" rel="index"><span itemprop="name">KCP</span></a>
+          <a href="/en/categories/KCP/" itemprop="url" rel="index"><span itemprop="name">KCP</span></a>
         </span>
     </span>
 
@@ -428,7 +413,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>5 mins.</span>
+      <span>7 mins.</span>
     </span>
 </div>
 
@@ -440,54 +425,47 @@
     
     <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://github.com/xtaci/kcptun/raw/master/kcptun.png">
 
-<p>适用于低延迟高速率要求的应用，据说传输效率可以加倍X2+</p>
+<p>Suited for applications with low latency and high speed requirements, it is reputed to double the transmission efficiency X2+.</p>
 <span id="more"></span>
 
-<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>通过UDP隧道，加速端到端的远程传输（点对点p2p传输，封装为UDP的KCP数据）</p>
-<p>Kcptun 是一个简单和快速的，基于 KCP 协议的 UDP 隧道，它可以将 TCP 流转换为 KCP+UDP 流。</p>
-<h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><p>部署和配置简单</p>
-<p>讲一种例子：</p>
+<h1 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h1><p>Accelerating end-to-end remote transmission (point-to-point p2p transmission, encapsulating TCP data as UDP KCP data) through UDP tunneling.</p>
+<p>Kcptun is a simple and fast UDP tunnel based on the KCP protocol, capable of converting TCP streams to KCP+UDP streams.</p>
+<h1 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h1><p>Simple deployment and configuration.</p>
+<p>Here’s an example:</p>
 <ol>
-<li>远程&#x2F;远距离客户端的某一个应用，需要访问服务的网段内的某个特定TCP服务（比如游戏或IPTV）。</li>
-<li>通过启动远程客户端的路由器#1上的kcptun client（监听本地端口，然后指定服务器IP和端口，加密信息），这个kcptun客户端监听的端口就是本地应用要连接使用的端口。</li>
-<li>去连接服务器（从路由器#2的端口转发）的特定kcp server（监听服务器端口，然后指定发往本地特定服务[TCP服务的IP地址和端口]）</li>
-<li>这样加密并封装过的整条链路就建立在UDP上了，据说传输效率可以加倍X2+</li>
+<li>A certain application on a remote&#x2F;distant client needs to access a specific TCP service within the server’s network segment (such as a game or IPTV).</li>
+<li>By launching the kcptun client on the remote client’s router#1 (listening on a local port and then specifying the server’s IP and port, along with encryption information), this kcptun client’s listening port becomes the port the local application will use to connect.</li>
+<li>Connect to the specific kcp server (listening on the server’s port and then specifying the destination TCP service [IP address and port]) through the server (forwarded from router#2’s port).</li>
+<li>This encrypted and encapsulated entire chain is established over UDP, purportedly doubling transmission efficiency X2+.</li>
 </ol>
-<p>以下是两个使用docker应用kcptun的实例</p>
-<h2 id="实际用例1："><a href="#实际用例1：" class="headerlink" title="实际用例1："></a>实际用例1：</h2><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS9yL2xvd2lkL2tjcHR1bg==" rel="noopener external nofollow noreferrer">https://hub.docker.com/r/lowid/kcptun</a></p>
-<p>如果按要封装的服务是服务器上的socks代理：</p>
-<p>server side （kcp+socks） compose file</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kcp-server:</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">lowid/kcptun:v20170329</span></span><br><span class="line">  <span class="attr">command:</span></span><br><span class="line">    <span class="string">--listen</span> <span class="string">:29900</span></span><br><span class="line">    <span class="string">--target</span> <span class="string">dante-server:1080</span></span><br><span class="line">    <span class="string">--mode</span> <span class="string">fast2</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;30003:29900/udp&quot;</span></span><br><span class="line">  <span class="attr">environment:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">KCPTUN_KEY=your_password</span></span><br><span class="line">  <span class="attr">links:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">dante-server</span></span><br><span class="line">  <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"></span><br><span class="line"><span class="attr">dante-server:</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">vimagick/dante</span></span><br><span class="line">  <span class="attr">expose:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;1080&quot;</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">./sockd.conf:/etc/sockd.conf</span></span><br><span class="line">  <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Below are two examples of using docker for kcptun applications.</p>
+<h2 id="Practical-Example-1"><a href="#Practical-Example-1" class="headerlink" title="Practical Example 1:"></a>Practical Example 1:</h2><p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS9yL2xvd2lkL2tjcHR1bg==" rel="noopener external nofollow noreferrer">https://hub.docker.com/r/lowid/kcptun</a></p>
+<p>If the service to be encapsulated is a SOCKS proxy on the server:</p>
+<p>Server side (kcp+socks) compose file</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kcp-server:</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">lowid/kcptun:v20170329</span></span><br><span class="line">  <span class="attr">command:</span></span><br><span class="line">    <span class="string">--listen</span> <span class="string">:29900</span></span><br><span class="line">    <span class="string">--target</span> <span class="string">dante-server:1080</span></span><br><span class="line">    <span class="string">--mode</span> <span class="string">fast2</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;30003:29900/udp&quot;</span></span><br><span class="line">  <span class="attr">environment:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">KCPTUN_KEY=your_password</span></span><br><span class="line">  <span class="attr">links:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">dante-server</span></span><br><span class="line">  <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"></span><br><span class="line"><span class="attr">dante-server:</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">vimagick/dante</span></span><br><span class="line">  <span class="attr">expose:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;1080&quot;</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">./sockd.conf:/etc/sockd.conf</span></span><br><span class="line">  <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
 
-<p>server side sockd.conf</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">debug: 0</span><br><span class="line">logoutput: stderr</span><br><span class="line">internal: 0.0.0.0 <span class="attr">port</span> = <span class="number">1080</span></span><br><span class="line">external: eth0</span><br><span class="line">socksmethod: username none</span><br><span class="line">clientmethod: none</span><br><span class="line">user.privileged: root</span><br><span class="line">user.unprivileged: nobody</span><br><span class="line"></span><br><span class="line">client pass &#123;</span><br><span class="line">    from: 0.0.0.0/0 port 1-65535 to: 0.0.0.0/0</span><br><span class="line">    log: error</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">socks pass &#123;</span><br><span class="line">    from: 0.0.0.0/0 to: 0.0.0.0/0</span><br><span class="line">    <span class="comment">#socksmethod: username</span></span><br><span class="line">    log: error</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Server side sockd.conf</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">debug: 0</span><br><span class="line">logoutput: stderr</span><br><span class="line">internal: 0.0.0.0 <span class="attr">port</span> = <span class="number">1080</span></span><br><span class="line">external: eth0</span><br><span class="line">socksmethod: username none</span><br><span class="line">clientmethod: none</span><br><span class="line">user.privileged: root</span><br><span class="line">user.unprivileged: nobody</span><br><span class="line"></span><br><span class="line">client pass &#123;</span><br><span class="line">    from: 0.0.0.0/0 port 1-65535 to: 0.0.0.0/0</span><br><span class="line">    log: error</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">socks pass &#123;</span><br><span class="line">    from: 0.0.0.0/0 to: 0.0.0.0/0</span><br><span class="line">    <span class="comment">#socksmethod: username</span></span><br><span class="line">    log: error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-<p>client side compose file</p>
+<p>Client side compose file</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">client:</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">lowid/kcptun:v20170329</span></span><br><span class="line">  <span class="attr">entrypoint:</span> <span class="string">client_linux_amd64</span></span><br><span class="line">  <span class="attr">command:</span></span><br><span class="line">    <span class="string">--localaddr</span> <span class="string">:12948</span></span><br><span class="line">    <span class="string">--remoteaddr</span> <span class="string">server_ip_address:30003</span></span><br><span class="line">    <span class="string">--mode</span> <span class="string">fast2</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;12948:12948/tcp&quot;</span></span><br><span class="line">  <span class="attr">environment:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">KCPTUN_KEY=your_password</span></span><br><span class="line">  <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="Practical-Example-2"><a href="#Practical-Example-2" class="headerlink" title="Practical Example 2:"></a>Practical Example 2:</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">docker</span> <span class="string">pull</span> <span class="string">chenhw2/kcptun</span></span><br><span class="line"></span><br><span class="line"><span class="string">$</span> <span class="string">docker</span> <span class="string">run</span> <span class="string">-d</span> <span class="string">\</span></span><br><span class="line">    <span class="string">-e</span> <span class="string">&quot;ARGS=server -t 10.0.0.1:80&quot;</span> <span class="string">\</span></span><br><span class="line">    <span class="string">-p</span> <span class="number">29900</span><span class="string">:29900/udp</span> <span class="string">\</span></span><br><span class="line">    <span class="string">chenhw2/kcptun</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Client</span></span><br><span class="line"><span class="string">$</span> <span class="string">docker</span> <span class="string">run</span> <span class="string">-d</span> <span class="string">\</span></span><br><span class="line">    <span class="string">-e</span> <span class="string">&quot;ARGS=client -r [kcp_server]:29900&quot;</span> <span class="string">\</span></span><br><span class="line">    <span class="string">-p</span> <span class="number">12948</span><span class="string">:12948/tcp</span> <span class="string">\</span></span><br><span class="line">    <span class="string">chenhw2/kcptun</span></span><br></pre></td></tr></table></figure>
 
+<h1 id="Related-Content"><a href="#Related-Content" class="headerlink" title="Related Content"></a>Related Content</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=kcp" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
-<h2 id="实际用例2："><a href="#实际用例2：" class="headerlink" title="实际用例2："></a>实际用例2：</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">docker</span> <span class="string">pull</span> <span class="string">chenhw2/kcptun</span></span><br><span class="line"></span><br><span class="line"><span class="string">$</span> <span class="string">docker</span> <span class="string">run</span> <span class="string">-d</span> <span class="string">\</span></span><br><span class="line">    <span class="string">-e</span> <span class="string">&quot;ARGS=server -t 10.0.0.1:80&quot;</span> <span class="string">\</span></span><br><span class="line">    <span class="string">-p</span> <span class="number">29900</span><span class="string">:29900/udp</span> <span class="string">\</span></span><br><span class="line">    <span class="string">chenhw2/kcptun</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#客户端</span></span><br><span class="line"><span class="string">$</span> <span class="string">docker</span> <span class="string">run</span> <span class="string">-d</span> <span class="string">\</span></span><br><span class="line">    <span class="string">-e</span> <span class="string">&quot;ARGS=client -r [kcp_server]:29900&quot;</span> <span class="string">\</span></span><br><span class="line">    <span class="string">-p</span> <span class="number">12948</span><span class="string">:12948/tcp</span> <span class="string">\</span></span><br><span class="line">    <span class="string">chenhw2/kcptun</span></span><br></pre></td></tr></table></figure>
+<h1 id="Implementation-Approach"><a href="#Implementation-Approach" class="headerlink" title="Implementation Approach"></a>Implementation Approach</h1><p>Abandoning the docker approach.</p>
+<p>KCP Server:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./server_linux_amd64 -t &quot;192.168.6.243:8012&quot; -l &quot;:29900&quot; -mode fast3 -nocomp -dscp 46 --key op.carlzeng.top --crypt salsa20</span><br></pre></td></tr></table></figure>
 
-<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=kcp" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+<p>Explanatory note: Because this service on port 29900 is configured on a specific server (not on the main router’s public IP), it requires port mapping on the main router’s public IP (i.e., to forward external 29900 UDP data to the same port on this specific server).</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Configuration <span class="keyword">in</span> Padavan interface on K2P</span></span><br><span class="line"></span><br><span class="line">KCP Client: ./client_darwin_amd64 -r &quot;KCP_SERVER_IP:29900&quot; -l &quot;:8012&quot; -mode fast3 -nocomp -autoexpire 900 -sockbuf 16777217 -dscp 46</span><br><span class="line"></span><br><span class="line">/opt/bin/kcptun  -r &quot;@@@.@@@.@@@.@@@:29900&quot; -l &quot;:88012&quot; -key op.carlzeng.top -crypt salsa20 -mode fast3 -dscp 46 -autoexpire 900 -nocomp</span><br></pre></td></tr></table></figure>
 
-<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>放弃docker的方式。</p>
-<p>KCP Server: </p>
-<p>.&#x2F;server_linux_amd64 -t “192.168.6.243:8012” -l “:29900” -mode fast3 -nocomp -dscp 46 –key op.carlzeng.top –crypt salsa20</p>
-<p>说明：这个29900端口的服务，由于是配置在特定的服务器上（不是在公网IP的主路由器上），所以需要在公网IP的主路由上做一个端口映射（实现：把外网的29900 udp数据入世地转发到这台特定的服务器相同端口上）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">配置在K2P的Padavan界面的</span></span><br><span class="line"></span><br><span class="line">KCP Client: ./client_darwin_amd64 -r &quot;KCP_SERVER_IP:29900&quot; -l &quot;:8012&quot; -mode fast3 -nocomp -autoexpire 900 -sockbuf 16777217 -dscp 46</span><br><span class="line"></span><br><span class="line">/opt/bin/kcptun  -r &quot;@@@.@@@.@@@.@@@:29900&quot; -l &quot;:88012&quot; -key op.carlzeng.top -crypt salsa20 -mode fast3 -dscp 46 -autoexpire 900 -nocomp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p>一张图看透整个流程</p>
-<p><img data-src="https://www.evernote.com/shard/s122/sh/8fe8d1c0-8160-4ae9-aeb2-cddb0a087fca/iaCsI3nyQOjiBjCc1mRkhgmzaTDboELpmQBi05oXUyhXQRD40JIM0Wkyxg/deep/0/image.png" alt="kcptun整个流程实例"></p>
-<p>使用了特殊的测试方式，用frp穿透到另外一处播放；</p>
-<p>实测体验：高清很顺畅，4K还是有卡顿的；</p>
-<p>TODO：等待下一步在客户端的局域网播放测试</p>
-<p>这样KCP传输以后，按报告上说是传输延迟减半，速率加倍*2+；有待于进一步实践考验</p>
-<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3h0YWNpL2tjcHR1bi8=" rel="noopener external nofollow noreferrer">教程、项目地址: https://github.com/xtaci/kcptun/</a></p>
+<p>A comprehensive diagram of the entire process</p>
+<p><img data-src="https://www.evernote.com/shard/s122/sh/8fe8d1c0-8160-4ae9-aeb2-cddb0a087fca/iaCsI3nyQOjiBjCc1mRkhgmzaTDboELpmQBi05oXUyhXQRD40JIM0Wkyxg/deep/0/image.png" alt="An instance of the entire process using kcptun"></p>
+<p>A peculiar testing method was used to play through frp to another location;<br>Testing experience: High definition is very smooth, 4K still experiences some lag;<br>TODO: Waiting for the next step to test local area network playback on the client side after KCP transmission.</p>
+<p>After such KCP transmission, as per reports, the transmission latency is halved, and the speed is doubled X2+; awaiting further practical testing to verify.</p>
+<h1 id="Source-of-Inspiration"><a href="#Source-of-Inspiration" class="headerlink" title="Source of Inspiration"></a>Source of Inspiration</h1><p>[Tutorial, project address: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL3h0YWNpL2tjcHR1bi9d" rel="noopener external nofollow noreferrer">https://github.com/xtaci/kcptun/]</a>(</p>
 
     </div>
 
@@ -518,14 +496,14 @@
 <ul>
   <li class="post-copyright-author">
       <strong>Post author:  </strong>Carl Notes
-    <a href='https://www.carlzeng.top/202401042040.html'> 《kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV》</a>
+    <a href='https://www.carlzeng.top/en/202401042040.html'> 《Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV》</a>
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://www.carlzeng.top/202401042040.html" title="kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV">https://www.carlzeng.top/202401042040.html</a>
+      <a href="https://www.carlzeng.top/en/202401042040.html" title="Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV">https://www.carlzeng.top/en/202401042040.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
   </li>
 </ul>
 </div>
@@ -540,43 +518,28 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310110855.html" rel="bookmark">
-      UTM虚拟机在MAC M1下Kali Linux实战
+      <a class="popular-posts-link" href="/en/202312262315.html" rel="bookmark">
+      Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202309222329.html" rel="bookmark">
+      <a class="popular-posts-link" href="/en/202309222329.html" rel="bookmark">
       Hello World
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311231919.html" rel="bookmark">
-      关于DNS配置记录与分析
+      <a class="popular-posts-link" href="/en/202312121225.html" rel="bookmark">
+      Remote Installation of IPTV App on Android TV Box N1 - Remote Viewing of Set-Top Box Screen, and More
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201410281110.html" rel="bookmark">
-      SuiteScript > Apply script to Assembly and Kit-CarlZeng
+      <a class="popular-posts-link" href="/en/202312180949.html" rel="bookmark">
+      Remote Assistance - ToDesk for Domestic Use and RustDesk for International Use
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310261222.html" rel="bookmark">
-      Hexo定制之家宽部署artalk评论
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202305190844.html" rel="bookmark">
-      如果你对IPTV（全地球的）感兴趣-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
-      Nginx Proxy Manager修复笔记
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312081128.html" rel="bookmark">
-      M3U8播放器
+      <a class="popular-posts-link" href="/en/202312111310.html" rel="bookmark">
+      Television Program Resources - Testing China Unicom Mobile IPTV Multicast to Unicast Solution
       </a>
     </li>
   </ul>
@@ -593,52 +556,52 @@
   <div class="sidebar-inner sidebar-post-related">
         <div class="links-of-blogroll-title recent-posts-title">
       <i class="fa fa-history " aria-hidden="true"></i>
-            最新随笔
+            Recent Posts
     </div>
     <ul class="popular-posts">
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202401042040.html" title="kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV" target="" class="popular-posts-link">
-              kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV
+              <a href="/en/202401042040.html" title="Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV" target="" class="popular-posts-link">
+              Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312290851.html" title="PVE群晖NAS修复笔记" target="" class="popular-posts-link">
-              PVE群晖NAS修复笔记
+              <a href="/en/202312271328.html" title="Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation" target="" class="popular-posts-link">
+              Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312281013.html" title="Hexo多语言解决方案实践记录" target="" class="popular-posts-link">
-              Hexo多语言解决方案实践记录
+              <a href="/en/202312262315.html" title="Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source" target="" class="popular-posts-link">
+              Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312271328.html" title="Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由" target="" class="popular-posts-link">
-              Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由
+              <a href="/en/202312230940.html" title="Setting Up Lightweight Personal File Sharing Service Using Docker - Freedom in File Transfers" target="" class="popular-posts-link">
+              Setting Up Lightweight Personal File Sharing Service Using Docker - Freedom in File Transfers
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312262315.html" title="加速Docker Pull或者docker-compose拉取镜像 - 适用github源" target="" class="popular-posts-link">
-              加速Docker Pull或者docker-compose拉取镜像 - 适用github源
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312230940.html" title="Docker搭建轻量个人文件分享服务-文件传输自由" target="" class="popular-posts-link">
-              Docker搭建轻量个人文件分享服务-文件传输自由
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312210934.html" title="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源" target="" class="popular-posts-link">
+              <a href="/en/202312210934.html" title="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源" target="" class="popular-posts-link">
               联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312180949.html" title="远程协助 国内用ToDesk 国外用RustDesk" target="" class="popular-posts-link">
-              远程协助 国内用ToDesk 国外用RustDesk
+              <a href="/en/202312180949.html" title="Remote Assistance - ToDesk for Domestic Use and RustDesk for International Use" target="" class="popular-posts-link">
+              Remote Assistance - ToDesk for Domestic Use and RustDesk for International Use
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312161121.html" title="Node.js用FlexSearch给Hexo添加极速全站搜索" target="" class="popular-posts-link">
-              Node.js用FlexSearch给Hexo添加极速全站搜索
+              <a href="/en/202312161121.html" title="Implementing High-speed Site-wide Search for Hexo with FlexSearch in Node.js" target="" class="popular-posts-link">
+              Implementing High-speed Site-wide Search for Hexo with FlexSearch in Node.js
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202312151117.html" title="全网搜-快速搜索页面" target="" class="popular-posts-link">
+              全网搜-快速搜索页面
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202312121225.html" title="Remote Installation of IPTV App on Android TV Box N1 - Remote Viewing of Set-Top Box Screen, and More" target="" class="popular-posts-link">
+              Remote Installation of IPTV App on Android TV Box N1 - Remote Viewing of Set-Top Box Screen, and More
               </a>
             </li>
     </ul>
@@ -650,77 +613,77 @@
 
 
 <div class="followme">
-  <span>If the article solves your urgent needs or brings some clarity, you may wish to <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email subscription</a> or reward</span>
+  <span>If the article solves your urgent needs or brings some clarity, you may wish to <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email subscription</a> or reward</span>
 
   <div class="social-list">
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
 
-            <span class="label">电视直播</span>
+            <span class="label">Emby IPTV</span>
           </a>
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/202312081128.html">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/202312081128.html">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
 
-            <span class="label">M3U8播放器</span>
+            <span class="label">M3U8 Player</span>
           </a>
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
 
-            <span class="label">MP3与下载</span>
+            <span class="label">Music</span>
           </a>
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fa fa-rss"></i>
             </span>
 
-            <span class="label">ChatGPT问答</span>
+            <span class="label">ChatGPT</span>
           </a>
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
 
-            <span class="label">网络加速器</span>
+            <span class="label">HNet Web</span>
           </a>
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
 
-            <span class="label">临时文件分享</span>
+            <span class="label">File Share</span>
           </a>
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
 
-            <span class="label">下载电子书</span>
+            <span class="label">Book</span>
           </a>
       </div>
   </div>
@@ -729,7 +692,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2024-01-04 22:57:35" itemprop="dateModified" datetime="2024-01-04T22:57:35+08:00">2024-01-04</time>
+        <time title="Modified: 2024-01-04 23:00:49" itemprop="dateModified" datetime="2024-01-04T23:00:49+08:00">2024-01-04</time>
       </span>
 
 </div>
@@ -737,24 +700,23 @@
 
 
           <div class="post-tags">
-            继续浏览有关
-              <a href="/tags/linux/" rel="tag"># linux</a>
-              <a href="/tags/kcptun/" rel="tag"># kcptun</a>
-              <a href="/tags/TCP/" rel="tag"># TCP</a>
-              <a href="/tags/UDP/" rel="tag"># UDP</a>
-              <a href="/tags/IPTV/" rel="tag"># IPTV</a>
-              <a href="/tags/udprxy/" rel="tag"># udprxy</a>
-              <a href="/tags/%E7%9B%B4%E6%92%AD/" rel="tag"># 直播</a>
-              <a href="/tags/%E5%8A%A0%E9%80%9F%E5%99%A8/" rel="tag"># 加速器</a>
-            的文章
+            View same tag articles:
+              <a href="/en/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/en/tags/Kcptun/" rel="tag"># Kcptun</a>
+              <a href="/en/tags/TCP/" rel="tag"># TCP</a>
+              <a href="/en/tags/UDP/" rel="tag"># UDP</a>
+              <a href="/en/tags/IPTV/" rel="tag"># IPTV</a>
+              <a href="/en/tags/udprxy/" rel="tag"># udprxy</a>
+              <a href="/en/tags/live-streaming/" rel="tag"># live streaming</a>
+              <a href="/en/tags/accelerator/" rel="tag"># accelerator</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/202312290851.html" rel="prev" title="PVE群晖NAS修复笔记">
-                  <i class="fa fa-angle-left"></i> PVE群晖NAS修复笔记
+                <a href="/en/202312271328.html" rel="prev" title="Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation">
+                  <i class="fa fa-angle-left"></i> Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation
                 </a>
             </div>
             <div class="post-nav-item">
@@ -776,24 +738,6 @@
 
   <footer class="footer">
     <div class="footer-inner">
-  <div class="languages">
-    <label class="lang-select-label">
-      <i class="fa fa-language"></i>
-      <span>English</span>
-      <i class="fa fa-angle-up" aria-hidden="true"></i>
-    </label>
-    <select class="lang-select" data-canonical="" aria-label="Select language">
-      
-        <option value="zh-CN" data-href="/202401042040.html" selected="">
-          简体中文
-        </option>
-      
-        <option value="en" data-href="/en/202401042040.html" selected="">
-          English
-        </option>
-      
-    </select>
-  </div>
 
 <div class="busuanzi-count">
     <span class="post-meta-item" id="busuanzi_container_site_uv">
@@ -813,9 +757,8 @@
       </span>
     </span>
 
-</div>
 
-<!-- Matomo -->
+  <!-- Matomo -->
   <script>
     var _paq = window._paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -834,8 +777,10 @@
   <noscript><p><img src="//statcounter.carlzeng.top:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
   <!-- End Matomo Code -->
 
+</div>
+
 <div class="powered-by">
-    <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 选择服务器：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oay5jYXJsemVuZy50b3A=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">USA</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a> <a href="https://www.carlzeng.top">Main</a>
+    <a href='https://www.carlzeng.top/en/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/en/rss2.xml'>RSS</a> | Switch Server: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9oay5jYXJsemVuZy50b3AvZW4=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9wL2Vu" rel="noopener external nofollow noreferrer">USA</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcC9lbg==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9wL2Vu" rel="noopener external nofollow noreferrer">GitHub</a> <a href="https://www.carlzeng.top/en">Main</a>
 </div>
 
     </div>
@@ -857,7 +802,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+<script src="/en/js/comments.js"></script><script src="/en/js/utils.js"></script><script src="/en/js/next-boot.js"></script><script src="/en/js/pjax.js"></script>
 
   
 
@@ -872,7 +817,7 @@
 
 
 
-<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202401042040.html","pageTitle":"kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV"}</script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202401042040.html","pageTitle":"Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css">
 <style>.artalk{width:initial;}</style>
