@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/730fc3eb-98b3-4cde-ab03-ff536d849762/cm5hCYYFRDdasMsamfd90jrI6Z1o_by7-z3SHX2OxujZN5bs1tYHmYExTw/deep/0/image.png">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/3e5002dc-29d3-4798-9afe-35c866fd1f44/dD8Wf6kSoMKVd4xGx3Dosd6cvB0qdU1-rUJaG3s9HNW0UI6r310tqvkE8A/deep/0/image.png">
 <meta property="article:published_time" content="2023-12-12T04:25:00.008Z">
-<meta property="article:modified_time" content="2023-12-30T14:00:11.816Z">
+<meta property="article:modified_time" content="2024-01-07T08:30:09.971Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="frpc">
 <meta property="article:tag" content="frps">
@@ -136,7 +136,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What%E2%80%99s-the-Use"><span class="nav-number">1.</span> <span class="nav-text">What’s the Use</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-Use"><span class="nav-number">2.</span> <span class="nav-text">How to Use</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Steps"><span class="nav-number">2.1.</span> <span class="nav-text">Steps</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Related-Content"><span class="nav-number">3.</span> <span class="nav-text">Related Content</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Implementation-Method"><span class="nav-number">4.</span> <span class="nav-text">Implementation Method</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Real-Problems"><span class="nav-number">4.1.</span> <span class="nav-text">Real Problems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Steps-Methods-Complex-Process"><span class="nav-number">4.2.</span> <span class="nav-text">Steps&#x2F;Methods&#x2F;Complex Process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shortcomings-Flaws"><span class="nav-number">4.3.</span> <span class="nav-text">Shortcomings&#x2F;Flaws</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next-Step-FRP-Mapping-Penetration"><span class="nav-number">4.4.</span> <span class="nav-text">Next Step: FRP Mapping&#x2F;Penetration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next-Step-Remote-Control-with-Scrcpy"><span class="nav-number">4.5.</span> <span class="nav-text">Next Step: Remote Control with Scrcpy</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Troubleshooting-and-Solutions"><span class="nav-number">5.</span> <span class="nav-text">Troubleshooting and Solutions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ADB-Shell-Shutdown"><span class="nav-number">5.1.</span> <span class="nav-text">ADB Shell Shutdown</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K2P-Original-Version-and-Flashing-Note"><span class="nav-number">5.2.</span> <span class="nav-text">K2P Original Version and Flashing Note</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inspirations"><span class="nav-number">6.</span> <span class="nav-text">Inspirations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Further-Reading-and-Application"><span class="nav-number">7.</span> <span class="nav-text">Further Reading and Application</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Usage"><span class="nav-number">1.</span> <span class="nav-text">Usage</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-Use"><span class="nav-number">2.</span> <span class="nav-text">How to Use</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Steps"><span class="nav-number">2.1.</span> <span class="nav-text">Steps</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Related-Content"><span class="nav-number">3.</span> <span class="nav-text">Related Content</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Implementation-Method"><span class="nav-number">4.</span> <span class="nav-text">Implementation Method</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Real-Problems"><span class="nav-number">4.1.</span> <span class="nav-text">Real Problems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Steps-Methods-Complex-Process"><span class="nav-number">4.2.</span> <span class="nav-text">Steps&#x2F;Methods&#x2F;Complex Process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shortcomings-Flaws"><span class="nav-number">4.3.</span> <span class="nav-text">Shortcomings&#x2F;Flaws</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next-Step-FRP-Mapping-Penetration"><span class="nav-number">4.4.</span> <span class="nav-text">Next Step: FRP Mapping&#x2F;Penetration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next-Step-Remote-Control-with-Scrcpy"><span class="nav-number">4.5.</span> <span class="nav-text">Next Step: Remote Control with Scrcpy</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Troubleshooting-and-Solutions"><span class="nav-number">5.</span> <span class="nav-text">Troubleshooting and Solutions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ADB-Shell-Shutdown"><span class="nav-number">5.1.</span> <span class="nav-text">ADB Shell Shutdown</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K2P-Original-Version-and-Flashing-Note"><span class="nav-number">5.2.</span> <span class="nav-text">K2P Original Version and Flashing Note</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inspirations"><span class="nav-number">6.</span> <span class="nav-text">Inspirations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Further-Reading-and-Application"><span class="nav-number">7.</span> <span class="nav-text">Further Reading and Application</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -384,7 +384,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-30 22:00:11" itemprop="dateModified" datetime="2023-12-30T22:00:11+08:00">2023-12-30</time>
+      <time title="Modified: 2024-01-07 16:30:09" itemprop="dateModified" datetime="2024-01-07T16:30:09+08:00">2024-01-07</time>
     </span>
 
   
@@ -418,8 +418,23 @@
     <div class="post-body" itemprop="articleBody"><p><img data-src="https://www.evernote.com/shard/s122/sh/730fc3eb-98b3-4cde-ab03-ff536d849762/cm5hCYYFRDdasMsamfd90jrI6Z1o_by7-z3SHX2OxujZN5bs1tYHmYExTw/deep/0/image.png" alt="N1RemoteControl"></p>
 <p>Practical test of remote assistance for an Android TV box, remote control of a set-top box (remote control of an Android TV), remote assistance in installing apps on a family member’s set-top box (including deletion, app management, etc.), and remote operation of the N1 TV box.</p>
 <span id="more"></span>
+<div> 
+<button onclick="synthesizeSpeech()">Synthesize Speech</button>
+</div>
+<audio controls id="audioPlayer">Your browser does not support the audio element.</audio>      
+<script>
+  function synthesizeSpeech() { 
+    var inputText = document.getElementsByClassName('post-block')[0].innerText;
+    var voice = "en";
+    var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
+    var audioPlayer = document.getElementById('audioPlayer');          
+    audioPlayer.src = url;
+    audioPlayer.load();
+    audioPlayer.play();
+  }
+</script>
 
-<h1 id="What’s-the-Use"><a href="#What’s-the-Use" class="headerlink" title="What’s the Use"></a>What’s the Use</h1><p>Remote control of a set-top box, installing IPTV apps on smart Android set-top boxes (or Android TVs) for the elderly.</p>
+<h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><p>Remote control of a set-top box, installing IPTV apps on smart Android set-top boxes (or Android TVs) for the elderly.</p>
 <p>Remote installation of apps on a family member’s set-top box, remote operation of the N1 TV box.</p>
 <p>Acts as a remote controller, realizing most remote control functions.</p>
 <p>Remote assistance for operating Android TV boxes.</p>
@@ -802,7 +817,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-12-30 22:00:11" itemprop="dateModified" datetime="2023-12-30T22:00:11+08:00">2023-12-30</time>
+        <time title="Modified: 2024-01-07 16:30:09" itemprop="dateModified" datetime="2024-01-07T16:30:09+08:00">2024-01-07</time>
       </span>
 
 </div>

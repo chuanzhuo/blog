@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/f294f10e-d8f6-4e24-bb6e-0c4b50c1a409/mKGczKJkH2aEWLaQgZVBY-_SkOTpCIAY42ljfoOcijLGL79ZYSqPZk1LyQ/deep/0/image.png">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/7987c6dd-b979-492b-adb3-06326d9ff24d/NdKoroVowvHu5nOwEn96LmMdn7ZllSCEeBZ2vZf_UM52ORS-cap-PYdRYQ/deep/0/image.png">
 <meta property="article:published_time" content="2023-11-04T13:18:14.000Z">
-<meta property="article:modified_time" content="2023-12-31T01:18:31.911Z">
+<meta property="article:modified_time" content="2024-01-07T08:29:52.760Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="Mac">
 <meta property="article:tag" content="OpenWrt">
@@ -193,13 +193,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/en/202103171250.html" rel="bookmark">
-      Global Search file content in Gitlab repositories, search across repositories, search across all files
+      <a class="popular-posts-link" href="/en/202312230940.html" rel="bookmark">
+      Setting Up Lightweight Personal File Sharing Service Using Docker - Freedom in File Transfers
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/en/202312121225.html" rel="bookmark">
-      Remote Installation of IPTV App on Android TV Box N1 - Remote Viewing of Set-Top Box Screen, and More
+      <a class="popular-posts-link" href="/en/202312271328.html" rel="bookmark">
+      Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation
       </a>
     </li>
   </ul>
@@ -382,7 +382,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-31 09:18:31" itemprop="dateModified" datetime="2023-12-31T09:18:31+08:00">2023-12-31</time>
+      <time title="Modified: 2024-01-07 16:29:52" itemprop="dateModified" datetime="2024-01-07T16:29:52+08:00">2024-01-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -412,7 +412,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>12 mins.</span>
+      <span>13 mins.</span>
     </span>
 </div>
 
@@ -426,6 +426,21 @@
 
 <p>In the process of unlocking the iPad’s activation lock and bypassing the iPad activation verification, I encountered issues with an already jailbroken iPad on iOS 12, leading to activation failure as well as unlocking the power-on screen lock password.</p>
 <span id="more"></span>
+<div> 
+<button onclick="synthesizeSpeech()">Synthesize Speech</button>
+</div>
+<audio controls id="audioPlayer">Your browser does not support the audio element.</audio>      
+<script>
+  function synthesizeSpeech() { 
+    var inputText = document.getElementsByClassName('post-block')[0].innerText;
+    var voice = "en";
+    var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
+    var audioPlayer = document.getElementById('audioPlayer');          
+    audioPlayer.src = url;
+    audioPlayer.load();
+    audioPlayer.play();
+  }
+</script>
 
 <p>After a three-day journey: I encountered an old iPad Air that had not been used for a long time and had forgotten the password. After multiple attempts, it got locked. According to customer service and online resources, I learned that it could be resolved via flashing, jailbreaking, and unlocking. Here are the specific steps:</p>
 <p>Next, I plan to turn it into an electronic album.</p>
@@ -536,13 +551,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/en/202103171250.html" rel="bookmark">
-      Global Search file content in Gitlab repositories, search across repositories, search across all files
+      <a class="popular-posts-link" href="/en/202312230940.html" rel="bookmark">
+      Setting Up Lightweight Personal File Sharing Service Using Docker - Freedom in File Transfers
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/en/202312121225.html" rel="bookmark">
-      Remote Installation of IPTV App on Android TV Box N1 - Remote Viewing of Set-Top Box Screen, and More
+      <a class="popular-posts-link" href="/en/202312271328.html" rel="bookmark">
+      Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation
       </a>
     </li>
   </ul>
@@ -695,7 +710,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-12-31 09:18:31" itemprop="dateModified" datetime="2023-12-31T09:18:31+08:00">2023-12-31</time>
+        <time title="Modified: 2024-01-07 16:29:52" itemprop="dateModified" datetime="2024-01-07T16:29:52+08:00">2024-01-07</time>
       </span>
 
 </div>

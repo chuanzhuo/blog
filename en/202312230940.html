@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/282e6c4a-96bf-487c-8c13-de2490aad98f/hd1eQ2hQGc0nQ66_VPAxTK3L1-BWabISsM4akODccA6Qu6RYWhMc8ANbFg/deep/0/image.png">
 <meta property="article:published_time" content="2023-12-23T01:40:00.000Z">
-<meta property="article:modified_time" content="2023-12-31T01:04:36.022Z">
+<meta property="article:modified_time" content="2024-01-07T07:48:15.366Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="File Sharing">
@@ -177,6 +177,16 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202312271328.html" rel="bookmark">
+      Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202401042040.html" rel="bookmark">
+      Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/en/202312262315.html" rel="bookmark">
       Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source
       </a>
@@ -187,18 +197,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/en/201411202010.html" rel="bookmark">
-      Netsuite > Hierarchy of transactions in Inventory cost calculation-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/en/202304041812.html" rel="bookmark">
       Installing/Uninstalling Homebrew on Mac OS - CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/en/202312271328.html" rel="bookmark">
-      Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation
       </a>
     </li>
   </ul>
@@ -381,7 +381,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-31 09:04:36" itemprop="dateModified" datetime="2023-12-31T09:04:36+08:00">2023-12-31</time>
+      <time title="Modified: 2024-01-07 15:48:15" itemprop="dateModified" datetime="2024-01-07T15:48:15+08:00">2024-01-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -411,7 +411,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>5 mins.</span>
+      <span>6 mins.</span>
     </span>
 </div>
 
@@ -426,6 +426,21 @@
 <p>Temporary small file sharing, remote file transfer, breaking away from cloud storage.</p>
 <p>Demo: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDo0NDQzL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:4443/fileupd</a></p>
 <span id="more"></span>
+<div> 
+<button onclick="synthesizeSpeech()">Synthesize Speech</button>
+</div>
+<audio controls id="audioPlayer">Your browser does not support the audio element.</audio>      
+<script>
+  function synthesizeSpeech() { 
+    var inputText = document.getElementsByClassName('post-block')[0].innerText;
+    var voice = "en";
+    var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(inputText) + '&voice=' + voice;
+    var audioPlayer = document.getElementById('audioPlayer');          
+    audioPlayer.src = url;
+    audioPlayer.load();
+    audioPlayer.play();
+  }
+</script>
 
 <h1 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h1><p>Temporary small file sharing, remote file transfer, breaking away from cloud storage.</p>
 <h1 id="How-to-Use"><a href="#How-to-Use" class="headerlink" title="How to Use"></a>How to Use</h1><p>Setting up a lightweight, self-hosted personal file sharing service allows for unrestricted file transfers. It focuses on offering an aesthetically pleasing and lightweight tool for file sharing.</p>
@@ -509,6 +524,16 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202312271328.html" rel="bookmark">
+      Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202401042040.html" rel="bookmark">
+      Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/en/202312262315.html" rel="bookmark">
       Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source
       </a>
@@ -519,18 +544,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/en/201411202010.html" rel="bookmark">
-      Netsuite > Hierarchy of transactions in Inventory cost calculation-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/en/202304041812.html" rel="bookmark">
       Installing/Uninstalling Homebrew on Mac OS - CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/en/202312271328.html" rel="bookmark">
-      Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation
       </a>
     </li>
   </ul>
@@ -683,7 +698,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-12-31 09:04:36" itemprop="dateModified" datetime="2023-12-31T09:04:36+08:00">2023-12-31</time>
+        <time title="Modified: 2024-01-07 15:48:15" itemprop="dateModified" datetime="2024-01-07T15:48:15+08:00">2024-01-07</time>
       </span>
 
 </div>
