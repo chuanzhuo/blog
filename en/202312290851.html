@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/f5f45ccb-94fe-4531-9f99-ce837554aea3/Y6bPGzuLPbLecEeltpEQTCp16NGYKNDzw4q8hDKFRuDYIXj-Ett5KVKXRQ/deep/0/image.png">
 <meta property="article:published_time" content="2023-12-29T00:51:31.000Z">
-<meta property="article:modified_time" content="2023-12-30T05:05:57.001Z">
+<meta property="article:modified_time" content="2024-01-09T15:18:55.437Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="docker-compose">
@@ -132,7 +132,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%92%E6%9F%A5%E4%BF%AE%E5%A4%8D%E7%BB%93%E6%9E%9C%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">排查修复结果总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">有什么用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E5%89%8D%E7%9A%84%E5%90%8E%E6%9E%9C%EF%BC%882023-12-29%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">当前的后果（2023.12.29）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%87%E5%8F%96%E6%8E%AA%E6%96%BD"><span class="nav-number">3.</span> <span class="nav-text">采取措施</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E7%90%86-%E7%AE%A1%E7%90%86Linux%E6%97%A5%E5%BF%97"><span class="nav-number">3.1.</span> <span class="nav-text">清理+管理Linux日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-%E8%BF%90%E8%A1%8C-Mysql-%E5%AE%B9%E5%99%A8%E5%90%8E%E6%8A%A5%E9%94%99%EF%BC%9A-ERROR-%E2%80%93initialize-specified-but-the-data-directory-has-files-in-it-Abort"><span class="nav-number">3.1.1.</span> <span class="nav-text">Docker - 运行 Mysql 容器后报错：[ERROR] –initialize specified but the data directory has files in it. Abort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%AF%E6%95%91MaraDB%EF%BC%9B"><span class="nav-number">3.1.2.</span> <span class="nav-text">拯救MaraDB；</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">实现方法</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%92%E6%9F%A5%E4%BF%AE%E5%A4%8D%E7%BB%93%E6%9E%9C%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">排查修复结果总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">有什么用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E5%89%8D%E7%9A%84%E5%90%8E%E6%9E%9C%EF%BC%882023-12-29%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">当前的后果（2023.12.29）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%87%E5%8F%96%E6%8E%AA%E6%96%BD"><span class="nav-number">3.</span> <span class="nav-text">采取措施</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E7%90%86-%E7%AE%A1%E7%90%86Linux%E6%97%A5%E5%BF%97"><span class="nav-number">3.1.</span> <span class="nav-text">清理+管理Linux日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-%E8%BF%90%E8%A1%8C-Mysql-%E5%AE%B9%E5%99%A8%E5%90%8E%E6%8A%A5%E9%94%99%EF%BC%9A-ERROR-%E2%80%93initialize-specified-but-the-data-directory-has-files-in-it-Abort"><span class="nav-number">3.1.1.</span> <span class="nav-text">Docker - 运行 Mysql 容器后报错：[ERROR] –initialize specified but the data directory has files in it. Abort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%AF%E6%95%91MaraDB%EF%BC%9B"><span class="nav-number">3.1.2.</span> <span class="nav-text">拯救MaraDB；</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PVE8-0%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%92%8C%E9%99%90%E5%88%B6%E6%97%A5%E5%BF%97%E7%94%9F%E6%88%90"><span class="nav-number">3.2.</span> <span class="nav-text">PVE8.0如何配置和限制日志生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian-%E6%B8%85%E7%90%86apt%E7%BC%93%E5%AD%98%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">Debian 清理apt缓存文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-clear-the-APT-cache-and-delete-everything-from-var-cache-apt-archives"><span class="nav-number">3.3.1.</span> <span class="nav-text">How to clear the APT cache and delete everything from &#x2F;var&#x2F;cache&#x2F;apt&#x2F;archives&#x2F;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Delete-all-useless-files-from-the-APT-cache"><span class="nav-number">3.3.2.</span> <span class="nav-text">Delete all useless files from the APT cache</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AEdocker%E6%AF%8F%E5%A4%A9%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF"><span class="nav-number">3.4.</span> <span class="nav-text">如何设置docker每天定时重启</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">实现方法</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -191,6 +191,11 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
+      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202311300758.html" rel="bookmark">
       Docker搭建在线网页代理实践记录
       </a>
@@ -198,11 +203,6 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202311081003.html" rel="bookmark">
       实测Docker搭建短链接服务YOURLS
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201603221430.html" rel="bookmark">
-      Mac > 编写跨平台桌面应用开发工具，基于 Web 技术-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
@@ -395,7 +395,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-12-30 13:05:57" itemprop="dateModified" datetime="2023-12-30T13:05:57+08:00">2023-12-30</time>
+      <time title="Modified: 2024-01-09 23:18:55" itemprop="dateModified" datetime="2024-01-09T23:18:55+08:00">2024-01-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -425,7 +425,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>43 mins.</span>
+      <span>54 mins.</span>
     </span>
 </div>
 
@@ -540,6 +540,64 @@
 <p>给予777的文件夹权限：matomo</p>
 <p>Maradb修复成功</p>
 <p>Mysql重建成功，丢失数据：lost data: 12.3 - 12.28 之间的数据不知道怎么找回来。。。</p>
+<h2 id="PVE8-0如何配置和限制日志生成"><a href="#PVE8-0如何配置和限制日志生成" class="headerlink" title="PVE8.0如何配置和限制日志生成"></a>PVE8.0如何配置和限制日志生成</h2><p>You can limit it by editing “#SystemMaxUse&#x3D;” to something like “SystemMaxUse&#x3D;100M” in “&#x2F;etc&#x2F;systemd&#x2F;journald.conf” and then do a:</p>
+<p> systemctl restart systemd-journald</p>
+<p>下一步就是清理Debian系统的磁盘占用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@lgkdz:/var/lib/vz# du -s /var/lib/vz/images/* | sort -nr                                                   </span><br><span class="line">51647072        /var/lib/vz/images/101                                                                          </span><br><span class="line">25876720        /var/lib/vz/images/105   </span><br></pre></td></tr></table></figure>
+
+<h2 id="Debian-清理apt缓存文件"><a href="#Debian-清理apt缓存文件" class="headerlink" title="Debian 清理apt缓存文件"></a>Debian 清理apt缓存文件</h2><h3 id="How-to-clear-the-APT-cache-and-delete-everything-from-var-cache-apt-archives"><a href="#How-to-clear-the-APT-cache-and-delete-everything-from-var-cache-apt-archives" class="headerlink" title="How to clear the APT cache and delete everything from &#x2F;var&#x2F;cache&#x2F;apt&#x2F;archives&#x2F;"></a>How to clear the APT cache and delete everything from &#x2F;var&#x2F;cache&#x2F;apt&#x2F;archives&#x2F;</h3><p>The clean command clears out the local repository of retrieved package files. It removes everything but the lock file from &#x2F;var&#x2F;cache&#x2F;apt&#x2F;archives&#x2F; and &#x2F;var&#x2F;cache&#x2F;apt&#x2F;archives&#x2F;partial&#x2F;. The syntax is:<br><code>sudo apt clean</code><br>OR<br><code>sudo apt-get clean</code></p>
+<h3 id="Delete-all-useless-files-from-the-APT-cache"><a href="#Delete-all-useless-files-from-the-APT-cache" class="headerlink" title="Delete all useless files from the APT cache"></a>Delete all useless files from the APT cache</h3><p>The syntax is as follows to delete &#x2F;var&#x2F;cache&#x2F;apt&#x2F;archives&#x2F;:<br><code>sudo apt autoclean</code><br>OR<br><code>sudo apt-get autoclean</code></p>
+<p>docker system prune</p>
+<h2 id="如何设置docker每天定时重启"><a href="#如何设置docker每天定时重启" class="headerlink" title="如何设置docker每天定时重启"></a>如何设置docker每天定时重启</h2><p>NAS中耗磁盘的docker设置重启</p>
+<p>echo “0 3 * * * root docker restart embyserver” &gt;&gt; &#x2F;etc&#x2F;cron.d&#x2F;my-cron</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;0 3 * * * root docker restart embyserver&quot; &gt;&gt; /etc/cron.d/my-cron</span><br><span class="line"></span><br><span class="line">echo &quot;11 3 * * * root docker restart portainer&quot; &gt;&gt; /etc/cron.d/my-cron</span><br><span class="line"></span><br><span class="line">echo &quot;16 3 * * * root docker restart it-tools&quot; &gt;&gt; /etc/cron.d/my-cron</span><br><span class="line"></span><br><span class="line">echo &quot;21 3 * * * root docker restart espeakbox&quot; &gt;&gt; /etc/cron.d/my-cron</span><br><span class="line"></span><br><span class="line">echo &quot;26 3 * * * root docker restart book-searcher&quot; &gt;&gt; /etc/cron.d/my-cron</span><br><span class="line"></span><br><span class="line">echo &quot;31 3 * * * root docker restart aria2-webui&quot; &gt;&gt; /etc/cron.d/my-cron</span><br><span class="line"></span><br><span class="line">echo &quot;36 3 * * * root docker restart alistaria2-webui&quot; &gt;&gt; /etc/cron.d/my-cron</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>20230109 添加了更多的重启</p>
+<p>继续观察，是否按时重启了这些docker容器？</p>
+</blockquote>
+<p>Debian中耗磁盘的docker设置重启</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">At 02:00am, only on Monday</span></span><br><span class="line">echo &quot;0 2 * * 1 root docker restart iptvchecker-website-1&quot; &gt;&gt; /etc/cron.d/my-cron</span><br><span class="line"></span><br><span class="line">echo &quot;0 3 * * * root docker restart frps&quot; &gt;&gt; /etc/cron.d/my-cron</span><br><span class="line"></span><br><span class="line">echo &quot;10 3 * * * root docker restart chatgpt-next-web&quot; &gt;&gt; /etc/cron.d/my-cron</span><br><span class="line"></span><br><span class="line">echo &quot;15 3 * * * root docker restart hideipnetwork&quot; &gt;&gt; /etc/cron.d/my-cron</span><br><span class="line"></span><br><span class="line">echo &quot;20 3 * * * root docker restart mmPlayer&quot; &gt;&gt; /etc/cron.d/my-cron</span><br><span class="line"></span><br><span class="line">echo &quot;25 3 * * * root docker restart hysteria&quot; &gt;&gt; /etc/cron.d/my-cron</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>如何改变 &#x2F;dev&#x2F;sda5的大小？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@lgkdz:~# df -hT                                                                                </span><br><span class="line">Filesystem           Type      Size  Used Avail Use% Mounted on                                     </span><br><span class="line">udev                 devtmpfs  7.7G     0  7.7G   0% /dev                                           </span><br><span class="line">tmpfs                tmpfs     1.6G  880K  1.6G   1% /run                                           </span><br><span class="line">/dev/mapper/pve-root ext4      109G   85G   19G  82% /                                              </span><br><span class="line">tmpfs                tmpfs     7.8G   46M  7.7G   1% /dev/shm                                       </span><br><span class="line">tmpfs                tmpfs     5.0M     0  5.0M   0% /run/lock                                      </span><br><span class="line">/dev/sdb2            vfat     1022M  352K 1022M   1% /boot/efi                                      </span><br><span class="line">/dev/fuse            fuse      128M   16K  128M   1% /etc/pve                                       </span><br><span class="line">tmpfs                tmpfs     1.6G     0  1.6G   0% /run/user/0   </span><br></pre></td></tr></table></figure>
+
+
+
+<p>挂载新硬盘</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ls /dev/disk/by-id</span><br><span class="line"></span><br><span class="line">qm set 105 -sata2 /dev/disk/by-id/ata-Kingchuxing_512GB_2023050801426</span><br><span class="line">qm set 105 -sata3 /dev/disk/by-id/usb-TOSHIBA_External_USB_3.0_20140612002491C-0:0</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">这是挂载到特定的虚拟机中去的命令；</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">我需要挂载给pve本身！</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sdc   </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">格式化</span><br><span class="line">mkfs.ext4 /dev/sdc2</span><br><span class="line"></span><br><span class="line">/dev/sdc2 contains a hfsplus file system labelled &#x27;Time Machine Backups&#x27;</span><br><span class="line">Proceed anyway? (y,N) y</span><br><span class="line">Creating filesystem with 244106668 4k blocks and 61030400 inodes</span><br><span class="line">Filesystem UUID: 3991ce4f-dcec-4b28-9370-3ebb751c1912</span><br><span class="line">Superblock backups stored on blocks: </span><br><span class="line">        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, </span><br><span class="line">        4096000, 7962624, 11239424, 20480000, 23887872, 71663616, 78675968, </span><br><span class="line">        102400000, 214990848</span><br><span class="line"></span><br><span class="line">Allocating group tables: done                            </span><br><span class="line">Writing inode tables: done                            </span><br><span class="line">Creating journal (262144 blocks): </span><br><span class="line">done</span><br><span class="line">Writing superblocks and filesystem accounting information: done     </span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sdc2 /mnt/usbToshiBa1T</span><br></pre></td></tr></table></figure>
+
+<p>等待测试PVE的显卡直通情况，确保，开机的画面是pve的，这样如果这个命令是错误的（导致无法开机）</p>
+<p>echo &#x2F;dev&#x2F;sdc2 &#x2F;mnt&#x2F;usbToshiBa1T ext4 defaults 0 0 &gt;&gt; &#x2F;etc&#x2F;fstab</p>
+<p>就还知道补救的步骤</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">如果这里你操作错误，可能会导致 PVE 无法启动，需要在启动时候接上显示器，进入修复模式 repair filesystem ，直接输入 root 密码即可进入</span><br><span class="line"></span><br><span class="line">因为此时 / 目录是只读模式，进行修改 /etc/fstab 时，提示无法保存（只读），这时需要将 / 目录重新挂载为可读写模式 ，用命令</span><br><span class="line"></span><br><span class="line">mount -o remount,rw,auto /</span><br><span class="line">然后再对 /etc/fstab 进行修改就可以了。重启后系统正常启动。</span><br><span class="line"></span><br><span class="line">之后重启 PVE 即可</span><br><span class="line"></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这个可以看到已经mount成功了，新磁盘可以使用了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; df -hT                                                                  </span><br><span class="line">Filesystem           Type      Size  Used Avail Use% Mounted on                                       </span><br><span class="line">udev                 devtmpfs  7.7G     0  7.7G   0% /dev                                             </span><br><span class="line">tmpfs                tmpfs     1.6G  904K  1.6G   1% /run                                             </span><br><span class="line">/dev/mapper/pve-root ext4      109G   85G   19G  82% /                                                </span><br><span class="line">tmpfs                tmpfs     7.8G   46M  7.7G   1% /dev/shm                                         </span><br><span class="line">tmpfs                tmpfs     5.0M     0  5.0M   0% /run/lock                                        </span><br><span class="line">/dev/sdb2            vfat     1022M  352K 1022M   1% /boot/efi                                        </span><br><span class="line">/dev/fuse            fuse      128M   16K  128M   1% /etc/pve                                         </span><br><span class="line">tmpfs                tmpfs     1.6G     0  1.6G   0% /run/user/0                                      </span><br><span class="line">/dev/sdc2            ext4      916G   12K  869G   1% /mnt/usbToshiBa1T    </span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>本章节参考：</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cubW9ld2FoLmNvbS9hcmNoaXZlcy8yNTQ2Lmh0bWw=" rel="noopener external nofollow noreferrer">Proxmox VE（PVE）如何添加多块硬盘</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cubW9ld2FoLmNvbS9hcmNoaXZlcy8yNTU4Lmh0bWw=" rel="noopener external nofollow noreferrer">Linux&#x2F;VPS开机启动自动挂载分区的方法</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hbnVvdWEuZ2l0aHViLmlvLzIwMTkvMDMvMDQvTGludXglRTYlOTclQTAlRTYlOEQlOUYlRTglQjAlODMlRTYlOTUlQjQlRTUlODglODYlRTUlOEMlQkElRTUlQTQlQTclRTUlQjAlOEYv" rel="noopener external nofollow noreferrer">Linux无损调整分区大小</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cubGF0ZWdlZ2UuY29tLz9wPTUzOA==" rel="noopener external nofollow noreferrer">Proxmox VE(PVE)添加硬盘详解</a></p>
 <h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=nas" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>都是些小爱心小公益的项目，没必要花时间攻击哦，沉淀共享，格局放大！～</p>
@@ -610,6 +668,11 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
+      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202311300758.html" rel="bookmark">
       Docker搭建在线网页代理实践记录
       </a>
@@ -617,11 +680,6 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202311081003.html" rel="bookmark">
       实测Docker搭建短链接服务YOURLS
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201603221430.html" rel="bookmark">
-      Mac > 编写跨平台桌面应用开发工具，基于 Web 技术-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
@@ -784,7 +842,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2023-12-30 13:05:57" itemprop="dateModified" datetime="2023-12-30T13:05:57+08:00">2023-12-30</time>
+        <time title="Modified: 2024-01-09 23:18:55" itemprop="dateModified" datetime="2024-01-09T23:18:55+08:00">2024-01-09</time>
       </span>
 
 </div>
