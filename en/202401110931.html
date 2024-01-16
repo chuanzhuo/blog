@@ -5,30 +5,30 @@
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/en/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/en/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/en/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/en/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/en/css/main.css">
 
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/en/","images":"/en/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/en/js/config.js"></script>
 
-    <meta name="description" content="应对PVE磁盘占满的现实情况">
+    <meta name="description" content="Addressing the practical issue of a full PVE disk.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PVE磁盘占满解决方案实践">
+<meta property="og:title" content="Practical Solutions for Resolving Full PVE Disk Occupancy">
 <meta property="og:url" content="https://www.carlzeng.top/en/202401110931.html">
-<meta property="og:site_name" content="随笔 Carl Notes">
-<meta property="og:description" content="应对PVE磁盘占满的现实情况">
+<meta property="og:site_name" content="Carl Notes">
+<meta property="og:description" content="Addressing the practical issue of a full PVE disk.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-01-11T01:31:48.000Z">
-<meta property="article:modified_time" content="2024-01-11T02:05:27.134Z">
+<meta property="article:modified_time" content="2024-01-16T01:09:38.813Z">
 <meta property="article:author" content="Carl Notes">
-<meta property="article:tag" content="linux">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="PVE">
 <meta name="twitter:card" content="summary">
 
@@ -37,10 +37,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/202401110931.html","path":"en/202401110931.html","title":"PVE磁盘占满解决方案实践"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/en/202401110931.html","path":"202401110931.html","title":"Practical Solutions for Resolving Full PVE Disk Occupancy"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>PVE磁盘占满解决方案实践 | 随笔 Carl Notes</title>
+<title>Practical Solutions for Resolving Full PVE Disk Occupancy | Carl Notes</title>
   
 
 
@@ -51,10 +51,10 @@
 
 <link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
   <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
+    <link rel="stylesheet" href="/en/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
-<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+<link rel="alternate" href="/en/atom.xml" title="Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/en/rss2.xml" title="Carl Notes" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -73,12 +73,12 @@
 
   <div class="site-meta">
 
-    <a href="/" class="brand" rel="start">
+    <a href="/en/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">随笔 Carl Notes</p>
+      <p class="site-title">Carl Notes</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">IT科技 技术解决方案 NetSuite ERP</p>
+      <p class="site-subtitle" itemprop="description">Information Technology Solutions NetSuite ERP</p>
   </div>
 
   <div class="site-nav-right">
@@ -90,14 +90,14 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">181</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">47</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">331</span></a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-下载音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载音乐</a></li><li class="menu-item menu-item-直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>直播IPTV</a></li><li class="menu-item menu-item-文件分享"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>文件分享</a></li><li class="menu-item menu-item-下载书籍"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载书籍</a></li><li class="menu-item menu-item-it小工具集合"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>IT小工具集合</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">196</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">46</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">329</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/en/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-schedule-meeting"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Schedule Meeting</a></li><li class="menu-item menu-item-chatgpt"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>ChatGPT</a></li><li class="menu-item menu-item-hnet-web"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>HNet Web</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-firefox"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Firefox</a></li><li class="menu-item menu-item-emby-iptv"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Emby IPTV</a></li><li class="menu-item menu-item-file-share"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>File Share</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li>
   </ul>
 
     <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
     <div class="popup search-popup">
       <div class="search-header">
       <div class="search-input-container" style="text-align: left; padding-left: 22px">
-        <input name="q" autocomplete="off" autocapitalize="off" maxlength="28" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="28" placeholder="Enter to Search..." spellcheck="false" type="search" class="search-input">
       </div>
       </div>
     </div>
@@ -126,31 +126,31 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%A1%881-%E6%B8%85%E7%90%86PVE%E7%A9%BA%E9%97%B4"><span class="nav-number">1.</span> <span class="nav-text">方案1: 清理PVE空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%A1%882-%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%A3%81%E7%9B%98"><span class="nav-number">2.</span> <span class="nav-text">方案2: 添加新磁盘</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">4.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Purpose"><span class="nav-number">1.</span> <span class="nav-text">Purpose</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solution-1-Cleaning-PVE-Space"><span class="nav-number">2.</span> <span class="nav-text">Solution 1: Cleaning PVE Space</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solution-2-Adding-a-New-Disk"><span class="nav-number">3.</span> <span class="nav-text">Solution 2: Adding a New Disk</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Related-Content"><span class="nav-number">4.</span> <span class="nav-text">Related Content</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Source-of-Inspiration"><span class="nav-number">5.</span> <span class="nav-text">Source of Inspiration</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Carl Notes</p>
-  <div class="site-description" itemprop="description">[眼观心察 沉淀共享] 技术文章版本持续更新</div>
+  <div class="site-description" itemprop="description">[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">331</span>
+        <a href="/en/archives/">
+          <span class="site-state-item-count">329</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">47</span>
+          <a href="/en/categories/">
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">181</span>
+          <a href="/en/tags/">
+        <span class="site-state-item-count">196</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -170,43 +170,28 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
-      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      <a class="popular-posts-link" href="/en/202401071512.html" rel="bookmark">
+      Docker Setup for TTS (Text-to-speech) Service - Converting Text Content to Speech
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202401042040.html" rel="bookmark">
-      kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV
+      <a class="popular-posts-link" href="/en/202312230940.html" rel="bookmark">
+      Setting Up Lightweight Personal File Sharing Service Using Docker - Freedom in File Transfers
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312230940.html" rel="bookmark">
-      Docker搭建轻量个人文件分享服务-文件传输自由
+      <a class="popular-posts-link" href="/en/202312271328.html" rel="bookmark">
+      Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200906101022.html" rel="bookmark">
-      js 取得div高度-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312071625.html" rel="bookmark">
-      孩子手机防沉迷之定时路由器端断网
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200904131139.html" rel="bookmark">
-      js 判断浏览器是否ie-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200902161717.html" rel="bookmark">
+      <a class="popular-posts-link" href="/en/200902161717.html" rel="bookmark">
       用javascript产生一个弹出页面-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312121225.html" rel="bookmark">
-      远程安卓盒子N1安装IPTV APP-远程查看机顶盒屏幕画面等
+      <a class="popular-posts-link" href="/en/202312262315.html" rel="bookmark">
+      Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source
       </a>
     </li>
   </ul>
@@ -220,32 +205,32 @@
       <div class="sidebar-inner sidebar-post-related">
             <div class="links-of-blogroll-title recent-posts-title">
           <i class="fa fa-history " aria-hidden="true"></i>
-                最新随笔
+                Recent Posts
         </div>
         <ul class="popular-posts">
                 <li class="popular-posts-item">
-                  <a href="/202401110931.html" title="PVE磁盘占满解决方案实践" target=""  class="popular-posts-link">
-                  PVE磁盘占满解决方案实践
+                  <a href="/en/202401110931.html" title="Practical Solutions for Resolving Full PVE Disk Occupancy" target=""  class="popular-posts-link">
+                  Practical Solutions for Resolving Full PVE Disk Occupancy
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/202401071512.html" title="TTS(Text-to-speech)服务docker搭建 转化文本内容为语音" target=""  class="popular-posts-link">
-                  TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+                  <a href="/en/202401071512.html" title="Docker Setup for TTS (Text-to-speech) Service - Converting Text Content to Speech" target=""  class="popular-posts-link">
+                  Docker Setup for TTS (Text-to-speech) Service - Converting Text Content to Speech
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/202401042040.html" title="kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV" target=""  class="popular-posts-link">
-                  kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV
+                  <a href="/en/202401042040.html" title="Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV" target=""  class="popular-posts-link">
+                  Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/202312290851.html" title="PVE群晖NAS修复笔记" target=""  class="popular-posts-link">
-                  PVE群晖NAS修复笔记
+                  <a href="/en/202312271328.html" title="Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation" target=""  class="popular-posts-link">
+                  Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/202312281013.html" title="Hexo多语言解决方案实践记录" target=""  class="popular-posts-link">
-                  Hexo多语言解决方案实践记录
+                  <a href="/en/202312262315.html" title="Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source" target=""  class="popular-posts-link">
+                  Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source
                   </a>
                 </li>
         </ul>
@@ -340,7 +325,7 @@
       max-height: 1.13em !important;
     }
     </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
-      订阅新文章:
+      Subscribe New Article
     </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="Enter your email to receive new articles" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
       Subscribe
     </button></div></div></form></div>
@@ -361,25 +346,25 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202401110931.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202401110931.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/en/images/avatar.gif">
       <meta itemprop="name" content="Carl Notes">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="[眼观心察 沉淀共享] 技术文章版本持续更新">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="PVE磁盘占满解决方案实践 | 随笔 Carl Notes">
+      <meta itemprop="name" content="Practical Solutions for Resolving Full PVE Disk Occupancy | Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          PVE磁盘占满解决方案实践
+          Practical Solutions for Resolving Full PVE Disk Occupancy
         </h1>
 
         <div class="post-meta-container">
@@ -389,7 +374,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-01-11 10:05:27" itemprop="dateModified" datetime="2024-01-11T10:05:27+08:00">2024-01-11</time>
+      <time title="Modified: 2024-01-16 09:09:38" itemprop="dateModified" datetime="2024-01-16T09:09:38+08:00">2024-01-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -397,7 +382,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+          <a href="/en/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
         </span>
     </span>
 
@@ -419,7 +404,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>3 mins.</span>
+      <span>4 mins.</span>
     </span>
 </div>
 
@@ -431,92 +416,71 @@
     
     <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="">
 
-<p>应对PVE磁盘占满的现实情况</p>
+<p>Addressing the practical issue of a full PVE disk.</p>
 <span id="more"></span>
 
-<div> 
-<button onclick="synthesizeSpeech()">朗读全文</button>
-</div>
-<audio controls id="audioPlayer">Your browser does not support the audio element.</audio>      
-<script>
-  function synthesizeSpeech() { 
-    var inputText = document.getElementsByClassName('post-block')[0].innerText;
-    var voice = "ZH";
-    var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
-    var audioPlayer = document.getElementById('audioPlayer');          
-    audioPlayer.src = url;
-    audioPlayer.load();
-    audioPlayer.play();
-  }
-</script>
-# 有什么用
+<div> <button onclick="synthesizeSpeech()">Read Aloud Entire Text</button> </div> <audio controls id="audioPlayer">Your browser does not support the audio element.</audio> <script> function synthesizeSpeech() { var inputText = document.getElementsByClassName('post-block')[0].innerText; var voice = "ZH"; var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice; var audioPlayer = document.getElementById('audioPlayer'); audioPlayer.src = url; audioPlayer.load(); audioPlayer.play(); } </script>
 
-<p>应对PVE磁盘占满的现实情况</p>
-<h1 id="方案1-清理PVE空间"><a href="#方案1-清理PVE空间" class="headerlink" title="方案1: 清理PVE空间"></a>方案1: 清理PVE空间</h1><p>清理pve，登录pve的ssh：</p>
+<h1 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h1><p>Addressing the practical issue of a full PVE disk.</p>
+<h1 id="Solution-1-Cleaning-PVE-Space"><a href="#Solution-1-Cleaning-PVE-Space" class="headerlink" title="Solution 1: Cleaning PVE Space"></a>Solution 1: Cleaning PVE Space</h1><p>To clean PVE, log in to PVE’s SSH:</p>
 <ol>
-<li><p>查看各个目录下的文件大小，按文件大小从大到小排序：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -s /* | sort -nr </span><br></pre></td></tr></table></figure>
+<li><p>View the sizes of files in various directories, sorted by size from largest to smallest:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -s /* | sort -nr </span><br></pre></td></tr></table></figure>
 
-<p>其中 &#x2F;*，可以时任何一个目录，比如&#x2F;lib&#x2F;*就是查看lib目录下的文件大小。</p>
-<p>删除无用的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">find / -size +800M -<span class="built_in">exec</span> <span class="built_in">ls</span> -lh &#123;&#125; \;</span>         </span><br><span class="line"></span><br><span class="line">-r-------- 1 root root 128T Nov 19 19:24 /proc/kcore   </span><br><span class="line">...</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">检查异常大小的<span class="built_in">log</span>文件</span></span><br></pre></td></tr></table></figure>
+<p>Here, &#x2F;* can be any directory, for example, &#x2F;lib&#x2F;* would show the file sizes in the lib directory.</p>
+<p>Delete unnecessary files</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">find / -size +800M -<span class="built_in">exec</span> <span class="built_in">ls</span> -lh &#123;&#125; \;</span>         </span><br><span class="line"></span><br><span class="line">-r-------- 1 root root 128T Nov 19 19:24 /proc/kcore   </span><br><span class="line">...</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Check <span class="keyword">for</span> abnormally large <span class="built_in">log</span> files</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>删除无用的日志文件</p>
-</li>
-<li><p>rm -rf &#x2F;log&#x2F;*.gz  </p>
-</li>
-<li><p>rm -rf &#x2F;var&#x2F;log&#x2F;*.1</p>
-</li>
-<li><p>配置日志文件大小多少 </p>
+<li><p>Delete unnecessary log files</p>
 <ol>
-<li><p>journalctl –vacuum-size&#x3D;512M </p>
+<li>rm -rf &#x2F;log&#x2F;*.gz</li>
+<li>rm -rf &#x2F;var&#x2F;log&#x2F;*.1</li>
+</ol>
 </li>
-<li><p>2d之前的自动删除</p>
-<p>journalctl –vacuum-time&#x3D;2d </p>
+<li><p>Configure the size of log files</p>
+<ol>
+<li><p>journalctl –vacuum-size&#x3D;512M</p>
+</li>
+<li><p>Automatic removal of logs older than 2 days</p>
+<p>journalctl –vacuum-time&#x3D;2d</p>
 </li>
 <li></li>
 </ol>
 </li>
-<li><p>如果有挪移PVE docker 出来的Debian中的大文件的需求</p>
+<li><p>If there is a need to move large files from the PVE docker in Debian:</p>
 <ol>
-<li>思路：debian docker data-root</li>
-<li><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9tZWRpdW0uY29tL0BjYWx2aW5lb3RpZW5vMDEwL2NoYW5nZS1kb2NrZXItZGVmYXVsdC1yb290LWRhdGEtZGlyZWN0b3J5LWExZDkyNzEwNTZmNA==" rel="noopener external nofollow noreferrer">Change Docker Default Root Data Directory</a></li>
+<li>Approach: debian docker data-root</li>
+<li><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9tZWRpdW0uY29tL0BjYWx2aW5lb3RpZW5vMDEwL2NoYW5nZS1kb2NrZXItZGVmYXVsdC1yb290LWRhdGEtZGlyZWN0b3J5LWExZDkyNzEwNTZmNA==" rel="noopener external nofollow noreferrer">Change Docker Default Root Data Directory</a></li>
 </ol>
 </li>
-<li><p>更详细的记录详见： <a href="https://www.carlzeng.top/202312290851">PVE群晖NAS修复笔记</a> 》 采取措施</p>
+<li><p>For a more detailed record, see: <a href="https://www.carlzeng.top/202312290851">PVE Synology NAS Repair Notes</a> 》 Taking measures</p>
 </li>
 </ol>
-<h1 id="方案2-添加新磁盘"><a href="#方案2-添加新磁盘" class="headerlink" title="方案2: 添加新磁盘"></a>方案2: 添加新磁盘</h1><ol>
-<li>把1T的移动硬盘插到USB上</li>
+<h1 id="Solution-2-Adding-a-New-Disk"><a href="#Solution-2-Adding-a-New-Disk" class="headerlink" title="Solution 2: Adding a New Disk"></a>Solution 2: Adding a New Disk</h1><ol>
+<li>Connect a 1TB external hard drive to the USB port</li>
 </ol>
-<p>查看各磁盘情况（含名称），或者可以用命令</p>
+<p>View the status of each disk (including its name), or use the command</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /dev/disk/by-id</span><br></pre></td></tr></table></figure>
 
-<p>或者PVE的UI上数据中心&gt;PVE名称&gt;磁盘</p>
-<ol start="2">
-<li>在mnt文件夹下新增一个目录，比如：mkdir usbToshiBa1T<ol>
-<li>比如看到的是&#x2F;dev&#x2F;sdc2分区</li>
-</ol>
-</li>
+<p>Or in the PVE interface under Datacenter &gt; PVE Name &gt; Disks</p>
+<ol>
+<li>Add a new directory under the mnt folder, for example: mkdir usbToshiBa1T<br>If you see &#x2F;dev&#x2F;sdc2 as a partition</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sdc2 /mnt/usbToshiBa1T</span><br></pre></td></tr></table></figure>
 
-
-
-<ol start="3">
-<li><p>界面上，选中磁盘分区：“擦除磁盘” ； 或者可以用命令管理分区：</p>
+<ol>
+<li><p>In the interface, select the disk partition: “Erase Disk”; or manage partitions using the command:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sdc</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>把分区添加为PVE的 ‘目录’</p>
-<p>UI上选择：数据中心 &gt; PVE名称 &gt; 磁盘 &gt; 目录</p>
-<p>按钮：创建目录</p>
+<li><p>Add the partition as a ‘directory’ for PVE</p>
+<p>Select in the UI: Datacenter &gt; PVE Name &gt; Disks &gt; Directory</p>
+<p>Button: Create Directory</p>
 </li>
 </ol>
-<p>新建虚拟机时：请手动选择该新的‘目录’</p>
-<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=pve" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+<p>When creating a new virtual machine, please manually select this new “directory”</p>
+<h1 id="Related-Content"><a href="#Related-Content" class="headerlink" title="Related Content"></a>Related Content</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=pve" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
-
-<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p> <a href="https://www.carlzeng.top/202312290851">PVE群晖NAS修复笔记</a> </p>
+<h1 id="Source-of-Inspiration"><a href="#Source-of-Inspiration" class="headerlink" title="Source of Inspiration"></a>Source of Inspiration</h1><p><a href="https://www.carlzeng.top/202312290851">PVE Synology NAS Repair Notes</a></p>
 
     </div>
 
@@ -547,14 +511,14 @@
 <ul>
   <li class="post-copyright-author">
       <strong>Post author:  </strong>Carl Notes
-    <a href='https://www.carlzeng.top/202401110931.html'> 《PVE磁盘占满解决方案实践》</a>
+    <a href='https://www.carlzeng.top/en/202401110931.html'> 《Practical Solutions for Resolving Full PVE Disk Occupancy》</a>
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://www.carlzeng.top/202401110931.html" title="PVE磁盘占满解决方案实践">https://www.carlzeng.top/202401110931.html</a>
+      <a href="https://www.carlzeng.top/en/202401110931.html" title="Practical Solutions for Resolving Full PVE Disk Occupancy">https://www.carlzeng.top/en/202401110931.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
   </li>
 </ul>
 </div>
@@ -569,43 +533,28 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
-      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      <a class="popular-posts-link" href="/en/202401071512.html" rel="bookmark">
+      Docker Setup for TTS (Text-to-speech) Service - Converting Text Content to Speech
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202401042040.html" rel="bookmark">
-      kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV
+      <a class="popular-posts-link" href="/en/202312230940.html" rel="bookmark">
+      Setting Up Lightweight Personal File Sharing Service Using Docker - Freedom in File Transfers
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312230940.html" rel="bookmark">
-      Docker搭建轻量个人文件分享服务-文件传输自由
+      <a class="popular-posts-link" href="/en/202312271328.html" rel="bookmark">
+      Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200906101022.html" rel="bookmark">
-      js 取得div高度-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312071625.html" rel="bookmark">
-      孩子手机防沉迷之定时路由器端断网
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200904131139.html" rel="bookmark">
-      js 判断浏览器是否ie-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200902161717.html" rel="bookmark">
+      <a class="popular-posts-link" href="/en/200902161717.html" rel="bookmark">
       用javascript产生一个弹出页面-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312121225.html" rel="bookmark">
-      远程安卓盒子N1安装IPTV APP-远程查看机顶盒屏幕画面等
+      <a class="popular-posts-link" href="/en/202312262315.html" rel="bookmark">
+      Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source
       </a>
     </li>
   </ul>
@@ -622,52 +571,52 @@
   <div class="sidebar-inner sidebar-post-related">
         <div class="links-of-blogroll-title recent-posts-title">
       <i class="fa fa-history " aria-hidden="true"></i>
-            最新随笔
+            Recent Posts
     </div>
     <ul class="popular-posts">
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202401110931.html" title="PVE磁盘占满解决方案实践" target="" class="popular-posts-link">
-              PVE磁盘占满解决方案实践
+              <a href="/en/202401110931.html" title="Practical Solutions for Resolving Full PVE Disk Occupancy" target="" class="popular-posts-link">
+              Practical Solutions for Resolving Full PVE Disk Occupancy
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202401071512.html" title="TTS(Text-to-speech)服务docker搭建 转化文本内容为语音" target="" class="popular-posts-link">
-              TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+              <a href="/en/202401071512.html" title="Docker Setup for TTS (Text-to-speech) Service - Converting Text Content to Speech" target="" class="popular-posts-link">
+              Docker Setup for TTS (Text-to-speech) Service - Converting Text Content to Speech
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202401042040.html" title="kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV" target="" class="popular-posts-link">
-              kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV
+              <a href="/en/202401042040.html" title="Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV" target="" class="popular-posts-link">
+              Kcptun - A UDP Tunnel Based on KCP Protocol - Converting TCP Streams to KCP+UDP to Stream IPTV
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312290851.html" title="PVE群晖NAS修复笔记" target="" class="popular-posts-link">
-              PVE群晖NAS修复笔记
+              <a href="/en/202312271328.html" title="Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation" target="" class="popular-posts-link">
+              Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312281013.html" title="Hexo多语言解决方案实践记录" target="" class="popular-posts-link">
-              Hexo多语言解决方案实践记录
+              <a href="/en/202312262315.html" title="Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source" target="" class="popular-posts-link">
+              Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312271328.html" title="Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由" target="" class="popular-posts-link">
-              Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由
+              <a href="/en/202312230940.html" title="Setting Up Lightweight Personal File Sharing Service Using Docker - Freedom in File Transfers" target="" class="popular-posts-link">
+              Setting Up Lightweight Personal File Sharing Service Using Docker - Freedom in File Transfers
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312262315.html" title="加速Docker Pull或者docker-compose拉取镜像 - 适用github源" target="" class="popular-posts-link">
-              加速Docker Pull或者docker-compose拉取镜像 - 适用github源
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312230940.html" title="Docker搭建轻量个人文件分享服务-文件传输自由" target="" class="popular-posts-link">
-              Docker搭建轻量个人文件分享服务-文件传输自由
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202312210934.html" title="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源" target="" class="popular-posts-link">
+              <a href="/en/202312210934.html" title="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源" target="" class="popular-posts-link">
               联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202312180949.html" title="Remote Assistance - ToDesk for Domestic Use and RustDesk for International Use" target="" class="popular-posts-link">
+              Remote Assistance - ToDesk for Domestic Use and RustDesk for International Use
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202312161121.html" title="Implementing High-speed Site-wide Search for Hexo with FlexSearch in Node.js" target="" class="popular-posts-link">
+              Implementing High-speed Site-wide Search for Hexo with FlexSearch in Node.js
               </a>
             </li>
     </ul>
@@ -679,97 +628,77 @@
 
 
 <div class="followme">
-  <span>If the article solves your urgent needs or brings some clarity, you may wish to <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email subscription</a> or reward</span>
+  <span>If the article solves your urgent needs or brings some clarity, you may wish to <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email subscription</a> or reward</span>
 
   <div class="social-list">
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
 
-            <span class="label">联系我(谈话)</span>
+            <span class="label">Emby IPTV</span>
           </a>
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer">
-            <span class="icon">
-              <i class=""></i>
-            </span>
-
-            <span class="label">IPTV直播</span>
-          </a>
-      </div>
-
-      <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/202312081128.html">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/202312081128.html">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
 
-            <span class="label">M3U8播放器</span>
+            <span class="label">M3U8 Player</span>
           </a>
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
 
-            <span class="label">MP3与下载</span>
+            <span class="label">Music</span>
           </a>
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fa fa-rss"></i>
             </span>
 
-            <span class="label">ChatGPT问答</span>
+            <span class="label">ChatGPT</span>
           </a>
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
 
-            <span class="label">网络加速器</span>
+            <span class="label">HNet Web</span>
           </a>
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
 
-            <span class="label">文件分享</span>
+            <span class="label">File Share</span>
           </a>
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
 
-            <span class="label">下载电子书</span>
-          </a>
-      </div>
-
-      <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
-            <span class="icon">
-              <i class="fab fa-twitter"></i>
-            </span>
-
-            <span class="label">IT小工具集合</span>
+            <span class="label">Book</span>
           </a>
       </div>
   </div>
@@ -778,7 +707,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2024-01-11 10:05:27" itemprop="dateModified" datetime="2024-01-11T10:05:27+08:00">2024-01-11</time>
+        <time title="Modified: 2024-01-16 09:09:38" itemprop="dateModified" datetime="2024-01-16T09:09:38+08:00">2024-01-16</time>
       </span>
 
 </div>
@@ -786,18 +715,17 @@
 
 
           <div class="post-tags">
-            继续浏览有关
-              <a href="/tags/linux/" rel="tag"># linux</a>
-              <a href="/tags/PVE/" rel="tag"># PVE</a>
-            的文章
+            View same tag articles:
+              <a href="/en/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/en/tags/PVE/" rel="tag"># PVE</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/202401071512.html" rel="prev" title="TTS(Text-to-speech)服务docker搭建 转化文本内容为语音">
-                  <i class="fa fa-angle-left"></i> TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+                <a href="/en/202401071512.html" rel="prev" title="Docker Setup for TTS (Text-to-speech) Service - Converting Text Content to Speech">
+                  <i class="fa fa-angle-left"></i> Docker Setup for TTS (Text-to-speech) Service - Converting Text Content to Speech
                 </a>
             </div>
             <div class="post-nav-item">
@@ -819,24 +747,6 @@
 
   <footer class="footer">
     <div class="footer-inner">
-  <div class="languages">
-    <label class="lang-select-label">
-      <i class="fa fa-language"></i>
-      <span>English</span>
-      <i class="fa fa-angle-up" aria-hidden="true"></i>
-    </label>
-    <select class="lang-select" data-canonical="" aria-label="Select language">
-      
-        <option value="zh-CN" data-href="/202401110931.html" selected="">
-          简体中文
-        </option>
-      
-        <option value="en" data-href="/en/202401110931.html" selected="">
-          English
-        </option>
-      
-    </select>
-  </div>
 
 <div class="busuanzi-count">
     <span class="post-meta-item" id="busuanzi_container_site_uv">
@@ -856,9 +766,8 @@
       </span>
     </span>
 
-</div>
 
-<!-- Matomo -->
+  <!-- Matomo -->
   <script>
     var _paq = window._paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -877,8 +786,10 @@
   <noscript><p><img src="//statcounter.carlzeng.top:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
   <!-- End Matomo Code -->
 
+</div>
+
 <div class="powered-by">
-    <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 选择服务器：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oay5jYXJsemVuZy50b3A=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">USA</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a> <a href="https://www.carlzeng.top">Main</a>
+    <a href='https://www.carlzeng.top/en/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/en/rss2.xml'>RSS</a> | Switch Server: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9oay5jYXJsemVuZy50b3AvZW4=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9wL2Vu" rel="noopener external nofollow noreferrer">USA</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcC9lbg==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9wL2Vu" rel="noopener external nofollow noreferrer">GitHub</a> <a href="https://www.carlzeng.top/en">Main</a>
 </div>
 
     </div>
@@ -900,7 +811,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+<script src="/en/js/comments.js"></script><script src="/en/js/utils.js"></script><script src="/en/js/next-boot.js"></script><script src="/en/js/pjax.js"></script>
 
   
 
@@ -915,7 +826,7 @@
 
 
 
-<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202401110931.html","pageTitle":"PVE磁盘占满解决方案实践"}</script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202401110931.html","pageTitle":"Practical Solutions for Resolving Full PVE Disk Occupancy"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css">
 <style>.artalk{width:initial;}</style>
