@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://github.com/xtaci/kcptun/raw/master/kcptun.png">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/8fe8d1c0-8160-4ae9-aeb2-cddb0a087fca/iaCsI3nyQOjiBjCc1mRkhgmzaTDboELpmQBi05oXUyhXQRD40JIM0Wkyxg/deep/0/image.png">
 <meta property="article:published_time" content="2024-01-04T12:40:33.000Z">
-<meta property="article:modified_time" content="2024-01-07T08:45:21.094Z">
+<meta property="article:modified_time" content="2024-01-21T10:43:10.043Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="kcptun">
@@ -209,13 +209,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312121225.html" rel="bookmark">
-      远程安卓盒子N1安装IPTV APP-远程查看机顶盒屏幕画面等
+      <a class="popular-posts-link" href="/202312081128.html" rel="bookmark">
+      M3U8播放器
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201410281110.html" rel="bookmark">
-      SuiteScript > Apply script to Assembly and Kit-CarlZeng
+      <a class="popular-posts-link" href="/202305190844.html" rel="bookmark">
+      如果你对IPTV（全地球的）感兴趣-CarlZeng
       </a>
     </li>
   </ul>
@@ -398,7 +398,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-01-07 16:45:21" itemprop="dateModified" datetime="2024-01-07T16:45:21+08:00">2024-01-07</time>
+      <time title="修改时间：2024-01-21 18:43:10" itemprop="dateModified" datetime="2024-01-21T18:43:10+08:00">2024-01-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -428,7 +428,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
+      <span>8 分钟</span>
     </span>
 </div>
 
@@ -504,6 +504,37 @@
 <p>实测体验：高清很顺畅，4K还是有卡顿的；</p>
 <p>TODO：等待下一步在客户端的局域网播放测试</p>
 <p>这样KCP传输以后，按报告上说是传输延迟减半，速率加倍*2+；有待于进一步实践考验</p>
+<blockquote>
+<p>20240121 放弃这个方案</p>
+</blockquote>
+<p>kcptun部署案例：<br>    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHZLY3B0dW4tMTIzLTEtODM4OC1WMjAyNDAxMjEubTN1" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:3/iptvKcptun-123-1-8388-V20240121.m3u</a></p>
+<pre><code>旧的DIYP配置：
+https://c.carlzeng.top:3/tv
+
+Perfect Player
+https://c.carlzeng.top:3/kcpzl
+    配置yourls对应了https://c.carlzeng.top:3/iptvKcptun-123-1-8388-V20240121.m3u
+
+2:16pm 感觉zl移动客户端的配置文件没问题，比如 
+http://192.168.123.1:8388/rtp/239.3.1.129:8008
+想要检查服务端NAS中的server_linux_amd64执行情况，重启
+2:28pm 启动NAS中的KCPTUN server，4K依旧卡。
+2:33pm 4K播放，卡！kcptun方案  —— 淘汰
+
+对比Perfect Player的 原始配置：
+    https://c.carlzeng.top:3/tvm3u
+2:39pm 体验这个直接的互联网上http udpxy：速度和kcptun差不多。
+4K测试台，反而不怎么卡；直观体验甚至可以说比kcptun以后的播放4K更流畅。
+
+结论：保留原先这个Perfect Player的配置（直接互联网上访问udprxy）https://c.carlzeng.top:3/tvm3u
+
+2:48pm
+修改DIYP的配置为：
+https://c.carlzeng.top:3/tvm
+这个m移动的配置里面，有对所有北京频道的优化，添加首个为hby的udpxy地址。
+
+方案三：直接本地组播（移动宽带）播放
+</code></pre>
 <h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>如果单单是用于播放IPTV，加速远程m3u8的播放内容的话；这个方案还要往前在走一步，</p>
 <ul>
 <li>在手机端也下载<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3h0YWNpL2tjcHR1bi9yZWxlYXNlcy9kb3dubG9hZC92MjAyMzEwMTIva2NwdHVuLWxpbnV4LWFybTY0LTIwMjMxMDEyLnRhci5neg==" rel="noopener external nofollow noreferrer">kcptun-linux-arm64-20231012.tar.gz</a> 在手机端运行.&#x2F;client_linux_arm64 配合上参数（见上方已实例测试过）就可以加速播放远程的IPTV或直播</li>
@@ -594,13 +625,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312121225.html" rel="bookmark">
-      远程安卓盒子N1安装IPTV APP-远程查看机顶盒屏幕画面等
+      <a class="popular-posts-link" href="/202312081128.html" rel="bookmark">
+      M3U8播放器
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201410281110.html" rel="bookmark">
-      SuiteScript > Apply script to Assembly and Kit-CarlZeng
+      <a class="popular-posts-link" href="/202305190844.html" rel="bookmark">
+      如果你对IPTV（全地球的）感兴趣-CarlZeng
       </a>
     </li>
   </ul>
@@ -773,7 +804,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-01-07 16:45:21" itemprop="dateModified" datetime="2024-01-07T16:45:21+08:00">2024-01-07</time>
+        <time title="修改时间：2024-01-21 18:43:10" itemprop="dateModified" datetime="2024-01-21T18:43:10+08:00">2024-01-21</time>
       </span>
 
 </div>
@@ -919,26 +950,6 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202401042040.html","pageTitle":"kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css">
@@ -971,6 +982,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>

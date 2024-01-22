@@ -26,7 +26,7 @@
 <meta property="og:description" content="目标实现往Android联通机顶盒安装APP，比如投屏类APP（比如：乐播投屏），桌面类APP（比如：沙发桌面，当贝桌面）已选择N1盒子等性能更强劲的硬件的朋友，可参见: 网络影视资源 - IPTV直播之电视台直播源">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-18T04:40:00.000Z">
-<meta property="article:modified_time" content="2024-01-03T01:26:24.190Z">
+<meta property="article:modified_time" content="2024-01-21T14:05:30.352Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="安卓">
 <meta property="article:tag" content="机顶盒">
@@ -129,7 +129,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E6%96%B0%E5%8F%8D%E9%A6%88%EF%BC%882023%E5%B9%B412%E6%9C%88%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">最新反馈（2023年12月）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8APP%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.1.</span> <span class="nav-text">如何解决开机自启动APP的问题?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">4.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%9F%E6%83%B3%E4%B8%8E%E4%BD%93%E9%AA%8C"><span class="nav-number">6.</span> <span class="nav-text">感想与体验</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E8%81%94%EF%BC%9A%E8%BF%9C%E7%A8%8B%E7%BB%99%E6%9C%BA%E9%A1%B6%E7%9B%92%E5%AE%89%E8%A3%85APP"><span class="nav-number"></span> <span class="nav-text">关联：远程给机顶盒安装APP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%82%9F%E7%A9%BA%E9%81%A5%E6%8E%A7-%E6%9B%BF%E4%BB%A3%EF%BC%9A%E5%85%AB%E7%88%AA%E9%B1%BC%E9%81%A5%E6%8E%A7-%E5%AE%89%E5%8D%93"><span class="nav-number">1.</span> <span class="nav-text">悟空遥控 替代：八爪鱼遥控-安卓</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#N1%E5%88%B7webpad%E7%94%B5%E8%A7%86%E7%B3%BB%E7%BB%9F"><span class="nav-number"></span> <span class="nav-text">N1刷webpad电视系统</span></a></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E6%96%B0%E5%8F%8D%E9%A6%88%EF%BC%882023%E5%B9%B412%E6%9C%88%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">最新反馈（2023年12月）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8APP%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.1.</span> <span class="nav-text">如何解决开机自启动APP的问题?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2Perfect-Player%E4%B8%BADIYP"><span class="nav-number">4.</span> <span class="nav-text">更换Perfect Player为DIYP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%82%9F%E7%A9%BA%E9%81%A5%E6%8E%A7-%E6%9B%BF%E4%BB%A3%EF%BC%9A%E5%85%AB%E7%88%AA%E9%B1%BC%E9%81%A5%E6%8E%A7-%E5%AE%89%E5%8D%93"><span class="nav-number">5.</span> <span class="nav-text">悟空遥控 替代：八爪鱼遥控-安卓</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#N1%E5%88%B7webpad%E7%94%B5%E8%A7%86%E7%B3%BB%E7%BB%9F"><span class="nav-number"></span> <span class="nav-text">N1刷webpad电视系统</span></a></div>
         </div>
         <!--/noindex-->
 
@@ -193,23 +193,23 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202304131742.html" rel="bookmark">
+      Python 编辑器 jupyter notebook-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202301151812.html" rel="bookmark">
       AI脸部识别，人脸比对，人脸识别-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312281013.html" rel="bookmark">
+      Hexo多语言解决方案实践记录
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202110151829.html" rel="bookmark">
       How to learn React-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202302161639.html" rel="bookmark">
-      打印相片, 如何从安卓手机发送大量照片到Mac电脑-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201410161027.html" rel="bookmark">
-      学习日志 - Openwrt安装python然后wallproxy-CarlZeng
       </a>
     </li>
   </ul>
@@ -392,7 +392,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-01-03 09:26:24" itemprop="dateModified" datetime="2024-01-03T09:26:24+08:00">2024-01-03</time>
+      <time title="修改时间：2024-01-21 22:05:30" itemprop="dateModified" datetime="2024-01-21T22:05:30+08:00">2024-01-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -422,7 +422,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>13 分钟</span>
+      <span>15 分钟</span>
     </span>
 </div>
 
@@ -482,61 +482,63 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell input keyevent 61</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">成功输入了tab键，代替遥控器的操作，弥补遥控器的缺陷</span></span><br></pre></td></tr></table></figure>
 
 <p>成功把1.m3u配置给了perfect player</p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li>将E900机顶盒和Mac电脑连接到相同的局域网</li>
-<li>安装好adb工具并设置了环境变量以后，打开Terminal，输入adb –version 验证一下adb可以正常运行，在进行下一步</li>
-<li>把北京联通创维E900机顶盒的adb功能打开，具体方法：按遥控的“设置”，进到高级设置，<ol>
-<li>最里面有很多看不懂的设置项选择列表后，按遥控的右键（指遥控的上下左右按键中的右键），连续按十下 至 15下</li>
-<li>这时选项列表最下方会多出一个新的选项（隐藏选项），打开ADB的选项（再右键，确定打开ADB远程调试）</li>
-</ol>
-</li>
-<li>从机顶盒设置里面或者路由器的设置中，找到机顶盒当前的IP地址，比如192.168.1.171；<ol>
-<li>Terminal输入 adb connect 192.168.2.171:5555 进行连接。   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_adb connect 192.168.2.171:5555  </span><br><span class="line">或者  </span><br><span class="line">_/Users/$USER/Library/Android/sdk/platform-tools/adb connect 192.168.2.171:5555</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li>Terminal输入 <strong>adb install com.shafa.zhuomian_2.2.3_aged.apk</strong> 进入操作Andriod安装命令<ol>
-<li>这个apk文件，要从网络上下载到本机的目录中，然后把Terminal调整到当前apk文件所在目录（命令为 cd 具体目录）</li>
-<li>安装命令举例：adb install ****.apk  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb install com.shafa.zhuomian\_2.2.3\_aged.apk  </span><br><span class="line">或者  </span><br><span class="line">/Users/$USER/Library/Android/sdk/platform-tools/adb install /Users/$USER/Downloads/international\_sfgj\_4.9.25.apk</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li>【可选】运行安装完成后，就可以用遥控器启动这些新的应用APP；也可以使用命令强制运行（唤醒&#x2F;打开）特定的APP应用<ol>
-<li>adb shell</li>
-<li>am start -a android.intent.action.VIEW<br>(也可以合并为一个命令：adb shell am start android.intent.action.VIEW)</li>
-<li>App的名字可以使用如下命令列出（或者使用沙发桌面列出已安装的APP）<ol>
-<li>adb shell pm list packages</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ol>
-<li>MAC下安装adb环境的三种方式 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC83NDRmYzU5NDY2Mjc=" rel="noopener external nofollow noreferrer">https://www.jianshu.com/p/744fc5946627</a></li>
-<li>adb常用命令 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9kZXZlbG9wZXIuYW5kcm9pZC5nb29nbGUuY24vc3R1ZGlvL2NvbW1hbmQtbGluZS9hZGI/aGw9emgtY24=" rel="noopener external nofollow noreferrer">https://developer.android.google.cn/studio/command-line/adb?hl=zh-cn</a></li>
-<li>Android adb启动任意app的几种方式 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2V6Y29ubi9hcnRpY2xlL2RldGFpbHMvOTk4ODU3MTU=" rel="noopener external nofollow noreferrer">https://blog.csdn.net/ezconn/article/details/99885715</a></li>
-</ol>
-<h2 id="感想与体验"><a href="#感想与体验" class="headerlink" title="感想与体验"></a>感想与体验</h2><p>放到最后写，感想与体验：</p>
-<p>安装一些安卓APP，开启沙发桌面以后，发现创维E900机顶盒有wifi功能，并且支持有线和WIFI同时分别在不同的网段下使用，这就意味着连接网线看IPTV（不影响网速）</p>
-<p>连接WIFI后，机顶盒就可以上网，运行别的实时直播APP（比如：电视家）。这是一个很有意思的使用角度，很方便。</p>
-<p>以前中兴的机顶盒都是需要手动去拔查不同的网线（或者使用支持组播iptv协议的路由器）来切换联通内网和外网。</p>
-<p>现在可以根据你打开的APP，自动选择可用的网络；<br>默认的IPTV依然走内网，其他APP（比如：悟空遥控）走外网WIFI接口。</p>
-<p>话说回来：第一次这样在机顶盒端安装了悟空遥控以后，再去安卓手机端安装悟空遥控；以后就方便了：</p>
-<ol>
-<li>让手机和机顶盒连接到相同的局域网</li>
-<li>打开手机端的悟空遥控，和机顶盒端悟空遥控APP</li>
-<li>在手机端的悟空遥控操作，把新的APK推送到电视机顶盒端即可</li>
-</ol>
-<h1 id="关联：远程给机顶盒安装APP"><a href="#关联：远程给机顶盒安装APP" class="headerlink" title="关联：远程给机顶盒安装APP"></a>关联：远程给机顶盒安装APP</h1><p>要解决机顶盒连接二楼旁路由器，而远程协助的手机连接的是一楼的主路由</p>
-<p>如何知道悟空遥控是开放了什么端口？<br>这样打开才能正常扫描到机顶盒的</p>
+<hr>
 <blockquote>
-<p>2024.1</p>
-<p>不用这么麻烦frp把机顶盒的5555端口映射&#x2F;穿透出内网</p>
-<p>然后用adb -s frp的对应ip或域名:5555 install ***.apk</p>
-<p>比如： adb -s 192.168.6.216:5555 install ‘abc.apk’</p>
+<p>20240121, 发现Perfect Player非常不适合于播放组播地址，切换到diyp这个工具，通过把m3u文件转化为txt文件，做为diyp的播放源，步骤如下：</p>
 </blockquote>
-<p>悟空遥控器 VPN</p>
-<p>悟空遥控器、遥控精灵、手机万能遥控器等是如何搜索本地局域网机顶盒？换句话说机顶盒端开放了那个tcp端口？</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用Zenmap扫描了一下：</span></span><br><span class="line">nmap -sV -T4 -O -F --version-light 192.168.6.216</span><br><span class="line">8080/tcp open			http-proxy?</span><br><span class="line">10000/tcp open    snet-sensor-mgmt?</span><br><span class="line">49152/tcp open    upnp           Portable SDK for UPnP devices 1.6.13(Linux 3.14.29; UPnP1.0)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">常规regular扫描</span></span><br><span class="line">nmap 192.168.6.216</span><br><span class="line">5555/tcp open freeciv</span><br><span class="line">7100/tcp open font-service</span><br><span class="line">8080/tcp open http-proxy</span><br><span class="line">8899/tcp open ospf-lite</span><br><span class="line">10000/tcp open snet-sensor-mgmt</span><br><span class="line">49152/tcp open unknown</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">自定义全面扫描？</span></span><br><span class="line">nmap -A 192.168.6.216</span><br><span class="line">5555/tcp open adb Andriod Debug Brdge device(name: p230 model: p230; device: p230; feature: cmd,shell_v2)</span><br><span class="line">7100/tcp open font-service?</span><br><span class="line">8080/tcp open http-proxy</span><br><span class="line">8899/tcp open http  Bukkit JSONAPI httpd for Minecraft game server 3.6.0 or older</span><br><span class="line">10000/tcp open snet-sensor-mgmt?</span><br><span class="line">49152/tcp open upnp Portable SD for UPnP devices 1.6.13 (Linux 3.14.29; UPnP 1.0)</span><br></pre></td></tr></table></figure>
+<h2 id="更换Perfect-Player为DIYP"><a href="#更换Perfect-Player为DIYP" class="headerlink" title="更换Perfect Player为DIYP"></a>更换Perfect Player为DIYP</h2><ol>
+<li><p>使用在线工具<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ndWloZXQuY29tL3R2bGlzdGNvbnZlcnQuaHRtbCN6YnlqZyVFNSVCMCU4NiVFNyVCQiU4NCVFNiU5MiVBRCVFNSU5QyVCMCVFNSU5RCU4MCVFNyU5QSU4NG0zdSVFNiU5NiU4NyVFNCVCQiVCNiVFNiVBMCVCQyVFNSVCQyU4RiVFOCVCRCVBQyVFNSU4QyU5NiVFNCVCOCVCQXR4dCVFNiU5NiU4NyVFNCVCQiVCNiVFNiVBMCVCQyVFNSVCQyU4RiVFMyU4MCU4MiVFRiVCQyU4OCVFNiVBRiU5NCVFNSVBNiU4MiVFNSU4RiU5NiVFNSU5MCU4RCVFNCVCOCVCQTEudHh0JUVGJUJDJTg5" rel="noopener external nofollow noreferrer">https://guihet.com/tvlistconvert.html#zbyjg将组播地址的m3u文件格式转化为txt文件格式。（比如取名为1.txt）</a></p>
+</li>
+<li><p>上传1.txt文件（到安卓创维机顶盒：E900V21C）</p>
+<ol>
+<li>adb push &#x2F;Users&#x2F;carlzeng&#x2F;AppTesting&#x2F;IPTV-Unicom-Multicast.txt &#x2F;tmp&#x2F;1.txt</li>
+<li>注意：此时本机的网络需要处于光猫相同的网络，一般为192.168.1.*网段的IP地址；可以通过连接到路由器然后手动设置本机IP地址为192.168.1.0网段的IP，也可以直接通过连接光猫的WIFI自动获取一个192.168.1.0网段的IP。</li>
+</ol>
+</li>
+<li><p>将DIYP的播放地址源（节目地址）设置为&#x2F;tmp下的1.txt</p>
+<ol>
+<li><p>从adb命令，把要输入的内容发送到机顶盒：</p>
+</li>
+<li><pre><code class="shell">adb shell input text /tmp/1.txt 
 
+#使用说明
+&gt; adb shell input [] []
+
+Usage: input [&lt;source&gt;] &lt;command&gt; [&lt;arg&gt;...]
+
+The sources are: 
+      trackball
+      joystick
+      touchnavigation
+      mouse
+      keyboard
+      gamepad
+      touchpad
+      dpad
+      stylus
+      touchscreen
+
+The commands and default sources are:
+      text &lt;string&gt; (Default: touchscreen)
+      keyevent [--longpress] &lt;key code number or name&gt; ... (Default: keyboard)
+      tap &lt;x&gt; &lt;y&gt; (Default: touchscreen)
+      swipe &lt;x1&gt; &lt;y1&gt; &lt;x2&gt; &lt;y2&gt; [duration(ms)] (Default: touchscreen)
+      press (Default: trackball)
+      roll &lt;dx&gt; &lt;dy&gt; (Default: trackball)
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   3.  太可惜了，它DIYP必须配置一个http的源地址，可是光猫上面和安卓机顶盒上192.168.1.0网段没有权限把1.txt喂给http，放弃该方案</span><br><span class="line"></span><br><span class="line">   4.  </span><br><span class="line"></span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">----------</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 步骤</span><br><span class="line"></span><br><span class="line">1.  将E900机顶盒和Mac电脑连接到相同的局域网</span><br><span class="line">2.  安装好adb工具并设置了环境变量以后，打开Terminal，输入adb --version 验证一下adb可以正常运行，在进行下一步</span><br><span class="line">3.  把北京联通创维E900机顶盒的adb功能打开，具体方法：按遥控的“设置”，进到高级设置，</span><br><span class="line">    1.  最里面有很多看不懂的设置项选择列表后，按遥控的右键（指遥控的上下左右按键中的右键），连续按十下 至 15下</span><br><span class="line">    2.  这时选项列表最下方会多出一个新的选项（隐藏选项），打开ADB的选项（再右键，确定打开ADB远程调试）</span><br><span class="line">4.  从机顶盒设置里面或者路由器的设置中，找到机顶盒当前的IP地址，比如192.168.1.171；</span><br><span class="line">    1.  Terminal输入 adb connect 192.168.2.171:5555 进行连接。</span><br></pre></td></tr></table></figure>
+  _adb connect 192.168.2.171:5555  
+  或者  
+  _/Users/$USER/Library/Android/sdk/platform-tools/adb connect 192.168.2.171:5555
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5.  Terminal输入 **adb install com.shafa.zhuomian\_2.2.3\_aged.apk** 进入操作Andriod安装命令</span><br><span class="line">    1.  这个apk文件，要从网络上下载到本机的目录中，然后把Terminal调整到当前apk文件所在目录（命令为 cd 具体目录）</span><br><span class="line">    2.  安装命令举例：adb install ****.apk  </span><br></pre></td></tr></table></figure>
+  adb install com.shafa.zhuomian\_2.2.3\_aged.apk  
+  或者  
+  /Users/$USER/Library/Android/sdk/platform-tools/adb install /Users/$USER/Downloads/international\_sfgj\_4.9.25.apk
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">6.  【可选】运行安装完成后，就可以用遥控器启动这些新的应用APP；也可以使用命令强制运行（唤醒/打开）特定的APP应用</span><br><span class="line">    1.  adb shell</span><br><span class="line">    2.  am start -a android.intent.action.VIEW</span><br><span class="line">        (也可以合并为一个命令：adb shell am start android.intent.action.VIEW)</span><br><span class="line">    3.  App的名字可以使用如下命令列出（或者使用沙发桌面列出已安装的APP）</span><br><span class="line">        1.  adb shell pm list packages</span><br><span class="line"></span><br><span class="line">## 引用</span><br><span class="line"></span><br><span class="line">1.  MAC下安装adb环境的三种方式 https://www.jianshu.com/p/744fc5946627</span><br><span class="line">2.  adb常用命令 https://developer.android.google.cn/studio/command-line/adb?hl=zh-cn</span><br><span class="line">3.  Android adb启动任意app的几种方式 https://blog.csdn.net/ezconn/article/details/99885715</span><br><span class="line">    </span><br><span class="line">## 感想与体验</span><br><span class="line">放到最后写，感想与体验：</span><br><span class="line"></span><br><span class="line">安装一些安卓APP，开启沙发桌面以后，发现创维E900机顶盒有wifi功能，并且支持有线和WIFI同时分别在不同的网段下使用，这就意味着连接网线看IPTV（不影响网速）</span><br><span class="line"></span><br><span class="line">连接WIFI后，机顶盒就可以上网，运行别的实时直播APP（比如：电视家）。这是一个很有意思的使用角度，很方便。</span><br><span class="line"></span><br><span class="line">以前中兴的机顶盒都是需要手动去拔查不同的网线（或者使用支持组播iptv协议的路由器）来切换联通内网和外网。</span><br><span class="line"></span><br><span class="line">现在可以根据你打开的APP，自动选择可用的网络；</span><br><span class="line">默认的IPTV依然走内网，其他APP（比如：悟空遥控）走外网WIFI接口。</span><br><span class="line"></span><br><span class="line">话说回来：第一次这样在机顶盒端安装了悟空遥控以后，再去安卓手机端安装悟空遥控；以后就方便了：</span><br><span class="line">1. 让手机和机顶盒连接到相同的局域网</span><br><span class="line">1. 打开手机端的悟空遥控，和机顶盒端悟空遥控APP</span><br><span class="line">1. 在手机端的悟空遥控操作，把新的APK推送到电视机顶盒端即可</span><br><span class="line"></span><br><span class="line"># 关联：远程给机顶盒安装APP</span><br><span class="line"></span><br><span class="line">要解决机顶盒连接二楼旁路由器，而远程协助的手机连接的是一楼的主路由</span><br><span class="line"></span><br><span class="line">如何知道悟空遥控是开放了什么端口？</span><br><span class="line">这样打开才能正常扫描到机顶盒的</span><br><span class="line"></span><br><span class="line">&gt; 2024.1</span><br><span class="line">&gt;</span><br><span class="line">&gt; 不用这么麻烦frp把机顶盒的5555端口映射/穿透出内网</span><br><span class="line">&gt;</span><br><span class="line">&gt; 然后用adb -s frp的对应ip或域名:5555 install ***.apk</span><br><span class="line">&gt;</span><br><span class="line">&gt; 比如： adb -s 192.168.6.216:5555 install &#x27;abc.apk&#x27;</span><br><span class="line"></span><br><span class="line">悟空遥控器 VPN</span><br><span class="line"></span><br><span class="line">悟空遥控器、遥控精灵、手机万能遥控器等是如何搜索本地局域网机顶盒？换句话说机顶盒端开放了那个tcp端口？</span><br><span class="line">```shell</span><br><span class="line">#用Zenmap扫描了一下：</span><br><span class="line">nmap -sV -T4 -O -F --version-light 192.168.6.216</span><br><span class="line">8080/tcp open			http-proxy?</span><br><span class="line">10000/tcp open    snet-sensor-mgmt?</span><br><span class="line">49152/tcp open    upnp           Portable SDK for UPnP devices 1.6.13(Linux 3.14.29; UPnP1.0)</span><br><span class="line"></span><br><span class="line">#常规regular扫描</span><br><span class="line">nmap 192.168.6.216</span><br><span class="line">5555/tcp open freeciv</span><br><span class="line">7100/tcp open font-service</span><br><span class="line">8080/tcp open http-proxy</span><br><span class="line">8899/tcp open ospf-lite</span><br><span class="line">10000/tcp open snet-sensor-mgmt</span><br><span class="line">49152/tcp open unknown</span><br><span class="line"></span><br><span class="line">#自定义全面扫描？</span><br><span class="line">nmap -A 192.168.6.216</span><br><span class="line">5555/tcp open adb Andriod Debug Brdge device(name: p230 model: p230; device: p230; feature: cmd,shell_v2)</span><br><span class="line">7100/tcp open font-service?</span><br><span class="line">8080/tcp open http-proxy</span><br><span class="line">8899/tcp open http  Bukkit JSONAPI httpd for Minecraft game server 3.6.0 or older</span><br><span class="line">10000/tcp open snet-sensor-mgmt?</span><br><span class="line">49152/tcp open upnp Portable SD for UPnP devices 1.6.13 (Linux 3.14.29; UPnP 1.0)</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
 <p>Option #2 </p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2pvbmxhYmVsbGUvZG9ja2VyLW5tYXA=" rel="noopener external nofollow noreferrer">Minimal Docker image with Nmap Network Security Scanner pre-installed.</a></p>
 <p>Option #3</p>
@@ -620,23 +622,23 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202304131742.html" rel="bookmark">
+      Python 编辑器 jupyter notebook-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202301151812.html" rel="bookmark">
       AI脸部识别，人脸比对，人脸识别-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312281013.html" rel="bookmark">
+      Hexo多语言解决方案实践记录
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202110151829.html" rel="bookmark">
       How to learn React-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202302161639.html" rel="bookmark">
-      打印相片, 如何从安卓手机发送大量照片到Mac电脑-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201410161027.html" rel="bookmark">
-      学习日志 - Openwrt安装python然后wallproxy-CarlZeng
       </a>
     </li>
   </ul>
@@ -809,7 +811,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-01-03 09:26:24" itemprop="dateModified" datetime="2024-01-03T09:26:24+08:00">2024-01-03</time>
+        <time title="修改时间：2024-01-21 22:05:30" itemprop="dateModified" datetime="2024-01-21T22:05:30+08:00">2024-01-21</time>
       </span>
 
 </div>
@@ -952,26 +954,6 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202211181240.html","pageTitle":"Android机顶盒 安装APP实例"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css">
@@ -1004,6 +986,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>

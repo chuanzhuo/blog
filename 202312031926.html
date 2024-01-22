@@ -29,10 +29,10 @@
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/48544655-3a61-483a-b7ab-0a72f6cb4579/ebhmTXJ7DGn78oKPU3BDFhmbJ1jfxVMCaYN7a-J6dd8azwGBMDIH2P9NEg/deep/0/image.png">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/f91e4989-af7d-4910-abe5-c8146f128425/IQbusguULdKcK362p7Ob5rz7FkKSL8T5rzUwZMJ5uXnBSGjNM88g_xwyTg/deep/0/image.png">
 <meta property="article:published_time" content="2023-12-03T11:26:39.000Z">
-<meta property="article:modified_time" content="2023-12-14T09:29:24.357Z">
+<meta property="article:modified_time" content="2024-01-22T15:47:36.800Z">
 <meta property="article:author" content="Carl Notes">
-<meta property="article:tag" content="debian">
 <meta property="article:tag" content="docker">
+<meta property="article:tag" content="debian">
 <meta property="article:tag" content="内网穿透">
 <meta property="article:tag" content="NPM">
 <meta property="article:tag" content="docker-compose">
@@ -137,7 +137,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-%E4%BB%80%E4%B9%88%E6%98%AFFRP-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text">[概念]什么是FRP 内网穿透服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FRPS-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%A6%82%E4%BD%95%E5%8F%8D%E4%BB%A3%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">FRPS 服务端如何反代？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AFfrpc%E9%85%8D%E7%BD%AE"><span class="nav-number">3.2.</span> <span class="nav-text">客户端frpc配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%BA%94%E7%94%A82"><span class="nav-number">3.2.1.</span> <span class="nav-text">设置应用2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%BA%94%E7%94%A83"><span class="nav-number">3.2.2.</span> <span class="nav-text">设置应用3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%BA%94%E7%94%A84"><span class="nav-number">3.2.3.</span> <span class="nav-text">设置应用4</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%8D%E8%B4%B9%E7%9A%84FRP%E6%9C%8D%E5%8A%A1%E8%B5%84%E6%BA%90"><span class="nav-number">4.</span> <span class="nav-text">免费的FRP服务资源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-%E4%BB%80%E4%B9%88%E6%98%AFFRP-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text">[概念]什么是FRP 内网穿透服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FRPS-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%A6%82%E4%BD%95%E5%8F%8D%E4%BB%A3%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">FRPS 服务端如何反代？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AFfrpc%E9%85%8D%E7%BD%AE"><span class="nav-number">3.2.</span> <span class="nav-text">客户端frpc配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%BA%94%E7%94%A82"><span class="nav-number">3.2.1.</span> <span class="nav-text">设置应用2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%BA%94%E7%94%A83"><span class="nav-number">3.2.2.</span> <span class="nav-text">设置应用3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%BA%94%E7%94%A84"><span class="nav-number">3.2.3.</span> <span class="nav-text">设置应用4</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%B6%E5%AE%BD%E6%A8%A1%E5%BC%8F%E4%B8%8B%E4%BD%BF%E7%94%A8%EF%BC%88frp-p2p%E6%A8%A1%E5%BC%8F-%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">如何家宽模式下使用（frp p2p模式 ）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%8D%E8%B4%B9%E7%9A%84FRP%E6%9C%8D%E5%8A%A1%E8%B5%84%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">免费的FRP服务资源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">6.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -191,13 +191,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311081003.html" rel="bookmark">
-      实测Docker搭建短链接服务YOURLS
+      <a class="popular-posts-link" href="/202311201654.html" rel="bookmark">
+      Docker搭建自动售货系统-独角数卡
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311201654.html" rel="bookmark">
-      Docker搭建自动售货系统-独角数卡
+      <a class="popular-posts-link" href="/202311081003.html" rel="bookmark">
+      实测Docker搭建短链接服务YOURLS
       </a>
     </li>
     <li class="popular-posts-item">
@@ -400,7 +400,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-14 17:29:24" itemprop="dateModified" datetime="2023-12-14T17:29:24+08:00">2023-12-14</time>
+      <time title="修改时间：2024-01-22 23:47:36" itemprop="dateModified" datetime="2024-01-22T23:47:36+08:00">2024-01-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -430,7 +430,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>13 分钟</span>
+      <span>15 分钟</span>
     </span>
 </div>
 
@@ -446,6 +446,9 @@
 <p>灵活，TCP&#x2F;IP底层逻辑应用广泛</p>
 <span id="more"></span>
 
+<blockquote>
+<p>2024.01 更新内容：如何家宽模式下使用（frp p2p模式 ）</p>
+</blockquote>
 <h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>映射出局域网，‘打洞‘，类似花生壳之类的功能</p>
 <p>举例：远程scrcpy连接安卓设备的adb操作屏幕，说人话：远程控制机顶盒或电视等</p>
 <h1 id="概念-什么是FRP-内网穿透服务"><a href="#概念-什么是FRP-内网穿透服务" class="headerlink" title="[概念]什么是FRP 内网穿透服务"></a>[概念]什么是FRP 内网穿透服务</h1><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2ZhdGVkaWVyL2ZycC9ibG9iL21hc3Rlci9SRUFETUVfemgubWQ=" rel="noopener external nofollow noreferrer">https://github.com/fatedier/frp/blob/master/README_zh.md</a></p>
@@ -496,7 +499,17 @@
 <p>发现仍然无法解决，页面的操作携带端口的需求</p>
 <h3 id="设置应用4"><a href="#设置应用4" class="headerlink" title="设置应用4"></a>设置应用4</h3><p>远程控制adb，安卓设备远程控制</p>
 <p>在路由器上，给192.168.123.189这个设备的5555端口映射出来</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">....<span class="comment">#省略连接服务器部分的配置 [common] 都一样指定远程服务端的信息</span></span><br><span class="line"></span><br><span class="line"><span class="section">[zl_n1_adb5555]</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">6006</span></span><br><span class="line"><span class="attr">type</span> = tcp</span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">192.168</span>.<span class="number">123.189</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">5555</span></span><br><span class="line"><span class="attr">subdomain</span> = ssh_zl</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">....<span class="comment">#省略连接服务器部分的配置 [common] 都一样指定远程服务端的信息</span></span><br><span class="line"></span><br><span class="line"><span class="section">[zl_n1_adb5555]</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">6006</span></span><br><span class="line"><span class="attr">type</span> = tcp</span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">192.168</span>.<span class="number">1.243</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">5555</span></span><br><span class="line"><span class="attr">subdomain</span> = ssh_zl</span><br><span class="line"><span class="section">[zl_web_80]</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">6008</span></span><br><span class="line"><span class="attr">type</span> = tcp</span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">192.168</span>.<span class="number">1.12</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">80</span></span><br><span class="line"><span class="attr">subdomain</span> = ssh_zl</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="如何家宽模式下使用（frp-p2p模式-）"><a href="#如何家宽模式下使用（frp-p2p模式-）" class="headerlink" title="如何家宽模式下使用（frp p2p模式 ）"></a>如何家宽模式下使用（frp p2p模式 ）</h1><p>使用frp的p2p模式，点对点穿透，绝大多数数据无需经过服务端，加速了穿透访问</p>
+<p>第三方接入FRP服务器，映射出特定的端口到本地：</p>
+<p>服务器frps的配置，和上面一样无需做任何修改，只要是配置被控端和主控端的两个frpc配置文件：</p>
+<p>2、被控端B配置文件 frpc.ini</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">server_addr</span> = 服务端ip地址</span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7000</span></span><br><span class="line"><span class="attr">token</span> = <span class="number">123456</span>xxx</span><br><span class="line"><span class="section">[p2p_sj_adb]</span> <span class="comment">#比如安卓手机termux穿透adb 5555端口，这个名称要对应主控端A的server_name名称</span></span><br><span class="line"><span class="attr">type</span> = stcp</span><br><span class="line"><span class="attr">sk</span> = password</span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">5555</span></span><br></pre></td></tr></table></figure>
+
+<p>3、主控端A 配置文件 frpc.ini</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">server_addr</span> = 服务端ip地址</span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7000</span></span><br><span class="line"><span class="attr">token</span> = <span class="number">123456</span>xxx</span><br><span class="line"><span class="section">[p2p_sj_adb_visitor]</span></span><br><span class="line"><span class="attr">type</span> = stcp <span class="comment">#使用stcp协议</span></span><br><span class="line"><span class="attr">role</span> = visitor  <span class="comment">#身份访客</span></span><br><span class="line"><span class="attr">server_name</span> = p2p_sj_adb  <span class="comment">#和被控端的节点名称一样，这个名称要对应被控端B的名称</span></span><br><span class="line"><span class="attr">sk</span> = password  <span class="comment">#必须是：和被控端一样的密码</span></span><br><span class="line"><span class="attr">bind_addr</span> = <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">bind_port</span> = <span class="number">15550</span>  <span class="comment">#使用到的本机端口；</span></span><br><span class="line"><span class="comment">#这样连接本机的15550端口就直接穿透到被控端B的5555端口</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
@@ -579,13 +592,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311081003.html" rel="bookmark">
-      实测Docker搭建短链接服务YOURLS
+      <a class="popular-posts-link" href="/202311201654.html" rel="bookmark">
+      Docker搭建自动售货系统-独角数卡
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311201654.html" rel="bookmark">
-      Docker搭建自动售货系统-独角数卡
+      <a class="popular-posts-link" href="/202311081003.html" rel="bookmark">
+      实测Docker搭建短链接服务YOURLS
       </a>
     </li>
     <li class="popular-posts-item">
@@ -778,7 +791,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-12-14 17:29:24" itemprop="dateModified" datetime="2023-12-14T17:29:24+08:00">2023-12-14</time>
+        <time title="修改时间：2024-01-22 23:47:36" itemprop="dateModified" datetime="2024-01-22T23:47:36+08:00">2024-01-22</time>
       </span>
 
 </div>
@@ -787,8 +800,8 @@
 
           <div class="post-tags">
             继续浏览有关
-              <a href="/tags/debian/" rel="tag"># debian</a>
               <a href="/tags/docker/" rel="tag"># docker</a>
+              <a href="/tags/debian/" rel="tag"># debian</a>
               <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag"># 内网穿透</a>
               <a href="/tags/NPM/" rel="tag"># NPM</a>
               <a href="/tags/docker-compose/" rel="tag"># docker-compose</a>
@@ -925,26 +938,6 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202312031926.html","pageTitle":"Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css">
@@ -977,6 +970,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>
