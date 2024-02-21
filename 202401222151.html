@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="![image-20240221142004079](&#x2F;Users&#x2F;carlzeng&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20240221142004079.png) 家宽环境搭建兰空图床全过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建图床 切换本站图片至自建服务">
+<meta property="og:url" content="https://www.carlzeng.top/202401222151.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="![image-20240221142004079](&#x2F;Users&#x2F;carlzeng&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20240221142004079.png) 家宽环境搭建兰空图床全过程">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-22T13:51:38.000Z">
+<meta property="article:modified_time" content="2024-02-21T06:20:05.848Z">
+<meta property="article:author" content="Carl Notes">
+<meta property="article:tag" content="NPM">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="图床">
+<meta property="article:tag" content="LskyPro">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/202401222151.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/202401222151.html","path":"202401222151.html","title":"搭建图床 切换本站图片至自建服务"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>搭建图床 切换本站图片至自建服务 | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT科技 技术解决方案 NetSuite ERP</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="全站检索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">195</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">51</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">335</span></a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-下载音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载音乐</a></li><li class="menu-item menu-item-直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>直播IPTV</a></li><li class="menu-item menu-item-文件分享"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>文件分享</a></li><li class="menu-item menu-item-下载书籍"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载书籍</a></li><li class="menu-item menu-item-it小工具集合"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>IT小工具集合</a></li>
+  </ul>
+
+    <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <div class="search-header">
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="28" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+      </div>
+      </div>
+    </div>
+    </form>
+
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">1.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E6%90%AD%E5%BB%BALsky-Pro%E5%9B%BE%E5%BA%8A%E5%BA%94%E7%94%A8"><span class="nav-number">2.1.</span> <span class="nav-text">Docker搭建Lsky Pro图床应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEPicGO"><span class="nav-number">2.2.</span> <span class="nav-text">配置PicGO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AETypora"><span class="nav-number">2.3.</span> <span class="nav-text">配置Typora</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E8%81%94Alist%E7%9A%84%E7%9B%AE%E5%BD%95"><span class="nav-number">2.4.</span> <span class="nav-text">关联Alist的目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM%E5%8F%8D%E4%BB%A3%E5%90%8E%E5%B8%A6%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE"><span class="nav-number">2.5.</span> <span class="nav-text">NPM反代后带端口访问</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Notes</p>
+  <div class="site-description" itemprop="description">[眼观心察 沉淀共享] 技术文章版本持续更新</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">335</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">195</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
+      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401110931.html" rel="bookmark">
+      PVE磁盘占满解决方案实践
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312230940.html" rel="bookmark">
+      Docker搭建轻量个人文件分享服务-文件传输自由
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401042040.html" rel="bookmark">
+      kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202305050813.html" rel="bookmark">
+      Image Captioning with nlbconnect/vit-gpt2-image-captioning-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402021245.html" rel="bookmark">
+      车载GPS自建服务 - 软硬件搭配实践全记录
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
+      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200906101022.html" rel="bookmark">
+      js 取得div高度-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+    <div class="pjax">
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/202402192008.html" title="如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式" target=""  class="popular-posts-link">
+                  如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202402021245.html" title="车载GPS自建服务 - 软硬件搭配实践全记录" target=""  class="popular-posts-link">
+                  车载GPS自建服务 - 软硬件搭配实践全记录
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202401262247.html" title="安卓电视安装影视APP - 新增直播和点播功能" target=""  class="popular-posts-link">
+                  安卓电视安装影视APP - 新增直播和点播功能
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202401222151.html" title="搭建图床 切换本站图片至自建服务" target=""  class="popular-posts-link">
+                  搭建图床 切换本站图片至自建服务
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202401110931.html" title="PVE磁盘占满解决方案实践" target=""  class="popular-posts-link">
+                  PVE磁盘占满解决方案实践
+                  </a>
+                </li>
+        </ul>
+      </div>
+    </div>
+
+    <style>
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      margin-top: 30px !important;
+      padding: clamp(17px, 5%, 40px) clamp(17px, 7%, 50px) !important;
+      max-width: none !important;
+      border-radius: 6px !important;
+      box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview *{
+      box-sizing: border-box !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading {
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5{
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
+      margin-top: 20px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      width: 100% !important;
+      height: 40px !important;
+      border-radius: 6px !important;
+      border: 2px solid #e9e8e8 !important;
+      background-color: #fff !important;
+      outline: none !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      color: #000000 !important;
+      font-family: "Montserrat" !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 20px !important;
+      text-align: center !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+      color: #000000 !important;
+      opacity: 1 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input:-ms-input-placeholder {
+      color: #000000 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::-ms-input-placeholder {
+      color: #000000 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
+      margin-top: 10px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+      width: 100% !important;
+      height: 40px !important;
+      border: 0 !important;
+      border-radius: 6px !important;
+      line-height: 0px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
+      cursor: pointer !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+      color: #231f20 !important;
+      font-family: "Montserrat" !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 25px !important;
+      text-align: center !important;
+      text-decoration: none !important;
+      display: flex !important;
+      width: 100% !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 10px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
+      margin-left: 10px !important;
+      height: 1.13em !important;
+      max-height: 1.13em !important;
+    }
+    </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
+      订阅新文章:
+    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="Enter your email to receive new articles" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
+      Subscribe
+    </button></div></div></form></div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202401222151.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="[眼观心察 沉淀共享] 技术文章版本持续更新">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="搭建图床 切换本站图片至自建服务 | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          搭建图床 切换本站图片至自建服务
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-02-21 14:20:05" itemprop="dateModified" datetime="2024-02-21T14:20:05+08:00">2024-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%9B%BE%E5%BA%8A/" itemprop="url" rel="index"><span itemprop="name">图床</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/202401222151.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="">
+
+<p>![image-20240221142004079](&#x2F;Users&#x2F;carlzeng&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20240221142004079.png)</p>
+<p>家宽环境搭建兰空图床全过程</p>
+<span id="more"></span>
+
+<div> 
+<button onclick="synthesizeSpeech()">朗读全文</button>
+</div>
+<audio controls id="audioPlayer">Your browser does not support the audio element.</audio>      
+<script>
+  function synthesizeSpeech() { 
+    var inputText = document.getElementsByClassName('post-block')[0].innerText;
+    var voice = "ZH";
+    var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
+    var audioPlayer = document.getElementById('audioPlayer');          
+    audioPlayer.src = url;
+    audioPlayer.load();
+    audioPlayer.play();
+  }
+</script>
+# 有什么用/怎么用
+
+<p>自建图床，自用的情况下暂时是够用的</p>
+<p>访问：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9pbWcuY2FybHplbmcudG9wOjMv" rel="noopener external nofollow noreferrer">Carl Notes 图床</a></p>
+<p>登录后台管理图床中的图片内容等操作</p>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=image" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><h2 id="Docker搭建Lsky-Pro图床应用"><a href="#Docker搭建Lsky-Pro图床应用" class="headerlink" title="Docker搭建Lsky Pro图床应用"></a>Docker搭建Lsky Pro图床应用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">docker pull dko0/lsky-pro</span><br><span class="line"></span><br><span class="line">docker run  --name lsky-pro --restart always -p 8091:80 -d -v /volume2/KingchuxingSSD512G/MacBookPro_Skitch:/var/www/html dko0/lsky-pro</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">转化为docker-compose</span></span><br><span class="line">version: &#x27;3.9&#x27;</span><br><span class="line">services:</span><br><span class="line">    lsky-pro:</span><br><span class="line">        image: dko0/lsky-pro</span><br><span class="line">        volumes:</span><br><span class="line">            - &#x27;/volume2/KingchuxingSSD512G/MacBookPro_Skitch:/var/www/html&#x27;</span><br><span class="line">        ports:</span><br><span class="line">            - &#x27;8091:80&#x27;</span><br><span class="line">        restart: always</span><br><span class="line">        container_name: lsky-pro</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置PicGO"><a href="#配置PicGO" class="headerlink" title="配置PicGO"></a>配置PicGO</h2><p>下载并安装PicGo，Mac OS X：[PicGo-2.4.0-beta.6-x64.dmg](<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL01vbHVuZXJmaW5uL1BpY0dvL3JlbGVhc2Vz" rel="noopener external nofollow noreferrer">https://github.com/Molunerfinn/PicGo/releases</a><br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9waWNnby1yZWxlYXNlLm1vbHVuZXJmaW5uLmNvbS8yLjQuMC1iZXRhLjYvUGljR28tMi40LjAtYmV0YS42LXg2NC5kbWc=" rel="noopener external nofollow noreferrer">https://picgo-release.molunerfinn.com/2.4.0-beta.6/PicGo-2.4.0-beta.6-x64.dmg</a>)</p>
+<p>打开主界面&#x2F;窗口，插件设置，搜索并安装插件名：lankong （我下载的版本是：lankong 1.1.3）</p>
+<p>图床配置 》 lankong</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Lsky Pro Version： V2</span><br><span class="line">Server: https://img.carlzeng.top:3</span><br><span class="line">Auth token: Bearer 1|ZRZcNz1E6hAuyV4LytmCqmGx5yST0g9OyhdptXXX</span><br></pre></td></tr></table></figure>
+
+<p>获取 Lsky Pro 兰空图床的Auth Token的方式，推荐(Terminal 运行命令)：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --location --request POST &#x27;https://imgserver.com:3/api/v1/tokens&#x27; \</span><br><span class="line">	--form &#x27;email=&quot;email@email.com&quot;&#x27; \</span><br><span class="line">	--form &#x27;password=&quot;password&quot;&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>请修改一下URL地址为访问自建兰空图床的URL地址，email和密码为登录图传所使用的用户名和密码</p>
+<p>本章节参见：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2hlbGxvZGszNC9waWNnby1wbHVnaW4tbGFua29uZw==" rel="noopener external nofollow noreferrer">https://github.com/hellodk34/picgo-plugin-lankong</a></p>
+<p>测试：将文件拖拽到此处，或 点击上传，然后到兰空图床的URL后台，确认图片已上传至系统中</p>
+<h2 id="配置Typora"><a href="#配置Typora" class="headerlink" title="配置Typora"></a>配置Typora</h2><p>设置 偏好设置</p>
+<ol>
+<li><p>切换Typora到中文语言版（因为目前只有中文版有PicGo的选项）</p>
+</li>
+<li><p>偏好设置 》 图像 〉上传服务设定。 选择：PicGo.app</p>
+</li>
+<li><p>然后点击：验证图片上传选项  </p>
+<p>我的设置第一次显示失败了，按提示的信息查看日志：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">------Error Stack Begin------</span><br><span class="line">Error: You must be logged in to use.</span><br><span class="line">    at Object.We <span class="section">[as handle]</span> (/Applications/PicGo.app/Contents/Resources/app.asar/node_modules/picgo/dist/index.cjs.js:1:21399)</span><br><span class="line">    at processTicksAndRejections (node:internal/process/task_queues:96:5)</span><br><span class="line">    at async je.doUpload (/Applications/PicGo.app/Contents/Resources/app.asar/node_modules/picgo/dist/index.cjs.js:1:19834)</span><br><span class="line">    at async je.start (/Applications/PicGo.app/Contents/Resources/app.asar/node_modules/picgo/dist/index.cjs.js:1:18605)</span><br><span class="line">    at async $t.upload (/Applications/PicGo.app/Contents/Resources/app.asar/node_modules/picgo/dist/index.cjs.js:1:74902)</span><br><span class="line">    at async Object.upload (/Applications/PicGo.app/Contents/Resources/app.asar/index.js:2:686906)</span><br><span class="line">    at async hr (/Applications/PicGo.app/Contents/Resources/app.asar/index.js:2:689655)</span><br><span class="line">    at async /Applications/PicGo.app/Contents/Resources/app.asar/index.js:2:690736</span><br><span class="line">-------Error Stack End------- </span><br><span class="line">2024-02-21 13:37:13 <span class="section">[PicGo INFO]</span> <span class="section">[PicGo Server]</span> upload result  </span><br><span class="line">2024-02-21 13:37:13 <span class="section">[PicGo WARN]</span> <span class="section">[PicGo Server]</span> upload failed, see picgo.log for more detail ↑ </span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>复制一张图片到剪贴板，在某个文章的内容中，粘贴图片；鼠标右键选中图片，上传图片</p>
+</li>
+<li><p>这时PicGo会显示待上传的图片，以及上传进度，直到图片被自动上传到图床中</p>
+</li>
+<li><p>全流程结束</p>
+</li>
+</ol>
+<p>本章节可以参见：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zdXBwb3J0LnR5cG9yYS5pby9VcGxvYWQtSW1hZ2UvI3BpY2dvYXBwLWNoaW5lc2UtbGFuZ3VhZ2Utb25seQ==" rel="noopener external nofollow noreferrer">Upload Images</a></p>
+<h2 id="关联Alist的目录"><a href="#关联Alist的目录" class="headerlink" title="关联Alist的目录"></a>关联Alist的目录</h2><p>这是根据个人自身的使用情况做的拓展，分享出图床中的所有图片</p>
+<p>修改docker-compose.yml, 添加映射：</p>
+<ul>
+<li>&#x2F;volume2&#x2F;KingchuxingSSD512G&#x2F;MacBookPro_Skitch:&#x2F;home&#x2F;share10</li>
+</ul>
+<p>docker exec -it alist &#x2F;bin&#x2F;bash</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir share7 &amp;&amp; mkdir share8 &amp;&amp; mkdir share9 &amp;&amp; mkdir share10 &amp;&amp; mkdir shar</span><br><span class="line">e11 &amp;&amp; mkdir share12 </span><br></pre></td></tr></table></figure>
+
+
+
+<p>重启docker-compose</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">这是不会成功的，需要使用docker-compose down 和 up</span></span><br><span class="line">docker-compose restart</span><br><span class="line"></span><br><span class="line">docker-compose down</span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+
+
+<p>进入Alist的后台管理，新增 “本机存储”</p>
+<p>映射&#x2F;home&#x2F;share10 至外观目录：&#x2F;图床MacBookPro_Skitch</p>
+<h2 id="NPM反代后带端口访问"><a href="#NPM反代后带端口访问" class="headerlink" title="NPM反代后带端口访问"></a>NPM反代后带端口访问</h2><p>1、修改&#x2F;config&#x2F;app.php （大约在57-60行的地方，修改以下2行内容）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原先：</span></span><br><span class="line">  <span class="string">&#x27;url&#x27;</span> =&gt; <span class="title function_ invoke__">env</span>(<span class="string">&#x27;APP_URL&#x27;</span>, <span class="string">&#x27;http://localhost&#x27;</span>),</span><br><span class="line"></span><br><span class="line"><span class="comment">//新：</span></span><br><span class="line">  <span class="string">&#x27;url&#x27;</span> =&gt; <span class="title function_ invoke__">env</span>(<span class="string">&#x27;APP_URL&#x27;</span>, <span class="string">&#x27;https://xxxxx.com:4443&#x27;</span>),</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原先：</span></span><br><span class="line">  <span class="string">&#x27;asset_url&#x27;</span> =&gt; <span class="title function_ invoke__">env</span>(<span class="string">&#x27;ASSET_URL&#x27;</span>, <span class="literal">null</span>),</span><br><span class="line"></span><br><span class="line"><span class="comment">//新：</span></span><br><span class="line">  <span class="string">&#x27;asset_url&#x27;</span> =&gt; <span class="title function_ invoke__">env</span>(<span class="string">&#x27;ASSET_URL&#x27;</span>, <span class="string">&#x27;https://xxxxx.com:4443&#x27;</span>),</span><br></pre></td></tr></table></figure>
+
+<p>请根据自身情况修改<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly94eHh4eC5jb206NDQ0M+S4uuiHquW3seeahOWfn+WQjeWSjOerr+WPo+OAgg==" rel="noopener external nofollow noreferrer">https://xxxxx.com:4443为自己的域名和端口。</a></p>
+<p>2、修改 &#x2F;app&#x2F;Providers&#x2F;ApServiceProvider.php  第 32 行下面追加一行：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\Illuminate\Support\Facades\URL::<span class="title function_ invoke__">forceScheme</span>(<span class="string">&#x27;https&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZWxsb2RrLmNuL3Bvc3QvOTY0" rel="noopener external nofollow noreferrer">写了一个适配兰空图床 Lsky Pro 的 PicGo 图片上传插件</a>  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2hlbGxvZGszNC9waWNnby1wbHVnaW4tbGFua29uZw==" rel="noopener external nofollow noreferrer">picgo-plugin-lankong</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2xza3ktb3JnL2xza3ktcHJvL2lzc3Vlcy8zMTc=" rel="noopener external nofollow noreferrer">静态资源加载失败 #317</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2xza3ktb3JnL2xza3ktcHJvL2lzc3Vlcy82MDc=" rel="noopener external nofollow noreferrer">https+域名+端口的访问问题，NginxProxyManager反代 #607</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly94eXpiei5jbi9hcmNoaXZlcy8xMDgwLw==" rel="noopener external nofollow noreferrer">树莓派通过Docker部署兰空图床</a></p>
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="wechat,weibo,qq,facebook"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Carl Notes
+    <a href='https://www.carlzeng.top/202401222151.html'> 《搭建图床 切换本站图片至自建服务》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.carlzeng.top/202401222151.html" title="搭建图床 切换本站图片至自建服务">https://www.carlzeng.top/202401222151.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+  </li>
+</ul>
+</div>
+
+          <main class="main">
+<div class="column">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
+      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401110931.html" rel="bookmark">
+      PVE磁盘占满解决方案实践
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312230940.html" rel="bookmark">
+      Docker搭建轻量个人文件分享服务-文件传输自由
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401042040.html" rel="bookmark">
+      kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202305050813.html" rel="bookmark">
+      Image Captioning with nlbconnect/vit-gpt2-image-captioning-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402021245.html" rel="bookmark">
+      车载GPS自建服务 - 软硬件搭配实践全记录
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
+      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200906101022.html" rel="bookmark">
+      js 取得div高度-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="column">
+<div class="pjax">
+<!-- recent posts -->
+<div class="animated">
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="popular-posts">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202402192008.html" title="如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式" target="" class="popular-posts-link">
+              如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202402021245.html" title="车载GPS自建服务 - 软硬件搭配实践全记录" target="" class="popular-posts-link">
+              车载GPS自建服务 - 软硬件搭配实践全记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202401262247.html" title="安卓电视安装影视APP - 新增直播和点播功能" target="" class="popular-posts-link">
+              安卓电视安装影视APP - 新增直播和点播功能
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202401222151.html" title="搭建图床 切换本站图片至自建服务" target="" class="popular-posts-link">
+              搭建图床 切换本站图片至自建服务
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202401110931.html" title="PVE磁盘占满解决方案实践" target="" class="popular-posts-link">
+              PVE磁盘占满解决方案实践
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202401071512.html" title="TTS(Text-to-speech)服务docker搭建 转化文本内容为语音" target="" class="popular-posts-link">
+              TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202401042040.html" title="kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV" target="" class="popular-posts-link">
+              kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202312290851.html" title="PVE群晖NAS修复笔记" target="" class="popular-posts-link">
+              PVE群晖NAS修复笔记
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202312281013.html" title="Hexo多语言解决方案实践记录" target="" class="popular-posts-link">
+              Hexo多语言解决方案实践记录
+              </a>
+            </li>
+    </ul>
+  </div>
+  </div>
+</div>
+</div>
+</main>
+
+
+<div class="followme">
+  <span>若文章为您解决燃眉之急或是带来些许明朗,不妨 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a> 或 打赏</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">联系我(谈话)</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">IPTV直播</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/202312081128.html">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">M3U8播放器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">MP3与下载</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">ChatGPT问答</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">网络加速器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">文件分享</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">下载电子书</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">IT小工具集合</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2024-02-21 14:20:05" itemprop="dateModified" datetime="2024-02-21T14:20:05+08:00">2024-02-21</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/NPM/" rel="tag"># NPM</a>
+              <a href="/tags/Docker/" rel="tag"># Docker</a>
+              <a href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag"># 图床</a>
+              <a href="/tags/LskyPro/" rel="tag"># LskyPro</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202401110931.html" rel="prev" title="PVE磁盘占满解决方案实践">
+                  <i class="fa fa-angle-left"></i> PVE磁盘占满解决方案实践
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/202401262247.html" rel="next" title="安卓电视安装影视APP - 新增直播和点播功能">
+                  安卓电视安装影视APP - 新增直播和点播功能 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="选择语言">
+      
+        <option value="zh-CN" data-href="/202401222151.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/202401222151.html" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+</div>
+
+<!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*.carlzeng.top"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//statcounter.carlzeng.top:4443/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="//statcounter.carlzeng.top:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
+
+<div class="powered-by">
+    <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 选择服务器：<a href="https://www.carlzeng.top">Main</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oay5jYXJsemVuZy50b3A=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">US</a>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202401222151.html","pageTitle":"搭建图床 切换本站图片至自建服务"}</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>
