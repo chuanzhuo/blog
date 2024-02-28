@@ -540,7 +540,7 @@ https://code.kryo.se/iodine/
 
 <h2 id="5-使用dns隧道来代理上网"><a href="#5-使用dns隧道来代理上网" class="headerlink" title="5. 使用dns隧道来代理上网"></a>5. 使用dns隧道来代理上网</h2><p>注意：这个方案需要开启iodined服务端（也就是OpenWrt）防火墙设置；开启SSH访问运行从Wan口访问，开启防火墙运行接收入站流量。</p>
 <p>现实中的代理使用; </p>
-<p>​	ssh隧道方案：<br>​		客户端运行：<br>​			ssh -CfNg -D 7001 <a href="mailto:&#114;&#x6f;&#111;&#x74;&#64;&#49;&#48;&#46;&#48;&#x2e;&#x30;&#x2e;&#49;">&#114;&#x6f;&#111;&#x74;&#64;&#49;&#48;&#46;&#48;&#x2e;&#x30;&#x2e;&#49;</a></p>
+<p>​	ssh隧道方案：<br>​		客户端运行：<br>​			ssh -CfNg -D 7001 <a href="mailto:&#114;&#x6f;&#111;&#116;&#x40;&#49;&#48;&#x2e;&#48;&#x2e;&#48;&#x2e;&#x31;">&#114;&#x6f;&#111;&#116;&#x40;&#49;&#48;&#x2e;&#48;&#x2e;&#48;&#x2e;&#x31;</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -CfNg -D 7001 root@192.168.99.1</span><br></pre></td></tr></table></figure>
 
 
@@ -606,7 +606,7 @@ https://code.kryo.se/iodine/
 
 <p>#7 由于连接速度慢，当并发多的时候（同时刷新多个网页）服务经常容易进入假死状态，这是远程如何重启整个链路呢？</p>
 <p>#7解决办法：</p>
-<p>7.1 ssh进iodined的服务器：ssh <a href="mailto:&#x72;&#111;&#x6f;&#x74;&#64;&#x31;&#x39;&#x32;&#x2e;&#49;&#x36;&#x38;&#x2e;&#x39;&#57;&#x2e;&#49;">&#x72;&#111;&#x6f;&#x74;&#64;&#x31;&#x39;&#x32;&#x2e;&#49;&#x36;&#x38;&#x2e;&#x39;&#57;&#x2e;&#49;</a>   </p>
+<p>7.1 ssh进iodined的服务器：ssh <a href="mailto:&#114;&#x6f;&#x6f;&#116;&#64;&#49;&#57;&#x32;&#46;&#49;&#x36;&#x38;&#46;&#x39;&#57;&#x2e;&#49;">&#114;&#x6f;&#x6f;&#116;&#64;&#49;&#57;&#x32;&#46;&#49;&#x36;&#x38;&#46;&#x39;&#57;&#x2e;&#49;</a>   </p>
 <p>7.2 ps | grep iodined </p>
 <p>7.3 kill -9 23611 &amp;&amp; iodined -c -l 125.34.235.88 -p 53 -P 123 192.168.99.1&#x2F;24 t1.carlzeng.top</p>
 <p>这样就可以远程重启iodined服务端，然后在本地在重启一下iodine就可以获取到全新的链路</p>
@@ -1027,6 +1027,26 @@ https://code.kryo.se/iodine/
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202402192008.html","pageTitle":"如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.6.4/Artalk.min.css">
@@ -1059,26 +1079,6 @@ https://code.kryo.se/iodine/
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
