@@ -26,14 +26,16 @@
 <meta property="og:description" content="排查Nginx Proxy Manager，反向代理，让网站变成HTTPS">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/ce8ceac4-b340-41f4-9e1e-4f4929ec58ce/OtBRkRas9WaV8LEDHgzPycXnbgoDdWkn62Q9mVuipiG8Ladqru7Q2G0Jlg/deep/0/image.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/03/25/6600cfe4f3237.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/03/25/6600e6fc8e104.png">
 <meta property="article:published_time" content="2023-11-03T14:02:36.000Z">
-<meta property="article:modified_time" content="2024-01-05T12:08:53.683Z">
+<meta property="article:modified_time" content="2024-03-25T06:03:44.985Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
-<meta property="article:tag" content="debian">
-<meta property="article:tag" content="NPM">
 <meta property="article:tag" content="docker-compose">
 <meta property="article:tag" content="家宽">
+<meta property="article:tag" content="debian">
+<meta property="article:tag" content="NPM">
 <meta property="article:tag" content="Nginx Proxy Manager">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="pve">
@@ -98,7 +100,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">204</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">55</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">339</span></a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-下载音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载音乐</a></li><li class="menu-item menu-item-直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>直播IPTV</a></li><li class="menu-item menu-item-网盘文件分享"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网盘文件分享</a></li><li class="menu-item menu-item-搜索下载书籍"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>搜索下载书籍</a></li><li class="menu-item menu-item-诚信小卖铺"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>诚信小卖铺</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">205</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">55</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">340</span></a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-下载音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载音乐</a></li><li class="menu-item menu-item-直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>直播IPTV</a></li><li class="menu-item menu-item-网盘文件分享"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网盘文件分享</a></li><li class="menu-item menu-item-搜索下载书籍"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>搜索下载书籍</a></li><li class="menu-item menu-item-诚信小卖铺"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>诚信小卖铺</a></li>
   </ul>
 
     <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
@@ -134,7 +136,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%BC%96%E8%BE%91artalk%E7%9A%84robots-txt"><span class="nav-number">2.1.</span> <span class="nav-text">如何编辑artalk的robots.txt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian-11%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80"><span class="nav-number">2.2.</span> <span class="nav-text">Debian 11的一些基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%A9%E7%9F%ADURL%E4%B9%8B%E7%AE%80%E5%8C%964443%E7%AB%AF%E5%8F%A3%E6%88%903%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.3.</span> <span class="nav-text">缩短URL之简化4443端口成3端口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B9%8B%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5"><span class="nav-number">2.3.1.</span> <span class="nav-text">Docker端口映射之一对多的几种情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM%E5%BC%8A%E7%AB%AF%EF%BC%9F"><span class="nav-number">2.4.</span> <span class="nav-text">NPM弊端？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#J4125-pve%E5%8D%8A%E6%AD%BB%E7%8A%B6%E6%80%81"><span class="nav-number">2.5.</span> <span class="nav-text">J4125 pve半死状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.6.</span> <span class="nav-text">Linux 查看当前开放端口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E5%90%AFdocker%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.</span> <span class="nav-text">重启docker服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PVE-%E5%A6%82%E4%BD%95%E7%BB%99docker-debian%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%88%86%E9%85%8D%E6%9B%B4%E5%A4%9A%E7%9A%84%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">PVE 如何给docker debian虚拟机分配更多的磁盘空间？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%B2%E6%AD%A2-Docker-%E6%97%A5%E5%BF%97%E5%A1%9E%E6%BB%A1%E7%A1%AC%E7%9B%98%EF%BC%88%E6%B3%AA%E7%9A%84%E6%95%99%E8%AE%AD%EF%BC%89"><span class="nav-number">3.1.1.</span> <span class="nav-text">防止 Docker 日志塞满硬盘（泪的教训）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%92%E6%9F%A5%E8%BF%87%E7%A8%8B"><span class="nav-number">3.1.2.</span> <span class="nav-text">排查过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%85%A5-%E5%AF%BC%E5%87%BA-NPM-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">如何迁移&#x2F;导入&#x2F;导出 NPM 数据库</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%BC%96%E8%BE%91artalk%E7%9A%84robots-txt"><span class="nav-number">2.1.</span> <span class="nav-text">如何编辑artalk的robots.txt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian-11%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80"><span class="nav-number">2.2.</span> <span class="nav-text">Debian 11的一些基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%A9%E7%9F%ADURL%E4%B9%8B%E7%AE%80%E5%8C%964443%E7%AB%AF%E5%8F%A3%E6%88%903%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.3.</span> <span class="nav-text">缩短URL之简化4443端口成3端口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B9%8B%E4%B8%80%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5"><span class="nav-number">2.3.1.</span> <span class="nav-text">Docker端口映射之一对多的几种情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM%E5%BC%8A%E7%AB%AF%EF%BC%9F"><span class="nav-number">2.4.</span> <span class="nav-text">NPM弊端？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#J4125-pve%E5%8D%8A%E6%AD%BB%E7%8A%B6%E6%80%81"><span class="nav-number">2.5.</span> <span class="nav-text">J4125 pve半死状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%B3%E9%97%B8%E5%90%8EJ4125%E9%80%9A%E7%94%B5%E6%9C%AA%E6%AD%A3%E5%B8%B8%E5%90%AF%E5%8A%A8"><span class="nav-number">2.6.</span> <span class="nav-text">跳闸后J4125通电未正常启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3Debian%E5%BC%82%E5%B8%B8"><span class="nav-number">2.6.1.</span> <span class="nav-text">解决Debian异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3mariadb-%E5%92%8C-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84-Permission-denied-%E9%94%99%E8%AF%AF"><span class="nav-number">2.6.2.</span> <span class="nav-text">解决mariadb 和 应用程序的 Permission denied 错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MAC%E6%B8%85%E9%99%A4-%E5%88%B7%E6%96%B0DNS%E7%BC%93%E5%AD%98"><span class="nav-number">2.6.3.</span> <span class="nav-text">MAC清除+刷新DNS缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K2P-udpxy%E5%BC%82%E5%B8%B8"><span class="nav-number">2.6.4.</span> <span class="nav-text">K2P udpxy异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.7.</span> <span class="nav-text">Linux 查看当前开放端口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E5%90%AFdocker%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.</span> <span class="nav-text">重启docker服务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PVE-%E5%A6%82%E4%BD%95%E7%BB%99docker-debian%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%88%86%E9%85%8D%E6%9B%B4%E5%A4%9A%E7%9A%84%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">PVE 如何给docker debian虚拟机分配更多的磁盘空间？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%B2%E6%AD%A2-Docker-%E6%97%A5%E5%BF%97%E5%A1%9E%E6%BB%A1%E7%A1%AC%E7%9B%98%EF%BC%88%E6%B3%AA%E7%9A%84%E6%95%99%E8%AE%AD%EF%BC%89"><span class="nav-number">3.1.1.</span> <span class="nav-text">防止 Docker 日志塞满硬盘（泪的教训）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%92%E6%9F%A5%E8%BF%87%E7%A8%8B"><span class="nav-number">3.1.2.</span> <span class="nav-text">排查过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%BF%81%E7%A7%BB-%E5%AF%BC%E5%85%A5-%E5%AF%BC%E5%87%BA-NPM-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">如何迁移&#x2F;导入&#x2F;导出 NPM 数据库</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -147,7 +149,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">339</span>
+          <span class="site-state-item-count">340</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -158,7 +160,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">204</span>
+        <span class="site-state-item-count">205</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -188,18 +190,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
-      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
       云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312290851.html" rel="bookmark">
-      PVE群晖NAS修复笔记
       </a>
     </li>
     <li class="popular-posts-item">
@@ -208,13 +200,23 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312290851.html" rel="bookmark">
+      PVE群晖NAS修复笔记
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
+      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
       高效的服务端生成QRCODE二维码方案-Docker搭建
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200810011925.html" rel="bookmark">
-      jseclipse_plugin_040207.zip-CarlZeng
+      <a class="popular-posts-link" href="/202312031926.html" rel="bookmark">
+      Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)
       </a>
     </li>
   </ul>
@@ -231,6 +233,11 @@
                 最新随笔
         </div>
         <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/202403242130.html" title="K2P路由器安装frp远程管理N1机顶盒" target=""  class="popular-posts-link">
+                  K2P路由器安装frp远程管理N1机顶盒
+                  </a>
+                </li>
                 <li class="popular-posts-item">
                   <a href="/202403190934.html" title="部署开源调查问卷系统SurveyKing" target=""  class="popular-posts-link">
                   部署开源调查问卷系统SurveyKing
@@ -249,11 +256,6 @@
                 <li class="popular-posts-item">
                   <a href="/202402201752.html" title="高效的服务端生成QRCODE二维码方案-Docker搭建" target=""  class="popular-posts-link">
                   高效的服务端生成QRCODE二维码方案-Docker搭建
-                  </a>
-                </li>
-                <li class="popular-posts-item">
-                  <a href="/202402192008.html" title="如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式" target=""  class="popular-posts-link">
-                  如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式
                   </a>
                 </li>
         </ul>
@@ -397,7 +399,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-01-05 20:08:53" itemprop="dateModified" datetime="2024-01-05T20:08:53+08:00">2024-01-05</time>
+      <time title="修改时间：2024-03-25 14:03:44" itemprop="dateModified" datetime="2024-03-25T14:03:44+08:00">2024-03-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -427,7 +429,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>27 分钟</span>
+      <span>43 分钟</span>
     </span>
 </div>
 
@@ -593,6 +595,70 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 <p>重启一下MAC电脑，重新测试</p>
 </blockquote>
 <p>重启MAC，链接NPM又正常了！pve又可以链接了; 原来问题的根源不是在J4125；汗，而是在用来发现问题的MAC上，引以为戒。下次核查的时候要多设备核实（才能去硬重启J4125）</p>
+<h2 id="跳闸后J4125通电未正常启动"><a href="#跳闸后J4125通电未正常启动" class="headerlink" title="跳闸后J4125通电未正常启动"></a>跳闸后J4125通电未正常启动</h2><p>J4125断电后无法启动，<br>    导致K2P无法正常获取192.168.6网段的IP地址；（获取的169.254.12.86不正常IP）<br>    整个本地局域网瘫痪。</p>
+<pre><code>理清楚，如果J4125小主机无法启动，要怎么调试？
+有没有画面输出？如何输出画面；
+答：通过连接HDMI的液晶显示器，在连接USB键盘操作
+
+目前J4125 和 K2P是怎么连接工作的？
+
+目前J4125的网口分配情况？
+
+如何调试？调整K2P的设置？连接端口？
+答：通过连接HDMI的液晶显示器，在连接USB键盘操作
+</code></pre>
+<p>J4125进入命令行模式（由于WEB控制没有启动，无法远程。需要借助显示器和键盘）</p>
+<p>一种pve的命令行模式，好像输出startup.sh的倒计时（由于无显示器，进入命令行模式后，通过WEB只能判定其属于无法启动或死机状态）</p>
+<p>无意间通过输入help（很多命令，但大部分一闪而过，无法使用 ｜more来暂停；不知道怎么慢慢输出所有的help内容）和 exit命令，退出了这个命令行模式；系统正常启动成功，所有虚拟机和docker，启动成功。</p>
+<p>目前启动状态（这也是最干净的状态）：</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/03/25/6600cfe4f3237.png" alt="image-20240325091403026"></p>
+<h3 id="解决Debian异常"><a href="#解决Debian异常" class="headerlink" title="解决Debian异常"></a>解决Debian异常</h3><p>Yourls、Matomo没有正常启动</p>
+<p>pve中debian状态也正常，ping debian的IP是正常的。最终进入SSH，通过bt命令14，查看了面板地址。进入bt面板后，发现是mariadb没有正常启动，造成了特定的三个容器（Yourls、Matomo 和surveyking）因缺少数据库而无法正常运行。</p>
+<p>解决办法：</p>
+<p>ssh下进入目录进行docker-compose down 和 docker-compose up</p>
+<p>查看日志发现Permission denied错误</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">yourls_mysql    | 2024-03-25 01:34:54+00:00 [Note] [Entrypoint]: Switching to dedicated user &#x27;mysql&#x27;          </span><br><span class="line">yourls_mysql    | 2024-03-25 01:34:54+00:00 [Note] [Entrypoint]: Entrypoint script for MariaDB Server 1:11.2.2</span><br><span class="line">+maria~ubu2204 started.                                                                                       </span><br><span class="line">yourls_mysql    | 2024-03-25 01:34:55+00:00 [Note] [Entrypoint]: Initializing database files                  </span><br><span class="line">yourls_mysql    | 2024-03-25  1:34:55 0 [Warning] Can&#x27;t create test file &#x27;/var/lib/mysql/d6741f2674af.lower-te</span><br><span class="line">st&#x27; (Errcode: 13 &quot;Permission denied&quot;)                                                                         </span><br><span class="line">yourls_mysql    | /usr/sbin/mariadbd: Can&#x27;t change dir to &#x27;/var/lib/mysql/&#x27; (Errcode: 13 &quot;Permission denied&quot;) </span><br><span class="line">yourls_mysql    | 2024-03-25  1:34:55 0 [ERROR] Aborting                                                      </span><br><span class="line">yourls_mysql    |                                                                                             </span><br><span class="line">yourls_mysql    | Installation of system tables failed!  Examine the logs in                                  </span><br><span class="line">yourls_mysql    | /var/lib/mysql/ for more information.                                                       </span><br><span class="line">yourls_mysql    |                                                                                             </span><br><span class="line">yourls_mysql    | The problem could be conflicting information in an external                                 </span><br><span class="line">yourls_mysql    | my.cnf files. You can ignore these by doing:                                                </span><br><span class="line">yourls_mysql    |                                                                                             </span><br><span class="line">yourls_mysql    |     shell&gt; /usr/bin/mariadb-install-db --defaults-file=~/.my.cnf                            </span><br><span class="line">yourls_mysql    |                                                                                             </span><br><span class="line">yourls_mysql    | You can also try to start the mariadbd daemon with:                                         </span><br><span class="line">yourls_mysql    |                                                                                             </span><br><span class="line">yourls_mysql    |     shell&gt; /usr/sbin/mariadbd --skip-grant-tables --general-log &amp;                           </span><br><span class="line">yourls_mysql    |                                                                                             </span><br><span class="line">yourls_mysql    | and use the command line tool /usr/bin/mariadb                                              </span><br><span class="line">yourls_mysql    | to connect to the mysql database and look at the grant tables:                              </span><br><span class="line">yourls_mysql    |                                                                                             </span><br><span class="line">yourls_mysql    |     shell&gt; /usr/bin/mariadb -u root mysql                                                   </span><br><span class="line">yourls_mysql    |     MariaDB&gt; show tables;                                                                   </span><br><span class="line">yourls_mysql    |                                                                                             </span><br><span class="line">yourls_mysql    | Try &#x27;/usr/sbin/mariadbd --help&#x27; if you have problems with paths.  Using                     </span><br><span class="line">yourls_mysql    | --general-log gives you a log in /var/lib/mysql/ that may be helpful.                       </span><br><span class="line">yourls_mysql    |                                                                                             </span><br><span class="line">yourls_mysql    | The latest information about mariadb-install-db is available at                             </span><br><span class="line">yourls_mysql    | https://mariadb.com/kb/en/installing-system-tables-mysql_install_db                         </span><br><span class="line">yourls_mysql    | You can find the latest source at https://downloads.mariadb.org and                         </span><br><span class="line">yourls_mysql    | the maria-discuss email list at https://launchpad.net/~maria-discuss                        </span><br><span class="line">yourls_mysql    |                                                                                             </span><br><span class="line">yourls_mysql    | Please check all of the above before submitting a bug report                                </span><br><span class="line">yourls_mysql    | at https://mariadb.org/jira                                                                 </span><br><span class="line">yourls_mysql    |                                                                                             </span><br><span class="line">yourls_mysql exited with code 1 </span><br></pre></td></tr></table></figure>
+
+<p>解决办法：授予mysql用户在目录下的执行权限&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;yourls_service&#x2F;template&#x2F;yMariaDb</p>
+<p>解决mariadb启动正常后，访问yourls网页仍然错误</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">yourls_service  | 172.18.0.1 - - [25/Mar/2024:01:38:29 +0000] &quot;GET /admin/index.php HTTP/1.1&quot; 403 521 &quot;-&quot; &quot;Moz</span><br><span class="line">illa/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/53</span><br><span class="line">7.36&quot;                                                                                                         </span><br><span class="line">yourls_service  | [Mon Mar 25 01:38:29.171055 2024] [core:crit] [pid 23] (13)Permission denied: [client 172.18</span><br><span class="line">.0.1:18438] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readab</span><br><span class="line">le and that &#x27;/var/www/html/&#x27; is executable                                                                    </span><br><span class="line">yourls_service  | [Mon Mar 25 01:38:29.208916 2024] [core:crit] [pid 24] (13)Permission denied: [client 172.18</span><br><span class="line">.0.1:18450] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readab</span><br><span class="line">le and that &#x27;/var/www/html/&#x27; is executable, referer: https://c.carlzeng.top:4443/admin/index.php              </span><br><span class="line">yourls_service  | 172.18.0.1 - - [25/Mar/2024:01:38:29 +0000] &quot;GET /favicon.ico HTTP/1.1&quot; 403 521 &quot;https://c.c</span><br><span class="line">arlzeng.top:4443/admin/index.php&quot; &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, </span><br><span class="line">like Gecko) Chrome/122.0.0.0 Safari/537.36&quot;                                                                   </span><br><span class="line">yourls_service  | [Mon Mar 25 01:38:29.737844 2024] [core:crit] [pid 25] (13)Permission denied: [client 172.18</span><br><span class="line">.0.1:18464] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readab</span><br><span class="line">le and that &#x27;/var/www/html/&#x27; is executable </span><br></pre></td></tr></table></figure>
+
+<p>解决办法：授予所有用户在目录下的执行权限777</p>
+<p>&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;yourls_service&#x2F;template&#x2F;yourlsData20231229</p>
+<h3 id="解决mariadb-和-应用程序的-Permission-denied-错误"><a href="#解决mariadb-和-应用程序的-Permission-denied-错误" class="headerlink" title="解决mariadb 和 应用程序的 Permission denied 错误"></a>解决mariadb 和 应用程序的 Permission denied 错误</h3><p>同上原理:</p>
+<ul>
+<li>将mariadb的目录授予mysql用户执行权限</li>
+<li>将应用程序的主目录授予所有用户执行权限777</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">应用程序目录如果没有777权限，错误信息如下：</span></span><br><span class="line">Matomo     | [Mon Mar 25 09:52:04.935003 2024] [core:crit] [pid 51] (13)Permission denied: [client 192.168.6.2。21:65111] AH00529: /var/www/html/.htaccess pcfg_openfile: unable to check htaccess file, ensure it is readable</span><br><span class="line"> and that &#x27;/var/www/html/&#x27; is executable, referer: http://192.168.6.116:8597/index.php   </span><br></pre></td></tr></table></figure>
+
+<h3 id="MAC清除-刷新DNS缓存"><a href="#MAC清除-刷新DNS缓存" class="headerlink" title="MAC清除+刷新DNS缓存"></a>MAC清除+刷新DNS缓存</h3><p>Mac OSX本机的DNS缓存误导了一些自定义域名的IP指向。</p>
+<p>ping  frp.carlzeng.top -c 3<br>    PING frp.carlzeng.top (123.112.254.91): 56 data bytes<br>    64 bytes from 123.112.254.91: icmp_seq&#x3D;0 ttl&#x3D;62 time&#x3D;7.484 ms</p>
+<pre><code>发现是Mac OSX本机的DNS缓存误导了一些自定义域名的IP指向。
+</code></pre>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/03/25/6600e6fc8e104.png" alt="image-20240325105222077"></p>
+<p>ping  frp.carlzeng.top -c 3<br>    PING frp.carlzeng.top (123.112.254.91): 56 data bytes<br>    64 bytes from 123.112.254.91: icmp_seq&#x3D;0 ttl&#x3D;62 time&#x3D;7.484 ms</p>
+<pre><code>发现是Mac OSX本机的DNS缓存误导了一些自定义域名的IP指向。
+10:51am dns问题依旧，
+
+
+11:54am 突然frp的域名恢复了：
+ping -c 3 frp.carlzeng.top
+PING frp.carlzeng.top (221.218.236.157): 56 data bytes
+64 bytes from 221.218.236.157: icmp_seq=0 ttl=64 time=2.954 ms
+</code></pre>
+<p>how to fix non-authoritative answer<br>似乎只有等待！（大约等了2小时）</p>
+<p>优化：删除掉mail.carlzeng.top的A记录，因为*的A记录，会自动涵盖这一条A记录</p>
+<h3 id="K2P-udpxy异常"><a href="#K2P-udpxy异常" class="headerlink" title="K2P udpxy异常"></a>K2P udpxy异常</h3><p>ps 发现系统有：<br>441 admin      776 S  &#x2F;usr&#x2F;sbin&#x2F;udpxy -m br0 -p 8012 -B 65536 -c 10 -M 120</p>
+<p>kill -9 441 后，运行<br>udpxy -p 8012</p>
+<p>udpxy一切正常了；可以正常使用VLC播放：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4yNDM6ODAxMi9ydHAvMjM5LjMuMS4xNTg6ODAwMA==" rel="noopener external nofollow noreferrer">http://192.168.6.243:8012/rtp/239.3.1.158:8000</a></p>
+<p>测试：</p>
+<p>UI上看太玄学了，kill掉‘udpxy -p 8012’，重新检查ps中udpxy都消失后，重新<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4yNDMvQWR2YW5jZWRfSVBUVl9Db250ZW50LmFzcA==" rel="noopener external nofollow noreferrer">提交IPTV页面</a>一切正常了。</p>
+<p>这导致每次重启K2P都需要运行 &#x2F;usr&#x2F;sbin&#x2F;udpxy -p 8012 </p>
+<p>即便在<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4yNDMvQWR2YW5jZWRfU2NyaXB0c19Db250ZW50LmFzcA==" rel="noopener external nofollow noreferrer">自定义脚本》路由器启动后执行</a>定义了 &#x2F;usr&#x2F;sbin&#x2F;udpxy -p 8012 也不知道是否管用？</p>
+<blockquote>
+<p>期待下一次的断电重启测试</p>
+</blockquote>
 <hr>
 <p>无意间点进PVE，不看不知道，一看吓一跳：</p>
 <p>原来很可能是pve的磁盘占用 96.69% (104.62 GiB的108.20 GiB）</p>
@@ -736,18 +802,8 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
-      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
       云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312290851.html" rel="bookmark">
-      PVE群晖NAS修复笔记
       </a>
     </li>
     <li class="popular-posts-item">
@@ -756,13 +812,23 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312290851.html" rel="bookmark">
+      PVE群晖NAS修复笔记
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
+      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
       高效的服务端生成QRCODE二维码方案-Docker搭建
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200810011925.html" rel="bookmark">
-      jseclipse_plugin_040207.zip-CarlZeng
+      <a class="popular-posts-link" href="/202312031926.html" rel="bookmark">
+      Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)
       </a>
     </li>
   </ul>
@@ -782,6 +848,11 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
             最新随笔
     </div>
     <ul class="popular-posts">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202403242130.html" title="K2P路由器安装frp远程管理N1机顶盒" target="" class="popular-posts-link">
+              K2P路由器安装frp远程管理N1机顶盒
+              </a>
+            </li>
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202403190934.html" title="部署开源调查问卷系统SurveyKing" target="" class="popular-posts-link">
               部署开源调查问卷系统SurveyKing
@@ -820,11 +891,6 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202401222151.html" title="搭建图床 切换本站图片至自建服务" target="" class="popular-posts-link">
               搭建图床 切换本站图片至自建服务
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202401110931.html" title="PVE磁盘占满解决方案实践" target="" class="popular-posts-link">
-              PVE磁盘占满解决方案实践
               </a>
             </li>
     </ul>
@@ -935,7 +1001,7 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-01-05 20:08:53" itemprop="dateModified" datetime="2024-01-05T20:08:53+08:00">2024-01-05</time>
+        <time title="修改时间：2024-03-25 14:03:44" itemprop="dateModified" datetime="2024-03-25T14:03:44+08:00">2024-03-25</time>
       </span>
 
 </div>
@@ -945,10 +1011,10 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
           <div class="post-tags">
             继续浏览有关
               <a href="/tags/docker/" rel="tag"># docker</a>
-              <a href="/tags/debian/" rel="tag"># debian</a>
-              <a href="/tags/NPM/" rel="tag"># NPM</a>
               <a href="/tags/docker-compose/" rel="tag"># docker-compose</a>
               <a href="/tags/%E5%AE%B6%E5%AE%BD/" rel="tag"># 家宽</a>
+              <a href="/tags/debian/" rel="tag"># debian</a>
+              <a href="/tags/NPM/" rel="tag"># NPM</a>
               <a href="/tags/Nginx-Proxy-Manager/" rel="tag"># Nginx Proxy Manager</a>
               <a href="/tags/linux/" rel="tag"># linux</a>
               <a href="/tags/pve/" rel="tag"># pve</a>
