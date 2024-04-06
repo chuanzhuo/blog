@@ -42,7 +42,7 @@
 <meta property="og:image" content="https://img.carlzeng.top:3/i/2024/03/01/65e140a62c982.png">
 <meta property="og:image" content="https://img.carlzeng.top:3/i/2024/03/28/6605735e21430.png">
 <meta property="article:published_time" content="2024-03-01T03:30:00.000Z">
-<meta property="article:modified_time" content="2024-03-28T13:41:40.365Z">
+<meta property="article:modified_time" content="2024-04-03T01:35:31.063Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="email">
@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iRedMail-Docker%E6%90%AD%E5%BB%BA"><span class="nav-number">3.1.</span> <span class="nav-text">iRedMail Docker搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEDNS"><span class="nav-number">3.2.</span> <span class="nav-text">设置DNS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SPF-entry-%E8%AE%B0%E5%BD%95"><span class="nav-number">3.2.1.</span> <span class="nav-text">SPF entry&#x2F;记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DKIM-entry-%E8%AE%B0%E5%BD%95"><span class="nav-number">3.2.2.</span> <span class="nav-text">DKIM entry&#x2F;记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DMARC-entry-%E8%AE%B0%E5%BD%95"><span class="nav-number">3.2.3.</span> <span class="nav-text">DMARC entry&#x2F;记录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="nav-number">3.3.</span> <span class="nav-text">端口映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SMTP%E8%AE%BE%E7%BD%AE%E5%8F%91%E9%82%AE%E4%BB%B6"><span class="nav-number">3.4.</span> <span class="nav-text">SMTP设置发邮件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">3.5.</span> <span class="nav-text">错误及解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E5%90%AF%E5%8A%A8%E9%94%99%E8%AF%AF%EF%BC%9A%E2%80%9DPermission-denied%E2%80%9D"><span class="nav-number">3.5.1.</span> <span class="nav-text">Docker启动错误：”Permission denied”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS%E8%AE%BE%E7%BD%AE%E9%94%99%E8%AF%AF%E4%B9%8BNo-DMARC-Record-found"><span class="nav-number">3.5.2.</span> <span class="nav-text">DNS设置错误之No DMARC Record found</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iredadmin%E6%93%8D%E4%BD%9C%E4%B8%8D%E6%90%BA%E5%B8%A6%E7%AB%AF%E5%8F%A3%E9%94%99%E8%AF%AF"><span class="nav-number">3.5.3.</span> <span class="nav-text">iredadmin操作不携带端口错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#icloud%E9%80%9A%E4%BF%A1%E5%8F%97%E9%98%BBrejected-due-to-listing-in-Spamhaus-PBL"><span class="nav-number">3.5.4.</span> <span class="nav-text">icloud通信受阻rejected due to listing in Spamhaus PBL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E5%8F%91%E9%82%AE%E4%BB%B6%E8%A2%AB%E8%87%AA%E6%88%91%E6%8B%A6%E6%88%AA%E4%B8%BASPAM"><span class="nav-number">3.5.5.</span> <span class="nav-text">程序发邮件被自我拦截为SPAM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%AF%E5%90%A6%E5%8F%AF%E5%88%A0%E9%99%A4mail-%E7%9A%84DNS%E8%AE%B0%E5%BD%95%EF%BC%9F"><span class="nav-number">3.5.6.</span> <span class="nav-text">是否可删除mail.**的DNS记录？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%B4%E6%8A%A4%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="nav-number">3.5.7.</span> <span class="nav-text">维护定时任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%A0%E6%AD%A3%E9%82%AE%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%97%B6%E5%8C%BA"><span class="nav-number">3.5.8.</span> <span class="nav-text">纠正邮件系统的时区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SMTP%E6%9C%8D%E5%8A%A1%E6%B5%8B%E8%AF%95"><span class="nav-number">3.5.9.</span> <span class="nav-text">SMTP服务测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A5%E4%B8%8B%E4%B8%BA%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95-%E8%AF%B7%E8%B7%B3%E8%BF%87"><span class="nav-number">4.</span> <span class="nav-text">以下为踩坑记录(请跳过)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-mailserver"><span class="nav-number">4.1.</span> <span class="nav-text">docker-mailserver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#postfix-and-postfixadmin"><span class="nav-number">4.2.</span> <span class="nav-text">postfix and postfixadmin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%98%E5%B7%AE%E4%B8%80%E4%B8%AA%E9%9D%A0%E8%B0%B1%E5%8F%AF%E7%94%A8%E7%9A%84postfix"><span class="nav-number">4.2.1.</span> <span class="nav-text">还差一个靠谱可用的postfix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ports"><span class="nav-number">4.2.2.</span> <span class="nav-text">Ports</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%84%9F%E8%B0%A2%E5%88%97%E8%A1%A8"><span class="nav-number">5.</span> <span class="nav-text">感谢列表</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iRedMail-Docker%E6%90%AD%E5%BB%BA"><span class="nav-number">3.1.</span> <span class="nav-text">iRedMail Docker搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEDNS"><span class="nav-number">3.2.</span> <span class="nav-text">设置DNS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SPF-entry-%E8%AE%B0%E5%BD%95"><span class="nav-number">3.2.1.</span> <span class="nav-text">SPF entry&#x2F;记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DKIM-entry-%E8%AE%B0%E5%BD%95"><span class="nav-number">3.2.2.</span> <span class="nav-text">DKIM entry&#x2F;记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DMARC-entry-%E8%AE%B0%E5%BD%95"><span class="nav-number">3.2.3.</span> <span class="nav-text">DMARC entry&#x2F;记录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="nav-number">3.3.</span> <span class="nav-text">端口映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SMTP%E8%AE%BE%E7%BD%AE%E5%8F%91%E9%82%AE%E4%BB%B6"><span class="nav-number">3.4.</span> <span class="nav-text">SMTP设置发邮件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">3.5.</span> <span class="nav-text">错误及解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E5%90%AF%E5%8A%A8%E9%94%99%E8%AF%AF%EF%BC%9A%E2%80%9DPermission-denied%E2%80%9D"><span class="nav-number">3.5.1.</span> <span class="nav-text">Docker启动错误：”Permission denied”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS%E8%AE%BE%E7%BD%AE%E9%94%99%E8%AF%AF%E4%B9%8BNo-DMARC-Record-found"><span class="nav-number">3.5.2.</span> <span class="nav-text">DNS设置错误之No DMARC Record found</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iredadmin%E6%93%8D%E4%BD%9C%E4%B8%8D%E6%90%BA%E5%B8%A6%E7%AB%AF%E5%8F%A3%E9%94%99%E8%AF%AF"><span class="nav-number">3.5.3.</span> <span class="nav-text">iredadmin操作不携带端口错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#icloud%E9%80%9A%E4%BF%A1%E5%8F%97%E9%98%BBrejected-due-to-listing-in-Spamhaus-PBL"><span class="nav-number">3.5.4.</span> <span class="nav-text">icloud通信受阻rejected due to listing in Spamhaus PBL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E5%8F%91%E9%82%AE%E4%BB%B6%E8%A2%AB%E8%87%AA%E6%88%91%E6%8B%A6%E6%88%AA%E4%B8%BASPAM"><span class="nav-number">3.5.5.</span> <span class="nav-text">程序发邮件被自我拦截为SPAM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%AF%E5%90%A6%E5%8F%AF%E5%88%A0%E9%99%A4mail-%E7%9A%84DNS%E8%AE%B0%E5%BD%95%EF%BC%9F"><span class="nav-number">3.5.6.</span> <span class="nav-text">是否可删除mail.**的DNS记录？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%B4%E6%8A%A4%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="nav-number">3.5.7.</span> <span class="nav-text">维护定时任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%A0%E6%AD%A3%E9%82%AE%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%97%B6%E5%8C%BA"><span class="nav-number">3.5.8.</span> <span class="nav-text">纠正邮件系统的时区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SMTP%E6%9C%8D%E5%8A%A1%E6%B5%8B%E8%AF%95"><span class="nav-number">3.5.9.</span> <span class="nav-text">SMTP服务测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iredMail%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE"><span class="nav-number">3.5.10.</span> <span class="nav-text">iredMail证书配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A5%E4%B8%8B%E4%B8%BA%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95-%E8%AF%B7%E8%B7%B3%E8%BF%87"><span class="nav-number">4.</span> <span class="nav-text">以下为踩坑记录(请跳过)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-mailserver"><span class="nav-number">4.1.</span> <span class="nav-text">docker-mailserver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#postfix-and-postfixadmin"><span class="nav-number">4.2.</span> <span class="nav-text">postfix and postfixadmin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%98%E5%B7%AE%E4%B8%80%E4%B8%AA%E9%9D%A0%E8%B0%B1%E5%8F%AF%E7%94%A8%E7%9A%84postfix"><span class="nav-number">4.2.1.</span> <span class="nav-text">还差一个靠谱可用的postfix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ports"><span class="nav-number">4.2.2.</span> <span class="nav-text">Ports</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%84%9F%E8%B0%A2%E5%88%97%E8%A1%A8"><span class="nav-number">5.</span> <span class="nav-text">感谢列表</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -218,8 +218,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200907071652.html" rel="bookmark">
-      netsuite 记录类型 权限分配 use permissions-CarlZeng
+      <a class="popular-posts-link" href="/202312230940.html" rel="bookmark">
+      Docker搭建轻量个人文件分享服务-文件传输自由
       </a>
     </li>
     <li class="popular-posts-item">
@@ -407,7 +407,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-28 21:41:40" itemprop="dateModified" datetime="2024-03-28T21:41:40+08:00">2024-03-28</time>
+      <time title="修改时间：2024-04-03 09:35:31" itemprop="dateModified" datetime="2024-04-03T09:35:31+08:00">2024-04-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -437,7 +437,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>22 分钟</span>
+      <span>23 分钟</span>
     </span>
 </div>
 
@@ -710,9 +710,20 @@
 <p>​	优点：实时显示详细的debug日志。赞！</p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zbXRwc2VydmVyLmNvbS9tYWlsLXRlc3Rlcg==" rel="noopener external nofollow noreferrer">Email Check Spam Score and Improve Quality</a></p>
 <p>​	优点：可以检测出详细的DNS配置错误（如果有错误的话），并给出修正的建议。赞！</p>
-<p>Using <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jaGVja3Rscy5jb20v" rel="noopener external nofollow noreferrer">http://www.checktls.com/</a>, it’s clear that the Zendesk TLS cert is incorrect in that it doesn’t specify that mail.pod-4 host.</p>
+<h3 id="iredMail证书配置"><a href="#iredMail证书配置" class="headerlink" title="iredMail证书配置"></a>iredMail证书配置</h3><p>Using <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jaGVja3Rscy5jb20v" rel="noopener external nofollow noreferrer">http://www.checktls.com/</a>, it’s clear that the Zendesk TLS cert is incorrect in that it doesn’t specify that mail.pod-4 host.</p>
 <p><img data-src="https://img.carlzeng.top:3/i/2024/03/28/6605735e21430.png" alt="image-20240328214042643"></p>
 <p>从这点来看，可能是自签证书的问题？那么如何替换和生成一个证书呢？</p>
+<p>测试配置步骤：</p>
+<ol>
+<li>下载NPM中生成的泛域名证书，得到certificate.zip，解压缩一共是4个文件。</li>
+<li>上传fullchain.pem 和 privkey.pem 到 映射的目录中（&#x2F;KingchuxingSSD512G&#x2F;docker&#x2F;compose&#x2F;iRedMail&#x2F;ssl），分别重命名为iRedMail.crt 和 iRedMail.key。再重新上传一遍（备份原文件名）</li>
+<li>测试<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuc3NsbGFicy5jb20vc3NsdGVzdC9pbmRleC5odG1s" rel="noopener external nofollow noreferrer">https://www.ssllabs.com/ssltest/index.html</a> 和 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2hlY2t0bHMuY29tLw==" rel="noopener external nofollow noreferrer">https://www.checktls.com/</a></li>
+<li></li>
+<li></li>
+</ol>
+<p>本章节参考：</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9kb2NzLmlyZWRtYWlsLm9yZy91c2UuYS5ib3VnaHQuc3NsLmNlcnRpZmljYXRlLmh0bWw=" rel="noopener external nofollow noreferrer">Use a bought SSL certificate</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9kb2NzLmlyZWRtYWlsLm9yZy9sZXRzZW5jcnlwdC5odG1s" rel="noopener external nofollow noreferrer">Request a free cert from Let’s Encrypt (for servers deployed with downloadable iRedMail installer)</a></p>
 <hr>
 <h1 id="以下为踩坑记录-请跳过"><a href="#以下为踩坑记录-请跳过" class="headerlink" title="以下为踩坑记录(请跳过)"></a>以下为踩坑记录(请跳过)</h1><h2 id="docker-mailserver"><a href="#docker-mailserver" class="headerlink" title="docker-mailserver"></a>docker-mailserver</h2><p>docker-compose.yml (docker-mailserver)</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mailserver:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">ghcr.io/docker-mailserver/docker-mailserver:latest</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">mailserver</span></span><br><span class="line">    <span class="comment"># Provide the FQDN of your mail server here (Your DNS MX record should point to this value)</span></span><br><span class="line">    <span class="attr">hostname:</span> <span class="string">mail.carlzeng.top</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;25:25&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;465:465&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;587:587&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;993:993&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./mail-data/:/var/mail/</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./mail-state/:/var/mail-state/</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./mail-logs/:/var/log/mail/</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./config/:/tmp/docker-mailserver/</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ENABLE_RSPAMD=0</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ENABLE_CLAMAV=0</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ENABLE_FAIL2BAN=1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line">    <span class="attr">cap_add:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NET_ADMIN</span> <span class="comment"># For Fail2Ban to work</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
@@ -726,7 +737,7 @@
 
 
 
-<p>docker exec -ti mailserver setup email add <a href="mailto:&#115;&#x65;&#x72;&#118;&#105;&#99;&#101;&#64;&#99;&#97;&#x72;&#x6c;&#x7a;&#x65;&#110;&#103;&#x2e;&#116;&#x6f;&#x70;">&#115;&#x65;&#x72;&#118;&#105;&#99;&#101;&#64;&#99;&#97;&#x72;&#x6c;&#x7a;&#x65;&#110;&#103;&#x2e;&#116;&#x6f;&#x70;</a></p>
+<p>docker exec -ti mailserver setup email add <a href="mailto:&#115;&#101;&#x72;&#x76;&#x69;&#99;&#x65;&#64;&#x63;&#x61;&#114;&#108;&#x7a;&#101;&#x6e;&#x67;&#46;&#x74;&#111;&#x70;">&#115;&#101;&#x72;&#x76;&#x69;&#99;&#x65;&#64;&#x63;&#x61;&#114;&#108;&#x7a;&#101;&#x6e;&#x67;&#46;&#x74;&#111;&#x70;</a></p>
 <p>解决办法：未知</p>
 <p>文档信息：</p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2RvY2tlci1tYWlsc2VydmVyL2RvY2tlci1tYWlsc2VydmVyP3RhYj1yZWFkbWUtb3YtZmlsZQ==" rel="noopener external nofollow noreferrer">https://github.com/docker-mailserver/docker-mailserver?tab=readme-ov-file</a></p>
@@ -752,6 +763,7 @@
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1xbm5mM0xXY1VYQQ==" rel="noopener external nofollow noreferrer">Running iRedMail E-Mail Server in Docker</a></p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9kb2NzLmlyZWRtYWlsLm9yZy9zZXR1cC5kbnMuaHRtbCNteA==" rel="noopener external nofollow noreferrer">Setup DNS records for your iRedMail server (A, PTR, MX, SPF, DKIM, DMARC)</a></p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1TY2FybG1nRDBkVQ==" rel="noopener external nofollow noreferrer">From zero to full mail server in 20 minutes with Mailu Docker images!</a></p>
+<p><a href="HTTPS/SSL%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE">HTTPS&#x2F;SSL证书配置</a></p>
 
     </div>
 
@@ -834,8 +846,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200907071652.html" rel="bookmark">
-      netsuite 记录类型 权限分配 use permissions-CarlZeng
+      <a class="popular-posts-link" href="/202312230940.html" rel="bookmark">
+      Docker搭建轻量个人文件分享服务-文件传输自由
       </a>
     </li>
     <li class="popular-posts-item">
@@ -1013,7 +1025,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-03-28 21:41:40" itemprop="dateModified" datetime="2024-03-28T21:41:40+08:00">2024-03-28</time>
+        <time title="修改时间：2024-04-03 09:35:31" itemprop="dateModified" datetime="2024-04-03T09:35:31+08:00">2024-04-03</time>
       </span>
 
 </div>
@@ -1154,26 +1166,6 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202403011130.html","pageTitle":"Docker自建Email服务器 - 私人邮件系统"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1206,6 +1198,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>
