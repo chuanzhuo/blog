@@ -559,7 +559,7 @@ https://code.kryo.se/iodine/
 
 <h2 id="5-使用dns隧道来代理上网"><a href="#5-使用dns隧道来代理上网" class="headerlink" title="5. 使用dns隧道来代理上网"></a>5. 使用dns隧道来代理上网</h2><p>注意：这个方案需要开启iodined服务端（也就是OpenWrt）防火墙设置；开启SSH访问运行从Wan口访问，开启防火墙运行接收入站流量。</p>
 <p>现实中的代理使用; </p>
-<p>​	ssh隧道方案：<br>​		客户端运行：<br>​			ssh -CfNg -D 7001 <a href="mailto:&#114;&#111;&#x6f;&#116;&#64;&#49;&#x30;&#x2e;&#x30;&#46;&#48;&#x2e;&#49;">&#114;&#111;&#x6f;&#116;&#64;&#49;&#x30;&#x2e;&#x30;&#46;&#48;&#x2e;&#49;</a></p>
+<p>​	ssh隧道方案：<br>​		客户端运行：<br>​			ssh -CfNg -D 7001 <a href="mailto:&#x72;&#111;&#111;&#116;&#x40;&#49;&#x30;&#46;&#48;&#46;&#x30;&#x2e;&#49;">&#x72;&#111;&#111;&#116;&#x40;&#49;&#x30;&#46;&#48;&#46;&#x30;&#x2e;&#49;</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -CfNg -D 7001 root@192.168.99.1</span><br></pre></td></tr></table></figure>
 
 
@@ -625,7 +625,7 @@ https://code.kryo.se/iodine/
 
 <p>#7 由于连接速度慢，当并发多的时候（同时刷新多个网页）服务经常容易进入假死状态，这是远程如何重启整个链路呢？</p>
 <p>#7解决办法：</p>
-<p>7.1 ssh进iodined的服务器：ssh <a href="mailto:&#114;&#x6f;&#x6f;&#116;&#x40;&#49;&#x39;&#x32;&#x2e;&#x31;&#54;&#x38;&#46;&#57;&#x39;&#46;&#49;">&#114;&#x6f;&#x6f;&#116;&#x40;&#49;&#x39;&#x32;&#x2e;&#x31;&#54;&#x38;&#46;&#57;&#x39;&#46;&#49;</a>   </p>
+<p>7.1 ssh进iodined的服务器：ssh <a href="mailto:&#114;&#x6f;&#x6f;&#116;&#x40;&#x31;&#57;&#x32;&#x2e;&#49;&#x36;&#x38;&#46;&#x39;&#x39;&#46;&#49;">&#114;&#x6f;&#x6f;&#116;&#x40;&#x31;&#57;&#x32;&#x2e;&#49;&#x36;&#x38;&#46;&#x39;&#x39;&#46;&#49;</a>   </p>
 <p>7.2 ps | grep iodined </p>
 <p>7.3 kill -9 23611 &amp;&amp; iodined -c -l 125.34.235.88 -p 53 -P 123 192.168.99.1&#x2F;24 t1.carlzeng.top</p>
 <p>这样就可以远程重启iodined服务端，然后在本地在重启一下iodine就可以获取到全新的链路</p>
@@ -801,7 +801,7 @@ https://code.kryo.se/iodine/
 
 
 <div class="followme">
-  <span>若文章为您解决燃眉之急或是带来些许明朗,不妨 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a> 或 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLnRvcDozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">打赏作者</a>. 您还可以<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">预约讨论</a>相关需求.</span>
+  <span>您可以<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcudG9wOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer">提交需求反馈</a>, <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a> 或 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLnRvcDozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">打赏作者</a>.</span>
 
   <div class="social-list">
 
