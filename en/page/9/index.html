@@ -306,7 +306,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200909151320.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200811121057.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -324,7 +324,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/200909151320.html" class="post-title-link" itemprop="url">netsuite 与google app集成方案(预计)-CarlZeng</a>
+          <a href="/en/200811121057.html" class="post-title-link" itemprop="url">netsuite弹出窗体的数据回传例子-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -353,7 +353,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/200909151320.html" ></span>
+            <span id="ArtalkPV" data-page-key="/en/200811121057.html" ></span>
           </span>
         
       
@@ -364,7 +364,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>4 mins.</span>
+      <span>2 mins.</span>
     </span>
 </div>
 
@@ -375,17 +375,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          什幺是 Google 企业应用套件？
-了解更多 | 注册
-Google 企业应用套件包含一系列面向企业、基于 Web 的生产性服务，它提供有功能强大的通信和协作工具。 Google 企业应用套件包括：
-
-企业 Gmail - 向您所在域的电子邮件地址发送和接收电子邮件。
-日历 - 同步计划并共享事件。
-即时消息 - 通过 Google Talk 插件保持联系和展开合作。
-文档 - 实时创建在线文档...
+          netsuite弹出窗体的数据回传例子这样如果顺利，你就能很多开发出一个 弹出的窗体（实现特殊的货品列表），回传单个或多项的货品会销售或采购订单。------------------------------------User Event suitescript beforeloadform.getSubList('item').addButton('custpage_name_print', '...
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/en/200909151320.html#more" rel="contents">
+              <a class="btn" href="/en/200811121057.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1610,6 +1603,109 @@ zeng.cz
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202011200934.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/en/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/en/202011200934.html" class="post-title-link" itemprop="url">(How can I use Node.js in Netsuite?) NetSuite to run Node.js packages/modules, i.e. mozilla/pdf.js-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/202011200934.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>NetSuite’s javascript engine is Rhino(I.e. Rhino 1.7), we can not run node-based code on NetSuite, however,</p>
+<p>write your code as, say, an npm module, and run npm scripts from the command line. I have done this in the past for unit testing, doc generation, eslint, etc. In order to actually run code in NetSuite, though, it must be in a plain .js file that NetSuite can interpret and load as a Library on your Script record.</p>
+<p>Node.js in SuiteCommerce</p>
+<p>downloading Node.js to use for SuiteCommerce.</p>
+<p>How can I use Node.js in Netsuite?</p>
+<p>  20231008 Server端没有开启解释器，没配置环境，就无法识别原生的Node.js代码</p>
+
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201701151056.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1688,109 +1784,6 @@ zeng.cz
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202011200934.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/en/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl Notes">
-      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/en/202011200934.html" class="post-title-link" itemprop="url">(How can I use Node.js in Netsuite?) NetSuite to run Node.js packages/modules, i.e. mozilla/pdf.js-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="Views">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/202011200934.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>NetSuite’s javascript engine is Rhino(I.e. Rhino 1.7), we can not run node-based code on NetSuite, however,</p>
-<p>write your code as, say, an npm module, and run npm scripts from the command line. I have done this in the past for unit testing, doc generation, eslint, etc. In order to actually run code in NetSuite, though, it must be in a plain .js file that NetSuite can interpret and load as a Library on your Script record.</p>
-<p>Node.js in SuiteCommerce</p>
-<p>downloading Node.js to use for SuiteCommerce.</p>
-<p>How can I use Node.js in Netsuite?</p>
-<p>  20231008 Server端没有开启解释器，没配置环境，就无法识别原生的Node.js代码</p>
-
       
     </div>
 
