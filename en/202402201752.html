@@ -19,17 +19,16 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/en/","images":"/en/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/en/js/config.js"></script>
 
     <meta property="og:type" content="article">
-<meta property="og:title" content="高效的服务端生成QRCODE二维码方案-Docker搭建">
+<meta property="og:title" content="Crafting an Efficient QR Code Generation Solution on the Server Side with Docker">
 <meta property="og:url" content="https://www.carlzeng.top/en/202402201752.html">
 <meta property="og:site_name" content="Carl Notes">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img.carlzeng.top:3/i/2024/02/21/65d5c468d6c23.png">
 <meta property="article:published_time" content="2024-02-20T09:52:13.000Z">
-<meta property="article:modified_time" content="2024-02-21T09:40:56.140Z">
+<meta property="article:modified_time" content="2024-05-14T03:00:06.548Z">
 <meta property="article:author" content="Carl Notes">
-<meta property="article:tag" content="docker">
-<meta property="article:tag" content="qrcode">
-<meta property="article:tag" content="二维码">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="QR Code">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img.carlzeng.top:3/i/2024/02/21/65d5c468d6c23.png">
 
@@ -38,10 +37,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/en/202402201752.html","path":"202402201752.html","title":"高效的服务端生成QRCODE二维码方案-Docker搭建"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/en/202402201752.html","path":"202402201752.html","title":"Crafting an Efficient QR Code Generation Solution on the Server Side with Docker"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>高效的服务端生成QRCODE二维码方案-Docker搭建 | Carl Notes</title>
+<title>Crafting an Efficient QR Code Generation Solution on the Server Side with Docker | Carl Notes</title>
   
 
 
@@ -50,7 +49,7 @@
 
 
 
-<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.top:4443">
   <noscript>
     <link rel="stylesheet" href="/en/css/noscript.css">
   </noscript>
@@ -91,7 +90,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">215</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">53</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">336</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/en/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-schedule-meeting"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Schedule Meeting</a></li><li class="menu-item menu-item-chatgpt"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>ChatGPT</a></li><li class="menu-item menu-item-hnet-web"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>HNet Web</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-emby-iptv"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Emby IPTV</a></li><li class="menu-item menu-item-file-share"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>File Share</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li><li class="menu-item menu-item-best-buy"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Best Buy</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">228</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">59</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">346</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/en/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-schedule-meeting"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Schedule Meeting</a></li><li class="menu-item menu-item-chatgpt"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>ChatGPT</a></li><li class="menu-item menu-item-hnet-web"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>HNet Web</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-emby-iptv"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Emby IPTV</a></li><li class="menu-item menu-item-file-share"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>File Share</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li><li class="menu-item menu-item-best-buy"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Best Buy</a></li>
   </ul>
 
     <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
@@ -127,7 +126,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A5%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">来源</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Utility"><span class="nav-number">1.</span> <span class="nav-text">Utility</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Implementation"><span class="nav-number">2.</span> <span class="nav-text">Implementation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Related-Content"><span class="nav-number">3.</span> <span class="nav-text">Related Content</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Implementation-Steps"><span class="nav-number">4.</span> <span class="nav-text">Implementation Steps</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Source"><span class="nav-number">5.</span> <span class="nav-text">Source</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -140,18 +139,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/en/archives/">
-          <span class="site-state-item-count">336</span>
+          <span class="site-state-item-count">346</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/en/categories/">
-        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-count">59</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/en/tags/">
-        <span class="site-state-item-count">215</span>
+        <span class="site-state-item-count">228</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -176,23 +175,23 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202312262315.html" rel="bookmark">
+      Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/en/202312271328.html" rel="bookmark">
       Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202403291025.html" rel="bookmark">
+      多个docker容器间共享单个mariadb(Docker数据库服务)
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/en/202401110931.html" rel="bookmark">
       Practical Solutions for Resolving Full PVE Disk Occupancy
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/en/202312230940.html" rel="bookmark">
-      Setting Up Lightweight Personal File Sharing Service Using Docker - Freedom in File Transfers
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/en/200906101022.html" rel="bookmark">
-      js 取得div高度-CarlZeng
       </a>
     </li>
   </ul>
@@ -210,28 +209,28 @@
         </div>
         <ul class="popular-posts">
                 <li class="popular-posts-item">
-                  <a href="/en/202403260717.html" title="Building a Privacy-Respecting Metasearch Engine SearX" target=""  class="popular-posts-link">
-                  Building a Privacy-Respecting Metasearch Engine SearX
+                  <a href="/en/202405032136.html" title="Nintendo Switch Black Screen Rescue Record" target=""  class="popular-posts-link">
+                  Nintendo Switch Black Screen Rescue Record
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/en/202403011130.html" title="Docker自建Email服务器 - 私人邮件系统" target=""  class="popular-posts-link">
-                  Docker自建Email服务器 - 私人邮件系统
+                  <a href="/en/202404260828.html" title="Records of Nintendo Switch Hardware Repair" target=""  class="popular-posts-link">
+                  Records of Nintendo Switch Hardware Repair
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/en/202402201752.html" title="高效的服务端生成QRCODE二维码方案-Docker搭建" target=""  class="popular-posts-link">
-                  高效的服务端生成QRCODE二维码方案-Docker搭建
+                  <a href="/en/202404191047.html" title="Querying Vendor Bills from Sales Orders to Supplier Invoices in NetSuite" target=""  class="popular-posts-link">
+                  Querying Vendor Bills from Sales Orders to Supplier Invoices in NetSuite
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/en/202402192008.html" title="如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式" target=""  class="popular-posts-link">
-                  如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式
+                  <a href="/en/202404011606.html" title="Free Trial of Online SuiteCRM Product - Simple Customization or Integration for a Limited Time for Free" target=""  class="popular-posts-link">
+                  Free Trial of Online SuiteCRM Product - Simple Customization or Integration for a Limited Time for Free
                   </a>
                 </li>
                 <li class="popular-posts-item">
-                  <a href="/en/202402021245.html" title="Self-Built In-Car GPS Services, Software-Hardware Integration Practices" target=""  class="popular-posts-link">
-                  Self-Built In-Car GPS Services, Software-Hardware Integration Practices
+                  <a href="/en/202403291025.html" title="多个docker容器间共享单个mariadb(Docker数据库服务)" target=""  class="popular-posts-link">
+                  多个docker容器间共享单个mariadb(Docker数据库服务)
                   </a>
                 </li>
         </ul>
@@ -360,12 +359,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="高效的服务端生成QRCODE二维码方案-Docker搭建 | Carl Notes">
+      <meta itemprop="name" content="Crafting an Efficient QR Code Generation Solution on the Server Side with Docker | Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          高效的服务端生成QRCODE二维码方案-Docker搭建
+          Crafting an Efficient QR Code Generation Solution on the Server Side with Docker
         </h1>
 
         <div class="post-meta-container">
@@ -375,7 +374,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-21 17:40:56" itemprop="dateModified" datetime="2024-02-21T17:40:56+08:00">2024-02-21</time>
+      <time title="Modified: 2024-05-14 11:00:06" itemprop="dateModified" datetime="2024-05-14T11:00:06+08:00">2024-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -383,7 +382,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/en/categories/qrcode/" itemprop="url" rel="index"><span itemprop="name">qrcode</span></a>
+          <a href="/en/categories/QR-Code/" itemprop="url" rel="index"><span itemprop="name">QR Code</span></a>
         </span>
     </span>
 
@@ -405,7 +404,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
+      <span>3 mins.</span>
     </span>
 </div>
 
@@ -421,13 +420,13 @@
 <span id="more"></span>
 
 <div> 
-<button onclick="synthesizeSpeech()">朗读全文</button>
+<button onclick="synthesizeSpeech()">Listen to the Full Article</button>
 </div>
 <audio controls id="audioPlayer">Your browser does not support the audio element.</audio>      
 <script>
   function synthesizeSpeech() { 
     var inputText = document.getElementsByClassName('post-block')[0].innerText;
-    var voice = "ZH";
+    var voice = "EN";
     var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
     var audioPlayer = document.getElementById('audioPlayer');          
     audioPlayer.src = url;
@@ -436,29 +435,30 @@
   }
 </script>
 
+<h1 id="Utility"><a href="#Utility" class="headerlink" title="Utility"></a>Utility</h1><p>This post elucidates a method for crafting QR codes on the server side utilizing Docker.</p>
+<p>You can readily employ the QR code generation service I have established.</p>
+<h1 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h1><p>Utilize the URL: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDo0NDQzL3FyY29kZT9zaXplPTE1MCZtYXJnaW49MjAmdHh0PXd3dy5jYXJsemVuZy50b3A=" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:4443/qrcode?size=150&margin=20&txt=www.carlzeng.top</a></p>
+<p><strong>Alternatively, use <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9xcmNvZGUuY2FybHplbmcudG9wOjMvP3NpemU9MTUwJm1hcmdpbj0yMCZ0eHQ9d3d3LmNhcmx6ZW5nLnRvcA==" rel="noopener external nofollow noreferrer">https://qrcode.carlzeng.top:3/?size=150&margin=20&txt=www.carlzeng.top</a></strong></p>
+<p>Explanation of Parameters:</p>
+<ul>
+<li>size: Size of the QR code image, in pixels.</li>
+<li>margin: Size of the white border, in pixels.</li>
+<li>txt: Text embedded within the QR code.</li>
+</ul>
+<h1 id="Related-Content"><a href="#Related-Content" class="headerlink" title="Related Content"></a>Related Content</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=qrcode" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
-<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>展现服务端生成QRCODE二维码方案(Docker搭建)</p>
-<p>可直接使用我搭建的服务端生成QRCODE服务</p>
-<h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><p>使用URL：<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDo0NDQzL3FyY29kZT9zaXplPTE1MCZtYXJnaW49MjAmdHh0PXd3dy5jYXJsemVuZy50b3A=" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:4443/qrcode?size=150&amp;margin=20&amp;txt=www.carlzeng.top</a></p>
-<p><strong>或者使用<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9xcmNvZGUuY2FybHplbmcudG9wOjMvP3NpemU9MTUwJm1hcmdpbj0yMCZ0eHQ9d3d3LmNhcmx6ZW5nLnRvcA==" rel="noopener external nofollow noreferrer">https://qrcode.carlzeng.top:3/?size=150&amp;margin=20&amp;txt=www.carlzeng.top</a></strong></p>
-<p>参数说明：</p>
-<p>size：二维码图片大小，单位 px</p>
-<p>margin：白色边框大小，单位 px</p>
-<p>txt：Qrcode二维码的文本</p>
-<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=qrcode" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
-
-<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><ol>
+<h1 id="Implementation-Steps"><a href="#Implementation-Steps" class="headerlink" title="Implementation Steps"></a>Implementation Steps</h1><ol>
 <li>docker-compose.yml</li>
 </ol>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3.6&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">qrcode:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">soulteary/nginx-qrcode-server</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./nginx/nginx.conf:/usr/local/nginx/conf/nginx.conf</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8090</span><span class="string">:80</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line">    <span class="attr">logging:</span></span><br><span class="line">        <span class="attr">driver:</span> <span class="string">&quot;json-file&quot;</span></span><br><span class="line">        <span class="attr">options:</span></span><br><span class="line">            <span class="attr">max-size:</span> <span class="string">&quot;10m&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>nginx.conf 文件详细内容可见github：</p>
+<p>For detailed content of nginx.conf, please refer to GitHub:</p>
 <ol start="2">
-<li>本地启动成功后，用npm反代出来成https服务：</li>
+<li>Once successfully launched locally, utilize npm to reverse proxy and convert it into an HTTPS service:</li>
 </ol>
 <p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9xcmNvZGUuY2FybHplbmcudG9wOjMv" rel="noopener external nofollow noreferrer">https://qrcode.carlzeng.top:3</a></p>
-<h1 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h1><p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9zb3VsdGVhcnkuY29tLzIwMjEvMDEvMDcvdXNlLWRvY2tlci1hbmQtbmdpbngtdG8tYnVpbGQtaGlnaC1wZXJmb3JtYW5jZS1xci1jb2RlLXNlcnZpY2VzLTIuaHRtbA==" rel="noopener external nofollow noreferrer">使用 Docker 和 Nginx 打造高性能二维码服务（二）</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9zb3VsdGVhcnkuY29tLzIwMjIvMDgvMjcvYnVpbGRpbmctYmxvY2tzLW9mLW5naW54LXdpdGgtZG9ja2VyLXF1aWNrbHktaW1wbGVtZW50LWhpZ2gtcGVyZm9ybWFuY2UtcXItY29kZS1zZXJ2aWNlcy5odG1s" rel="noopener external nofollow noreferrer">借助 Docker 来搭 Nginx 的积木：快速实现高性能二维码服务</a></p>
+<h1 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h1><p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9zb3VsdGVhcnkuY29tLzIwMjEvMDEvMDcvdXNlLWRvY2tlci1hbmQtbmdpbngtdG8tYnVpbGQtaGlnaC1wZXJmb3JtYW5jZS1xci1jb2RlLXNlcnZpY2VzLTIuaHRtbA==" rel="noopener external nofollow noreferrer">Creating High-Performance QR Code Services with Docker and Nginx (Part 2)</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9zb3VsdGVhcnkuY29tLzIwMjIvMDgvMjcvYnVpbGRpbmctYmxvY2tzLW9mLW5naW54LXdpdGgtZG9ja2VyLXF1aWNrbHktaW1wbGVtZW50LWhpZ2gtcGVyZm9ybWFuY2UtcXItY29kZS1zZXJ2aWNlcy5odG1s" rel="noopener external nofollow noreferrer">Building Nginx Blocks with Docker: Rapid Implementation of High-Performance QR Code Services</a></p>
 
     </div>
 
@@ -489,11 +489,11 @@
 <ul>
   <li class="post-copyright-author">
       <strong>Post author:  </strong>Carl Notes
-    <a href='https://www.carlzeng.top/en/202402201752.html'> 《高效的服务端生成QRCODE二维码方案-Docker搭建》</a>
+    <a href='https://www.carlzeng.top/en/202402201752.html'> 《Crafting an Efficient QR Code Generation Solution on the Server Side with Docker》</a>
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://www.carlzeng.top/en/202402201752.html" title="高效的服务端生成QRCODE二维码方案-Docker搭建">https://www.carlzeng.top/en/202402201752.html</a>
+      <a href="https://www.carlzeng.top/en/202402201752.html" title="Crafting an Efficient QR Code Generation Solution on the Server Side with Docker">https://www.carlzeng.top/en/202402201752.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
@@ -516,23 +516,23 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202312262315.html" rel="bookmark">
+      Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/en/202312271328.html" rel="bookmark">
       Setting up Translation Tool API (DeepL X) Using Docker - Freedom in Multilingual Translation
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202403291025.html" rel="bookmark">
+      多个docker容器间共享单个mariadb(Docker数据库服务)
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/en/202401110931.html" rel="bookmark">
       Practical Solutions for Resolving Full PVE Disk Occupancy
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/en/202312230940.html" rel="bookmark">
-      Setting Up Lightweight Personal File Sharing Service Using Docker - Freedom in File Transfers
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/en/200906101022.html" rel="bookmark">
-      js 取得div高度-CarlZeng
       </a>
     </li>
   </ul>
@@ -553,48 +553,48 @@
     </div>
     <ul class="popular-posts">
             <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202405032136.html" title="Nintendo Switch Black Screen Rescue Record" target="" class="popular-posts-link">
+              Nintendo Switch Black Screen Rescue Record
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202404260828.html" title="Records of Nintendo Switch Hardware Repair" target="" class="popular-posts-link">
+              Records of Nintendo Switch Hardware Repair
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202404191047.html" title="Querying Vendor Bills from Sales Orders to Supplier Invoices in NetSuite" target="" class="popular-posts-link">
+              Querying Vendor Bills from Sales Orders to Supplier Invoices in NetSuite
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202404011606.html" title="Free Trial of Online SuiteCRM Product - Simple Customization or Integration for a Limited Time for Free" target="" class="popular-posts-link">
+              Free Trial of Online SuiteCRM Product - Simple Customization or Integration for a Limited Time for Free
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202403291025.html" title="多个docker容器间共享单个mariadb(Docker数据库服务)" target="" class="popular-posts-link">
+              多个docker容器间共享单个mariadb(Docker数据库服务)
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202403281654.html" title="Improving Artalk Comments to Version 2.8.3 and Resolving Error (Request Response 404)" target="" class="popular-posts-link">
+              Improving Artalk Comments to Version 2.8.3 and Resolving Error (Request Response 404)
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202403270841.html" title="实测Hysteria 2 一个强大、快速、抗审查的代理工具" target="" class="popular-posts-link">
+              实测Hysteria 2 一个强大、快速、抗审查的代理工具
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
               <a href="/en/202403260717.html" title="Building a Privacy-Respecting Metasearch Engine SearX" target="" class="popular-posts-link">
               Building a Privacy-Respecting Metasearch Engine SearX
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/en/202403011130.html" title="Docker自建Email服务器 - 私人邮件系统" target="" class="popular-posts-link">
-              Docker自建Email服务器 - 私人邮件系统
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/en/202402201752.html" title="高效的服务端生成QRCODE二维码方案-Docker搭建" target="" class="popular-posts-link">
-              高效的服务端生成QRCODE二维码方案-Docker搭建
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/en/202402192008.html" title="如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式" target="" class="popular-posts-link">
-              如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/en/202402021245.html" title="Self-Built In-Car GPS Services, Software-Hardware Integration Practices" target="" class="popular-posts-link">
-              Self-Built In-Car GPS Services, Software-Hardware Integration Practices
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/en/202401262247.html" title="安卓电视安装影视APP - 新增直播和点播功能" target="" class="popular-posts-link">
-              安卓电视安装影视APP - 新增直播和点播功能
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/en/202401222151.html" title="Constructing Image Repository Switching Site Images to Self-built Services" target="" class="popular-posts-link">
-              Constructing Image Repository Switching Site Images to Self-built Services
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/en/202401110931.html" title="Practical Solutions for Resolving Full PVE Disk Occupancy" target="" class="popular-posts-link">
-              Practical Solutions for Resolving Full PVE Disk Occupancy
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/en/202401071512.html" title="Docker Setup for TTS (Text-to-speech) Service - Converting Text Content to Speech" target="" class="popular-posts-link">
-              Docker Setup for TTS (Text-to-speech) Service - Converting Text Content to Speech
+              <a href="/en/202403242130.html" title="K2P路由器安装frp远程管理N1机顶盒" target="" class="popular-posts-link">
+              K2P路由器安装frp远程管理N1机顶盒
               </a>
             </li>
     </ul>
@@ -685,7 +685,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2024-02-21 17:40:56" itemprop="dateModified" datetime="2024-02-21T17:40:56+08:00">2024-02-21</time>
+        <time title="Modified: 2024-05-14 11:00:06" itemprop="dateModified" datetime="2024-05-14T11:00:06+08:00">2024-05-14</time>
       </span>
 
 </div>
@@ -694,22 +694,21 @@
 
           <div class="post-tags">
             View same tag articles:
-              <a href="/en/tags/docker/" rel="tag"># docker</a>
-              <a href="/en/tags/qrcode/" rel="tag"># qrcode</a>
-              <a href="/en/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/" rel="tag"># 二维码</a>
+              <a href="/en/tags/Docker/" rel="tag"># Docker</a>
+              <a href="/en/tags/QR-Code/" rel="tag"># QR Code</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/en/202402192008.html" rel="prev" title="如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式">
-                  <i class="fa fa-angle-left"></i> 如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式
+                <a href="/en/202402192008.html" rel="prev" title="Establishing a DNS Tunnel to Bypass WiFi User Password Authentication for Internet Access">
+                  <i class="fa fa-angle-left"></i> Establishing a DNS Tunnel to Bypass WiFi User Password Authentication for Internet Access
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/en/202403011130.html" rel="next" title="Docker自建Email服务器 - 私人邮件系统">
-                  Docker自建Email服务器 - 私人邮件系统 <i class="fa fa-angle-right"></i>
+                <a href="/en/202403011130.html" rel="next" title="Self-hosted Email Server with Docker - Private Mail System">
+                  Self-hosted Email Server with Docker - Private Mail System <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -808,7 +807,27 @@
 
 
 
-<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202402201752.html","pageTitle":"高效的服务端生成QRCODE二维码方案-Docker搭建"}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202402201752.html","pageTitle":"Crafting an Efficient QR Code Generation Solution on the Server Side with Docker"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
 <style>.artalk{width:initial;}</style>
@@ -840,26 +859,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
