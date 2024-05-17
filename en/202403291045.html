@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/en/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/en/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/en/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/en/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/en/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/en/","images":"/en/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/en/js/config.js"></script>
+
+    <meta name="description" content="Read Aloud     Your browser does not support the audio element.     function synthesizeSpeech() {     var text &#x3D; document.querySelector(&#39;.post-content&#39;).innerText;     var voice &#x3D; &quot;en-US-Wavenet-D&quot;;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Enhancing Database Efficiency with a Single MariaDB Service across Multiple Docker Containers">
+<meta property="og:url" content="https://www.carlzeng.top/en/202403291045.html">
+<meta property="og:site_name" content="Carl Notes">
+<meta property="og:description" content="Read Aloud     Your browser does not support the audio element.     function synthesizeSpeech() {     var text &#x3D; document.querySelector(&#39;.post-content&#39;).innerText;     var voice &#x3D; &quot;en-US-Wavenet-D&quot;;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/03/29/66062db699094.png">
+<meta property="article:published_time" content="2024-03-29T02:45:00.000Z">
+<meta property="article:modified_time" content="2024-05-17T15:08:58.566Z">
+<meta property="article:author" content="Carl Notes">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="MariaDB">
+<meta property="article:tag" content="Database Sharding">
+<meta property="article:tag" content="Docker Compose">
+<meta property="article:tag" content="Database Management">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.carlzeng.top:3/i/2024/03/29/66062db699094.png">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/en/202403291045.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/en/202403291045.html","path":"202403291045.html","title":"Enhancing Database Efficiency with a Single MariaDB Service across Multiple Docker Containers"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Enhancing Database Efficiency with a Single MariaDB Service across Multiple Docker Containers | Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/en/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/en/atom.xml" title="Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/en/rss2.xml" title="Carl Notes" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/en/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Information Technology Solutions NetSuite ERP</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">231</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">59</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">346</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/en/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-schedule-meeting"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Schedule Meeting</a></li><li class="menu-item menu-item-chatgpt"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>ChatGPT</a></li><li class="menu-item menu-item-hnet-web"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>HNet Web</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-emby-iptv"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Emby IPTV</a></li><li class="menu-item menu-item-file-share"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>File Share</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li><li class="menu-item menu-item-best-buy"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Best Buy</a></li>
+  </ul>
+
+    <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <div class="search-header">
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="28" placeholder="Enter to Search..." spellcheck="false" type="search" class="search-input">
+      </div>
+      </div>
+    </div>
+    </form>
+
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Notes</p>
+  <div class="site-description" itemprop="description">[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/en/archives/">
+          <span class="site-state-item-count">346</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/en/categories/">
+        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/en/tags/">
+        <span class="site-state-item-count">231</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202312262315.html" rel="bookmark">
+      Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202402201752.html" rel="bookmark">
+      Crafting an Efficient QR Code Generation Solution on the Server Side with Docker
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202401071512.html" rel="bookmark">
+      Docker Setup for TTS (Text-to-speech) Service - Converting Text Content to Speech
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202311081003.html" rel="bookmark">
+      Practice Test - Docker Deployment of URL Shortening Service YOURLS
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202312230940.html" rel="bookmark">
+      Setting Up Lightweight Personal File Sharing Service Using Docker - Freedom in File Transfers
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+    <div class="pjax">
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                Recent Posts
+        </div>
+        <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/en/202405032136.html" title="Nintendo Switch Black Screen Rescue Record" target=""  class="popular-posts-link">
+                  Nintendo Switch Black Screen Rescue Record
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/en/202404260828.html" title="Records of Nintendo Switch Hardware Repair" target=""  class="popular-posts-link">
+                  Records of Nintendo Switch Hardware Repair
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/en/202404191047.html" title="Querying Vendor Bills from Sales Orders to Supplier Invoices in NetSuite" target=""  class="popular-posts-link">
+                  Querying Vendor Bills from Sales Orders to Supplier Invoices in NetSuite
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/en/202404011606.html" title="Free Trial of Online SuiteCRM Product - Simple Customization or Integration for a Limited Time for Free" target=""  class="popular-posts-link">
+                  Free Trial of Online SuiteCRM Product - Simple Customization or Integration for a Limited Time for Free
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/en/202403291045.html" title="Enhancing Database Efficiency with a Single MariaDB Service across Multiple Docker Containers" target=""  class="popular-posts-link">
+                  Enhancing Database Efficiency with a Single MariaDB Service across Multiple Docker Containers
+                  </a>
+                </li>
+        </ul>
+      </div>
+    </div>
+
+    <style>
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      margin-top: 30px !important;
+      padding: clamp(17px, 5%, 40px) clamp(17px, 7%, 50px) !important;
+      max-width: none !important;
+      border-radius: 6px !important;
+      box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview *{
+      box-sizing: border-box !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading {
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5{
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
+      margin-top: 20px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      width: 100% !important;
+      height: 40px !important;
+      border-radius: 6px !important;
+      border: 2px solid #e9e8e8 !important;
+      background-color: #fff !important;
+      outline: none !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      color: #000000 !important;
+      font-family: "Montserrat" !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 20px !important;
+      text-align: center !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+      color: #000000 !important;
+      opacity: 1 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input:-ms-input-placeholder {
+      color: #000000 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::-ms-input-placeholder {
+      color: #000000 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
+      margin-top: 10px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+      width: 100% !important;
+      height: 40px !important;
+      border: 0 !important;
+      border-radius: 6px !important;
+      line-height: 0px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
+      cursor: pointer !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+      color: #231f20 !important;
+      font-family: "Montserrat" !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 25px !important;
+      text-align: center !important;
+      text-decoration: none !important;
+      display: flex !important;
+      width: 100% !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 10px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
+      margin-left: 10px !important;
+      height: 1.13em !important;
+      max-height: 1.13em !important;
+    }
+    </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
+      Subscribe New Article
+    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="Enter your email to receive new articles" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
+      Subscribe
+    </button></div></div></form></div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202403291045.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/en/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Enhancing Database Efficiency with a Single MariaDB Service across Multiple Docker Containers | Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Enhancing Database Efficiency with a Single MariaDB Service across Multiple Docker Containers
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-05-17 23:08:58" itemprop="dateModified" datetime="2024-05-17T23:08:58+08:00">2024-05-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/en/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/202403291045.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>6 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div>
+<button onclick="synthesizeSpeech()">Read Aloud</button>
+</div>
+<audio controls id="audioPlayer">
+  Your browser does not support the audio element.
+</audio>
+<script>
+  function synthesizeSpeech() {
+    var text = document.querySelector('.post-content').innerText;
+    var voice = "en-US-Wavenet-D";
+    var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(text.substring(0, 500)) + '&voice=' + voice;
+    var audioPlayer = document.getElementById('audioPlayer');
+    audioPlayer.src = url;
+    audioPlayer.load();
+    audioPlayer.play();
+  }
+</script>
+When deploying multiple Docker containers for applications, managing separate databases for each can lead to increased resource overhead and potential data inconsistencies. By sharing a single MariaDB service across these containers, you can streamline database management and enhance overall efficiency. Here's how to set up a shared MariaDB service using Docker Compose:
+
+<span id="more"></span>
+
+<ol>
+<li><p><strong>Create a dedicated network:</strong></p>
+<ul>
+<li>Define a custom network in your <code>docker-compose.yml</code> file, such as <code>database_network</code>, to isolate the database from other services:<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">database_network:</span></span><br><span class="line">    <span class="attr">driver:</span> <span class="string">bridge</span></span><br></pre></td></tr></table></figure></li>
+<li>If you’re using a pre-existing network, set <code>external: true</code>.</li>
+</ul>
+</li>
+<li><p><strong>Configure the MariaDB service:</strong></p>
+<ul>
+<li>Instead of including a separate MariaDB service for each app, use a single instance with appropriate environment variables for each application to connect to the shared network. For example:<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">app1_db:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">some-mariadb-image</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">app1_db_password</span></span><br><span class="line">      <span class="attr">MYSQL_DATABASE:</span> <span class="string">app1_db_name</span></span><br><span class="line">      <span class="attr">MYSQL_USER:</span> <span class="string">app1_db_user</span></span><br><span class="line">      <span class="attr">MYSQL_HOST:</span> <span class="string">db_container_name</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">database_network</span></span><br><span class="line">  <span class="attr">app2_db:</span></span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">app2_db_password</span></span><br><span class="line">      <span class="attr">MYSQL_DATABASE:</span> <span class="string">app2_db_name</span></span><br><span class="line">      <span class="attr">MYSQL_USER:</span> <span class="string">app2_db_user</span></span><br><span class="line">      <span class="attr">MYSQL_HOST:</span> <span class="string">db_container_name</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">database_network</span></span><br></pre></td></tr></table></figure></li>
+<li>Ensure the database container is started before the application containers.</li>
+</ul>
+</li>
+<li><p><strong>Database sharding (optional):</strong></p>
+<ul>
+<li>If your application requires data partitioning, consider using a database sharding strategy to distribute the load across multiple MariaDB instances in the shared network.</li>
+</ul>
+</li>
+<li><p><strong>Database management tools:</strong></p>
+<ul>
+<li>Use a tool like phpMyAdmin or DataGrip that can connect to the <code>database_network</code> to manage and backup the shared database.</li>
+</ul>
+</li>
+<li><p><strong>Monitoring and maintenance:</strong></p>
+<ul>
+<li>Regularly monitor the performance and health of the shared database, and ensure backups are in place to protect against data loss.</li>
+</ul>
+</li>
+</ol>
+<p>By adopting this approach, you can significantly reduce the resource footprint and simplify database management across multiple Docker containers. Remember to update your application configurations accordingly.</p>
+<hr>
+<p>Original Post: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9xdWVyeS5jYXJsemVuZy50b3A6My9hcHBzZWFyY2g/cT0lRTUlQTQlOUElRTQlQjglQUFkb2NrZXIlRTUlQUUlQjklRTUlOTklQTglRTklOTclQjQlRTUlODUlQjElRTQlQkElQUIlRTUlOEQlOTUlRTQlQjglQUFtYXJpYWRi" rel="noopener external nofollow noreferrer">Read the original article</a></p>
+<hr>
+<p>번역결과</p>
+<p>제목: 여러 Docker 컨테이너 간의 단일 MariaDB 서비스를 활용한 데이터베이스 효율성 향상<br>태그: Docker, MariaDB, 데이터베이스 분산, Docker Compose, 데이터베이스 관리<br>카테고리: DevOps, Docker 최적화<br>저작권: 2024년卡尔·郑. 모든 권리를 보유합니다.<br>날짜: 2024년 3월 29일 10:45시</p>
+<hr>
+<figure>
+  <img data-src="https://img.carlzeng.top:3/i/2024/03/29/66062db699094.png" alt="다중 Docker 컨테이너에서 단일 MariaDB 서비스 공유">
+  <figcaption>다중 Docker 컨테이너에서 단일 MariaDB 서비스를 활용한 데이터베이스 관리 예시</figcaption>
+</figure>
+
+<p>다중 Docker 컨테이너에서 각 애플리케이션에 별도의 데이터베이스를 관리하는 것은 리소스 낭비와 데이터 일관성 문제를 초래합니다. 여러 컨테이너 간의 단일 MariaDB 서비스를 공유함으로써 데이터베이스 관리를 간편화하고 전체 효율성을 높일 수 있습니다. Docker Compose를 사용하여这种方法을 구현하는 방법은 다음과 같습니다:</p>
+<ol>
+<li><p><strong>독립 네트워크 생성:</strong></p>
+<ul>
+<li><code>docker-compose.yml</code> 파일에 고유한 네트워크 <code>database_network</code>를 정의하여 데이터베이스를 다른 서비스와 분리합니다:<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">database_network:</span></span><br><span class="line">    <span class="attr">driver:</span> <span class="string">bridge</span></span><br></pre></td></tr></table></figure></li>
+<li>기존 네트워크를 사용하려면 <code>external: true</code>를 설정하세요.</li>
+</ul>
+</li>
+<li><p><strong>MariaDB 서비스 구성:</strong></p>
+<ul>
+<li>각 애플리케이션에 대한 데이터베이스에 대한 별도의 MariaDB 서비스를 사용하지 않고, 공유 네트워크에 연결할 수 있는 적절한 환경 변수를 사용합니다. 예를 들어:<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">app1_db:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">some-mariadb-image</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">app1_db_password</span></span><br><span class="line">      <span class="attr">MYSQL_DATABASE:</span> <span class="string">app1_db_name</span></span><br><span class="line">      <span class="attr">MYSQL_USER:</span> <span class="string">app1_db_user</span></span><br><span class="line">      <span class="attr">MYSQL_HOST:</span> <span class="string">db_container_name</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">database_network</span></span><br><span class="line">  <span class="attr">app2_db:</span></span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">app2_db_password</span></span><br><span class="line">      <span class="attr">MYSQL_DATABASE:</span> <span class="string">app2_db_name</span></span><br><span class="line">      <span class="attr">MYSQL_USER:</span> <span class="string">app2_db_user</span></span><br><span class="line">      <span class="attr">MYSQL_HOST:</span> <span class="string">db_container_name</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">database_network</span></span><br></pre></td></tr></table></figure></li>
+<li>데이터베이스 컨테이너가 애플리케이션 컨테이너가 시작되기 전에 시작되어야 합니다.</li>
+</ul>
+</li>
+<li><p><strong>데이터베이스 분산 (선택 사항):</strong></p>
+<ul>
+<li>애플리케이션이 데이터 분산을 요구하는 경우, 데이터베이스를 공유 네트워크의 여러 MariaDB 인스턴스로 분산하여 로드를 분산할 수 있습니다.</li>
+</ul>
+</li>
+<li><p><strong>데이터베이스 관리 도구:</strong></p>
+<ul>
+<li><code>database_network</code>에 연결하여 데이터베이스를 관리하고 백업하는 데 사용할 수 있는 phpMyAdmin 또는 DataGrip와 같은 도구를 사용합니다.</li>
+</ul>
+</li>
+<li><p><strong>모니터링 및 유지 관리:</strong></p>
+<ul>
+<li>공유 데이터베이스의 성능과 건강을 정기적으로 모니터링하고 백업을 설정하여 데이터 손실 대비 보안을 보장합니다.</li>
+</ul>
+</li>
+</ol>
+<p>이러한 접근 방식으로 구현하면 여러 Docker 컨테이너 간의 리소스 부담을 크게 줄이고 데이터베이스 관리를 단순화할 수 있습니다. 애플리케이션 구성에 적절하게 업데이트하십시오.</p>
+<hr>
+<p>원문 게시물: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9xdWVyeS5jYXJsemVuZy50b3A6My9hcHBzZWFyY2g/cT0lRTUlQTQlOUElRTQlQjglQUFkb2NrZXIlRTUlQUUlQjklRTUlOTklQTglRTklOTclQjQlRTUlODUlQjElRTQlQkElQUIlRTUlOEQlOTUlRTQlQjglQUFtYXJpYWRi" rel="noopener external nofollow noreferrer">기존 게시물</a></p>
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="wechat,weibo,qq,facebook"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Carl Notes
+    <a href='https://www.carlzeng.top/en/202403291045.html'> 《Enhancing Database Efficiency with a Single MariaDB Service across Multiple Docker Containers》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://www.carlzeng.top/en/202403291045.html" title="Enhancing Database Efficiency with a Single MariaDB Service across Multiple Docker Containers">https://www.carlzeng.top/en/202403291045.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <main class="main">
+<div class="column">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202312262315.html" rel="bookmark">
+      Accelerating Docker Pull or Docker-compose Pulling Images - GitHub Source
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202402201752.html" rel="bookmark">
+      Crafting an Efficient QR Code Generation Solution on the Server Side with Docker
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202401071512.html" rel="bookmark">
+      Docker Setup for TTS (Text-to-speech) Service - Converting Text Content to Speech
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202311081003.html" rel="bookmark">
+      Practice Test - Docker Deployment of URL Shortening Service YOURLS
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/en/202312230940.html" rel="bookmark">
+      Setting Up Lightweight Personal File Sharing Service Using Docker - Freedom in File Transfers
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="column">
+<div class="pjax">
+<!-- recent posts -->
+<div class="animated">
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            Recent Posts
+    </div>
+    <ul class="popular-posts">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202405032136.html" title="Nintendo Switch Black Screen Rescue Record" target="" class="popular-posts-link">
+              Nintendo Switch Black Screen Rescue Record
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202404260828.html" title="Records of Nintendo Switch Hardware Repair" target="" class="popular-posts-link">
+              Records of Nintendo Switch Hardware Repair
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202404191047.html" title="Querying Vendor Bills from Sales Orders to Supplier Invoices in NetSuite" target="" class="popular-posts-link">
+              Querying Vendor Bills from Sales Orders to Supplier Invoices in NetSuite
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202404011606.html" title="Free Trial of Online SuiteCRM Product - Simple Customization or Integration for a Limited Time for Free" target="" class="popular-posts-link">
+              Free Trial of Online SuiteCRM Product - Simple Customization or Integration for a Limited Time for Free
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202403291045.html" title="Enhancing Database Efficiency with a Single MariaDB Service across Multiple Docker Containers" target="" class="popular-posts-link">
+              Enhancing Database Efficiency with a Single MariaDB Service across Multiple Docker Containers
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202403281654.html" title="Improving Artalk Comments to Version 2.8.3 and Resolving Error (Request Response 404)" target="" class="popular-posts-link">
+              Improving Artalk Comments to Version 2.8.3 and Resolving Error (Request Response 404)
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202403270841.html" title="实测Hysteria 2 一个强大、快速、抗审查的代理工具" target="" class="popular-posts-link">
+              实测Hysteria 2 一个强大、快速、抗审查的代理工具
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202403260717.html" title="Building a Privacy-Respecting Metasearch Engine SearX" target="" class="popular-posts-link">
+              Building a Privacy-Respecting Metasearch Engine SearX
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/en/202403242130.html" title="K2P路由器安装frp远程管理N1机顶盒" target="" class="popular-posts-link">
+              K2P路由器安装frp远程管理N1机顶盒
+              </a>
+            </li>
+    </ul>
+  </div>
+  </div>
+</div>
+</div>
+</main>
+
+
+<div class="followme">
+  <span>If the article solves your urgent needs or brings some clarity, you may wish to <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email subscription</a> or reward</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">Emby IPTV</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/202312081128.html">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">M3U8 Player</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Music</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">ChatGPT</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">HNet Web</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">File Share</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Book</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2024-05-17 23:08:58" itemprop="dateModified" datetime="2024-05-17T23:08:58+08:00">2024-05-17</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            View same tag articles:
+              <a href="/en/tags/Docker/" rel="tag"># Docker</a>
+              <a href="/en/tags/MariaDB/" rel="tag"># MariaDB</a>
+              <a href="/en/tags/Database-Sharding/" rel="tag"># Database Sharding</a>
+              <a href="/en/tags/Docker-Compose/" rel="tag"># Docker Compose</a>
+              <a href="/en/tags/Database-Management/" rel="tag"># Database Management</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/en/202403281654.html" rel="prev" title="Improving Artalk Comments to Version 2.8.3 and Resolving Error (Request Response 404)">
+                  <i class="fa fa-angle-left"></i> Improving Artalk Comments to Version 2.8.3 and Resolving Error (Request Response 404)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/en/202404011606.html" rel="next" title="Free Trial of Online SuiteCRM Product - Simple Customization or Integration for a Limited Time for Free">
+                  Free Trial of Online SuiteCRM Product - Simple Customization or Integration for a Limited Time for Free <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*.carlzeng.top"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//statcounter.carlzeng.top:4443/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="//statcounter.carlzeng.top:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
+
+</div>
+
+<div class="powered-by">
+    <a href='https://www.carlzeng.top/en/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/en/rss2.xml'>RSS</a> | Switch Server: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9oay5jYXJsemVuZy50b3AvZW4=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9wL2Vu" rel="noopener external nofollow noreferrer">USA</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcC9lbg==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9wL2Vu" rel="noopener external nofollow noreferrer">GitHub</a> <a href="https://www.carlzeng.top/en">Main</a>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/en/js/comments.js"></script><script src="/en/js/utils.js"></script><script src="/en/js/next-boot.js"></script><script src="/en/js/pjax.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202403291045.html","pageTitle":"Enhancing Database Efficiency with a Single MariaDB Service across Multiple Docker Containers"}</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>
