@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)">
+<meta property="og:url" content="https://www.carlzeng.top/en/202405171053.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/05/17/6646e669ee791.png">
+<meta property="og:image" content="http://lan-play.com/img/settings1.1f6f8ca1.jpg">
+<meta property="og:image" content="http://lan-play.com/img/settings2.1035d313.jpg">
+<meta property="og:image" content="http://lan-play.com/img/settings3.29954755.jpg">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/05/17/6646eb2a13e76.png">
+<meta property="article:published_time" content="2024-05-17T02:53:20.000Z">
+<meta property="article:modified_time" content="2024-05-17T07:16:09.034Z">
+<meta property="article:author" content="Carl Notes">
+<meta property="article:tag" content="switch">
+<meta property="article:tag" content="硬件">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.carlzeng.top:3/i/2024/05/17/6646e669ee791.png">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/en/202405171053.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/202405171053.html","path":"en/202405171053.html","title":"任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机) | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT解决方案 NetSuite ERP</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">218</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">60</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">349</span></a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-下载音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载音乐</a></li><li class="menu-item menu-item-直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>直播IPTV</a></li><li class="menu-item menu-item-网盘文件分享"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网盘文件分享</a></li><li class="menu-item menu-item-搜索下载书籍"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>搜索下载书籍</a></li><li class="menu-item menu-item-小店入口"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>小店入口</a></li>
+  </ul>
+
+    <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <div class="search-header">
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="28" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+      </div>
+      </div>
+    </div>
+    </form>
+
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFswitch-lan-play"><span class="nav-number">1.</span> <span class="nav-text">什么是switch-lan-play</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">怎么用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Switch-LAN-Play-%E6%9C%8D%E5%8A%A1%E7%AB%AF-%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF"><span class="nav-number">3.1.</span> <span class="nav-text">1. Switch LAN-Play 服务端(远程服务器端)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Switch-LAN-Play-%E5%AE%A2%E6%88%B7%E7%AB%AF-%E6%9C%AC%E5%9C%B0%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="nav-number">3.2.</span> <span class="nav-text">2. Switch LAN-Play 客户端(本地局域网)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-SWITCH%E7%AB%AF%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.3.</span> <span class="nav-text">3. SWITCH端设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SWITCH%E4%B8%BB%E6%9C%BA%E4%B8%AD%E7%9A%84WIFI%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.3.1.</span> <span class="nav-text">SWITCH主机中的WIFI网络设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SWITCH%E5%A4%A7%E6%B0%94%E5%B1%82%E7%9A%84%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E8%AE%BE%E7%BD%AE%E3%80%90%E5%8F%AF%E9%80%89%E3%80%91"><span class="nav-number">3.3.2.</span> <span class="nav-text">SWITCH大气层的插件安装设置【可选】</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%89%E8%A3%85%E5%88%B0%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95-%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">5.</span> <span class="nav-text">客户端安装到安卓手机的实现方法&#x2F;操作流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-setup-Switch-LAN-Play-on-Android-phone-tablet"><span class="nav-number">5.1.</span> <span class="nav-text">How to setup Switch LAN-Play on Android phone&#x2F;tablet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Actions-in-Android"><span class="nav-number">5.1.0.1.</span> <span class="nav-text">Actions in Android:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Actions-in-HOS-Switch"><span class="nav-number">5.1.0.2.</span> <span class="nav-text">Actions in HOS (Switch):</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Connect-to-Servers"><span class="nav-number">5.1.1.</span> <span class="nav-text">Connect to Servers:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#To-Disconnect"><span class="nav-number">5.1.2.</span> <span class="nav-text">To Disconnect:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-delete-reinstall-lanplay"><span class="nav-number">5.1.3.</span> <span class="nav-text">How to delete&#x2F;reinstall lanplay:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Switch-lan-play-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%9E%B6%E8%AE%BE"><span class="nav-number">6.</span> <span class="nav-text">Switch-lan-play 服务端架设</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lan-Play-Status"><span class="nav-number">6.1.</span> <span class="nav-text">Lan-Play Status</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lan-Play-%E6%94%AF%E6%8C%81%E8%81%94%E6%9C%BA%E7%9A%84%E6%B8%B8%E6%88%8F%E5%88%97%E8%A1%A8"><span class="nav-number">7.</span> <span class="nav-text">Lan-Play 支持联机的游戏列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%84%9F%E8%B0%A2%E5%88%97%E8%A1%A8"><span class="nav-number">8.</span> <span class="nav-text">感谢列表</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Notes</p>
+  <div class="site-description" itemprop="description">[眼观心察 沉淀共享] 技术文章版本持续佛系更新</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">218</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202404260828.html" rel="bookmark">
+      任天堂Switch硬件修复记录
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202405032136.html" rel="bookmark">
+      任天堂Switch黑屏救砖记录
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310221511.html" rel="bookmark">
+      任天堂Switch全部记录
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
+      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202101230038.html" rel="bookmark">
+      Version Control System, IntelliJ IDEA, Create a Git Repository for a Project and push to multiple remotes-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309040941.html" rel="bookmark">
+      NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201410161027.html" rel="bookmark">
+      学习日志 - Openwrt安装python然后wallproxy-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+    <div class="pjax">
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/202405171053.html" title="任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)" target=""  class="popular-posts-link">
+                  任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202405032136.html" title="任天堂Switch黑屏救砖记录" target=""  class="popular-posts-link">
+                  任天堂Switch黑屏救砖记录
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202404260828.html" title="任天堂Switch硬件修复记录" target=""  class="popular-posts-link">
+                  任天堂Switch硬件修复记录
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202404191047.html" title="用一个查询从销售订单直通供应商账单 NetSuite" target=""  class="popular-posts-link">
+                  用一个查询从销售订单直通供应商账单 NetSuite
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202404061606.html" title="免费试用在线SuiteCRM产品 简易定制或集成限时免费" target=""  class="popular-posts-link">
+                  免费试用在线SuiteCRM产品 简易定制或集成限时免费
+                  </a>
+                </li>
+        </ul>
+      </div>
+    </div>
+
+    <style>
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      margin-top: 30px !important;
+      padding: clamp(17px, 5%, 40px) clamp(17px, 7%, 50px) !important;
+      max-width: none !important;
+      border-radius: 6px !important;
+      box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview *{
+      box-sizing: border-box !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading {
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5{
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
+      margin-top: 20px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      width: 100% !important;
+      height: 40px !important;
+      border-radius: 6px !important;
+      border: 2px solid #e9e8e8 !important;
+      background-color: #fff !important;
+      outline: none !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      color: #000000 !important;
+      font-family: "Montserrat" !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 20px !important;
+      text-align: center !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+      color: #000000 !important;
+      opacity: 1 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input:-ms-input-placeholder {
+      color: #000000 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::-ms-input-placeholder {
+      color: #000000 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
+      margin-top: 10px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+      width: 100% !important;
+      height: 40px !important;
+      border: 0 !important;
+      border-radius: 6px !important;
+      line-height: 0px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
+      cursor: pointer !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+      color: #231f20 !important;
+      font-family: "Montserrat" !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 25px !important;
+      text-align: center !important;
+      text-decoration: none !important;
+      display: flex !important;
+      width: 100% !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 10px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
+      margin-left: 10px !important;
+      height: 1.13em !important;
+      max-height: 1.13em !important;
+    }
+    </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
+      订阅新文章:
+    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="Enter your email to receive new articles" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
+      Subscribe
+    </button></div></div></form></div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202405171053.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="[眼观心察 沉淀共享] 技术文章版本持续佛系更新">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机) | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-05-17 15:16:09" itemprop="dateModified" datetime="2024-05-17T15:16:09+08:00">2024-05-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/switch/" itemprop="url" rel="index"><span itemprop="name">switch</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/202405171053.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>17 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.top:3/i/2024/05/17/6646e669ee791.png">
+
+<span id="more"></span>
+
+<div> 
+<button onclick="synthesizeSpeech()">朗读全文</button>
+</div>
+<audio controls id="audioPlayer">Your browser does not support the audio element.</audio>      
+<script>
+  function synthesizeSpeech() { 
+    var inputText = document.getElementsByClassName('post-block')[0].innerText;
+    var voice = "ZH";
+    var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
+    var audioPlayer = document.getElementById('audioPlayer');          
+    audioPlayer.src = url;
+    audioPlayer.load();
+    audioPlayer.play();
+  }
+</script>
+# 什么是本地联机和局域网联机
+
+<p> <strong>LAN and Local wireless are different things.</strong></p>
+<ol>
+<li><p>Lan 就是指局域网联机<br>（必须连接路由器或手机热点的WI-FI，马8中显示：LAN Play）</p>
+</li>
+<li><p>Local wireless 指本地无线联机<br>（一台开热点，面对面近距离，一台搜索连接热点；不需要连接到路由器的WIFI；马8中显示：Wireless Play）</p>
+</li>
+</ol>
+<p>指本地两台或多台SWITCH近距离局域网联机，又或者说是本地局域网互联在一起（通常在相同的一个路由器下）</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1tMUdYQTNUYTd2RQ==" rel="noopener external nofollow noreferrer">【教程】switch本地联机操作-马车8胡闹厨房等-极客阿迪-ns局域网联机</a></p>
+<p>如何在马车8中切换这两种模式？</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj16NXd4bmVEQU1FNA==" rel="noopener external nofollow noreferrer">Nintendo Switch: How to Access LAN PLAY on Mario Kart 8 Deluxe</a></p>
+<p>同时按下三个按钮切换这两种联机模式：L + R + 左摇杆的下按</p>
+<h1 id="什么是switch-lan-play"><a href="#什么是switch-lan-play" class="headerlink" title="什么是switch-lan-play"></a>什么是switch-lan-play</h1><p>Enjoy games with your friends as if you were on a LAN.</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">                     Internet</span><br><span class="line">                        |</span><br><span class="line">                  <span class="section">[SOCKS5 Proxy]</span> (optional)</span><br><span class="line">                        |</span><br><span class="line">        ARP,IPv4        |          LAN Packets</span><br><span class="line">Switch &lt;--------&gt;  PC(lan-play)  &lt;-------------&gt; Server</span><br><span class="line">                                       UDP</span><br></pre></td></tr></table></figure>
+
+<p>Usage</p>
+<p>To play with your friends, both you and your friends need to run the lan-play client connecting to the <strong>same</strong> Server on your PCs, and set static IP on your Switch.</p>
+<p>Your PC and Switch <strong>must</strong> be connected to the same router.</p>
+<p>Visit <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2xhbi1wbGF5LmNvbS9pbnN0YWxsLXN3aXRjaA==" rel="noopener external nofollow noreferrer">https://www.lan-play.com/</a> for instructions on how to set this up. See below for build instructions.</p>
+<p>具体步骤：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5sYW4tcGxheS5jb20vaW5zdGFsbA==" rel="noopener external nofollow noreferrer">http://www.lan-play.com/install</a></p>
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>远程 远程 远程， 互联网远程，互联网远程，互联网远程联机；世界范围内互联网远程联机</p>
+<p>拯救破解系统（也支持被ban的主机）的联机问题，拓展更多游戏互动的可能，和朋友远程联机玩游戏（通过私人服务器直连）</p>
+<p>请使用测试服务器：switch.carlzeng.top:11451</p>
+<h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><h2 id="1-Switch-LAN-Play-服务端-远程服务器端"><a href="#1-Switch-LAN-Play-服务端-远程服务器端" class="headerlink" title="1. Switch LAN-Play 服务端(远程服务器端)"></a>1. Switch LAN-Play 服务端(远程服务器端)</h2><p>方案一：直接使用现成的 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2xhbi1wbGF5LmNvbS8=" rel="noopener external nofollow noreferrer">http://lan-play.com/</a>  </p>
+<p>​		LAN Play Status 选择并复制一台 服务器地址+端口(格式比如：joinsg.net:11453)</p>
+<p>方案二：本文作者自行搭建的服务端   </p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">switch.carlzeng.top:11451</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-Switch-LAN-Play-客户端-本地局域网"><a href="#2-Switch-LAN-Play-客户端-本地局域网" class="headerlink" title="2. Switch LAN-Play 客户端(本地局域网)"></a>2. Switch LAN-Play 客户端(本地局域网)</h2><p>（可安装到Docker、Window&#x2F;苹果电脑或者rooted手机上）：</p>
+<p>Docker 安装客户端</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">docker</span> <span class="string">run</span> <span class="string">-d</span> <span class="string">--name=&#x27;LanPlayClient&#x27;</span> <span class="string">--net=&#x27;bridge&#x27;</span> <span class="string">-v</span> <span class="string">&#x27;/volume2/KingchuxingSSD512G/docker/compose/SwitchLanPlayClient&#x27;</span><span class="string">:&#x27;/config&#x27;:&#x27;rw&#x27;</span> <span class="string">&#x27;chrispy212/lan-play-docker&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#请在映射的目录下，新建一个文件：server.txt 内容格式举例：</span></span><br><span class="line"><span class="string">switch.exabytes.space:11451</span> </span><br></pre></td></tr></table></figure>
+
+<p>苹果电脑安装客户端</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">MAC 安装客户端</span></span><br><span class="line">brew install libpcap libuv switch-lan-play</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">MAC 运心客户端</span></span><br><span class="line">sudo lan-play</span><br></pre></td></tr></table></figure>
+
+
+
+<p>客户端工具介绍<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3NwYWNlbWVvd3gyL3N3aXRjaC1sYW4tcGxheQ==" rel="noopener external nofollow noreferrer">switch-lan-play</a></p>
+<p>官方原版的工具下载：</p>
+<ul>
+<li><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3NwYWNlbWVvd3gyL3N3aXRjaC1sYW4tcGxheS9yZWxlYXNlcy9kb3dubG9hZC92MC4yLjMvbGFuLXBsYXktbGludXg=" rel="noopener external nofollow noreferrer">lan-play-linux</a></p>
+<p>996 KB   Jun 21, 2020</p>
+</li>
+<li><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3NwYWNlbWVvd3gyL3N3aXRjaC1sYW4tcGxheS9yZWxlYXNlcy9kb3dubG9hZC92MC4yLjMvbGFuLXBsYXktbWFjb3M=" rel="noopener external nofollow noreferrer">lan-play-macos</a></p>
+<p>927 KB  Jun 21, 2020</p>
+</li>
+<li><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3NwYWNlbWVvd3gyL3N3aXRjaC1sYW4tcGxheS9yZWxlYXNlcy9kb3dubG9hZC92MC4yLjMvbGFuLXBsYXktd2luNjQuZXhl" rel="noopener external nofollow noreferrer">lan-play-win64.exe</a></p>
+<p>437 KB   Jun 21, 2020</p>
+</li>
+</ul>
+<h2 id="3-SWITCH端设置"><a href="#3-SWITCH端设置" class="headerlink" title="3. SWITCH端设置"></a>3. SWITCH端设置</h2><h3 id="SWITCH主机中的WIFI网络设置"><a href="#SWITCH主机中的WIFI网络设置" class="headerlink" title="SWITCH主机中的WIFI网络设置"></a>SWITCH主机中的WIFI网络设置</h3><p>Note: The IP address can be any from 10.13.0.1 to 10.13.255.254, excepting 10.13.37.1. But don’t use the same IP address with your friend.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">IP Address Settings</span><br><span class="line">IP Address: 10.13.XX.YY</span><br><span class="line">Subnet Mask: 255.255.0.0</span><br><span class="line">Gateway: 10.13.37.1</span><br><span class="line"></span><br><span class="line">DNS settings (these are the 90DNS servers)</span><br><span class="line">Primary DNS: 163.172.141.219</span><br><span class="line">Secondary DNS: 207.246.121.77</span><br></pre></td></tr></table></figure>
+
+<p>Please follow the screenshots:</p>
+<p><img data-src="http://lan-play.com/img/settings1.1f6f8ca1.jpg" alt="Settings"></p>
+<p><img data-src="http://lan-play.com/img/settings2.1035d313.jpg" alt="Settings"></p>
+<p><img data-src="http://lan-play.com/img/settings3.29954755.jpg" alt="Settings"></p>
+<p>本小节请参见：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2xhbi1wbGF5LmNvbS9pbnN0YWxsLXN3aXRjaA==" rel="noopener external nofollow noreferrer">http://lan-play.com/install-switch</a></p>
+<h3 id="SWITCH大气层的插件安装设置【可选】"><a href="#SWITCH大气层的插件安装设置【可选】" class="headerlink" title="SWITCH大气层的插件安装设置【可选】"></a>SWITCH大气层的插件安装设置【可选】</h3><p>ldn_mitm - Download ldn_mitm to play non LAN supported games </p>
+<p>You will need to download ldn_mitm if you wish to play to play games that don’t have the lan play feature (Local Wireless mode Games). 如果你要玩的游戏没有局域网联机功能，仅支持面对面无线联机功能，那么你可以用这个插件将面对面联机拓展到互联网上（实现互联网的联机使用到仅支持面对面无线联机的游戏中）</p>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=switch" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+<h1 id="客户端安装到安卓手机的实现方法-操作流程"><a href="#客户端安装到安卓手机的实现方法-操作流程" class="headerlink" title="客户端安装到安卓手机的实现方法&#x2F;操作流程"></a>客户端安装到安卓手机的实现方法&#x2F;操作流程</h1><p>如果不需要root就好了，lanplay_flutter_x86_64_1.3.0.apk 这个可以不需要root吗？</p>
+<h2 id="How-to-setup-Switch-LAN-Play-on-Android-phone-tablet"><a href="#How-to-setup-Switch-LAN-Play-on-Android-phone-tablet" class="headerlink" title="How to setup Switch LAN-Play on Android phone&#x2F;tablet"></a>How to setup Switch LAN-Play on Android phone&#x2F;tablet</h2><p>REQUIRES ROOT and Android 7.0+</p>
+<h4 id="Actions-in-Android"><a href="#Actions-in-Android" class="headerlink" title="Actions in Android:"></a>Actions in Android:</h4><ol>
+<li>Install a latest Termux from f-droid - “<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mLWRyb2lkLm9yZy9lbi9wYWNrYWdlcy9jb20udGVybXV4Lw==" rel="noopener external nofollow noreferrer">https://f-droid.org/en/packages/com.termux/</a>“</li>
+<li>Launch Termux app, you’ll see a black terminal window.</li>
+<li>Next, enter these 3 commands one by one:</li>
+</ol>
+<p>#(when prompted):choose what version you want to build (choose stable if latest doesn’t compile)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -LO tinyurl.com/switchlan</span><br><span class="line">chmod +x switchlan</span><br><span class="line">bash switchlan</span><br></pre></td></tr></table></figure>
+
+
+
+<ol>
+<li>It’ll setup additional packages and compile lanplay from source (1-5 minutes)</li>
+<li>Start WiFi tethering (or connect your phone to wifi)</li>
+</ol>
+<h4 id="Actions-in-HOS-Switch"><a href="#Actions-in-HOS-Switch" class="headerlink" title="Actions in HOS (Switch):"></a>Actions in HOS (Switch):</h4><ol>
+<li>Connect to WiFi and configure network settings:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">IP-address Settings Manual</span><br><span class="line">IP-address 10.13.X.Y (where X and Y is two random numbers 0-255, example: 10.013.187.66 DO NOT COPY EXAMPLE)</span><br><span class="line">Subnet Mask 255.255.0.0</span><br><span class="line">Gate 10.13.37.1</span><br><span class="line">DNS Settings Manual</span><br><span class="line">Primary DNS 163.172.141.219</span><br><span class="line">Secondary DNS 207.246.121.77</span><br></pre></td></tr></table></figure>
+
+
+
+<ol>
+<li>download ldn-mitm “<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3NwYWNlbWVvd3gyL2xkbl9taXRtL3JlbGVhc2VzL2xhdGVzdA==" rel="noopener external nofollow noreferrer">https://github.com/spacemeowx2/ldn_mitm/releases/latest</a>“</li>
+<li>extract it in root of your SDcard (don’t forget to clear the archive bit in Hekate if necessary)</li>
+<li>reboot switch</li>
+</ol>
+<h3 id="Connect-to-Servers"><a href="#Connect-to-Servers" class="headerlink" title="Connect to Servers:"></a>Connect to Servers:</h3><ul>
+<li>Launch Termux and enter <code>bash switchlan</code>, script will ask you for server ip and root privileges</li>
+<li>or enter <code>bash switchlan server&#39;s address</code> to skip asking part, example: <code>bash switchlan edgymin.ga:11451</code></li>
+<li>If connection was successful you’ll see “Server IP: x.x.x.x” at the end</li>
+</ul>
+<h3 id="To-Disconnect"><a href="#To-Disconnect" class="headerlink" title="To Disconnect:"></a>To Disconnect:</h3><ul>
+<li>Long tap anywhere in Termux -&gt; more -&gt; kill process; or press “exit” in Termux’s notification</li>
+</ul>
+<h3 id="How-to-delete-reinstall-lanplay"><a href="#How-to-delete-reinstall-lanplay" class="headerlink" title="How to delete&#x2F;reinstall lanplay:"></a>How to delete&#x2F;reinstall lanplay:</h3><p>enter <code>rm -rf ~/switch-lan-play; rm ~/switchlan</code> in Termux</p>
+<h1 id="Switch-lan-play-服务端架设"><a href="#Switch-lan-play-服务端架设" class="headerlink" title="Switch-lan-play 服务端架设"></a>Switch-lan-play 服务端架设</h1><p>新建一个目录存放docker-compose.yml</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">version: &quot;3&quot;</span><br><span class="line">services:</span><br><span class="line">    switch-lan-play:</span><br><span class="line">        ports:</span><br><span class="line">            - 11451:11451/udp</span><br><span class="line">            - 11451:11451/tcp</span><br><span class="line">        image: spacemeowx2/switch-lan-play</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">docker run -d -p 11451:11451/udp -p 11451:11451/tcp spacemeowx2/switch-lan-play</span></span><br></pre></td></tr></table></figure>
+
+<p>然后到路由器的防火墙中做端口转发&#x2F;映射 11451</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/05/17/6646eb2a13e76.png" alt="image-20240517132911928"></p>
+<p>其他的服务器列表</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0pvbnNvbkNoYW5nL2hvbWUvbWFzdGVyL2xhbnBsYXkyLmpzb24=" rel="noopener external nofollow noreferrer">https://raw.githubusercontent.com/JonsonChang/home/master/lanplay2.json</a></p>
+<h2 id="Lan-Play-Status"><a href="#Lan-Play-Status" class="headerlink" title="Lan-Play Status"></a>Lan-Play Status</h2><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0dyZWF0V2l6YXJkL2xhbi1wbGF5LXN0YXR1cw==" rel="noopener external nofollow noreferrer">GreatWizard&#x2F;lan-play-status</a></p>
+<h1 id="Lan-Play-支持联机的游戏列表"><a href="#Lan-Play-支持联机的游戏列表" class="headerlink" title="Lan-Play 支持联机的游戏列表"></a>Lan-Play 支持联机的游戏列表</h1><table>
+<thead>
+<tr>
+<th></th>
+<th>游戏名称</th>
+<th>——建议更新到最新版——下方记录不一定最新</th>
+<th>路径</th>
+<th>状态</th>
+<th>ns是否要开联机插件</th>
+<th>插件版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>马里奥赛车8</td>
+<td>v589824(1.7.1)</td>
+<td>左摇杆+L+R一起按，第四个选项本地联机就会变成局域网，进入局域网</td>
+<td>正常工作</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>口袋铁拳竞标赛DX</td>
+<td>v1048576(5.4.0)</td>
+<td>本地联机，左摇杆+L+R一起按，变成局域网，进入局域网</td>
+<td>正常工作</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td>v458752(1.3.3)</td>
+<td>支持但没研究局域网路径</td>
+<td>正常工作</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>泰坦之旅</td>
+<td>v262144(1.0.4.2)</td>
+<td>选择局域网</td>
+<td>正常工作</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>马里欧网球 ACE</td>
+<td>v786432（3.1）</td>
+<td>自由对战，本地联机，左摇杆+L+R一起按，变成局域网，进入局域网</td>
+<td>正常工作（网速要求高）</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>喷射战士2（美版+日版）</td>
+<td>5.1</td>
+<td>按X，第四个选项the shoal（海滩） ，按下左摇杆+L+R，5秒，右下角书本消失，画面变化，进局域网。</td>
+<td>正常工作（服务器要求高）</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>文明6</td>
+<td>v131072(1.0.2)</td>
+<td>选择多人模式，进局域网</td>
+<td>玩久了会掉线</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>马造2</td>
+<td>v131072(1.1)</td>
+<td>需要进入全球模式连官方创建角色才能进入局域网（或者导入正版有角色的存档才可以联机）</td>
+<td>比较卡</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>红帽子与索尼克2020东京奥运会</td>
+<td>v65536(1.0.1)</td>
+<td>主界面，左摇杆+L+R一起按，第四个选项本地联机就会变成局域网，进入局域网</td>
+<td>正常工作</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>精灵剑盾</td>
+<td>1.1.1m</td>
+<td>1、破解机关闭ns的联机插件。（不关插件会卡屏）2、拿到图鉴后，按X进入设置，在设置界面同时按下L+R+左摇杆，进入局域网模式，再连接wifi（最好用游侠，wifi标志不能有L），然后开房即可。打完一次后，再进入设置开局域网刷新信息比较快。</td>
+<td>正常工作</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>猎天使魔女2</td>
+<td></td>
+<td>联机界面，左摇杆+L+R一起按，变成局域网，进入局域网</td>
+<td>正常工作</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>圣徒3</td>
+<td></td>
+<td>选择局域网</td>
+<td>未测试</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>X</td>
+<td>RetroArch模拟器（破解机）</td>
+<td>1.7.7+</td>
+<td>支持但没研究局域网路径</td>
+<td>未测试</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>路易吉洋馆</td>
+<td>1.1.1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>只有本地联机模式的游戏：必须是破解的机子，并且用lan-play电脑软件+NS插件(ldn_mitm)才可以远程联机：</p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>暗黑破坏神3：永恒典藏版（美版）</th>
+<th>2.6.7a.64008</th>
+<th>选择“网路设定”，下面的“本地联机”，“摇杆向右移动选择右上角名称加入房间”</th>
+<th>正常工作</th>
+<th>是</th>
+<th>1.2.4+</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+<td>怪物猎人XX（日版）</td>
+<td>1.3以上</td>
+<td>按ZL，选择第一创建或第二个加入（身边的朋友）</td>
+<td>正常工作，房主先退出游戏，全部人都会死机</td>
+<td>是</td>
+<td>0.1.3+</td>
+</tr>
+<tr>
+<td></td>
+<td>怪物猎人XX（日版）</td>
+<td>1.3以上</td>
+<td>按ZL，选择第一创建或第二个加入（身边的朋友）</td>
+<td>游侠联机会死机，房主退出后游戏会死机</td>
+<td>是</td>
+<td>0.1.3+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>FIFA 19（美版）</td>
+<td>v327680(1.0.5)</td>
+<td>选择Online，Local seasons，加入房间</td>
+<td>正常工作（服务器或网络不好会有延迟）</td>
+<td>是</td>
+<td>0.0.6+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>任天堂明星大乱斗</td>
+<td>7.0</td>
+<td>按ZR，本地联机，搜索房间加入</td>
+<td>正常工作（服务器或网络不好会有延迟）</td>
+<td>是</td>
+<td>0.1.3+</td>
+</tr>
+<tr>
+<td>5</td>
+<td>煮糊了2（分手厨房2）</td>
+<td>1.0.13</td>
+<td>按X，第四个搜索无线游戏</td>
+<td>正常工作</td>
+<td>是</td>
+<td>0.0.6+</td>
+</tr>
+<tr>
+<td>6</td>
+<td>龙珠：超宇宙 2</td>
+<td>v524288(1.11.0)</td>
+<td>需要推进主线，对战3VS3</td>
+<td>正常工作</td>
+<td>是</td>
+<td>0.0.6+</td>
+</tr>
+<tr>
+<td>7</td>
+<td>收获日2（美版）</td>
+<td>v65536(1.1.0)</td>
+<td>play，crime.net，crime.net local play，加入</td>
+<td>正常工作，房主先退出游戏，全部人都会死机</td>
+<td>是</td>
+<td>0.0.6+</td>
+</tr>
+<tr>
+<td>8</td>
+<td>UNO 牌 Switch版</td>
+<td>v196608(1.0.3)</td>
+<td>multiple consoles，1v1或2v2，创建或加入房间</td>
+<td>正常工作</td>
+<td>是</td>
+<td>0.0.6+</td>
+</tr>
+<tr>
+<td>9</td>
+<td>超级炸弹人R</td>
+<td>v720896(2.2)</td>
+<td>战斗，局部战斗，搜索加入</td>
+<td>正常工作（服务器或网络不好会有延迟）</td>
+<td>是</td>
+<td>0.0.6+</td>
+</tr>
+<tr>
+<td>10y</td>
+<td>九张羊皮纸（美版）</td>
+<td>v262144(1.1.1)</td>
+<td>多人，本地无线，选择游戏</td>
+<td>正常工作</td>
+<td>是</td>
+<td>0.1.3+</td>
+</tr>
+<tr>
+<td>11</td>
+<td>太鼓达人（港版）</td>
+<td>v1245184 (1.1.6+)</td>
+<td>邻近主机通讯演奏</td>
+<td>正常工作（服务器或网络不好会有延迟）</td>
+<td>是</td>
+<td>0.2.2+</td>
+</tr>
+<tr>
+<td></td>
+<td>太鼓达人（美版）</td>
+<td>v327608(1.0.4+)</td>
+<td>邻近主机通讯演奏</td>
+<td>正常工作（服务器或网络不好会有延迟）</td>
+<td></td>
+<td>0.2.2+</td>
+</tr>
+<tr>
+<td>12</td>
+<td>超级马里欧派对</td>
+<td>v65536(1.0.1)</td>
+<td>选择游玩人数时，选择两台switch</td>
+<td>（延迟必须要&lt;10ms才可以连上）</td>
+<td>是</td>
+<td>0.2.2+</td>
+</tr>
+<tr>
+<td>13</td>
+<td>莫菲法则</td>
+<td>v196608(1.0.3)</td>
+<td>本地对战</td>
+<td>正常工作</td>
+<td>是</td>
+<td>0.2.2+</td>
+</tr>
+<tr>
+<td>14</td>
+<td>生化危机：启示录2</td>
+<td>v0(1.0.0)</td>
+<td>突击模式，临近主机通讯，进入房间后，在右边的蓝色门点击搜索房间</td>
+<td>正常工作，房主先退出游戏，全部人都会死机（1个房间最多2个人）</td>
+<td>是</td>
+<td>1.1.2+</td>
+</tr>
+<tr>
+<td>15</td>
+<td>龙之死印：忍者与女巫</td>
+<td>v458752(1.1.1+)</td>
+<td>先通过第一关，然后才可以联机</td>
+<td>人多会卡</td>
+<td>是</td>
+<td>1.1.2+</td>
+</tr>
+<tr>
+<td>16</td>
+<td>龙珠斗士Z</td>
+<td>v196608(1.14)</td>
+<td></td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.1.2+</td>
+</tr>
+<tr>
+<td>17</td>
+<td>三位一体 2：完整故事（美版）</td>
+<td>v0(1.0.0)</td>
+<td>多人，本地无线</td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.1.2+</td>
+</tr>
+<tr>
+<td>18</td>
+<td>国夫君世界 经典收藏（日版）</td>
+<td>v65536(1.0.1)</td>
+<td></td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.1.2+</td>
+</tr>
+<tr>
+<td>19</td>
+<td>NBA 2K19 20周年纪念版（日版）</td>
+<td>v393216(1.06)</td>
+<td></td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.1.2+</td>
+</tr>
+<tr>
+<td>20</td>
+<td>少女与战车</td>
+<td></td>
+<td>先通过第一关剧情，提示开通了通讯对战才可以联机，通讯对战，本地对战，创建或加入</td>
+<td>可以联机，打完会死机</td>
+<td>是</td>
+<td>1.1.2+</td>
+</tr>
+<tr>
+<td>21</td>
+<td>噬神者3</td>
+<td>1.4+</td>
+<td>先打开联机软件，ns连上wifi，点击游戏内最左边的终端机——临近游戏联机——搜索房间（PS：别人没邀请你进房的，别点击进去，会导致在玩的人需要重连网络再开房）</td>
+<td>正常工作，但如果已经联机了，有人突然进房，会全部人掉线</td>
+<td>是</td>
+<td>1.2.3+</td>
+</tr>
+<tr>
+<td>22</td>
+<td>火箭联盟</td>
+<td>v0(1.0.0)</td>
+<td></td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.3+</td>
+</tr>
+<tr>
+<td>23</td>
+<td>进击的巨人2</td>
+<td></td>
+<td></td>
+<td>未测试</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>狙击精英</td>
+<td>v0(1.0.0)</td>
+<td></td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.3+</td>
+</tr>
+<tr>
+<td>25</td>
+<td>一败涂地</td>
+<td>1.4+1.4.1</td>
+<td>播放-网络-无线，开房等人</td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.3+</td>
+</tr>
+<tr>
+<td>26</td>
+<td>威漫3PK</td>
+<td>v0(1.0.0)</td>
+<td></td>
+<td>未测试</td>
+<td>是</td>
+<td>1.2.3+</td>
+</tr>
+<tr>
+<td>27</td>
+<td>2020东京奥运会</td>
+<td>v196608(1.0.3)</td>
+<td>左边开始游戏，选择本地联机模式</td>
+<td>左边项目正常工作（100米、跨栏、链球、跳远、自由泳、混合泳、小轮车）</td>
+<td>是</td>
+<td>1.2.3+</td>
+</tr>
+<tr>
+<td></td>
+<td>2020东京奥运会</td>
+<td>v196608(1.0.3)</td>
+<td>左边开始游戏，选择本地联机模式</td>
+<td>右边项目要求网速（棒球、篮球、足球、排球、乒乓球、网球、拳击）</td>
+<td>是</td>
+<td>1.2.3+</td>
+</tr>
+<tr>
+<td>28</td>
+<td>全金属狂怒</td>
+<td>v0(1.0.0)</td>
+<td></td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.3+</td>
+</tr>
+<tr>
+<td>29</td>
+<td>噗哟噗哟VS俄罗斯方块</td>
+<td>v0(1.0.0)</td>
+<td>主选单，多人，本地</td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.3+</td>
+</tr>
+<tr>
+<td>30</td>
+<td>勇者斗恶龙：建造者2</td>
+<td>1.6.1+</td>
+<td>通关第一个岛的所有任务后，回到初始的岛，再完成第一轮任务，开启传送法阵（旅途之门）就可以开始联机，选择区域网络</td>
+<td>网速要求高，可能同城才可以</td>
+<td>是</td>
+<td>1.2.3+</td>
+</tr>
+<tr>
+<td>31</td>
+<td>火炬之光2</td>
+<td>v0(1.0.0)</td>
+<td>本地联机模式</td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.4+</td>
+</tr>
+<tr>
+<td>33</td>
+<td>魂斗罗</td>
+<td>v65536(1.0.1)</td>
+<td>打完初始的剧情—升降梯&#x2F;运输车—与好友一起玩—搜索本地无线</td>
+<td>有延迟</td>
+<td>是</td>
+<td>1.2.4+</td>
+</tr>
+<tr>
+<td>34</td>
+<td>FIFA20</td>
+<td>v65536(1.0.1)</td>
+<td></td>
+<td>正常工作（服务器或网络不好会有延迟）</td>
+<td>是</td>
+<td>1.2.6+</td>
+</tr>
+<tr>
+<td>35</td>
+<td>数码宝贝</td>
+<td>v0(1.0.0)</td>
+<td></td>
+<td>未测试</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td>路易吉洋馆3</td>
+<td>1.3.0</td>
+<td>剧情玩到有分身时，基地就可以选择恐怖高塔—本地联机</td>
+<td>不同运营商会断</td>
+<td>是</td>
+<td>1.2.6+</td>
+</tr>
+<tr>
+<td>37</td>
+<td>生化危机5</td>
+<td>v65536(1.0.1)</td>
+<td>PLAY GAME，选择剧情，然后选择双人游戏，本地联机模式，卖装备界面等人</td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.6+</td>
+</tr>
+<tr>
+<td>38</td>
+<td>生化危机6</td>
+<td>v65536(1.0.1)</td>
+<td>PLAY GAME，选择剧情，然后选择双人游戏，本地联机模式，卖装备界面等人</td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.6+</td>
+</tr>
+<tr>
+<td>39</td>
+<td>妖怪手表4++</td>
+<td>2..1.2以上（2.1.4）</td>
+<td>第一章，开通APP后可以联机交换妖怪。———————第七章，完成熔炉相关任务，开启联机刷怪模式</td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.7+</td>
+</tr>
+<tr>
+<td>40</td>
+<td>威漫3</td>
+<td>v0(1.0.0)</td>
+<td></td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.7+</td>
+</tr>
+<tr>
+<td>41</td>
+<td>暗黑血统：创世纪</td>
+<td>v0(1.0.0)</td>
+<td></td>
+<td>未测试</td>
+<td>是</td>
+<td>1.2.7+</td>
+</tr>
+<tr>
+<td>42</td>
+<td>东方幻想麻雀</td>
+<td>v0(1.0.0)</td>
+<td></td>
+<td>未测试</td>
+<td>是</td>
+<td>1.2.7+</td>
+</tr>
+<tr>
+<td>43</td>
+<td>旋转轮胎</td>
+<td>v0(1.0.0)</td>
+<td></td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.7+</td>
+</tr>
+<tr>
+<td>44</td>
+<td>集合吧动物森友会</td>
+<td>1.1.4（或114a）</td>
+<td>玩到第二天，然后去飞机场就可以联机了，选择本地联机，（或者调系统时间）</td>
+<td>1，需要好一点的服务器；2，wifi上的MTU要改成1500；3，联机要排队一个个进，别一起进；4，离开联机请正常从飞机场离开。</td>
+<td>是</td>
+<td>1.2.7+</td>
+</tr>
+<tr>
+<td>45</td>
+<td>海贼无双4</td>
+<td>1.0.1</td>
+<td>选择本地联机模式，2个人联机</td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.7+</td>
+</tr>
+<tr>
+<td>46</td>
+<td>游戏王</td>
+<td>1.0.1</td>
+<td>主菜单栏选第2个，然后选第3个（搜索或开房），（开房后右下角有密码，默认0000）</td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.7+</td>
+</tr>
+<tr>
+<td>47</td>
+<td>街霸2</td>
+<td>v0(1.0.0)</td>
+<td></td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.7+</td>
+</tr>
+<tr>
+<td>48</td>
+<td>雨中冒险2</td>
+<td>1.0.6</td>
+<td>多人游戏：本地模式</td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.7+</td>
+</tr>
+<tr>
+<td>49</td>
+<td>FastRMX</td>
+<td>v0(1.0.0)</td>
+<td></td>
+<td>未测试</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>50</td>
+<td>怪物猎人rise</td>
+<td>1.1.1</td>
+<td>信使猫-本地联机-开房&#x2F;搜索</td>
+<td>正常工作</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>51</td>
+<td>雪地奔驰</td>
+<td>1.14.0</td>
+<td>需要完成教学然后找到第一个车库（大致30分钟），然后返回主菜单选择 开始本机游戏合作模式，另外游戏退出时记得把车放回车库。</td>
+<td>正常工作</td>
+<td>是</td>
+<td>1.2.6+</td>
+</tr>
+<tr>
+<td>52</td>
+<td>异星探险家</td>
+<td></td>
+<td>多人游戏正常联网，需要主机进入游戏后开房，其他人才可以搜索到</td>
+<td>多人游戏正常联网，需要主机进入游戏后开房，其他人才可以搜索到</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>螳螂燃烧赛车</td>
+<td>v65536(1.0.1)</td>
+<td>Wireless Race，</td>
+<td>未测试</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>51</td>
+<td>超回转寿司强袭者</td>
+<td>v65536(1.1.0)</td>
+<td>需要推进主线，镇守之森，斗技场</td>
+<td>未测试</td>
+<td>是</td>
+<td>1.1.2+</td>
+</tr>
+<tr>
+<td></td>
+<td>为了国王</td>
+<td>v65536(1.0.1)</td>
+<td>未测试</td>
+<td>未测试</td>
+<td>是</td>
+<td>1.2.3+</td>
+</tr>
+<tr>
+<td></td>
+<td>神界2</td>
+<td>v0(1.0.0)</td>
+<td>未测试</td>
+<td>未测试</td>
+<td>是</td>
+<td>1.2.4+</td>
+</tr>
+<tr>
+<td></td>
+<td>精灵宝可梦 Let’s Go！</td>
+<td>v65536(1.0.1)</td>
+<td></td>
+<td>插件会导致死机 输入密码就死机</td>
+<td>是</td>
+<td>1.2.4+</td>
+</tr>
+<tr>
+<td></td>
+<td>星露谷</td>
+<td>v0(1.0.0)</td>
+<td>未测试</td>
+<td>必须有绑定邮箱的账号</td>
+<td>是</td>
+<td>1.2.4+</td>
+</tr>
+<tr>
+<td></td>
+<td>现代战争</td>
+<td>v0(1.0.0)</td>
+<td>未测试</td>
+<td>必须有绑定邮箱的账号</td>
+<td>是</td>
+<td>1.2.4+</td>
+</tr>
+<tr>
+<td></td>
+<td>真人快打11</td>
+<td>v1.0.4</td>
+<td></td>
+<td>无法使用</td>
+<td>是</td>
+<td>1.2.4+</td>
+</tr>
+<tr>
+<td></td>
+<td>妖怪抓迷藏</td>
+<td></td>
+<td>Local play—Local play</td>
+<td>网速要求高，可能同城才可以</td>
+<td>是</td>
+<td>1.2.4+</td>
+</tr>
+<tr>
+<td></td>
+<td>迪士尼嘉年华</td>
+<td></td>
+<td>仅限消消乐</td>
+<td>仅限消消乐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>超级卡比猎人队</td>
+<td>v65536(1.0.1)</td>
+<td>需要推进主线，热闹探索，本地联机</td>
+<td>未测试</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>马里奥足球</td>
+<td>v1.1.0</td>
+<td></td>
+<td></td>
+<td>是</td>
+<td>1.2.4+</td>
+</tr>
+<tr>
+<td></td>
+<td>喷射战士3</td>
+<td>V1.0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="感谢列表"><a href="#感谢列表" class="headerlink" title="感谢列表"></a>感谢列表</h1><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1pQmF1MHhYdUZlWQ==" rel="noopener external nofollow noreferrer">NS switch lan-play 設定方式</a></p>
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="wechat,weibo,qq,facebook"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Carl Notes
+    <a href='https://www.carlzeng.top/202405171053.html'> 《任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://www.carlzeng.top/202405171053.html" title="任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)">https://www.carlzeng.top/202405171053.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <main class="main">
+<div class="column">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202404260828.html" rel="bookmark">
+      任天堂Switch硬件修复记录
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202405032136.html" rel="bookmark">
+      任天堂Switch黑屏救砖记录
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310221511.html" rel="bookmark">
+      任天堂Switch全部记录
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
+      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202101230038.html" rel="bookmark">
+      Version Control System, IntelliJ IDEA, Create a Git Repository for a Project and push to multiple remotes-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309040941.html" rel="bookmark">
+      NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201410161027.html" rel="bookmark">
+      学习日志 - Openwrt安装python然后wallproxy-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="column">
+<div class="pjax">
+<!-- recent posts -->
+<div class="animated">
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="popular-posts">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202405171053.html" title="任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)" target="" class="popular-posts-link">
+              任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202405032136.html" title="任天堂Switch黑屏救砖记录" target="" class="popular-posts-link">
+              任天堂Switch黑屏救砖记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202404260828.html" title="任天堂Switch硬件修复记录" target="" class="popular-posts-link">
+              任天堂Switch硬件修复记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202404191047.html" title="用一个查询从销售订单直通供应商账单 NetSuite" target="" class="popular-posts-link">
+              用一个查询从销售订单直通供应商账单 NetSuite
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202404061606.html" title="免费试用在线SuiteCRM产品 简易定制或集成限时免费" target="" class="popular-posts-link">
+              免费试用在线SuiteCRM产品 简易定制或集成限时免费
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202403291025.html" title="多个docker容器间共享单个mariadb(Docker数据库服务)" target="" class="popular-posts-link">
+              多个docker容器间共享单个mariadb(Docker数据库服务)
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202403281654.html" title="升级Artalk评论至V2-8-3解决错误(请求响应404)" target="" class="popular-posts-link">
+              升级Artalk评论至V2-8-3解决错误(请求响应404)
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202403270841.html" title="实测Hysteria 2 一个强大、快速、抗审查的代理工具" target="" class="popular-posts-link">
+              实测Hysteria 2 一个强大、快速、抗审查的代理工具
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202403260717.html" title="搭建尊重隐私的元搜索引擎 SearX" target="" class="popular-posts-link">
+              搭建尊重隐私的元搜索引擎 SearX
+              </a>
+            </li>
+    </ul>
+  </div>
+  </div>
+</div>
+</div>
+</main>
+
+
+<div class="followme">
+  <span><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email Subscription</a>  If the article solved your concern or clear some doubts, please <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLnRvcDozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">buy me a coffee</a>.  Also we can <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">Schedule a Converstion</a></span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">联系我(谈话)</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">IPTV直播</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/202312081128.html">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">M3U8播放器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">MP3与下载</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">ChatGPT问答</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">网络加速器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">文件分享</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">下载电子书</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">IT小工具集合</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2024-05-17 15:16:09" itemprop="dateModified" datetime="2024-05-17T15:16:09+08:00">2024-05-17</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/switch/" rel="tag"># switch</a>
+              <a href="/tags/%E7%A1%AC%E4%BB%B6/" rel="tag"># 硬件</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202405032136.html" rel="prev" title="任天堂Switch黑屏救砖记录">
+                  <i class="fa fa-angle-left"></i> 任天堂Switch黑屏救砖记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>English</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="Select language">
+      
+        <option value="zh-CN" data-href="/202405171053.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/202405171053.html" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+</div>
+
+<!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*.carlzeng.top"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//statcounter.carlzeng.top:4443/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="//statcounter.carlzeng.top:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
+
+<div class="powered-by">
+    <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 选择服务器：<a href="https://www.carlzeng.top">Main</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oay5jYXJsemVuZy50b3A=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">US</a>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202405171053.html","pageTitle":"任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)"}</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>
