@@ -516,6 +516,111 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200812261457.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/en/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/en/200812261457.html" class="post-title-link" itemprop="url">netsuite 文件上传内部函数-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/200812261457.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          function new_mediaitem() {document.getElementById('mediaitem_popup_new').onclick()}netsuite 文件上传内部函数；这样就可以打开一个新的窗体 用于上传文件到netsuite文件柜中。已经关联文件的命令。function attach_media() { var mediaitem = getSelectValu...
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/en/200812261457.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200907071652.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -940,7 +1045,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200907091056.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200810311408.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -958,7 +1063,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/200907091056.html" class="post-title-link" itemprop="url">netsuite动态绑定事件-CarlZeng</a>
+          <a href="/en/200810311408.html" class="post-title-link" itemprop="url">netsuite内部ajax请求,返回Code: 500错误-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -987,7 +1092,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/200907091056.html" ></span>
+            <span id="ArtalkPV" data-page-key="/en/200810311408.html" ></span>
           </span>
         
       
@@ -998,7 +1103,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>3 mins.</span>
     </span>
 </div>
 
@@ -1009,15 +1114,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          这个能给一个指定的对象绑定多个重复的事件，执行顺序按照添加顺序来执行！已测试浏览器（ie7,firefox,chrome）
-
-
-var Bind = function(eventName, fun, obj) {
- ///<summary>给对象绑定事件，未传入对象的话默认绑定window</summary>
- ///<param name="eventName"&g...
+          500是服务器本身的错误代码。+代表"Internal Server Error"。一般是500都是你响应数据的页面本身就不能正确执行function login(){//alert('in login script')var soap = '';soap += '';soap += 'http://schemas.xmlsoap.org/soap/envelope/">';soap += '';...
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/en/200907091056.html#more" rel="contents">
+              <a class="btn" href="/en/200810311408.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1155,7 +1255,7 @@ var Bind = function(eventName, fun, obj) {
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200810311408.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200907091056.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -1173,7 +1273,7 @@ var Bind = function(eventName, fun, obj) {
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/200810311408.html" class="post-title-link" itemprop="url">netsuite内部ajax请求,返回Code: 500错误-CarlZeng</a>
+          <a href="/en/200907091056.html" class="post-title-link" itemprop="url">netsuite动态绑定事件-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1202,7 +1302,7 @@ var Bind = function(eventName, fun, obj) {
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/200810311408.html" ></span>
+            <span id="ArtalkPV" data-page-key="/en/200907091056.html" ></span>
           </span>
         
       
@@ -1213,7 +1313,7 @@ var Bind = function(eventName, fun, obj) {
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>3 mins.</span>
+      <span>1 mins.</span>
     </span>
 </div>
 
@@ -1224,10 +1324,15 @@ var Bind = function(eventName, fun, obj) {
     
     
     <div class="post-body" itemprop="articleBody">
-          500是服务器本身的错误代码。+代表"Internal Server Error"。一般是500都是你响应数据的页面本身就不能正确执行function login(){//alert('in login script')var soap = '';soap += '';soap += 'http://schemas.xmlsoap.org/soap/envelope/">';soap += '';...
+          这个能给一个指定的对象绑定多个重复的事件，执行顺序按照添加顺序来执行！已测试浏览器（ie7,firefox,chrome）
+
+
+var Bind = function(eventName, fun, obj) {
+ ///<summary>给对象绑定事件，未传入对象的话默认绑定window</summary>
+ ///<param name="eventName"&g...
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/en/200810311408.html#more" rel="contents">
+              <a class="btn" href="/en/200907091056.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1438,111 +1543,6 @@ var Bind = function(eventName, fun, obj) {
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/en/200810150546.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200812261457.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/en/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl Notes">
-      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/en/200812261457.html" class="post-title-link" itemprop="url">netsuite 文件上传内部函数-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="Views">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/200812261457.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          function new_mediaitem() {document.getElementById('mediaitem_popup_new').onclick()}netsuite 文件上传内部函数；这样就可以打开一个新的窗体 用于上传文件到netsuite文件柜中。已经关联文件的命令。function attach_media() { var mediaitem = getSelectValu...
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/en/200812261457.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
