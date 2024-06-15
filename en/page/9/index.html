@@ -306,7 +306,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200908231843.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200902181038.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -324,7 +324,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/200908231843.html" class="post-title-link" itemprop="url">netsuite 库存同步机制-CarlZeng</a>
+          <a href="/en/200902181038.html" class="post-title-link" itemprop="url">netsuite SyncQtyRate-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -353,7 +353,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/200908231843.html" ></span>
+            <span id="ArtalkPV" data-page-key="/en/200902181038.html" ></span>
           </span>
         
       
@@ -364,7 +364,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>7 mins.</span>
+      <span>3 mins.</span>
     </span>
 </div>
 
@@ -375,220 +375,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          应用调用：nlapiServerCall('/app/accounting/transactions/inventory/validateInventoryNumbers.nl', 'getValidationScript', [params], eval);实现过程：---------------------  * @param url URL of request handler * @par...
+          function SyncQtyRate()206{207 var form = document.forms['item_form'];208 // Make sure all the fields are there. Otherwise, bail out.209 if (!(form.elements['rateschedule'] && form.elements['quantity']...
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/en/200908231843.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200901071144.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/en/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl Notes">
-      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/en/200901071144.html" class="post-title-link" itemprop="url">netsuite 批次货品 lotnumber 到期日/批号 列的赋值-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="Views">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/200901071144.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>6 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          在弹出的搜索页面，确认输入的批号时，函数的调用依次是：setTarget('21/2/2009-269852',21/2/2009-269852);function setTarget(s,i) {var frm,fldnam,fld;frm = parent.opener.document.forms.item_form;fldnam = 'serialnumbers';fld = parent...
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/en/200901071144.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200902271311.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/en/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl Notes">
-      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/en/200902271311.html" class="post-title-link" itemprop="url">netsuite 支持的字段计算函数 oracle 函数-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="Views">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/200902271311.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>6 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          var dd = win.makeDropdown('function', 184, ['', '', 'ABS', 'ABS(n)', 'ACOS', 'ACOS(n)', 'ADD_MONTHS', 'ADD_MONTHS(date, integer)', 'ASCII', 'ASCII(char)', 'ASIN', 'ASIN(n)', 'ATAN', 'A
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/en/200902271311.html#more" rel="contents">
+              <a class="btn" href="/en/200902181038.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -940,6 +730,111 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200902081432.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/en/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/en/200902081432.html" class="post-title-link" itemprop="url">netsuite事务处理单据 列字段serialnumbers 的客户端验证函数validateInventoryNumbers-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/200902081432.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>5 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          function validateInventoryNumbers(bAddEdit) {2771 var addEditWhenDone = 'F';2772 if (bAddEdit) addEditWhenDone='T';2773 var isadvbill = document.forms['main_form'].elements['isadvbill'].value;2774 ...
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/en/200902081432.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200811121806.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1045,7 +940,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200902081432.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200907091056.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -1063,7 +958,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/200902081432.html" class="post-title-link" itemprop="url">netsuite事务处理单据 列字段serialnumbers 的客户端验证函数validateInventoryNumbers-CarlZeng</a>
+          <a href="/en/200907091056.html" class="post-title-link" itemprop="url">netsuite动态绑定事件-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1092,7 +987,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/200902081432.html" ></span>
+            <span id="ArtalkPV" data-page-key="/en/200907091056.html" ></span>
           </span>
         
       
@@ -1103,7 +998,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>5 mins.</span>
+      <span>1 mins.</span>
     </span>
 </div>
 
@@ -1114,10 +1009,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          function validateInventoryNumbers(bAddEdit) {2771 var addEditWhenDone = 'F';2772 if (bAddEdit) addEditWhenDone='T';2773 var isadvbill = document.forms['main_form'].elements['isadvbill'].value;2774 ...
+          这个能给一个指定的对象绑定多个重复的事件，执行顺序按照添加顺序来执行！已测试浏览器（ie7,firefox,chrome）
+
+
+var Bind = function(eventName, fun, obj) {
+ ///<summary>给对象绑定事件，未传入对象的话默认绑定window</summary>
+ ///<param name="eventName"&g...
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/en/200902081432.html#more" rel="contents">
+              <a class="btn" href="/en/200907091056.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1360,7 +1260,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200907091056.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200902271311.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -1378,7 +1278,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/200907091056.html" class="post-title-link" itemprop="url">netsuite动态绑定事件-CarlZeng</a>
+          <a href="/en/200902271311.html" class="post-title-link" itemprop="url">netsuite 支持的字段计算函数 oracle 函数-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1407,7 +1307,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/200907091056.html" ></span>
+            <span id="ArtalkPV" data-page-key="/en/200902271311.html" ></span>
           </span>
         
       
@@ -1418,7 +1318,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>6 mins.</span>
     </span>
 </div>
 
@@ -1429,15 +1329,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          这个能给一个指定的对象绑定多个重复的事件，执行顺序按照添加顺序来执行！已测试浏览器（ie7,firefox,chrome）
-
-
-var Bind = function(eventName, fun, obj) {
- ///<summary>给对象绑定事件，未传入对象的话默认绑定window</summary>
- ///<param name="eventName"&g...
+          var dd = win.makeDropdown('function', 184, ['', '', 'ABS', 'ABS(n)', 'ACOS', 'ACOS(n)', 'ADD_MONTHS', 'ADD_MONTHS(date, integer)', 'ASCII', 'ASCII(char)', 'ASIN', 'ASIN(n)', 'ATAN', 'A
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/en/200907091056.html#more" rel="contents">
+              <a class="btn" href="/en/200902271311.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1575,111 +1470,6 @@ var Bind = function(eventName, fun, obj) {
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200810150546.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/en/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl Notes">
-      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/en/200810150546.html" class="post-title-link" itemprop="url">netsuite数据类型的获取(以货品item举例)以及价格带的js获取-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="Views">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/200810150546.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          var curitemcurrency=''; curitemcurrency=nlapiLookupField('inventoryitem', itemold, 'custitem_currency'); //custitem_currency var curitemrectype=nlapiLookupField('inventoryitem', i...
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/en/200810150546.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200901221316.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1753,6 +1543,216 @@ var Bind = function(eventName, fun, obj) {
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/en/200901221316.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200904091111.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/en/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/en/200904091111.html" class="post-title-link" itemprop="url">netsuite  nlapiLineInit-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/200904091111.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>6 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          function nlapiValidateField(type, fld, optionswin, linenum){var isValid = true;if (optionswin != null)optwin = optionswin;if (nsapiGetMainForm( ).elements.nlapiVF != null && nsapiGetMainForm( ).elemen...
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/en/200904091111.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201612152140.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/en/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/en/201612152140.html" class="post-title-link" itemprop="url">两个NetSuite之间历史交易数据迁移的具体方案-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/201612152140.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          背景与展望： 比如：公司要上市往往会要求提供过去几年的营业数据和报表等信息， 而这些信息来源于正在一直运营使用的ERP和财务系统是最可靠与真实的。 NetSuite实现的ERP和财务系统的完美结合，随着多年的经营积累和业务流程升级， NetSuite系统会不断改造和适应新的企业流程和应用。 其中免不
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/en/201612152140.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1895,7 +1895,7 @@ zeng.cz
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201612152140.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200810150546.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -1913,7 +1913,7 @@ zeng.cz
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/201612152140.html" class="post-title-link" itemprop="url">两个NetSuite之间历史交易数据迁移的具体方案-CarlZeng</a>
+          <a href="/en/200810150546.html" class="post-title-link" itemprop="url">netsuite数据类型的获取(以货品item举例)以及价格带的js获取-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1942,7 +1942,7 @@ zeng.cz
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/201612152140.html" ></span>
+            <span id="ArtalkPV" data-page-key="/en/200810150546.html" ></span>
           </span>
         
       
@@ -1953,7 +1953,7 @@ zeng.cz
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>4 mins.</span>
+      <span>2 mins.</span>
     </span>
 </div>
 
@@ -1964,10 +1964,10 @@ zeng.cz
     
     
     <div class="post-body" itemprop="articleBody">
-          背景与展望： 比如：公司要上市往往会要求提供过去几年的营业数据和报表等信息， 而这些信息来源于正在一直运营使用的ERP和财务系统是最可靠与真实的。 NetSuite实现的ERP和财务系统的完美结合，随着多年的经营积累和业务流程升级， NetSuite系统会不断改造和适应新的企业流程和应用。 其中免不
+          var curitemcurrency=''; curitemcurrency=nlapiLookupField('inventoryitem', itemold, 'custitem_currency'); //custitem_currency var curitemrectype=nlapiLookupField('inventoryitem', i...
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/en/201612152140.html#more" rel="contents">
+              <a class="btn" href="/en/200810150546.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -2210,111 +2210,6 @@ zeng.cz
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201410151754.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/en/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl Notes">
-      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/en/201410151754.html" class="post-title-link" itemprop="url">A feature in Netsuite Reports > Financial > Balance Sheet-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="Views">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/201410151754.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          最新版本的Customize balance sheet pageLeft side > Layout > Add Reference RowThen in right side, you were able to specify a custom or standard REPORT value....
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/en/201410151754.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201701051001.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2388,6 +2283,111 @@ zeng.cz
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/en/201701051001.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201410151754.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/en/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/en/201410151754.html" class="post-title-link" itemprop="url">A feature in Netsuite Reports > Financial > Balance Sheet-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/201410151754.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          最新版本的Customize balance sheet pageLeft side > Layout > Add Reference RowThen in right side, you were able to specify a custom or standard REPORT value....
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/en/201410151754.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
