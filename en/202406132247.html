@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在NetSuite的主界面或列表中，创建动态下拉子列表，无缝嵌入到商业应用流程中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="案例展示NetSuite UI界面中创建动态下拉列表">
+<meta property="og:url" content="https://www.carlzeng.top/en/202406132247.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="在NetSuite的主界面或列表中，创建动态下拉子列表，无缝嵌入到商业应用流程中">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/19/6672a7121c35c.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/18/6671838d0e787.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/19/6672a5d64b868.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/19/6672e2c4ae1ab.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/15/666d9804768ee.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/15/666d98635ec4e.png">
+<meta property="article:published_time" content="2024-06-13T14:47:13.000Z">
+<meta property="article:modified_time" content="2024-06-19T13:55:51.928Z">
+<meta property="article:author" content="Carl Notes">
+<meta property="article:tag" content="NetSuite">
+<meta property="article:tag" content="UI">
+<meta property="article:tag" content="SuiteLet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.carlzeng.top:3/i/2024/06/19/6672a7121c35c.png">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/en/202406132247.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/202406132247.html","path":"en/202406132247.html","title":"案例展示NetSuite UI界面中创建动态下拉列表"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>案例展示NetSuite UI界面中创建动态下拉列表 | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT解决方案 NetSuite ERP</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">231</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">63</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">353</span></a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-下载音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载音乐</a></li><li class="menu-item menu-item-直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>直播IPTV</a></li><li class="menu-item menu-item-网盘文件分享"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网盘文件分享</a></li><li class="menu-item menu-item-搜索下载书籍"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>搜索下载书籍</a></li><li class="menu-item menu-item-小店入口"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>小店入口</a></li>
+  </ul>
+
+    <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <div class="search-header">
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="28" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+      </div>
+      </div>
+    </div>
+    </form>
+
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-Custom-Field"><span class="nav-number">5.1.</span> <span class="nav-text">Create Custom Field</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#User-Event"><span class="nav-number">5.2.</span> <span class="nav-text">User Event</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Client-Script-dynamic-behaviors"><span class="nav-number">5.3.</span> <span class="nav-text">Client Script dynamic behaviors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pageInit"><span class="nav-number">5.3.1.</span> <span class="nav-text">pageInit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fieldChanged"><span class="nav-number">5.3.2.</span> <span class="nav-text">fieldChanged</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Library-PRI-DropDown-lib-js"><span class="nav-number">5.4.</span> <span class="nav-text">Library - PRI_DropDown_lib.js</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%8D%E7%94%9F%E9%98%85%E8%AF%BB"><span class="nav-number">6.</span> <span class="nav-text">衍生阅读</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9A%8F%E6%89%8B%E8%AE%B0%E5%BD%95-%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E4%B8%AD%E8%A7%86%E9%A2%91"><span class="nav-number">7.</span> <span class="nav-text">随手记录 - 如何下载网页中视频</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Notes</p>
+  <div class="site-description" itemprop="description">[眼观心察 沉淀共享] 技术文章版本持续佛系更新</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">353</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">231</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202404191047.html" rel="bookmark">
+      用一个查询从销售订单直通供应商账单 NetSuite
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201811151045.html" rel="bookmark">
+      NetSuite Data Migration Implementation NetSuite数据批量更新思路-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200904171039.html" rel="bookmark">
+      email feedback-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202205110811.html" rel="bookmark">
+      NetSuite's next generation transaction - Inbound Shipment-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200907071652.html" rel="bookmark">
+      netsuite 记录类型 权限分配 use permissions-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201701151056.html" rel="bookmark">
+      How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200902181038.html" rel="bookmark">
+      netsuite SyncQtyRate-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201703162254.html" rel="bookmark">
+      NetSuite Build-In Error Message: The record has been deleted since you have retrieved it.-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+    <div class="pjax">
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/202406170802.html" title="记修复价值2千多的Scuf PS4游戏手柄" target=""  class="popular-posts-link">
+                  记修复价值2千多的Scuf PS4游戏手柄
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202406132247.html" title="案例展示NetSuite UI界面中创建动态下拉列表" target=""  class="popular-posts-link">
+                  案例展示NetSuite UI界面中创建动态下拉列表
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202405201839.html" title="PVE安装Windows7" target=""  class="popular-posts-link">
+                  PVE安装Windows7
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202405171053.html" title="任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)" target=""  class="popular-posts-link">
+                  任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202405032136.html" title="任天堂Switch黑屏救砖记录" target=""  class="popular-posts-link">
+                  任天堂Switch黑屏救砖记录
+                  </a>
+                </li>
+        </ul>
+      </div>
+    </div>
+
+    <style>
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      margin-top: 30px !important;
+      padding: clamp(17px, 5%, 40px) clamp(17px, 7%, 50px) !important;
+      max-width: none !important;
+      border-radius: 6px !important;
+      box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview *{
+      box-sizing: border-box !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading {
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5{
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
+      margin-top: 20px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      width: 100% !important;
+      height: 40px !important;
+      border-radius: 6px !important;
+      border: 2px solid #e9e8e8 !important;
+      background-color: #fff !important;
+      outline: none !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      color: #000000 !important;
+      font-family: "Montserrat" !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 20px !important;
+      text-align: center !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+      color: #000000 !important;
+      opacity: 1 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input:-ms-input-placeholder {
+      color: #000000 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::-ms-input-placeholder {
+      color: #000000 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
+      margin-top: 10px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+      width: 100% !important;
+      height: 40px !important;
+      border: 0 !important;
+      border-radius: 6px !important;
+      line-height: 0px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
+      cursor: pointer !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+      color: #231f20 !important;
+      font-family: "Montserrat" !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 25px !important;
+      text-align: center !important;
+      text-decoration: none !important;
+      display: flex !important;
+      width: 100% !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 10px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
+      margin-left: 10px !important;
+      height: 1.13em !important;
+      max-height: 1.13em !important;
+    }
+    </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
+      订阅新文章:
+    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="Enter your email to receive new articles" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
+      Subscribe
+    </button></div></div></form></div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202406132247.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="[眼观心察 沉淀共享] 技术文章版本持续佛系更新">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="案例展示NetSuite UI界面中创建动态下拉列表 | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          案例展示NetSuite UI界面中创建动态下拉列表
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-19 21:55:51" itemprop="dateModified" datetime="2024-06-19T21:55:51+08:00">2024-06-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/202406132247.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>32 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.top:3/i/2024/06/19/6672a7121c35c.png">
+
+<p>在NetSuite的主界面或列表中，创建动态下拉子列表，无缝嵌入到商业应用流程中</p>
+<span id="more"></span>
+
+<div> 
+<button onclick="synthesizeSpeech()">朗读全文</button>
+</div>
+<audio controls id="audioPlayer">Your browser does not support the audio element.</audio>      
+<script>
+  function synthesizeSpeech() { 
+    var inputText = document.getElementsByClassName('post-block')[0].innerText;
+    var voice = "ZH";
+    var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
+    var audioPlayer = document.getElementById('audioPlayer');          
+    audioPlayer.src = url;
+    audioPlayer.load();
+    audioPlayer.play();
+  }
+</script>
+
+
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>学会如何在NetSuite UI界面中创建动态下拉列表</p>
+<ul>
+<li>在主界面(Custom Body Field)中创建动态下拉列表字段</li>
+<li>在列表行(Custom Line Item Field)中创建动态下拉列表字段</li>
+</ul>
+<p>在现实业务流程中，这样的动态下拉列表应用十分广泛；而NetSuite自带的自定义字段的动态下来过滤功能十分有限。很多的应用场景无法满足，这里就不一一展开说明，懂的都懂。</p>
+<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p><img data-src="https://img.carlzeng.top:3/i/2024/06/18/6671838d0e787.png" alt="image-20240618205434547"></p>
+<p>本案例：要在下拉列表中，将Replacement Vendor字段的内容，动态地根据Replacement Item字段的内容而决定。就是根据Item货品的供应商列表来过滤当前自定义记录界面中的Replacement Vendor字段的下拉内容，从而达到Replacement Vendor字段的下拉列表不展示系统中所有的Vendor，而是限定于特定Item货品（当前行中的货品字段）的供应商列表（这个使用其实也同时可以展示该供应商的此货品采购价）</p>
+<h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><ol>
+<li>创建一个系统中的自定义字段<ol>
+<li>如果是把动态列表放在主界面，那么该‘容器’字段也可以使用UserEvent的script生成出这个一个动态的自定义字段。</li>
+<li>如果是把动态列表放在主界面下的列表中（比如：销售订单的货品列表中），那么就必须要新建一个自定义列字段；</li>
+<li>而假如是要把动态列表放在主界面下的列表中（比如：主从关系的自定义记录类型Custom Record Type），那么就是新建一个自定字段在在子记录类型中（这个子自定义记录类型在UI中会变成一个列表sublist）</li>
+</ol>
+</li>
+<li>新建一个Library脚本文件Script（详见下方的PRI_DropDown_lib.js文件全部内容展示）</li>
+<li>创建一个User Event Script记录<ol>
+<li>用来新建初始化字段（可选，根据实际需要）</li>
+<li>用来初始化字段的HTML内容；这个初始化内容是根据列表中当前的货品来决定的，UI的编辑状态用户是可以随时在界面中切换货品字段内容，从而需要重新初始化该HTML内容（详见实现在下方的Client Script中）</li>
+</ol>
+</li>
+<li>创建一个Client Script记录<ol>
+<li>在列表的line init事件中，初始化当前行的Vendor列表（根据当前的货品字段内容）</li>
+<li>在用户切换了Item货品字段内容后，重新刷新初始化当前行的Vendor列表</li>
+</ol>
+</li>
+</ol>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=netsuite" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><h2 id="Create-Custom-Field"><a href="#Create-Custom-Field" class="headerlink" title="Create Custom Field"></a>Create Custom Field</h2><p>新建自定义字段的定义案例：</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/06/19/6672a5d64b868.png" alt="image-20240619173308707"></p>
+<p>说明：这个字段的TYPE，用Free Form Text也是一样的。</p>
+<h2 id="User-Event"><a href="#User-Event" class="headerlink" title="User Event"></a>User Event</h2><p>to initial the UI to put-in&#x2F;inject the dropdown HTML</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> intDefProject = currentRecord.<span class="title function_">getValue</span>(<span class="string">&#x27;custbody_pri_prj&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> clsProjectDropDown = <span class="keyword">new</span> <span class="variable constant_">CLLIB</span>.<span class="title function_">PROJECTDROPDOWN</span>(intEntityId,</span><br><span class="line">    <span class="string">&#x27;&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Set entity projects dropdown options HTML</span></span><br><span class="line"><span class="keyword">var</span> strInitSelectHtml = clsProjectDropDown.<span class="title function_">initOptionHtml</span>(</span><br><span class="line">    intDefProject, scriptContext.<span class="property">type</span>);</span><br><span class="line">objFldProject.<span class="property">defaultValue</span> = <span class="string">&quot;&lt;div class=\&quot;uir-field-wrapper\&quot; data-field-type=\&quot;text\&quot;&gt;&lt;span id=\&quot;projectdropdown_fs_lbl_uir_label\&quot; class=\&quot;smallgraytextnolink uir-label \&quot;&gt;&lt;span id=\&quot;projectdropdown_fs_lbl\&quot; class=\&quot;labelSpanEdit smallgraytextnolink\&quot; style=\&quot;\&quot;&gt;&quot;</span></span><br><span class="line">    + <span class="string">&quot;&lt;a tabindex=\&quot;-1\&quot; title=\&quot;What&#x27;s this?\&quot; href=&#x27;javascript:void(\&quot;help\&quot;)&#x27; style=\&quot;cursor:help\&quot;  class=\&quot;smallgraytextnolink\&quot; onmouseover=\&quot;this.className=&#x27;smallgraytext&#x27;; return true;\&quot; onmouseout=\&quot;this.className=&#x27;smallgraytextnolink&#x27;; \&quot;&gt;&quot;</span></span><br><span class="line">    + strPrjLbl</span><br><span class="line">    + <span class="string">&quot;&lt;/a&gt;&quot;</span></span><br><span class="line">    + <span class="string">&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=\&quot;uir-field\&quot;&gt;&quot;</span></span><br><span class="line">    + strInitSelectHtml + <span class="string">&quot;&lt;/span&gt;&quot;</span> + <span class="string">&quot;&lt;/div&gt;&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>上面这个方案是直接注入到系统的自定义字段中（在NetSuite系统的自定义字段中定义的）</p>
+<p>或者使用全新的Script新增的动态的html字段</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> objFldProject = objForm.<span class="title function_">addField</span>(&#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="string">&#x27;custpage_pri_prj&#x27;</span>,</span><br><span class="line">    <span class="attr">type</span>: ui.<span class="property">FieldType</span>.<span class="property">INLINEHTML</span>,</span><br><span class="line">    <span class="attr">label</span>: strPrjLbl</span><br><span class="line">&#125;);</span><br><span class="line">objForm.<span class="title function_">insertField</span>(&#123;</span><br><span class="line">    <span class="attr">field</span>: objFldProject,</span><br><span class="line">    <span class="attr">nextfield</span>: <span class="string">&#x27;custbody_pri_co&#x27;</span>,<span class="comment">// &#x27;job&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">objFldProject.<span class="property">defaultValue</span> = <span class="string">&quot;&lt;div class=\&quot;uir-field-wrapper\&quot; data-field-type=\&quot;text\&quot;&gt;&lt;span id=\&quot;projectdropdown_fs_lbl_uir_label\&quot; class=\&quot;smallgraytextnolink uir-label \&quot;&gt;&lt;span id=\&quot;projectdropdown_fs_lbl\&quot; class=\&quot;labelSpanEdit smallgraytextnolink\&quot; style=\&quot;\&quot;&gt;&quot;</span></span><br><span class="line">    + <span class="string">&quot;&lt;a tabindex=\&quot;-1\&quot; title=\&quot;What&#x27;s this?\&quot; href=&#x27;javascript:void(\&quot;help\&quot;)&#x27; style=\&quot;cursor:help\&quot;  class=\&quot;smallgraytextnolink\&quot; onmouseover=\&quot;this.className=&#x27;smallgraytext&#x27;; return true;\&quot; onmouseout=\&quot;this.className=&#x27;smallgraytextnolink&#x27;; \&quot;&gt; &quot;</span></span><br><span class="line">    + strPrjLbl</span><br><span class="line">    + <span class="string">&quot;&lt;/a&gt;&quot;</span></span><br><span class="line">    + <span class="string">&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=\&quot;uir-field\&quot;&gt;&quot;</span></span><br><span class="line">    + <span class="string">&quot;&lt;select id=\&quot;custpage_projectdropdown\&quot; name=\&quot;custpage_projectdropdown\&quot; autocomplete=\&quot;off\&quot; lineindex=\&quot;1\&quot; class=\&quot;input uir-custom-field\&quot;&gt;&quot;</span></span><br><span class="line">    + <span class="string">&quot;&lt;option value=\&quot;\&quot;&gt; &lt;/option&gt;&quot;</span></span><br><span class="line">    + <span class="string">&quot;&lt;/select&gt;&quot;</span></span><br><span class="line">    + <span class="string">&quot;&lt;/span&gt;&quot;</span> + <span class="string">&quot;&lt;/div&gt;&quot;</span> + <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h2 id="Client-Script-dynamic-behaviors"><a href="#Client-Script-dynamic-behaviors" class="headerlink" title="Client Script dynamic behaviors"></a>Client Script dynamic behaviors</h2><h3 id="pageInit"><a href="#pageInit" class="headerlink" title="pageInit"></a>pageInit</h3><p>可选，仅用于使用主界面的系统自带自定义字段来‘加载’动态列表的情况下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">			 * Function to be executed after page is initialized.</span></span><br><span class="line"><span class="comment">			 *</span></span><br><span class="line"><span class="comment">			 * <span class="doctag">@param</span> &#123;<span class="type">Object</span>&#125;</span></span><br><span class="line"><span class="comment">			 *            scriptContext</span></span><br><span class="line"><span class="comment">			 * <span class="doctag">@param</span> &#123;<span class="type">Record</span>&#125;</span></span><br><span class="line"><span class="comment">			 *            scriptContext.currentRecord - Current form record</span></span><br><span class="line"><span class="comment">			 * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125;</span></span><br><span class="line"><span class="comment">			 *            scriptContext.mode - The mode in which the record is</span></span><br><span class="line"><span class="comment">			 *            being accessed (create, copy, or edit)</span></span><br><span class="line"><span class="comment">			 *</span></span><br><span class="line"><span class="comment">			 * <span class="doctag">@since</span> 2015.2</span></span><br><span class="line"><span class="comment">			 */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">pageInit</span>(<span class="params">scriptContext</span>) &#123;</span><br><span class="line"></span><br><span class="line">  ...</span><br><span class="line">  </span><br><span class="line">    <span class="comment">// Bind select option change event</span></span><br><span class="line">    <span class="keyword">var</span> clsProjectDropDown = <span class="keyword">new</span> <span class="variable constant_">CLLIB</span>.<span class="title function_">PROJECTDROPDOWN</span>(intEntityId,</span><br><span class="line">          objDropdownDom, &#123;<span class="string">&#x27;currentRecord&#x27;</span>: currentRecord&#125;);</span><br><span class="line">    clsProjectDropDown.<span class="title function_">bindSelectEvent</span>();</span><br><span class="line">  </span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="fieldChanged"><a href="#fieldChanged" class="headerlink" title="fieldChanged"></a>fieldChanged</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fieldChanged</span>(<span class="params">scriptContext</span>) &#123;</span><br><span class="line">  <span class="keyword">switch</span> (scriptContext.<span class="property">fieldId</span>) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">case</span> ....</span><br><span class="line">      </span><br><span class="line">      <span class="comment">// Bind select option change event</span></span><br><span class="line">      <span class="keyword">var</span> clsProjectDropDown = <span class="keyword">new</span> <span class="variable constant_">CLLIB</span>.<span class="title function_">PROJECTDROPDOWN</span>(</span><br><span class="line">            intEntityId, objDropdownDom, &#123;<span class="string">&#x27;currentRecord&#x27;</span>: currentRecord&#125;);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (!intEntityId) &#123;</span><br><span class="line">         clsProjectDropDown.<span class="title function_">clearSelectOptions</span>();</span><br><span class="line">         <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// Draw entity project dropdown options</span></span><br><span class="line">      clsProjectDropDown.<span class="title function_">drawDOM</span>();</span><br><span class="line">  		<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">      </span><br></pre></td></tr></table></figure>
+
+<p>pri_RetMgr_vendor_refreshSelectOption</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">pri_RetMgr_vendor_refreshSelectOption</span>(<span class="params">currentRecord</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> lnIdx = currentRecord.<span class="title function_">getCurrentSublistIndex</span>(&#123;</span><br><span class="line">        <span class="attr">sublistId</span>: strSublistId_replc</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">var</span> intItemId = currentRecord.<span class="title function_">getCurrentSublistValue</span>(strSublistId_replc, <span class="variable constant_">RETMGRLIB</span>.<span class="property">REC_RETURNMGR_REPLC_LINE</span>.<span class="property">ITEM</span>);</span><br><span class="line">    <span class="keyword">var</span> intVendorId_cur = currentRecord.<span class="title function_">getCurrentSublistValue</span>(strSublistId_replc, <span class="variable constant_">RETMGRLIB</span>.<span class="property">REC_RETURNMGR_REPLC_LINE</span>.<span class="property">VENDOR</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> objDropdownDom = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;recmachcustrecord_pri_return_mgr_replc_parent_custrecord_pri_return_mgr_replc_selvnd_fs&#x27;</span>);</span><br><span class="line">        <span class="comment">// Bind select option change event</span></span><br><span class="line">        <span class="keyword">var</span> clsVendorDropDown = <span class="keyword">new</span> <span class="variable constant_">DDLIB</span>.<span class="title function_">DROPDOWN</span>(intItemId, objDropdownDom, &#123;<span class="string">&#x27;currentRecord&#x27;</span>: currentRecord&#125;);</span><br><span class="line">        <span class="title function_">jQuery</span>(<span class="string">&#x27;#recmachcustrecord_pri_return_mgr_replc_parent_custrecord_pri_return_mgr_replc_selvnd_fs&#x27;</span>).<span class="title function_">html</span>(clsVendorDropDown.<span class="title function_">initOptionHtml</span>(intVendorId_cur));</span><br><span class="line">        clsVendorDropDown.<span class="title function_">bindSelectEvent</span>();</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">catch</span> (ex) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(ex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Special case: After you change the item from Item A to Item B, the original vendor value should/might be cleared(since that vendor is not in new Item B’s vendor list)</span></span><br><span class="line">    <span class="keyword">if</span> (intVendorId_cur) &#123;</span><br><span class="line">        <span class="keyword">var</span> bolVendorAvailable = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">var</span> arrProjectResObj = clsVendorDropDown.<span class="property">arrProjectResObj</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; arrProjectResObj &amp;&amp; i &lt; arrProjectResObj.<span class="property">length</span>; i++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (intVendorId_cur == arrProjectResObj[i].<span class="property">ID</span>)&#123;</span><br><span class="line">                bolVendorAvailable = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (bolVendorAvailable === <span class="literal">false</span>)</span><br><span class="line">            currentRecord.<span class="title function_">setCurrentSublistValue</span>(&#123;</span><br><span class="line">                <span class="attr">sublistId</span>: strSublistId_replc,</span><br><span class="line">                <span class="attr">fieldId</span>: <span class="variable constant_">RETMGRLIB</span>.<span class="property">REC_RETURNMGR_REPLC_LINE</span>.<span class="property">VENDOR</span>,</span><br><span class="line">                <span class="attr">value</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从这个函数可以得知这个自定义的动态下拉字段，初始化的值也是会被加载的，非常顺滑。</p>
+<hr>
+<h2 id="Library-PRI-DropDown-lib-js"><a href="#Library-PRI-DropDown-lib-js" class="headerlink" title="Library - PRI_DropDown_lib.js"></a>Library - PRI_DropDown_lib.js</h2><p>used in both Client and UserEvent&#x2F;Server side. 核心公共函数库</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">//Developer: Carl</span></span><br><span class="line"><span class="comment">//Description: Need a dynamic Drop Down on the record/transaction of vendor list.</span></span><br><span class="line"><span class="comment">// Thus, the drop down on record/transaction should filter for item that are related.</span></span><br><span class="line"><span class="comment">//------------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@NApiVersion</span> 2.x</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@NModuleScope</span> <span class="variable">Public</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="title function_">define</span>(</span><br><span class="line">    [<span class="string">&#x27;N/error&#x27;</span>, <span class="string">&#x27;N/record&#x27;</span>, <span class="string">&#x27;N/runtime&#x27;</span>, <span class="string">&#x27;N/search&#x27;</span>, <span class="string">&#x27;./PRI_RM_ReturnManager_lib&#x27;</span>],</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &#123;<span class="type">error</span>&#125;</span></span><br><span class="line"><span class="comment">     *            error</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &#123;<span class="type">record</span>&#125;</span></span><br><span class="line"><span class="comment">     *            record</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &#123;<span class="type">runtime</span>&#125;</span></span><br><span class="line"><span class="comment">     *            runtime</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &#123;<span class="type">search</span>&#125;</span></span><br><span class="line"><span class="comment">     *            search</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &#123;<span class="type">dialog</span>&#125;</span></span><br><span class="line"><span class="comment">     *            dialog</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">function</span> (<span class="params">error, record, runtime, search, RETMGRLIB</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// ---------------------- Drop Down Class-----------------</span></span><br><span class="line">        <span class="keyword">function</span> <span class="title function_">DROPDOWN</span>(<span class="params">intItemId, objDropdownDom, options</span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">intItemId</span> = intItemId;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">objDropdownDom</span> = objDropdownDom;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (intItemId) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">arrProjectResObj</span> = <span class="variable language_">this</span>.<span class="title function_">lookupVendorRecords</span>();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">strInitSelectFld</span> = <span class="string">&quot;&lt;select id=\&quot;custpage_projectdropdown\&quot; name=\&quot;custpage_projectdropdown\&quot; autocomplete=\&quot;off\&quot; lineindex=\&quot;1\&quot; class=\&quot;input uir-custom-field\&quot;&gt;&quot;</span></span><br><span class="line">                + <span class="string">&quot;&lt;option value=\&quot;\&quot;&gt; &lt;/option&gt;&quot;</span></span><br><span class="line">                + <span class="string">&#x27;REPLACE_OPTIONAL_HTML&#x27;</span> + <span class="string">&quot;&lt;/select&gt;&quot;</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (options &amp;&amp; <span class="keyword">typeof</span> (options.<span class="property">currentRecord</span>) != <span class="string">&#x27;undefined&#x27;</span>) &#123;</span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">currentRecord</span> = options.<span class="property">currentRecord</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * lookup Vendor Records</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">String</span>&#125;</span></span><br><span class="line"><span class="comment">         *            strLookupKeyWord Lookup Keyword</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@returns</span> &#123;<span class="type">Object</span>&#125; <span class="variable">objOrderStatusSublist</span></span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="variable constant_">DROPDOWN</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">lookupVendorRecords</span> = <span class="keyword">function</span> (<span class="params">strLookupKeyWord</span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> intItemId = <span class="variable language_">this</span>.<span class="property">intItemId</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (!intItemId)</span><br><span class="line">                <span class="keyword">return</span> [];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> arrProjectRes = [];</span><br><span class="line">            <span class="keyword">var</span> objFilters = [[<span class="string">&#x27;isinactive&#x27;</span>, <span class="string">&#x27;is&#x27;</span>, <span class="string">&#x27;F&#x27;</span>]];</span><br><span class="line">            <span class="comment">// if (intItemId) &#123;</span></span><br><span class="line">            <span class="comment">// 	objFilters.push(&#x27;and&#x27;);</span></span><br><span class="line">            <span class="comment">// 	objFilters.push([ RETMGRLIB.REC_PRIPROJECT.CUSTOMER, &#x27;anyof&#x27;,</span></span><br><span class="line">            <span class="comment">// 			[ intItemId ] ]);</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">            objFilters.<span class="title function_">push</span>(<span class="string">&#x27;and&#x27;</span>);</span><br><span class="line">            objFilters.<span class="title function_">push</span>([<span class="string">&#x27;internalid&#x27;</span>, <span class="string">&#x27;anyof&#x27;</span>, [intItemId]]);</span><br><span class="line">            <span class="keyword">var</span> objColumns = [<span class="string">&#x27;itemid&#x27;</span>, <span class="string">&#x27;displayname&#x27;</span>, <span class="string">&#x27;othervendor&#x27;</span>, <span class="string">&#x27;cost&#x27;</span>];</span><br><span class="line">            objColumns.<span class="title function_">push</span>(&#123;<span class="attr">name</span>: <span class="string">&quot;internalid&quot;</span>, <span class="attr">join</span>: <span class="string">&quot;vendor&quot;</span>&#125;);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> objRecordRes = search.<span class="title function_">create</span>(</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">type</span>: <span class="string">&#x27;item&#x27;</span>,</span><br><span class="line">                    <span class="attr">filters</span>: objFilters,</span><br><span class="line">                    <span class="attr">columns</span>: objColumns</span><br><span class="line">                &#125;).<span class="title function_">run</span>().<span class="title function_">getRange</span>(&#123;</span><br><span class="line">                <span class="attr">start</span>: <span class="number">0</span>,</span><br><span class="line">                <span class="attr">end</span>: <span class="number">1000</span></span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; objRecordRes &amp;&amp; i &lt; objRecordRes.<span class="property">length</span>; i++) &#123;</span><br><span class="line"></span><br><span class="line">                arrProjectRes.<span class="title function_">push</span>(&#123;</span><br><span class="line">                    <span class="attr">ID</span>: objRecordRes[i].<span class="title function_">getValue</span>(&#123;</span><br><span class="line">                        <span class="attr">name</span>: <span class="string">&quot;internalid&quot;</span>,</span><br><span class="line">                        <span class="attr">join</span>: <span class="string">&quot;vendor&quot;</span></span><br><span class="line">                    &#125;),</span><br><span class="line">                    <span class="comment">// NAME: objRecordRes[i].getValue(&#x27;itemid&#x27;),</span></span><br><span class="line">                    <span class="attr">COST</span>: objRecordRes[i].<span class="title function_">getValue</span>(<span class="string">&#x27;cost&#x27;</span>),</span><br><span class="line">                    <span class="attr">VALUE</span>: objRecordRes[i].<span class="title function_">getText</span>(<span class="string">&#x27;othervendor&#x27;</span>)</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> arrProjectRes;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * Dynamically clear select options</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@returns</span> &#123;<span class="type">Boolean</span>&#125;</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="variable constant_">DROPDOWN</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">clearSelectOptions</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="title function_">jQuery</span>(<span class="string">&quot;#custpage_projectdropdown&quot;</span>).<span class="title function_">replaceWith</span>(</span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">strInitSelectFld</span>.<span class="title function_">replace</span>(<span class="string">&#x27;REPLACE_OPTIONAL_HTML&#x27;</span>,</span><br><span class="line">                    <span class="string">&#x27;&#x27;</span>));</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * Draw select option DOM element</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="variable constant_">DROPDOWN</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">drawDOM</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> objDropdownDom = <span class="variable language_">this</span>.<span class="property">objDropdownDom</span>;</span><br><span class="line">            <span class="keyword">var</span> arrProjectResObj = <span class="variable language_">this</span>.<span class="property">arrProjectResObj</span> ? <span class="variable language_">this</span>.<span class="property">arrProjectResObj</span> : <span class="variable language_">this</span>.<span class="title function_">lookupVendorRecords</span>();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> strOptionHtml = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> idx = <span class="number">0</span>; idx &lt; arrProjectResObj.<span class="property">length</span>; idx++) &#123;</span><br><span class="line">                strOptionHtml += <span class="string">&#x27;&lt;option value=&quot;&#x27;</span></span><br><span class="line">                    + arrProjectResObj[idx].<span class="property">ID</span></span><br><span class="line">                    + <span class="string">&#x27;&quot; data-status=&#x27;</span></span><br><span class="line">                    + arrProjectResObj[idx].<span class="property">COST</span></span><br><span class="line">                    + <span class="string">&#x27; title=&quot;&#x27;</span></span><br><span class="line">                    + <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(arrProjectResObj[idx]).<span class="title function_">replace</span>(</span><br><span class="line">                        <span class="regexp">/\&quot;/g</span>, <span class="string">&quot;&#x27;&quot;</span>) + <span class="string">&#x27;&quot;&gt;&#x27;</span></span><br><span class="line">                    + arrProjectResObj[idx].<span class="property">VALUE</span> + <span class="string">&#x27;&lt;/option&gt;&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">var</span> strInitSelectFld = <span class="variable language_">this</span>.<span class="property">strInitSelectFld</span>.<span class="title function_">replace</span>(</span><br><span class="line">                <span class="string">&#x27;REPLACE_OPTIONAL_HTML&#x27;</span>, strOptionHtml);</span><br><span class="line"></span><br><span class="line">            <span class="title function_">jQuery</span>(<span class="string">&quot;#custpage_projectdropdown&quot;</span>).<span class="title function_">replaceWith</span>(</span><br><span class="line">                strInitSelectFld);</span><br><span class="line"></span><br><span class="line">            <span class="variable language_">this</span>.<span class="title function_">bindSelectEvent</span>();</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * Bind Selection Operation &lt;br&gt;</span></span><br><span class="line"><span class="comment">         * Note: Only used in Client Side</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="variable constant_">DROPDOWN</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">bindSelectEvent</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="title function_">jQuery</span>(<span class="variable language_">document</span>).<span class="title function_">ready</span>(</span><br><span class="line">                <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">                    <span class="title function_">jQuery</span>(<span class="string">&quot;#custpage_projectdropdown&quot;</span>).<span class="title function_">change</span>(</span><br><span class="line">                        <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">                            <span class="comment">// alert(jQuery(this).val());</span></span><br><span class="line">                            <span class="title function_">nlapiSetCurrentLineItemValue</span>(<span class="string">&#x27;recmachcustrecord_pri_return_mgr_replc_parent&#x27;</span>, <span class="variable constant_">RETMGRLIB</span>.<span class="property">REC_RETURNMGR_REPLC_LINE</span>.<span class="property">VENDOR</span>,</span><br><span class="line">                                <span class="title function_">jQuery</span>(<span class="variable language_">this</span>).<span class="title function_">val</span>());</span><br><span class="line"></span><br><span class="line">                            <span class="comment">// var strStatus = jQuery(this).find(</span></span><br><span class="line">                            <span class="comment">// &quot;:selected&quot;).data(&quot;status&quot;);</span></span><br><span class="line">                        &#125;);</span><br><span class="line">                &#125;);</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * Initial Option HTML, can use in server side</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">integer</span>&#125;</span></span><br><span class="line"><span class="comment">         *            intDefSelectVal Default Contact record type Id</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125;</span></span><br><span class="line"><span class="comment">         *            strUserEventType User Event Type</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@returns</span> &#123;<span class="type">string</span>&#125;</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="variable constant_">DROPDOWN</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">initOptionHtml</span> = <span class="keyword">function</span> (<span class="params"></span></span><br><span class="line"><span class="params">            intDefSelectVal, strUserEventType</span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// if (!this.intItemId)</span></span><br><span class="line">            <span class="comment">// return &#x27;&#x27;;</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> arrProjectResObj = <span class="variable language_">this</span>.<span class="property">arrProjectResObj</span> ? <span class="variable language_">this</span>.<span class="property">arrProjectResObj</span> : <span class="variable language_">this</span>.<span class="title function_">lookupVendorRecords</span>();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> strOptionHtml = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> idx = <span class="number">0</span>; idx &lt; arrProjectResObj.<span class="property">length</span>; idx++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (intDefSelectVal</span><br><span class="line">                    &amp;&amp; arrProjectResObj[idx].<span class="property">ID</span> == intDefSelectVal)</span><br><span class="line">                    strOptionHtml += <span class="string">&#x27;&lt;option selected=&quot;selected&quot; value=&quot;&#x27;</span></span><br><span class="line">                        + arrProjectResObj[idx].<span class="property">ID</span></span><br><span class="line">                        + <span class="string">&#x27;&quot; data-status=&#x27;</span></span><br><span class="line">                        + arrProjectResObj[idx].<span class="property">COST</span></span><br><span class="line">                        + <span class="string">&#x27; title=&quot;&#x27;</span></span><br><span class="line">                        + <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(arrProjectResObj[idx])</span><br><span class="line">                            .<span class="title function_">replace</span>(<span class="regexp">/\&quot;/g</span>, <span class="string">&quot;&#x27;&quot;</span>) + <span class="string">&#x27;&quot;&gt;&#x27;</span></span><br><span class="line">                        + arrProjectResObj[idx].<span class="property">VALUE</span> + <span class="string">&#x27;&lt;/option&gt;&#x27;</span>;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    strOptionHtml += <span class="string">&#x27;&lt;option value=&quot;&#x27;</span></span><br><span class="line">                        + arrProjectResObj[idx].<span class="property">ID</span></span><br><span class="line">                        + <span class="string">&#x27;&quot; data-status=&#x27;</span></span><br><span class="line">                        + arrProjectResObj[idx].<span class="property">COST</span></span><br><span class="line">                        + <span class="string">&#x27; title=&quot;&#x27;</span></span><br><span class="line">                        + <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(arrProjectResObj[idx])</span><br><span class="line">                            .<span class="title function_">replace</span>(<span class="regexp">/\&quot;/g</span>, <span class="string">&quot;&#x27;&quot;</span>) + <span class="string">&#x27;&quot;&gt;&#x27;</span></span><br><span class="line">                        + arrProjectResObj[idx].<span class="property">VALUE</span> + <span class="string">&#x27;&lt;/option&gt;&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> strInitSelectFld = <span class="variable language_">this</span>.<span class="property">strInitSelectFld</span>;</span><br><span class="line">            <span class="keyword">if</span> (strUserEventType == <span class="string">&#x27;view&#x27;</span>)</span><br><span class="line">                strInitSelectFld = strInitSelectFld.<span class="title function_">replace</span>(</span><br><span class="line">                    <span class="string">&#x27;&lt;select id=\&quot;custpage_projectdropdown\&quot;&#x27;</span>,</span><br><span class="line">                    <span class="string">&quot;&lt;select id=\&quot;custpage_projectdropdown\&quot; disabled&quot;</span>);</span><br><span class="line"></span><br><span class="line">            strInitSelectFld = strInitSelectFld.<span class="title function_">replace</span>(</span><br><span class="line">                <span class="string">&#x27;REPLACE_OPTIONAL_HTML&#x27;</span>, strOptionHtml);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> strInitSelectFld;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="attr">DROPDOWN</span>: <span class="variable constant_">DROPDOWN</span></span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>bindSelectEvent，当完成了HTML展示动态更新的下拉子列表后，绑定新的点击事件；当用户选取新的列表选项后，我们将值传递给另一个系统的字段（或者其他的商业逻辑定义）</li>
+</ul>
+<h1 id="衍生阅读"><a href="#衍生阅读" class="headerlink" title="衍生阅读"></a>衍生阅读</h1><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">来吧，约个时间当面谈，我很乐意效劳，有什么NetSuite系统定制开发中的疑难杂症我可以帮忙的吗?</a></p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/06/19/6672e2c4ae1ab.png" alt="image-20240619215304248"></p>
+<h1 id="随手记录-如何下载网页中视频"><a href="#随手记录-如何下载网页中视频" class="headerlink" title="随手记录 - 如何下载网页中视频"></a>随手记录 - 如何下载网页中视频</h1><p><img data-src="https://img.carlzeng.top:3/i/2024/06/15/666d9804768ee.png" alt="image-20240615213247707"></p>
+<p>Firefox插件名称和版本信息</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/06/15/666d98635ec4e.png" alt="image-20240615213422690"></p>
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="wechat,weibo,qq,facebook"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Carl Notes
+    <a href='https://www.carlzeng.top/202406132247.html'> 《案例展示NetSuite UI界面中创建动态下拉列表》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://www.carlzeng.top/202406132247.html" title="案例展示NetSuite UI界面中创建动态下拉列表">https://www.carlzeng.top/202406132247.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <main class="main">
+<div class="column">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202404191047.html" rel="bookmark">
+      用一个查询从销售订单直通供应商账单 NetSuite
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201811151045.html" rel="bookmark">
+      NetSuite Data Migration Implementation NetSuite数据批量更新思路-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200904171039.html" rel="bookmark">
+      email feedback-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202205110811.html" rel="bookmark">
+      NetSuite's next generation transaction - Inbound Shipment-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200907071652.html" rel="bookmark">
+      netsuite 记录类型 权限分配 use permissions-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201701151056.html" rel="bookmark">
+      How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200902181038.html" rel="bookmark">
+      netsuite SyncQtyRate-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201703162254.html" rel="bookmark">
+      NetSuite Build-In Error Message: The record has been deleted since you have retrieved it.-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="column">
+<div class="pjax">
+<!-- recent posts -->
+<div class="animated">
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="popular-posts">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202406170802.html" title="记修复价值2千多的Scuf PS4游戏手柄" target="" class="popular-posts-link">
+              记修复价值2千多的Scuf PS4游戏手柄
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202406132247.html" title="案例展示NetSuite UI界面中创建动态下拉列表" target="" class="popular-posts-link">
+              案例展示NetSuite UI界面中创建动态下拉列表
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202405201839.html" title="PVE安装Windows7" target="" class="popular-posts-link">
+              PVE安装Windows7
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202405171053.html" title="任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)" target="" class="popular-posts-link">
+              任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202405032136.html" title="任天堂Switch黑屏救砖记录" target="" class="popular-posts-link">
+              任天堂Switch黑屏救砖记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202404260828.html" title="任天堂Switch硬件修复记录" target="" class="popular-posts-link">
+              任天堂Switch硬件修复记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202404191047.html" title="用一个查询从销售订单直通供应商账单 NetSuite" target="" class="popular-posts-link">
+              用一个查询从销售订单直通供应商账单 NetSuite
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202404081832.html" title="分享小主机docker安装离线下载工具" target="" class="popular-posts-link">
+              分享小主机docker安装离线下载工具
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202404061606.html" title="免费试用在线SuiteCRM产品 简易定制或集成限时免费" target="" class="popular-posts-link">
+              免费试用在线SuiteCRM产品 简易定制或集成限时免费
+              </a>
+            </li>
+    </ul>
+  </div>
+  </div>
+</div>
+</div>
+</main>
+
+
+<div class="followme">
+  <span><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email Subscription</a>  If the article solved your concern or clear some doubts, please <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLnRvcDozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">buy me a coffee</a>.  Also we can <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">Schedule a Converstion</a></span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">联系我(谈话)</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">IPTV直播</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/202312081128.html">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">M3U8播放器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">MP3与下载</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">ChatGPT问答</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">网络加速器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">文件分享</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">下载电子书</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">IT小工具集合</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2024-06-19 21:55:51" itemprop="dateModified" datetime="2024-06-19T21:55:51+08:00">2024-06-19</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/NetSuite/" rel="tag"># NetSuite</a>
+              <a href="/tags/UI/" rel="tag"># UI</a>
+              <a href="/tags/SuiteLet/" rel="tag"># SuiteLet</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202405201839.html" rel="prev" title="PVE安装Windows7">
+                  <i class="fa fa-angle-left"></i> PVE安装Windows7
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/202406170802.html" rel="next" title="记修复价值2千多的Scuf PS4游戏手柄">
+                  记修复价值2千多的Scuf PS4游戏手柄 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>English</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="Select language">
+      
+        <option value="zh-CN" data-href="/202406132247.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/202406132247.html" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+</div>
+
+<!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*.carlzeng.top"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//statcounter.carlzeng.top:4443/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="//statcounter.carlzeng.top:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
+
+<div class="powered-by">
+    <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 选择服务器：<a href="https://www.carlzeng.top">Main</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oay5jYXJsemVuZy50b3A=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">US</a>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202406132247.html","pageTitle":"案例展示NetSuite UI界面中创建动态下拉列表"}</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>
