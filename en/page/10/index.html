@@ -46,7 +46,7 @@
 
 
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.top:4443">
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
   <noscript>
     <link rel="stylesheet" href="/en/css/noscript.css">
   </noscript>
@@ -306,7 +306,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201701051001.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202103112129.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -324,7 +324,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/201701051001.html" class="post-title-link" itemprop="url">Bar codes in NetSuite Saved Searches(transport/reprint) 活用NetSuite搜索页面显示可扫描条码-CarlZeng</a>
+          <a href="/en/202103112129.html" class="post-title-link" itemprop="url">FedEx Package Rate Integration with NetSuite direct integrate by WebServices-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -353,7 +353,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/201701051001.html" ></span>
+            <span id="ArtalkPV" data-page-key="/en/202103112129.html" ></span>
           </span>
         
       
@@ -364,7 +364,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>4 mins.</span>
+      <span>7 mins.</span>
     </span>
 </div>
 
@@ -375,10 +375,252 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          THIS IS A COPY FROM BLOG THIS IS A COPY FROM BLOG Ways of incorporating Bar Codes into your Netsuite Saved Searches. Code 39: Step 1:&#160;Load web font fi
+          <h1 id="Quick-TECHNICAL-Note"><a href="#Quick-TECHNICAL-Note" class="headerlink" title="Quick TECHNICAL Note"></a>Quick TECHNICAL Note</h1><p>Reality: UPS only support WebServices integration(or window platform exe application: FedEx Ship Manager® Lite), friendly for JAVA, PHP or C#.</p>
+<p>We need to calling UPS SOAP services in NetSuite directly, so there is JSON -&gt; XML for input expected XML parameters and parse API return result XML -&gt; JSON action. </p>
+<p>Different from UPS, There is high request for xml’s element order&#x2F;sequence for FedEx API.</p>
+<p><strong>This’s a re-usable framework for intergration with WebServices platform&#x2F;application.</strong></p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>Registration for the Developer Keys</p>
+<p>We will need registration on webside got</p>
+<p>Developer Test Key:   PFPtfQE9ME1N****<br>Required for FedEx Web Services for Intra Country Shipping in US and Global </p>
+<p>and the Email Box:</p>
+<p>Title: Your Developer Test Key Registration is complete</p>
+<p>Test Account Information<br>&lt;spacer.gif&gt;<br>Test URL: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93c2JldGEuZmVkZXguY29tL3dlYi1zZXJ2aWNlcw==" rel="noopener external nofollow noreferrer">https://wsbeta.fedex.com:443/web-services</a><br>Test Password: H6F4kyFrYIQxALXOTbH53**** </p>
+<p>FedEx Web Services Testing Information:<br>     FedEx Shipping Account Number: **0088000<br>     FedEx Meter Number: ***2012**</p>
+<p>On NetSuite Side we are targeting to achieve xml files like the sample:</p>
+<p>Example 1:Rate Request</p>
+<p>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV&#x3D;”<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvc29hcC9lbnZlbG9wZS8=" rel="noopener external nofollow noreferrer">http://schemas.xmlsoap.org/soap/envelope/</a>“ xmlns:SOAP-<br>ENC&#x3D;”<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvc29hcC9lbmNvZGluZy8=" rel="noopener external nofollow noreferrer">http://schemas.xmlsoap.org/soap/encoding/</a>“ xmlns:xsi&#x3D;”<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2U=" rel="noopener external nofollow noreferrer">http://www.w3.org/2001/XMLSchema-instance</a>“ xmlns:xsd&#x3D;”<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWE=" rel="noopener external nofollow noreferrer">http://www.w3.org/2001/XMLSchema</a>“ xmlns&#x3D;”<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL2ZlZGV4LmNvbS93cy9yYXRlL3YyOCUyMiUzRQ==" rel="noopener external nofollow noreferrer">http://fedex.com/ws/rate/v28&quot;&gt;</a><br>   <a href="SOAP-ENV:Body">SOAP-ENV:Body</a><br>      <RateRequest><br>         <WebAuthenticationDetail><br>            <ParentCredential><br>               <Key>XXXXXX</Key><br>               <Password>XXXXXX</Password><br>            </ParentCredential><br>            <UserCredential><br>               <Key>XXXXXX</Key><br>               <Password>XXXXXX</Password><br>            </UserCredential><br>         </WebAuthenticationDetail><br>         <ClientDetail><br>            <AccountNumber>XXXXXX</AccountNumber><br>            <MeterNumber>XXXXXX</MeterNumber><br>         </ClientDetail><br>         <TransactionDetail><br>            <CustomerTransactionId>RateRequest_v28</CustomerTransactionId><br>         </TransactionDetail><br>         <Version><br>            <ServiceId>crs</ServiceId><br>            <Major>28</Major><br>            <Intermediate>0</Intermediate><br>            <Minor>0</Minor><br>         </Version><br>         <RequestedShipment><br>            <ShipTimestamp>2020-02-25T12:34:56-06:00</ShipTimestamp><br>            <DropoffType>REGULAR_PICKUP</DropoffType><br>            <ServiceType>PRIORITY_OVERNIGHT</ServiceType><br>            <PackagingType>FEDEX_BOX</PackagingType></p>
+<TotalWeight>
+   <Units>LB</Units>
+   <Value>20.0</Value>
+</TotalWeight>
+<Shipper>
+   <AccountNumber>XXXXXX</AccountNumber>
+   <Contact>
+      <CompanyName>FedEx-WAPI</CompanyName>
+      <PhoneNumber>XXXXXX</PhoneNumber>
+   </Contact>
+   <Address>
+      <StreetLines>SN2000 Test Meter 8</StreetLines>
+      <StreetLines>10 Fedex Parkway</StreetLines>
+      <City>AUSTIN</City>
+      <StateOrProvinceCode>TX</StateOrProvinceCode>
+      <PostalCode>XXXXXX</PostalCode>
+      <CountryCode>US</CountryCode>
+   </Address>
+</Shipper>
+<Recipient>
+   <AccountNumber>XXXXXX</AccountNumber>
+   <Contact>
+      <PersonName>Recipient Contact</PersonName>
+      <PhoneNumber>XXXXXX</PhoneNumber>
+   </Contact>
+   <Address>
+      <StreetLines>Recipient Address Line 1</StreetLines>
+      <StreetLines>Recipient Address Line 2</StreetLines>
+      <City>Collierville</City>
+      <StateOrProvinceCode>TN</StateOrProvinceCode>
+      <PostalCode>XXXXXX</PostalCode>
+      <CountryCode>US</CountryCode>
+   </Address>
+</Recipient>
+<ShippingChargesPayment>
+   <PaymentType>SENDER</PaymentType>
+   <Payor>
+      <ResponsibleParty>
+         <AccountNumber>XXXXXX</AccountNumber>
+         <Tins>
+            <TinType>BUSINESS\_STATE</TinType>
+            <Number>123456</Number>
+         </Tins>
+      </ResponsibleParty>
+   </Payor>
+</ShippingChargesPayment>
+<RateRequestTypes>LIST</RateRequestTypes>
+<PackageCount>1</PackageCount>
+<RequestedPackageLineItems>
+   <SequenceNumber>1</SequenceNumber>
+   <GroupNumber>1</GroupNumber>
+   <GroupPackageCount>1</GroupPackageCount>
+   <Weight>
+      <Units>LB</Units>
+      <Value>20.0</Value>
+   </Weight>
+   <Dimensions>
+      <Length>12</Length>
+      <Width>12</Width>
+      <Height>12</Height>
+      <Units>IN</Units>
+   </Dimensions>
+   <ContentRecords>
+      <PartNumber>XXXXXX</PartNumber>
+<ItemNumber>XXXXXX</ItemNumber>
+                  <ReceivedQuantity>12</ReceivedQuantity>
+                  <Description>ContentDescription</Description>
+               </ContentRecords>
+            </RequestedPackageLineItems>
+         </RequestedShipment>
+      </RateRequest>
+   </SOAP-ENV:Body>
+
+<p>And all above xml element is dynamically transfered from NetSuite Sales Order data(and also data from location, currency, custom record types, settings), We got those data(in expected order), using the Google Project’s X2JS to convert from JSON to XML.</p>
+<p>Next resolve the across domain ajax call by using NetSuite 2.0 API https.post</p>
+<p>var response &#x3D; https.post({<br>            url: ‘<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93c2JldGEuZmVkZXguY29tL3dlYi1zZXJ2aWNlcw==" rel="noopener external nofollow noreferrer">https://wsbeta.fedex.com:443/web-services</a>‘,<br>            body: new X2JS().json2xml_str(PostDataObj),<br>            headers: {<br>                “Accept”: “image&#x2F;gif, image&#x2F;jpeg, image&#x2F;pjpeg, text&#x2F;plain, text&#x2F;html, *&#x2F;*“,<br>                “Content-Type”: “text&#x2F;xml”,<br>                “Access-Control-Allow-Origin”: ‘*‘,<br>            }<br>        });</p>
+<p>Need to thanks this thread for useful notes: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNjI1MjMyNTEvY3JlYXRpbmctYS1odHRwLXBvc3QtY2FsbC1mb3ItZmVkZXgtd2ViLXNlcnZpY2Vz" rel="noopener external nofollow noreferrer">https://stackoverflow.com/questions/62523251/creating-a-http-post-call-for-fedex-web-services</a>　　</p>
+<h3 id="FedEx-Webservices-Errors"><a href="#FedEx-Webservices-Errors" class="headerlink" title="FedEx Webservices Errors"></a>FedEx Webservices Errors</h3><ul>
+<li><p>Response Code 400 or 500</p>
+<ul>
+<li>Accross domain Error</li>
+<li>Schema Error</li>
+</ul>
+<p> </p>
+</li>
+<li><p><cause>UnrecoverableClientError</cause><br><code>SchemaError</code><br><desc>validation failure for RateRequest Error:cvc-complex-type.2.4.a: Invalid content was found starting with element</p>
+<ul>
+<li>Check the XML object sent to FedEx, the order of the element MUST match to the WDSL schema</li>
+<li>Check the XML object elements if there is addtional property</li>
+</ul>
+</li>
+<li><p>FedEx 404 Unrecoverable ClientError</p>
+<ul>
+<li>Double check the target server url address</li>
+<li>test url: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93c2JldGEuZmVkZXguY29tL3dlYi1zZXJ2aWNlcw==" rel="noopener external nofollow noreferrer">https://wsbeta.fedex.com:443/web-services</a></li>
+<li>production url: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93cy5mZWRleC5jb20vd2ViLXNlcnZpY2Vz" rel="noopener external nofollow noreferrer">https://ws.fedex.com:443/web-services</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Share-tools-used-between-XML-and-JSON"><a href="#Share-tools-used-between-XML-and-JSON" class="headerlink" title="Share tools used between XML and JSON"></a>Share tools used between XML and JSON</h3><ul>
+<li>Testing&#x2F;xmlTOjson&#x2F;jsonTOxml: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9wZXRlcmRhdWdhYXJkcmFzbXVzc2VuLmNvbS9qc29uMnhtbC8=" rel="noopener external nofollow noreferrer">https://peterdaugaardrasmussen.com/json2xml/</a></li>
+<li>Source Code: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2FiZG9sZW5jZS94Mmpz" rel="noopener external nofollow noreferrer">https://github.com/abdolence/x2js</a><ul>
+<li>Useful Javascript framework for convention between XML and JSON</li>
+</ul>
+</li>
+<li>Format XML: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9qc29uZm9ybWF0dGVyLm9yZy94bWwtZm9ybWF0dGVy" rel="noopener external nofollow noreferrer">https://jsonformatter.org/xml-formatter</a></li>
+<li>Format JSON: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuc29qc29uLmNvbS9qc29uL2pzb24vX29ubGluZS5odG1s" rel="noopener external nofollow noreferrer">https://www.sojson.com/json/json\_online.html</a></li>
+<li>XML compare&#x2F;diff <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9leHRlbmRzY2xhc3MuY29tL3htbC1kaWZmLmh0bWw=" rel="noopener external nofollow noreferrer">https://extendsclass.com/xml-diff.html</a><ul>
+<li>Be careful, the result of the xml diff is not in element order, the diff not acurate for FedEx test</li>
+</ul>
+</li>
+<li>Comparing XML files: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9leHRlbmRzY2xhc3MuY29tL3htbC1kaWZmLmh0bWw=" rel="noopener external nofollow noreferrer">https://extendsclass.com/xml-diff.html</a></li>
+<li>POSTMAN simulate and compare the input and output<ul>
+<li>Powerful and Easy to use</li>
+</ul>
+</li>
+<li>XML Formatter <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuZnJlZWZvcm1hdHRlci5jb20veG1sLWZvcm1hdHRlci5odG1s" rel="noopener external nofollow noreferrer">https://www.freeformatter.com/xml-formatter.html</a><ul>
+<li>Make XML clean and clear</li>
+</ul>
+</li>
+<li>JSON Reviewer&#x2F;Formatter <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL2pzb252aWV3ZXIuc3RhY2suaHUv" rel="noopener external nofollow noreferrer">http://jsonviewer.stack.hu</a> <ul>
+<li>Clean and clear</li>
+</ul>
+</li>
+<li>JSON to XML <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY29udmVydGpzb24uY29tL2pzb24tdG8teG1sLmh0bQ==" rel="noopener external nofollow noreferrer">https://www.convertjson.com/json-to-xml.htm</a></li>
+</ul>
+<h3 id="Estimate-Rate"><a href="#Estimate-Rate" class="headerlink" title="Estimate Rate"></a>Estimate Rate</h3><ul>
+<li>UPS <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cudGhldXBzc3RvcmUuY29tL3Rvb2xzL2VzdGltYXRlLXNoaXBwaW5nLWNvc3Q=" rel="noopener external nofollow noreferrer">https://www.theupsstore.com/tools/estimate-shipping-cost</a></li>
+<li>FedEx <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuZmVkZXguY29tL2VuLXVzL29ubGluZS9yYXRpbmcuaHRtbA==" rel="noopener external nofollow noreferrer">https://www.fedex.com/en-us/online/rating.html</a></li>
+</ul>
+<h3 id="Integrate-with-existing-UPS-integration"><a href="#Integrate-with-existing-UPS-integration" class="headerlink" title="Integrate with existing UPS integration"></a>Integrate with existing UPS integration</h3><p>While end-use switching shipping carries, we need to clean up the backend package list data and rebuild for current shipping carrier, since UPS and FedEx are using DIFFERENT formating and propertys.</p>
+
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201705041115.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/en/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/en/201705041115.html" class="post-title-link" itemprop="url">Google Sheet NetSuite Integration 设计理念-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/201705041115.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Background: ERP users always using Excel/Number in daily work, and also operation peoples. So how does they easily post those changing data to NetSuit
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/en/201701051001.html#more" rel="contents">
+              <a class="btn" href="/en/201705041115.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -487,111 +729,6 @@
 <p>How can I use Node.js in Netsuite?</p>
 <p>  20231008 Server端没有开启解释器，没配置环境，就无法识别原生的Node.js代码</p>
 
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201705041115.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/en/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl Notes">
-      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/en/201705041115.html" class="post-title-link" itemprop="url">Google Sheet NetSuite Integration 设计理念-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="Views">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/201705041115.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          Background: ERP users always using Excel/Number in daily work, and also operation peoples. So how does they easily post those changing data to NetSuit
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/en/201705041115.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -866,111 +1003,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201902201642.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/en/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl Notes">
-      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/en/201902201642.html" class="post-title-link" itemprop="url">How to run a NetSuite scheduled script at every month end-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="Views">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/201902201642.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          Background Some times we need trigger a task at&#160;every month end, the last day of every month, i.e. cache business data. Run a NetSuite scheduled scrip
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/en/201902201642.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201811161744.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1049,6 +1081,110 @@
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201903222305.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/en/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/en/201903222305.html" class="post-title-link" itemprop="url">How to use NetSuite SDF to download bundles/components-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/201903222305.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="1-Install-SuiteCloud-IDE-Eclipse-Plugin"><a href="#1-Install-SuiteCloud-IDE-Eclipse-Plugin" class="headerlink" title="1. Install SuiteCloud IDE(Eclipse + Plugin)"></a>1. Install SuiteCloud IDE(Eclipse + Plugin)</h2><p>1.1 <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuZWNsaXBzZS5vcmcvZG93bmxvYWRzL3BhY2thZ2VzL3JlbGVhc2UvbWFycy8yL2VjbGlwc2UtaWRlLWphdmEtZWUtZGV2ZWxvcGVycw==" rel="noopener external nofollow noreferrer">https://www.eclipse.org/downloads/packages/release/mars/2/eclipse-ide-java-ee-developers</a>.<br>1.2 Updating Eclipse for Use with SuiteCloud IDE<br>1.3 Enable NS Features, SDF,<br>Setup &gt; Company &gt; Enable Features &gt; SuiteCloud &gt; SUITECLOUD DEVELOPMENT FRAMEWORK</p>
+<h2 id="2-Create-SuiteCloud-IDE-Project"><a href="#2-Create-SuiteCloud-IDE-Project" class="headerlink" title="2. Create SuiteCloud IDE, Project"></a>2. Create SuiteCloud IDE, Project</h2><p>File &gt; New &gt; SuiteCloud Project,<br>Account Customization<br>Project Name</p>
+<h2 id="3-NETSUITE-UI-Assign-Current-Employee-Record-with-“SDF-Developer-2FA-Off”-role"><a href="#3-NETSUITE-UI-Assign-Current-Employee-Record-with-“SDF-Developer-2FA-Off”-role" class="headerlink" title="3. NETSUITE UI, Assign Current Employee Record with “SDF Developer - 2FA Off” role"></a>3. NETSUITE UI, Assign Current Employee Record with “SDF Developer - 2FA Off” role</h2><p>Create an custom role, make sure the 2FA is off(mandatory uncheck and ‘Not required’) in: Setup &gt; Users&#x2F;Roles &gt; Two-Factor Authentication Roles</p>
+<h2 id="4-Configure-SuiteCloud-IDE-to-connect-with-NS-One-Time-Setup"><a href="#4-Configure-SuiteCloud-IDE-to-connect-with-NS-One-Time-Setup" class="headerlink" title="4. Configure SuiteCloud IDE to connect with NS (One-Time Setup)"></a>4. Configure SuiteCloud IDE to connect with NS (One-Time Setup)</h2><p>NetSuite<br>Manage Account<br>Add Account(s)<br>Setup &gt; Company &gt; Company Information<br>Issue Token (Token has been issued)</p>
+<h2 id="5-Eclipse-Right-click-NetSuite-Change-Project-Setting"><a href="#5-Eclipse-Right-click-NetSuite-Change-Project-Setting" class="headerlink" title="5. Eclipse, Right click, NetSuite &gt; Change Project Setting."></a>5. Eclipse, Right click, NetSuite &gt; Change Project Setting.</h2><h2 id="6-Eclipse-NetSuite-Import-Bundle-Components"><a href="#6-Eclipse-NetSuite-Import-Bundle-Components" class="headerlink" title="6. Eclipse, NetSuite &gt; Import Bundle Components"></a>6. Eclipse, NetSuite &gt; Import Bundle Components</h2><p>List Bundles</p>
+<p>Select which Bundle to download</p>
+<h2 id="7-How-to-use-suitecloud-for-deployment"><a href="#7-How-to-use-suitecloud-for-deployment" class="headerlink" title="7. How to use suitecloud for deployment?"></a>7. How to use suitecloud for deployment?</h2><p>Please reference to <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFja3VwZXIvcC9zZGYvX2NsaS9fZm9yL19ub2RlL19qcy5odG1s" rel="noopener external nofollow noreferrer">https://www.cnblogs.com/backuper/p/sdf\_cli\_for\_node\_js.html</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFja3VwZXIvcC9zZGZfY2xpX2Zvcl9ub2RlX2pzLmh0bWw=" rel="noopener external nofollow noreferrer">How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command</a></p>
+
       
     </div>
 
@@ -1286,7 +1422,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201903222305.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201902201642.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -1304,7 +1440,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/201903222305.html" class="post-title-link" itemprop="url">How to use NetSuite SDF to download bundles/components-CarlZeng</a>
+          <a href="/en/201902201642.html" class="post-title-link" itemprop="url">How to run a NetSuite scheduled script at every month end-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1333,7 +1469,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/201903222305.html" ></span>
+            <span id="ArtalkPV" data-page-key="/en/201902201642.html" ></span>
           </span>
         
       
@@ -1355,14 +1491,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-Install-SuiteCloud-IDE-Eclipse-Plugin"><a href="#1-Install-SuiteCloud-IDE-Eclipse-Plugin" class="headerlink" title="1. Install SuiteCloud IDE(Eclipse + Plugin)"></a>1. Install SuiteCloud IDE(Eclipse + Plugin)</h2><p>1.1 <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuZWNsaXBzZS5vcmcvZG93bmxvYWRzL3BhY2thZ2VzL3JlbGVhc2UvbWFycy8yL2VjbGlwc2UtaWRlLWphdmEtZWUtZGV2ZWxvcGVycw==" rel="noopener external nofollow noreferrer">https://www.eclipse.org/downloads/packages/release/mars/2/eclipse-ide-java-ee-developers</a>.<br>1.2 Updating Eclipse for Use with SuiteCloud IDE<br>1.3 Enable NS Features, SDF,<br>Setup &gt; Company &gt; Enable Features &gt; SuiteCloud &gt; SUITECLOUD DEVELOPMENT FRAMEWORK</p>
-<h2 id="2-Create-SuiteCloud-IDE-Project"><a href="#2-Create-SuiteCloud-IDE-Project" class="headerlink" title="2. Create SuiteCloud IDE, Project"></a>2. Create SuiteCloud IDE, Project</h2><p>File &gt; New &gt; SuiteCloud Project,<br>Account Customization<br>Project Name</p>
-<h2 id="3-NETSUITE-UI-Assign-Current-Employee-Record-with-“SDF-Developer-2FA-Off”-role"><a href="#3-NETSUITE-UI-Assign-Current-Employee-Record-with-“SDF-Developer-2FA-Off”-role" class="headerlink" title="3. NETSUITE UI, Assign Current Employee Record with “SDF Developer - 2FA Off” role"></a>3. NETSUITE UI, Assign Current Employee Record with “SDF Developer - 2FA Off” role</h2><p>Create an custom role, make sure the 2FA is off(mandatory uncheck and ‘Not required’) in: Setup &gt; Users&#x2F;Roles &gt; Two-Factor Authentication Roles</p>
-<h2 id="4-Configure-SuiteCloud-IDE-to-connect-with-NS-One-Time-Setup"><a href="#4-Configure-SuiteCloud-IDE-to-connect-with-NS-One-Time-Setup" class="headerlink" title="4. Configure SuiteCloud IDE to connect with NS (One-Time Setup)"></a>4. Configure SuiteCloud IDE to connect with NS (One-Time Setup)</h2><p>NetSuite<br>Manage Account<br>Add Account(s)<br>Setup &gt; Company &gt; Company Information<br>Issue Token (Token has been issued)</p>
-<h2 id="5-Eclipse-Right-click-NetSuite-Change-Project-Setting"><a href="#5-Eclipse-Right-click-NetSuite-Change-Project-Setting" class="headerlink" title="5. Eclipse, Right click, NetSuite &gt; Change Project Setting."></a>5. Eclipse, Right click, NetSuite &gt; Change Project Setting.</h2><h2 id="6-Eclipse-NetSuite-Import-Bundle-Components"><a href="#6-Eclipse-NetSuite-Import-Bundle-Components" class="headerlink" title="6. Eclipse, NetSuite &gt; Import Bundle Components"></a>6. Eclipse, NetSuite &gt; Import Bundle Components</h2><p>List Bundles</p>
-<p>Select which Bundle to download</p>
-<h2 id="7-How-to-use-suitecloud-for-deployment"><a href="#7-How-to-use-suitecloud-for-deployment" class="headerlink" title="7. How to use suitecloud for deployment?"></a>7. How to use suitecloud for deployment?</h2><p>Please reference to <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFja3VwZXIvcC9zZGYvX2NsaS9fZm9yL19ub2RlL19qcy5odG1s" rel="noopener external nofollow noreferrer">https://www.cnblogs.com/backuper/p/sdf\_cli\_for\_node\_js.html</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFja3VwZXIvcC9zZGZfY2xpX2Zvcl9ub2RlX2pzLmh0bWw=" rel="noopener external nofollow noreferrer">How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command</a></p>
-
+          Background Some times we need trigger a task at&#160;every month end, the last day of every month, i.e. cache business data. Run a NetSuite scheduled scrip
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/en/201902201642.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1497,6 +1634,106 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202104100945.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/en/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/en/202104100945.html" class="post-title-link" itemprop="url">NetSuite Batch Process Status -CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/202104100945.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>14 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Check of back-end process status which might impact reporting, learn how things are calculate&#x2F;processing in NetSuite</p>
+<p>&#x2F;app&#x2F;accounting&#x2F;bulkprocessing&#x2F;bulkprocessingstatuslist.nl</p>
+<p>[<br>  { “value”: “@ALL@”, “text”: “- All -“ },<br>  { “value”: “SUPPLYREALLOCATION”, “text”: “Allocate Orders” },<br>  { “value”: “ALLOCATEREVARRANGEMENT”, “text”: “Allocate Revenue Arrangements” },<br>  { “value”: “BULKAUTHCOMMISSN”, “text”: “Authorize Commissions” },<br>  { “value”: “BULKAUTHPARTNERCOMMISSN”, “text”: “Authorize Partner Commissions” },<br>  { “value”: “AUTO_CASH”, “text”: “Auto Cash” },<br>  { “value”: “AUTO_POST_GL_TRANSACTION”, “text”: “Auto-Create GL Transactions” },<br>  { “value”: “BALANCELCGACCOUNTS”, “text”: “Balance Location Costing Group Accounts” },<br>  { “value”: “BAL_SEGMENTS_KEY_REDUCTN”, “text”: “Balancing by Segments: Analysis data processing” },<br>  { “value”: “BAL_SEGMENTS_KEY_STAGING”, “text”: “Balancing by Segments: Transaction analysis” },<br>  { “value”: “BAL_SEGMENTS_TRX_GENERAT”, “text”: “Balancing by Segments: Transaction generation” },<br>  { “value”: “BANK_CONNECTIVITY_IMPORT”, “text”: “Bank Connectivity Import” },<br>  { “value”: “BANK_STATEMENT_IMPORT”, “text”: “Bank Statement Import” },<br>  { “value”: “BILLINBOUNDSHIPMENT”, “text”: “Bill Inbound Shipment” },<br>  { “value”: “BILLINGWORKCENTER”, “text”: “Billing Work Center” },<br>  { “value”: “BUILDWORKORDERS”, “text”: “Build Work Orders” },<br>  { “value”: “SUBSCRIPTION_MRR”, “text”: “Calculate and store MRR analytics for {Subscription Line}” },<br>  { “value”: “UPDATEDCLOSED”, “text”: “Calls Update Dclosed” },<br>  { “value”: “CANCELSUPPLYORDER”, “text”: “Cancel Supply Orders” },<br>  { “value”: “CLOSEWORKORDERS”, “text”: “Close Work Orders” },<br>  { “value”: “ORDERREALLOCATION”, “text”: “Commit Orders” },<br>  { “value”: “COMPLETEWORKORDERS”, “text”: “Complete Work Orders” },<br>  { “value”: “CONFIRM_TRANSACTIONS”, “text”: “Confirm Transactions” },<br>  { “value”: “COPYITEMLOCCONFIG”, “text”: “Copy Item Location Configuration” },<br>  { “value”: “RECOGNIZEPLANNEDEXPENSE”, “text”: “Create Advanced Expense Journal Entries” },<br>  { “value”: “RECOGNIZEPLANNEDREVENUE”, “text”: “Create Advanced Revenue Recognition Journal Entries” },<br>  { “value”: “CHARGEENGINE”, “text”: “Create Charges” },<br>  { “value”: “OFFCYCLEINVOICE”, “text”: “Create Off-Cycle “ },<br>  { “value”: “CREATEPERIODENDJOURNALS”, “text”: “Create Period End Journals” },<br>  { “value”: “BULKREVREC”, “text”: “Create Revenue Recognition Journal Entries” },<br>  { “value”: “RECOGNIZEREVENUE”, “text”: “Create Summarized Rev Rec Journal Entries” },<br>  { “value”: “CREATESUPPLYCHANGEORDER”, “text”: “Create Supply Change Orders” },<br>  { “value”: “DEFERREDREVENUERECLASS”, “text”: “Deferred Revenue Reclassification” },<br>  { “value”: “DELETEREVENUEELEMENTS”, “text”: “Delete Revenue Elements” },<br>  { “value”: “DELETEPLANDEFINITION”, “text”: “Delete Supply Plan Definition” },<br>  { “value”: “EDITREVENUEARRANGEMENTS”, “text”: “Edit Revenue Arrangements” },<br>  { “value”: “TESTUNEXPECTEDERRORTYPE”, “text”: “Error Handling Test” },<br>  { “value”: “EXECUTERECORDACTIONS”, “text”: “Execute Record Actions” },<br>  { “value”: “EXTEND_EST_REVREC_ENDDATE”, “text”: “Extend Subscription Estimated Rev Rec End Date” },<br>  { “value”: “FIRMPLANNEDORDER”, “text”: “Firm Planned Orders” },<br>  { “value”: “FIXREVRECTRANSACTIONS”, “text”: “Fix Rev Rec Transactions” },<br>  { “value”: “FULFILLSALESORDERS”, “text”: “Fulfill Sales Orders” },<br>  { “value”: “GLAUDITNUMBERING”, “text”: “GL Audit Numbering” },<br>  { “value”: “GLIMPACTADJUSTMENT”, “text”: “GL Impact Adjustment” },<br>  { “value”: “GROUPINVOICES”, “text”: “Group Invoices” },<br>  { “value”: “GROUPINVOICESSUBMISSION”, “text”: “Group Invoices Submission” },<br>  { “value”: “IMPORT_EMPLOYEE_EXPENSE”, “text”: “Import Employee Expenses” },<br>  { “value”: “INTERCOMPANYELIMINATION”, “text”: “Intercompany Elimination” },<br>  { “value”: “IC_ENTITY_GENERATION”, “text”: “Intercompany Entity Generation” },<br>  { “value”: “INTERCOORDER_GENERATION”, “text”: “Intercompany Order Generation” },<br>  { “value”: “ICORDER_RA_GENERATION”, “text”: “Intercompany Order Generation” },<br>  { “value”: “ICORDER_SO_GENERATION”, “text”: “Intercompany Order Generation” },<br>  { “value”: “INVOICEBILLABLECUSTOMERS”, “text”: “Invoice Billable Customers” },<br>  { “value”: “BILLSALESORDERS”, “text”: “Invoice Sales Orders” },<br>  { “value”: “OFFCYCLECREDITMEMO”, “text”: “Issue Credit Memo from Change Order” },<br>  { “value”: “ISSUECREDITMEMOS”, “text”: “Issue Credit Memos” },<br>  { “value”: “ISSUEWORKORDERS”, “text”: “Issue Work Orders” },<br>  { “value”: “BULKITEMSHIPSTATUSPACK”, “text”: “Mark Orders Packed” },<br>  { “value”: “BULKITEMSHIPSTATUSSHIP”, “text”: “Mark Orders Shipped” },<br>  { “value”: “MARKVSOEDELIVERED”, “text”: “Mark VSOE Delivered” },<br>  { “value”: “MARKBUILTWORKORDERS”, “text”: “Mark Work Orders Built” },<br>  { “value”: “MARKFIRMEDWORKORDERS”, “text”: “Mark Work Orders Firmed” },<br>  { “value”: “MARKRELEASEDWORKORDERS”, “text”: “Mark Work Orders Released” },<br>  { “value”: “CREATEWORKORDERSFORSTOCK”, “text”: “Mass Create Work Orders” },<br>  { “value”: “MATERIALREQUIREMENTSPLAN”, “text”: “Material Requirements Planning” },<br>  { “value”: “MEDIATEPLANRATABLEEVENTS”, “text”: “Mediate Revenue Plan Ratable Events” },<br>  { “value”: “MEMORIZEDTRANSACTIONS”, “text”: “Memorized Transactions” },<br>  { “value”: “MHATTRIBUTE”, “text”: “Merchandise Attribute” },<br>  { “value”: “MHITEMASSIGNMENT”, “text”: “Merchandise Item Assignment” },<br>  { “value”: “MHITEMREMOVAL”, “text”: “Merchandise Item Removal” },<br>  { “value”: “MERGEREVARRANGEMENT”, “text”: “Merge Revenue Arrangements for Linked Sources” },<br>  { “value”: “MIGRATEOPENREVTRANSACTION”, “text”: “Migrate Revenue Arrangements and Plans” },<br>  { “value”: “MONTHENDFXREVAL”, “text”: “Month End Currency Revaluation” },<br>  { “value”: “MRPINITIALIZATION”, “text”: “MRP Initialization” },<br>  { “value”: “MRPOLDDATADELETION”, “text”: “MRP Old Data Deletion” },<br>  { “value”: “BULKORDERITEMS”, “text”: “Order Items” },<br>  { “value”: “PICKACTION_SYNC”, “text”: “Order Release Fulfillment” },<br>  { “value”: “BULKORDERREQUISITIONS”, “text”: “Order Requisitions” },<br>  { “value”: “OWNERSHIPTRANSFER”, “text”: “Ownership Transfer” },<br>  { “value”: “BULKPAYBILLS”, “text”: “Pay “ },<br>  { “value”: “REPOSITORYINITIALIZATION”, “text”: “Planning Repository Initialization” },<br>  { “value”: “PLANNINGREPOSITORYREFRESH”, “text”: “Planning Repository Refresh” },<br>  { “value”: “SUBSCRIPTION_RECURRINGAMT”, “text”: “Populate Recurring Amount for {Subscription Line}” },<br>  { “value”: “PROCESSHISTTRANSACTIONS”, “text”: “Process Secondary Book Historical Transactions” },<br>  { “value”: “RATINGRUN”, “text”: “Rating Run” },<br>  { “value”: “RECALCEXPFORECASTPLANS”, “text”: “Recalculate Expense Forecast Plans” },<br>  { “value”: “RECALCREVFORECASTPLANS”, “text”: “Recalculate Revenue Forecast Plans” },<br>  { “value”: “RECEIVEINBOUNDSHIPMENT”, “text”: “Receive Inbound Shipment” },<br>  { “value”: “BULKRECEIVEORDER”, “text”: “Receive Orders” },<br>  { “value”: “RELEASEPLANNEDORDER”, “text”: “Release Planned Orders” },<br>  { “value”: “REMOVEMATRIXOPTIONS”, “text”: “Remove Matrix Options” },<br>  { “value”: “RENEWSUBSCRIPTIONS”, “text”: “Renew “ },<br>  { “value”: “RESCHEDULESUPPLYORDER”, “text”: “Reschedule Supply Orders” },<br>  { “value”: “REVALUESTDCOSTINVENTORY”, “text”: “Revalue Standard Cost Inventory” },<br>  { “value”: “REVERTEXPFORECASTPLANS”, “text”: “Revert Expense Forecast Plans to Original” },<br>  { “value”: “REVERTFORECASTPLANSTOORIG”, “text”: “Revert Revenue Forecast Plans to Original” },<br>  { “value”: “ROLLUPITEMCOST”, “text”: “Rollup Planned Standard Cost” },<br>  { “value”: “REC_MATCHING_ENGINE”, “text”: “Run Rules Engine” },<br>  { “value”: “SUITETAXMIGRATION”, “text”: “SuiteTax Migration” },<br>  { “value”: “SUPPLYALLOCATIONMIGRATION”, “text”: “Supply Allocation Migration” },<br>  { “value”: “SCSNAPSHOTREFRESH”, “text”: “Supply Chain Snapshot Refresh” },<br>  { “value”: “TIME_MODIFICATION”, “text”: “Time Modification” },<br>  { “value”: “REPLENISHINVENTORY”, “text”: “Transfer Order Replenishment” },<br>  { “value”: “WITHDRAWINVENTORY”, “text”: “Transfer Order Withdrawal” },<br>  { “value”: “MANAGEACTUALEXPENSEPLANS”, “text”: “Update Actual Expense Plans” },<br>  { “value”: “MANAGEACTUALREVENUEPLANS”, “text”: “Update Actual Revenue Recognition Plans” },<br>  { “value”: “TESTBULKPROCTYPE”, “text”: “Update Department Name For Testing Only” },<br>  { “value”: “UPDATEEXPENSEPLANS”, “text”: “Update Expense Plans” },<br>  { “value”: “MANAGEFORECASTEXPPLANS”, “text”: “Update Forecast Expense Plans” },<br>  { “value”: “MANAGEFORECASTREVPLANS”, “text”: “Update Forecast Revenue Recognition Plans” },<br>  { “value”: “MANAGEREVENUEARRANGEMENT”, “text”: “Update Revenue Arrangements” },<br>  { “value”: “MANAGEREVENUEELEMENTS”, “text”: “Update Revenue Elements” },<br>  { “value”: “UPDATEREVRECPLANS”, “text”: “Update Revenue Recognition Plans” }<br>]</p>
+
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201703162254.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1602,106 +1839,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202104100945.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/en/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl Notes">
-      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/en/202104100945.html" class="post-title-link" itemprop="url">NetSuite Batch Process Status -CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="Views">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/202104100945.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>14 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Check of back-end process status which might impact reporting, learn how things are calculate&#x2F;processing in NetSuite</p>
-<p>&#x2F;app&#x2F;accounting&#x2F;bulkprocessing&#x2F;bulkprocessingstatuslist.nl</p>
-<p>[<br>  { “value”: “@ALL@”, “text”: “- All -“ },<br>  { “value”: “SUPPLYREALLOCATION”, “text”: “Allocate Orders” },<br>  { “value”: “ALLOCATEREVARRANGEMENT”, “text”: “Allocate Revenue Arrangements” },<br>  { “value”: “BULKAUTHCOMMISSN”, “text”: “Authorize Commissions” },<br>  { “value”: “BULKAUTHPARTNERCOMMISSN”, “text”: “Authorize Partner Commissions” },<br>  { “value”: “AUTO_CASH”, “text”: “Auto Cash” },<br>  { “value”: “AUTO_POST_GL_TRANSACTION”, “text”: “Auto-Create GL Transactions” },<br>  { “value”: “BALANCELCGACCOUNTS”, “text”: “Balance Location Costing Group Accounts” },<br>  { “value”: “BAL_SEGMENTS_KEY_REDUCTN”, “text”: “Balancing by Segments: Analysis data processing” },<br>  { “value”: “BAL_SEGMENTS_KEY_STAGING”, “text”: “Balancing by Segments: Transaction analysis” },<br>  { “value”: “BAL_SEGMENTS_TRX_GENERAT”, “text”: “Balancing by Segments: Transaction generation” },<br>  { “value”: “BANK_CONNECTIVITY_IMPORT”, “text”: “Bank Connectivity Import” },<br>  { “value”: “BANK_STATEMENT_IMPORT”, “text”: “Bank Statement Import” },<br>  { “value”: “BILLINBOUNDSHIPMENT”, “text”: “Bill Inbound Shipment” },<br>  { “value”: “BILLINGWORKCENTER”, “text”: “Billing Work Center” },<br>  { “value”: “BUILDWORKORDERS”, “text”: “Build Work Orders” },<br>  { “value”: “SUBSCRIPTION_MRR”, “text”: “Calculate and store MRR analytics for {Subscription Line}” },<br>  { “value”: “UPDATEDCLOSED”, “text”: “Calls Update Dclosed” },<br>  { “value”: “CANCELSUPPLYORDER”, “text”: “Cancel Supply Orders” },<br>  { “value”: “CLOSEWORKORDERS”, “text”: “Close Work Orders” },<br>  { “value”: “ORDERREALLOCATION”, “text”: “Commit Orders” },<br>  { “value”: “COMPLETEWORKORDERS”, “text”: “Complete Work Orders” },<br>  { “value”: “CONFIRM_TRANSACTIONS”, “text”: “Confirm Transactions” },<br>  { “value”: “COPYITEMLOCCONFIG”, “text”: “Copy Item Location Configuration” },<br>  { “value”: “RECOGNIZEPLANNEDEXPENSE”, “text”: “Create Advanced Expense Journal Entries” },<br>  { “value”: “RECOGNIZEPLANNEDREVENUE”, “text”: “Create Advanced Revenue Recognition Journal Entries” },<br>  { “value”: “CHARGEENGINE”, “text”: “Create Charges” },<br>  { “value”: “OFFCYCLEINVOICE”, “text”: “Create Off-Cycle “ },<br>  { “value”: “CREATEPERIODENDJOURNALS”, “text”: “Create Period End Journals” },<br>  { “value”: “BULKREVREC”, “text”: “Create Revenue Recognition Journal Entries” },<br>  { “value”: “RECOGNIZEREVENUE”, “text”: “Create Summarized Rev Rec Journal Entries” },<br>  { “value”: “CREATESUPPLYCHANGEORDER”, “text”: “Create Supply Change Orders” },<br>  { “value”: “DEFERREDREVENUERECLASS”, “text”: “Deferred Revenue Reclassification” },<br>  { “value”: “DELETEREVENUEELEMENTS”, “text”: “Delete Revenue Elements” },<br>  { “value”: “DELETEPLANDEFINITION”, “text”: “Delete Supply Plan Definition” },<br>  { “value”: “EDITREVENUEARRANGEMENTS”, “text”: “Edit Revenue Arrangements” },<br>  { “value”: “TESTUNEXPECTEDERRORTYPE”, “text”: “Error Handling Test” },<br>  { “value”: “EXECUTERECORDACTIONS”, “text”: “Execute Record Actions” },<br>  { “value”: “EXTEND_EST_REVREC_ENDDATE”, “text”: “Extend Subscription Estimated Rev Rec End Date” },<br>  { “value”: “FIRMPLANNEDORDER”, “text”: “Firm Planned Orders” },<br>  { “value”: “FIXREVRECTRANSACTIONS”, “text”: “Fix Rev Rec Transactions” },<br>  { “value”: “FULFILLSALESORDERS”, “text”: “Fulfill Sales Orders” },<br>  { “value”: “GLAUDITNUMBERING”, “text”: “GL Audit Numbering” },<br>  { “value”: “GLIMPACTADJUSTMENT”, “text”: “GL Impact Adjustment” },<br>  { “value”: “GROUPINVOICES”, “text”: “Group Invoices” },<br>  { “value”: “GROUPINVOICESSUBMISSION”, “text”: “Group Invoices Submission” },<br>  { “value”: “IMPORT_EMPLOYEE_EXPENSE”, “text”: “Import Employee Expenses” },<br>  { “value”: “INTERCOMPANYELIMINATION”, “text”: “Intercompany Elimination” },<br>  { “value”: “IC_ENTITY_GENERATION”, “text”: “Intercompany Entity Generation” },<br>  { “value”: “INTERCOORDER_GENERATION”, “text”: “Intercompany Order Generation” },<br>  { “value”: “ICORDER_RA_GENERATION”, “text”: “Intercompany Order Generation” },<br>  { “value”: “ICORDER_SO_GENERATION”, “text”: “Intercompany Order Generation” },<br>  { “value”: “INVOICEBILLABLECUSTOMERS”, “text”: “Invoice Billable Customers” },<br>  { “value”: “BILLSALESORDERS”, “text”: “Invoice Sales Orders” },<br>  { “value”: “OFFCYCLECREDITMEMO”, “text”: “Issue Credit Memo from Change Order” },<br>  { “value”: “ISSUECREDITMEMOS”, “text”: “Issue Credit Memos” },<br>  { “value”: “ISSUEWORKORDERS”, “text”: “Issue Work Orders” },<br>  { “value”: “BULKITEMSHIPSTATUSPACK”, “text”: “Mark Orders Packed” },<br>  { “value”: “BULKITEMSHIPSTATUSSHIP”, “text”: “Mark Orders Shipped” },<br>  { “value”: “MARKVSOEDELIVERED”, “text”: “Mark VSOE Delivered” },<br>  { “value”: “MARKBUILTWORKORDERS”, “text”: “Mark Work Orders Built” },<br>  { “value”: “MARKFIRMEDWORKORDERS”, “text”: “Mark Work Orders Firmed” },<br>  { “value”: “MARKRELEASEDWORKORDERS”, “text”: “Mark Work Orders Released” },<br>  { “value”: “CREATEWORKORDERSFORSTOCK”, “text”: “Mass Create Work Orders” },<br>  { “value”: “MATERIALREQUIREMENTSPLAN”, “text”: “Material Requirements Planning” },<br>  { “value”: “MEDIATEPLANRATABLEEVENTS”, “text”: “Mediate Revenue Plan Ratable Events” },<br>  { “value”: “MEMORIZEDTRANSACTIONS”, “text”: “Memorized Transactions” },<br>  { “value”: “MHATTRIBUTE”, “text”: “Merchandise Attribute” },<br>  { “value”: “MHITEMASSIGNMENT”, “text”: “Merchandise Item Assignment” },<br>  { “value”: “MHITEMREMOVAL”, “text”: “Merchandise Item Removal” },<br>  { “value”: “MERGEREVARRANGEMENT”, “text”: “Merge Revenue Arrangements for Linked Sources” },<br>  { “value”: “MIGRATEOPENREVTRANSACTION”, “text”: “Migrate Revenue Arrangements and Plans” },<br>  { “value”: “MONTHENDFXREVAL”, “text”: “Month End Currency Revaluation” },<br>  { “value”: “MRPINITIALIZATION”, “text”: “MRP Initialization” },<br>  { “value”: “MRPOLDDATADELETION”, “text”: “MRP Old Data Deletion” },<br>  { “value”: “BULKORDERITEMS”, “text”: “Order Items” },<br>  { “value”: “PICKACTION_SYNC”, “text”: “Order Release Fulfillment” },<br>  { “value”: “BULKORDERREQUISITIONS”, “text”: “Order Requisitions” },<br>  { “value”: “OWNERSHIPTRANSFER”, “text”: “Ownership Transfer” },<br>  { “value”: “BULKPAYBILLS”, “text”: “Pay “ },<br>  { “value”: “REPOSITORYINITIALIZATION”, “text”: “Planning Repository Initialization” },<br>  { “value”: “PLANNINGREPOSITORYREFRESH”, “text”: “Planning Repository Refresh” },<br>  { “value”: “SUBSCRIPTION_RECURRINGAMT”, “text”: “Populate Recurring Amount for {Subscription Line}” },<br>  { “value”: “PROCESSHISTTRANSACTIONS”, “text”: “Process Secondary Book Historical Transactions” },<br>  { “value”: “RATINGRUN”, “text”: “Rating Run” },<br>  { “value”: “RECALCEXPFORECASTPLANS”, “text”: “Recalculate Expense Forecast Plans” },<br>  { “value”: “RECALCREVFORECASTPLANS”, “text”: “Recalculate Revenue Forecast Plans” },<br>  { “value”: “RECEIVEINBOUNDSHIPMENT”, “text”: “Receive Inbound Shipment” },<br>  { “value”: “BULKRECEIVEORDER”, “text”: “Receive Orders” },<br>  { “value”: “RELEASEPLANNEDORDER”, “text”: “Release Planned Orders” },<br>  { “value”: “REMOVEMATRIXOPTIONS”, “text”: “Remove Matrix Options” },<br>  { “value”: “RENEWSUBSCRIPTIONS”, “text”: “Renew “ },<br>  { “value”: “RESCHEDULESUPPLYORDER”, “text”: “Reschedule Supply Orders” },<br>  { “value”: “REVALUESTDCOSTINVENTORY”, “text”: “Revalue Standard Cost Inventory” },<br>  { “value”: “REVERTEXPFORECASTPLANS”, “text”: “Revert Expense Forecast Plans to Original” },<br>  { “value”: “REVERTFORECASTPLANSTOORIG”, “text”: “Revert Revenue Forecast Plans to Original” },<br>  { “value”: “ROLLUPITEMCOST”, “text”: “Rollup Planned Standard Cost” },<br>  { “value”: “REC_MATCHING_ENGINE”, “text”: “Run Rules Engine” },<br>  { “value”: “SUITETAXMIGRATION”, “text”: “SuiteTax Migration” },<br>  { “value”: “SUPPLYALLOCATIONMIGRATION”, “text”: “Supply Allocation Migration” },<br>  { “value”: “SCSNAPSHOTREFRESH”, “text”: “Supply Chain Snapshot Refresh” },<br>  { “value”: “TIME_MODIFICATION”, “text”: “Time Modification” },<br>  { “value”: “REPLENISHINVENTORY”, “text”: “Transfer Order Replenishment” },<br>  { “value”: “WITHDRAWINVENTORY”, “text”: “Transfer Order Withdrawal” },<br>  { “value”: “MANAGEACTUALEXPENSEPLANS”, “text”: “Update Actual Expense Plans” },<br>  { “value”: “MANAGEACTUALREVENUEPLANS”, “text”: “Update Actual Revenue Recognition Plans” },<br>  { “value”: “TESTBULKPROCTYPE”, “text”: “Update Department Name For Testing Only” },<br>  { “value”: “UPDATEEXPENSEPLANS”, “text”: “Update Expense Plans” },<br>  { “value”: “MANAGEFORECASTEXPPLANS”, “text”: “Update Forecast Expense Plans” },<br>  { “value”: “MANAGEFORECASTREVPLANS”, “text”: “Update Forecast Revenue Recognition Plans” },<br>  { “value”: “MANAGEREVENUEARRANGEMENT”, “text”: “Update Revenue Arrangements” },<br>  { “value”: “MANAGEREVENUEELEMENTS”, “text”: “Update Revenue Elements” },<br>  { “value”: “UPDATEREVRECPLANS”, “text”: “Update Revenue Recognition Plans” }<br>]</p>
-
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201811151045.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1775,111 +1912,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/en/201811151045.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201705082038.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/en/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl Notes">
-      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/en/201705082038.html" class="post-title-link" itemprop="url">NetSuite SuiteScript 2.0 use DeferredDynamicRecord-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="Views">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/201705082038.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          Background There is a case when we add dynamic sublists to NetSuite Transaction, for user to put in data. In server-side, how to read it in SuiteScrip
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/en/201705082038.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -3929,7 +3961,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202205110811.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201705082038.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -3947,7 +3979,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/202205110811.html" class="post-title-link" itemprop="url">NetSuite's next generation transaction - Inbound Shipment-CarlZeng</a>
+          <a href="/en/201705082038.html" class="post-title-link" itemprop="url">NetSuite SuiteScript 2.0 use DeferredDynamicRecord-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -3976,7 +4008,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/202205110811.html" ></span>
+            <span id="ArtalkPV" data-page-key="/en/201705082038.html" ></span>
           </span>
         
       
@@ -3987,7 +4019,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>2 mins.</span>
     </span>
 </div>
 
@@ -3998,10 +4030,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>That could be next generation of NetSuite’s transaction. It’s loading faster, with totally different back-end design.</p>
-<h3 id="Items-sublist-column-fields"><a href="#Items-sublist-column-fields" class="headerlink" title="Items sublist column fields"></a>Items sublist column fields</h3><p><img data-src="https://img2022.cnblogs.com/blog/41238/202205/41238-20220511080952239-970404907.png"></p>
-<p>To be continue</p>
-
+          Background There is a case when we add dynamic sublists to NetSuite Transaction, for user to put in data. In server-side, how to read it in SuiteScrip
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/en/201705082038.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -4107,6 +4144,106 @@
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202205110811.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/en/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/en/202205110811.html" class="post-title-link" itemprop="url">NetSuite's next generation transaction - Inbound Shipment-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/202205110811.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>That could be next generation of NetSuite’s transaction. It’s loading faster, with totally different back-end design.</p>
+<h3 id="Items-sublist-column-fields"><a href="#Items-sublist-column-fields" class="headerlink" title="Items sublist column fields"></a>Items sublist column fields</h3><p><img data-src="https://img2022.cnblogs.com/blog/41238/202205/41238-20220511080952239-970404907.png"></p>
+<p>To be continue</p>
+
       
     </div>
 

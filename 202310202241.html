@@ -18,22 +18,25 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="手机root之后的利弊不是本文的讨论范围，可自行脑补。 小黄鸟抓包可抓取APP与服务器的通讯数据包  有什么用&#x2F;实操学会root安卓手机后，你可以拥有手机的最高权限，应用广泛。比如：用来保护孩子的手机，删除应用商城防止乱下载APP等等如何抓取安卓APP： 梨园戏TV 源">
+    <meta name="description" content="一加和小米手机为例，测试手机root的效果与应用（小黄鸟抓包可抓取APP与服务器的通讯数据包） 手机用第三方Recovery工具TWRP安装LineageOS，最大化发挥手机的硬件性能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安卓手机root与小黄鸟抓包">
 <meta property="og:url" content="https://www.carlzeng.top/202310202241.html">
 <meta property="og:site_name" content="随笔 Carl Notes">
-<meta property="og:description" content="手机root之后的利弊不是本文的讨论范围，可自行脑补。 小黄鸟抓包可抓取APP与服务器的通讯数据包  有什么用&#x2F;实操学会root安卓手机后，你可以拥有手机的最高权限，应用广泛。比如：用来保护孩子的手机，删除应用商城防止乱下载APP等等如何抓取安卓APP： 梨园戏TV 源">
+<meta property="og:description" content="一加和小米手机为例，测试手机root的效果与应用（小黄鸟抓包可抓取APP与服务器的通讯数据包） 手机用第三方Recovery工具TWRP安装LineageOS，最大化发挥手机的硬件性能">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://bbsstatic.oneplus.com/data/attachment/forum/201711/28/232358bw0ov00m5nn7uhbo.png">
 <meta property="og:image" content="https://cdn.simaek.com/usr/uploads/2020/08/3906704411.png">
 <meta property="og:image" content="https://bbsstatic.oneplus.com/data/attachment/forum/201901/26/155648mcpoballqbda0ua9.jpg">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/23/66782a283b8e2.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/24/6678d398b6003.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/24/6678dca0b4fb3.png">
 <meta property="article:published_time" content="2023-10-20T14:41:52.000Z">
-<meta property="article:modified_time" content="2023-12-04T13:25:50.778Z">
+<meta property="article:modified_time" content="2024-06-25T01:11:48.317Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="andriod">
-<meta property="article:tag" content="手机">
 <meta property="article:tag" content="安卓手机">
+<meta property="article:tag" content="手机">
 <meta property="article:tag" content="root">
 <meta property="article:tag" content="小黄鸟">
 <meta property="article:tag" content="抓包">
@@ -98,7 +101,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">231</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">63</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">353</span></a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-下载音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载音乐</a></li><li class="menu-item menu-item-直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>直播IPTV</a></li><li class="menu-item menu-item-网盘文件分享"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网盘文件分享</a></li><li class="menu-item menu-item-搜索下载书籍"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>搜索下载书籍</a></li><li class="menu-item menu-item-小店入口"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>小店入口</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">232</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">64</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">354</span></a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-下载音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载音乐</a></li><li class="menu-item menu-item-直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>直播IPTV</a></li><li class="menu-item menu-item-网盘文件分享"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网盘文件分享</a></li><li class="menu-item menu-item-搜索下载书籍"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>搜索下载书籍</a></li><li class="menu-item menu-item-小店入口"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>小店入口</a></li>
   </ul>
 
     <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
@@ -134,7 +137,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-%E5%AE%9E%E6%93%8D"><span class="nav-number">1.</span> <span class="nav-text">有什么用&#x2F;实操</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8BRoot%E7%8A%B6%E6%80%81%E7%9A%84%E6%96%B9%E6%B3%95%E4%B9%8B%E4%B8%80"><span class="nav-number">2.1.</span> <span class="nav-text">查看Root状态的方法之一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Cadb%EF%BC%8Csu"><span class="nav-number">2.2.</span> <span class="nav-text">运行adb，su</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3su%E8%8E%B7%E5%8F%96root%E6%9D%83%E9%99%90"><span class="nav-number">2.3.</span> <span class="nav-text">解决su获取root权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%93%E5%8C%85m3u8"><span class="nav-number">2.4.</span> <span class="nav-text">抓包m3u8</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">灵感来源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB"><span class="nav-number">4.</span> <span class="nav-text">杂七杂八</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%91%E8%A1%A5"><span class="nav-number">4.1.</span> <span class="nav-text">脑补:</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-%E5%AE%9E%E6%93%8D"><span class="nav-number">1.</span> <span class="nav-text">有什么用&#x2F;实操</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8BRoot%E7%8A%B6%E6%80%81%E7%9A%84%E6%96%B9%E6%B3%95%E4%B9%8B%E4%B8%80"><span class="nav-number">2.1.</span> <span class="nav-text">查看Root状态的方法之一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Cadb%EF%BC%8Csu"><span class="nav-number">2.2.</span> <span class="nav-text">运行adb，su</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3su%E8%8E%B7%E5%8F%96root%E6%9D%83%E9%99%90"><span class="nav-number">2.3.</span> <span class="nav-text">解决su获取root权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%93%E5%8C%85m3u8"><span class="nav-number">2.4.</span> <span class="nav-text">抓包m3u8</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">灵感来源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB"><span class="nav-number">4.</span> <span class="nav-text">杂七杂八</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%B1%B34%E6%89%8B%E6%9C%BARoot%E6%AD%A5%E9%AA%A4"><span class="nav-number">5.</span> <span class="nav-text">小米4手机Root步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mi4%E6%89%8B%E6%9C%BA%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9Recovery%E5%B7%A5%E5%85%B7TWRP%E5%AE%89%E8%A3%85LineageOS"><span class="nav-number">6.</span> <span class="nav-text">Mi4手机用第三方Recovery工具TWRP安装LineageOS</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -147,18 +150,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">353</span>
+          <span class="site-state-item-count">354</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-count">64</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">231</span>
+        <span class="site-state-item-count">232</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -183,23 +186,18 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202104292230.html" rel="bookmark">
-      The result field Formula (Text) cannot be grouped. Please edit the search and omit this field or use a different summary function.-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202302201139.html" rel="bookmark">
       听音乐(音乐播放器)
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312071625.html" rel="bookmark">
-      孩子手机防沉迷之定时路由器端断网
+      <a class="popular-posts-link" href="/200812311151.html" rel="bookmark">
+      监视所有 HTTP 请求和响应的工具 Fiddler工具介绍 (转载)-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200812311151.html" rel="bookmark">
-      监视所有 HTTP 请求和响应的工具 Fiddler工具介绍 (转载)-CarlZeng
+      <a class="popular-posts-link" href="/202312071625.html" rel="bookmark">
+      孩子手机防沉迷之定时路由器端断网
       </a>
     </li>
     <li class="popular-posts-item">
@@ -215,6 +213,11 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202310051529.html" rel="bookmark">
       网络影视资源 - IPTV直播之电视台直播源
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312090910.html" rel="bookmark">
+      网络影视资源 - Emby家庭媒体服务 - IPTV m3u播放器
       </a>
     </li>
   </ul>
@@ -242,6 +245,11 @@
                   </a>
                 </li>
                 <li class="popular-posts-item">
+                  <a href="/202405202021.html" title="芯片SOP8之读写Flash固件XM25QH128CHIQ" target=""  class="popular-posts-link">
+                  芯片SOP8之读写Flash固件XM25QH128CHIQ
+                  </a>
+                </li>
+                <li class="popular-posts-item">
                   <a href="/202405201839.html" title="PVE安装Windows7" target=""  class="popular-posts-link">
                   PVE安装Windows7
                   </a>
@@ -249,11 +257,6 @@
                 <li class="popular-posts-item">
                   <a href="/202405171053.html" title="任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)" target=""  class="popular-posts-link">
                   任天堂Switch使用switch-lan-play实现远程面连的安装配置操作流程(多台Switch主机远程面对面私服联机)
-                  </a>
-                </li>
-                <li class="popular-posts-item">
-                  <a href="/202405032136.html" title="任天堂Switch黑屏救砖记录" target=""  class="popular-posts-link">
-                  任天堂Switch黑屏救砖记录
                   </a>
                 </li>
         </ul>
@@ -397,7 +400,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-04 21:25:50" itemprop="dateModified" datetime="2023-12-04T21:25:50+08:00">2023-12-04</time>
+      <time title="修改时间：2024-06-25 09:11:48" itemprop="dateModified" datetime="2024-06-25T09:11:48+08:00">2024-06-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -427,7 +430,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
+      <span>12 分钟</span>
     </span>
 </div>
 
@@ -438,12 +441,18 @@
     
     
     <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://bbsstatic.oneplus.com/data/attachment/forum/201711/28/232358bw0ov00m5nn7uhbo.png">
-手机root之后的利弊不是本文的讨论范围，可自行脑补。
-小黄鸟抓包可抓取APP与服务器的通讯数据包
+一加和小米手机为例，测试手机root的效果与应用（小黄鸟抓包可抓取APP与服务器的通讯数据包）
+手机用第三方Recovery工具TWRP安装LineageOS，最大化发挥手机的硬件性能
 
-<h1 id="有什么用-实操"><a href="#有什么用-实操" class="headerlink" title="有什么用&#x2F;实操"></a>有什么用&#x2F;实操</h1><p>学会root安卓手机后，你可以拥有手机的最高权限，应用广泛。<br>比如：用来保护孩子的手机，删除应用商城防止乱下载APP等等<br>如何抓取安卓APP： 梨园戏TV 源</p>
  <span id="more"></span>
 
+<h1 id="有什么用-实操"><a href="#有什么用-实操" class="headerlink" title="有什么用&#x2F;实操"></a>有什么用&#x2F;实操</h1><ul>
+<li><p>安装LineageOS，最大化发挥手机的硬件性能</p>
+</li>
+<li><p>学会root安卓手机后，你可以拥有手机的最高权限，应用广泛。<br>比如：用来保护孩子的手机，删除应用商城防止乱下载APP等等<br>如何抓取安卓APP： 梨园戏TV 源</p>
+</li>
+</ul>
+<p>root之后的利弊不是本文的讨论范围。</p>
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>小黄鸟抓包<br>    需要安装系统级别根证书<br>    需要root安卓</p>
 <p>神话一键root v3.0<br>取消root，移除root权限</p>
 <ul>
@@ -473,8 +482,77 @@
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9pcC5jaGluYXouY29tLw==" rel="noopener external nofollow noreferrer">https://ip.chinaz.com/</a><br>lyhott.a283.ottcn.com<br>apidr.a283.ottcn.com<br>ucas.a283.ottcn.com</p>
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p>手机的应用，需要抓取底层的数据包，来分析学习：与服务器之间的通讯</p>
 <h1 id="杂七杂八"><a href="#杂七杂八" class="headerlink" title="杂七杂八"></a>杂七杂八</h1><p>root待实操：<br>【解锁与ROOT教程】OnePlus 5T Android 10 教程 更新至公测第二版<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iYnMub25lcGx1cy5jb20vdGhyZWFkLzUzOTgyMTc=" rel="noopener external nofollow noreferrer">https://bbs.oneplus.com/thread/5398217</a><br>第一步：解BL锁（BootLoader）<br>注意解完BL锁后会清楚所有的用户数据，提前做好备份<br>第二步：ROOT（安装Magisk）</p>
-<h2 id="脑补"><a href="#脑补" class="headerlink" title="脑补:"></a>脑补:</h2><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hay1pb2kuY29tLzEwMDMtb25lcGx1cy1mbGFzaC1yb290Lw==" rel="noopener external nofollow noreferrer">[搞机] 一加（OnePlus）手机刷机 Root</a></p>
+<p>脑补:</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hay1pb2kuY29tLzEwMDMtb25lcGx1cy1mbGFzaC1yb290Lw==" rel="noopener external nofollow noreferrer">[搞机] 一加（OnePlus）手机刷机 Root</a></p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuaXNpc3kuY29tLzY0Lmh0bWw=" rel="noopener external nofollow noreferrer">神奇的Magisk</a></p>
+<h1 id="小米4手机Root步骤"><a href="#小米4手机Root步骤" class="headerlink" title="小米4手机Root步骤"></a>小米4手机Root步骤</h1><ol start="0">
+<li><p>下载所需文件和工具（Windows平台，亲测Win10流畅可行）</p>
+<ol>
+<li>twrp 第三方Recovery包</li>
+<li>（可选）官方的 BL解锁工具（Mi4是可选的）</li>
+<li>Fastboot工具（下面有链接，这个工具包里面包含adb等Windows平台沟通Android的必备工具）</li>
+<li>Magisk-v27.0.apk （root用的工具，可直接修改为.zip通过第三方Recovery刷入）</li>
+</ol>
+</li>
+<li><p>先将手机与电脑连接以便安装好驱动（如果安装失败，可<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9vbmZpeC5jbi9jb3Vyc2UvMzM3MA==" rel="noopener external nofollow noreferrer">下载 MiFlash</a> 再手动安装）。另外确保手机已<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9vbmZpeC5jbi9jb3Vyc2UvMzE4" rel="noopener external nofollow noreferrer">完成 BL 解锁</a>。</p>
+<ol>
+<li>小米4的情况；这一步是可选的。</li>
+</ol>
+</li>
+<li><p>电脑下载 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9kbC5nb29nbGUuY29tL2FuZHJvaWQvcmVwb3NpdG9yeS9wbGF0Zm9ybS10b29scy1sYXRlc3Qtd2luZG93cy56aXA=" rel="noopener external nofollow noreferrer">Fastboot 工具</a>（解压备用）和<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9vbmZpeC5jbi9yb20/YmlkPTEmdGlkPTc=" rel="noopener external nofollow noreferrer">对应机型 TWRP</a>（.img 后缀文件，将其放入前面解压的文件夹里）。</p>
+<ol>
+<li>请下载该工具，和上面的第三方Recovery包img后缀的文件</li>
+<li>下载第三方Recovery <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3NoYXJlL2xpbms/c2hhcmVpZD02MjA2MDA5MTkmdWs9Mjk0MDA2MzAxMiZfYXRfPTE3MTkxNDQ3MzEzNTcjbGlzdC9wYXRoPSUyRlRXUlBfQ04=" rel="noopener external nofollow noreferrer">https://pan.baidu.com/share/link?shareid=620600919&amp;uk=2940063012&amp;_at_=1719144731357#list/path=%2FTWRP_CN</a></li>
+</ol>
+</li>
+<li><p>将手机关机，长按<code>开机键 + 音量下键</code>进入 fastboot 模式，与电脑连接。</p>
+</li>
+<li><p>电脑打开刚才解压的 <code>platform-tools</code> 文件夹，按住 <code>Shift</code> 键，同时右键点击文件夹空白处，在右键菜单点击“在此处打开 Powershell 窗口”，运行下面命令刷入 TWRP（自行替换文件名）。</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash recovery twrp-3.4.0-0-davinci.img</span><br></pre></td></tr></table></figure>
+
+<p>注：如果不希望安装 TWRP，而只是临时使用 TWRP，运行下面命令（自行替换文件名）并忽略第 5 步骤。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot boot twrp-3.4.0-0-davinci.img</span><br></pre></td></tr></table></figure>
+
+<p>如果运行命令后无法启动 TWRP，一直停在开机界面，可能是 TWRP 版本适配有问题，可尝试使用第三方版。</p>
+<ol start="5">
+<li>为防止重启手机 MIUI 自动替换回官方 Recovery，按住手机<code>音量上键</code>，同时电脑运行下面命令重启手机，直至进入 TWRP 界面。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>在进入 TWRP 后，会询问“是否保持系统分区为只读”。这里滑动按钮以允许修改 ，不然不能禁止 MIUI 替换回官方 Recovery。</li>
+</ol>
+<p>执行过程截图</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/06/23/66782a283b8e2.png" alt="image-20240623215858698"></p>
+<p>本小节参见与鸣谢</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9vbmZpeC5jbi9jb3Vyc2UvMzg0NT9iaWQ9MSZtaWQ9MjY4NjM=" rel="noopener external nofollow noreferrer">小米（Mi） MIX 4 手机刷 TWRP 方法，刷三方Recovery方法（解决卡米问题）</a></p>
+<p>Note：从<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3RvcGpvaG53dS9NYWdpc2svcmVsZWFzZXMlRTQlQjglOEIlRTglQkQlQkQlRTUlODglQjAlRTclOUElODQlRTYlOTglQUZNYWdpc2stdjI3LjAuYXBrJUU2JTk2JTg3JUU0JUJCJUI2JUVGJUJDJThDJUU0JUJGJUFFJUU2JTk0JUI5JUU0JUI4JUJBLnppcCVFNSU5MCU4RSVFNyVCQyU4MCVFNSU5MCU4RCVFRiVCQyU4QyVFNyU4NCVCNiVFNSU5MCU4RSVFNyU5NCVBOCVFNyVBQyVBQyVFNCVCOCU4OSVFNiU5NiVCOSVFNyU5QSU4NHJlY292ZXJ5JUU1JTg4JUI3JUU1JTg1JUE1JUUzJTgwJTgyJUU4JUFGJUI0JUU2JTk4JThFJUVGJUJDJTlBW01hZ2lzaw==" rel="noopener external nofollow noreferrer">https://github.com/topjohnwu/Magisk/releases下载到的是Magisk-v27.0.apk文件，修改为.zip后缀名，然后用第三方的recovery刷入。说明：[Magisk</a> ZIP 27.0 (Latest Version) Flashable Zip – Download](<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9tYWdpc2subWUvemlwLw==" rel="noopener external nofollow noreferrer">https://magisk.me/zip/</a>)</p>
+<h1 id="Mi4手机用第三方Recovery工具TWRP安装LineageOS"><a href="#Mi4手机用第三方Recovery工具TWRP安装LineageOS" class="headerlink" title="Mi4手机用第三方Recovery工具TWRP安装LineageOS"></a>Mi4手机用第三方Recovery工具TWRP安装LineageOS</h1><p>工具和文件：</p>
+<ol>
+<li><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9saW5lYWdlb3Nyb21zLmNvbS9jYW5jcm8vI2Jhc2ljLXJlcXVpcmVtZW50cw==" rel="noopener external nofollow noreferrer">LineageOS 14.1 – [ Android 7.1.2 (Nougat) ] Download last nightly build (2019-02-01)</a></li>
+<li>Fastboot工具<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9kbC5nb29nbGUuY29tL2FuZHJvaWQvcmVwb3NpdG9yeS9wbGF0Zm9ybS10b29scy1sYXRlc3Qtd2luZG93cy56aXA=" rel="noopener external nofollow noreferrer">（下面有链接，这个工具包里面包含adb等Windows平台沟通Android的必备工具）</a></li>
+<li>小米4</li>
+<li>数据线</li>
+<li>Windows电脑</li>
+</ol>
+<p>Installing LineageOS from recovery 步骤</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/06/24/6678d398b6003.png" alt="image-20240624100158395"></p>
+<p>按步骤执行 Wipe，Format Data，Advance Wipe</p>
+<p>然后在手机端Fastboot模式下，Advanced高级，ADB Sideload</p>
+<p>连接数据线到电脑端，执行adb sideload lineage-14.1-20190201-nightly-cancro-signed.zip </p>
+<p>等全部执行成功以后 adb reboot</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/06/24/6678dca0b4fb3.png" alt="image-20240624104030396"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">carlzeng@Carls-MBP scripts % scrcpy --tcpip=192.168.6.134                                                  </span><br><span class="line">scrcpy 2.3.1                                                         </span><br><span class="line">INFO: Connecting to 192.168.6.134:5555...                                                                  </span><br><span class="line">INFO: Connected to 192.168.6.134:5555                                                                      </span><br><span class="line">/opt/homebrew/Cellar/scrcpy/2.3.1/share/scrcpy/scrcpy-server: 1 file pushed, 0 skipped. 130.8 MB/s (66007 b</span><br><span class="line">ytes in 0.000s)                                                                                            </span><br><span class="line">adb: error: more than one device/emulator                                                                  </span><br><span class="line">ERROR: &quot;adb reverse&quot; returned with value 1                                                                 </span><br><span class="line">WARN: &#x27;adb reverse&#x27; failed, fallback to &#x27;adb forward&#x27;                                                      </span><br><span class="line">[server] INFO: Device: [Xiaomi] Xiaomi MI 4LTE (Android 7.1.2)                                             </span><br><span class="line">[server] WARN: Audio disabled: it is not supported before Android 11                                       </span><br><span class="line">INFO: Renderer: metal                                                                                      </span><br><span class="line">WARN: Demuxer &#x27;audio&#x27;: stream explicitly disabled by the device                                            </span><br><span class="line">INFO: Texture: 1080x1920</span><br></pre></td></tr></table></figure>
+
+
+
+<p>至此，已成功将古董小米4手机刷入Lineage OS 14.1 （20190201版本）</p>
+<p>本小节鸣谢：</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMUc4NDExeDdlVi8=" rel="noopener external nofollow noreferrer">小米4刷入lineage os贼tm流畅</a> 给我勇气刷入看似不支持的lineage OS固件包</p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9saW5lYWdlb3Nyb21zLmNvbS9jYW5jcm8vI2Jhc2ljLXJlcXVpcmVtZW50cw==" rel="noopener external nofollow noreferrer">https://lineageosroms.com/cancro/#basic-requirements</a></p>
+<p>下一个目标<br>Mobian 或者 Kali NetHunter</p>
 
     </div>
 
@@ -532,23 +610,18 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202104292230.html" rel="bookmark">
-      The result field Formula (Text) cannot be grouped. Please edit the search and omit this field or use a different summary function.-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202302201139.html" rel="bookmark">
       听音乐(音乐播放器)
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312071625.html" rel="bookmark">
-      孩子手机防沉迷之定时路由器端断网
+      <a class="popular-posts-link" href="/200812311151.html" rel="bookmark">
+      监视所有 HTTP 请求和响应的工具 Fiddler工具介绍 (转载)-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200812311151.html" rel="bookmark">
-      监视所有 HTTP 请求和响应的工具 Fiddler工具介绍 (转载)-CarlZeng
+      <a class="popular-posts-link" href="/202312071625.html" rel="bookmark">
+      孩子手机防沉迷之定时路由器端断网
       </a>
     </li>
     <li class="popular-posts-item">
@@ -564,6 +637,11 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202310051529.html" rel="bookmark">
       网络影视资源 - IPTV直播之电视台直播源
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312090910.html" rel="bookmark">
+      网络影视资源 - Emby家庭媒体服务 - IPTV m3u播放器
       </a>
     </li>
   </ul>
@@ -594,6 +672,11 @@
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202405202021.html" title="芯片SOP8之读写Flash固件XM25QH128CHIQ" target="" class="popular-posts-link">
+              芯片SOP8之读写Flash固件XM25QH128CHIQ
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
               <a href="/202405201839.html" title="PVE安装Windows7" target="" class="popular-posts-link">
               PVE安装Windows7
               </a>
@@ -621,11 +704,6 @@
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202404081832.html" title="分享小主机docker安装离线下载工具" target="" class="popular-posts-link">
               分享小主机docker安装离线下载工具
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202404061606.html" title="免费试用在线SuiteCRM产品 简易定制或集成限时免费" target="" class="popular-posts-link">
-              免费试用在线SuiteCRM产品 简易定制或集成限时免费
               </a>
             </li>
     </ul>
@@ -736,7 +814,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-12-04 21:25:50" itemprop="dateModified" datetime="2023-12-04T21:25:50+08:00">2023-12-04</time>
+        <time title="修改时间：2024-06-25 09:11:48" itemprop="dateModified" datetime="2024-06-25T09:11:48+08:00">2024-06-25</time>
       </span>
 
 </div>
@@ -746,8 +824,8 @@
           <div class="post-tags">
             继续浏览有关
               <a href="/tags/andriod/" rel="tag"># andriod</a>
-              <a href="/tags/%E6%89%8B%E6%9C%BA/" rel="tag"># 手机</a>
               <a href="/tags/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/" rel="tag"># 安卓手机</a>
+              <a href="/tags/%E6%89%8B%E6%9C%BA/" rel="tag"># 手机</a>
               <a href="/tags/root/" rel="tag"># root</a>
               <a href="/tags/%E5%B0%8F%E9%BB%84%E9%B8%9F/" rel="tag"># 小黄鸟</a>
               <a href="/tags/%E6%8A%93%E5%8C%85/" rel="tag"># 抓包</a>
@@ -880,26 +958,6 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202310202241.html","pageTitle":"安卓手机root与小黄鸟抓包"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -932,6 +990,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>
