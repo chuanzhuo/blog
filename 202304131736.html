@@ -25,14 +25,16 @@
 <meta property="og:site_name" content="随笔 Carl Notes">
 <meta property="og:description" content="动态公网IP和SRS简介以及现实中的应用">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/07/04/6686268f6a682.png">
 <meta property="article:published_time" content="2023-04-13T09:36:00.000Z">
-<meta property="article:modified_time" content="2024-07-03T10:57:01.289Z">
+<meta property="article:modified_time" content="2024-07-05T02:39:52.097Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="动态公网IP">
 <meta property="article:tag" content="SRS">
 <meta property="article:tag" content="Obs">
 <meta property="article:tag" content="vMix">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.carlzeng.top:3/i/2024/07/04/6686268f6a682.png">
 
 
 <link rel="canonical" href="https://www.carlzeng.top/202304131736.html">
@@ -128,7 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85SRS%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.</span> <span class="nav-text">1. 安装SRS步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%92%AD%E6%94%BE%E8%A7%82%E7%9C%8B"><span class="nav-number">2.</span> <span class="nav-text">4. 播放观看</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84"><span class="nav-number">3.</span> <span class="nav-text">5. 外网映射</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%8E%A8%E6%B5%81%E6%96%B9%E6%A1%88"><span class="nav-number">4.</span> <span class="nav-text">2. 推流方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8obs%E6%8E%A8%E6%B5%81"><span class="nav-number">4.1.</span> <span class="nav-text">使用obs推流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8%EF%BC%8C%E5%B9%B6%E6%89%BE%E5%88%B0%E6%82%A8%E9%9C%80%E8%A6%81%E4%BF%AE%E6%94%B9%E7%9A%84-HTML-%E6%96%87%E4%BB%B6%E6%89%80%E5%9C%A8%E7%9A%84%E8%B7%AF%E5%BE%84%E3%80%82"><span class="nav-number">4.1.1.</span> <span class="nav-text">2. 进入容器，并找到您需要修改的 HTML 文件所在的路径。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E4%BF%AE%E6%94%B9-HTML-%E6%96%87%E4%BB%B6%E3%80%82"><span class="nav-number">4.1.2.</span> <span class="nav-text">3. 使用文本编辑器修改 HTML 文件。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%BD%BF%E7%94%A8-docker-commit-%E5%91%BD%E4%BB%A4%E5%B0%86%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E5%AE%B9%E5%99%A8%E4%BF%9D%E5%AD%98%E4%B8%BA%E6%96%B0%E7%9A%84%E9%95%9C%E5%83%8F%E3%80%82"><span class="nav-number">4.1.3.</span> <span class="nav-text">4. 使用 docker commit 命令将修改后的容器保存为新的镜像。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-optional-%E5%B0%86%E6%96%B0%E7%9A%84%E9%95%9C%E5%83%8F%E6%8E%A8%E9%80%81%E5%88%B0-Docker-%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93%E4%B8%AD%EF%BC%88%E5%A6%82%E6%9E%9C%E9%9C%80%E8%A6%81%EF%BC%89%E3%80%82"><span class="nav-number">4.1.4.</span> <span class="nav-text">5. [optional]将新的镜像推送到 Docker 镜像仓库中（如果需要）。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%9C%A8%E9%83%A8%E7%BD%B2-SRS-%E6%9C%8D%E5%8A%A1%E6%97%B6%EF%BC%8C%E4%BD%BF%E7%94%A8%E6%96%B0%E7%9A%84%E9%95%9C%E5%83%8F%E6%A0%87%E7%AD%BE%E6%9D%A5%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8%E3%80%82"><span class="nav-number">4.1.5.</span> <span class="nav-text">6. 在部署 SRS 服务时，使用新的镜像标签来启动容器。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8vMix%E6%8E%A8%E6%B5%81"><span class="nav-number">4.2.</span> <span class="nav-text">使用vMix推流</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">5.</span> <span class="nav-text">错误及解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E6%9F%A5%E4%B9%90%E6%A9%99TP1Z%E6%91%84%E5%83%8F%E5%A4%B4rtsp%E6%B5%81%E5%9C%B0%E5%9D%80"><span class="nav-number">5.1.</span> <span class="nav-text">排查乐橙TP1Z摄像头rtsp流地址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ffmpeg%E5%A6%82%E4%BD%95%E8%AE%A9%E5%AE%83%E5%8E%BB%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C%EF%BC%9F"><span class="nav-number">5.1.1.</span> <span class="nav-text">ffmpeg如何让它去后台运行？</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85SRS%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">1. 安装SRS步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%92%AD%E6%94%BE%E8%A7%82%E7%9C%8B"><span class="nav-number">3.</span> <span class="nav-text">4. 播放观看</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%A4%96%E7%BD%91%E6%98%A0%E5%B0%84"><span class="nav-number">4.</span> <span class="nav-text">5. 外网映射</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%8E%A8%E6%B5%81%E6%96%B9%E6%A1%88"><span class="nav-number">5.</span> <span class="nav-text">2. 推流方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8obs%E6%8E%A8%E6%B5%81"><span class="nav-number">5.1.</span> <span class="nav-text">使用obs推流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8%EF%BC%8C%E5%B9%B6%E6%89%BE%E5%88%B0%E6%82%A8%E9%9C%80%E8%A6%81%E4%BF%AE%E6%94%B9%E7%9A%84-HTML-%E6%96%87%E4%BB%B6%E6%89%80%E5%9C%A8%E7%9A%84%E8%B7%AF%E5%BE%84%E3%80%82"><span class="nav-number">5.1.1.</span> <span class="nav-text">2. 进入容器，并找到您需要修改的 HTML 文件所在的路径。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E4%BF%AE%E6%94%B9-HTML-%E6%96%87%E4%BB%B6%E3%80%82"><span class="nav-number">5.1.2.</span> <span class="nav-text">3. 使用文本编辑器修改 HTML 文件。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%BD%BF%E7%94%A8-docker-commit-%E5%91%BD%E4%BB%A4%E5%B0%86%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E5%AE%B9%E5%99%A8%E4%BF%9D%E5%AD%98%E4%B8%BA%E6%96%B0%E7%9A%84%E9%95%9C%E5%83%8F%E3%80%82"><span class="nav-number">5.1.3.</span> <span class="nav-text">4. 使用 docker commit 命令将修改后的容器保存为新的镜像。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-optional-%E5%B0%86%E6%96%B0%E7%9A%84%E9%95%9C%E5%83%8F%E6%8E%A8%E9%80%81%E5%88%B0-Docker-%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93%E4%B8%AD%EF%BC%88%E5%A6%82%E6%9E%9C%E9%9C%80%E8%A6%81%EF%BC%89%E3%80%82"><span class="nav-number">5.1.4.</span> <span class="nav-text">5. [optional]将新的镜像推送到 Docker 镜像仓库中（如果需要）。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%9C%A8%E9%83%A8%E7%BD%B2-SRS-%E6%9C%8D%E5%8A%A1%E6%97%B6%EF%BC%8C%E4%BD%BF%E7%94%A8%E6%96%B0%E7%9A%84%E9%95%9C%E5%83%8F%E6%A0%87%E7%AD%BE%E6%9D%A5%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8%E3%80%82"><span class="nav-number">5.1.5.</span> <span class="nav-text">6. 在部署 SRS 服务时，使用新的镜像标签来启动容器。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8vMix%E6%8E%A8%E6%B5%81"><span class="nav-number">5.2.</span> <span class="nav-text">使用vMix推流</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">6.</span> <span class="nav-text">错误及解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E6%9F%A5%E4%B9%90%E6%A9%99TP1Z%E6%91%84%E5%83%8F%E5%A4%B4rtsp%E6%B5%81%E5%9C%B0%E5%9D%80"><span class="nav-number">6.1.</span> <span class="nav-text">排查乐橙TP1Z摄像头rtsp流地址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ffmpeg%E5%A6%82%E4%BD%95%E8%AE%A9%E5%AE%83%E5%8E%BB%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C%EF%BC%9F"><span class="nav-number">6.1.1.</span> <span class="nav-text">ffmpeg如何让它去后台运行？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%94%BE%E5%8F%96%E6%B5%81url"><span class="nav-number">6.2.</span> <span class="nav-text">回放取流url</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SRS%E6%8E%A7%E5%88%B6%E5%8F%B0"><span class="nav-number">7.</span> <span class="nav-text">SRS控制台</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#srs-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8udp%E8%BF%9B%E8%A1%8C%E4%BC%A0%E8%BE%93%EF%BC%9F"><span class="nav-number">7.1.</span> <span class="nav-text">srs 如何使用udp进行传输？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E6%94%BE%E5%85%AC%E6%B5%8B"><span class="nav-number">8.</span> <span class="nav-text">开放公测</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -202,13 +204,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200912081129.html" rel="bookmark">
-      js 转化为标准日期型-CarlZeng
+      <a class="popular-posts-link" href="/202211220913.html" rel="bookmark">
+      如何使用lux,youtube-dl下载各视频网站(含Youtube)上面的音视频，油管视频
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202211220913.html" rel="bookmark">
-      如何使用lux,youtube-dl下载各视频网站(含Youtube)上面的音视频，油管视频
+      <a class="popular-posts-link" href="/200912081129.html" rel="bookmark">
+      js 转化为标准日期型-CarlZeng
       </a>
     </li>
   </ul>
@@ -391,7 +393,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-03 18:57:01" itemprop="dateModified" datetime="2024-07-03T18:57:01+08:00">2024-07-03</time>
+      <time title="修改时间：2024-07-05 10:39:52" itemprop="dateModified" datetime="2024-07-05T10:39:52+08:00">2024-07-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -421,7 +423,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>13 分钟</span>
+      <span>15 分钟</span>
     </span>
 </div>
 
@@ -431,13 +433,17 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>动态公网IP（Dynamic Public IP）是指由互联网服务提供商（ISP）分配给用户的动态IP地址，该地址是公共的，可以在公共互联网上访问。<br>与静态公网IP不同，动态公网IP是临时分配的，并且在一段时间后可能会更改。这意味着每次重新连接到互联网时，用户可能会被分配一个新的动态公网IP地址。</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>动态公网IP（Dynamic Public IP）是指由互联网服务提供商（ISP）分配给用户的动态IP地址，该地址是公共的，可以在公共互联网上访问。<br>与静态公网IP不同，动态公网IP是临时分配的，并且在一段时间后可能会更改。这意味着每次重新连接到互联网时，用户可能会被分配一个新的动态公网IP地址。</p>
 <p>动态公网IP通常用于个人用户或小型企业，因为它们相对便宜，而且不需要用户进行任何配置或管理。但是，由于其不稳定性和易变性，动态公网IP可能不适合需要稳定和持久的互联网连接的大型企业或组织。</p>
 <p>联通的adsl用户可以打10010 叫客服打开“动态公网IP” + 路由器桥接。（<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cubWktZC5jbi8xNTkw" rel="noopener external nofollow noreferrer">缘由：需要动态公网ip做监控或者访问服务</a>）</p>
 <p>开启动态公网IP+路由器桥接以后, 路由器上拨号即可得到一个公网IP.</p>
 <p>OpenWRT 路由器 设置端口映射， 即可将局域网内主机的端口 映射到公网IP的特定上。</p>
 <p>题外话（弯路）：（Padavan的系统，在端口映射是使用单独的工具（socat耗内存）来实现端口数据转发，OpenWrt的iptables更可靠，扎实稳定）</p>
 <p>下面以mac电脑，架设SRS服务器 来：分享流媒体至互联网。</p>
+<p>进度、历史记录与下一步计划</p>
+<ul>
+<li>20240705 开放公测一个月，截至日期20240805；请参见本文底部的‘开放公测’章节</li>
+</ul>
 <h1 id="1-安装SRS步骤"><a href="#1-安装SRS步骤" class="headerlink" title="1. 安装SRS步骤"></a>1. 安装SRS步骤</h1><p>(安装Docker.dmg后, 运行下面的指令)</p>
 <p>SRS文档：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9vc3Nycy5uZXQvbHRzL3poLWNuL2RvY3MvdjQvZG9jL2dldHRpbmctc3RhcnRlZA==" rel="noopener external nofollow noreferrer">https:&#x2F;&#x2F;</a><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9vc3Nycy5uZXQvbHRzL3poLWNuL2RvY3MvdjQvZG9jL2dldHRpbmctc3RhcnRlZA==" rel="noopener external nofollow noreferrer">ossrs.net&#x2F;lts&#x2F;zh-cn&#x2F;docs&#x2F;v4&#x2F;doc&#x2F;getting-started</a><br>首先要先把安装好的Docker启动，屏幕右上角会出现鲸鱼背楼的图标，确保其正在运行。<br> Steps to run docker: </p>
 <ol>
@@ -537,7 +543,7 @@ https://bilibili.github.io/flv.js/demo/
 无法启动大华的544端口
 台式机无法使用 显示器
 </code></pre>
-<p>admin:<a href="mailto:&#97;&#x64;&#x6d;&#x69;&#x6e;&#64;&#x31;&#57;&#x32;&#46;&#49;&#x36;&#x38;&#x2e;&#54;&#46;&#x31;&#50;&#x36;">&#97;&#x64;&#x6d;&#x69;&#x6e;&#64;&#x31;&#57;&#x32;&#46;&#49;&#x36;&#x38;&#x2e;&#54;&#46;&#x31;&#50;&#x36;</a>:554&#x2F;cam&#x2F;realmonitor?channel&#x3D;1&amp;subtype&#x3D;1</p>
+<p>admin:<a href="mailto:&#x61;&#100;&#109;&#105;&#x6e;&#64;&#x31;&#57;&#x32;&#46;&#49;&#x36;&#x38;&#x2e;&#x36;&#46;&#49;&#x32;&#x36;">&#x61;&#100;&#109;&#105;&#x6e;&#64;&#x31;&#57;&#x32;&#46;&#49;&#x36;&#x38;&#x2e;&#x36;&#46;&#49;&#x32;&#x36;</a>:554&#x2F;cam&#x2F;realmonitor?channel&#x3D;1&amp;subtype&#x3D;1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% nc -vz 192.168.6.126 554                                                        </span><br><span class="line">Connection to 192.168.6.126 port 554 [tcp/rtsp] succeeded!</span><br></pre></td></tr></table></figure>
 
 <p>没办法，只能硬件重置这个摄像头；无法连接rtsp了！</p>
@@ -551,7 +557,7 @@ https://bilibili.github.io/flv.js/demo/
 <p>重置以后依然无效，无法连接到554端口</p>
 <p>原来TP1Z要打乐橙的客服电话： 大华400-672-8166; 子公司乐橙400-672-8169</p>
 <p>去流程</p>
-<p>rtsp:&#x2F;&#x2F;admin:<a href="mailto:&#x61;&#x40;&#x31;&#x39;&#x32;&#x2e;&#x31;&#54;&#x38;&#x2e;&#54;&#46;&#49;&#50;&#x36;">&#x61;&#x40;&#x31;&#x39;&#x32;&#x2e;&#x31;&#54;&#x38;&#x2e;&#54;&#46;&#49;&#50;&#x36;</a>:554&#x2F;realmonitor?channel&#x3D;0&amp;subtype&#x3D;0</p>
+<p>rtsp:&#x2F;&#x2F;admin:<a href="mailto:&#x61;&#x40;&#49;&#57;&#x32;&#46;&#49;&#54;&#x38;&#x2e;&#x36;&#46;&#x31;&#x32;&#x36;">&#x61;&#x40;&#49;&#57;&#x32;&#46;&#49;&#54;&#x38;&#x2e;&#x36;&#46;&#x31;&#x32;&#x36;</a>:554&#x2F;realmonitor?channel&#x3D;0&amp;subtype&#x3D;0</p>
 <p>默认的IP地址192.168.1.108 （连接IP但是需要插入网线！）</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">【华橙网络】实时监控码流Url 格式：</span><br><span class="line">a、请求实时监控码流Rtsp流媒体服务时，应在Url 中指明请求的通道号、码流类型，如果需要认证信息，还有提供用户名和密码。Url 格式说明如下：rtsp://username:password@ip:port/cam/realmonitor?<span class="attr">channel</span>=<span class="number">1</span>&amp;subtype=<span class="number">0</span></span><br><span class="line"></span><br><span class="line">b、其中:username: 用户名。例如admin。password: 密码。例如admin。ip: 为设备IP。例如 10.7.8.122。port: 端口号默认为554，若为默认可不填写。</span><br><span class="line">channel: 通道号，起始为1。例如通道2，则为<span class="attr">channel</span>=<span class="number">2</span>。</span><br><span class="line">subtype: 码流类型，主码流为0（即<span class="attr">subtype</span>=<span class="number">0</span>），辅码流为<span class="number">1</span>（即subtype=<span class="number">1</span>）。</span><br><span class="line"></span><br><span class="line">例如，请求某设备的通道2的辅码流，Url如下rtsp://admin:admin@10.12.4.84:554/cam/realmonitor?<span class="attr">channel</span>=<span class="number">2</span>&amp;subtype=<span class="number">1</span> 确认相机网页设置，在设置-系统管理-系统服务-RTSP over TLS 选项是否开启，需关闭。 </span><br></pre></td></tr></table></figure>
 
@@ -583,6 +589,39 @@ https://bilibili.github.io/flv.js/demo/
 
 
 <p>用 kill -9 8286  这样的命令，杀死那些测试的进程，留下一个运行着的ffmpeg即可（已经nohup并且无输出了）</p>
+<h2 id="回放取流url"><a href="#回放取流url" class="headerlink" title="回放取流url"></a>回放取流url</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rtsp://admin:d@172.22.0.26:554/cam/playback?channel=1&amp;subtype=1&amp;starttime=2024_07_04_11_50_00</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<ul>
+<li>playback表示回放</li>
+<li>channel&#x3D;number表示通道号</li>
+<li>subtype&#x3D;0表示主码流</li>
+<li>starttime&#x3D;YYYY_MM_DD_HH_mm_SS表示回放开始时间</li>
+<li>endtime&#x3D;YYYY_MM_DD_HH_mm_SS表示回放结束时间</li>
+</ul>
+<blockquote>
+<p>20240705 实测有效，vlc播放成功。这是一个实用的功能</p>
+<p>可随时查看回放</p>
+</blockquote>
+<h1 id="SRS控制台"><a href="#SRS控制台" class="headerlink" title="SRS控制台"></a>SRS控制台</h1><p>本地局域网查阅控制台后端情况</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/07/04/6686268f6a682.png" alt="image-20240704123522227"></p>
+<p>推流上下点功夫，参数上调整，来提高远程查阅m3u8的速度？</p>
+<p>nohup ffmpeg -re -r 24 -b:v 2000k -bufsize 3000k -i  “rtsp:&#x2F;&#x2F;admin:<a href="mailto:&#x64;&#64;&#49;&#57;&#50;&#x2e;&#49;&#54;&#56;&#46;&#54;&#46;&#49;&#50;&#x36;">&#x64;&#64;&#49;&#57;&#50;&#x2e;&#49;&#54;&#56;&#46;&#54;&#46;&#49;&#50;&#x36;</a>:554&#x2F;cam&#x2F;realmonitor?channel&#x3D;1&amp;subtype&#x3D;1” -c copy -f flv -y rtmp:&#x2F;&#x2F;192.168.6.116:1935&#x2F;live&#x2F;livestream 1&gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;</p>
+<p>其中，可以调整 -r、-b:v 和 -s 等参数来优化视频传输速率，从而缩短推流间隔。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">video bitrate (please use -b:v)) cannot be applied to input url</span><br><span class="line">Option b:v (video bitrate (please use -b:v)) cannot be applied to input url rtsp://admin:d@192.168.6.126:554/cam/realmonitor?channel=1&amp;subtype=1 -- you are trying to apply an input option to an output file or vice versa. Move this option before the file it belongs to.</span><br><span class="line">Error opening input files: Invalid argument</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[in#0/rtsp @ 0x12cf04220] Codec AVOption bufsize (set ratecontrol buffer size (in bits)) is not a decoding opti</span><br><span class="line">on.</span><br></pre></td></tr></table></figure>
+
+<p>-r 25</p>
+<p>-s 640*480</p>
+<p>512x512<br>        600x240<br>        640x512<br>        1024x512 default<br>        hd720</p>
+<p>尝试了各种参数都失败了，</p>
+<h2 id="srs-如何使用udp进行传输？"><a href="#srs-如何使用udp进行传输？" class="headerlink" title="srs 如何使用udp进行传输？"></a>srs 如何使用udp进行传输？</h2><p>待优化</p>
+<h1 id="开放公测"><a href="#开放公测" class="headerlink" title="开放公测"></a>开放公测</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://cam1.carlzeng.top:3/players/srs_player.html?schema=https&port=3&api=3&autostart=true" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+<p>请留言或<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcudG9wOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer">提交问卷</a>告知我体验情况（您的ISP，网速，连通情况画面是否卡顿），感谢</p>
+<iframe style="box-shadow: 0px 0px 20px -10px;" src="https://ask.carlzeng.top:4443/s/iDYnBV" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
 
     </div>
 
@@ -665,13 +704,13 @@ https://bilibili.github.io/flv.js/demo/
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200912081129.html" rel="bookmark">
-      js 转化为标准日期型-CarlZeng
+      <a class="popular-posts-link" href="/202211220913.html" rel="bookmark">
+      如何使用lux,youtube-dl下载各视频网站(含Youtube)上面的音视频，油管视频
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202211220913.html" rel="bookmark">
-      如何使用lux,youtube-dl下载各视频网站(含Youtube)上面的音视频，油管视频
+      <a class="popular-posts-link" href="/200912081129.html" rel="bookmark">
+      js 转化为标准日期型-CarlZeng
       </a>
     </li>
   </ul>
@@ -844,7 +883,7 @@ https://bilibili.github.io/flv.js/demo/
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-07-03 18:57:01" itemprop="dateModified" datetime="2024-07-03T18:57:01+08:00">2024-07-03</time>
+        <time title="修改时间：2024-07-05 10:39:52" itemprop="dateModified" datetime="2024-07-05T10:39:52+08:00">2024-07-05</time>
       </span>
 
 </div>
