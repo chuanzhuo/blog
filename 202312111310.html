@@ -18,27 +18,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="宽带运营商IPTV组播转单播，运营商机顶盒共享，最稳定快速的当地IPTV方案">
+    <meta name="description" content="宽带运营商IPTV组播转单播，运营商机顶盒共享，最稳定快速的当地IPTV方案升级udpxy至msd_lite">
 <meta property="og:type" content="article">
 <meta property="og:title" content="电视节目资源 - 实测联通移动IPTV组播转单播方案">
 <meta property="og:url" content="https://www.carlzeng.top/202312111310.html">
 <meta property="og:site_name" content="随笔 Carl Notes">
-<meta property="og:description" content="宽带运营商IPTV组播转单播，运营商机顶盒共享，最稳定快速的当地IPTV方案">
+<meta property="og:description" content="宽带运营商IPTV组播转单播，运营商机顶盒共享，最稳定快速的当地IPTV方案升级udpxy至msd_lite">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/e1cc6842-a4c0-4b0e-b767-ab0cea2d8ef3/JQYYolsVP550BLy8SSoZTzT4iL1eQb0WGhqw3OTVLoiSqcCSyYHWl1IezA/deep/0/image.png">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/11465e85-0322-42f7-8e75-a63d987cc78b/f2UNSyxBZA4Ba4eBcVW1Oqs8p3AY4IoWubsnuHcfWblRrEyXb6rMTaOzQg/deep/0/image.png">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/9b35253b-5d18-4c5c-8bf0-98cd526f09ca/NclqTKfZzzH18GL4UAUbQBjrowyrcaDXNbf5LtE7lw4_95KT7zxbXjThoA/deep/0/image.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/07/20/669b44d5cd423.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/07/20/669b45f92c41e.png">
 <meta property="article:published_time" content="2023-12-11T05:10:21.000Z">
-<meta property="article:modified_time" content="2023-12-24T08:04:56.574Z">
+<meta property="article:modified_time" content="2024-07-20T07:18:01.140Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="andriod">
 <meta property="article:tag" content="机顶盒">
 <meta property="article:tag" content="IPTV">
 <meta property="article:tag" content="直播">
-<meta property="article:tag" content="电视">
-<meta property="article:tag" content="网络影视资源">
 <meta property="article:tag" content="livetv">
 <meta property="article:tag" content="tv">
+<meta property="article:tag" content="电视">
+<meta property="article:tag" content="网络影视资源">
 <meta property="article:tag" content="组播转单播">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.evernote.com/shard/s122/sh/e1cc6842-a4c0-4b0e-b767-ab0cea2d8ef3/JQYYolsVP550BLy8SSoZTzT4iL1eQb0WGhqw3OTVLoiSqcCSyYHWl1IezA/deep/0/image.png">
@@ -137,7 +139,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%9F%E8%B0%A2%E5%88%97%E8%A1%A8"><span class="nav-number">4.1.</span> <span class="nav-text">感谢列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E8%B7%B5%E8%BF%87%E7%A8%8B%E6%9B%B2%E6%8A%98"><span class="nav-number">5.</span> <span class="nav-text">实践过程曲折</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E7%BB%84%E7%BD%91%E6%96%B9%E5%BC%8F"><span class="nav-number">5.1.</span> <span class="nav-text">个人组网方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="nav-number">6.</span> <span class="nav-text">下一步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E8%BD%AC%E8%BD%BD%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">原文转载如下：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E3%80%87%E3%80%81%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="nav-number">8.</span> <span class="nav-text">〇、前情提要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">9.</span> <span class="nav-text">一、准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%AE%BD%E5%B8%A6"><span class="nav-number">9.1.</span> <span class="nav-text">1、宽带</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8"><span class="nav-number">9.2.</span> <span class="nav-text">2、路由器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E7%94%B5%E8%84%91"><span class="nav-number">9.3.</span> <span class="nav-text">3、电脑</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%85%B7%E4%BD%93%E5%AE%9E%E6%96%BD"><span class="nav-number">10.</span> <span class="nav-text">二、具体实施</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%85%89%E7%8C%AB%E6%A3%80%E6%9F%A5"><span class="nav-number">10.1.</span> <span class="nav-text">1、光猫检查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E7%8E%AF%E5%A2%83%E9%AA%8C%E8%AF%81"><span class="nav-number">10.2.</span> <span class="nav-text">2、环境验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E7%BD%91%E6%AE%B5%E8%AE%BE%E7%BD%AE"><span class="nav-number">10.3.</span> <span class="nav-text">3、网段设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE"><span class="nav-number">10.4.</span> <span class="nav-text">4、路由器关键设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8F%8C%E7%BA%BF"><span class="nav-number">10.4.1.</span> <span class="nav-text">4.1、路由器关键设置-双线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8F%8C%E7%BA%BF-openwrt"><span class="nav-number">10.4.1.1.</span> <span class="nav-text">4.1.1、路由器关键设置-双线-openwrt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-2%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8F%8C%E7%BA%BF-%E8%80%81%E6%AF%9B%E5%AD%90%E3%80%81%E6%A2%85%E6%9E%97"><span class="nav-number">10.4.1.2.</span> <span class="nav-text">4.1.2路由器关键设置-双线-老毛子、梅林</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-3%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8F%8C%E7%BA%BF-%E5%85%B6%E4%BB%96"><span class="nav-number">10.4.1.3.</span> <span class="nav-text">4.1.3、路由器关键设置-双线-其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8D%95%E7%BA%BF"><span class="nav-number">10.4.2.</span> <span class="nav-text">4.2、路由器关键设置-单线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8D%95%E7%BA%BF-openwrt"><span class="nav-number">10.4.2.1.</span> <span class="nav-text">4.2.1、路由器关键设置-单线-openwrt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8D%95%E7%BA%BF-%E8%80%81%E6%AF%9B%E5%AD%90%E3%80%81%E6%A2%85%E6%9E%97"><span class="nav-number">10.4.2.2.</span> <span class="nav-text">4.2.2、路由器关键设置-单线-老毛子、梅林</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-3%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8D%95%E7%BA%BF-%E5%85%B6%E4%BB%96"><span class="nav-number">10.4.2.3.</span> <span class="nav-text">4.2.3、路由器关键设置-单线-其他</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81%E7%BB%84%E6%92%AD%E8%BD%AC%E5%8D%95%E6%92%AD"><span class="nav-number">10.5.</span> <span class="nav-text">5、组播转单播</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1%E3%80%81%E7%BB%84%E6%92%AD%E8%BD%AC%E5%8D%95%E6%92%AD-openwrt"><span class="nav-number">10.5.1.</span> <span class="nav-text">5.1、组播转单播-openwrt</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1%E3%80%81%E7%BB%84%E6%92%AD%E8%BD%AC%E5%8D%95%E6%92%AD-openwrt-%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">10.5.1.1.</span> <span class="nav-text">5.1.1、组播转单播-openwrt-防火墙</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2%E3%80%81%E7%BB%84%E6%92%AD%E8%BD%AC%E5%8D%95%E6%92%AD-%E8%80%81%E6%AF%9B%E5%AD%90%E3%80%81%E6%A2%85%E6%9E%97"><span class="nav-number">10.5.2.</span> <span class="nav-text">5.2、组播转单播-老毛子、梅林</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%92%AD%E6%94%BE"><span class="nav-number">10.6.</span> <span class="nav-text">6、客户端播放</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E5%85%B6%E4%BB%96%E6%8F%90%E7%A4%BA"><span class="nav-number">10.6.1.</span> <span class="nav-text">7、其他提示</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%90%8E"><span class="nav-number">11.</span> <span class="nav-text">最后</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E8%BD%AC%E8%BD%BD%E7%BB%93%E6%9D%9F"><span class="nav-number">12.</span> <span class="nav-text">原文转载结束</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%84%E8%A7%88Emby%E4%B8%AD%E7%9A%84%E7%94%B5%E8%A7%86%E7%9B%B4%E6%92%AD"><span class="nav-number">13.</span> <span class="nav-text">预览Emby中的电视直播</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%92%AD%E6%94%BE%E5%99%A8"><span class="nav-number">13.1.</span> <span class="nav-text">其他客户端播放器</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%9F%E8%B0%A2%E5%88%97%E8%A1%A8"><span class="nav-number">4.1.</span> <span class="nav-text">感谢列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E8%B7%B5%E8%BF%87%E7%A8%8B%E6%9B%B2%E6%8A%98"><span class="nav-number">5.</span> <span class="nav-text">实践过程曲折</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E7%BB%84%E7%BD%91%E6%96%B9%E5%BC%8F"><span class="nav-number">5.1.</span> <span class="nav-text">个人组网方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="nav-number">6.</span> <span class="nav-text">下一步</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%8A%8A%E7%BB%84%E6%92%AD%E8%BD%AC%E5%8D%95%E6%92%AD%E5%90%8E%E7%9A%84IPTV%EF%BC%88%E5%B7%B2%E5%8A%A0%E5%85%A5Emby%EF%BC%89%E8%BD%AC%E5%8F%91%E5%88%B0%E7%89%B9%E5%AE%9A%E7%9A%84M3U8-%E5%B7%B2%E5%AE%9E%E7%8E%B0-202403"><span class="nav-number">6.1.</span> <span class="nav-text">1. 把组播转单播后的IPTV（已加入Emby）转发到特定的M3U8 [已实现, 202403]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%8D%87%E7%BA%A7udpxy%E8%87%B3msd-lite-%E5%B7%B2%E5%AE%9E%E7%8E%B0-20240720"><span class="nav-number">6.2.</span> <span class="nav-text">2. 升级udpxy至msd_lite [已实现, 20240720]</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E8%BD%AC%E8%BD%BD%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">原文转载如下：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E3%80%87%E3%80%81%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="nav-number">8.</span> <span class="nav-text">〇、前情提要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">9.</span> <span class="nav-text">一、准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%AE%BD%E5%B8%A6"><span class="nav-number">9.1.</span> <span class="nav-text">1、宽带</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8"><span class="nav-number">9.2.</span> <span class="nav-text">2、路由器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E7%94%B5%E8%84%91"><span class="nav-number">9.3.</span> <span class="nav-text">3、电脑</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%85%B7%E4%BD%93%E5%AE%9E%E6%96%BD"><span class="nav-number">10.</span> <span class="nav-text">二、具体实施</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%85%89%E7%8C%AB%E6%A3%80%E6%9F%A5"><span class="nav-number">10.1.</span> <span class="nav-text">1、光猫检查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E7%8E%AF%E5%A2%83%E9%AA%8C%E8%AF%81"><span class="nav-number">10.2.</span> <span class="nav-text">2、环境验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E7%BD%91%E6%AE%B5%E8%AE%BE%E7%BD%AE"><span class="nav-number">10.3.</span> <span class="nav-text">3、网段设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE"><span class="nav-number">10.4.</span> <span class="nav-text">4、路由器关键设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8F%8C%E7%BA%BF"><span class="nav-number">10.4.1.</span> <span class="nav-text">4.1、路由器关键设置-双线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8F%8C%E7%BA%BF-openwrt"><span class="nav-number">10.4.1.1.</span> <span class="nav-text">4.1.1、路由器关键设置-双线-openwrt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-2%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8F%8C%E7%BA%BF-%E8%80%81%E6%AF%9B%E5%AD%90%E3%80%81%E6%A2%85%E6%9E%97"><span class="nav-number">10.4.1.2.</span> <span class="nav-text">4.1.2路由器关键设置-双线-老毛子、梅林</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-3%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8F%8C%E7%BA%BF-%E5%85%B6%E4%BB%96"><span class="nav-number">10.4.1.3.</span> <span class="nav-text">4.1.3、路由器关键设置-双线-其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8D%95%E7%BA%BF"><span class="nav-number">10.4.2.</span> <span class="nav-text">4.2、路由器关键设置-单线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8D%95%E7%BA%BF-openwrt"><span class="nav-number">10.4.2.1.</span> <span class="nav-text">4.2.1、路由器关键设置-单线-openwrt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8D%95%E7%BA%BF-%E8%80%81%E6%AF%9B%E5%AD%90%E3%80%81%E6%A2%85%E6%9E%97"><span class="nav-number">10.4.2.2.</span> <span class="nav-text">4.2.2、路由器关键设置-单线-老毛子、梅林</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-3%E3%80%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%85%B3%E9%94%AE%E8%AE%BE%E7%BD%AE-%E5%8D%95%E7%BA%BF-%E5%85%B6%E4%BB%96"><span class="nav-number">10.4.2.3.</span> <span class="nav-text">4.2.3、路由器关键设置-单线-其他</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81%E7%BB%84%E6%92%AD%E8%BD%AC%E5%8D%95%E6%92%AD"><span class="nav-number">10.5.</span> <span class="nav-text">5、组播转单播</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1%E3%80%81%E7%BB%84%E6%92%AD%E8%BD%AC%E5%8D%95%E6%92%AD-openwrt"><span class="nav-number">10.5.1.</span> <span class="nav-text">5.1、组播转单播-openwrt</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1%E3%80%81%E7%BB%84%E6%92%AD%E8%BD%AC%E5%8D%95%E6%92%AD-openwrt-%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">10.5.1.1.</span> <span class="nav-text">5.1.1、组播转单播-openwrt-防火墙</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2%E3%80%81%E7%BB%84%E6%92%AD%E8%BD%AC%E5%8D%95%E6%92%AD-%E8%80%81%E6%AF%9B%E5%AD%90%E3%80%81%E6%A2%85%E6%9E%97"><span class="nav-number">10.5.2.</span> <span class="nav-text">5.2、组播转单播-老毛子、梅林</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%92%AD%E6%94%BE"><span class="nav-number">10.6.</span> <span class="nav-text">6、客户端播放</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E5%85%B6%E4%BB%96%E6%8F%90%E7%A4%BA"><span class="nav-number">10.6.1.</span> <span class="nav-text">7、其他提示</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%90%8E"><span class="nav-number">11.</span> <span class="nav-text">最后</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%9F%E6%96%87%E8%BD%AC%E8%BD%BD%E7%BB%93%E6%9D%9F"><span class="nav-number">12.</span> <span class="nav-text">原文转载结束</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%84%E8%A7%88Emby%E4%B8%AD%E7%9A%84%E7%94%B5%E8%A7%86%E7%9B%B4%E6%92%AD"><span class="nav-number">13.</span> <span class="nav-text">预览Emby中的电视直播</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%92%AD%E6%94%BE%E5%99%A8"><span class="nav-number">13.1.</span> <span class="nav-text">其他客户端播放器</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -216,8 +218,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201001071620.html" rel="bookmark">
-      禁止用户粘贴内容进文本框-CarlZeng
+      <a class="popular-posts-link" href="/202401042040.html" rel="bookmark">
+      kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV
       </a>
     </li>
   </ul>
@@ -400,7 +402,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-24 16:04:56" itemprop="dateModified" datetime="2023-12-24T16:04:56+08:00">2023-12-24</time>
+      <time title="修改时间：2024-07-20 15:18:01" itemprop="dateModified" datetime="2024-07-20T15:18:01+08:00">2024-07-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -430,7 +432,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>19 分钟</span>
+      <span>21 分钟</span>
     </span>
 </div>
 
@@ -442,9 +444,13 @@
     
     <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://www.evernote.com/shard/s122/sh/e1cc6842-a4c0-4b0e-b767-ab0cea2d8ef3/JQYYolsVP550BLy8SSoZTzT4iL1eQb0WGhqw3OTVLoiSqcCSyYHWl1IezA/deep/0/image.png">
 
-<p>宽带运营商IPTV组播转单播，运营商机顶盒共享，最稳定快速的当地IPTV方案</p>
+<p>宽带运营商IPTV组播转单播，运营商机顶盒共享，最稳定快速的当地IPTV方案<br>升级udpxy至msd_lite</p>
 <span id="more"></span>
 
+<p>更新日志:</p>
+<ul>
+<li>20240720 新增章节: 升级udpxy至msd_lite</li>
+</ul>
 <h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>许多老人喜欢看电视（至少比手机屏幕大，视力下降慢一点，这一点每个人都一样）；宽带运营商IPTV组播转单播，可实现本地机顶盒内IPTV节目共享，最稳定快速的IPTV看本地电视节目方案；</p>
 <p>如果你想丢弃宽带运营商那充满广告的机顶盒；</p>
 <p>如果你想让运营商给的机顶盒的IPTV数据传输到本地局域网中的电脑，手机或者自己的机顶盒；或者宽带运营商没有给IPTV机顶盒但是宽带猫的第四个口有IPTV组播数据（如果没有可以，申请试用？或尝试先办理一个月IPTV在取消掉？）</p>
@@ -565,7 +571,38 @@
 
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMW5FNDExUjdpZQ==" rel="noopener external nofollow noreferrer">Openwrt Lede组播网络设置 安卓电视软件播放IPTV</a><br>        这个是特定情况，只能当作大致流程和关键知识点参考，越看越糊涂</p>
 <p>NPM反代uppxy的状态页面出来，方便远程查看服务状态。</p>
-<h1 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h1><p>把组播转单播后的IPTV（已加入Emby）转发到特定的M3U8？然后供给DIY作为一个数据源，如何实现？</p>
+<h1 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h1><h2 id="1-把组播转单播后的IPTV（已加入Emby）转发到特定的M3U8-已实现-202403"><a href="#1-把组播转单播后的IPTV（已加入Emby）转发到特定的M3U8-已实现-202403" class="headerlink" title="1. 把组播转单播后的IPTV（已加入Emby）转发到特定的M3U8 [已实现, 202403]"></a>1. 把组播转单播后的IPTV（已加入Emby）转发到特定的M3U8 [已实现, 202403]</h2><p>然后供给DIY作为一个数据源，如何实现？</p>
+<p>在emby中, 导入本地配置好的.m3u文件. 试用地址: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2pwLmNhcmx6ZW5nLnRvcC8=" rel="noopener external nofollow noreferrer">http://jp.carlzeng.top</a></p>
+<h2 id="2-升级udpxy至msd-lite-已实现-20240720"><a href="#2-升级udpxy至msd-lite-已实现-20240720" class="headerlink" title="2. 升级udpxy至msd_lite [已实现, 20240720]"></a>2. 升级udpxy至msd_lite [已实现, 20240720]</h2><p>为何要升级? udpxy当多个人连接使用的时候, 明显效率不足(画面卡顿)</p>
+<p>解决的办法是: 升级K2P固件<br>(尝试了opkg, ipkg安装都失败了, 经验告诉我最简单最快捷的办法就是重装K2P的固件)</p>
+<p>无缝升级过程, 使用了github当前最新的固件: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3RzbDA5MjIvcGFkYXZhbi9yZWxlYXNlcy90YWcvMjAyMzEwMjE=" rel="noopener external nofollow noreferrer">K2P_4.4.198.9-100.trx</a></p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/07/20/669b44d5cd423.png" alt="image-20240720130207893"></p>
+<p>看中了这个版本的:</p>
+<ul>
+<li>Replaced udpxy with msd_lite</li>
+</ul>
+<p>更新了K2P的固件<br>    from 3.4.3.9-099_23-03-1<br>    to: 4.4.198.9-100_20231021</p>
+<p>配置是通用的, 就的配置全部被保留(无缝升级)</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/07/20/669b45f92c41e.png" alt="image-20240720130658638"></p>
+<p>效果非常明显: 多个客户端, 同时观看IPTV, 不卡顿了!</p>
+<p>升级后, 小故障发生:</p>
+<ol>
+<li><p>在NPM在反代<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4yNDM6ODAxMi9zdGF0JUU4JUJGJTk5JUU3JUE3JThEJUU1JTlDJUIwJUU1JTlEJTgwJUU2JTk3JUI2" rel="noopener external nofollow noreferrer">http://192.168.6.243:8012/stat这种地址时</a>;  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly90dmhrLmNhcmx6ZW5nLnRvcC8=" rel="noopener external nofollow noreferrer">https://tvhk.carlzeng.top/</a> 无法正常工作.</p>
+</li>
+<li><p>配置 中继的K2P(第二个AP, 通过无线方式中继当前K2P的2.4G信号), 目前它丢失了 去往OpenWrt的2.4G信号中继.</p>
+<p>管理地址仍然是：192.168.123.1<br>连接上WIFI，手工设置本机IP为123网段即可。</p>
+</li>
+</ol>
+<p>解决办法：把上一级路由器5G的WIFI密码修改一下（末尾加一个0），会导致其无法中继<br>继续变成自动获得IP地址，这时手动修改设置本机IP为123网段即可管理192.168.123.1</p>
+<p>![image-20240720133016418](&#x2F;Users&#x2F;carlzeng&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20240720133016418.png)</p>
+<p>把上一级路由器5G的WIFI密码(或者名称)修改一下（末尾加一个0），会导致其无法中继<br>继续变成自动获得IP地址; 这样可以控制123.1的无线中继K2P.</p>
+<ol start="3">
+<li>同样这个动作, 导致了TP1Z摄像头端口网络, 从而导致了NAS中的推流失败. 当全部设置后,改回WIFI后TP1Z重新获取网络, 但是NAS中的推流需要手动重启</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ffmpeg -re -i &quot;rtsp://admin:d@192.168.6.126:554/cam/realmonitor?channel=1&amp;subtype=1&quot; -c copy -f flv -y rtmp://192.168.6.116:1935/live/livestream 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+
+<p>一切恢复正常, 可本地<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTE6ODA4MC8=" rel="noopener external nofollow noreferrer">管理无线中继的K2P</a></p>
+<p>本章节鸣谢: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2Nvb2xzbm93d29sZi9sZWRlL2lzc3Vlcy8xMDUyNQ==" rel="noopener external nofollow noreferrer">大神推荐用msd_lite代替udpxy #10525</a></p>
 <h1 id="原文转载如下："><a href="#原文转载如下：" class="headerlink" title="原文转载如下："></a>原文转载如下：</h1><hr>
 <hr>
 <h1 id="〇、前情提要"><a href="#〇、前情提要" class="headerlink" title="〇、前情提要"></a>〇、前情提要</h1><p>虽然没有开issues，但还是经常有人千辛万苦拐弯抹角的联系到我，主要就是询问如何甩开机顶盒观看iptv、解决抢电视一类问题什么的，甚至不交钱白嫖的，对此我也花了不少的时间逐一讲解、帮助，后来我想了想，本来也不是什么难事儿，干脆系统一点儿完整写下来贴出来吧，对此，就有了如下内容。</p>
@@ -697,8 +734,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201001071620.html" rel="bookmark">
-      禁止用户粘贴内容进文本框-CarlZeng
+      <a class="popular-posts-link" href="/202401042040.html" rel="bookmark">
+      kcptun基于KCP协议的UDP隧道 - 将TCP流转换为KCP+UDP流播放IPTV
       </a>
     </li>
   </ul>
@@ -871,7 +908,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-12-24 16:04:56" itemprop="dateModified" datetime="2023-12-24T16:04:56+08:00">2023-12-24</time>
+        <time title="修改时间：2024-07-20 15:18:01" itemprop="dateModified" datetime="2024-07-20T15:18:01+08:00">2024-07-20</time>
       </span>
 
 </div>
@@ -884,10 +921,10 @@
               <a href="/tags/%E6%9C%BA%E9%A1%B6%E7%9B%92/" rel="tag"># 机顶盒</a>
               <a href="/tags/IPTV/" rel="tag"># IPTV</a>
               <a href="/tags/%E7%9B%B4%E6%92%AD/" rel="tag"># 直播</a>
-              <a href="/tags/%E7%94%B5%E8%A7%86/" rel="tag"># 电视</a>
-              <a href="/tags/%E7%BD%91%E7%BB%9C%E5%BD%B1%E8%A7%86%E8%B5%84%E6%BA%90/" rel="tag"># 网络影视资源</a>
               <a href="/tags/livetv/" rel="tag"># livetv</a>
               <a href="/tags/tv/" rel="tag"># tv</a>
+              <a href="/tags/%E7%94%B5%E8%A7%86/" rel="tag"># 电视</a>
+              <a href="/tags/%E7%BD%91%E7%BB%9C%E5%BD%B1%E8%A7%86%E8%B5%84%E6%BA%90/" rel="tag"># 网络影视资源</a>
               <a href="/tags/%E7%BB%84%E6%92%AD%E8%BD%AC%E5%8D%95%E6%92%AD/" rel="tag"># 组播转单播</a>
             的文章
           </div>
