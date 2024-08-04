@@ -18,19 +18,24 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="全文以汽车GPS定位器为例来探讨：配置GPS系统服务结合配套的硬件实现全流程私有化gps服务">
+    <meta name="description" content="全文以汽车GPS定位器为例来探讨：配置GPS系统服务结合配套的硬件实现全流程私有化gps服务 (建议选用GT06协议的GPS设备)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="车载GPS自建服务 - 软硬件搭配实践全记录">
 <meta property="og:url" content="https://www.carlzeng.top/202402021245.html">
 <meta property="og:site_name" content="随笔 Carl Notes">
-<meta property="og:description" content="全文以汽车GPS定位器为例来探讨：配置GPS系统服务结合配套的硬件实现全流程私有化gps服务">
+<meta property="og:description" content="全文以汽车GPS定位器为例来探讨：配置GPS系统服务结合配套的硬件实现全流程私有化gps服务 (建议选用GT06协议的GPS设备)">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/08/04/66af9ffcd7c7a.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/08/04/66af5223cca15.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/08/04/66af9b2bdfd45.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/08/04/66af94ffcfb03.png">
 <meta property="article:published_time" content="2024-02-02T04:45:06.000Z">
-<meta property="article:modified_time" content="2024-03-12T04:11:47.941Z">
+<meta property="article:modified_time" content="2024-08-04T15:38:29.258Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="GPS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.carlzeng.top:3/i/2024/08/04/66af9ffcd7c7a.png">
 
 
 <link rel="canonical" href="https://www.carlzeng.top/202402021245.html">
@@ -49,7 +54,7 @@
 
 
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.top:4443">
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -126,7 +131,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%87%E8%B4%AD%E9%85%8D%E5%A5%97%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%92%8C%E7%89%A9%E8%81%94%E7%BD%91SIM%E5%8D%A1"><span class="nav-number">5.</span> <span class="nav-text">采购配套的硬件和物联网SIM卡</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AFdocker%E5%AE%89%E8%A3%85traccar"><span class="nav-number">6.</span> <span class="nav-text">服务端docker安装traccar</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFtraccar"><span class="nav-number">6.1.</span> <span class="nav-text">什么是traccar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2"><span class="nav-number">6.2.</span> <span class="nav-text">安装部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEtraccar%E6%B7%BB%E5%8A%A0GPS%E8%AE%BE%E5%A4%87"><span class="nav-number">6.3.</span> <span class="nav-text">配置traccar添加GPS设备</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%8B%E6%9C%BA%E7%AB%AF%E5%AE%89%E8%A3%85traccar%E5%AE%89%E5%8D%93%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">7.</span> <span class="nav-text">手机端安装traccar安卓客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B6%88%E8%B4%B9%E9%81%BF%E5%9D%91"><span class="nav-number">8.</span> <span class="nav-text">消费避坑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">9.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用&#x2F;怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%87%E8%B4%AD%E9%85%8D%E5%A5%97%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%92%8C%E7%89%A9%E8%81%94%E7%BD%91SIM%E5%8D%A1"><span class="nav-number">4.</span> <span class="nav-text">采购配套的硬件和物联网SIM卡</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AFdocker%E5%AE%89%E8%A3%85traccar"><span class="nav-number">5.</span> <span class="nav-text">服务端docker安装traccar</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFtraccar"><span class="nav-number">5.1.</span> <span class="nav-text">什么是traccar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2"><span class="nav-number">5.2.</span> <span class="nav-text">安装部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEtraccar%E6%B7%BB%E5%8A%A0GPS%E8%AE%BE%E5%A4%87"><span class="nav-number">5.3.</span> <span class="nav-text">配置traccar添加GPS设备</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%8B%E6%9C%BA%E7%AB%AF%E5%AE%89%E8%A3%85traccar%E5%AE%89%E5%8D%93%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">6.</span> <span class="nav-text">手机端安装traccar安卓客户端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B6%88%E8%B4%B9%E9%81%BF%E5%9D%91"><span class="nav-number">7.</span> <span class="nav-text">消费避坑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">8.</span> <span class="nav-text">灵感来源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%83%A8%E6%A0%87808%E8%AE%BE%E5%A4%87%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="nav-number">9.</span> <span class="nav-text">部标808设备测试结果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E4%BD%BF%E7%94%A8%E2%80%98%E5%85%AC%E5%85%B1%E5%B9%B3%E5%8F%B0%E2%80%99-%E9%80%94%E5%BC%BA"><span class="nav-number">9.1.</span> <span class="nav-text">切换使用‘公共平台’ 途强</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%88%99-%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-number">9.2.</span> <span class="nav-text">原则&#x2F;知识点</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -190,8 +195,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
-      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      <a class="popular-posts-link" href="/202403101522.html" rel="bookmark">
+      部署GitLab代码管理平台 2024
       </a>
     </li>
     <li class="popular-posts-item">
@@ -200,13 +205,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403190934.html" rel="bookmark">
-      部署开源调查问卷系统SurveyKing
+      <a class="popular-posts-link" href="/202403270841.html" rel="bookmark">
+      实测Hysteria 2 一个强大、快速、抗审查的代理工具
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403101522.html" rel="bookmark">
-      部署GitLab代码管理平台 2024
+      <a class="popular-posts-link" href="/202403190934.html" rel="bookmark">
+      部署开源调查问卷系统SurveyKing
       </a>
     </li>
   </ul>
@@ -389,7 +394,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-12 12:11:47" itemprop="dateModified" datetime="2024-03-12T12:11:47+08:00">2024-03-12</time>
+      <time title="修改时间：2024-08-04 23:38:29" itemprop="dateModified" datetime="2024-08-04T23:38:29+08:00">2024-08-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -419,7 +424,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
+      <span>9 分钟</span>
     </span>
 </div>
 
@@ -431,7 +436,7 @@
     
     <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="">
 
-<p>全文以汽车GPS定位器为例来探讨：配置GPS系统服务结合配套的硬件实现全流程私有化gps服务</p>
+<p>全文以汽车GPS定位器为例来探讨：配置GPS系统服务结合配套的硬件实现全流程私有化gps服务 (建议选用GT06协议的GPS设备)</p>
 <span id="more"></span>
 
 <div> 
@@ -449,13 +454,16 @@
     audioPlayer.play();
   }
 </script>
-据说，据说2G设备只能用到2027年，运营商（移动）随时可能退网2G网络。具体时间不明确，后期设备和方案可以往4G设备和卡上面升级
 
-<p>下一步：实践操作后，把坑填满一下，再来分享更新细化…</p>
-<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>采购可配套使用的GPS设备和相关的物联网SIM卡</p>
+
+<p><em>据说，据说2G设备只能用到2027年，运营商（移动）随时可能退网2G网络。具体时间不明确，后期设备和方案可以往4G设备和卡上面升级</em></p>
+<p>[20240804已完成]下一步：实践操作后，把坑填满一下，再来分享更新细化…</p>
+<p>20240804新增章节: 部标808设备测试结果</p>
+<p>下一步：购买GT06设备, 用这个协议来搭配自建的traccar平台, 建议选用GT06协议的GPS设备</p>
+<h1 id="有什么用-怎么用"><a href="#有什么用-怎么用" class="headerlink" title="有什么用&#x2F;怎么用"></a>有什么用&#x2F;怎么用</h1><p>采购可配套使用的GPS设备和相关的物联网SIM卡</p>
 <p>搭建GPS系统服务</p>
 <p>配置GPS系统服务结合配套的硬件实现全流程私有化gps服务</p>
-<h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><p>采购配套的硬件和物联网SIM卡</p>
+<p>采购配套的硬件和物联网SIM卡</p>
 <p>服务端docker安装traccar</p>
 <p>手机端安装traccar安卓客户端</p>
 <p>日常使用</p>
@@ -494,9 +502,10 @@
 
 <ol start="4">
 <li><p>访问web，验证是否安装成功。</p>
-<p>稍等片刻之后，访问  <a href="https://www.carlzeng.top/go/#aHR0cDovL3lvdXJfaXA6ODA4Mu+8jOWmguaenOWuieijheato+ehrueahOivne+8jOWwseS8muWHuueOsHRyYWNjYXLnmoTnmbvpmYbpobXpnaLvvIzpu5jorqTnmoTotKblj7flkozlr4bnoIHpg73mmK8=" rel="noopener external nofollow noreferrer">http://your_ip:8082，如果安装正确的话，就会出现traccar的登陆页面，默认的账号和密码都是</a> admin , 建议进去更改下密码。</p>
+<p>稍等片刻之后，访问  <a href="https://www.carlzeng.top/go/#aHR0cDovL3lvdXJfaXA6ODA4Mu+8jOWmguaenOWuieijheato+ehrueahOivne+8jOWwseS8muWHuueOsHRyYWNjYXLnmoTnmbvpmYbpobXpnaLvvIzpu5jorqTnmoTotKblj7flkozlr4bnoIHpg73mmK8=" rel="noopener external nofollow noreferrer">http://your_ip:8082，如果安装正确的话，就会出现traccar的登陆页面，默认的账号和密码都是</a> admin , 建议进去更改下密码。 如下图所示:</p>
 </li>
 </ol>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/08/04/66af9ffcd7c7a.png" alt="image-20240804233543741"></p>
 <h2 id="配置traccar添加GPS设备"><a href="#配置traccar添加GPS设备" class="headerlink" title="配置traccar添加GPS设备"></a>配置traccar添加GPS设备</h2><p>通过访问traccar web端，来添加相应车载GPS设备</p>
 <h1 id="手机端安装traccar安卓客户端"><a href="#手机端安装traccar安卓客户端" class="headerlink" title="手机端安装traccar安卓客户端"></a>手机端安装traccar安卓客户端</h1><p>可装在手机和车机上，提供个人和车辆追踪。官网<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cudHJhY2Nhci5vcmcvY2xpZW50Lw==" rel="noopener external nofollow noreferrer"><strong>下载</strong></a>安卓或苹果APP，</p>
 <p>安装APP后参见<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iYnMuaW9icm9rZXIuY24vdC90b3BpYy83NzI=" rel="noopener external nofollow noreferrer">traccar从零开始到完美使用完全教程</a>（图文）</p>
@@ -515,6 +524,64 @@
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iYnMuaGFzc2JpYW4uY29tL3RocmVhZC03NTY4LTEtMS5odG1s" rel="noopener external nofollow noreferrer">traccar从零开始到完美使用完全教程</a></p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iZzllZ2EuY24vNTc1Lmh0bWw=" rel="noopener external nofollow noreferrer">GPS追踪服务器Traccar搭建</a></p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iYnMuaW9icm9rZXIuY24vdC90b3BpYy83NzI=" rel="noopener external nofollow noreferrer">traccar从零开始到完美使用完全教程</a>（图文）</p>
+<hr>
+<h1 id="部标808设备测试结果"><a href="#部标808设备测试结果" class="headerlink" title="部标808设备测试结果"></a>部标808设备测试结果</h1><p>失败: traccar无法使用国内的JT808 部标协议</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/08/04/66af5223cca15.png" alt="image-20240804180406834"></p>
+<p>测试切换了5055 和 5023端口, 都可以正常接收到信号</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/08/04/66af9b2bdfd45.png" alt="image-20240804231521846"></p>
+<blockquote>
+<p>20240804 下次别买部标808协议的设备了</p>
+</blockquote>
+<p>下次别买部标808协议的设备了!!!!</p>
+<p>买gt06协议的, 绑定15位的IMEI就可以用traccar平台</p>
+<h2 id="切换使用‘公共平台’-途强"><a href="#切换使用‘公共平台’-途强" class="headerlink" title="切换使用‘公共平台’ 途强"></a>切换使用‘公共平台’ 途强</h2><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9uZXRsYWIubHVhdG9zLmNvbS8=" rel="noopener external nofollow noreferrer">LuatOS 网络测试工具</a></p>
+<p>步骤:</p>
+<ol>
+<li>把部标的设备(外表看上去和普通的GPS没有两样, 长方体, 比口香糖大一点)接入到车辆的常电<ol>
+<li>这个安装的位置有许多, 最常见的比如: 驾驶座的左下角的保险丝盒(方便取电)</li>
+<li>安装正确时, GPS设备的信号灯 和 GPS灯 会有规律闪烁</li>
+</ol>
+</li>
+<li>除了准备一张物联网卡#1以外, 必须额外有一张正常使用的中国移动SIM卡, 把这张中国移动SIM卡#2插入部标GPS设备</li>
+<li>找另外一台手机(不管什么运营商, 只要能接发短信即可), 给刚才那种中国移动SIM卡#2发如下一条短信:</li>
+</ol>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/08/04/66af94ffcfb03.png" alt="image-20240804224901558"></p>
+<ol start="4">
+<li>这个部标的短息格式: 域名加端口时, 途强使用服务器 gpsdev.jimicloud.com:21107 端口21107.	</li>
+<li>设备ID(11位数字)使用了优秀客服帅哥提供的140918****7</li>
+<li>发送了短信后, GPS设备回复返回了一条短信(如上图所示)</li>
+<li>这时中国移动SIM卡#2使用完成了, 拔出GPS设备, 换上物联网SIM卡(长期在车上使用)</li>
+<li>打开手机下载安装并注册途强在线APP一个账号</li>
+<li>绑定上方的11位设备ID 140918****7, 途强平台会开始展示部标设备发送上来的GPS等信息.</li>
+</ol>
+<h2 id="原则-知识点"><a href="#原则-知识点" class="headerlink" title="原则&#x2F;知识点"></a>原则&#x2F;知识点</h2><blockquote>
+<p>博实结就这一条指令     开头都是字母   O 是熄火时间间隔      C   是启动回传间隔      O    120秒以上     </p>
+<p>需要移动卡, 联通卡不支持, 移动卡就可以</p>
+<p>域名   冒号     I  P    逗号     我发给你是正确的   </p>
+<p>必须对应   808解析端口, 这个808协议   都可以对接平台的</p>
+</blockquote>
+<blockquote>
+<p>一键接入的</p>
+<p>1.下载途强在线APP—</p>
+<p>2.手机号注册一个账号—</p>
+<p>3.绑定设备上15位号码，首次室外通电开机接收天上卫星信号，两个灯常亮就可以定位了</p>
+<p>00001409***</p>
+<p>&lt;SPBSJ*P:BSJINI*Q:gpsdev.jimicloud.com:21107*1A:000.000.000.000,0000*A:CMNET*N:11111111111*C:30*O:30*1H:0&gt;</p>
+<p>请更换其中的‘号码’ 部标的设备ID</p>
+</blockquote>
+<blockquote>
+<p>我看到日志信息了，可是traccar系统添加的设备不上线，您登陆看您看</p>
+<p>那个平台    之前有个客户好像说后台808协议解析程序已经关闭了</p>
+<p>7e  部标协议     我给你途强在线   那个号码   2039到期的      也可以放心使用的     </p>
+</blockquote>
+<blockquote>
+<p>问: 会不会是要给这设备发不同短信格式？</p>
+<p>答: 不会的   我这个很熟悉   设备就负责创原始数据    平台接受解析就完了      </p>
+</blockquote>
+<p>IP地址的短信模版:</p>
+<blockquote>
+<p>&lt;SPBSJ*P:BSJINI*T:047.095.196.074,31000*1A:000.000.000.000,0000*A:CMNET*N:14501231234*C:30*O:30*1H:0&gt;</p>
+</blockquote>
 
     </div>
 
@@ -587,8 +654,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
-      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      <a class="popular-posts-link" href="/202403101522.html" rel="bookmark">
+      部署GitLab代码管理平台 2024
       </a>
     </li>
     <li class="popular-posts-item">
@@ -597,13 +664,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403190934.html" rel="bookmark">
-      部署开源调查问卷系统SurveyKing
+      <a class="popular-posts-link" href="/202403270841.html" rel="bookmark">
+      实测Hysteria 2 一个强大、快速、抗审查的代理工具
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403101522.html" rel="bookmark">
-      部署GitLab代码管理平台 2024
+      <a class="popular-posts-link" href="/202403190934.html" rel="bookmark">
+      部署开源调查问卷系统SurveyKing
       </a>
     </li>
   </ul>
@@ -776,7 +843,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-03-12 12:11:47" itemprop="dateModified" datetime="2024-03-12T12:11:47+08:00">2024-03-12</time>
+        <time title="修改时间：2024-08-04 23:38:29" itemprop="dateModified" datetime="2024-08-04T23:38:29+08:00">2024-08-04</time>
       </span>
 
 </div>
