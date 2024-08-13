@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="学会安装并使用supervisor进程守护, 再也不用担心进程无故消失">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NAS安装及应用supervisor进程守护">
+<meta property="og:url" content="https://www.carlzeng.top/en/202408131618.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="学会安装并使用supervisor进程守护, 再也不用担心进程无故消失">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/08/13/66bb799d6ca43.png">
+<meta property="article:published_time" content="2024-08-13T08:18:23.000Z">
+<meta property="article:modified_time" content="2024-08-13T15:26:00.815Z">
+<meta property="article:author" content="Carl Notes">
+<meta property="article:tag" content="NAS">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="supervisor">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.carlzeng.top:3/i/2024/08/13/66bb799d6ca43.png">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/en/202408131618.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/202408131618.html","path":"en/202408131618.html","title":"NAS安装及应用supervisor进程守护"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>NAS安装及应用supervisor进程守护 | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT解决方案 NetSuite ERP</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">238</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">65</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">359</span></a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-下载音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载音乐</a></li><li class="menu-item menu-item-直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>直播IPTV</a></li><li class="menu-item menu-item-网盘文件分享"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网盘文件分享</a></li><li class="menu-item menu-item-搜索下载书籍"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>搜索下载书籍</a></li><li class="menu-item menu-item-小店入口"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>小店入口</a></li>
+  </ul>
+
+    <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <div class="search-header">
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="28" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+      </div>
+      </div>
+    </div>
+    </form>
+
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF-%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">背景&#x2F;有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AESupervisor"><span class="nav-number">2.1.</span> <span class="nav-text">配置Supervisor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Notes</p>
+  <div class="site-description" itemprop="description">[眼观心察 沉淀共享] 技术文章版本持续佛系更新</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">359</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">65</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
+      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312290851.html" rel="bookmark">
+      PVE群晖NAS修复笔记
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202404081832.html" rel="bookmark">
+      分享小主机docker安装离线下载工具
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202407191651.html" rel="bookmark">
+      索尼PlayStation全部记录
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
+      多个docker容器间共享单个mariadb(Docker数据库服务)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+    <div class="pjax">
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/202408131618.html" title="NAS安装及应用supervisor进程守护" target=""  class="popular-posts-link">
+                  NAS安装及应用supervisor进程守护
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202407191651.html" title="索尼PlayStation全部记录" target=""  class="popular-posts-link">
+                  索尼PlayStation全部记录
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202407121006.html" title="Docker群晖docker查询注册表失败" target=""  class="popular-posts-link">
+                  Docker群晖docker查询注册表失败
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202407111027.html" title="Docker搭建BT Tracker服务器贡献BT网络Tracker节点" target=""  class="popular-posts-link">
+                  Docker搭建BT Tracker服务器贡献BT网络Tracker节点
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202406290806.html" title="SteamDeck双系统之重装windows11" target=""  class="popular-posts-link">
+                  SteamDeck双系统之重装windows11
+                  </a>
+                </li>
+        </ul>
+      </div>
+    </div>
+
+    <style>
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      margin-top: 30px !important;
+      padding: clamp(17px, 5%, 40px) clamp(17px, 7%, 50px) !important;
+      max-width: none !important;
+      border-radius: 6px !important;
+      box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview *{
+      box-sizing: border-box !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading {
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5{
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
+      margin-top: 20px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      width: 100% !important;
+      height: 40px !important;
+      border-radius: 6px !important;
+      border: 2px solid #e9e8e8 !important;
+      background-color: #fff !important;
+      outline: none !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      color: #000000 !important;
+      font-family: "Montserrat" !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 20px !important;
+      text-align: center !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+      color: #000000 !important;
+      opacity: 1 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input:-ms-input-placeholder {
+      color: #000000 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::-ms-input-placeholder {
+      color: #000000 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
+      margin-top: 10px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+      width: 100% !important;
+      height: 40px !important;
+      border: 0 !important;
+      border-radius: 6px !important;
+      line-height: 0px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
+      cursor: pointer !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+      color: #231f20 !important;
+      font-family: "Montserrat" !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 25px !important;
+      text-align: center !important;
+      text-decoration: none !important;
+      display: flex !important;
+      width: 100% !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 10px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
+      margin-left: 10px !important;
+      height: 1.13em !important;
+      max-height: 1.13em !important;
+    }
+    </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
+      订阅新文章:
+    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="Enter your email to receive new articles" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
+      Subscribe
+    </button></div></div></form></div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202408131618.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="[眼观心察 沉淀共享] 技术文章版本持续佛系更新">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="NAS安装及应用supervisor进程守护 | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          NAS安装及应用supervisor进程守护
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-08-13 23:26:00" itemprop="dateModified" datetime="2024-08-13T23:26:00+08:00">2024-08-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/202408131618.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>16 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.top:3/i/2024/08/13/66bb799d6ca43.png">
+
+<p>学会安装并使用supervisor进程守护, 再也不用担心进程无故消失</p>
+<span id="more"></span>
+
+<div> 
+<button onclick="synthesizeSpeech()">朗读全文</button>
+</div>
+<audio controls id="audioPlayer">Your browser does not support the audio element.</audio>      
+<script>
+  function synthesizeSpeech() { 
+    var inputText = document.getElementsByClassName('post-block')[0].innerText;
+    var voice = "ZH";
+    var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
+    var audioPlayer = document.getElementById('audioPlayer');          
+    audioPlayer.src = url;
+    audioPlayer.load();
+    audioPlayer.play();
+  }
+</script>
+
+
+<h1 id="背景-有什么用"><a href="#背景-有什么用" class="headerlink" title="背景&#x2F;有什么用"></a>背景&#x2F;有什么用</h1><p>前文讲了在群晖NAS的后台中运行如下命令来实现推流</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ffmpeg -re -i &quot;rtsp://admin:d****@192.168.6.126:554/cam/realmonitor?channel=1&amp;subtype=1&quot; -c copy -f flv -y rtmp://192.168.6.116:1935/live/livestream 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+
+<p>推流讲摄像头的流推到SRS服务器端(做为视频的输入口)</p>
+<p>可是这个命令几度优化后(比如nohup让其进入后台运行, 不输出日志等), 还存在一个弊端: 运行几天以后, 这个进程会自动消失&#x2F;退出. 不知道进程是如何退出的, 但结论就是自动退出并消失了.</p>
+<p>想起可以使用一些进程守护的解决方案, 比如:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. supervisor 进程守护</span><br><span class="line"></span><br><span class="line">2. pm2 实现的“进程守护</span><br><span class="line">PM2是开源的基于Nodejs的进程管理器，包括守护进程，监控，日志的一整套完整的功能，基本是Nodejs应用程序不二的守护进程选择</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Supervisor安装与配置(linux&#x2F;unix进程管理工具) Supervisor（<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3N1cGVydmlzb3JkLm9yZynmmK/nlKhweXRob27lvIDlj5HnmoTkuIDkuKpjbGllbnQvc2VydmVyJUU2JTlDJThEJUU1JThBJUExJUVGJUJDJThDJUU2JTk4JUFGTGludXgvVW5peCVFNyVCMyVCQiVFNyVCQiU5RiVFNCVCOCU4QiVFNyU5QSU4NCVFNCVCOCU4MCVFNCVCOCVBQSVFOCVCRiU5QiVFNyVBOCU4QiVFNyVBRSVBMSVFNyU5MCU4NiVFNSVCNyVBNSVFNSU4NSVCNyVFRiVCQyU4QyVFNCVCOCU4RCVFNiU5NCVBRiVFNiU4QyU4MVdpbmRvd3MlRTclQjMlQkIlRTclQkIlOUYlRTMlODAlODIlRTUlQUUlODMlRTUlOEYlQUYlRTQlQkIlQTUlRTUlQkUlODglRTYlOTYlQjklRTQlQkUlQkYlRTclOUElODQlRTclOUIlOTElRTUlOTAlQUMlRTMlODAlODElRTUlOTAlQUYlRTUlOEElQTglRTMlODAlODElRTUlODElOUMlRTYlQUQlQTIlRTMlODAlODElRTklODclOEQlRTUlOTAlQUYlRTQlQjglODAlRTQlQjglQUElRTYlODglOTYlRTUlQTQlOUElRTQlQjglQUElRTglQkYlOUIlRTclQTglOEIlRTMlODAlODIlRTclOTQlQThTdXBlcnZpc29yJUU3JUFFJUExJUU3JTkwJTg2JUU3JTlBJTg0JUU4JUJGJTlCJUU3JUE4JThCJUVGJUJDJThDJUU1JUJEJTkzJUU0JUI4JTgwJUU0JUI4JUFBJUU4JUJGJTlCJUU3JUE4JThCJUU2JTg0JThGJUU1JUE0JTk2JUU4JUEyJUFCJUU2JTlEJTgwJUU2JUFEJUJCJUVGJUJDJThDc3VwZXJ2aXNvcnQlRTclOUIlOTElRTUlOTAlQUMlRTUlODglQjAlRTglQkYlOUIlRTclQTglOEIlRTYlQUQlQkIlRTUlOTAlOEUlRUYlQkMlOEMlRTQlQkMlOUElRTglODclQUElRTUlOEElQTglRTUlQjAlODYlRTUlQUUlODMlRTklODclOEQlRTYlOTYlQjAlRTYlOEIlODklRTglQjUlQjclRUYlQkMlOEMlRTUlQkUlODglRTYlOTYlQjklRTQlQkUlQkYlRTclOUElODQlRTUlODElOUElRTUlODglQjAlRTglQkYlOUIlRTclQTglOEIlRTglODclQUElRTUlOEElQTglRTYlODElQTIlRTUlQTQlOEQlRTclOUElODQlRTUlOEElOUYlRTglODMlQkQlRUYlQkMlOEMlRTQlQjglOEQlRTUlODYlOEQlRTklOUMlODAlRTglQTYlODElRTglODclQUElRTUlQjclQjElRTUlODYlOTlzaGVsbCVFOCU4NCU5QSVFNiU5QyVBQyVFNiU5RCVBNSVFNiU4RSVBNyVFNSU4OCVCNiVFMyU4MCU4Mg==" rel="noopener external nofollow noreferrer">http://supervisord.org）是用Python开发的一个client/server服务，是Linux/Unix系统下的一个进程管理工具，不支持Windows系统。它可以很方便的监听、启动、停止、重启一个或多个进程。用Supervisor管理的进程，当一个进程意外被杀死，supervisort监听到进程死后，会自动将它重新拉起，很方便的做到进程自动恢复的功能，不再需要自己写shell脚本来控制。</a></p>
+<h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><p>先安装pip<br>    wget  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ib290c3RyYXAucHlwYS5pby9nZXQtcGlwLnB5" rel="noopener external nofollow noreferrer">https://bootstrap.pypa.io/get-pip.py</a><br>    python3  get-pip.py </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">最后输入 pip3 -V验证是否成功！</span><br><span class="line"></span><br><span class="line">pip3 -V</span><br><span class="line">pip 24.2 from /usr/lib/python3.8/site-packages/pip (python 3.8)</span><br><span class="line"></span><br><span class="line">pip3 install supervisor</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="配置Supervisor"><a href="#配置Supervisor" class="headerlink" title="配置Supervisor"></a>配置Supervisor</h2><ol>
+<li>mddir &#x2F;etc&#x2F;supervisord.d<ol>
+<li>创建管理目录</li>
+</ol>
+</li>
+<li>cat &#x2F;etc&#x2F;supervisord.conf<ol>
+<li>显示默认的配置文件内容(如下所示)</li>
+</ol>
+</li>
+<li>然后复制模版(默认配置文件内容)以后去新建一个自己的守护的进程, 就是在这个模版的结尾 添加这样的章节 [program:ffmpeg] <ol>
+<li>其中ffmpeg就是程序唯一名称, 也就是命名一个特定的指令</li>
+</ol>
+</li>
+<li>最后使用命令运行 supervisord -c &#x2F;etc&#x2F;supervisord.d&#x2F;ffmpeg.conf</li>
+</ol>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[supervisord]</span></span><br><span class="line"><span class="attr">logfile</span>=/tmp/supervisord.log <span class="comment">; main log file; default $CWD/supervisord.log</span></span><br><span class="line"><span class="attr">logfile_maxbytes</span>=<span class="number">5</span>MB        <span class="comment">; max main logfile bytes b4 rotation; default 50MB</span></span><br><span class="line"><span class="attr">logfile_backups</span>=<span class="number">1</span>           <span class="comment">; # of main logfile backups; 0 means none, default 10</span></span><br><span class="line"><span class="attr">loglevel</span>=warn                <span class="comment">; log level; default info; others: debug,warn,trace</span></span><br><span class="line"><span class="attr">pidfile</span>=/tmp/supervisord.pid <span class="comment">; supervisord pidfile; default supervisord.pid</span></span><br><span class="line"><span class="attr">nodaemon</span>=<span class="literal">false</span>               <span class="comment">; start in foreground if true; default false</span></span><br><span class="line"><span class="attr">silent</span>=<span class="literal">false</span>                 <span class="comment">; no logs to stdout if true; default false</span></span><br><span class="line"><span class="attr">minfds</span>=<span class="number">102</span>                  <span class="comment">; min. avail startup file descriptors; default 1024</span></span><br><span class="line"><span class="attr">minprocs</span>=<span class="number">20</span>                 <span class="comment">; min. avail process descriptors;default 200</span></span><br><span class="line"></span><br><span class="line"><span class="section">[supervisorctl]</span></span><br><span class="line"><span class="attr">serverurl</span>=unix:///tmp/supervisor.sock <span class="comment">; use a unix:// URL  for a unix socket</span></span><br><span class="line"></span><br><span class="line"><span class="section">[program:ffmpeg]</span>                                        <span class="comment">#程序唯一名称</span></span><br><span class="line"><span class="attr">directory</span>=/bin/                                         <span class="comment">#程序路径</span></span><br><span class="line"><span class="attr">command</span>=ffmpeg -re -i <span class="string">&quot;rtsp://admin:d****@192.168.6.126:554/cam/realmonitor?channel=1&amp;subtype=1&quot;</span> -c copy -f flv -y rtmp://<span class="number">192.168</span>.<span class="number">6.116</span>:<span class="number">1935</span>/live/livestream           <span class="comment">#运行程序的命令</span></span><br><span class="line"><span class="attr">autostart</span>=<span class="literal">true</span>                                          <span class="comment">#是否在supervisord启动后tomcat也启动</span></span><br><span class="line"><span class="attr">startsecs</span>=<span class="number">10</span>                                            <span class="comment">#启动10秒后没有异常退出，就表示进程正常启动了，默认为1秒</span></span><br><span class="line"><span class="attr">autorestart</span>=<span class="literal">true</span>                                        <span class="comment">#程序退出后自动重启,可选值：[unexpected,true,false]，默认为unexpected，表示进程意外杀死后才重启；意思为如果不是supervisord来关闭的该进程则认为不正当关闭，supervisord会再次把该进程给启动起来，只能使用该supervisorctl来进行关闭、启动、重启操作</span></span><br><span class="line"><span class="attr">startretries</span>=<span class="number">3</span>                                          <span class="comment">#启动失败自动重试次数，默认是3</span></span><br><span class="line"><span class="attr">user</span>=root                                               <span class="comment">#用哪个用户启动进程，默认是root</span></span><br><span class="line"><span class="attr">priority</span>=<span class="number">999</span>                                            <span class="comment">#进程启动优先级，默认999，假如Supervisord需要管理多个进程，那么值小的优先启动</span></span><br><span class="line"><span class="attr">stopsignal</span>=INT</span><br><span class="line"><span class="attr">redirect_stderr</span>=<span class="literal">true</span>                                    <span class="comment">#把stderr重定向到stdout标准输出，默认false</span></span><br><span class="line"><span class="attr">stdout_logfile_maxbytes</span>=<span class="number">200</span>MB                           <span class="comment">#stdout标准输出日志文件大小，日志文件大小到200M后则进行切割，切割后的日志文件会标示为catalina.out1,catalina.out2,catalina.out3...，默认50MB</span></span><br><span class="line"><span class="attr">stdout_logfile_backups</span> = <span class="number">1</span>                            <span class="comment">#stdout标准输出日志文件备份数，保存100个200MB的日志文件，超过100个后老的将被删除，默认为10保存10个</span></span><br><span class="line"><span class="attr">stdout_logfile</span>=/volume2/KingchuxingSSD512G/Maintenance/catalina.out      <span class="comment">#标准日志输出位置，如果输出位置不存在则会启动失败</span></span><br><span class="line"><span class="attr">stopasgroup</span>=<span class="literal">false</span>                                       <span class="comment">#默认为false,进程被杀死时，是否向这个进程组发送stop信号，包括子进程</span></span><br><span class="line"><span class="attr">killasgroup</span>=<span class="literal">false</span>                                       <span class="comment">#默认为false，向进程组发送kill信号，包括子进程</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>#supervisord启动<br>supervisord -c &#x2F;etc&#x2F;supervisord.d&#x2F;ffmpeg.conf               </p>
+<p>#启动supervisord进程，我们在配置文件中设置了 autostart&#x3D;true 参数，在supervisord启动的时候 ffmpeg也随之启动</p>
+<p>ps -ef|grep ffmpeg      </p>
+<p><strong>程序管理</strong>　　</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl status ffmpeg</span><br><span class="line"></span><br><span class="line">supervisorctl start ffmpeg</span><br></pre></td></tr></table></figure>
+
+
+
+<p>错误:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">supervisord -c /etc/supervisord.d/ffmpeg.conf            </span><br><span class="line">Error: Another program is already listening on a port that one of our HTTP servers is configured to use.  Shut this program down first before starting supervisord.                                                         </span><br><span class="line">For help, use /bin/supervisord -h                       </span><br></pre></td></tr></table></figure>
+
+<p>解决办法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo unlink /tmp/supervisor.sock</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=python" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>命令以及日志输出(实例)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">wget  https://bootstrap.pypa.io/get-pip.py</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root@DS918:/etc# python3  get-pip.py                                                                          </span><br><span class="line">Collecting pip                                                                                                </span><br><span class="line">  WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection bro</span><br><span class="line">ken by &#x27;NewConnectionError(&#x27;: Failed </span><br><span class="line">to establish a new connection: [Errno -3] Temporary failure in name resolution&#x27;)&#x27;: /packages/d4/55/90db48d85f7</span><br><span class="line">689ec6f81c0db0622d704306c5284850383c090e6c7195a5c/pip-24.2-py3-none-any.whl.metadata                          </span><br><span class="line">  Downloading pip-24.2-py3-none-any.whl.metadata (3.6 kB)                                                     </span><br><span class="line">Collecting setuptools                                                                                         </span><br><span class="line">  Downloading setuptools-72.1.0-py3-none-any.whl.metadata (6.6 kB)                                            </span><br><span class="line">Collecting wheel                                                                                              </span><br><span class="line">  Downloading wheel-0.44.0-py3-none-any.whl.metadata (2.3 kB)                                                 </span><br><span class="line">Downloading pip-24.2-py3-none-any.whl (1.8 MB)                                                                </span><br><span class="line">   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 40.6 kB/s eta 0:00:00                                  </span><br><span class="line">Downloading setuptools-72.1.0-py3-none-any.whl (2.3 MB)                                                       </span><br><span class="line">   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 38.3 kB/s eta 0:00:00                                  </span><br><span class="line">Downloading wheel-0.44.0-py3-none-any.whl (67 kB)                                                             </span><br><span class="line">Installing collected packages: wheel, setuptools, pip                                                         </span><br><span class="line">Successfully installed pip-24.2 setuptools-72.1.0 wheel-0.44.0                                                </span><br><span class="line">WARNING: Running pip as the &#x27;root&#x27; user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing an</span><br><span class="line">d want to suppress this warning. </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root@DS918:/etc# pip3 -V                                                                                      </span><br><span class="line">pip 24.2 from /usr/lib/python3.8/site-packages/pip (python 3.8)  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root@DS918:/etc# pip3 install supervisor                                                                      </span><br><span class="line">Collecting supervisor                                                                                         </span><br><span class="line">  Downloading supervisor-4.2.5-py2.py3-none-any.whl.metadata (86 kB)                                          </span><br><span class="line">Requirement already satisfied: setuptools in /usr/lib/python3.8/site-packages (from supervisor) (72.1.0)      </span><br><span class="line">Downloading supervisor-4.2.5-py2.py3-none-any.whl (319 kB)                                                    </span><br><span class="line">Installing collected packages: supervisor                                                                     </span><br><span class="line">Successfully installed supervisor-4.2.5                                                                       </span><br><span class="line">WARNING: Running pip as the &#x27;root&#x27; user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment i</span><br><span class="line">nstead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.   </span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">supervisord -c /etc/supervisord.d/ffmpeg.conf            </span><br><span class="line">Error: .ini file does not include supervisord section                                                         </span><br><span class="line">For help, use /bin/supervisord -h                       </span><br></pre></td></tr></table></figure>
+
+<p>错误解决办法: 在配置文件中添加supervisord section&#x2F;章节</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl start ffmpeg                               </span><br><span class="line">unix:///tmp/supervisor.sock no such file </span><br></pre></td></tr></table></figure>
+
+<p>解决办法是: </p>
+<p>运行时使用:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisord -c /etc/supervisord.d/ffmpeg.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/supervisord.d/ffmpeg.conf   </span><br><span class="line">1. 使用默认的模版</span><br><span class="line">2. 在最后面添加一个章节 [program:ffmpeg]</span><br></pre></td></tr></table></figure>
+
+<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vZGFsaWFucGFpL3AvMTMxNTE5NTIuaHRtbA==" rel="noopener external nofollow noreferrer">Supervisor安装与配置二</a></p>
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="wechat,weibo,qq,facebook"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Carl Notes
+    <a href='https://www.carlzeng.top/202408131618.html'> 《NAS安装及应用supervisor进程守护》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://www.carlzeng.top/202408131618.html" title="NAS安装及应用supervisor进程守护">https://www.carlzeng.top/202408131618.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <main class="main">
+<div class="column">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
+      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312290851.html" rel="bookmark">
+      PVE群晖NAS修复笔记
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202404081832.html" rel="bookmark">
+      分享小主机docker安装离线下载工具
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202407191651.html" rel="bookmark">
+      索尼PlayStation全部记录
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
+      多个docker容器间共享单个mariadb(Docker数据库服务)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="column">
+<div class="pjax">
+<!-- recent posts -->
+<div class="animated">
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="popular-posts">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202408131618.html" title="NAS安装及应用supervisor进程守护" target="" class="popular-posts-link">
+              NAS安装及应用supervisor进程守护
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202407191651.html" title="索尼PlayStation全部记录" target="" class="popular-posts-link">
+              索尼PlayStation全部记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202407121006.html" title="Docker群晖docker查询注册表失败" target="" class="popular-posts-link">
+              Docker群晖docker查询注册表失败
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202407111027.html" title="Docker搭建BT Tracker服务器贡献BT网络Tracker节点" target="" class="popular-posts-link">
+              Docker搭建BT Tracker服务器贡献BT网络Tracker节点
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202406290806.html" title="SteamDeck双系统之重装windows11" target="" class="popular-posts-link">
+              SteamDeck双系统之重装windows11
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202406170802.html" title="记修复价值2千多的Scuf PS4游戏手柄" target="" class="popular-posts-link">
+              记修复价值2千多的Scuf PS4游戏手柄
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202406132247.html" title="案例展示NetSuite UI界面中创建动态下拉列表" target="" class="popular-posts-link">
+              案例展示NetSuite UI界面中创建动态下拉列表
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202405202021.html" title="芯片SOP8之读写Flash固件XM25QH128CHIQ" target="" class="popular-posts-link">
+              芯片SOP8之读写Flash固件XM25QH128CHIQ
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202405201839.html" title="PVE安装Windows7" target="" class="popular-posts-link">
+              PVE安装Windows7
+              </a>
+            </li>
+    </ul>
+  </div>
+  </div>
+</div>
+</div>
+</main>
+
+
+<div class="followme">
+  <span><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email Subscription</a>  If the article solved your concern or clear some doubts, please <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLnRvcDozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">buy me a coffee</a>.  Also we can <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">Schedule a Converstion</a></span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">联系我(谈话)</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">IPTV直播</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/202312081128.html">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">M3U8播放器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">MP3与下载</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">ChatGPT问答</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">网络加速器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">文件分享</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">下载电子书</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">IT小工具集合</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2024-08-13 23:26:00" itemprop="dateModified" datetime="2024-08-13T23:26:00+08:00">2024-08-13</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/NAS/" rel="tag"># NAS</a>
+              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/supervisor/" rel="tag"># supervisor</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202407191651.html" rel="prev" title="索尼PlayStation全部记录">
+                  <i class="fa fa-angle-left"></i> 索尼PlayStation全部记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>English</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="Select language">
+      
+        <option value="zh-CN" data-href="/202408131618.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/202408131618.html" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+</div>
+
+<!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*.carlzeng.top"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//statcounter.carlzeng.top:4443/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="//statcounter.carlzeng.top:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
+
+<div class="powered-by">
+    <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 选择服务器：<a href="https://www.carlzeng.top">Main</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oay5jYXJsemVuZy50b3A=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">US</a>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202408131618.html","pageTitle":"NAS安装及应用supervisor进程守护"}</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>
