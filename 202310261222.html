@@ -27,9 +27,10 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/3e6145c0-e60c-4484-978d-77c4fc794bf0/xZsj26mfamXYoqTFCRfXyVIHPi2gNUfF_3UuDZAv0W-ilz5vBxltD0dzLQ/deep/0/image.png">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/62d9a792-bb54-473f-a1e2-34feebae3a57/Bp2GY1StVwk23AQvse06RpwOBSWdQnuBad01TqD2pNg8RwbZSdLpzyGC3w/deep/0/image.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/08/18/66c1be83cba6f.png">
 <meta property="og:image" content="https://img.carlzeng.top:3/i/2024/03/28/66052f49a5cf8.png">
 <meta property="article:published_time" content="2023-10-26T04:22:41.000Z">
-<meta property="article:modified_time" content="2024-03-28T08:50:42.175Z">
+<meta property="article:modified_time" content="2024-08-18T09:36:50.761Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="debian">
 <meta property="article:tag" content="hexo">
@@ -204,13 +205,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311231919.html" rel="bookmark">
-      关于DNS配置记录与分析
+      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
+      Nginx Proxy Manager修复笔记
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
-      Nginx Proxy Manager修复笔记
+      <a class="popular-posts-link" href="/202311231919.html" rel="bookmark">
+      关于DNS配置记录与分析
       </a>
     </li>
     <li class="popular-posts-item">
@@ -398,7 +399,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-28 16:50:42" itemprop="dateModified" datetime="2024-03-28T16:50:42+08:00">2024-03-28</time>
+      <time title="修改时间：2024-08-18 17:36:50" itemprop="dateModified" datetime="2024-08-18T17:36:50+08:00">2024-08-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -428,7 +429,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>19 分钟</span>
+      <span>20 分钟</span>
     </span>
 </div>
 
@@ -578,7 +579,9 @@ npm install hexo-next-artalk
     &lt;span id=&quot;ArtalkCount&quot;&gt;&lt;/span&gt;
   &lt;/span&gt;
 </code></pre>
-<h1 id="DDNS自动更新域名的最新IP地址"><a href="#DDNS自动更新域名的最新IP地址" class="headerlink" title="DDNS自动更新域名的最新IP地址"></a>DDNS自动更新域名的最新IP地址</h1><img class="lozad" data-src='https://www.evernote.com/shard/s122/sh/62d9a792-bb54-473f-a1e2-34feebae3a57/Bp2GY1StVwk23AQvse06RpwOBSWdQnuBad01TqD2pNg8RwbZSdLpzyGC3w/deep/0/image.png'>
+<h1 id="DDNS自动更新域名的最新IP地址"><a href="#DDNS自动更新域名的最新IP地址" class="headerlink" title="DDNS自动更新域名的最新IP地址"></a>DDNS自动更新域名的最新IP地址</h1><p>UI访问路径: 打开OpenWrt的管理页面, 服务 》 动态 DNS(DDNS)</p>
+<p>URL地址: 192.168.6.1:8080&#x2F;cgi-bin&#x2F;luci&#x2F;admin&#x2F;services&#x2F;ddns</p>
+<img class="lozad" data-src='https://www.evernote.com/shard/s122/sh/62d9a792-bb54-473f-a1e2-34feebae3a57/Bp2GY1StVwk23AQvse06RpwOBSWdQnuBad01TqD2pNg8RwbZSdLpzyGC3w/deep/0/image.png'>
 
 <pre><code>新增一条：动态DNS 服务项 » CF_carlzeng_top
 </code></pre>
@@ -586,6 +589,11 @@ npm install hexo-next-artalk
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">091427       : Registered IP &#x27;202.89.@@&#x27; detected</span><br><span class="line">091427  info : Starting main loop at 2023-11-03 09:14</span><br><span class="line">091427       : Detect current IP on &#x27;network&#x27;</span><br><span class="line">091427       : Current IP &#x27;221.218.@@&#x27; detected on network &#x27;vwan3&#x27;</span><br><span class="line">091427       : Update needed - L: &#x27;221.218.@@&#x27; &lt;&gt; R: &#x27;202.89.@@&#x27;</span><br><span class="line">091427       : parsing script &#x27;/usr/lib/ddns/update_cloudflare_com_v4.sh&#x27;</span><br><span class="line">091427       : #&gt; /usr/bin/curl -RsS -o /var/run/ddns/CF_carlzeng_top.dat --stderr /var/run/ddns/CF_carlzeng_top.err --noproxy &#x27;*&#x27; --header &#x27;X-Auth-Email: @@@@163.com&#x27;  --header &#x27;X-Auth-Key: ***PW***&#x27;  --header &#x27;Content-Type: application/json&#x27;  --request GET &#x27;https://api.cloudflare.com/client/v4/zones?name=carlzeng.top&#x27;</span><br><span class="line">091428  WARN : CloudFlare reported an error:</span><br><span class="line">091428       : &#123;&quot;success&quot;:false,&quot;errors&quot;:[&#123;&quot;code&quot;:6003,&quot;message&quot;:&quot;Invalid request headers&quot;,&quot;error_chain&quot;:[&#123;&quot;code&quot;:6103,&quot;message&quot;:&quot;Invalid format for X-Auth-Key header&quot;&#125;]&#125;],&quot;messages&quot;:[],&quot;result&quot;:null&#125;</span><br><span class="line">091428 ERROR : IP update not accepted by DDNS Provider</span><br><span class="line">091428       : Waiting 3600 seconds (Check Interval)</span><br></pre></td></tr></table></figure>
 <pre><code>update_cloudflare_com_v4.sh
 </code></pre>
+<p>这个设置有一个弊端, 当vwan3没有获取IP地址时(由于我使用了单线多播, 这样这种概率就出现了), 这个DDNS脚本是无法正常运作的.</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/08/18/66c1be83cba6f.png" alt="image-20240818172727506"></p>
+<blockquote>
+<p>20240818 这个问题还是不知如何在UI界面上攻克, 估计要写脚本来轮询一个个的虚拟接口, 从一个获得在线pppoe接口稳定的方案中, 来获取外网IP地址. 然后根据这个IP地址定时推送给DDNS服务端</p>
+</blockquote>
 <h2 id="Cloudflare-DNS-API"><a href="#Cloudflare-DNS-API" class="headerlink" title="Cloudflare DNS API"></a>Cloudflare DNS API</h2><p>用户 API 令牌<br>        编辑区域 DNS API 令牌已成功创建<br>        复制此令牌以访问 Cloudflare API。为安全起见，将不再显示此令牌。了解更多<br>        7u0Y_5-t_TTn1biQDfdtHgohbE3l@@@@@@。一下为Cloudflare给出的例子：</p>
 <pre><code>curl -X GET &quot;https://api.cloudflare.com/client/v4/user/tokens/verify&quot; \
  -H &quot;Authorization: Bearer 7u0Y_5-t_TTn1biQDfd@@@@@@&quot; \
@@ -726,13 +734,13 @@ carlzeng.top
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311231919.html" rel="bookmark">
-      关于DNS配置记录与分析
+      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
+      Nginx Proxy Manager修复笔记
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
-      Nginx Proxy Manager修复笔记
+      <a class="popular-posts-link" href="/202311231919.html" rel="bookmark">
+      关于DNS配置记录与分析
       </a>
     </li>
     <li class="popular-posts-item">
@@ -910,7 +918,7 @@ carlzeng.top
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-03-28 16:50:42" itemprop="dateModified" datetime="2024-03-28T16:50:42+08:00">2024-03-28</time>
+        <time title="修改时间：2024-08-18 17:36:50" itemprop="dateModified" datetime="2024-08-18T17:36:50+08:00">2024-08-18</time>
       </span>
 
 </div>
@@ -1055,6 +1063,26 @@ carlzeng.top
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202310261222.html","pageTitle":"Hexo定制之家宽部署artalk评论"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1087,26 +1115,6 @@ carlzeng.top
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
