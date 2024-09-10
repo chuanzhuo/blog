@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="使用WireGuard将不同地区的局域网或设备连接起来, 组成一个内部虚拟专用网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端">
+<meta property="og:url" content="https://www.carlzeng.top/202408182232.html">
+<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:description" content="使用WireGuard将不同地区的局域网或设备连接起来, 组成一个内部虚拟专用网络">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/09/10/66e00d44aa551.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/09/10/66dfb579be8f8.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/08/20/66c462c99f24b.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/08/19/66c2b714b67d2.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/08/20/66c45bee8098e.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/08/20/66c4bb3886c11.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/09/10/66e007f785cb2.png">
+<meta property="article:published_time" content="2024-08-18T14:32:13.000Z">
+<meta property="article:modified_time" content="2024-09-10T09:18:09.592Z">
+<meta property="article:author" content="Carl Notes">
+<meta property="article:tag" content="OpenWrt">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="K2P">
+<meta property="article:tag" content="WireGuard">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.carlzeng.top:3/i/2024/09/10/66e00d44aa551.png">
+
+
+<link rel="canonical" href="https://www.carlzeng.top/202408182232.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/202408182232.html","path":"202408182232.html","title":"OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端 | 随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">IT解决方案 NetSuite ERP</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="全站检索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">239</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">67</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">362</span></a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-下载音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载音乐</a></li><li class="menu-item menu-item-直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>直播IPTV</a></li><li class="menu-item menu-item-网盘文件分享"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网盘文件分享</a></li><li class="menu-item menu-item-搜索下载书籍"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>搜索下载书籍</a></li><li class="menu-item menu-item-小店入口"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>小店入口</a></li>
+  </ul>
+
+    <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <div class="search-header">
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="28" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+      </div>
+      </div>
+    </div>
+    </form>
+
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">硬件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenWRT%E5%88%9B%E5%BB%BA%E5%85%AC%E9%92%A5%E7%A7%81%E9%92%A5"><span class="nav-number">5.1.</span> <span class="nav-text">OpenWRT创建公钥私钥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E5%85%B1%E4%BA%AB%E5%AF%86%E9%92%A5"><span class="nav-number">5.1.1.</span> <span class="nav-text">预共享密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%85%AC%E9%92%A5%E7%A7%81%E9%92%A5"><span class="nav-number">5.1.2.</span> <span class="nav-text">服务端公钥私钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MacOS-%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%85%AC%E9%92%A5"><span class="nav-number">5.1.3.</span> <span class="nav-text">MacOS 客户端公钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-OpenWRT-UI"><span class="nav-number">5.1.4.</span> <span class="nav-text">配置 OpenWRT UI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="nav-number">5.1.4.1.</span> <span class="nav-text">服务端相关配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-Peers-%E5%8C%BA%E5%9F%9F%E4%B8%BA%E6%AF%8F%E4%B8%AA%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B7%BB%E5%8A%A0%E9%85%8D%E7%BD%AE"><span class="nav-number">5.1.4.2.</span> <span class="nav-text">客户端 Peers 区域为每个客户端添加配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">5.1.4.3.</span> <span class="nav-text">防火墙</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%BA%86%E4%B8%80%E5%9C%88%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E8%A7%84%E5%88%99-%E8%BF%98%E6%98%AF%E5%8D%A1%E6%AD%BB"><span class="nav-number">6.</span> <span class="nav-text">配置了一圈防火墙的规则, 还是卡死</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%90%AF-WireGuard"><span class="nav-number">6.0.0.1.</span> <span class="nav-text">重启 WireGuard</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-MAC"><span class="nav-number">6.1.</span> <span class="nav-text">客户端(MAC)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">6.1.1.</span> <span class="nav-text">创建客户端配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AllowedIPs"><span class="nav-number">6.1.1.1.</span> <span class="nav-text">AllowedIPs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="nav-number">6.1.1.2.</span> <span class="nav-text">其他命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%A4%E6%99%96%E5%AE%89%E8%A3%85-WireGuard-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">6.2.</span> <span class="nav-text">群晖安装 WireGuard 客户端</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E5%8F%8A%E6%8E%92%E6%9F%A5%E8%A7%A3%E5%86%B3"><span class="nav-number">7.</span> <span class="nav-text">故障及排查解决</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NAS%E4%B8%AD%E8%BF%90%E8%A1%8Cwg-quick%E9%94%99%E8%AF%AF"><span class="nav-number">7.1.</span> <span class="nav-text">NAS中运行wg-quick错误</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker%E6%90%AD%E5%BB%BAWireGuard%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="nav-number">8.</span> <span class="nav-text">docker搭建WireGuard服务端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">9.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Notes</p>
+  <div class="site-description" itemprop="description">[眼观心察 沉淀共享] 技术文章版本持续佛系更新</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">362</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">239</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
+      Switch大气层游戏下载服务及实测列表
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202409081010.html" rel="bookmark">
+      WIFI远程无线中继之K2P刷机Padavan无线桥接功能
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201603222129.html" rel="bookmark">
+      OpenWrt >  ADSL单线多拨，负载均衡(供参考)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401110931.html" rel="bookmark">
+      PVE磁盘占满解决方案实践
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310051715.html" rel="bookmark">
+      Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)(部分转载)
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+    <div class="pjax">
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新随笔
+        </div>
+        <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/202409081010.html" title="WIFI远程无线中继之K2P刷机Padavan无线桥接功能" target=""  class="popular-posts-link">
+                  WIFI远程无线中继之K2P刷机Padavan无线桥接功能
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202409080733.html" title="Switch大气层游戏下载服务及实测列表" target=""  class="popular-posts-link">
+                  Switch大气层游戏下载服务及实测列表
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202408182232.html" title="OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端" target=""  class="popular-posts-link">
+                  OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202408131618.html" title="NAS安装及应用supervisor进程守护" target=""  class="popular-posts-link">
+                  NAS安装及应用supervisor进程守护
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202407191651.html" title="索尼PlayStation全部记录" target=""  class="popular-posts-link">
+                  索尼PlayStation全部记录
+                  </a>
+                </li>
+        </ul>
+      </div>
+    </div>
+
+    <style>
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      margin-top: 30px !important;
+      padding: clamp(17px, 5%, 40px) clamp(17px, 7%, 50px) !important;
+      max-width: none !important;
+      border-radius: 6px !important;
+      box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview *{
+      box-sizing: border-box !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading {
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5{
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
+      margin-top: 20px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      width: 100% !important;
+      height: 40px !important;
+      border-radius: 6px !important;
+      border: 2px solid #e9e8e8 !important;
+      background-color: #fff !important;
+      outline: none !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      color: #000000 !important;
+      font-family: "Montserrat" !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 20px !important;
+      text-align: center !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+      color: #000000 !important;
+      opacity: 1 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input:-ms-input-placeholder {
+      color: #000000 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::-ms-input-placeholder {
+      color: #000000 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
+      margin-top: 10px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+      width: 100% !important;
+      height: 40px !important;
+      border: 0 !important;
+      border-radius: 6px !important;
+      line-height: 0px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
+      cursor: pointer !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+      color: #231f20 !important;
+      font-family: "Montserrat" !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 25px !important;
+      text-align: center !important;
+      text-decoration: none !important;
+      display: flex !important;
+      width: 100% !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 10px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
+      margin-left: 10px !important;
+      height: 1.13em !important;
+      max-height: 1.13em !important;
+    }
+    </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
+      订阅新文章:
+    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="Enter your email to receive new articles" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
+      Subscribe
+    </button></div></div></form></div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202408182232.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随笔 Carl Notes">
+      <meta itemprop="description" content="[眼观心察 沉淀共享] 技术文章版本持续佛系更新">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端 | 随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-09-10 17:18:09" itemprop="dateModified" datetime="2024-09-10T17:18:09+08:00">2024-09-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OpenWRT/" itemprop="url" rel="index"><span itemprop="name">OpenWRT</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/202408182232.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>26 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.top:3/i/2024/09/10/66e00d44aa551.png">
+
+<p>使用WireGuard将不同地区的局域网或设备连接起来, 组成一个内部虚拟专用网络</p>
+<span id="more"></span>
+
+<div> 
+<button onclick="synthesizeSpeech()">朗读全文</button>
+</div>
+<audio controls id="audioPlayer">Your browser does not support the audio element.</audio>      
+<script>
+  function synthesizeSpeech() { 
+    var inputText = document.getElementsByClassName('post-block')[0].innerText;
+    var voice = "ZH";
+    var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
+    var audioPlayer = document.getElementById('audioPlayer');          
+    audioPlayer.src = url;
+    audioPlayer.load();
+    audioPlayer.play();
+  }
+</script>
+
+
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p><code>WireGuard</code> 是一种现代、快速且安全的虚拟专用网络 (VPN) 通信协议和免费开源软件。</p>
+<p><code>WireGuard</code> 的设计目标在于易于使用、高速性能和低攻击面。它利用了最新的加密技术，旨在提供比 <code>IPsec</code> 和 <code>OpenVPN</code> 等传统 VPN 协议更好的性能和更强大的功能。<code>WireGuard</code> 的核心代码相对精简，被 <code>Linux</code> 之父 <code>Linus Torvalds</code> 称为 <code>艺术品</code>，其核心代码只有四千多行。</p>
+<p>此外，<code>WireGuard</code> 协议通过 <code>UDP</code> 传递流量，使其在速度和安全性方面具有显著优势。它被设计为简单、高效，并适用于从低端设备如树莓派到高端服务器的广泛环境。</p>
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>Wireguard 回家</p>
+<p>学会配置WireGuard这种VPN‘回家’的方式, </p>
+<p>主要用于在外办公方便VPN 回家的使用场景. 下一步博主就要在 macOS, Android 和 K2P 上体验</p>
+<h1 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h1><p>本例子中使用了</p>
+<ol>
+<li><p>[done] NAS中docker一个WireGuard Easy服务端</p>
+<ol>
+<li><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3dnLWVhc3kvd2ctZWFzeQ==" rel="noopener external nofollow noreferrer">The easiest way to run WireGuard VPN + Web-based Admin UI.</a></li>
+</ol>
+</li>
+<li><p>主路由为OpenWrt的情况, 作为远程VPN的服务端</p>
+<ol>
+<li>这样外出的电脑和手机等就可以通过这个WireGuard将数据VPN回主路由OpenWrt的物理位置</li>
+<li>设置繁琐, 放弃该方案</li>
+</ol>
+</li>
+<li><p>[done]客户端一: MAC OS 电脑作为一个WireGuard客户端接入VPN网络</p>
+<ol>
+<li>成功</li>
+</ol>
+</li>
+<li><p>客户端二: K2P作为另一个WireGuard客户端接入VPN网络</p>
+<ol>
+<li>待续, 需要特定的固件</li>
+</ol>
+</li>
+<li><p>[done]客户端三: 安卓手机作为WireGuard客户端接入VPN网络</p>
+<ol>
+<li>成功</li>
+</ol>
+</li>
+</ol>
+<p>未完待续….</p>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=vpn" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><h2 id="OpenWRT创建公钥私钥"><a href="#OpenWRT创建公钥私钥" class="headerlink" title="OpenWRT创建公钥私钥"></a>OpenWRT创建公钥私钥</h2><h3 id="预共享密钥"><a href="#预共享密钥" class="headerlink" title="预共享密钥"></a>预共享密钥</h3><p>通过<code>SSH</code>登陆到 OpenWRT 后台.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> wg</span><br><span class="line"><span class="comment"># 创建目录存放公钥私钥</span></span><br><span class="line"><span class="built_in">cd</span> wg</span><br><span class="line"><span class="comment"># 进入文件夹</span></span><br><span class="line"><span class="built_in">umask</span> 077</span><br><span class="line"><span class="comment"># 配置创建密钥的权限</span></span><br><span class="line">wg genpsk &gt; sharekey</span><br><span class="line"><span class="comment"># 创建预共享密钥</span></span><br><span class="line"><span class="built_in">cat</span> sharekey</span><br><span class="line"><span class="comment"># 获取密钥复制保存: vcjUaJ8laSu11QOwYbeSQoVbyMjzLRxzDZGb1OQiAcI=</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="服务端公钥私钥"><a href="#服务端公钥私钥" class="headerlink" title="服务端公钥私钥"></a>服务端公钥私钥</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wg genkey | <span class="built_in">tee</span> server_privatekey | wg pubkey &gt; server_publickey</span><br><span class="line"><span class="comment"># 创建服务端公钥和私钥</span></span><br><span class="line"><span class="built_in">cat</span> server_privatekey</span><br><span class="line"><span class="comment"># 获取服务端私钥复制保存</span></span><br><span class="line"><span class="built_in">cat</span> server_publickey</span><br><span class="line"><span class="comment"># 获取服务端公钥复制保存</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="MacOS-客户端公钥"><a href="#MacOS-客户端公钥" class="headerlink" title="MacOS 客户端公钥"></a>MacOS 客户端公钥</h3><p>客户端公钥私钥 ( macOS )</p>
+<p>重复此操作创建每个客户端的公钥和私钥,请注意修改以下命令中的文件名,本文以 macOS 为例:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wg genkey | <span class="built_in">tee</span> macos_privatekey | wg pubkey &gt; macos_publickey</span><br><span class="line"><span class="comment"># 创建 macOS 客户端公钥和私钥</span></span><br><span class="line"><span class="built_in">cat</span> macos_privatekey</span><br><span class="line"><span class="comment"># 获取 macOS 客户端私钥复制保存</span></span><br><span class="line"><span class="built_in">cat</span> macos_publickey</span><br><span class="line"><span class="comment"># 获取 macOS 客户端公钥复制保存</span></span><br></pre></td></tr></table></figure>
+
+<p>运行发现报错:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsh: command not found: wg </span><br></pre></td></tr></table></figure>
+
+<p>解决:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在线安装wireguard</span><br><span class="line">brew install wireguard-tools</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="配置-OpenWRT-UI"><a href="#配置-OpenWRT-UI" class="headerlink" title="配置 OpenWRT UI"></a>配置 OpenWRT UI</h3><h4 id="服务端相关配置"><a href="#服务端相关配置" class="headerlink" title="服务端相关配置"></a>服务端相关配置</h4><p>登陆 OpenWRT - 网络 - 接口 - 添加新接口</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/09/10/66dfb579be8f8.png" alt="image-20240910105651263"></p>
+<p>基本设置 - 填写上文获取的服务端私钥<br>自行填写一个端口号 - 并且在路由器映射该端口的 UDP 协议<br>IP 地址填写一个 VPN 专用的网段 IP - 本文以192.168.100.X为 WireGuard 的专用网段为例,则本 WG 服务器 IP 为192.168.100.1&#x2F;24</p>
+<p>防火墙设置 - 选择 vpn</p>
+<h4 id="客户端-Peers-区域为每个客户端添加配置"><a href="#客户端-Peers-区域为每个客户端添加配置" class="headerlink" title="客户端 Peers 区域为每个客户端添加配置"></a>客户端 Peers 区域为每个客户端添加配置</h4><p><img data-src="https://img.carlzeng.top:3/i/2024/08/20/66c462c99f24b.png" alt="image-20240820173253322"></p>
+<p>选择<code>预共享密钥</code> - 添加</p>
+<p>公钥 - 填写上文获取的macOS 客户端公钥; </p>
+<p>​	- 新的客户端, 正在尝试, 直接点击 “生成新的密钥对”进行新的客户端Peer的公钥和私钥生成. </p>
+<p>预共享密钥 - 填写上文获取的预共享密钥</p>
+<p>允许的 IP - 即表示为此 macOS 客户端分配固定 IP , 本文示例为 192.168.100.2&#x2F;32 , 注意各客户端 IP 不能冲突.<br>持续 Keep-Alive - 填写 25</p>
+<h4 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h4><p>网络 - 防火墙 - 自定义防火墙 - 添加以下防火墙 - 重启防火墙</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A POSTROUTING -s 192.168.100.0/24 -o br-lan -j MASQUERADE</span><br><span class="line"><span class="comment"># 注意此条防火墙网段 192.168.100.0/24 需和上文服务端 IP 网段保持一致.</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>再次声明博主的 OpenWRT 是作为旁路由接入</strong>,此条防火墙不确定适用于主路由部署 WireGuard 使用.主路由用户可以尝试无需设置防火墙(经朋友测试)</p>
+<h1 id="配置了一圈防火墙的规则-还是卡死"><a href="#配置了一圈防火墙的规则-还是卡死" class="headerlink" title="配置了一圈防火墙的规则, 还是卡死"></a>配置了一圈防火墙的规则, 还是卡死</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nc -vz wg.carlzeng.top 51820                                                  </span><br><span class="line">nc: connectx to wg.carlzeng.top port 51820 (tcp) failed: Connection refused </span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://img.carlzeng.top:3/i/2024/08/19/66c2b714b67d2.png" alt="image-20240819110758717"></p>
+<p>好像又有在OpenWrt的远程服务端收到数据包, 可是又不知道最终效果是如何的?</p>
+<p>比如从什么应用出发? 连接了WireGuard VPN以后效果是如何的?</p>
+<h4 id="重启-WireGuard"><a href="#重启-WireGuard" class="headerlink" title="重启 WireGuard"></a>重启 WireGuard</h4><p>返回网络 - 接口 - 关闭 - 连接<br>或者直接重启整个 OpenWRT 最为稳妥.</p>
+<hr>
+<h2 id="客户端-MAC"><a href="#客户端-MAC" class="headerlink" title="客户端(MAC)"></a>客户端(MAC)</h2><h3 id="创建客户端配置文件"><a href="#创建客户端配置文件" class="headerlink" title="创建客户端配置文件"></a>创建客户端配置文件</h3><p>创建后缀为<code>.conf</code>的配置文件,例如<code>macos_wireguard.conf</code>,复制以下信息,并且修改对应的公私钥信息:</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Interface]</span><br><span class="line"><span class="attribute">Address</span> = <span class="number">192.168.100.2</span>/<span class="number">32</span></span><br><span class="line"><span class="comment"># 对应 macOS 客户段分配的 IP</span></span><br><span class="line">PrivateKey = qJHywBpl27Ao/TRse85DQ/f+kwfNGRmPDYCq0OC6uUY=</span><br><span class="line"><span class="comment"># 此时的配置文件是用于客户端的,所以PrivateKey则为 macOS 客户端的私钥</span></span><br><span class="line">DNS = <span class="number">192.168.1.3</span></span><br><span class="line"><span class="comment"># 本地的 DNS 服务器或者公有 DNS 服务器,例如: 114.114.114.114</span></span><br><span class="line">[Peer]</span><br><span class="line">PublicKey = u7vjXN90uJt7pRjG8tR7hb25ssYOi7PRzJ5h9Diy02I=</span><br><span class="line">AllowedIPs = <span class="number">192.168.1.0</span>/<span class="number">24</span>, <span class="number">192.168.100.0</span>/<span class="number">24</span></span><br><span class="line"><span class="comment"># macOS 如上设置可与 ClashX Pro 共存仅代理局域网,互联网走本地网络.</span></span><br><span class="line"><span class="comment"># iPhone iPad 设置为 0.0.0.0/0 全局则模式.</span></span><br><span class="line">PresharedKey = Pu5xBEBmz9ghhUMNp5o72s+w7nuLwxJJUgNk3EljFVo=</span><br><span class="line"><span class="comment"># 预共享密钥</span></span><br><span class="line">Endpoint = ddns.xxxxx.com:<span class="number">12345</span></span><br><span class="line">PersistentKeepalive = <span class="number">25</span></span><br></pre></td></tr></table></figure>
+
+<p>此时的配置文件是用于客户端的,所以<code>PrivateKey</code>则为 macOS 客户端的私钥,而<code>Peer</code>中的<code>PublicKey</code>则为 OpenWRT 的公钥.<strong>请注意反向思考</strong>,<code>Endpoint</code>填写家中的 IP 或者 DDNS 域名和端口.</p>
+<h4 id="AllowedIPs"><a href="#AllowedIPs" class="headerlink" title="AllowedIPs"></a>AllowedIPs</h4><p>值得注意的是<code>AllowedIPs</code>参数.针对不同场景和需求,此处可以配置不用的路由.<br>当此处为<code>0.0.0.0/0</code>时表示任意网络请求都经过 VPN 俗称全局 VPN , 由于 iPhone 同时只能有 1 个 VPN 软件在线,所以当 <code>WireGuard</code> 启动时,其他类似<code>Quanx</code>,<code>小火箭</code>等软件则无法使用,此时 iPhone 可以全局 VPN 使用家中的网络来访问一些外网.</p>
+<p>如果是 macOS 或 Windows 客户端,<code>WireGuard</code>和<code>Clash</code>等软件可以共存,此处可以设置为<code>AllowedIPs = 192.168.1.0/24, 192.168.100.0/24</code>,表示访问内网网段才会走 VPN .而其他互联网,外网等访问还是走当前网络来利用<code>Clash</code>分流.</p>
+<p>macOS<br>在 macOS App Store 下载 WireGuard,从文件导入隧道.</p>
+<p>在 OpenWRT 状态页面能够看到连接成功的状态信息</p>
+<h4 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h4><p>wg-quick down wg0 #停止服务<br>wg-quick strip wg0 #查看配置<br>wg-quick #查看所有支持的命令</p>
+<hr>
+<h2 id="群晖安装-WireGuard-客户端"><a href="#群晖安装-WireGuard-客户端" class="headerlink" title="群晖安装 WireGuard 客户端"></a>群晖安装 WireGuard 客户端</h2><p>WireGuard 官方提供了很多系统的客户端，但是群晖暂时还没有，有开发者打包了对应的安装包，但是 DSM 7.0 中，群晖插件机制有改动，造成无法简单安装使用。</p>
+<p>一、在套件中心添加“我不是矿神”套件源</p>
+<p>名称随意，位置填  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zcGs3LmltbmtzLmNvbS8=" rel="noopener external nofollow noreferrer">https://spk7.imnks.com/</a>  然后确定</p>
+<p>二、安装Wireguard套件</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/08/20/66c45bee8098e.png" alt="image-20240820170337632"></p>
+<pre><code>1、切换到root用户
+
+    sudo -i
+
+2、赋予Wireguard套件权限（执行该命令后启动Wireguard套件已经不会自动停用）
+
+    sudo sed -i &#39;s/package/root/g&#39; /var/packages/WireGuard/conf/privilege
+
+3、在etc目录下创建wireguard文件夹
+
+    mkdir /etc/wireguard/
+
+4、编辑Wireguard配置文件
+
+    vi /etc/wireguard/wg0.conf
+
+5、进行相关配置
+
+    （1）、按下” i “键进行编辑，复制本地编辑好的配置文件内容，鼠标右键直接粘贴  
+
+          注意：要将DNS那行删掉
+</code></pre>
+<p>实例的NAS中wg0.conf配置文件</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Interface]</span></span><br><span class="line"><span class="attr">Address</span> = <span class="number">192.168</span>.<span class="number">100.203</span>/<span class="number">32</span></span><br><span class="line"><span class="attr">PrivateKey</span> = <span class="number">6</span>ANjSDBrOa+hymme+Ive8Fd1GbqOHPosSEQwDNy0x3s=</span><br><span class="line"><span class="comment"># 此时的配置文件是用于客户端的,所以PrivateKey则为 NAS 客户端的私钥</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Peer]</span></span><br><span class="line"><span class="attr">PublicKey</span> = G22pgmNqDPGAYg5+bHdMRrxhPQ3HABRla/yZAj0Tu0I=</span><br><span class="line"><span class="comment"># 而`Peer`中的`PublicKey`则为 OpenWRT 的公钥</span></span><br><span class="line"><span class="attr">PresharedKey</span> = vcjUaJ8laSu11QOwYbeSQoVbyMjzLRxzDZGb1OQiAcI=</span><br><span class="line"><span class="attr">Endpoint</span> = wg.carlzeng.top:<span class="number">51820</span></span><br><span class="line"><span class="attr">AllowedIPs</span> = <span class="number">192.168</span>.<span class="number">100.0</span>/<span class="number">24</span></span><br><span class="line"><span class="attr">PersistentKeepalive</span> = <span class="number">25</span></span><br></pre></td></tr></table></figure>
+
+<p>要小心,这个地方配置文件中的设置; </p>
+<p>要和OpenWrt中的Peer设置不一样的, OpenWrt中的Peer设置要填写下吗这些wg genkey 生成的NAS中的公钥和私钥.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wg genkey | tee nas_privatekey | wg pubkey &gt; nas_publickey</span><br><span class="line"># 创建 NAS 客户端公钥和私钥</span><br><span class="line">cat nas_privatekey</span><br><span class="line"># 获取 NAS 客户端私钥复制保存</span><br><span class="line">cat nas_publickey</span><br><span class="line"># 获取 NAS 客户端公钥复制保存</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>[已解决]故障: MAC端的peer ( sudo wg show wg0) 可以看到输出; 但是 NAS这样的配置 同样运行( sudo wg show wg0)是无法看到peer的输出的</p>
+<p>一顿操作, 修改了配置文件后: 主要是</p>
+<ol>
+<li>ssh中的vi wg0.conf </li>
+<li>OpenWrt中设置&#x2F;添加相应的Peer</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@DS918:/etc/wireguard# wg show wg0                                                                        </span><br><span class="line">interface: wg0                                                                                                </span><br><span class="line">  public key: 6WNPlSVqB6FfpkHGNDXljl9+SdbAfW2/yTxd+iI7t1A=                                                    </span><br><span class="line">  private key: (hidden)                                                                                       </span><br><span class="line">  listening port: 38586                                                                                       </span><br><span class="line">                                                                                                              </span><br><span class="line">peer: g0ZlzyRHEIOYtxbFtUHTnGATSzRdrB7k1vJzYH+CJWA=                                                            </span><br><span class="line">  preshared key: (hidden)                                                                                     </span><br><span class="line">  endpoint: 221.218.233.216:51820                                                                             </span><br><span class="line">  allowed ips: 192.168.100.0/24                                                                               </span><br><span class="line">  transfer: 0 B received, 2.89 KiB sent                                                                       </span><br><span class="line">  persistent keepalive: every 25 seconds </span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">carlzeng@Carls-MBP AppTesting % sudo wg show                                                                  </span><br><span class="line">interface: utun3                                                                                              </span><br><span class="line">  public key: g0ZlzyRHEIOYtxbFtUHTnGATSzRdrB7k1vJzYH+CJWA=                                                    </span><br><span class="line">  private key: (hidden)                                                                                       </span><br><span class="line">  listening port: 52623                                                                                       </span><br><span class="line">                                                                                                              </span><br><span class="line">peer: G22pgmNqDPGAYg5+bHdMRrxhPQ3HABRla/yZAj0Tu0I=                                                            </span><br><span class="line">  endpoint: 221.218.233.216:51820                                                                             </span><br><span class="line">  allowed ips: 192.168.100.0/24                                                                               </span><br><span class="line">  transfer: 0 B received, 5.64 KiB sent                                                                       </span><br><span class="line">  persistent keepalive: every 25 seconds </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="故障及排查解决"><a href="#故障及排查解决" class="headerlink" title="故障及排查解决"></a>故障及排查解决</h1><p>mac端也是; transfer: 0 B received, 有 sent </p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/08/20/66c4bb3886c11.png" alt="image-20240820235014056"></p>
+<p>6、启动刚才编辑好的配置(启动Wireguard套件后在执行)</p>
+<p>​	sudo wg-quick up wg0</p>
+<p>7、查看连接状态</p>
+<p>​    sudo wg show wg0</p>
+<p>解决思路: 切换OpenWrt的服务端 到 docker服务器中, 这样简化了整个设置&#x2F;配置过程.</p>
+<h2 id="NAS中运行wg-quick错误"><a href="#NAS中运行wg-quick错误" class="headerlink" title="NAS中运行wg-quick错误"></a>NAS中运行wg-quick错误</h2><p>&#x2F;usr&#x2F;local&#x2F;bin&#x2F;wg-quick: line 32: resolvconf: command not found</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wg-quick up HBY_NAS</span><br><span class="line">[#] ip link add HBY_NAS type wireguard</span><br><span class="line">[#] wg setconf HBY_NAS /dev/fd/63</span><br><span class="line">[#] ip -4 address add 10.8.0.4/24 dev HBY_NAS</span><br><span class="line">[#] ip link set mtu 1420 up dev HBY_NAS</span><br><span class="line">[#] resolvconf -a HBY_NAS -m 0 -x</span><br><span class="line">/usr/local/bin/wg-quick: line 32: resolvconf: command not found</span><br><span class="line">[#] ip link delete dev HBY_NAS</span><br></pre></td></tr></table></figure>
+
+
+
+<p>just install it with <code>apt-get install resolvconf</code> and reboot, or comment out all DNS fields in configuration file</p>
+<p>本章节参考: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zdXBlcnVzZXIuY29tL3F1ZXN0aW9ucy8xNTAwNjkxL3Vzci1iaW4td2ctcXVpY2stbGluZS0zMS1yZXNvbHZjb25mLWNvbW1hbmQtbm90LWZvdW5kLXdpcmVndWFyZC1kZWJpYW4=" rel="noopener external nofollow noreferrer">https://superuser.com/questions/1500691/usr-bin-wg-quick-line-31-resolvconf-command-not-found-wireguard-debian</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sudo wg-quick up HBY_NAS                                                   </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip <span class="built_in">link</span> add HBY_NAS <span class="built_in">type</span> wireguard</span>                                                                </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] wg setconf HBY_NAS /dev/fd/63</span>                                                                     </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip -4 address add 10.8.0.4/24 dev HBY_NAS</span>                                                         </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip <span class="built_in">link</span> <span class="built_in">set</span> mtu 1420 up dev HBY_NAS</span>                                                               </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] wg <span class="built_in">set</span> HBY_NAS fwmark 51820</span>                                                                       </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip -6 route add ::/0 dev HBY_NAS table 51820</span>                                                      </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip -6 rule add not fwmark 51820 table 51820</span>                                                       </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip -6 rule add table main suppress_prefixlength 0</span>                                                 </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip6tables-restore -n</span>                                                                              </span><br><span class="line">ip6tables-restore v1.8.3 (legacy): ip6tables-restore: unable to initialize table &#x27;raw&#x27;                </span><br><span class="line">                                                                                                      </span><br><span class="line">Error occurred at line: 1                                                                             </span><br><span class="line">Try `ip6tables-restore -h&#x27; or &#x27;ip6tables-restore --help&#x27; for more information.                        </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip -6 rule delete table 51820</span>                                                                     </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip -6 rule delete table main suppress_prefixlength 0</span>                                              </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip <span class="built_in">link</span> delete dev HBY_NAS</span> </span><br></pre></td></tr></table></figure>
+
+
+
+<p>通过如下设置, 关闭NAS的IPv6</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/09/10/66e007f785cb2.png" alt="image-20240910164851768"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">wg-quick up HBY_NAS                                                                     </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip <span class="built_in">link</span> add HBY_NAS <span class="built_in">type</span> wireguard</span>                                                                </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] wg setconf HBY_NAS /dev/fd/63</span>                                                                     </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip -4 address add 10.8.0.4/24 dev HBY_NAS</span>                                                         </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip <span class="built_in">link</span> <span class="built_in">set</span> mtu 1420 up dev HBY_NAS</span>                                                               </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] wg <span class="built_in">set</span> HBY_NAS fwmark 51820</span>                                                                       </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip -4 route add 0.0.0.0/0 dev HBY_NAS table 51820</span>                                                 </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip -4 rule add not fwmark 51820 table 51820</span>                                                       </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip -4 rule add table main suppress_prefixlength 0</span>                                                 </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] sysctl -q net.ipv4.conf.all.src_valid_mark=1</span>                                                      </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] iptables-restore -n</span>                                                                               </span><br><span class="line">iptables-restore v1.8.3 (legacy): iptables-restore: unable to initialize table &#x27;raw&#x27;                  </span><br><span class="line">                                                                                                      </span><br><span class="line">Error occurred at line: 1                                                                             </span><br><span class="line">Try `iptables-restore -h&#x27; or &#x27;iptables-restore --help&#x27; for more information.                          </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip -4 rule delete table 51820</span>                                                                     </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip -4 rule delete table main suppress_prefixlength 0</span>                                              </span><br><span class="line"><span class="meta prompt_">[#</span><span class="language-bash">] ip <span class="built_in">link</span> delete dev HBY_NAS</span>  </span><br></pre></td></tr></table></figure>
+
+<p>截至目前, 仍然无法给NAS开启WireGuard客户端, 暂时放弃, 因为它也是WireGuard服务器所在的docker容器也在NAS中.</p>
+<hr>
+<h1 id="docker搭建WireGuard服务端"><a href="#docker搭建WireGuard服务端" class="headerlink" title="docker搭建WireGuard服务端"></a>docker搭建WireGuard服务端</h1><p>docker-compose.yml</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">etc_wireguard:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">wg-easy:</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="comment"># Change Language:</span></span><br><span class="line">      <span class="comment"># (Supports: en, ua, ru, tr, no, pl, fr, de, ca, es, ko, vi, nl, is, pt, chs, cht, it, th, hi)</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">LANG=en</span></span><br><span class="line">      <span class="comment">#  Required:</span></span><br><span class="line">      <span class="comment"># Change this to your host&#x27;s public address</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">WG_HOST=raspberrypi.local</span></span><br><span class="line"></span><br><span class="line">      <span class="comment"># Optional:</span></span><br><span class="line">      <span class="comment"># - PASSWORD_HASH=$$2y$$10$$hBCoykrB95WSzuV4fafBzOHWKu9sbyVa34GJr8VV5R/pIelfEMYyG (needs double $$, hash of &#x27;foobar123&#x27;; see &quot;How_to_generate_an_bcrypt_hash.md&quot; for generate the hash)</span></span><br><span class="line">      <span class="comment"># - PORT=51821</span></span><br><span class="line">      <span class="comment"># - WG_PORT=51820</span></span><br><span class="line">      <span class="comment"># - WG_CONFIG_PORT=92820</span></span><br><span class="line">      <span class="comment"># - WG_DEFAULT_ADDRESS=10.8.0.x</span></span><br><span class="line">      <span class="comment"># - WG_DEFAULT_DNS=1.1.1.1</span></span><br><span class="line">      <span class="comment"># - WG_MTU=1420</span></span><br><span class="line">      <span class="comment"># - WG_ALLOWED_IPS=192.168.15.0/24, 10.0.1.0/24</span></span><br><span class="line">      <span class="comment"># - WG_PERSISTENT_KEEPALIVE=25</span></span><br><span class="line">      <span class="comment"># - WG_PRE_UP=echo &quot;Pre Up&quot; &gt; /etc/wireguard/pre-up.txt</span></span><br><span class="line">      <span class="comment"># - WG_POST_UP=echo &quot;Post Up&quot; &gt; /etc/wireguard/post-up.txt</span></span><br><span class="line">      <span class="comment"># - WG_PRE_DOWN=echo &quot;Pre Down&quot; &gt; /etc/wireguard/pre-down.txt</span></span><br><span class="line">      <span class="comment"># - WG_POST_DOWN=echo &quot;Post Down&quot; &gt; /etc/wireguard/post-down.txt</span></span><br><span class="line">      <span class="comment"># - UI_TRAFFIC_STATS=true</span></span><br><span class="line">      <span class="comment"># - UI_CHART_TYPE=0 # (0 Charts disabled, 1 # Line chart, 2 # Area chart, 3 # Bar chart)</span></span><br><span class="line">      <span class="comment"># - WG_ENABLE_ONE_TIME_LINKS=true</span></span><br><span class="line">      <span class="comment"># - UI_ENABLE_SORT_CLIENTS=true</span></span><br><span class="line">      <span class="comment"># - WG_ENABLE_EXPIRES_TIME=true</span></span><br><span class="line">      <span class="comment"># - ENABLE_PROMETHEUS_METRICS=false</span></span><br><span class="line">      <span class="comment"># - PROMETHEUS_METRICS_PASSWORD=$$2a$$12$$vkvKpeEAHD78gasyawIod.1leBMKg8sBwKW.pQyNsq78bXV3INf2G # (needs double $$, hash of &#x27;prometheus_password&#x27;; see &quot;How_to_generate_an_bcrypt_hash.md&quot; for generate the hash)</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">image:</span> <span class="string">ghcr.io/wg-easy/wg-easy</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">wg-easy</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">etc_wireguard:/etc/wireguard</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;51820:51820/udp&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;51821:51821/tcp&quot;</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">cap_add:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NET_ADMIN</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SYS_MODULE</span></span><br><span class="line">      <span class="comment"># - NET_RAW # Uncomment if using Podman</span></span><br><span class="line">    <span class="attr">sysctls:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">net.ipv4.ip_forward=1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">net.ipv4.conf.all.src_valid_mark=1</span></span><br></pre></td></tr></table></figure>
+
+<p>如本文第一章照片所示, 这个工具很人性化, 整个设置非常简便, 节省时间.</p>
+<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuaW9pb3guY29tL2FyY2hpdmVzLzE0My5odG1s" rel="noopener external nofollow noreferrer">https://www.ioiox.com/archives/143.html</a></p>
+<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3dnLWVhc3kvd2ctZWFzeQ==" rel="noopener external nofollow noreferrer">https://github.com/wg-easy/wg-easy</a></p>
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="wechat,weibo,qq,facebook"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Carl Notes
+    <a href='https://www.carlzeng.top/202408182232.html'> 《OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.carlzeng.top/202408182232.html" title="OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端">https://www.carlzeng.top/202408182232.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+  </li>
+</ul>
+</div>
+
+          <main class="main">
+<div class="column">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
+      Switch大气层游戏下载服务及实测列表
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202409081010.html" rel="bookmark">
+      WIFI远程无线中继之K2P刷机Padavan无线桥接功能
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201603222129.html" rel="bookmark">
+      OpenWrt >  ADSL单线多拨，负载均衡(供参考)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401110931.html" rel="bookmark">
+      PVE磁盘占满解决方案实践
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202310051715.html" rel="bookmark">
+      Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)(部分转载)
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="column">
+<div class="pjax">
+<!-- recent posts -->
+<div class="animated">
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新随笔
+    </div>
+    <ul class="popular-posts">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202409081010.html" title="WIFI远程无线中继之K2P刷机Padavan无线桥接功能" target="" class="popular-posts-link">
+              WIFI远程无线中继之K2P刷机Padavan无线桥接功能
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202409080733.html" title="Switch大气层游戏下载服务及实测列表" target="" class="popular-posts-link">
+              Switch大气层游戏下载服务及实测列表
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202408182232.html" title="OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端" target="" class="popular-posts-link">
+              OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202408131618.html" title="NAS安装及应用supervisor进程守护" target="" class="popular-posts-link">
+              NAS安装及应用supervisor进程守护
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202407191651.html" title="索尼PlayStation全部记录" target="" class="popular-posts-link">
+              索尼PlayStation全部记录
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202407121006.html" title="Docker群晖docker查询注册表失败" target="" class="popular-posts-link">
+              Docker群晖docker查询注册表失败
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202407111027.html" title="Docker搭建BT Tracker服务器贡献BT网络Tracker节点" target="" class="popular-posts-link">
+              Docker搭建BT Tracker服务器贡献BT网络Tracker节点
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202406290806.html" title="SteamDeck双系统之重装windows11" target="" class="popular-posts-link">
+              SteamDeck双系统之重装windows11
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202406170802.html" title="记修复价值2千多的Scuf PS4游戏手柄" target="" class="popular-posts-link">
+              记修复价值2千多的Scuf PS4游戏手柄
+              </a>
+            </li>
+    </ul>
+  </div>
+  </div>
+</div>
+</div>
+</main>
+
+
+<div class="followme">
+  <span>您可以<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcudG9wOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer">提交需求反馈</a>, <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a> 或 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLnRvcDozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">打赏作者</a>.</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">联系我(谈话)</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">IPTV直播</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/202312081128.html">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">M3U8播放器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">MP3与下载</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">ChatGPT问答</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">网络加速器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">文件分享</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">下载电子书</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">IT小工具集合</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2024-09-10 17:18:09" itemprop="dateModified" datetime="2024-09-10T17:18:09+08:00">2024-09-10</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/OpenWrt/" rel="tag"># OpenWrt</a>
+              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/K2P/" rel="tag"># K2P</a>
+              <a href="/tags/WireGuard/" rel="tag"># WireGuard</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202408131618.html" rel="prev" title="NAS安装及应用supervisor进程守护">
+                  <i class="fa fa-angle-left"></i> NAS安装及应用supervisor进程守护
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/202409080733.html" rel="next" title="Switch大气层游戏下载服务及实测列表">
+                  Switch大气层游戏下载服务及实测列表 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="选择语言">
+      
+        <option value="zh-CN" data-href="/202408182232.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/202408182232.html" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+</div>
+
+<!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*.carlzeng.top"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//statcounter.carlzeng.top:4443/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="//statcounter.carlzeng.top:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
+
+<div class="powered-by">
+    <a href='https://www.carlzeng.top/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.top/rss2.xml'>RSS</a> | 选择服务器：<a href="https://www.carlzeng.top">Main</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oay5jYXJsemVuZy50b3A=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">US</a>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202408182232.html","pageTitle":"OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端"}</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>

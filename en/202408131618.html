@@ -18,16 +18,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="学会安装并使用supervisor进程守护, 再也不用担心进程无故消失">
+    <meta name="description" content="学会安装并使用supervisor进程守护, 再也不用担心进程无故消失&#x2F;退出">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NAS安装及应用supervisor进程守护">
 <meta property="og:url" content="https://www.carlzeng.top/en/202408131618.html">
 <meta property="og:site_name" content="随笔 Carl Notes">
-<meta property="og:description" content="学会安装并使用supervisor进程守护, 再也不用担心进程无故消失">
+<meta property="og:description" content="学会安装并使用supervisor进程守护, 再也不用担心进程无故消失&#x2F;退出">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img.carlzeng.top:3/i/2024/08/13/66bb799d6ca43.png">
 <meta property="article:published_time" content="2024-08-13T08:18:23.000Z">
-<meta property="article:modified_time" content="2024-09-03T01:38:20.605Z">
+<meta property="article:modified_time" content="2024-09-09T13:52:30.432Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="NAS">
 <meta property="article:tag" content="linux">
@@ -94,7 +94,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">238</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">66</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">361</span></a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-下载音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载音乐</a></li><li class="menu-item menu-item-直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>直播IPTV</a></li><li class="menu-item menu-item-网盘文件分享"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网盘文件分享</a></li><li class="menu-item menu-item-搜索下载书籍"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>搜索下载书籍</a></li><li class="menu-item menu-item-小店入口"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>小店入口</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">239</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">67</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">362</span></a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-下载音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载音乐</a></li><li class="menu-item menu-item-直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>直播IPTV</a></li><li class="menu-item menu-item-网盘文件分享"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网盘文件分享</a></li><li class="menu-item menu-item-搜索下载书籍"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>搜索下载书籍</a></li><li class="menu-item menu-item-小店入口"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>小店入口</a></li>
   </ul>
 
     <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
@@ -130,7 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF-%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">背景&#x2F;有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AESupervisor"><span class="nav-number">2.1.</span> <span class="nav-text">配置Supervisor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">4.1.</span> <span class="nav-text">异常处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF-%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">背景&#x2F;有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AESupervisor"><span class="nav-number">2.1.</span> <span class="nav-text">配置Supervisor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">4.1.</span> <span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E6%B5%81%E5%BC%82%E5%B8%B8"><span class="nav-number">4.1.1.</span> <span class="nav-text">推流异常</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -143,18 +143,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">361</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">66</span>
+        <span class="site-state-item-count">67</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-count">239</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -199,8 +199,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202404081832.html" rel="bookmark">
-      分享小主机docker安装离线下载工具
+      <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
+      云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
@@ -209,8 +209,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202407191651.html" rel="bookmark">
-      索尼PlayStation全部记录
+      <a class="popular-posts-link" href="/202401110931.html" rel="bookmark">
+      PVE磁盘占满解决方案实践
       </a>
     </li>
   </ul>
@@ -238,6 +238,11 @@
                   </a>
                 </li>
                 <li class="popular-posts-item">
+                  <a href="/202408182232.html" title="OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端" target=""  class="popular-posts-link">
+                  OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端
+                  </a>
+                </li>
+                <li class="popular-posts-item">
                   <a href="/202408131618.html" title="NAS安装及应用supervisor进程守护" target=""  class="popular-posts-link">
                   NAS安装及应用supervisor进程守护
                   </a>
@@ -245,11 +250,6 @@
                 <li class="popular-posts-item">
                   <a href="/202407191651.html" title="索尼PlayStation全部记录" target=""  class="popular-posts-link">
                   索尼PlayStation全部记录
-                  </a>
-                </li>
-                <li class="popular-posts-item">
-                  <a href="/202407121006.html" title="Docker群晖docker查询注册表失败" target=""  class="popular-posts-link">
-                  Docker群晖docker查询注册表失败
                   </a>
                 </li>
         </ul>
@@ -393,7 +393,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-09-03 09:38:20" itemprop="dateModified" datetime="2024-09-03T09:38:20+08:00">2024-09-03</time>
+      <time title="Modified: 2024-09-09 21:52:30" itemprop="dateModified" datetime="2024-09-09T21:52:30+08:00">2024-09-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -423,7 +423,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>17 mins.</span>
+      <span>18 mins.</span>
     </span>
 </div>
 
@@ -435,7 +435,7 @@
     
     <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.top:3/i/2024/08/13/66bb799d6ca43.png">
 
-<p>学会安装并使用supervisor进程守护, 再也不用担心进程无故消失</p>
+<p>学会安装并使用supervisor进程守护, 再也不用担心进程无故消失&#x2F;退出</p>
 <span id="more"></span>
 
 <div> 
@@ -455,7 +455,8 @@
 </script>
 
 
-<h1 id="背景-有什么用"><a href="#背景-有什么用" class="headerlink" title="背景&#x2F;有什么用"></a>背景&#x2F;有什么用</h1><p>前文讲了在群晖NAS的后台中运行如下命令来实现推流</p>
+<h1 id="背景-有什么用"><a href="#背景-有什么用" class="headerlink" title="背景&#x2F;有什么用"></a>背景&#x2F;有什么用</h1><p>NAS中进程守护的实践应用(Debian中也一样)</p>
+<p>前文讲了在群晖NAS的后台中运行如下命令来实现推流</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ffmpeg -re -i &quot;rtsp://admin:d****@192.168.6.126:554/cam/realmonitor?channel=1&amp;subtype=1&quot; -c copy -f flv -y rtmp://192.168.6.116:1935/live/livestream 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 
 <p>推流 将摄像头的视频音频流 推到SRS服务器端(做为视频内容的输入口)</p>
@@ -536,6 +537,12 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@DS:~# supervisorctl status ffmpeg</span><br><span class="line">ffmpeg                           RUNNING   pid 11310, uptime 19 days, 6:37:39</span><br><span class="line">root@DS:~# supervisorctl restart ffmpeg</span><br><span class="line">ffmpeg: stopped</span><br><span class="line">ffmpeg: started</span><br></pre></td></tr></table></figure>
 
 <p>这样重启后, 推流马上正常了, 很方便, 直接了当略过了ffmpeg里面的细节.</p>
+<h3 id="推流异常"><a href="#推流异常" class="headerlink" title="推流异常"></a>推流异常</h3><p>后来发现不是这个supervisor进程守护故障, 由于中继K2P将上游的K2P路由器无故攻击下线(由于WIFI的信道变化, 而下游K2P用正确的密码去不停连接错误信道的上游K2P路由器), 导致上游的K2P路由器变成无法上网的状态</p>
+<p>这样的外围出错, 导致了上游K2P路由器无法上网而使TP1Z摄像头的断开了网络(它变成无法上网), 我不明白无法上网, 应该是并且导致它无法连接到SRS本地服务器, 这样就导致推流失败了.</p>
+<p>当我找到推流异常问题的根源后, 通过 <a href=''>WIFI远程无线中继之K2P刷机Padavan无线桥接功能</a> 来锁定信道后, 让上游的K2P路由器工作正常, 然后需要手动重新使用以下命令:</p>
+<p>supervisorctl restart ffmpeg</p>
+<p>来重新开启正常的推流. 通过这类外围故障, 更加印证了这个supervisor进程守护是可靠的.</p>
+<p>然而进程虽然一直正常存在, 但不代表它一直正常按预期完成指定的任务!</p>
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vZGFsaWFucGFpL3AvMTMxNTE5NTIuaHRtbA==" rel="noopener external nofollow noreferrer">Supervisor安装与配置二</a></p>
 <p><a href="https://www.carlzeng.top/202304131736.html">动态公网IP 和 SRS-CarlZeng</a></p>
 
@@ -615,8 +622,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202404081832.html" rel="bookmark">
-      分享小主机docker安装离线下载工具
+      <a class="popular-posts-link" href="/202308262104.html" rel="bookmark">
+      云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
@@ -625,8 +632,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202407191651.html" rel="bookmark">
-      索尼PlayStation全部记录
+      <a class="popular-posts-link" href="/202401110931.html" rel="bookmark">
+      PVE磁盘占满解决方案实践
       </a>
     </li>
   </ul>
@@ -657,6 +664,11 @@
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202408182232.html" title="OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端" target="" class="popular-posts-link">
+              OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
               <a href="/202408131618.html" title="NAS安装及应用supervisor进程守护" target="" class="popular-posts-link">
               NAS安装及应用supervisor进程守护
               </a>
@@ -684,11 +696,6 @@
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202406170802.html" title="记修复价值2千多的Scuf PS4游戏手柄" target="" class="popular-posts-link">
               记修复价值2千多的Scuf PS4游戏手柄
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202406132247.html" title="案例展示NetSuite UI界面中创建动态下拉列表" target="" class="popular-posts-link">
-              案例展示NetSuite UI界面中创建动态下拉列表
               </a>
             </li>
     </ul>
@@ -799,7 +806,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2024-09-03 09:38:20" itemprop="dateModified" datetime="2024-09-03T09:38:20+08:00">2024-09-03</time>
+        <time title="Modified: 2024-09-09 21:52:30" itemprop="dateModified" datetime="2024-09-09T21:52:30+08:00">2024-09-09</time>
       </span>
 
 </div>
@@ -824,8 +831,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/202409080733.html" rel="next" title="Switch大气层游戏下载服务及实测列表">
-                  Switch大气层游戏下载服务及实测列表 <i class="fa fa-angle-right"></i>
+                <a href="/202408182232.html" rel="next" title="OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端">
+                  OpenWRT配置WireGuard服务端及远程K2P配置WireGuard客户端 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
