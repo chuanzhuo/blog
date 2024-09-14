@@ -16,13 +16,13 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="技术参考，理解IPTV组播原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源">
 <meta property="og:url" content="https://www.carlzeng.top/202312210934.html">
-<meta property="og:site_name" content="随笔 Carl Notes">
+<meta property="og:site_name" content="云端随笔 Carl Notes">
 <meta property="og:description" content="技术参考，理解IPTV组播原理">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/b9cc9087-b87c-4f9b-8396-7379bcaa5c58/5eJusyLJHIHOTIxVeVS8J6uYqIj-mr6g8KIabe67tJCgSzyWcn-WZWaAJQ/deep/0/image.png">
@@ -52,7 +52,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/202312210934.html","path":"202312210934.html","title":"联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源 | 随笔 Carl Notes</title>
+<title>联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源 | 云端随笔 Carl Notes</title>
   
 
 
@@ -65,8 +65,8 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="随笔 Carl Notes" type="application/atom+xml">
-<link rel="alternate" href="/rss2.xml" title="随笔 Carl Notes" type="application/rss+xml">
+<link rel="alternate" href="/atom.xml" title="云端随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="云端随笔 Carl Notes" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -87,10 +87,10 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">随笔 Carl Notes</p>
+      <p class="site-title">云端随笔 Carl Notes</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">IT解决方案 NetSuite ERP</p>
+      <p class="site-subtitle" itemprop="description">ERP IT方案 电玩</p>
   </div>
 
   <div class="site-nav-right">
@@ -102,16 +102,16 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">239</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">67</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">363</span></a></li><li class="menu-item menu-item-ai-问答"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>AI 问答</a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-下载音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载音乐</a></li><li class="menu-item menu-item-直播iptv"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>直播IPTV</a></li><li class="menu-item menu-item-网盘文件分享"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网盘文件分享</a></li><li class="menu-item menu-item-搜索下载书籍"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>搜索下载书籍</a></li><li class="menu-item menu-item-小店入口"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>小店入口</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">239</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">67</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">363</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-下载音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>下载音乐</a></li><li class="menu-item menu-item-云浏览器"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>云浏览器</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
   </ul>
 
     <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
     <div class="popup search-popup">
-      <div class="search-header">
+      <!--<div class="search-header">-->
       <div class="search-input-container" style="text-align: left; padding-left: 22px">
-        <input name="q" autocomplete="off" autocapitalize="off" maxlength="28" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="58" placeholder="全局检索..." spellcheck="false" type="search" class="search-input">
       </div>
-      </div>
+      <!--</div>-->
     </div>
     </form>
 
@@ -145,7 +145,7 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Carl Notes</p>
-  <div class="site-description" itemprop="description">[眼观心察 沉淀共享] 技术文章版本持续佛系更新</div>
+  <div class="site-description" itemprop="description">[眼观心察 沉淀共享] 文章版本持续佛系更新</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
@@ -232,7 +232,7 @@
       <div class="sidebar-inner sidebar-post-related">
             <div class="links-of-blogroll-title recent-posts-title">
           <i class="fa fa-history " aria-hidden="true"></i>
-                最新随笔
+                最新文章
         </div>
         <ul class="popular-posts">
                 <li class="popular-posts-item">
@@ -352,9 +352,9 @@
       max-height: 1.13em !important;
     }
     </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
-      订阅新文章:
-    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="Enter your email to receive new articles" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
-      Subscribe
+      订阅最新文章
+    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="请输入您的邮箱地址后回车确认" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
+      订阅
     </button></div></div></form></div>
 
   </aside>
@@ -381,12 +381,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随笔 Carl Notes">
-      <meta itemprop="description" content="[眼观心察 沉淀共享] 技术文章版本持续佛系更新">
+      <meta itemprop="name" content="云端随笔 Carl Notes">
+      <meta itemprop="description" content="[眼观心察 沉淀共享] 文章版本持续佛系更新">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源 | 随笔 Carl Notes">
+      <meta itemprop="name" content="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源 | 云端随笔 Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -549,7 +549,7 @@ IGMPProxy
 <p>跨ISP时，用HK或JP的CDN都不如直接连接来得快。</p>
 <h1 id="移动网络播放IPTV组播"><a href="#移动网络播放IPTV组播" class="headerlink" title="移动网络播放IPTV组播"></a>移动网络播放IPTV组播</h1><p>开始尝试扫描 北京移动通用组播<br>        通用组播列表永久地址（北京移动网络通用，可以在支持组播的环境中任意播放）</p>
 <p>K2P Padavan，修改IP：192.168.1.12<br>    修改为了，避开移动猫中的192.168.1.1网段。</p>
-<p>ssh <a href="mailto:&#97;&#x64;&#109;&#x69;&#110;&#x40;&#x31;&#57;&#x32;&#x2e;&#x31;&#x36;&#56;&#x2e;&#49;&#46;&#x31;&#50;">&#97;&#x64;&#109;&#x69;&#110;&#x40;&#x31;&#57;&#x32;&#x2e;&#x31;&#x36;&#56;&#x2e;&#49;&#46;&#x31;&#50;</a><br>    yes<br>    可以正常启用udpxy -p 8013</p>
+<p>ssh <a href="mailto:&#x61;&#x64;&#109;&#x69;&#110;&#x40;&#x31;&#x39;&#x32;&#x2e;&#x31;&#54;&#x38;&#x2e;&#49;&#x2e;&#x31;&#50;">&#x61;&#x64;&#109;&#x69;&#110;&#x40;&#x31;&#x39;&#x32;&#x2e;&#x31;&#54;&#x38;&#x2e;&#49;&#x2e;&#x31;&#50;</a><br>    yes<br>    可以正常启用udpxy -p 8013</p>
 <p>记录成功（接收组播数据）<br>    移动猫的IPTV口连接Padavan的Lan口！必须是IPTV口到K2P路由器的Lan口（wan口不行），<br>    然后在后台开启 udpxy -p 8013 -m 192.168.1.12  (没有)<br>        就可以接收到组播数据rtp:&#x2F;&#x2F;228.1.1.194:8002；VLC可以播放。<br>    然后路由器设置：【已截图】必须要在路由上开启：<br>            启用 IGMP&#x2F;MLD 侦听	<br>            M2U - 以太网交换机: HW IGMP&#x2F;MLD snooping<br>            M2U - 无线 2.4G:	muli…</p>
 <p><img data-src="https://www.evernote.com/shard/s122/sh/b9cc9087-b87c-4f9b-8396-7379bcaa5c58/5eJusyLJHIHOTIxVeVS8J6uYqIj-mr6g8KIabe67tJCgSzyWcn-WZWaAJQ/deep/0/image.png" alt="Padavan系统的K2P路由器IPTV设置"></p>
 <p>下一步： 用udpxy转化出http数据<br>        udpxy -p 8013 -m 192.168.1.12<br>        udpxy -p 8014</p>
@@ -674,7 +674,7 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用新的padavan（有大量的可用空间），把包放到/tmp下了；如何下载？</span><br><span class="line">tcpdump -i any -w iptv.cap                                                       </span><br><span class="line">tcpdump: listening on any, link-type LINUX_SLL (Linux cooked v1), capture size 262144 bytes </span><br><span class="line">^C39215 packets captured                                                                    </span><br><span class="line">39318 packets received by filter                                                            </span><br><span class="line">0 packets dropped by kernel   </span><br></pre></td></tr></table></figure>
 
 <p>扫描到一个24M的cap包，怎么下载呢？padavan<br>     用scp, 打开Mac的Terminal</p>
-<p>​	&gt; scp <a href="mailto:&#97;&#x64;&#109;&#x69;&#110;&#x40;&#49;&#57;&#50;&#x2e;&#x31;&#x36;&#56;&#46;&#49;&#46;&#50;">&#97;&#x64;&#109;&#x69;&#110;&#x40;&#49;&#57;&#50;&#x2e;&#x31;&#x36;&#56;&#46;&#49;&#46;&#50;</a>:&#x2F;tmp&#x2F;iptv.cap &#x2F;Users&#x2F;carlzeng&#x2F;AppTesting<br>​	<a href="mailto:&#97;&#x64;&#109;&#x69;&#x6e;&#x40;&#x31;&#x39;&#x32;&#x2e;&#49;&#54;&#56;&#x2e;&#x31;&#x2e;&#50;">&#97;&#x64;&#109;&#x69;&#x6e;&#x40;&#x31;&#x39;&#x32;&#x2e;&#49;&#54;&#56;&#x2e;&#x31;&#x2e;&#50;</a>‘s password:<br>​	iptv.cap                                                  100%   24MB   5.8MB&#x2F;s   00:04   </p>
+<p>​	&gt; scp <a href="mailto:&#x61;&#x64;&#x6d;&#x69;&#x6e;&#x40;&#49;&#57;&#x32;&#46;&#x31;&#x36;&#x38;&#46;&#x31;&#x2e;&#50;">&#x61;&#x64;&#x6d;&#x69;&#x6e;&#x40;&#49;&#57;&#x32;&#46;&#x31;&#x36;&#x38;&#46;&#x31;&#x2e;&#50;</a>:&#x2F;tmp&#x2F;iptv.cap &#x2F;Users&#x2F;carlzeng&#x2F;AppTesting<br>​	<a href="mailto:&#97;&#100;&#109;&#105;&#110;&#x40;&#x31;&#57;&#50;&#x2e;&#49;&#54;&#56;&#46;&#x31;&#46;&#x32;">&#97;&#100;&#109;&#105;&#110;&#x40;&#x31;&#57;&#50;&#x2e;&#49;&#54;&#56;&#46;&#x31;&#46;&#x32;</a>‘s password:<br>​	iptv.cap                                                  100%   24MB   5.8MB&#x2F;s   00:04   </p>
 <p>两次抓下来2个25M得cap包，用Wireshark打开，找不到关键的 :-(</p>
 <h2 id="本章节感谢列表："><a href="#本章节感谢列表：" class="headerlink" title="本章节感谢列表："></a>本章节感谢列表：</h2><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vcm9nZXIteXUvcC8xNjM0Nzg2MS5odG1s" rel="noopener external nofollow noreferrer">adb shell input keyevent 控制按键输入</a></p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbWlsdG9uL3AvNDYyMjEwNy5odG1s" rel="noopener external nofollow noreferrer">利用scp 远程上传下载文件&#x2F;文件夹和ssh远程执行命令</a></p>
@@ -690,6 +690,68 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
 <p>Padavan固件是基于华硕的RT-N56U开发派生并以其名字命名的Asuswrt固件，在国内亦俗称为老毛子固件。该固件具有稳定、简洁、功能强大、高性能等优点，内存和CPU消耗低，使用过程中几乎无发热。本文将介绍Padavan固件的常用版本以及刷机方法，并分享一些实用的功能和设置。</p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9vcHQuY24ycXEuY29tL3BhZGF2YW4v" rel="noopener external nofollow noreferrer">hiboy移植版Pandavan下载</a></p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2hhbndja2YvcnQtbjU2dS8=" rel="noopener external nofollow noreferrer">hanwckf移植版Padavan</a> (最新版截止2023年12月份目前停留在2020年11月27日版本)</p>
+
+
+        <!-- recent posts(added 20240914) -->
+        <p>
+        <div class="">
+          <div class="">
+                <div class="links-of-blogroll-title recent-posts-title">
+              <i class="fa fa-history " aria-hidden="true"></i>
+                    最新文章
+            </div>
+            <ul class="popular-posts">
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202409120954.html" title="Switch串流PC让Switch运行PC或Steam大作" target="" class="popular-posts-link">
+                      Switch串流PC让Switch运行PC或Steam大作
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202409081010.html" title="WIFI远程无线中继之K2P刷机Padavan无线桥接功能" target="" class="popular-posts-link">
+                      WIFI远程无线中继之K2P刷机Padavan无线桥接功能
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202409080733.html" title="Switch大气层游戏下载服务及实测列表" target="" class="popular-posts-link">
+                      Switch大气层游戏下载服务及实测列表
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202408182232.html" title="Docker配置WireGuard服务端及多种客户端实践" target="" class="popular-posts-link">
+                      Docker配置WireGuard服务端及多种客户端实践
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202408131618.html" title="NAS安装及应用supervisor进程守护" target="" class="popular-posts-link">
+                      NAS安装及应用supervisor进程守护
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202407191651.html" title="索尼PlayStation全部记录" target="" class="popular-posts-link">
+                      索尼PlayStation全部记录
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202407121006.html" title="Docker群晖docker查询注册表失败" target="" class="popular-posts-link">
+                      Docker群晖docker查询注册表失败
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202407111027.html" title="Docker搭建BT Tracker服务器贡献BT网络Tracker节点" target="" class="popular-posts-link">
+                      Docker搭建BT Tracker服务器贡献BT网络Tracker节点
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202406290806.html" title="SteamDeck双系统之重装windows11" target="" class="popular-posts-link">
+                      SteamDeck双系统之重装windows11
+                      </a>
+                    </li>
+            </ul>
+          </div>
+          </div>
+        </p>
+
+
 
     </div>
 
@@ -795,52 +857,52 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
   <div class="sidebar-inner sidebar-post-related">
         <div class="links-of-blogroll-title recent-posts-title">
       <i class="fa fa-history " aria-hidden="true"></i>
-            最新随笔
+            最新文章
     </div>
     <ul class="popular-posts">
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202409120954.html" title="Switch串流PC让Switch运行PC或Steam大作" target="" class="popular-posts-link">
-              Switch串流PC让Switch运行PC或Steam大作
+              [2024/09/12] Switch串流PC让Switch运行PC或Steam大作
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202409081010.html" title="WIFI远程无线中继之K2P刷机Padavan无线桥接功能" target="" class="popular-posts-link">
-              WIFI远程无线中继之K2P刷机Padavan无线桥接功能
+              [2024/09/08] WIFI远程无线中继之K2P刷机Padavan无线桥接功能
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202409080733.html" title="Switch大气层游戏下载服务及实测列表" target="" class="popular-posts-link">
-              Switch大气层游戏下载服务及实测列表
+              [2024/09/08] Switch大气层游戏下载服务及实测列表
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202408182232.html" title="Docker配置WireGuard服务端及多种客户端实践" target="" class="popular-posts-link">
-              Docker配置WireGuard服务端及多种客户端实践
+              [2024/08/18] Docker配置WireGuard服务端及多种客户端实践
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202408131618.html" title="NAS安装及应用supervisor进程守护" target="" class="popular-posts-link">
-              NAS安装及应用supervisor进程守护
+              [2024/08/13] NAS安装及应用supervisor进程守护
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202407191651.html" title="索尼PlayStation全部记录" target="" class="popular-posts-link">
-              索尼PlayStation全部记录
+              [2024/07/19] 索尼PlayStation全部记录
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202407121006.html" title="Docker群晖docker查询注册表失败" target="" class="popular-posts-link">
-              Docker群晖docker查询注册表失败
+              [2024/07/12] Docker群晖docker查询注册表失败
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202407111027.html" title="Docker搭建BT Tracker服务器贡献BT网络Tracker节点" target="" class="popular-posts-link">
-              Docker搭建BT Tracker服务器贡献BT网络Tracker节点
+              [2024/07/11] Docker搭建BT Tracker服务器贡献BT网络Tracker节点
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202406290806.html" title="SteamDeck双系统之重装windows11" target="" class="popular-posts-link">
-              SteamDeck双系统之重装windows11
+              [2024/06/29] SteamDeck双系统之重装windows11
               </a>
             </li>
     </ul>
@@ -1070,6 +1132,12 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
   </footer>
 
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
   <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
@@ -1085,7 +1153,7 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
 
