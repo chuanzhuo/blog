@@ -22,12 +22,12 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node.js开发环境及应用实例">
 <meta property="og:url" content="https://www.carlzeng.top/202310080855.html">
-<meta property="og:site_name" content="云端随笔 Carl Notes">
+<meta property="og:site_name" content="云随笔 Carl Notes">
 <meta property="og:description" content="Node.js 简练，清爽">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/dc99b8af-2a8b-4c92-80ae-53c85662c84e/EAOQ4Tvjt3XR_wnOW7aoUNhkXRSFxKDw74NLFTaMLLVKv_XDfXX-Lz2wOw/deep/0/image.png">
 <meta property="article:published_time" content="2023-10-08T00:55:48.000Z">
-<meta property="article:modified_time" content="2024-01-28T12:37:55.456Z">
+<meta property="article:modified_time" content="2024-09-14T09:09:50.913Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="Javascript">
 <meta property="article:tag" content="Node.js">
@@ -45,7 +45,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/202310080855.html","path":"202310080855.html","title":"Node.js开发环境及应用实例"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Node.js开发环境及应用实例 | 云端随笔 Carl Notes</title>
+<title>Node.js开发环境及应用实例 | 云随笔 Carl Notes</title>
   
 
 
@@ -58,8 +58,8 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="云端随笔 Carl Notes" type="application/atom+xml">
-<link rel="alternate" href="/rss2.xml" title="云端随笔 Carl Notes" type="application/rss+xml">
+<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -80,7 +80,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">云端随笔 Carl Notes</p>
+      <p class="site-title">云随笔 Carl Notes</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">ERP IT方案 电玩</p>
@@ -131,7 +131,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%BA%86%E6%89%B9%E9%87%8F%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6%E5%90%8D%E5%90%AB%E6%9C%89netsuite%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%EF%BC%8C%E6%B7%BB%E5%8A%A0tags-%E5%92%8C-categories"><span class="nav-number">1.</span> <span class="nav-text">实现了批量编辑文件名含有netsuite的所有文件，添加tags 和 categories</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sublime-Text-%E7%BC%96%E8%BE%91%E5%99%A8-%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">Sublime Text 编辑器 打开文件夹目录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js-Dev-%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">Node.js Dev 步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js-Build-%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">Node.js Build 步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E7%BC%96%E8%AF%91"><span class="nav-number">3.1.</span> <span class="nav-text">Docker编译</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js%E7%9A%84Docker%E5%AE%B9%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">Node.js的Docker容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js%E7%9A%84Docker-Deployment%E6%AD%A5%E9%AA%A4"><span class="nav-number">4.1.</span> <span class="nav-text">Node.js的Docker Deployment步骤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%B3%E5%B0%86%E4%B8%8A%E7%BA%BF"><span class="nav-number">5.</span> <span class="nav-text">即将上线</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%BA%86%E6%89%B9%E9%87%8F%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6%E5%90%8D%E5%90%AB%E6%9C%89netsuite%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%EF%BC%8C%E6%B7%BB%E5%8A%A0tags-%E5%92%8C-categories"><span class="nav-number">1.</span> <span class="nav-text">实现了批量编辑文件名含有netsuite的所有文件，添加tags 和 categories</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sublime-Text-%E7%BC%96%E8%BE%91%E5%99%A8-%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">Sublime Text 编辑器 打开文件夹目录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js-Dev-%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">Node.js Dev 步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js-Build-%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">Node.js Build 步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E7%BC%96%E8%AF%91"><span class="nav-number">3.1.</span> <span class="nav-text">Docker编译</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js%E7%9A%84Docker%E5%AE%B9%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">Node.js的Docker容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js%E7%9A%84Docker-Deployment%E6%AD%A5%E9%AA%A4"><span class="nav-number">4.1.</span> <span class="nav-text">Node.js的Docker Deployment步骤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%B2%E4%B8%8A%E7%BA%BF2-0%E7%89%88%E6%9C%AC"><span class="nav-number">5.</span> <span class="nav-text">已上线2.0版本</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -374,12 +374,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云端随笔 Carl Notes">
+      <meta itemprop="name" content="云随笔 Carl Notes">
       <meta itemprop="description" content="[眼观心察 沉淀共享] 文章版本持续佛系更新">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Node.js开发环境及应用实例 | 云端随笔 Carl Notes">
+      <meta itemprop="name" content="Node.js开发环境及应用实例 | 云随笔 Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -394,7 +394,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-01-28 20:37:55" itemprop="dateModified" datetime="2024-01-28T20:37:55+08:00">2024-01-28</time>
+      <time title="修改时间：2024-09-14 17:09:50" itemprop="dateModified" datetime="2024-09-14T17:09:50+08:00">2024-09-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -501,7 +501,7 @@
 </ol>
 <p>疑问：如何让这个node常驻在后台执行，意思是：当按键control+c退出当前docker exec -it nodejs bash时，不要退出这个进程。</p>
 <hr>
-<h1 id="即将上线"><a href="#即将上线" class="headerlink" title="即将上线"></a>即将上线</h1><p>实测：Adding full text Search via FlexSearch to a Blog</p>
+<h1 id="已上线2-0版本"><a href="#已上线2-0版本" class="headerlink" title="已上线2.0版本"></a>已上线2.0版本</h1><p>实测：Adding full text Search via FlexSearch to a Blog</p>
 <p>起步：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9leHByZXNzanMuY29tL2VuL3N0YXJ0ZXIvaW5zdGFsbGluZy5odG1s" rel="noopener external nofollow noreferrer">https://expressjs.com/en/starter/installing.html</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mkdir blogsearch</span><br><span class="line"></span><br><span class="line">cd blogsearch </span><br><span class="line"></span><br><span class="line">npm init</span><br><span class="line">	entry point: (index.js) server.js</span><br><span class="line">	</span><br><span class="line">HTTPS_PROXY=&quot;http://127.0.0.1:7890&quot; npm install express</span><br><span class="line">	added 62 packages, and audited 63 packages in 10s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">HTTPS_PROXY=&quot;http://127.0.0.1:7890&quot; npm install --save flexsearch</span><br><span class="line">	added 1 package, and audited 64 packages in 3s</span><br></pre></td></tr></table></figure>
 
@@ -513,9 +513,25 @@
 <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
 <input name="q" value type="search" maxlength="36" placeholder>
 </form>
+## 本地node程序的测试
+
+<p>备注: 本地node程序的测试方式为:</p>
+<ol>
+<li>在WebStorm &gt; Terminal中运行: <strong>npm start</strong></li>
+<li>打开浏览器访问: localhost:3000</li>
+<li>编辑修改的jade模版会实时展现在本地网页localhost:3000中</li>
+<li>app程序的修改部分, 需要重新启动&#x2F;运行npm start</li>
+</ol>
 
 
-        <!-- recent posts(added 20240914) -->
+        <!-- search & recent posts(added 20240914) -->
+        <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
+          <div class="popup search-popup">
+            <div class="search-input-container">
+              <input name="q" autocomplete="off" autocapitalize="off" maxlength="40" placeholder="全站搜索..." spellcheck="false" type="search" class="search-input">    (请输入关键字以后回车，检索内容涵盖全局站点)
+            </div>
+          </div>
+        </form>
         <p>
         <div class="">
           <div class="">
@@ -550,8 +566,8 @@
                       </a>
                     </li>
                     <li class="popular-posts-item" style="text-align: left;">
-                      <a href="/202407191651.html" title="索尼PlayStation全部记录" target="" class="popular-posts-link">
-                      索尼PlayStation全部记录
+                      <a href="/202407191651.html" title="索尼PlayStation和SteamDeck硬件记录" target="" class="popular-posts-link">
+                      索尼PlayStation和SteamDeck硬件记录
                       </a>
                     </li>
                     <li class="popular-posts-item" style="text-align: left;">
@@ -573,6 +589,9 @@
           </div>
           </div>
         </p>
+
+        <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcudG9wOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
+        <img src="https://c.carlzeng.top:3/wechatScan.png" border="0">
 
 
 
@@ -709,8 +728,8 @@
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202407191651.html" title="索尼PlayStation全部记录" target="" class="popular-posts-link">
-              [2024/07/19] 索尼PlayStation全部记录
+              <a href="/202407191651.html" title="索尼PlayStation和SteamDeck硬件记录" target="" class="popular-posts-link">
+              [2024/07/19] 索尼PlayStation和SteamDeck硬件记录
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
@@ -836,7 +855,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-01-28 20:37:55" itemprop="dateModified" datetime="2024-01-28T20:37:55+08:00">2024-01-28</time>
+        <time title="修改时间：2024-09-14 17:09:50" itemprop="dateModified" datetime="2024-09-14T17:09:50+08:00">2024-09-14</time>
       </span>
 
 </div>
@@ -985,6 +1004,26 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202310080855.html","pageTitle":"Node.js开发环境及应用实例"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1017,26 +1056,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>

@@ -22,7 +22,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何在网络包传输中捕获cookie-CarlZeng">
 <meta property="og:url" content="https://www.carlzeng.top/200911251629.html">
-<meta property="og:site_name" content="云端随笔 Carl Notes">
+<meta property="og:site_name" content="云随笔 Carl Notes">
 <meta property="og:description" content="如何在网络包传输中捕获cookie？ 分解：cookie是否在网络数据包中包含？ 如果包含，如何读取？ 需要分开看是http的还是https的情况， https需要考虑使用硬件上的集线器监听解码或者MITM 来转变数据流。 ---------------转载：http:&#x2F;&#x2F;www.cppblog.com&#x2F;len&#x2F;archive&#x2F;2009&#x2F;05&#x2F;26&#x2F;54229.html 强大的网络传输工具cURL">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2009-11-25T08:29:00.000Z">
@@ -39,7 +39,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/200911251629.html","path":"200911251629.html","title":"如何在网络包传输中捕获cookie-CarlZeng"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>如何在网络包传输中捕获cookie-CarlZeng | 云端随笔 Carl Notes</title>
+<title>如何在网络包传输中捕获cookie-CarlZeng | 云随笔 Carl Notes</title>
   
 
 
@@ -52,8 +52,8 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="云端随笔 Carl Notes" type="application/atom+xml">
-<link rel="alternate" href="/rss2.xml" title="云端随笔 Carl Notes" type="application/rss+xml">
+<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -74,7 +74,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">云端随笔 Carl Notes</p>
+      <p class="site-title">云随笔 Carl Notes</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">ERP IT方案 电玩</p>
@@ -368,12 +368,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云端随笔 Carl Notes">
+      <meta itemprop="name" content="云随笔 Carl Notes">
       <meta itemprop="description" content="[眼观心察 沉淀共享] 文章版本持续佛系更新">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="如何在网络包传输中捕获cookie-CarlZeng | 云端随笔 Carl Notes">
+      <meta itemprop="name" content="如何在网络包传输中捕获cookie-CarlZeng | 云随笔 Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -461,12 +461,19 @@
 <p>使用http代理，可指定IP和端口</p>
 <p>&gt;curl -x 202.127.98.43:80 -o baidu.html http:<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5iYWlkdS5jb20v" rel="noopener external nofollow noreferrer">www.baidu.com</a></p>
 <p>在访问一些论坛时，常常要求启用cookie，因为这些网站需要启用cookie来记录sessioin信息,这时需要选项-D，将cookie信息保存起来</p>
-<p>&gt;curl -o cpp.html -c <a href="mailto:&#108;&#x65;&#110;&#64;&#99;&#x70;&#112;&#98;&#108;&#111;&#103;&#46;&#99;&#111;&#109;">&#108;&#x65;&#110;&#64;&#99;&#x70;&#112;&#98;&#108;&#111;&#103;&#46;&#99;&#111;&#109;</a>[1].txt <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
+<p>&gt;curl -o cpp.html -c <a href="mailto:&#108;&#101;&#110;&#x40;&#99;&#112;&#x70;&#x62;&#108;&#111;&#x67;&#x2e;&#99;&#x6f;&#109;">&#108;&#101;&#110;&#x40;&#99;&#112;&#x70;&#x62;&#108;&#111;&#x67;&#x2e;&#99;&#x6f;&#109;</a>[1].txt <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
 <p>先前保存的cookie信息返回给网站,这通常会传回你的一些用户信息。</p>
-<p>&gt;curl -o cpp.html -c <a href="mailto:&#108;&#101;&#110;&#64;&#x63;&#x70;&#112;&#x62;&#108;&#111;&#x67;&#46;&#x63;&#x6f;&#x6d;">&#108;&#101;&#110;&#64;&#x63;&#x70;&#112;&#x62;&#108;&#111;&#x67;&#46;&#x63;&#x6f;&#x6d;</a>[2].txt -b <a href="mailto:&#x6c;&#101;&#x6e;&#64;&#99;&#x70;&#112;&#98;&#108;&#111;&#x67;&#46;&#x63;&#x6f;&#x6d;">&#x6c;&#101;&#x6e;&#64;&#99;&#x70;&#112;&#98;&#108;&#111;&#x67;&#46;&#x63;&#x6f;&#x6d;</a>[1].txt <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
+<p>&gt;curl -o cpp.html -c <a href="mailto:&#x6c;&#x65;&#x6e;&#64;&#99;&#x70;&#x70;&#98;&#x6c;&#111;&#x67;&#46;&#99;&#111;&#x6d;">&#x6c;&#x65;&#x6e;&#64;&#99;&#x70;&#x70;&#98;&#x6c;&#111;&#x67;&#46;&#99;&#111;&#x6d;</a>[2].txt -b <a href="mailto:&#108;&#x65;&#110;&#64;&#99;&#x70;&#112;&#98;&#108;&#111;&#103;&#46;&#99;&#x6f;&#109;">&#108;&#x65;&#110;&#64;&#99;&#x70;&#112;&#98;&#108;&#111;&#103;&#46;&#99;&#x6f;&#109;</a>[1].txt <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
 
 
-        <!-- recent posts(added 20240914) -->
+        <!-- search & recent posts(added 20240914) -->
+        <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
+          <div class="popup search-popup">
+            <div class="search-input-container">
+              <input name="q" autocomplete="off" autocapitalize="off" maxlength="40" placeholder="全站搜索..." spellcheck="false" type="search" class="search-input">    (请输入关键字以后回车，检索内容涵盖全局站点)
+            </div>
+          </div>
+        </form>
         <p>
         <div class="">
           <div class="">
@@ -501,8 +508,8 @@
                       </a>
                     </li>
                     <li class="popular-posts-item" style="text-align: left;">
-                      <a href="/202407191651.html" title="索尼PlayStation全部记录" target="" class="popular-posts-link">
-                      索尼PlayStation全部记录
+                      <a href="/202407191651.html" title="索尼PlayStation和SteamDeck硬件记录" target="" class="popular-posts-link">
+                      索尼PlayStation和SteamDeck硬件记录
                       </a>
                     </li>
                     <li class="popular-posts-item" style="text-align: left;">
@@ -524,6 +531,9 @@
           </div>
           </div>
         </p>
+
+        <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcudG9wOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
+        <img src="https://c.carlzeng.top:3/wechatScan.png" border="0">
 
 
 
@@ -660,8 +670,8 @@
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202407191651.html" title="索尼PlayStation全部记录" target="" class="popular-posts-link">
-              [2024/07/19] 索尼PlayStation全部记录
+              <a href="/202407191651.html" title="索尼PlayStation和SteamDeck硬件记录" target="" class="popular-posts-link">
+              [2024/07/19] 索尼PlayStation和SteamDeck硬件记录
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
@@ -927,6 +937,26 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/200911251629.html","pageTitle":"如何在网络包传输中捕获cookie-CarlZeng"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -959,26 +989,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>

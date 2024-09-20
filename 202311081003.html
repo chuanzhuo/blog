@@ -22,7 +22,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="实测Docker搭建短链接服务YOURLS">
 <meta property="og:url" content="https://www.carlzeng.top/202311081003.html">
-<meta property="og:site_name" content="云端随笔 Carl Notes">
+<meta property="og:site_name" content="云随笔 Carl Notes">
 <meta property="og:description" content="URL缩短服务。可以让你在自己的服务器上运行的URL缩短服务URL简化可以完全控制自己的数据，包括简单的统计、分析和许多插件">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/da92cf63-633f-4527-800e-0c6360c55eac/hQ1AvljDYWbfCVIJtDV8YmhOlX9tUiGxUde88Fthy09LJZmfcf5yPozqCw/deep/0/image.png">
@@ -48,7 +48,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/202311081003.html","path":"202311081003.html","title":"实测Docker搭建短链接服务YOURLS"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>实测Docker搭建短链接服务YOURLS | 云端随笔 Carl Notes</title>
+<title>实测Docker搭建短链接服务YOURLS | 云随笔 Carl Notes</title>
   
 
 
@@ -61,8 +61,8 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="云端随笔 Carl Notes" type="application/atom+xml">
-<link rel="alternate" href="/rss2.xml" title="云端随笔 Carl Notes" type="application/rss+xml">
+<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -83,7 +83,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">云端随笔 Carl Notes</p>
+      <p class="site-title">云随笔 Carl Notes</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">ERP IT方案 电玩</p>
@@ -377,12 +377,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云端随笔 Carl Notes">
+      <meta itemprop="name" content="云随笔 Carl Notes">
       <meta itemprop="description" content="[眼观心察 沉淀共享] 文章版本持续佛系更新">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="实测Docker搭建短链接服务YOURLS | 云端随笔 Carl Notes">
+      <meta itemprop="name" content="实测Docker搭建短链接服务YOURLS | 云随笔 Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -539,13 +539,20 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3.9&quot;</span><br><span class="line">services:</span><br><span class="line">  xui:</span><br><span class="line">    image: enwaiax/x-ui</span><br><span class="line">    container_name: xui</span><br><span class="line">    volumes:</span><br><span class="line">      - $PWD/db/:/etc/x-ui/</span><br><span class="line">      - $PWD/cert/:/root/cert/</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    network_mode: host</span><br></pre></td></tr></table></figure>
 <p>新建目录，并把上面的配置放到x-ui.yaml中<br>root@Debian11:&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;x-ui&#x2F;template# docker-compose -f x-ui.yaml up</p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuYW1hZHVlcy5saW5rL2FyY2hpdmVzL2RvY2tlcmRhLWppYW4tamllLWRpYW4tdmxlc3Mtd3MtdGxzLXdlYg==" rel="noopener external nofollow noreferrer">https://www.amadues.link/archives/dockerda-jian-jie-dian-vless-ws-tls-web</a><br>docker-compose.yaml的方案follow：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ob3N0bG9jLmNvbS90aHJlYWQtMTEwODQ2OC0xLTEuaHRtbA==" rel="noopener external nofollow noreferrer">https://hostloc.com/thread-1108468-1-1.html</a><br>配置的方案follow：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9pd2FubGFiLmNvbS9ucG0teHVpLw==" rel="noopener external nofollow noreferrer">https://iwanlab.com/npm-xui/</a><br>相关的视频：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1WM25zRGljU01CYw==" rel="noopener external nofollow noreferrer">https://www.youtube.com/watch?v=V3nsDicSMBc</a></p>
-<p>待测试：vless:&#x2F;&#x2F;<a href="mailto:&#51;&#x39;&#102;&#x64;&#101;&#50;&#x64;&#x32;&#x2d;&#x63;&#x38;&#x38;&#x63;&#45;&#x34;&#98;&#x65;&#97;&#45;&#100;&#x34;&#x39;&#49;&#45;&#102;&#98;&#x36;&#57;&#x39;&#48;&#100;&#x34;&#x39;&#55;&#x34;&#x31;&#x40;&#118;&#109;&#x65;&#x73;&#x73;&#46;&#99;&#x61;&#x72;&#108;&#122;&#101;&#110;&#x67;&#x2e;&#116;&#x6f;&#x70;">&#51;&#x39;&#102;&#x64;&#101;&#50;&#x64;&#x32;&#x2d;&#x63;&#x38;&#x38;&#x63;&#45;&#x34;&#98;&#x65;&#97;&#45;&#100;&#x34;&#x39;&#49;&#45;&#102;&#98;&#x36;&#57;&#x39;&#48;&#100;&#x34;&#x39;&#55;&#x34;&#x31;&#x40;&#118;&#109;&#x65;&#x73;&#x73;&#46;&#99;&#x61;&#x72;&#108;&#122;&#101;&#110;&#x67;&#x2e;&#116;&#x6f;&#x70;</a>:17866?type&#x3D;ws&amp;security&#x3D;none&amp;path&#x3D;%2Fgugu#gugugee</p>
+<p>待测试：vless:&#x2F;&#x2F;<a href="mailto:&#51;&#x39;&#x66;&#x64;&#x65;&#x32;&#x64;&#50;&#x2d;&#99;&#56;&#56;&#99;&#45;&#x34;&#x62;&#x65;&#97;&#45;&#100;&#52;&#x39;&#49;&#x2d;&#102;&#98;&#x36;&#x39;&#x39;&#48;&#100;&#x34;&#57;&#55;&#x34;&#49;&#x40;&#x76;&#109;&#101;&#x73;&#x73;&#x2e;&#x63;&#x61;&#114;&#x6c;&#x7a;&#x65;&#x6e;&#x67;&#x2e;&#x74;&#111;&#x70;">&#51;&#x39;&#x66;&#x64;&#x65;&#x32;&#x64;&#50;&#x2d;&#99;&#56;&#56;&#99;&#45;&#x34;&#x62;&#x65;&#97;&#45;&#100;&#52;&#x39;&#49;&#x2d;&#102;&#98;&#x36;&#x39;&#x39;&#48;&#100;&#x34;&#57;&#55;&#x34;&#49;&#x40;&#x76;&#109;&#101;&#x73;&#x73;&#x2e;&#x63;&#x61;&#114;&#x6c;&#x7a;&#x65;&#x6e;&#x67;&#x2e;&#x74;&#111;&#x70;</a>:17866?type&#x3D;ws&amp;security&#x3D;none&amp;path&#x3D;%2Fgugu#gugugee</p>
 <p>可以打开后台配置 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6NTQzMjEvZmsveHVpLw==" rel="noopener external nofollow noreferrer">http://192.168.6.116:54321/fk/xui/</a><br>没成功…期待更多的客户端连接测试, 等救援</p>
 <p>思路有问题：x-ui是一个服务端的节点！</p>
 <div class="tabs" id="名称"><ul class="nav-tabs"><li class="tab active"><a href="#名称-1">名称 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="名称-1"><p>待续。。。</p></div></div></div>
 
 
-        <!-- recent posts(added 20240914) -->
+        <!-- search & recent posts(added 20240914) -->
+        <form action="https://query.carlzeng.top:3/appsearch?q=" method="get" target="_blank">
+          <div class="popup search-popup">
+            <div class="search-input-container">
+              <input name="q" autocomplete="off" autocapitalize="off" maxlength="40" placeholder="全站搜索..." spellcheck="false" type="search" class="search-input">    (请输入关键字以后回车，检索内容涵盖全局站点)
+            </div>
+          </div>
+        </form>
         <p>
         <div class="">
           <div class="">
@@ -580,8 +587,8 @@
                       </a>
                     </li>
                     <li class="popular-posts-item" style="text-align: left;">
-                      <a href="/202407191651.html" title="索尼PlayStation全部记录" target="" class="popular-posts-link">
-                      索尼PlayStation全部记录
+                      <a href="/202407191651.html" title="索尼PlayStation和SteamDeck硬件记录" target="" class="popular-posts-link">
+                      索尼PlayStation和SteamDeck硬件记录
                       </a>
                     </li>
                     <li class="popular-posts-item" style="text-align: left;">
@@ -603,6 +610,9 @@
           </div>
           </div>
         </p>
+
+        <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcudG9wOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
+        <img src="https://c.carlzeng.top:3/wechatScan.png" border="0">
 
 
 
@@ -739,8 +749,8 @@
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202407191651.html" title="索尼PlayStation全部记录" target="" class="popular-posts-link">
-              [2024/07/19] 索尼PlayStation全部记录
+              <a href="/202407191651.html" title="索尼PlayStation和SteamDeck硬件记录" target="" class="popular-posts-link">
+              [2024/07/19] 索尼PlayStation和SteamDeck硬件记录
               </a>
             </li>
             <li class="popular-posts-item" style="text-align: left;">
@@ -1017,6 +1027,26 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202311081003.html","pageTitle":"实测Docker搭建短链接服务YOURLS"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1049,26 +1079,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
