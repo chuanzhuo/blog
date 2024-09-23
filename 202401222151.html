@@ -27,10 +27,10 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.carlzeng.top:3/i/2024/02/21/65d5961d744d1.png">
 <meta property="article:published_time" content="2024-01-22T13:51:38.000Z">
-<meta property="article:modified_time" content="2024-03-05T04:44:14.224Z">
+<meta property="article:modified_time" content="2024-09-23T15:09:41.900Z">
 <meta property="article:author" content="Carl Notes">
-<meta property="article:tag" content="Docker">
 <meta property="article:tag" content="NPM">
+<meta property="article:tag" content="Docker">
 <meta property="article:tag" content="图床">
 <meta property="article:tag" content="LskyPro">
 <meta name="twitter:card" content="summary">
@@ -130,7 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用&#x2F;怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E6%90%AD%E5%BB%BALsky-Pro%E5%9B%BE%E5%BA%8A%E5%BA%94%E7%94%A8"><span class="nav-number">3.1.</span> <span class="nav-text">Docker搭建Lsky Pro图床应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEPicGO"><span class="nav-number">3.2.</span> <span class="nav-text">配置PicGO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AETypora"><span class="nav-number">3.3.</span> <span class="nav-text">配置Typora</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E8%81%94Alist%E7%9A%84%E7%9B%AE%E5%BD%95"><span class="nav-number">3.4.</span> <span class="nav-text">关联Alist的目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM%E5%8F%8D%E4%BB%A3%E5%90%8E%E5%B8%A6%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE"><span class="nav-number">3.5.</span> <span class="nav-text">NPM反代后带端口访问</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">4.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用&#x2F;怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E6%90%AD%E5%BB%BALsky-Pro%E5%9B%BE%E5%BA%8A%E5%BA%94%E7%94%A8"><span class="nav-number">3.1.</span> <span class="nav-text">Docker搭建Lsky Pro图床应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEPicGO"><span class="nav-number">3.2.</span> <span class="nav-text">配置PicGO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AETypora"><span class="nav-number">3.3.</span> <span class="nav-text">配置Typora</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E8%81%94Alist%E7%9A%84%E7%9B%AE%E5%BD%95"><span class="nav-number">3.4.</span> <span class="nav-text">关联Alist的目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM%E5%8F%8D%E4%BB%A3%E5%90%8E%E5%B8%A6%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE"><span class="nav-number">3.5.</span> <span class="nav-text">NPM反代后带端口访问</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A9%E6%B8%B8%E5%AE%A2%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E6%9F%A5%E7%9C%8B%E7%85%A7%E7%89%87"><span class="nav-number">4.</span> <span class="nav-text">如何让游客可以直接查看照片?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Synology-Photos"><span class="nav-number">4.1.</span> <span class="nav-text">Synology Photos</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="nav-number">4.1.1.</span> <span class="nav-text">下一步:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -189,13 +189,18 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312230940.html" rel="bookmark">
+      Docker搭建轻量个人文件分享服务-文件传输自由
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
       芯片SOP8之读写Flash固件XM25QH128CHIQ
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312230940.html" rel="bookmark">
-      Docker搭建轻量个人文件分享服务-文件传输自由
+      <a class="popular-posts-link" href="/202407111027.html" rel="bookmark">
+      Docker搭建BT Tracker服务器贡献BT网络Tracker节点
       </a>
     </li>
     <li class="popular-posts-item">
@@ -206,11 +211,6 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202404081832.html" rel="bookmark">
       分享小主机docker安装离线下载工具
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202407111027.html" rel="bookmark">
-      Docker搭建BT Tracker服务器贡献BT网络Tracker节点
       </a>
     </li>
   </ul>
@@ -393,7 +393,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-05 12:44:14" itemprop="dateModified" datetime="2024-03-05T12:44:14+08:00">2024-03-05</time>
+      <time title="修改时间：2024-09-23 23:09:41" itemprop="dateModified" datetime="2024-09-23T23:09:41+08:00">2024-09-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -423,7 +423,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>8 分钟</span>
+      <span>10 分钟</span>
     </span>
 </div>
 
@@ -522,6 +522,39 @@
 
 
 
+<h1 id="如何让游客可以直接查看照片"><a href="#如何让游客可以直接查看照片" class="headerlink" title="如何让游客可以直接查看照片?"></a>如何让游客可以直接查看照片?</h1><p>用了这么长时间(大半年) 终于发现它的一些弊端:</p>
+<ul>
+<li>无法让游客直接浏览到游客组或游客用户的照片, 设计思路是先登录开始的(这一点不够人性化)</li>
+<li>无法直接自动加载目录上的照片到图片库里面; 这样就是一直需要有‘上传’的动作</li>
+<li>我的图片目录都存放在这个文文件夹下, 根据月份份分割开子文件夹&#x2F;KingchuxingSSD512G&#x2F;MacBookPro_Skitch&#x2F;storage&#x2F;app&#x2F;uploads&#x2F;2024</li>
+<li></li>
+</ul>
+<p>我需要一个自动读取目录下所有的照片, 然后不管是幻灯片展示,还是如何一张张下拉HTML展示也行的. 类似于图片展示</p>
+<h2 id="Synology-Photos"><a href="#Synology-Photos" class="headerlink" title="Synology Photos"></a>Synology Photos</h2><p>发现了以上的那些图床的弊端以后,</p>
+<p>查资料翻到photoprism, Lychee, immich, 很喜欢这个风格; 然后想到了群晖NAS也有Photo! </p>
+<p>也是超级喜欢的风格, Synology Photos:</p>
+<p>登录路径 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9uYXMuY2FybHplbmcudG9wOjQ0NDMvP2xhdW5jaEFwcD1TWU5PLkZvdG8uU2hhcmluZy5BcHBJbnN0YW5jZSZhcHBfbmFtZT1TWU5PLkZvdG8uU2hhcmluZy5BcHBJbnN0YW5jZSZhY3Rpb249ZXh0ZXJuYWxfbG9naW4jL3NpZ25pbg==" rel="noopener external nofollow noreferrer">https://nas.carlzeng.top:4443/?launchApp=SYNO.Foto.Sharing.AppInstance&amp;app_name=SYNO.Foto.Sharing.AppInstance&amp;action=external_login#/signin</a></p>
+<p>设置了一个用户: 13261977480 (去除了NAS的访问权限, 是的, 取消非photo资源的访问)</p>
+<p>密码: 1Carlzeng.top</p>
+<p>设置下个, 获取 &#x2F;homes 目录的绝对路径: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/volume2/homes/13261977480/Photos</span><br></pre></td></tr></table></figure>
+
+<p>然后把ffmpeg抽帧生成的照片放到这个目录, 这样自动就会往这个相册里面增加照片</p>
+<h3 id="下一步"><a href="#下一步" class="headerlink" title="下一步:"></a>下一步:</h3><ol>
+<li>设置定时, 仅在特定的时间段开放视频流抽帧<ol>
+<li>或者手动输入命令后, 按命令中的特定频率抽帧, 比如每分钟1帧</li>
+</ol>
+</li>
+<li>上峰顶(时间封顶, 或者数量封顶)<ol>
+<li>设置参数, 仅运行到特定的时间点, 就退出(不要无限循环下去)</li>
+<li>设置参数, 仅抽到指定张数的图片, 就退出(不要无限循环下去)</li>
+</ol>
+</li>
+<li>避免 覆盖的机制? <ol>
+<li>不重要, 不要覆盖, 最好要一直保留下去</li>
+</ol>
+</li>
+</ol>
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZWxsb2RrLmNuL3Bvc3QvOTY0" rel="noopener external nofollow noreferrer">写了一个适配兰空图床 Lsky Pro 的 PicGo 图片上传插件</a>  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2hlbGxvZGszNC9waWNnby1wbHVnaW4tbGFua29uZw==" rel="noopener external nofollow noreferrer">picgo-plugin-lankong</a></p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2xza3ktb3JnL2xza3ktcHJvL2lzc3Vlcy8zMTc=" rel="noopener external nofollow noreferrer">静态资源加载失败 #317</a></p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2xza3ktb3JnL2xza3ktcHJvL2lzc3Vlcy82MDc=" rel="noopener external nofollow noreferrer">https+域名+端口的访问问题，NginxProxyManager反代 #607</a></p>
@@ -665,13 +698,18 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312230940.html" rel="bookmark">
+      Docker搭建轻量个人文件分享服务-文件传输自由
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
       芯片SOP8之读写Flash固件XM25QH128CHIQ
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312230940.html" rel="bookmark">
-      Docker搭建轻量个人文件分享服务-文件传输自由
+      <a class="popular-posts-link" href="/202407111027.html" rel="bookmark">
+      Docker搭建BT Tracker服务器贡献BT网络Tracker节点
       </a>
     </li>
     <li class="popular-posts-item">
@@ -682,11 +720,6 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202404081832.html" rel="bookmark">
       分享小主机docker安装离线下载工具
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202407111027.html" rel="bookmark">
-      Docker搭建BT Tracker服务器贡献BT网络Tracker节点
       </a>
     </li>
   </ul>
@@ -859,7 +892,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-03-05 12:44:14" itemprop="dateModified" datetime="2024-03-05T12:44:14+08:00">2024-03-05</time>
+        <time title="修改时间：2024-09-23 23:09:41" itemprop="dateModified" datetime="2024-09-23T23:09:41+08:00">2024-09-23</time>
       </span>
 
 </div>
@@ -868,8 +901,8 @@
 
           <div class="post-tags">
             继续浏览有关
-              <a href="/tags/Docker/" rel="tag"># Docker</a>
               <a href="/tags/NPM/" rel="tag"># NPM</a>
+              <a href="/tags/Docker/" rel="tag"># Docker</a>
               <a href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag"># 图床</a>
               <a href="/tags/LskyPro/" rel="tag"># LskyPro</a>
             的文章
@@ -1007,26 +1040,6 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202401222151.html","pageTitle":"搭建图床 切换本站图片至自建服务"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1059,6 +1072,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>
