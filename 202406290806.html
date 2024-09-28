@@ -18,10 +18,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="article">
+    <meta name="description" content="SteamDeck 软硬件经历分享">
+<meta property="og:type" content="article">
 <meta property="og:title" content="SteamDeck双系统之重装windows11">
 <meta property="og:url" content="https://www.carlzeng.top/202406290806.html">
 <meta property="og:site_name" content="云随笔 Carl Notes">
+<meta property="og:description" content="SteamDeck 软硬件经历分享">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.carlzeng.top:3/i/2024/07/03/668504a2090f9.png">
 <meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/29/667f50a1e9e71.png">
@@ -29,9 +31,11 @@
 <meta property="og:image" content="https://img.carlzeng.top:3/i/2024/07/03/6685084a407ae.png">
 <meta property="og:image" content="https://img.carlzeng.top:3/i/2024/07/03/66850886c0654.png">
 <meta property="og:image" content="https://img.carlzeng.top:3/i/2024/07/02/6683cf3be0ae1.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/09/28/66f77230b5b9f.png">
+<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/09/28/66f773aa85211.png">
 <meta property="og:image" content="https://img.carlzeng.top:3/i/2024/09/20/66ecc4dbb04e4.png">
 <meta property="article:published_time" content="2024-06-29T00:06:37.000Z">
-<meta property="article:modified_time" content="2024-09-20T00:48:36.734Z">
+<meta property="article:modified_time" content="2024-09-28T04:36:12.958Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="SteamDeck">
 <meta name="twitter:card" content="summary">
@@ -131,7 +135,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#steamdeck%E8%BF%9Bwindows%E4%B8%80%E7%9B%B4%E8%BD%AC%E5%9C%88-%E5%AE%89%E8%A3%85%E6%97%B6%E4%B8%80%E7%9B%B4%E8%BD%AC%E5%9C%88"><span class="nav-number">5.</span> <span class="nav-text">steamdeck进windows一直转圈 安装时一直转圈</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="nav-number">6.</span> <span class="nav-text">下载地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">7.</span> <span class="nav-text">灵感来源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SteamDeck%E7%A1%AC%E4%BB%B6%E4%BF%AE%E5%A4%8D"><span class="nav-number">8.</span> <span class="nav-text">SteamDeck硬件修复</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E4%BF%AE%E5%A4%8D%E4%B9%8B%E6%9B%B4%E6%8D%A2%E5%8F%B3%E8%82%A9%E9%94%AER1"><span class="nav-number">8.1.</span> <span class="nav-text">硬件修复之更换右肩键R1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SteamDeck%E6%8C%89%E9%94%AE%E5%A1%8C%E9%99%B7-%E7%B2%98%E6%BB%9E%E6%B5%85%E8%B0%88"><span class="nav-number">8.2.</span> <span class="nav-text">SteamDeck按键塌陷&#x2F;粘滞浅谈</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#steamdeck%E8%BF%9Bwindows%E4%B8%80%E7%9B%B4%E8%BD%AC%E5%9C%88-%E5%AE%89%E8%A3%85%E6%97%B6%E4%B8%80%E7%9B%B4%E8%BD%AC%E5%9C%88"><span class="nav-number">5.</span> <span class="nav-text">steamdeck进windows一直转圈 安装时一直转圈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="nav-number">5.1.</span> <span class="nav-text">下载地址</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">6.</span> <span class="nav-text">灵感来源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#steamdeck%E7%B3%BB%E7%BB%9F%E5%8D%A1%E2%80%98%E6%AD%A3%E5%9C%A8%E7%99%BB%E5%BD%95%E2%80%99"><span class="nav-number">7.</span> <span class="nav-text">steamdeck系统卡‘正在登录’</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SteamDeck%E7%A1%AC%E4%BB%B6%E4%BF%AE%E5%A4%8D"><span class="nav-number">8.</span> <span class="nav-text">SteamDeck硬件修复</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E4%BF%AE%E5%A4%8D%E4%B9%8B%E6%9B%B4%E6%8D%A2%E5%8F%B3%E8%82%A9%E9%94%AER1"><span class="nav-number">8.1.</span> <span class="nav-text">硬件修复之更换右肩键R1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SteamDeck%E6%8C%89%E9%94%AE%E5%A1%8C%E9%99%B7-%E7%B2%98%E6%BB%9E%E6%B5%85%E8%B0%88"><span class="nav-number">8.2.</span> <span class="nav-text">SteamDeck按键塌陷&#x2F;粘滞浅谈</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -175,8 +179,8 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
-      Switch大气层游戏下载服务及实测列表
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
       </a>
     </li>
     <li class="popular-posts-item">
@@ -185,8 +189,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
-      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      <a class="popular-posts-link" href="/202407191651.html" rel="bookmark">
+      索尼PlayStation和SteamDeck硬件记录
       </a>
     </li>
     <li class="popular-posts-item">
@@ -195,8 +199,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202407191651.html" rel="bookmark">
-      索尼PlayStation和SteamDeck硬件记录
+      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
+      Switch大气层游戏下载服务及实测列表
       </a>
     </li>
     <li class="popular-posts-item">
@@ -205,13 +209,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409260813.html" rel="bookmark">
-      MAC端为RSA登录生成SSH公钥并实现免密码登录SSH
+      <a class="popular-posts-link" href="/202404191047.html" rel="bookmark">
+      用一个查询从销售订单直通供应商账单 NetSuite
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409120954.html" rel="bookmark">
-      Switch串流PC让Switch运行PC或Steam大作
+      <a class="popular-posts-link" href="/202409260813.html" rel="bookmark">
+      MAC端为RSA登录生成SSH公钥并实现免密码登录SSH
       </a>
     </li>
   </ul>
@@ -403,7 +407,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-20 08:48:36" itemprop="dateModified" datetime="2024-09-20T08:48:36+08:00">2024-09-20</time>
+      <time title="修改时间：2024-09-28 12:36:12" itemprop="dateModified" datetime="2024-09-28T12:36:12+08:00">2024-09-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -433,7 +437,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -445,6 +449,7 @@
     
     <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.top:3/i/2024/07/03/668504a2090f9.png">
 
+<p>SteamDeck 软硬件经历分享</p>
 <span id="more"></span>
 
 <div> 
@@ -512,12 +517,34 @@
 <p>Before opening up a Steam Deck to perform internal repairs, Valve recommends enabling battery storage mode for increased safety and to minimize any risk of damage to the device.</p>
 <p><strong>If you’re enabling battery storage mode for long term device storage instead of repairs, discharge (or charge) your battery to 50-60% before enabling storage mode.</strong></p>
 <p>When in storage mode, your Steam Deck won’t respond to power button presses. To exit storage mode, plug your Steam Deck into the charger.</p>
-<h1 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h1><p> [Wim格式不要解压缩使用] ，某度和某里网盘慢的，来找我要地址（用户名和密码）</p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p> [Wim格式不要解压缩使用] ，某度和某里网盘慢的，来找我要地址（用户名和密码）</p>
 <p>直接将已经安装了驱动的镜像文件放到NAS中提供下载</p>
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p>官方：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZWxwLnN0ZWFtcG93ZXJlZC5jb20vemgtY24vZmFxcy92aWV3LzYxMjEtRUNDRC1ENjQzLUJBQTg=" rel="noopener external nofollow noreferrer">Steam Deck - Windows 资源</a></p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMU54NDIxRDdmbQ==" rel="noopener external nofollow noreferrer">如何解决steamdeck进windows一直转圈 安装时一直转圈 触摸失灵的问题</a>    </p>
 <p>如果仅仅只是安装单系统：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMXdtNHkxUDdqZC8=" rel="noopener external nofollow noreferrer">Steamdeck换硬盘+重装系统</a></p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5seHNoYXcuY29tL3Rob3VnaHQvMjAyMy8wNi8xNC9zdGVhbWRlY2slRTUlOEYlOEMlRTclQjMlQkIlRTclQkIlOUYlRTYlOEElOTglRTglODUlQkUlRTYlOEMlODclRTUlOEQlOTcv" rel="noopener external nofollow noreferrer">SteamDeck双系统折腾指南</a></p>
+<h1 id="steamdeck系统卡‘正在登录’"><a href="#steamdeck系统卡‘正在登录’" class="headerlink" title="steamdeck系统卡‘正在登录’"></a>steamdeck系统卡‘正在登录’</h1><p>steamdeck系统3.5.5卡“正在登录”的解决办法</p>
+<p>准备工作；需要鼠标，需要知道机器的密码。</p>
+<p>进入桌面模式，找到【主文件夹】中的【steamdeck_302】文件夹，打开，找到最后一个文件uninstall.sh，右键单击在konsole中运行，输入密码即可。</p>
+<ol>
+<li>登上steamos之后，首先更新系统，再多重启几次，才会正确加载预装的decky插件</li>
+<li>扫二维码登录，很卡进不去，一般是因为网络问题。有mofa就很快</li>
+<li>遇到任何卡死情况，重启就行，机子会自动进行没完成的部分</li>
+<li>系统更新完之后(不登录)，在菜单里直接切换到桌面模式，并且在桌面模式里修改的东西（比如汉化），会对所有登录的账号起效</li>
+<li></li>
+<li>网络环境差，内存不足，后台应用程序占用过多系统资源。<ol>
+<li>参考途径a：加强网络稳定性</li>
+<li>由于玩家与服务器的地理位置相距较远，因此可能会导致steamdeck商店无法访问或登录界面卡住的问题。打开U U，搜索 《steamdeck》，点击获得稳定网 -络连接《steamdeck》</li>
+</ol>
+</li>
+</ol>
+<p>不知道是不是兼容层又不对了，反正就卡在登录界面，也不是彻底卡住，就是一直loading但就是进不去，挂黑盒加速器也没啥用，昨天明明还好好的。</p>
+<p>已解决：社区提供的方法，换GE proton 8-4可以登录进去。</p>
+<p>我兼容层用的GE-Proton7-55，登录中一直转圈圈，用家里的WIFI直连登不上，连手机热点开UU加速WOWS也登不上，全都是转圈圈</p>
+<p>Steamdeck通过代理上网</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/09/28/66f77230b5b9f.png" alt="image-20240928110413227"></p>
+<p>操作了之后电脑能上google但是deck还是不行呀</p>
+<p><img data-src="https://img.carlzeng.top:3/i/2024/09/28/66f773aa85211.png" alt="image-20240928111031143"></p>
 <h1 id="SteamDeck硬件修复"><a href="#SteamDeck硬件修复" class="headerlink" title="SteamDeck硬件修复"></a>SteamDeck硬件修复</h1><h2 id="硬件修复之更换右肩键R1"><a href="#硬件修复之更换右肩键R1" class="headerlink" title="硬件修复之更换右肩键R1"></a>硬件修复之更换右肩键R1</h2><p>图文：</p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly96aC5pZml4aXQuY29tL0d1aWRlLyVFNiU5QiVCNCVFNiU4RCVBMitTdGVhbStEZWNrKyVFNyU5QSU4NCVFNSU4RiVCMyVFNCVCRSVBNyVFOCU4MiVBOSVFOSU5NCVBRS8xNDg5ODA=" rel="noopener external nofollow noreferrer">更换+Steam+Deck+的右侧肩键</a></p>
 <p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly96aC5pZml4aXQuY29tL0d1aWRlLyVFNiU5QiVCNCVFNiU4RCVBMitTdGVhbStEZWNrKyVFNyU5QSU4NCVFNSVCNyVBNiVFNCVCRSVBNyVFOCU4MiVBOSVFOSU5NCVBRS8xNDg5MzY=" rel="noopener external nofollow noreferrer">更换+Steam+Deck+的左侧肩</a></p>
@@ -647,8 +674,8 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
-      Switch大气层游戏下载服务及实测列表
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
       </a>
     </li>
     <li class="popular-posts-item">
@@ -657,8 +684,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
-      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      <a class="popular-posts-link" href="/202407191651.html" rel="bookmark">
+      索尼PlayStation和SteamDeck硬件记录
       </a>
     </li>
     <li class="popular-posts-item">
@@ -667,8 +694,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202407191651.html" rel="bookmark">
-      索尼PlayStation和SteamDeck硬件记录
+      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
+      Switch大气层游戏下载服务及实测列表
       </a>
     </li>
     <li class="popular-posts-item">
@@ -677,13 +704,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409260813.html" rel="bookmark">
-      MAC端为RSA登录生成SSH公钥并实现免密码登录SSH
+      <a class="popular-posts-link" href="/202404191047.html" rel="bookmark">
+      用一个查询从销售订单直通供应商账单 NetSuite
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409120954.html" rel="bookmark">
-      Switch串流PC让Switch运行PC或Steam大作
+      <a class="popular-posts-link" href="/202409260813.html" rel="bookmark">
+      MAC端为RSA登录生成SSH公钥并实现免密码登录SSH
       </a>
     </li>
   </ul>
@@ -856,7 +883,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-09-20 08:48:36" itemprop="dateModified" datetime="2024-09-20T08:48:36+08:00">2024-09-20</time>
+        <time title="修改时间：2024-09-28 12:36:12" itemprop="dateModified" datetime="2024-09-28T12:36:12+08:00">2024-09-28</time>
       </span>
 
 </div>
