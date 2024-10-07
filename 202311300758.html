@@ -27,13 +27,13 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/421da190-4c8e-4b8c-a338-a0f75b7a30f6/3PqfqVwmq2eNa_DZZX3yHBmcs0ixk7PanEjMncOW9YVNyYFVTJCxsi_haA/deep/0/image.png">
 <meta property="article:published_time" content="2023-11-29T23:58:06.000Z">
-<meta property="article:modified_time" content="2024-03-25T12:53:47.393Z">
+<meta property="article:modified_time" content="2024-09-28T13:28:25.004Z">
 <meta property="article:author" content="Carl Notes">
-<meta property="article:tag" content="docker">
 <meta property="article:tag" content="docker-compose">
-<meta property="article:tag" content="家宽">
+<meta property="article:tag" content="docker">
 <meta property="article:tag" content="J4125">
 <meta property="article:tag" content="HNet">
+<meta property="article:tag" content="家宽">
 <meta property="article:tag" content="firefox">
 <meta property="article:tag" content="虚拟浏览器">
 <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
 
 
 
-<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.top:4443">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -197,13 +197,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310011555.html" rel="bookmark">
-      go语言学习与应用日志
+      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
+      多个docker容器间共享单个mariadb(Docker数据库服务)
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
-      多个docker容器间共享单个mariadb(Docker数据库服务)
+      <a class="popular-posts-link" href="/202310011555.html" rel="bookmark">
+      go语言学习与应用日志
       </a>
     </li>
     <li class="popular-posts-item">
@@ -405,7 +405,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-25 20:53:47" itemprop="dateModified" datetime="2024-03-25T20:53:47+08:00">2024-03-25</time>
+      <time title="修改时间：2024-09-28 21:28:25" itemprop="dateModified" datetime="2024-09-28T21:28:25+08:00">2024-09-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -514,7 +514,7 @@
 <p>两者都搭配部署配合妥当后效果：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYg==" rel="noopener external nofollow noreferrer">在线测试</a></p>
 <h2 id="过程很艰辛"><a href="#过程很艰辛" class="headerlink" title="过程很艰辛"></a>过程很艰辛</h2><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">过程很艰辛：</span><br><span class="line">tried 3 docker project:</span><br><span class="line">	  	- metacubex/clash-meta  </span><br><span class="line">	  		一开始没理解</span><br><span class="line">		- junxy/clash</span><br><span class="line">			https://github.com/junxy/docker-clash/blob/master/docker-compose.yml</span><br><span class="line">			版本太久了配置了.config/clash下的文件后， clash 程序无法正常运行</span><br><span class="line">		- https://hub.docker.com/r/dreamacro/clash</span><br><span class="line">			部署成功，但不知道怎么用，后来知道还得有UI，命令行启动正常但似乎卡死在一个提示..</span><br><span class="line"></span><br><span class="line">		- https://github.com/RayWangQvQ/sing-box-installer </span><br><span class="line"></span><br><span class="line">		- <span class="section">[在 Linux 服务器上安装 Clash，以及开机自动启动]</span>(https://www.xxpyy.top/detailed?<span class="attr">id</span>=<span class="number">14</span><span class="comment">#toc116)</span></span><br></pre></td></tr></table></figure>
 
-<p>&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;clash</p>
+<p>&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;metacubexd</p>
 <p>HNet的Next有这么一个TODO：给Node的docker中部署clash for linux</p>
 <p>后来思路转变：最好是docker里，debian中可用的clash客户端；</p>
 <p>从docker中把clash复制出来，&#x2F;usr&#x2F;bin，然后到ssh的bash中测试</p>
@@ -731,13 +731,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310011555.html" rel="bookmark">
-      go语言学习与应用日志
+      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
+      多个docker容器间共享单个mariadb(Docker数据库服务)
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
-      多个docker容器间共享单个mariadb(Docker数据库服务)
+      <a class="popular-posts-link" href="/202310011555.html" rel="bookmark">
+      go语言学习与应用日志
       </a>
     </li>
     <li class="popular-posts-item">
@@ -920,7 +920,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-03-25 20:53:47" itemprop="dateModified" datetime="2024-03-25T20:53:47+08:00">2024-03-25</time>
+        <time title="修改时间：2024-09-28 21:28:25" itemprop="dateModified" datetime="2024-09-28T21:28:25+08:00">2024-09-28</time>
       </span>
 
 </div>
@@ -929,11 +929,11 @@
 
           <div class="post-tags">
             继续浏览有关
-              <a href="/tags/docker/" rel="tag"># docker</a>
               <a href="/tags/docker-compose/" rel="tag"># docker-compose</a>
-              <a href="/tags/%E5%AE%B6%E5%AE%BD/" rel="tag"># 家宽</a>
+              <a href="/tags/docker/" rel="tag"># docker</a>
               <a href="/tags/J4125/" rel="tag"># J4125</a>
               <a href="/tags/HNet/" rel="tag"># HNet</a>
+              <a href="/tags/%E5%AE%B6%E5%AE%BD/" rel="tag"># 家宽</a>
               <a href="/tags/firefox/" rel="tag"># firefox</a>
               <a href="/tags/%E8%99%9A%E6%8B%9F%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag"># 虚拟浏览器</a>
             的文章
@@ -1071,6 +1071,26 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202311300758.html","pageTitle":"Docker搭建在线网页代理实践记录"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1103,26 +1123,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>

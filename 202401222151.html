@@ -18,17 +18,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="家宽环境搭建兰空图床实践过程记录分享">
+    <meta name="description" content="家宽环境搭建兰空图床实践过程记录分享; 结合ffmpeg抽帧和Synology Photos分享特定照片库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建图床 切换本站图片至自建服务">
 <meta property="og:url" content="https://www.carlzeng.top/202401222151.html">
 <meta property="og:site_name" content="云随笔 Carl Notes">
-<meta property="og:description" content="家宽环境搭建兰空图床实践过程记录分享">
+<meta property="og:description" content="家宽环境搭建兰空图床实践过程记录分享; 结合ffmpeg抽帧和Synology Photos分享特定照片库">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.carlzeng.top:3/i/2024/02/21/65d5961d744d1.png">
 <meta property="og:image" content="https://img.carlzeng.top:3/i/2024/09/26/66f4f8453d18a.png">
 <meta property="article:published_time" content="2024-01-22T13:51:38.000Z">
-<meta property="article:modified_time" content="2024-09-26T05:59:34.190Z">
+<meta property="article:modified_time" content="2024-10-07T12:11:47.581Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="NPM">
@@ -54,7 +54,7 @@
 
 
 
-<link rel="preconnect" href="https://artalk.carlzeng.top:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.top:4443">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -200,13 +200,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
-      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
+      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
-      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
       </a>
     </li>
     <li class="popular-posts-item">
@@ -403,7 +403,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-26 13:59:34" itemprop="dateModified" datetime="2024-09-26T13:59:34+08:00">2024-09-26</time>
+      <time title="修改时间：2024-10-07 20:11:47" itemprop="dateModified" datetime="2024-10-07T20:11:47+08:00">2024-10-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -445,7 +445,7 @@
     
     <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.top:3/i/2024/02/21/65d5961d744d1.png">
 
-<p>家宽环境搭建兰空图床实践过程记录分享</p>
+<p>家宽环境搭建兰空图床实践过程记录分享; 结合ffmpeg抽帧和Synology Photos分享特定照片库</p>
 <span id="more"></span>
 
 <div> 
@@ -465,7 +465,11 @@
 </script>
 
 
-<h1 id="有什么用-怎么用"><a href="#有什么用-怎么用" class="headerlink" title="有什么用&#x2F;怎么用"></a>有什么用&#x2F;怎么用</h1><p>自建图床，自用的情况下暂时是够用的</p>
+<h1 id="有什么用-怎么用"><a href="#有什么用-怎么用" class="headerlink" title="有什么用&#x2F;怎么用"></a>有什么用&#x2F;怎么用</h1><ul>
+<li>自建图床，自用的情况下暂时是够用的</li>
+<li>群晖 Synology Photos, 备份各个手机中的照片</li>
+<li>ffmpeg抽帧实践</li>
+</ul>
 <p>访问：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9pbWcuY2FybHplbmcudG9wOjMv" rel="noopener external nofollow noreferrer">Carl Notes 图床</a></p>
 <p>登录后台管理图床中的图片内容等操作</p>
 <h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=image" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
@@ -550,8 +554,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/volume2/homes/13261977480/Photos</span><br></pre></td></tr></table></figure>
 
 <p>然后把ffmpeg抽帧生成的照片放到这个目录, 这样自动就会往这个相册里面增加照片</p>
-<p>后台运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#每小时1张</span></span><br><span class="line"><span class="built_in">nohup</span> ffmpeg -i <span class="string">&quot;rtsp://a:a@192.168.6.126:554&quot;</span> -y -f image2 -r 1/3600 /volume2/homes/13261977480/Photos/camc%03d.jpg 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#每半小时1张</span></span><br><span class="line"><span class="built_in">nohup</span> ffmpeg -i <span class="string">&quot;rtsp://a:a@192.168.6.126:554&quot;</span> -y -f image2 -r 1/1800 /volume2/homes/13261977480/Photos/camc%03d.jpg 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#每15分钟1张</span></span><br><span class="line"><span class="built_in">nohup</span> ffmpeg -i <span class="string">&quot;rtsp://a:a@192.168.6.126:554&quot;</span> -y -f image2 -r 1/900 /volume2/homes/13261977480/Photos/camc%03d.jpg 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#每10分钟1张</span></span><br><span class="line"><span class="built_in">nohup</span> ffmpeg -i <span class="string">&quot;rtsp://a:a@192.168.6.126:554&quot;</span> -y -f image2 -r 1/600 /volume2/homes/13261977480/Photos/camc%03d.jpg 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#每5分钟1张</span></span><br><span class="line"><span class="built_in">nohup</span> ffmpeg -i <span class="string">&quot;rtsp://a:a@192.168.6.126:554&quot;</span> -y -f image2 -r 1/300 /volume2/homes/13261977480/Photos/camc%03d.jpg 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#每3分钟1张, 命名手动修改日期,和第几次启动抽帧,这二者数字相连</span></span><br><span class="line"><span class="built_in">nohup</span> ffmpeg -i <span class="string">&quot;rtsp://a:a@192.168.6.126:554&quot;</span> -y -f image2 -r 1/180 /volume2/homes/13261977480/Photos/202409241%03d.jpg 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<p>后台运行(视频流抽帧)命令如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#每小时1张</span></span><br><span class="line"><span class="built_in">nohup</span> ffmpeg -i <span class="string">&quot;rtsp://a:a@192.168.6.126:554&quot;</span> -y -f image2 -r 1/3600 /volume2/homes/13261977480/Photos/camc%03d.jpg 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#每半小时1张</span></span><br><span class="line"><span class="built_in">nohup</span> ffmpeg -i <span class="string">&quot;rtsp://a:a@192.168.6.126:554&quot;</span> -y -f image2 -r 1/1800 /volume2/homes/13261977480/Photos/camc%03d.jpg 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#每15分钟1张</span></span><br><span class="line"><span class="built_in">nohup</span> ffmpeg -i <span class="string">&quot;rtsp://a:a@192.168.6.126:554&quot;</span> -y -f image2 -r 1/900 /volume2/homes/13261977480/Photos/camc%03d.jpg 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#每10分钟1张</span></span><br><span class="line"><span class="built_in">nohup</span> ffmpeg -i <span class="string">&quot;rtsp://a:a@192.168.6.126:554&quot;</span> -y -f image2 -r 1/600 /volume2/homes/13261977480/Photos/camc%03d.jpg 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#每5分钟1张</span></span><br><span class="line"><span class="built_in">nohup</span> ffmpeg -i <span class="string">&quot;rtsp://a:a@192.168.6.126:554&quot;</span> -y -f image2 -r 1/300 /volume2/homes/13261977480/Photos/camc%03d.jpg 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment">#每3分钟1张, 命名手动修改日期,和第几次启动抽帧,这二者数字相连</span></span><br><span class="line"><span class="built_in">nohup</span> ffmpeg -i <span class="string">&quot;rtsp://a:a@192.168.6.211:554&quot;</span> -y -f image2 -r 1/180 /volume2/homes/13261977480/Photos/202409241%03d.jpg 1&gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 
 <h3 id="如何退出-nohup-进程"><a href="#如何退出-nohup-进程" class="headerlink" title="如何退出 nohup 进程"></a>如何退出 nohup 进程</h3><p>以上的进程运行后, 又是SSH终端会断开(由于长时间不在电脑前 自动断开).</p>
 <p>这时无法使用PS命令来查看ffmpeg的进程pid, 从而导致无法kill 掉ffmpeg的 nohup进程.</p>
@@ -562,7 +566,7 @@
 <p><img data-src="https://img.carlzeng.top:3/i/2024/09/26/66f4f8453d18a.png" alt="image-20240926135930307"></p>
 <h2 id="ffmpeg对视频抽帧时让结果图片文件名带上时间戳"><a href="#ffmpeg对视频抽帧时让结果图片文件名带上时间戳" class="headerlink" title="ffmpeg对视频抽帧时让结果图片文件名带上时间戳"></a>ffmpeg对视频抽帧时让结果图片文件名带上时间戳</h2><p>文件名的部分, 目前是 %03d 意思是: 三位数字, 三位递增的数字, 001, 002, 003….</p>
 <p>output%Y-%m-%d-%H-%M-%S.jpg 意思是: output年-月-日-时-分-秒</p>
-<p>nohup ffmpeg -i “rtsp:&#x2F;&#x2F;a:<a href="mailto:&#x61;&#64;&#49;&#x39;&#50;&#x2e;&#x31;&#x36;&#56;&#x2e;&#54;&#x2e;&#49;&#50;&#54;">&#x61;&#64;&#49;&#x39;&#50;&#x2e;&#x31;&#x36;&#56;&#x2e;&#54;&#x2e;&#49;&#50;&#54;</a>:554” -y -f image2 -r 1&#x2F;180 &#x2F;volume2&#x2F;homes&#x2F;13261977480&#x2F;Photos&#x2F;camc%Y-%m-%d-%H-%M-%S.jpg 1&gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;</p>
+<p>nohup ffmpeg -i “rtsp:&#x2F;&#x2F;a:<a href="mailto:&#x61;&#x40;&#x31;&#x39;&#50;&#x2e;&#x31;&#54;&#56;&#46;&#54;&#x2e;&#49;&#50;&#54;">&#x61;&#x40;&#x31;&#x39;&#50;&#x2e;&#x31;&#54;&#56;&#46;&#54;&#x2e;&#49;&#50;&#54;</a>:554” -y -f image2 -r 1&#x2F;180 &#x2F;volume2&#x2F;homes&#x2F;13261977480&#x2F;Photos&#x2F;camc%Y-%m-%d-%H-%M-%S.jpg 1&gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[image2 @ 0x55bcf2b2d900] The specified filename &#x27;/volume2/homes/13261977480/Photos/camc%Y%m%d%H%M%S.png&#x27; does</span><br><span class="line"> not contain an image sequence pattern or a pattern is invalid. </span><br></pre></td></tr></table></figure>
 
 <p>以上这个方法给文件名添加时间戳, 都是失败了.</p>
@@ -762,13 +766,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
-      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
+      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
-      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
       </a>
     </li>
     <li class="popular-posts-item">
@@ -946,7 +950,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-09-26 13:59:34" itemprop="dateModified" datetime="2024-09-26T13:59:34+08:00">2024-09-26</time>
+        <time title="修改时间：2024-10-07 20:11:47" itemprop="dateModified" datetime="2024-10-07T20:11:47+08:00">2024-10-07</time>
       </span>
 
 </div>
@@ -1094,6 +1098,26 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.top:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202401222151.html","pageTitle":"搭建图床 切换本站图片至自建服务"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1126,26 +1150,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
