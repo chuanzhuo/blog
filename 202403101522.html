@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/03/08/65ea7e8631f42.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/03/11/65eeda5f648b0.png">
 <meta property="article:published_time" content="2024-03-10T07:22:17.000Z">
-<meta property="article:modified_time" content="2024-10-25T12:35:06.015Z">
+<meta property="article:modified_time" content="2024-10-25T13:16:40.278Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="gitlab">
@@ -404,7 +404,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-10-25 20:35:06" itemprop="dateModified" datetime="2024-10-25T20:35:06+08:00">2024-10-25</time>
+      <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -490,7 +490,7 @@
 <h2 id="配置连接Gitlab端口（非标准443端口）"><a href="#配置连接Gitlab端口（非标准443端口）" class="headerlink" title="配置连接Gitlab端口（非标准443端口）"></a>配置连接Gitlab端口（非标准443端口）</h2><p>git remote 非标准端口</p>
 <p>测试使用IntelliJ IDEA来提交project到<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRsYWIuY2FybHplbmcuY29tOjMv" rel="noopener external nofollow noreferrer">https://gitlab.carlzeng.com:3/</a></p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRsYWIuY2FybHplbmcuY29tOjMvcm9vdC9wcm94eXBvb2wuZ2l0" rel="noopener external nofollow noreferrer">https://gitlab.carlzeng.com:3/root/proxypool.git</a> </p>
-<p>配置remote提示错误：unable to access ‘<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRsYWIuY2FybHplbmcuY29tOjMvcm9vdC9wcm94eXBvb2w=" rel="noopener external nofollow noreferrer":LibreSSL">https://gitlab.carlzeng.com:3/root/proxypool&#39;:LibreSSL</a> SSL_connect: Connection reset by peer in connection to gitlab.carlzeng.top:443</p>
+<p>配置remote提示错误：unable to access ‘<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRsYWIuY2FybHplbmcuY29tOjMvcm9vdC9wcm94eXBvb2w=" rel="noopener external nofollow noreferrer":LibreSSL">https://gitlab.carlzeng.com:3/root/proxypool&#39;:LibreSSL</a> SSL_connect: Connection reset by peer in connection to gitlab.carlzeng.com:443</p>
 <p>解决办法（以问题中的特定例子来举例说明）：</p>
 <ol>
 <li>cd 到相应目录，执行一下命令</li>
@@ -501,7 +501,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin  https://gitlab.carlzeng.com:3/root/proxypool.git</span><br></pre></td></tr></table></figure>
 
 <p>这条命令也可以使用，用来添加多个git的源（这样push的时候，多个远程仓库都可以同时得到更新）；需要在命令行下切换到项目的主目录下使用。</p>
-<h2 id="Access-denied"><a href="#Access-denied" class="headerlink" title="Access denied"></a>Access denied</h2><p>08:32:02.142: [goProjects] git -c core.quotepath&#x3D;false -c log.showSignature&#x3D;false push –progress –porcelain origin refs&#x2F;heads&#x2F;master:master<br>    remote: HTTP Basic: Access denied. The provided password or token is incorrect or your account has 2FA enabled and you must use a personal access token instead of a password. See <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRsYWIuY2FybHplbmcudG9wL2hlbHAvdG9waWNzL2dpdC90cm91Ymxlc2hvb3RpbmdfZ2l0I2Vycm9yLW9uLWdpdC1mZXRjaC1odHRwLWJhc2ljLWFjY2Vzcy1kZW5pZWQ=" rel="noopener external nofollow noreferrer">https://gitlab.carlzeng.top/help/topics/git/troubleshooting_git#error-on-git-fetch-http-basic-access-denied</a><br>    fatal: Authentication failed for ‘<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRsYWIuY2FybHplbmcuY29tOjMvcm9vdC9wcm94eXBvb2wuZ2l0Lw==" rel="noopener external nofollow noreferrer">https://gitlab.carlzeng.com:3/root/proxypool.git/</a>‘</p>
+<h2 id="Access-denied"><a href="#Access-denied" class="headerlink" title="Access denied"></a>Access denied</h2><p>08:32:02.142: [goProjects] git -c core.quotepath&#x3D;false -c log.showSignature&#x3D;false push –progress –porcelain origin refs&#x2F;heads&#x2F;master:master<br>    remote: HTTP Basic: Access denied. The provided password or token is incorrect or your account has 2FA enabled and you must use a personal access token instead of a password. See <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRsYWIuY2FybHplbmcuY29tL2hlbHAvdG9waWNzL2dpdC90cm91Ymxlc2hvb3RpbmdfZ2l0I2Vycm9yLW9uLWdpdC1mZXRjaC1odHRwLWJhc2ljLWFjY2Vzcy1kZW5pZWQ=" rel="noopener external nofollow noreferrer">https://gitlab.carlzeng.com/help/topics/git/troubleshooting_git#error-on-git-fetch-http-basic-access-denied</a><br>    fatal: Authentication failed for ‘<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRsYWIuY2FybHplbmcuY29tOjMvcm9vdC9wcm94eXBvb2wuZ2l0Lw==" rel="noopener external nofollow noreferrer">https://gitlab.carlzeng.com:3/root/proxypool.git/</a>‘</p>
 <p>解决办法：</p>
 <p>用root用户登录即可</p>
 <h2 id="Email-SMTP-setup"><a href="#Email-SMTP-setup" class="headerlink" title="Email SMTP setup"></a>Email SMTP setup</h2><p>vi &#x2F;etc&#x2F;gitlab&#x2F;gitlab.rb</p>
@@ -847,7 +847,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-10-25 20:35:06" itemprop="dateModified" datetime="2024-10-25T20:35:06+08:00">2024-10-25</time>
+        <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
       </span>
 
 </div>

@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/08/18/66c1be83cba6f.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/03/28/66052f49a5cf8.png">
 <meta property="article:published_time" content="2023-10-26T04:22:41.000Z">
-<meta property="article:modified_time" content="2024-10-25T12:35:05.968Z">
+<meta property="article:modified_time" content="2024-10-25T13:16:40.387Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="debian">
 <meta property="article:tag" content="hexo">
@@ -408,7 +408,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-10-25 20:35:05" itemprop="dateModified" datetime="2024-10-25T20:35:05+08:00">2024-10-25</time>
+      <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -538,7 +538,7 @@ https://a.goodday.cc:4443/
     ERR_SSL_UNRECOGNIZED_NAME_ALERT
 
 转换思路，取得域名
-成功切换至域名（CF控制的 carlzeng.top）
+成功切换至域名（CF控制的 carlzeng.com）
     https://sharedblog.net/posts/2022-09-28-github-pages-custom-domain-name/
 
 关闭DNS \*泛解析 A记录 的 ‘代理’，才能正常连接到NginxProxyManager的特点端口
@@ -550,16 +550,16 @@ https://a.goodday.cc:4443/
 <h2 id="一有多几个人同时访问时，artalk就奔溃了，如何解决？"><a href="#一有多几个人同时访问时，artalk就奔溃了，如何解决？" class="headerlink" title="一有多几个人同时访问时，artalk就奔溃了，如何解决？"></a>一有多几个人同时访问时，artalk就奔溃了，如何解决？</h2><pre><code>    Artalk Error
     Error: 请求超时或意外终止，无法获取评论列表数据
     点击重新获取
-ping artalk.carlzeng.top -c4
-PING artalk.carlzeng.top (172.67.@@@): 56 data bytes
+ping artalk.carlzeng.com -c4
+PING artalk.carlzeng.com (172.67.@@@): 56 data bytes
 本机是这种情况，用联通4G网络就能正常访问artalk评论
 
 解决办法：在4G环境下，用管理员登录控制中心，应用一下配置；
 重新回到电脑，就正常了，匪夷所思
 
 根据ping结果可知，域名对应的IP正确了；而一段时间后又会变成CF？
-ping artalk.carlzeng.top -c4
-PING artalk.carlzeng.top (123.119.@@@): 56 data bytes
+ping artalk.carlzeng.com -c4
+PING artalk.carlzeng.com (123.119.@@@): 56 data bytes
 </code></pre>
 <h2 id="Artalk置入博客"><a href="#Artalk置入博客" class="headerlink" title="Artalk置入博客"></a>Artalk置入博客</h2><pre><code>不要自己修改NexT，测试使用插件：Artalk comment plugin for Hexo NexT
 https://github.com/leirock/hexo-next-artalk
@@ -595,7 +595,7 @@ npm install hexo-next-artalk
 <pre><code>新增一条：动态DNS 服务项 » CF_carlzeng_top
 </code></pre>
 <p>检查日志：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">091427       : Registered IP &#x27;202.89.@@&#x27; detected</span><br><span class="line">091427  info : Starting main loop at 2023-11-03 09:14</span><br><span class="line">091427       : Detect current IP on &#x27;network&#x27;</span><br><span class="line">091427       : Current IP &#x27;221.218.@@&#x27; detected on network &#x27;vwan3&#x27;</span><br><span class="line">091427       : Update needed - L: &#x27;221.218.@@&#x27; &lt;&gt; R: &#x27;202.89.@@&#x27;</span><br><span class="line">091427       : parsing script &#x27;/usr/lib/ddns/update_cloudflare_com_v4.sh&#x27;</span><br><span class="line">091427       : #&gt; /usr/bin/curl -RsS -o /var/run/ddns/CF_carlzeng_top.dat --stderr /var/run/ddns/CF_carlzeng_top.err --noproxy &#x27;*&#x27; --header &#x27;X-Auth-Email: @@@@163.com&#x27;  --header &#x27;X-Auth-Key: ***PW***&#x27;  --header &#x27;Content-Type: application/json&#x27;  --request GET &#x27;https://api.cloudflare.com/client/v4/zones?name=carlzeng.top&#x27;</span><br><span class="line">091428  WARN : CloudFlare reported an error:</span><br><span class="line">091428       : &#123;&quot;success&quot;:false,&quot;errors&quot;:[&#123;&quot;code&quot;:6003,&quot;message&quot;:&quot;Invalid request headers&quot;,&quot;error_chain&quot;:[&#123;&quot;code&quot;:6103,&quot;message&quot;:&quot;Invalid format for X-Auth-Key header&quot;&#125;]&#125;],&quot;messages&quot;:[],&quot;result&quot;:null&#125;</span><br><span class="line">091428 ERROR : IP update not accepted by DDNS Provider</span><br><span class="line">091428       : Waiting 3600 seconds (Check Interval)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">091427       : Registered IP &#x27;202.89.@@&#x27; detected</span><br><span class="line">091427  info : Starting main loop at 2023-11-03 09:14</span><br><span class="line">091427       : Detect current IP on &#x27;network&#x27;</span><br><span class="line">091427       : Current IP &#x27;221.218.@@&#x27; detected on network &#x27;vwan3&#x27;</span><br><span class="line">091427       : Update needed - L: &#x27;221.218.@@&#x27; &lt;&gt; R: &#x27;202.89.@@&#x27;</span><br><span class="line">091427       : parsing script &#x27;/usr/lib/ddns/update_cloudflare_com_v4.sh&#x27;</span><br><span class="line">091427       : #&gt; /usr/bin/curl -RsS -o /var/run/ddns/CF_carlzeng_top.dat --stderr /var/run/ddns/CF_carlzeng_top.err --noproxy &#x27;*&#x27; --header &#x27;X-Auth-Email: @@@@163.com&#x27;  --header &#x27;X-Auth-Key: ***PW***&#x27;  --header &#x27;Content-Type: application/json&#x27;  --request GET &#x27;https://api.cloudflare.com/client/v4/zones?name=carlzeng.com&#x27;</span><br><span class="line">091428  WARN : CloudFlare reported an error:</span><br><span class="line">091428       : &#123;&quot;success&quot;:false,&quot;errors&quot;:[&#123;&quot;code&quot;:6003,&quot;message&quot;:&quot;Invalid request headers&quot;,&quot;error_chain&quot;:[&#123;&quot;code&quot;:6103,&quot;message&quot;:&quot;Invalid format for X-Auth-Key header&quot;&#125;]&#125;],&quot;messages&quot;:[],&quot;result&quot;:null&#125;</span><br><span class="line">091428 ERROR : IP update not accepted by DDNS Provider</span><br><span class="line">091428       : Waiting 3600 seconds (Check Interval)</span><br></pre></td></tr></table></figure>
 <pre><code>update_cloudflare_com_v4.sh
 </code></pre>
 <p>这个设置有一个弊端, 当vwan3没有获取IP地址时(由于我使用了单线多播, 这样这种概率就出现了), 这个DDNS脚本是无法正常运作的.</p>
@@ -616,7 +616,7 @@ DNS TOKEN: 7u0Y_5-t_TTn1biQDfdtHg@@@@@@
 用户名需要使用： Bearer
 密码使用：API Token，编辑区域 DNS API 令牌已成功创建
 
-carlzeng.top
+carlzeng.com
 10:52am works great in log.
     both ddns setup works
 
@@ -999,7 +999,7 @@ carlzeng.top
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-10-25 20:35:05" itemprop="dateModified" datetime="2024-10-25T20:35:05+08:00">2024-10-25</time>
+        <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
       </span>
 
 </div>

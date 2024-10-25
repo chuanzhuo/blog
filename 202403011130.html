@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/04/23/662722fde4c91.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/04/23/662725ef860df.png">
 <meta property="article:published_time" content="2024-03-01T03:30:00.000Z">
-<meta property="article:modified_time" content="2024-10-25T12:35:06.064Z">
+<meta property="article:modified_time" content="2024-10-25T13:16:40.671Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="email">
@@ -226,8 +226,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311081003.html" rel="bookmark">
-      实测Docker搭建短链接服务YOURLS
+      <a class="popular-posts-link" href="/200907071652.html" rel="bookmark">
+      netsuite 记录类型 权限分配 use permissions-CarlZeng
       </a>
     </li>
   </ul>
@@ -419,7 +419,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-10-25 20:35:06" itemprop="dateModified" datetime="2024-10-25T20:35:06+08:00">2024-10-25</time>
+      <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -520,31 +520,31 @@
 </thead>
 <tbody><tr>
 <td>MX</td>
-<td>carlzeng.top.</td>
-<td>mail.carlzeng.top.</td>
+<td>carlzeng.com.</td>
+<td>mail.carlzeng.com.</td>
 <td>标识邮件服务器名称，DNS MX entry</td>
 </tr>
 <tr>
 <td>A</td>
-<td>mail.carlzeng.top.</td>
+<td>mail.carlzeng.com.</td>
 <td>*.8.18.*</td>
 <td>邮件服务器的IP地址</td>
 </tr>
 <tr>
 <td>TXT</td>
-<td>carlzeng.top.</td>
+<td>carlzeng.com.</td>
 <td>v&#x3D;spf1 mx -all</td>
 <td>SPF entry&#x2F;记录</td>
 </tr>
 <tr>
 <td>TXT</td>
-<td>dkim._domainkey.carlzeng.top.</td>
+<td>dkim._domainkey.carlzeng.com.</td>
 <td>v&#x3D;DKIM1; k&#x3D;rsm; p&#x3D;*</td>
 <td>DKIM entry&#x2F;记录，含DKIM公钥public key，详见下方如何在docker中用命令获取这个内容值</td>
 </tr>
 <tr>
 <td>TXT</td>
-<td>dmarc.carlzeng.top</td>
+<td>dmarc.carlzeng.com</td>
 <td>v&#x3D;DMARC1; p&#x3D; reject; rua&#x3D;*</td>
 <td>DMARC entry&#x2F;记录</td>
 </tr>
@@ -552,22 +552,22 @@
 <p>问：三个TXT记录不知道怎么从iRedMail邮件系统中获取？</p>
 <p>答：After installation: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9kb2NzLmlyZWRtYWlsLm9yZy9zZXR1cC5kbnMuaHRtbCNteA==" rel="noopener external nofollow noreferrer">Setup DNS records for your iRedMail server (A, PTR, MX, SPF, DKIM, DMARC)</a></p>
 <p>假如想要检测DNS记录的正确性，可以使用：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9teHRvb2xib3guY29tLw==" rel="noopener external nofollow noreferrer">https://mxtoolbox.com/</a></p>
-<h3 id="SPF-entry-记录"><a href="#SPF-entry-记录" class="headerlink" title="SPF entry&#x2F;记录"></a>SPF entry&#x2F;记录</h3><p>v&#x3D;spf1 mx a:mail.carlzeng.top -all</p>
+<h3 id="SPF-entry-记录"><a href="#SPF-entry-记录" class="headerlink" title="SPF entry&#x2F;记录"></a>SPF entry&#x2F;记录</h3><p>v&#x3D;spf1 mx a:mail.carlzeng.com -all</p>
 <blockquote>
 <p>根据SMTP测试报告，这条记录可能存在错误</p>
 </blockquote>
 <p><img data-src="https://img.carlzeng.com:3/i/2024/03/21/65fc214953f21.png" alt="image-20240321195957875"></p>
 <p>v&#x3D;spf1 a mx include:_spf.google.com ~all</p>
 <p>CF中编辑DNS记录后使用dig检测：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">% dig carlzeng.top txt</span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.10.6 &lt;&lt;&gt;&gt; carlzeng.top txt</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 49494</span><br><span class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 2, ADDITIONAL: 7</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags:; udp: 1024</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;carlzeng.top.                  IN      TXT</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">carlzeng.top.           2099    IN      TXT     &quot;google-site-verification=709aI8iBja5qWYVP85LxviHsfbHWjpuJZmBOqENAXBM&quot;</span><br><span class="line">carlzeng.top.           2099    IN      TXT     &quot;v=spf1 mx a:mail.carlzeng.top -all&quot;</span><br><span class="line">carlzeng.top.           2099    IN      TXT     &quot;google-site-verification=CLgNXe3i4ZobXoFz9U4gy6OzMAa8gNmXImQbNmTiNPY&quot;</span><br><span class="line"></span><br><span class="line">;; AUTHORITY SECTION:</span><br><span class="line">carlzeng.top.           0       IN      NS      amir.ns.cloudflare.com.</span><br><span class="line">carlzeng.top.           0       IN      NS      paityn.ns.cloudflare.com.</span><br><span class="line"></span><br><span class="line">;; ADDITIONAL SECTION:</span><br><span class="line">amir.ns.cloudflare.com. 20184   IN      A       108.162.193.62</span><br><span class="line">amir.ns.cloudflare.com. 20184   IN      A       172.64.33.62</span><br><span class="line">amir.ns.cloudflare.com. 20184   IN      A       173.245.59.62</span><br><span class="line">paityn.ns.cloudflare.com. 59423 IN      A       108.162.194.18</span><br><span class="line">paityn.ns.cloudflare.com. 59423 IN      A       172.64.34.18</span><br><span class="line">paityn.ns.cloudflare.com. 59423 IN      A       162.159.38.18</span><br><span class="line"></span><br><span class="line">;; Query time: 5 msec</span><br><span class="line">;; SERVER: 223.5.5.5#53(223.5.5.5)</span><br><span class="line">;; WHEN: Thu Mar 21 20:18:20 CST 2024</span><br><span class="line">;; MSG SIZE  rcvd: 403</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">% dig carlzeng.com txt</span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.10.6 &lt;&lt;&gt;&gt; carlzeng.com txt</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 49494</span><br><span class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 2, ADDITIONAL: 7</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags:; udp: 1024</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;carlzeng.com.                  IN      TXT</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">carlzeng.com.           2099    IN      TXT     &quot;google-site-verification=709aI8iBja5qWYVP85LxviHsfbHWjpuJZmBOqENAXBM&quot;</span><br><span class="line">carlzeng.com.           2099    IN      TXT     &quot;v=spf1 mx a:mail.carlzeng.com -all&quot;</span><br><span class="line">carlzeng.com.           2099    IN      TXT     &quot;google-site-verification=CLgNXe3i4ZobXoFz9U4gy6OzMAa8gNmXImQbNmTiNPY&quot;</span><br><span class="line"></span><br><span class="line">;; AUTHORITY SECTION:</span><br><span class="line">carlzeng.com.           0       IN      NS      amir.ns.cloudflare.com.</span><br><span class="line">carlzeng.com.           0       IN      NS      paityn.ns.cloudflare.com.</span><br><span class="line"></span><br><span class="line">;; ADDITIONAL SECTION:</span><br><span class="line">amir.ns.cloudflare.com. 20184   IN      A       108.162.193.62</span><br><span class="line">amir.ns.cloudflare.com. 20184   IN      A       172.64.33.62</span><br><span class="line">amir.ns.cloudflare.com. 20184   IN      A       173.245.59.62</span><br><span class="line">paityn.ns.cloudflare.com. 59423 IN      A       108.162.194.18</span><br><span class="line">paityn.ns.cloudflare.com. 59423 IN      A       172.64.34.18</span><br><span class="line">paityn.ns.cloudflare.com. 59423 IN      A       162.159.38.18</span><br><span class="line"></span><br><span class="line">;; Query time: 5 msec</span><br><span class="line">;; SERVER: 223.5.5.5#53(223.5.5.5)</span><br><span class="line">;; WHEN: Thu Mar 21 20:18:20 CST 2024</span><br><span class="line">;; MSG SIZE  rcvd: 403</span><br></pre></td></tr></table></figure>
 
 <p>大约半小时时间，修改过后的spf记录仍然没有得到更新，持续关注中….</p>
 <p>纠正了这条spf相关的DNS记录以后，测试SMTP；显示成功：</p>
 <p><img data-src="https://img.carlzeng.com:3/i/2024/03/22/65fccd6f7a5fc.png" alt="image-20240322081436077"></p>
 <h3 id="DKIM-entry-记录"><a href="#DKIM-entry-记录" class="headerlink" title="DKIM entry&#x2F;记录"></a>DKIM entry&#x2F;记录</h3><p>关于如何获取dkim._domainkey.mydomain.com.的内容&#x2F;值，举例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">docker <span class="built_in">exec</span> -it iRedMail bash</span></span><br><span class="line"></span><br><span class="line">root@cc9dd27b3e25:/etc/amavis/conf.d# amavisd-new showkeys</span><br><span class="line">; key#1 1024 bits, i=dkim, d=carlzeng.top, /opt/iredmail/custom/amavisd/dkim/carlzeng.top.pem</span><br><span class="line">dkim._domainkey.carlzeng.top.   3600 TXT (</span><br><span class="line">  &quot;v=DKIM1; p=&quot;</span><br><span class="line">  &quot;MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDUF5BslOb2fARJjXK41xsAPSg&quot;</span><br><span class="line">  &quot;hToQAkJzRuxp5pwaCyqPzIbFNxTZ66z9yw+rbeXYKdpu3bKemHhKVQ7rvnmVlFFL&quot;</span><br><span class="line">  &quot;Nvef7Pk9ddT/nur2T1sfUY6yDu5QRcZArClAQRjfNCFRA11VgsD5q6OKS5GTNtE5&quot;</span><br><span class="line">  &quot;dz3kJGpVdCllilo4OwIDAQAB&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">docker <span class="built_in">exec</span> -it iRedMail bash</span></span><br><span class="line"></span><br><span class="line">root@cc9dd27b3e25:/etc/amavis/conf.d# amavisd-new showkeys</span><br><span class="line">; key#1 1024 bits, i=dkim, d=carlzeng.com, /opt/iredmail/custom/amavisd/dkim/carlzeng.com.pem</span><br><span class="line">dkim._domainkey.carlzeng.com.   3600 TXT (</span><br><span class="line">  &quot;v=DKIM1; p=&quot;</span><br><span class="line">  &quot;MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDUF5BslOb2fARJjXK41xsAPSg&quot;</span><br><span class="line">  &quot;hToQAkJzRuxp5pwaCyqPzIbFNxTZ66z9yw+rbeXYKdpu3bKemHhKVQ7rvnmVlFFL&quot;</span><br><span class="line">  &quot;Nvef7Pk9ddT/nur2T1sfUY6yDu5QRcZArClAQRjfNCFRA11VgsD5q6OKS5GTNtE5&quot;</span><br><span class="line">  &quot;dz3kJGpVdCllilo4OwIDAQAB&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="DMARC-entry-记录"><a href="#DMARC-entry-记录" class="headerlink" title="DMARC entry&#x2F;记录"></a>DMARC entry&#x2F;记录</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">v</span>=DMARC1<span class="comment">; p=reject; sp=none; adkim=s; aspf=s; rua=mailto:postmaster@carlzeng.top; ruf=mailto:postmaster@carlzeng.top</span></span><br></pre></td></tr></table></figure>
+<h3 id="DMARC-entry-记录"><a href="#DMARC-entry-记录" class="headerlink" title="DMARC entry&#x2F;记录"></a>DMARC entry&#x2F;记录</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">v</span>=DMARC1<span class="comment">; p=reject; sp=none; adkim=s; aspf=s; rua=mailto:postmaster@carlzeng.com; ruf=mailto:postmaster@carlzeng.com</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -640,7 +640,7 @@
 <h2 id="错误及解决方法"><a href="#错误及解决方法" class="headerlink" title="错误及解决方法"></a>错误及解决方法</h2><h3 id="Docker启动错误：”Permission-denied”"><a href="#Docker启动错误：”Permission-denied”" class="headerlink" title="Docker启动错误：”Permission denied”"></a>Docker启动错误：”Permission denied”</h3><p>iRedMail   | &#x2F;usr&#x2F;sbin&#x2F;mysqld: Can’t create file ‘&#x2F;var&#x2F;lib&#x2F;mysql&#x2F;mysqld.err’ (errno: 13 “Permission denied”)<br>iRedMail   | 2024-02-28 16:12:07 0 [ERROR] mysqld: Can’t create&#x2F;write to file ‘&#x2F;var&#x2F;lib&#x2F;mysql&#x2F;aria_log_control’ (Errcode: 13 “Permission denied”)</p>
 <p>解决办法：</p>
 <p>chmod 777 -R &#x2F;volume2&#x2F;KingchuxingSSD512G&#x2F;docker&#x2F;compose&#x2F;iRedMail<br>chmod 777 -R &#x2F;volume2&#x2F;KingchuxingSSD512G&#x2F;docker&#x2F;compose&#x2F;iRedMail&#x2F;mysql&#x2F;</p>
-<h3 id="DNS设置错误之No-DMARC-Record-found"><a href="#DNS设置错误之No-DMARC-Record-found" class="headerlink" title="DNS设置错误之No DMARC Record found"></a>DNS设置错误之No DMARC Record found</h3><p>错误列表检测自：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9teHRvb2xib3guY29tL2VtYWlsaGVhbHRoL2Nhcmx6ZW5nLnRvcC8=" rel="noopener external nofollow noreferrer">https://mxtoolbox.com/emailhealth/carlzeng.top/</a></p>
+<h3 id="DNS设置错误之No-DMARC-Record-found"><a href="#DNS设置错误之No-DMARC-Record-found" class="headerlink" title="DNS设置错误之No DMARC Record found"></a>DNS设置错误之No DMARC Record found</h3><p>错误列表检测自：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9teHRvb2xib3guY29tL2VtYWlsaGVhbHRoL2Nhcmx6ZW5nLmNvbS8=" rel="noopener external nofollow noreferrer">https://mxtoolbox.com/emailhealth/carlzeng.com/</a></p>
 <table>
 <thead>
 <tr>
@@ -654,23 +654,23 @@
 <tbody><tr>
 <td align="left"><img data-src="https://images.mxtoolbox.com/public/images/statusicons/problem.png" alt="Status Problem"></td>
 <td align="left">dmarc</td>
-<td align="left">carlzeng.top</td>
+<td align="left">carlzeng.com</td>
 <td align="left">No DMARC Record found</td>
-<td align="left"><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9teHRvb2xib3guY29tL3Byb2JsZW0vZG1hcmMvRE1BUkMtUmVjb3JkLVB1Ymxpc2hlZD9wYWdlPWhlYWx0aF9kbWFyYyZoaWRldG9jPTAmaGlkZXBpdGNoPTAmc2hvd2xvZ2luPTEmYWN0aW9uPWRtYXJjOmNhcmx6ZW5nLnRvcCZkb21haW49Y2FybHplbmcudG9w" rel="noopener external nofollow noreferrer"><img data-src="https://images.mxtoolbox.com/public/images/statusicons/info.png" alt="information"> More Info</a></td>
+<td align="left"><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9teHRvb2xib3guY29tL3Byb2JsZW0vZG1hcmMvRE1BUkMtUmVjb3JkLVB1Ymxpc2hlZD9wYWdlPWhlYWx0aF9kbWFyYyZoaWRldG9jPTAmaGlkZXBpdGNoPTAmc2hvd2xvZ2luPTEmYWN0aW9uPWRtYXJjOmNhcmx6ZW5nLmNvbSZkb21haW49Y2FybHplbmcuY29t" rel="noopener external nofollow noreferrer"><img data-src="https://images.mxtoolbox.com/public/images/statusicons/info.png" alt="information"> More Info</a></td>
 </tr>
 <tr>
 <td align="left"><img data-src="https://images.mxtoolbox.com/public/images/statusicons/problem.png" alt="Status Problem"></td>
 <td align="left">blacklist</td>
-<td align="left">mail.carlzeng.top</td>
+<td align="left">mail.carlzeng.com</td>
 <td align="left">Blacklisted by UCEPROTECTL3</td>
-<td align="left"><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9teHRvb2xib3guY29tL3Byb2JsZW0vYmxhY2tsaXN0L1VDRVBST1RFQ1RMMz9wYWdlPWhlYWx0aF9ibGFja2xpc3QmaGlkZXRvYz0wJmhpZGVwaXRjaD0wJnNob3dsb2dpbj0xJmFjdGlvbj1ibGFja2xpc3Q6bWFpbC5jYXJsemVuZy50b3AmZG9tYWluPWNhcmx6ZW5nLnRvcA==" rel="noopener external nofollow noreferrer"><img data-src="https://images.mxtoolbox.com/public/images/statusicons/info.png" alt="information"> More Info</a></td>
+<td align="left"><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9teHRvb2xib3guY29tL3Byb2JsZW0vYmxhY2tsaXN0L1VDRVBST1RFQ1RMMz9wYWdlPWhlYWx0aF9ibGFja2xpc3QmaGlkZXRvYz0wJmhpZGVwaXRjaD0wJnNob3dsb2dpbj0xJmFjdGlvbj1ibGFja2xpc3Q6bWFpbC5jYXJsemVuZy5jb20mZG9tYWluPWNhcmx6ZW5nLmNvbQ==" rel="noopener external nofollow noreferrer"><img data-src="https://images.mxtoolbox.com/public/images/statusicons/info.png" alt="information"> More Info</a></td>
 </tr>
 <tr>
 <td align="left"><img data-src="https://images.mxtoolbox.com/public/images/statusicons/problem.png" alt="Status Problem"></td>
 <td align="left">mx</td>
-<td align="left">carlzeng.top</td>
+<td align="left">carlzeng.com</td>
 <td align="left">No DMARC Record found</td>
-<td align="left"><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9teHRvb2xib3guY29tL3Byb2JsZW0vbXgvRE1BUkMtUmVjb3JkLVB1Ymxpc2hlZD9wYWdlPWhlYWx0aF9teCZoaWRldG9jPTAmaGlkZXBpdGNoPTAmc2hvd2xvZ2luPTEmYWN0aW9uPW14OmNhcmx6ZW5nLnRvcCZkb21haW49Y2FybHplbmcudG9w" rel="noopener external nofollow noreferrer"><img data-src="https://img.carlzeng.com:3/i/2024/02/29/65e089fcef838.png" alt="information"> More Info</a></td>
+<td align="left"><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9teHRvb2xib3guY29tL3Byb2JsZW0vbXgvRE1BUkMtUmVjb3JkLVB1Ymxpc2hlZD9wYWdlPWhlYWx0aF9teCZoaWRldG9jPTAmaGlkZXBpdGNoPTAmc2hvd2xvZ2luPTEmYWN0aW9uPW14OmNhcmx6ZW5nLmNvbSZkb21haW49Y2FybHplbmcuY29t" rel="noopener external nofollow noreferrer"><img data-src="https://img.carlzeng.com:3/i/2024/02/29/65e089fcef838.png" alt="information"> More Info</a></td>
 </tr>
 </tbody></table>
 <p>错误解决：</p>
@@ -700,7 +700,7 @@
 <p>environment:</p>
 <p>TZ&#x3D;Asia&#x2F;Shanghai</p>
 <p>发现：使用最初的账户没有这个误判的情况。</p>
-<h3 id="是否可删除mail-的DNS记录？"><a href="#是否可删除mail-的DNS记录？" class="headerlink" title="是否可删除mail.**的DNS记录？"></a>是否可删除mail.**的DNS记录？</h3><p>由于设定了泛域名解析道正确的IP <em>，目前增加的这条mail.carlzeng.top反而增加了DDNS需要去轮询更新IP的任务数，没有这条DNS解析，直接ping mail.</em>* 也一样得到最新且正确的IP地址。</p>
+<h3 id="是否可删除mail-的DNS记录？"><a href="#是否可删除mail-的DNS记录？" class="headerlink" title="是否可删除mail.**的DNS记录？"></a>是否可删除mail.**的DNS记录？</h3><p>由于设定了泛域名解析道正确的IP <em>，目前增加的这条mail.carlzeng.com反而增加了DDNS需要去轮询更新IP的任务数，没有这条DNS解析，直接ping mail.</em>* 也一样得到最新且正确的IP地址。</p>
 <p>待实践核实&#x2F;测试… (理论上没问题，因为iodine已经成功删除&#x2F;优化掉A记录）</p>
 <h3 id="维护定时任务"><a href="#维护定时任务" class="headerlink" title="维护定时任务"></a>维护定时任务</h3><p>每天邮箱中都收到6封系统自动备份的邮件：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Cron &lt;root@c7e4835b8e6d&gt; /bin/bash /var/vmail/backup/backup_mysql.sh </span><br><span class="line"></span><br><span class="line">/bin/sh: 1: freshclam: not found</span><br><span class="line"></span><br><span class="line">/etc/cron.daily/logrotate:</span><br><span class="line">invoke-rc.d: could not determine current runlevel</span><br><span class="line">invoke-rc.d: policy-rc.d denied execution of reload-log.</span><br></pre></td></tr></table></figure>
@@ -737,7 +737,7 @@
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9kb2NzLmlyZWRtYWlsLm9yZy91c2UuYS5ib3VnaHQuc3NsLmNlcnRpZmljYXRlLmh0bWw=" rel="noopener external nofollow noreferrer">Use a bought SSL certificate</a></p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9kb2NzLmlyZWRtYWlsLm9yZy9sZXRzZW5jcnlwdC5odG1s" rel="noopener external nofollow noreferrer">Request a free cert from Let’s Encrypt (for servers deployed with downloadable iRedMail installer)</a></p>
 <p><img data-src="https://img.carlzeng.com:3/i/2024/04/23/66271bd148a22.png" alt="image-20240423102406511"></p>
-<p>确保证书是： mail.carlzeng.top<br>    使用dns challenge的方式，dns_cloudflare_api_token<br>    Processing… This might take a few minutes.</p>
+<p>确保证书是： mail.carlzeng.com<br>    使用dns challenge的方式，dns_cloudflare_api_token<br>    Processing… This might take a few minutes.</p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9kYXNoLmNsb3VkZmxhcmUuY29tL3Byb2ZpbGUvYXBpLXRva2Vucw==" rel="noopener external nofollow noreferrer">https://dash.cloudflare.com/profile/api-tokens</a><br>    &gt; Global API Key</p>
 <p>fail to get the cert by dns challenge<br>    成功了，原来不是使用Global API KEY；要使用”API 令牌”中的‘创建令牌’ 》 编辑区域 DNS	</p>
 <p><img data-src="https://img.carlzeng.com:3/i/2024/04/23/662722fde4c91.png" alt="image-20240423105448516"></p>
@@ -756,7 +756,7 @@
 <p>TXT记录变更：<br>    v&#x3D;spf1 a mx include:_spf.google.com ~all<br>    v&#x3D;spf1 mx -all</p>
 <hr>
 <h1 id="以下为踩坑记录-请跳过"><a href="#以下为踩坑记录-请跳过" class="headerlink" title="以下为踩坑记录(请跳过)"></a>以下为踩坑记录(请跳过)</h1><h2 id="docker-mailserver"><a href="#docker-mailserver" class="headerlink" title="docker-mailserver"></a>docker-mailserver</h2><p>docker-compose.yml (docker-mailserver)</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mailserver:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">ghcr.io/docker-mailserver/docker-mailserver:latest</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">mailserver</span></span><br><span class="line">    <span class="comment"># Provide the FQDN of your mail server here (Your DNS MX record should point to this value)</span></span><br><span class="line">    <span class="attr">hostname:</span> <span class="string">mail.carlzeng.top</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;25:25&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;465:465&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;587:587&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;993:993&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./mail-data/:/var/mail/</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./mail-state/:/var/mail-state/</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./mail-logs/:/var/log/mail/</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./config/:/tmp/docker-mailserver/</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ENABLE_RSPAMD=0</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ENABLE_CLAMAV=0</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ENABLE_FAIL2BAN=1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line">    <span class="attr">cap_add:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NET_ADMIN</span> <span class="comment"># For Fail2Ban to work</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mailserver:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">ghcr.io/docker-mailserver/docker-mailserver:latest</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">mailserver</span></span><br><span class="line">    <span class="comment"># Provide the FQDN of your mail server here (Your DNS MX record should point to this value)</span></span><br><span class="line">    <span class="attr">hostname:</span> <span class="string">mail.carlzeng.com</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;25:25&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;465:465&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;587:587&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;993:993&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./mail-data/:/var/mail/</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./mail-state/:/var/mail-state/</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./mail-logs/:/var/log/mail/</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./config/:/tmp/docker-mailserver/</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ENABLE_RSPAMD=0</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ENABLE_CLAMAV=0</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ENABLE_FAIL2BAN=1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line">    <span class="attr">cap_add:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NET_ADMIN</span> <span class="comment"># For Fail2Ban to work</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -767,7 +767,7 @@
 
 
 
-<p>docker exec -ti mailserver setup email add <a href="mailto:&#x73;&#x65;&#x72;&#118;&#105;&#99;&#101;&#x40;&#99;&#97;&#114;&#x6c;&#x7a;&#101;&#110;&#103;&#46;&#x74;&#111;&#112;">&#x73;&#x65;&#x72;&#118;&#105;&#99;&#101;&#x40;&#99;&#97;&#114;&#x6c;&#x7a;&#101;&#110;&#103;&#46;&#x74;&#111;&#112;</a></p>
+<p>docker exec -ti mailserver setup email add <a href="mailto:&#x73;&#101;&#x72;&#x76;&#x69;&#x63;&#x65;&#x40;&#x63;&#97;&#x72;&#108;&#x7a;&#101;&#110;&#x67;&#46;&#99;&#111;&#x6d;">&#x73;&#101;&#x72;&#x76;&#x69;&#x63;&#x65;&#x40;&#x63;&#97;&#x72;&#108;&#x7a;&#101;&#110;&#x67;&#46;&#99;&#111;&#x6d;</a></p>
 <p>解决办法：未知</p>
 <p>文档信息：</p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2RvY2tlci1tYWlsc2VydmVyL2RvY2tlci1tYWlsc2VydmVyP3RhYj1yZWFkbWUtb3YtZmlsZQ==" rel="noopener external nofollow noreferrer">https://github.com/docker-mailserver/docker-mailserver?tab=readme-ov-file</a></p>
@@ -953,8 +953,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311081003.html" rel="bookmark">
-      实测Docker搭建短链接服务YOURLS
+      <a class="popular-posts-link" href="/200907071652.html" rel="bookmark">
+      netsuite 记录类型 权限分配 use permissions-CarlZeng
       </a>
     </li>
   </ul>
@@ -1127,7 +1127,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-10-25 20:35:06" itemprop="dateModified" datetime="2024-10-25T20:35:06+08:00">2024-10-25</time>
+        <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
       </span>
 
 </div>

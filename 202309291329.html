@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/c1d27516-04d8-4196-811e-1fa00ec28956/cdRYO42pCfI3qIIFHiZ8Qu3AvkXsnAE1BFkhRjy367DTrWdhwtRWpoKW_g/deep/0/image.png">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/5d46e0af-5031-47ce-a7a3-b5faa41e27f5/7Xj3U7dGgFmNgSVSs-wNzymy2g1qcZfr6Xp20PWrrf2OuCQyEyD-p4_x4A/deep/0/image.png">
 <meta property="article:published_time" content="2023-09-29T05:29:01.000Z">
-<meta property="article:modified_time" content="2024-09-23T07:40:48.338Z">
+<meta property="article:modified_time" content="2024-10-25T13:16:40.541Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="安卓">
 <meta property="article:tag" content="andriod">
@@ -405,7 +405,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-23 15:40:48" itemprop="dateModified" datetime="2024-09-23T15:40:48+08:00">2024-09-23</time>
+      <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -448,12 +448,12 @@
     
     <div class="post-body" itemprop="articleBody"><p>分享TVBox各路大佬配置，原理解读及变通等各种IPTV应用</p>
 <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>经常遇到那个影视网站可以在线看电影之类的需求，<br>要么是追求’速食主义’（不想去下载到本地然后再播放），<br>要么是想要确保影片的高清晰度高质量播放。<br>目前，在电视上播放影视资源（电影、电视剧）成为潮流，<br>另外一个方式就是在手机（以安卓手机为例）上，快速播放高清长视频。</p>
-<p>它们共同都涉及一个技术方式：IPTV，常见视频流有：<br>VOD点播，在线实时直播。分享最近几年成熟的APP方案：<strong>TVBOX</strong><br>2. 电视盒子的直播方案请参见：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY2FybHplbmcudG9wLzIwMjMxMDA1MTUyOS5odG1s" rel="noopener external nofollow noreferrer">网络影视资源 - IPTV直播之电视台直播源</a></p>
+<p>它们共同都涉及一个技术方式：IPTV，常见视频流有：<br>VOD点播，在线实时直播。分享最近几年成熟的APP方案：<strong>TVBOX</strong><br>2. 电视盒子的直播方案请参见：<a href="https://www.carlzeng.com/202310051529.html">网络影视资源 - IPTV直播之电视台直播源</a></p>
 <span id="more"></span>
 <p>这个开源的应用可以运行在各个构架的平台上：安卓手机，安卓机顶盒，Windows电脑，苹果电脑等等。<br>它只是一个用来播放媒体的壳（这也是为什么它还能存活的原因），<br>它并不包含实实在在的影视资源（直播源，m3u，m3u8地址等等）。<br>你可以理解它仅仅是一个电动工具，没有电，它无法开心地工作。</p>
 <p>那么既然有了播放工具下一个问题就变成：怎么找到播放源？<br>播放源分为：<br>1。 直播源（比如iptv直播的各个电视台卫视节目，或者各大网络平台的直播）<br>2。 点播源，一般有两种展现形式：<br>一种是通过列表一页页的显示给用户来选取（那一部特定的电影），<br>另一种是通过搜索跨越不同的点播站&#x2F;源，再展现与关键字相关的搜索结果。</p>
 <p>今天主要分享安卓和N1机顶盒上的TVBox应用及视频源的使用经验。<br>以下主要以安卓手机为例，展开具体思路（在电视机顶盒上原理也一样）</p>
-<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><div class="note danger"><p>2024年1月：更新DIYP的配置地址 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDo0NDQzL3R2dHh0" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:4443/tvtxt</a></p>
+<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><div class="note danger"><p>2024年1月：更新DIYP的配置地址 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTo0NDQzL3R2dHh0" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:4443/tvtxt</a></p>
 <p>2023年12月：TVBOX的下载源要注意区分, 多测试下，我目前发现我的下载的TVBOX盒子版，居然有广告！是被内嵌在apk软件里面的，我正在查找干净的版本，或者开源了吗？自己编译一个干净的？</p>
 </div>
 
@@ -591,7 +591,7 @@
 </blockquote>
 <h1 id="2024-1更新"><a href="#2024-1更新" class="headerlink" title="2024.1更新"></a>2024.1更新</h1><p>TVBox, 影视等等相关分支的修改版本都可以试一试配置：</p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9taXJyb3IuZ2hwcm94eS5jb20vaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2dhb3RpYW5saXV5dW4vZ2FvL21hc3Rlci9qcy5qc29u" rel="noopener external nofollow noreferrer">https://mirror.ghproxy.com/https://raw.githubusercontent.com/gaotianliuyun/gao/master/js.json</a></p>
-<p>这个地址修复了gihub的加速；具体详细的描述，可以使用<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9wcm94eS5jYXJsemVuZy50b3A6NDQ0My8=" rel="noopener external nofollow noreferrer">加速浏览器</a>打开github的原始链路查看：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2dhb3RpYW5saXV5dW4vZ2Fv" rel="noopener external nofollow noreferrer">https://github.com/gaotianliuyun/gao</a></p>
+<p>这个地址修复了gihub的加速；具体详细的描述，可以使用<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9wcm94eS5jYXJsemVuZy5jb206NDQ0My8=" rel="noopener external nofollow noreferrer">加速浏览器</a>打开github的原始链路查看：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2dhb3RpYW5saXV5dW4vZ2Fv" rel="noopener external nofollow noreferrer">https://github.com/gaotianliuyun/gao</a></p>
 
 
         <!-- search & recent posts(added 20240914) -->
@@ -925,7 +925,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-09-23 15:40:48" itemprop="dateModified" datetime="2024-09-23T15:40:48+08:00">2024-09-23</time>
+        <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
       </span>
 
 </div>
