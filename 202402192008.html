@@ -23,11 +23,11 @@
 <meta property="og:url" content="https://www.carlzeng.com/202402192008.html">
 <meta property="og:site_name" content="云随笔 Carl Notes">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/02/21/65d58e67ec924.png">
-<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/02/21/65d5c73550e5f.png">
-<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/02/21/65d5c789f3d63.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/02/21/65d58e67ec924.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/02/21/65d5c73550e5f.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/02/21/65d5c789f3d63.png">
 <meta property="article:published_time" content="2024-02-19T12:08:44.000Z">
-<meta property="article:modified_time" content="2024-03-05T03:15:00.802Z">
+<meta property="article:modified_time" content="2024-10-25T12:35:06.089Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="Mac">
 <meta property="article:tag" content="OpenWrt">
@@ -38,7 +38,7 @@
 <meta property="article:tag" content="隧道">
 <meta property="article:tag" content="ssh">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img.carlzeng.top:3/i/2024/02/21/65d58e67ec924.png">
+<meta name="twitter:image" content="https://img.carlzeng.com:3/i/2024/02/21/65d58e67ec924.png">
 
 
 <link rel="canonical" href="https://www.carlzeng.com/202402192008.html">
@@ -406,7 +406,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-05 11:15:00" itemprop="dateModified" datetime="2024-03-05T11:15:00+08:00">2024-03-05</time>
+      <time title="修改时间：2024-10-25 20:35:06" itemprop="dateModified" datetime="2024-10-25T20:35:06+08:00">2024-10-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -448,7 +448,7 @@
     
     <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="">
 
-<img data-src="https://img.carlzeng.top:3/i/2024/02/21/65d58e67ec924.png" alt="image-20240221134517708" style="zoom:50%;" />
+<img data-src="https://img.carlzeng.com:3/i/2024/02/21/65d58e67ec924.png" alt="image-20240221134517708" style="zoom:50%;" />
 
 <span id="more"></span>
 
@@ -463,7 +463,7 @@
   function synthesizeSpeech() { 
     var inputText = document.getElementsByClassName('post-block')[0].innerText;
     var voice = "ZH";
-    var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
+    var url = 'https://tts.carlzeng.com:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
     var audioPlayer = document.getElementById('audioPlayer');          
     audioPlayer.src = url;
     audioPlayer.load();
@@ -498,7 +498,7 @@
 https://code.kryo.se/iodine/
 </code></pre>
 <h2 id="另一个工具dns2tcp"><a href="#另一个工具dns2tcp" class="headerlink" title="另一个工具dns2tcp"></a>另一个工具dns2tcp</h2><p>详细见文章：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY2FybHplbmcudG9wLzIwMjMwNTA4MjMyNS5odG1s" rel="noopener external nofollow noreferrer">WIFI无线上网短信认证</a></p>
-<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=dns" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=dns" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><h2 id="1-make-后获取iodined（Server端）-和-iodine（客户端）"><a href="#1-make-后获取iodined（Server端）-和-iodine（客户端）" class="headerlink" title="1. make 后获取iodined（Server端） 和 iodine（客户端）"></a>1. make 后获取iodined（Server端） 和 iodine（客户端）</h2><p>OpenWrt平台（Linux）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">opkg install iodined</span></span><br><span class="line">		Installing iodined (0.7.0-4) to root...</span><br><span class="line">		Downloading https://op.supes.top/23.05/packages/x86_64/packages/iodined_0.7.0-4_x86_64.ipk</span><br><span class="line">		Configuring iodined.</span><br><span class="line">		iodined: Invalid topdomain: Too short (&lt; 3)</span><br><span class="line">		Usage: iodined [-v] [-h] [-c] [-s] [-f] [-D] [-u user] [-t chrootdir] [-d device] [-m mtu] [-z context] [-l ip address to listen on] [-p port] [-n external ip] [-b dnsport] [-P password] [-F pidfile] [-i max idle time] tunnel_ip[/netmask] topdomain</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">------------------------------------------------</span><br><span class="line">以下部分是客户端的程序：iodine</span><br><span class="line">------------------------------------------------</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">opkg install iodine</span></span><br><span class="line">		Installing iodine (0.7.0-4) to root...</span><br><span class="line">		Downloading https://op.supes.top/23.05/packages/x86_64/packages/iodine_0.7.0-4_x86_64.ipk</span><br><span class="line">		Configuring iodine.		</span><br></pre></td></tr></table></figure>
@@ -537,7 +537,7 @@ https://code.kryo.se/iodine/
 <p>20240305 经实践测试，这条A记录是可以有泛域名*A记录解析后优化掉（即删去）。</p>
 <p>原理：这个APP只需要得到t1ns.carlzeng.top的IP地址，而不设置这条A记录，DNS系统会自动使用泛域名*所对应的IP地址，而这正是我想要达到的效果（减少了宽带DDNS需要更新的DNS记录数）</p>
 </blockquote>
-<h2 id="3-运行服务端iodined"><a href="#3-运行服务端iodined" class="headerlink" title="3. 运行服务端iodined"></a>3. 运行服务端iodined</h2><p><img data-src="https://img.carlzeng.top:3/i/2024/02/21/65d5c73550e5f.png" alt="image-20240221174938467"></p>
+<h2 id="3-运行服务端iodined"><a href="#3-运行服务端iodined" class="headerlink" title="3. 运行服务端iodined"></a>3. 运行服务端iodined</h2><p><img data-src="https://img.carlzeng.com:3/i/2024/02/21/65d5c73550e5f.png" alt="image-20240221174938467"></p>
 <p>这个范例在OpenWrt上无法成功：iodined -f -P 123 10.0.0.1  t1.carlzeng.top</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">请使用-c  和 -l 125.34.235.88 指定WAN口的监听IP， —D 为调试信息输出</span></span><br><span class="line">iodined -D -f -c -l 125.34.235.88 -p 53 -P 123 192.168.99.1/24 t1.carlzeng.top</span><br></pre></td></tr></table></figure>
 
@@ -546,7 +546,7 @@ https://code.kryo.se/iodine/
 
 
 
-<h2 id="4-运行客户端iodine"><a href="#4-运行客户端iodine" class="headerlink" title="4. 运行客户端iodine"></a>4. 运行客户端iodine</h2><p><img data-src="https://img.carlzeng.top:3/i/2024/02/21/65d5c789f3d63.png" alt="image-20240221175104599"></p>
+<h2 id="4-运行客户端iodine"><a href="#4-运行客户端iodine" class="headerlink" title="4. 运行客户端iodine"></a>4. 运行客户端iodine</h2><p><img data-src="https://img.carlzeng.com:3/i/2024/02/21/65d5c789f3d63.png" alt="image-20240221175104599"></p>
 <p>以Mac OS X运行客户端为例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./iodine -f -P 123 t1.carlzeng.top</span><br></pre></td></tr></table></figure>
 
@@ -568,7 +568,7 @@ https://code.kryo.se/iodine/
 
 <h2 id="5-使用dns隧道来代理上网"><a href="#5-使用dns隧道来代理上网" class="headerlink" title="5. 使用dns隧道来代理上网"></a>5. 使用dns隧道来代理上网</h2><p>注意：这个方案需要开启iodined服务端（也就是OpenWrt）防火墙设置；开启SSH访问运行从Wan口访问，开启防火墙运行接收入站流量。</p>
 <p>现实中的代理使用; </p>
-<p>​	ssh隧道方案：<br>​		客户端运行：<br>​			ssh -CfNg -D 7001 <a href="mailto:&#114;&#x6f;&#111;&#116;&#x40;&#x31;&#x30;&#46;&#48;&#x2e;&#x30;&#x2e;&#49;">&#114;&#x6f;&#111;&#116;&#x40;&#x31;&#x30;&#46;&#48;&#x2e;&#x30;&#x2e;&#49;</a></p>
+<p>​	ssh隧道方案：<br>​		客户端运行：<br>​			ssh -CfNg -D 7001 <a href="mailto:&#x72;&#111;&#111;&#116;&#x40;&#49;&#x30;&#x2e;&#48;&#46;&#x30;&#46;&#x31;">&#x72;&#111;&#111;&#116;&#x40;&#49;&#x30;&#x2e;&#48;&#46;&#x30;&#46;&#x31;</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -CfNg -D 7001 root@192.168.99.1</span><br></pre></td></tr></table></figure>
 
 
@@ -634,7 +634,7 @@ https://code.kryo.se/iodine/
 
 <p>#7 由于连接速度慢，当并发多的时候（同时刷新多个网页）服务经常容易进入假死状态，这是远程如何重启整个链路呢？</p>
 <p>#7解决办法：</p>
-<p>7.1 ssh进iodined的服务器：ssh <a href="mailto:&#114;&#x6f;&#111;&#116;&#x40;&#49;&#57;&#50;&#46;&#x31;&#54;&#x38;&#46;&#x39;&#x39;&#x2e;&#x31;">&#114;&#x6f;&#111;&#116;&#x40;&#49;&#57;&#50;&#46;&#x31;&#54;&#x38;&#46;&#x39;&#x39;&#x2e;&#x31;</a>   </p>
+<p>7.1 ssh进iodined的服务器：ssh <a href="mailto:&#114;&#x6f;&#x6f;&#116;&#x40;&#49;&#57;&#x32;&#46;&#x31;&#x36;&#56;&#x2e;&#x39;&#57;&#x2e;&#x31;">&#114;&#x6f;&#x6f;&#116;&#x40;&#49;&#57;&#x32;&#46;&#x31;&#x36;&#56;&#x2e;&#x39;&#57;&#x2e;&#x31;</a>   </p>
 <p>7.2 ps | grep iodined </p>
 <p>7.3 kill -9 23611 &amp;&amp; iodined -c -l 125.34.235.88 -p 53 -P 123 192.168.99.1&#x2F;24 t1.carlzeng.top</p>
 <p>这样就可以远程重启iodined服务端，然后在本地在重启一下iodine就可以获取到全新的链路</p>
@@ -981,7 +981,7 @@ https://code.kryo.se/iodine/
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-03-05 11:15:00" itemprop="dateModified" datetime="2024-03-05T11:15:00+08:00">2024-03-05</time>
+        <time title="修改时间：2024-10-25 20:35:06" itemprop="dateModified" datetime="2024-10-25T20:35:06+08:00">2024-10-25</time>
       </span>
 
 </div>

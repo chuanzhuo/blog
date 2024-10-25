@@ -25,16 +25,16 @@
 <meta property="og:site_name" content="云随笔 Carl Notes">
 <meta property="og:description" content="学会安装并使用supervisor进程守护, 再也不用担心进程无故消失&#x2F;退出">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/08/13/66bb799d6ca43.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/08/13/66bb799d6ca43.png">
 <meta property="article:published_time" content="2024-08-13T08:18:23.000Z">
-<meta property="article:modified_time" content="2024-10-05T13:38:54.111Z">
+<meta property="article:modified_time" content="2024-10-25T12:35:05.919Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="NAS">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="supervisor">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img.carlzeng.top:3/i/2024/08/13/66bb799d6ca43.png">
+<meta name="twitter:image" content="https://img.carlzeng.com:3/i/2024/08/13/66bb799d6ca43.png">
 
 
 <link rel="canonical" href="https://www.carlzeng.com/202408131618.html">
@@ -402,7 +402,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-10-05 21:38:54" itemprop="dateModified" datetime="2024-10-05T21:38:54+08:00">2024-10-05</time>
+      <time title="修改时间：2024-10-25 20:35:05" itemprop="dateModified" datetime="2024-10-25T20:35:05+08:00">2024-10-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -442,7 +442,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.top:3/i/2024/08/13/66bb799d6ca43.png">
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.com:3/i/2024/08/13/66bb799d6ca43.png">
 
 <p>学会安装并使用supervisor进程守护, 再也不用担心进程无故消失&#x2F;退出</p>
 <span id="more"></span>
@@ -455,7 +455,7 @@
   function synthesizeSpeech() { 
     var inputText = document.getElementsByClassName('post-block')[0].innerText;
     var voice = "ZH";
-    var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
+    var url = 'https://tts.carlzeng.com:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
     var audioPlayer = document.getElementById('audioPlayer');          
     audioPlayer.src = url;
     audioPlayer.load();
@@ -520,7 +520,7 @@
 
 
 
-<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=python" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=python" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>命令以及日志输出(实例)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">wget  https://bootstrap.pypa.io/get-pip.py</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root@DS918:/etc# python3  get-pip.py                                                                          </span><br><span class="line">Collecting pip                                                                                                </span><br><span class="line">  WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection bro</span><br><span class="line">ken by &#x27;NewConnectionError(&#x27;: Failed </span><br><span class="line">to establish a new connection: [Errno -3] Temporary failure in name resolution&#x27;)&#x27;: /packages/d4/55/90db48d85f7</span><br><span class="line">689ec6f81c0db0622d704306c5284850383c090e6c7195a5c/pip-24.2-py3-none-any.whl.metadata                          </span><br><span class="line">  Downloading pip-24.2-py3-none-any.whl.metadata (3.6 kB)                                                     </span><br><span class="line">Collecting setuptools                                                                                         </span><br><span class="line">  Downloading setuptools-72.1.0-py3-none-any.whl.metadata (6.6 kB)                                            </span><br><span class="line">Collecting wheel                                                                                              </span><br><span class="line">  Downloading wheel-0.44.0-py3-none-any.whl.metadata (2.3 kB)                                                 </span><br><span class="line">Downloading pip-24.2-py3-none-any.whl (1.8 MB)                                                                </span><br><span class="line">   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 40.6 kB/s eta 0:00:00                                  </span><br><span class="line">Downloading setuptools-72.1.0-py3-none-any.whl (2.3 MB)                                                       </span><br><span class="line">   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 38.3 kB/s eta 0:00:00                                  </span><br><span class="line">Downloading wheel-0.44.0-py3-none-any.whl (67 kB)                                                             </span><br><span class="line">Installing collected packages: wheel, setuptools, pip                                                         </span><br><span class="line">Successfully installed pip-24.2 setuptools-72.1.0 wheel-0.44.0                                                </span><br><span class="line">WARNING: Running pip as the &#x27;root&#x27; user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing an</span><br><span class="line">d want to suppress this warning. </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root@DS918:/etc# pip3 -V                                                                                      </span><br><span class="line">pip 24.2 from /usr/lib/python3.8/site-packages/pip (python 3.8)  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root@DS918:/etc# pip3 install supervisor                                                                      </span><br><span class="line">Collecting supervisor                                                                                         </span><br><span class="line">  Downloading supervisor-4.2.5-py2.py3-none-any.whl.metadata (86 kB)                                          </span><br><span class="line">Requirement already satisfied: setuptools in /usr/lib/python3.8/site-packages (from supervisor) (72.1.0)      </span><br><span class="line">Downloading supervisor-4.2.5-py2.py3-none-any.whl (319 kB)                                                    </span><br><span class="line">Installing collected packages: supervisor                                                                     </span><br><span class="line">Successfully installed supervisor-4.2.5                                                                       </span><br><span class="line">WARNING: Running pip as the &#x27;root&#x27; user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment i</span><br><span class="line">nstead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.   </span><br></pre></td></tr></table></figure>
@@ -902,7 +902,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-10-05 21:38:54" itemprop="dateModified" datetime="2024-10-05T21:38:54+08:00">2024-10-05</time>
+        <time title="修改时间：2024-10-25 20:35:05" itemprop="dateModified" datetime="2024-10-25T20:35:05+08:00">2024-10-25</time>
       </span>
 
 </div>

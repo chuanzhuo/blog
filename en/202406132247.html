@@ -25,20 +25,20 @@
 <meta property="og:site_name" content="云随笔 Carl Notes">
 <meta property="og:description" content="在NetSuite的主界面或列表中，创建动态下拉子列表，无缝嵌入到商业应用流程中">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/19/6672a7121c35c.png">
-<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/18/6671838d0e787.png">
-<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/19/6672a5d64b868.png">
-<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/19/6672e2c4ae1ab.png">
-<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/15/666d9804768ee.png">
-<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/15/666d98635ec4e.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/06/19/6672a7121c35c.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/06/18/6671838d0e787.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/06/19/6672a5d64b868.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/06/19/6672e2c4ae1ab.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/06/15/666d9804768ee.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/06/15/666d98635ec4e.png">
 <meta property="article:published_time" content="2024-06-13T14:47:13.000Z">
-<meta property="article:modified_time" content="2024-06-19T13:55:51.928Z">
+<meta property="article:modified_time" content="2024-10-25T12:35:05.952Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="NetSuite">
 <meta property="article:tag" content="UI">
 <meta property="article:tag" content="SuiteLet">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img.carlzeng.top:3/i/2024/06/19/6672a7121c35c.png">
+<meta name="twitter:image" content="https://img.carlzeng.com:3/i/2024/06/19/6672a7121c35c.png">
 
 
 <link rel="canonical" href="https://www.carlzeng.com/en/202406132247.html">
@@ -406,7 +406,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-19 21:55:51" itemprop="dateModified" datetime="2024-06-19T21:55:51+08:00">2024-06-19</time>
+      <time title="Modified: 2024-10-25 20:35:05" itemprop="dateModified" datetime="2024-10-25T20:35:05+08:00">2024-10-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -446,7 +446,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.top:3/i/2024/06/19/6672a7121c35c.png">
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.com:3/i/2024/06/19/6672a7121c35c.png">
 
 <p>在NetSuite的主界面或列表中，创建动态下拉子列表，无缝嵌入到商业应用流程中</p>
 <span id="more"></span>
@@ -459,7 +459,7 @@
   function synthesizeSpeech() { 
     var inputText = document.getElementsByClassName('post-block')[0].innerText;
     var voice = "ZH";
-    var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
+    var url = 'https://tts.carlzeng.com:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
     var audioPlayer = document.getElementById('audioPlayer');          
     audioPlayer.src = url;
     audioPlayer.load();
@@ -474,7 +474,7 @@
 <li>在列表行(Custom Line Item Field)中创建动态下拉列表字段</li>
 </ul>
 <p>在现实业务流程中，这样的动态下拉列表应用十分广泛；而NetSuite自带的自定义字段的动态下来过滤功能十分有限。很多的应用场景无法满足，这里就不一一展开说明，懂的都懂。</p>
-<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p><img data-src="https://img.carlzeng.top:3/i/2024/06/18/6671838d0e787.png" alt="image-20240618205434547"></p>
+<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p><img data-src="https://img.carlzeng.com:3/i/2024/06/18/6671838d0e787.png" alt="image-20240618205434547"></p>
 <p>本案例：要在下拉列表中，将Replacement Vendor字段的内容，动态地根据Replacement Item字段的内容而决定。就是根据Item货品的供应商列表来过滤当前自定义记录界面中的Replacement Vendor字段的下拉内容，从而达到Replacement Vendor字段的下拉列表不展示系统中所有的Vendor，而是限定于特定Item货品（当前行中的货品字段）的供应商列表（这个使用其实也同时可以展示该供应商的此货品采购价）</p>
 <h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><ol>
 <li>创建一个系统中的自定义字段<ol>
@@ -495,10 +495,10 @@
 </ol>
 </li>
 </ol>
-<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=netsuite" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=netsuite" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><h2 id="Create-Custom-Field"><a href="#Create-Custom-Field" class="headerlink" title="Create Custom Field"></a>Create Custom Field</h2><p>新建自定义字段的定义案例：</p>
-<p><img data-src="https://img.carlzeng.top:3/i/2024/06/19/6672a5d64b868.png" alt="image-20240619173308707"></p>
+<p><img data-src="https://img.carlzeng.com:3/i/2024/06/19/6672a5d64b868.png" alt="image-20240619173308707"></p>
 <p>说明：这个字段的TYPE，用Free Form Text也是一样的。</p>
 <h2 id="User-Event"><a href="#User-Event" class="headerlink" title="User Event"></a>User Event</h2><p>to initial the UI to put-in&#x2F;inject the dropdown HTML</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> intDefProject = currentRecord.<span class="title function_">getValue</span>(<span class="string">&#x27;custbody_pri_prj&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> clsProjectDropDown = <span class="keyword">new</span> <span class="variable constant_">CLLIB</span>.<span class="title function_">PROJECTDROPDOWN</span>(intEntityId,</span><br><span class="line">    <span class="string">&#x27;&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Set entity projects dropdown options HTML</span></span><br><span class="line"><span class="keyword">var</span> strInitSelectHtml = clsProjectDropDown.<span class="title function_">initOptionHtml</span>(</span><br><span class="line">    intDefProject, scriptContext.<span class="property">type</span>);</span><br><span class="line">objFldProject.<span class="property">defaultValue</span> = <span class="string">&quot;&lt;div class=\&quot;uir-field-wrapper\&quot; data-field-type=\&quot;text\&quot;&gt;&lt;span id=\&quot;projectdropdown_fs_lbl_uir_label\&quot; class=\&quot;smallgraytextnolink uir-label \&quot;&gt;&lt;span id=\&quot;projectdropdown_fs_lbl\&quot; class=\&quot;labelSpanEdit smallgraytextnolink\&quot; style=\&quot;\&quot;&gt;&quot;</span></span><br><span class="line">    + <span class="string">&quot;&lt;a tabindex=\&quot;-1\&quot; title=\&quot;What&#x27;s this?\&quot; href=&#x27;javascript:void(\&quot;help\&quot;)&#x27; style=\&quot;cursor:help\&quot;  class=\&quot;smallgraytextnolink\&quot; onmouseover=\&quot;this.className=&#x27;smallgraytext&#x27;; return true;\&quot; onmouseout=\&quot;this.className=&#x27;smallgraytextnolink&#x27;; \&quot;&gt;&quot;</span></span><br><span class="line">    + strPrjLbl</span><br><span class="line">    + <span class="string">&quot;&lt;/a&gt;&quot;</span></span><br><span class="line">    + <span class="string">&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=\&quot;uir-field\&quot;&gt;&quot;</span></span><br><span class="line">    + strInitSelectHtml + <span class="string">&quot;&lt;/span&gt;&quot;</span> + <span class="string">&quot;&lt;/div&gt;&quot;</span>;</span><br></pre></td></tr></table></figure>
@@ -529,10 +529,10 @@
 <li>bindSelectEvent，当完成了HTML展示动态更新的下拉子列表后，绑定新的点击事件；当用户选取新的列表选项后，我们将值传递给另一个系统的字段（或者其他的商业逻辑定义）</li>
 </ul>
 <h1 id="衍生阅读"><a href="#衍生阅读" class="headerlink" title="衍生阅读"></a>衍生阅读</h1><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">来吧，约个时间当面谈，我很乐意效劳，有什么NetSuite系统定制开发中的疑难杂症我可以帮忙的吗?</a></p>
-<p><img data-src="https://img.carlzeng.top:3/i/2024/06/19/6672e2c4ae1ab.png" alt="image-20240619215304248"></p>
-<h1 id="随手记录-如何下载网页中视频"><a href="#随手记录-如何下载网页中视频" class="headerlink" title="随手记录 - 如何下载网页中视频"></a>随手记录 - 如何下载网页中视频</h1><p><img data-src="https://img.carlzeng.top:3/i/2024/06/15/666d9804768ee.png" alt="image-20240615213247707"></p>
+<p><img data-src="https://img.carlzeng.com:3/i/2024/06/19/6672e2c4ae1ab.png" alt="image-20240619215304248"></p>
+<h1 id="随手记录-如何下载网页中视频"><a href="#随手记录-如何下载网页中视频" class="headerlink" title="随手记录 - 如何下载网页中视频"></a>随手记录 - 如何下载网页中视频</h1><p><img data-src="https://img.carlzeng.com:3/i/2024/06/15/666d9804768ee.png" alt="image-20240615213247707"></p>
 <p>Firefox插件名称和版本信息</p>
-<p><img data-src="https://img.carlzeng.top:3/i/2024/06/15/666d98635ec4e.png" alt="image-20240615213422690"></p>
+<p><img data-src="https://img.carlzeng.com:3/i/2024/06/15/666d98635ec4e.png" alt="image-20240615213422690"></p>
 
 
         <!-- search & recent posts(added 20240914) -->
@@ -866,7 +866,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2024-06-19 21:55:51" itemprop="dateModified" datetime="2024-06-19T21:55:51+08:00">2024-06-19</time>
+        <time title="Modified: 2024-10-25 20:35:05" itemprop="dateModified" datetime="2024-10-25T20:35:05+08:00">2024-10-25</time>
       </span>
 
 </div>

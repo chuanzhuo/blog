@@ -25,16 +25,16 @@
 <meta property="og:site_name" content="云随笔 Carl Notes">
 <meta property="og:description" content="多语言选择">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/11/66680dfedfc95.png">
-<meta property="og:image" content="https://img.carlzeng.top:3/i/2024/06/11/66680d51ba193.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/06/11/66680dfedfc95.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/06/11/66680d51ba193.png">
 <meta property="article:published_time" content="2023-12-28T02:13:47.000Z">
-<meta property="article:modified_time" content="2024-10-15T12:34:47.385Z">
+<meta property="article:modified_time" content="2024-10-25T12:32:22.179Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="language">
 <meta property="article:tag" content="i18n">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img.carlzeng.top:3/i/2024/06/11/66680dfedfc95.png">
+<meta name="twitter:image" content="https://img.carlzeng.com:3/i/2024/06/11/66680dfedfc95.png">
 
 
 <link rel="canonical" href="https://www.carlzeng.com/en/202312281013.html">
@@ -402,7 +402,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-10-15 20:34:47" itemprop="dateModified" datetime="2024-10-15T20:34:47+08:00">2024-10-15</time>
+      <time title="Modified: 2024-10-25 20:32:22" itemprop="dateModified" datetime="2024-10-25T20:32:22+08:00">2024-10-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -442,7 +442,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.top:3/i/2024/06/11/66680dfedfc95.png">
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.com:3/i/2024/06/11/66680dfedfc95.png">
 
 <p>多语言选择</p>
 <span id="more"></span>
@@ -454,7 +454,7 @@
 <p>是的，浓缩起来就是上面这段命令，实现多语言版发布hexo到github服务器上</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/AppTesting/blog &amp;&amp; hexo clean &amp;&amp; hexo g &amp;&amp; cd ~/AppTesting/article_en &amp;&amp; hexo clean &amp;&amp; hexo g &amp;&amp; cd ~/AppTesting/blog &amp;&amp; cp -r ~/AppTesting/article_en/public/. ~/AppTesting/blog/public/en/ &amp;&amp; HTTPS_PROXY=&quot;socks5://127.0.0.1:7890&quot; hexo d</span><br></pre></td></tr></table></figure>
 
-<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=hexo" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=hexo" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><h2 id="创建-Github-Workflow"><a href="#创建-Github-Workflow" class="headerlink" title="创建 Github Workflow"></a>创建 Github Workflow</h2><blockquote>
 <p>简单解释一下，当我们推送内容到远程 <code>master</code> 分支的时候，就会触发这个 Workflow。</p>
@@ -494,7 +494,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>类似的输出是这样的</p>
-<p><img data-src="https://img.carlzeng.top:3/i/2024/06/11/66680d51ba193.png" alt="image-20240611163943966"></p>
+<p><img data-src="https://img.carlzeng.com:3/i/2024/06/11/66680d51ba193.png" alt="image-20240611163943966"></p>
 <h3 id="fatal-Authentication-failed"><a href="#fatal-Authentication-failed" class="headerlink" title="fatal: Authentication failed"></a>fatal: Authentication failed</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">On branch master                                                                                               </span><br><span class="line">nothing to commit, working tree clean                                                                          </span><br><span class="line">Username <span class="keyword">for</span> <span class="string">&#x27;https://github.com&#x27;</span>: chuanzhuo                                                                   </span><br><span class="line">Password <span class="keyword">for</span> <span class="string">&#x27;https://chuanzhuo@github.com&#x27;</span>:                                                                   </span><br><span class="line">remote: Invalid username or password.                                                                          </span><br><span class="line">fatal: Authentication failed <span class="keyword">for</span> <span class="string">&#x27;https://github.com/chuanzhuo/blog.git/&#x27;</span>                                      </span><br><span class="line">FATAL Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html       </span></span><br><span class="line"><span class="string">Error: Spawn failed                                                                                            </span></span><br><span class="line"><span class="string">    at ChildProcess. (/Users/carlzeng/AppTesting/blog/node_modules/hexo-util/lib/spawn.js:51:21)    </span></span><br><span class="line"><span class="string">    at ChildProcess.emit (node:events:514:28)                                                                  </span></span><br><span class="line"><span class="string">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)                                        </span></span><br><span class="line"><span class="string">carlzeng@Carls-MBP blog % hexo deploy                                      </span></span><br></pre></td></tr></table></figure>
 
 <p>解决办法:</p>
@@ -849,7 +849,7 @@ AppTesting
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2024-10-15 20:34:47" itemprop="dateModified" datetime="2024-10-15T20:34:47+08:00">2024-10-15</time>
+        <time title="Modified: 2024-10-25 20:32:22" itemprop="dateModified" datetime="2024-10-25T20:32:22+08:00">2024-10-25</time>
       </span>
 
 </div>

@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/4b7d3a56-0a2d-4487-9f08-e6c43e555709/86GFchghtZNA_PORS9sjFaFm4lBQDuNRqyRMRJbnN2OWDYt5HVmMjmh8Eg/deep/0/image.png">
 <meta property="article:published_time" content="2023-12-07T08:25:36.000Z">
-<meta property="article:modified_time" content="2024-07-01T14:47:22.734Z">
+<meta property="article:modified_time" content="2024-10-25T12:35:05.906Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="路由器">
 <meta property="article:tag" content="shell">
@@ -403,7 +403,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-01 22:47:22" itemprop="dateModified" datetime="2024-07-01T22:47:22+08:00">2024-07-01</time>
+      <time title="修改时间：2024-10-25 20:35:05" itemprop="dateModified" datetime="2024-10-25T20:35:05+08:00">2024-10-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -457,7 +457,7 @@
   function synthesizeSpeech() { 
     var inputText = document.getElementsByClassName('post-block')[0].innerText;
     var voice = "ZH";
-    var url = 'https://tts.carlzeng.top:3/speech?text=' + encodeURIComponent(inputText.substring(0,1000)) + '&voice=' + voice;
+    var url = 'https://tts.carlzeng.com:3/speech?text=' + encodeURIComponent(inputText.substring(0,1000)) + '&voice=' + voice;
     var audioPlayer = document.getElementById('audioPlayer');          
     audioPlayer.src = url;
     audioPlayer.load();
@@ -472,7 +472,7 @@
 <p>「别笑，这招非常管用，比现代医院医学的治疗积食等等因为不及时主动排便所引发的疾病治疗手段要有效得多」</p>
 <p>「我们发现很多跟孩子们的引导，还是在精神层面要重要，要紧急」</p>
 <p>但问题来了，孩子会因为贪看手机而长时间（超半小时）呆在厕所，虽然起到拉屎的作用，可副作用也来了。<br>多次用语言提醒尝试后，无法起到预期效果，又动了气又让气氛不好。<br>     突然想到了iPad是通过OP的iptables命令来丢弃数据包（限制访问外网），何不也把手机的数据包按时或定时限制访问互联网来自动提醒孩子该结束‘上厕所’的时间了。<br>        如何方便家长的手机快速下达：定时10-15分钟后关闭网络，然后最好10分钟后在自动开启手机的网络访问。<br>        shell或者python可以很轻松实现的功能吧；</p>
-<p>实在有不会的地方就在线问 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer">ChatGPT</a></p>
+<p>实在有不会的地方就在线问 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">ChatGPT</a></p>
 <h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><p>目前的前提条件：你家里的路由器，需要能安装python（这个要求比较高）</p>
 <p>其实可以把脚本改一改，改成shell版本的，这样普通的K2P之类的100百元级别路由器（刷了系统）即可支持了</p>
 <ol>
@@ -486,7 +486,7 @@
 </li>
 </ol>
 <h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><p>如果您对相关的 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY2FybHplbmcudG9wL3NlYXJjaD9xPW9wZW53cnQ=" rel="noopener external nofollow noreferrer">openwrt</a> 感兴趣，以下内容可能帮到您：</p>
-<iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=openwrt" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+<iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=openwrt" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>一下以OpenWrt系统的路由器（架设有phthon环境），安卓手机作为例子：</p>
 <p>就是下面2方面，其他不需要设置任何了，不需要安装任何APP</p>
@@ -521,7 +521,7 @@
 <li>（一次性设置）新建主机连接<ol>
 <li><p>右下角+号</p>
 </li>
-<li><p>输入（开启了SSH的）：用户名@路由的IP地址，比如：<a href="mailto:&#x72;&#111;&#111;&#116;&#64;&#49;&#x39;&#x32;&#46;&#x31;&#x36;&#56;&#46;&#x31;&#x32;&#51;&#46;&#49;">&#x72;&#111;&#111;&#116;&#64;&#49;&#x39;&#x32;&#46;&#x31;&#x36;&#56;&#46;&#x31;&#x32;&#51;&#46;&#49;</a></p>
+<li><p>输入（开启了SSH的）：用户名@路由的IP地址，比如：<a href="mailto:&#x72;&#x6f;&#111;&#116;&#x40;&#49;&#57;&#50;&#46;&#49;&#x36;&#x38;&#x2e;&#49;&#x32;&#51;&#x2e;&#x31;">&#x72;&#x6f;&#111;&#116;&#x40;&#49;&#57;&#50;&#46;&#49;&#x36;&#x38;&#x2e;&#49;&#x32;&#51;&#x2e;&#x31;</a></p>
 </li>
 <li><p>点击“使用密钥验证”</p>
 <ol>
@@ -551,7 +551,7 @@
 <li>按回车，一键启动（登录后会自己显示配置的“登录后自动运行”的命令）</li>
 </ol>
 <h1 id="其他情况"><a href="#其他情况" class="headerlink" title="其他情况"></a>其他情况</h1><p>有人要说了，加入我的路由器没有python环境，是那种简单的openwrt系统的；</p>
-<p>那你可以问问<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2NoYXQ=" rel="noopener external nofollow noreferrer">ChatGPT</a>，把脚本改成shell，版本的；无非是执行的使用 chmod一下，然后运行: . &#x2F;XXX.sh</p>
+<p>那你可以问问<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">ChatGPT</a>，把脚本改成shell，版本的；无非是执行的使用 chmod一下，然后运行: . &#x2F;XXX.sh</p>
 <p>如果需要留言多的话我在去转化一下shell版本的。</p>
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY2FybHplbmcudG9wLzIwMjMxMTA0MjExOC5odG1s" rel="noopener external nofollow noreferrer">ipad解锁激活锁苹果平板绕激活锁经验</a></p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuZXRhb3pqLmNvbS83MjMuaHRtbA==" rel="noopener external nofollow noreferrer">ConnectBot免密码登陆</a></p>
@@ -950,7 +950,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-07-01 22:47:22" itemprop="dateModified" datetime="2024-07-01T22:47:22+08:00">2024-07-01</time>
+        <time title="修改时间：2024-10-25 20:35:05" itemprop="dateModified" datetime="2024-10-25T20:35:05+08:00">2024-10-25</time>
       </span>
 
 </div>

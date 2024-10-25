@@ -315,7 +315,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/200901221316.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/200907091056.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -333,7 +333,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/200901221316.html" class="post-title-link" itemprop="url">po,so等单据,读取关联的流程业务数据,netsuite-CarlZeng</a>
+          <a href="/200907091056.html" class="post-title-link" itemprop="url">netsuite动态绑定事件-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -362,7 +362,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/200901221316.html" ></span>
+            <span id="ArtalkPV" data-page-key="/200907091056.html" ></span>
           </span>
         
       
@@ -373,7 +373,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -384,10 +384,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          刚发现一个未公布的对象，拿purchaseorder举例，就是Receipts & Bills这个subtab有于当前业务单据，所有相关联的流程数据。对于系统流程的断定很有帮助。我们在nlapiLoadRecord的返回中可以找到这样对象[undefined, [undefined total=380.00 type=Bill linktype=Order Bill/Invoice]] ；id，l...
+          这个能给一个指定的对象绑定多个重复的事件，执行顺序按照添加顺序来执行！已测试浏览器（ie7,firefox,chrome）
+
+
+var Bind = function(eventName, fun, obj) {
+ ///<summary>给对象绑定事件，未传入对象的话默认绑定window</summary>
+ ///<param name="eventName"&g...
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/200901221316.html#more" rel="contents">
+              <a class="btn" href="/200907091056.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1535,114 +1540,6 @@ zeng.cz
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/201701151056.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云随笔 Carl Notes">
-      <meta itemprop="description" content="[眼观心察 沉淀共享] 文章版本持续佛系更新">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 云随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/201701151056.html" class="post-title-link" itemprop="url">How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/201701151056.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          Background We all knows that: NetSuite filecabinet provided a feature to download a folder to a zip file. Sample URL in the link:&#160;https://system.na1.n
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/201701151056.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-
-
-
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/201902201642.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1751,7 +1648,7 @@ zeng.cz
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/201811161744.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/201701151056.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1769,7 +1666,7 @@ zeng.cz
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/201811161744.html" class="post-title-link" itemprop="url">How to setup oAuth 1.0 in NetSuite RESTlet API 如何在NetSuite中设置RESTlet API的oAuth认证-CarlZeng</a>
+          <a href="/201701151056.html" class="post-title-link" itemprop="url">How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1798,7 +1695,7 @@ zeng.cz
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/201811161744.html" ></span>
+            <span id="ArtalkPV" data-page-key="/201701151056.html" ></span>
           </span>
         
       
@@ -1809,7 +1706,7 @@ zeng.cz
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -1820,10 +1717,10 @@ zeng.cz
     
     
     <div class="post-body" itemprop="articleBody">
-          步骤如下： 1. Got Restlet URL 访问RESTlet的Deployment，这样获取WebService要Post或访问到的具体URL地址， 如果你疑惑RESTlet是什么，那要等我下一篇文章再介绍。 2. Setup Roles for Token user, goes to em
+          Background We all knows that: NetSuite filecabinet provided a feature to download a folder to a zip file. Sample URL in the link:&#160;https://system.na1.n
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/201811161744.html#more" rel="contents">
+              <a class="btn" href="/201701151056.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1936,6 +1833,114 @@ zeng.cz
 <p>Select which Bundle to download</p>
 <h2 id="7-How-to-use-suitecloud-for-deployment"><a href="#7-How-to-use-suitecloud-for-deployment" class="headerlink" title="7. How to use suitecloud for deployment?"></a>7. How to use suitecloud for deployment?</h2><p>Please reference to <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFja3VwZXIvcC9zZGYvX2NsaS9fZm9yL19ub2RlL19qcy5odG1s" rel="noopener external nofollow noreferrer">https://www.cnblogs.com/backuper/p/sdf\_cli\_for\_node\_js.html</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFja3VwZXIvcC9zZGZfY2xpX2Zvcl9ub2RlX2pzLmh0bWw=" rel="noopener external nofollow noreferrer">How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command</a></p>
 
+      
+
+
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/200812081210.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="description" content="[眼观心察 沉淀共享] 文章版本持续佛系更新">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 云随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/200812081210.html" class="post-title-link" itemprop="url">JS导出txt文本文件,Netsuite方案-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/200812081210.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>12 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          //传入一个table的id，将table的全部内容导出excel文件function AutomateExcel(objTable){// Start Excel and get Application object.var oXL = new ActiveXObject("Excel.Application");// Get a new workbook.var oWB = oXL.Workb...
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/200812081210.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
 
 
