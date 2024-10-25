@@ -16,12 +16,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="排查Nginx Proxy Manager，反向代理，让网站变成HTTPS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx Proxy Manager修复笔记">
-<meta property="og:url" content="https://www.carlzeng.top/202311032202.html">
+<meta property="og:url" content="https://www.carlzeng.com/202311032202.html">
 <meta property="og:site_name" content="云随笔 Carl Notes">
 <meta property="og:description" content="排查Nginx Proxy Manager，反向代理，让网站变成HTTPS">
 <meta property="og:locale" content="zh_CN">
@@ -33,8 +33,8 @@
 <meta property="article:published_time" content="2023-11-03T14:02:36.000Z">
 <meta property="article:modified_time" content="2024-08-03T05:47:19.620Z">
 <meta property="article:author" content="Carl Notes">
-<meta property="article:tag" content="docker">
 <meta property="article:tag" content="debian">
+<meta property="article:tag" content="docker">
 <meta property="article:tag" content="NPM">
 <meta property="article:tag" content="docker-compose">
 <meta property="article:tag" content="家宽">
@@ -45,11 +45,11 @@
 <meta name="twitter:image" content="https://www.evernote.com/shard/s122/sh/ce8ceac4-b340-41f4-9e1e-4f4929ec58ce/OtBRkRas9WaV8LEDHgzPycXnbgoDdWkn62Q9mVuipiG8Ladqru7Q2G0Jlg/deep/0/image.png">
 
 
-<link rel="canonical" href="https://www.carlzeng.top/202311032202.html">
+<link rel="canonical" href="https://www.carlzeng.com/202311032202.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/202311032202.html","path":"202311032202.html","title":"Nginx Proxy Manager修复笔记"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.com/202311032202.html","path":"202311032202.html","title":"Nginx Proxy Manager修复笔记"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Nginx Proxy Manager修复笔记 | 云随笔 Carl Notes</title>
@@ -102,7 +102,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">245</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">70</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">366</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NhbQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">245</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">70</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">366</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NhbQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -382,7 +382,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202311032202.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/202311032202.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -456,7 +456,7 @@
 
 <h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>排查Nginx Proxy Manager，反向代理，让网站变成HTTPS</p>
 <p>证书签发失败的补救措施, 解决NPM 泛域名证书故障</p>
-<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>Nginx Proxy Manager 登录异常	<br>    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxL2xvZ2lu" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/login</a></p>
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>Nginx Proxy Manager 登录异常	<br>    <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxL2xvZ2lu" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/login</a></p>
 <pre><code>11am NPM, 登录失败错误：Bad Gateway
     template-db-1	已停止	jc21/mariadb-aria:latest	
 发现是附属的docker的&quot;/template-db-1&quot; 启动失败
@@ -495,19 +495,19 @@ dns_cloudflare_api_token e385e19ce47c207b15bf@@@@@
 》5:17pm
 </code></pre>
 <p>安装目录：&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;NginxPorxyManager&#x2F;template</p>
-<h2 id="如何编辑artalk的robots-txt"><a href="#如何编辑artalk的robots-txt" class="headerlink" title="如何编辑artalk的robots.txt"></a>如何编辑artalk的robots.txt</h2><p>收到Google的邮件（New reason preventing your pages from being indexed）<br>第二天根据链接里面的indexing report，转到问题的问题；之前还去主站点位置添加的<a href="http://www.carlzeng.top/robots.txt">www.carlzeng.top/robots.txt</a>.<br>原来是报告<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hcnRhbGsuY2FybHplbmcudG9wOjQ0NDMvcm9ib3RzLnR4dA==" rel="noopener external nofollow noreferrer">https://artalk.carlzeng.top:4443/robots.txt</a> 这个页面下的。</p>
-<p>在artalk容器以及映射出来的目录找了半天也找不到这个文件，莫非是程序动态生成的（无解了？）<br>也可能是NPM的反代有这样的设置?<br>        <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuaW90cy52aXAvcG9zdC9oZXhvLWFydGFsay1jb21tZW50Lmh0bWw=" rel="noopener external nofollow noreferrer">https://www.iots.vip/post/hexo-artalk-comment.html</a></p>
-<p>在BT中，&#x2F;www&#x2F;server&#x2F;phpmyadmin&#x2F;phpmyadmin_c123@@&#x2F;目录下，搜索到了robots.txt, 修改内容为：<br>    User-agent: *<br>    Allow: &#x2F;<br>    继续访问<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hcnRhbGsuY2FybHplbmcudG9wOjQ0NDMvcm9ib3RzLnR4dCVFRiVCQyU5QiVFNCVCQiU4RCVFNyU4NCVCNiVFNiU5NyVBMCVFNiU5NSU4OA==" rel="noopener external nofollow noreferrer">https://artalk.carlzeng.top:4443/robots.txt；仍然无效</a><br>    尝试修改NPM中关于artalk反代的nginx配置文件，参考博客样式<br>    location &#x3D;&#x2F;robots.txt {<br>        default_type text&#x2F;html;<br>        add_header Content-Type “text&#x2F;plain; charset&#x3D;UTF-8”;<br>        return 200 “User-Agent: <em>\nAllow: &#x2F;</em>“;<br>    }</p>
+<h2 id="如何编辑artalk的robots-txt"><a href="#如何编辑artalk的robots-txt" class="headerlink" title="如何编辑artalk的robots.txt"></a>如何编辑artalk的robots.txt</h2><p>收到Google的邮件（New reason preventing your pages from being indexed）<br>第二天根据链接里面的indexing report，转到问题的问题；之前还去主站点位置添加的<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovL3d3dy5jYXJsemVuZy50b3Avcm9ib3RzLnR4dA==" rel="noopener external nofollow noreferrer">www.carlzeng.top/robots.txt</a>.<br>原来是报告<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hcnRhbGsuY2FybHplbmcudG9wOjQ0NDMvcm9ib3RzLnR4dA==" rel="noopener external nofollow noreferrer">https://artalk.carlzeng.top:4443/robots.txt</a> 这个页面下的。</p>
+<p>在artalk容器以及映射出来的目录找了半天也找不到这个文件，莫非是程序动态生成的（无解了？）<br>也可能是NPM的反代有这样的设置?<br>        <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuaW90cy52aXAvcG9zdC9oZXhvLWFydGFsay1jb21tZW50Lmh0bWw=" rel="noopener external nofollow noreferrer">https://www.iots.vip/post/hexo-artalk-comment.html</a></p>
+<p>在BT中，&#x2F;www&#x2F;server&#x2F;phpmyadmin&#x2F;phpmyadmin_c123@@&#x2F;目录下，搜索到了robots.txt, 修改内容为：<br>    User-agent: *<br>    Allow: &#x2F;<br>    继续访问<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hcnRhbGsuY2FybHplbmcudG9wOjQ0NDMvcm9ib3RzLnR4dCVFRiVCQyU5QiVFNCVCQiU4RCVFNyU4NCVCNiVFNiU5NyVBMCVFNiU5NSU4OA==" rel="noopener external nofollow noreferrer">https://artalk.carlzeng.top:4443/robots.txt；仍然无效</a><br>    尝试修改NPM中关于artalk反代的nginx配置文件，参考博客样式<br>    location &#x3D;&#x2F;robots.txt {<br>        default_type text&#x2F;html;<br>        add_header Content-Type “text&#x2F;plain; charset&#x3D;UTF-8”;<br>        return 200 “User-Agent: <em>\nAllow: &#x2F;</em>“;<br>    }</p>
 <p>12:56pm NPM配置好的一个个host，被保存在了debian映射出来的那个目录？<br>    原来都保存在了 docker-compose.yml 的目录下，<br>    &#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;NginxPorxyManager&#x2F;template&#x2F;data&#x2F;nginx&#x2F;proxy_host#</p>
 <ol>
 <li><p>修改配置nginx问题	root@Debian11:&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;NginxPorxyManager&#x2F;template&#x2F;data&#x2F;nginx&#x2F;proxy_host# vi 1.conf </p>
 </li>
 <li><p>重启NPM docker-compose<br> root@Debian11:&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;NginxPorxyManager&#x2F;template# docker-compose restart</p>
 </li>
-<li><p>验证 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hcnRhbGsuY2FybHplbmcudG9wOjQ0NDMvcm9ib3RzLnR4dA==" rel="noopener external nofollow noreferrer">https://artalk.carlzeng.top:4443/robots.txt</a><br> User-agent: *<br> Allow:&#x2F;<br> Works perfect</p>
+<li><p>验证 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hcnRhbGsuY2FybHplbmcudG9wOjQ0NDMvcm9ib3RzLnR4dA==" rel="noopener external nofollow noreferrer">https://artalk.carlzeng.top:4443/robots.txt</a><br> User-agent: *<br> Allow:&#x2F;<br> Works perfect</p>
 </li>
 </ol>
-<p>灵感来源：<br>    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuaW90cy52aXAvcG9zdC9oZXhvLWFydGFsay1jb21tZW50Lmh0bWw=" rel="noopener external nofollow noreferrer">如果需要 Nginx 反向代理， 这里提供一份 Nginx 配置参考</a><br>    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLXR3L1JvYm90cy50eHQ=" rel="noopener external nofollow noreferrer">https://zh.wikipedia.org/zh-tw/Robots.txt</a></p>
+<p>灵感来源：<br>    <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuaW90cy52aXAvcG9zdC9oZXhvLWFydGFsay1jb21tZW50Lmh0bWw=" rel="noopener external nofollow noreferrer">如果需要 Nginx 反向代理， 这里提供一份 Nginx 配置参考</a><br>    <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLXR3L1JvYm90cy50eHQ=" rel="noopener external nofollow noreferrer">https://zh.wikipedia.org/zh-tw/Robots.txt</a></p>
 <h2 id="Debian-11的一些基础"><a href="#Debian-11的一些基础" class="headerlink" title="Debian 11的一些基础"></a>Debian 11的一些基础</h2><pre><code>Debian 11默认是关闭ssh的，如何开启？设置了自动开启，断电重启就无忧
     旧方案是：在BT面板中开启SSH开关，然后用carl用户登录进ssh，在su，就可以到root用户下
     新的：
@@ -520,15 +520,15 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 <h2 id="缩短URL之简化4443端口成3端口"><a href="#缩短URL之简化4443端口成3端口" class="headerlink" title="缩短URL之简化4443端口成3端口"></a>缩短URL之简化4443端口成3端口</h2><p>尝试在NPM的docker把443映射成4443，同时增加了映射到3（后来发现这个步骤是可选的）</p>
 <img class="lozad" data-src=https://www.evernote.com/shard/s122/sh/04908e9f-02fa-4e85-ba8c-47448ca38092/uSFzRs0qKFfN6TqubZnYUk95Mlr6lsMFQtozVsBmzGLlvV_h8Tu1P_iXHg/deep/0/image.png>
 
-<p>原来仅需要在OP上，把3端口映射给重复的内部端口4443即可。<br>    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDo0NDQzL3R2" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:4443/tv</a><br>    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3R2" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:3/tv</a></p>
+<p>原来仅需要在OP上，把3端口映射给重复的内部端口4443即可。<br>    <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDo0NDQzL3R2" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:4443/tv</a><br>    <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3R2" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:3/tv</a></p>
 <h3 id="Docker端口映射之一对多的几种情况"><a href="#Docker端口映射之一对多的几种情况" class="headerlink" title="Docker端口映射之一对多的几种情况"></a>Docker端口映射之一对多的几种情况</h3><ol>
 <li>端口多对一，可行：访问宿主的多个端口可以映射到容器中的同一个端口。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker run -d -p 9000-9001:9000 tomcat:8.5-jre8</span><br></pre></td></tr></table></figure></li>
 <li>多对多的几种情况 9000-9001:9000-9001 可行<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker run -d -p 9000-9001:9000-9001 tomcat:8.5-jre8</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="NPM弊端？"><a href="#NPM弊端？" class="headerlink" title="NPM弊端？"></a>NPM弊端？</h2><p>不知为何本地局域网可访问的<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxLw==" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/</a> 无法映射代理到外网，来实现npm自己代理自己的目标。</p>
-<p>真是奇怪，<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ucG0uY2FybHplbmcudG9wOjQ0NDMv" rel="noopener external nofollow noreferrer">https://npm.carlzeng.top:4443/</a> 更可能是NPM自己做了什么设置？无法自己代理自己的web管理服务？</p>
-<div class="note success"><p>2023年12月初：解决办法：用<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer">在线云浏览器Firefox</a>，远程过去访问本地局域网的NPM面板即可</p>
-<p>Mamoto面板反代以后无法正常登录，也请使用<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer">在线云浏览器Firefox</a></p>
+<h2 id="NPM弊端？"><a href="#NPM弊端？" class="headerlink" title="NPM弊端？"></a>NPM弊端？</h2><p>不知为何本地局域网可访问的<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxLw==" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/</a> 无法映射代理到外网，来实现npm自己代理自己的目标。</p>
+<p>真是奇怪，<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9ucG0uY2FybHplbmcudG9wOjQ0NDMv" rel="noopener external nofollow noreferrer">https://npm.carlzeng.top:4443/</a> 更可能是NPM自己做了什么设置？无法自己代理自己的web管理服务？</p>
+<div class="note success"><p>2023年12月初：解决办法：用<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer">在线云浏览器Firefox</a>，远程过去访问本地局域网的NPM面板即可</p>
+<p>Mamoto面板反代以后无法正常登录，也请使用<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL3dlYjI=" rel="noopener external nofollow noreferrer">在线云浏览器Firefox</a></p>
 </div>
 
 
@@ -538,14 +538,14 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 <ol>
 <li><p>各个设备终端上网正常</p>
 </li>
-<li><p>画面卡死，无法登录 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxL25naW54L3Byb3h5" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/nginx/proxy</a></p>
+<li><p>画面卡死，无法登录 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxL25naW54L3Byb3h5" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/nginx/proxy</a></p>
 </li>
 <li><p>SSH可以到达192.168.6.1</p>
 <ol>
 <li>web到OP也正常</li>
 </ol>
 </li>
-<li><p>无法连接pve <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly8xOTIuMTY4LjYuMjo4MDA2Lw==" rel="noopener external nofollow noreferrer">https://192.168.6.2:8006</a></p>
+<li><p>无法连接pve <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly8xOTIuMTY4LjYuMjo4MDA2Lw==" rel="noopener external nofollow noreferrer">https://192.168.6.2:8006</a></p>
 <ol>
 <li>This site can’t be reached192.168.6.2 took too long to respond.</li>
 </ol>
@@ -555,22 +555,22 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 <li>kex_exchange_identification: read: Operation timed out<br>banner exchange: Connection to 192.168.6.116 port 22: Operation timed out</li>
 </ol>
 </li>
-<li><p>metaUI无法正常打开，<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MC8jL292ZXJ2aWV3" rel="noopener external nofollow noreferrer">http://192.168.6.116:9090/#/overview</a></p>
+<li><p>metaUI无法正常打开，<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MC8jL292ZXJ2aWV3" rel="noopener external nofollow noreferrer">http://192.168.6.116:9090/#/overview</a></p>
 <ol>
 <li>This site can’t be reached192.168.6.116 took too long to respond.</li>
 </ol>
 </li>
-<li><p>StatCount 无法正常打开，<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODU5Ny9pbmRleC5waHA/bW9kdWxlPUNvcmVIb21lJmFjdGlvbj1pbmRleCZpZFNpdGU9MSZwZXJpb2Q9ZGF5JmRhdGU9eWVzdGVyZGF5Iz9wZXJpb2Q9ZGF5JmRhdGU9MjAyMy0xMi0wMSZpZFNpdGU9MSZjYXRlZ29yeT1EYXNoYm9hcmRfRGFzaGJvYXJkJnN1YmNhdGVnb3J5PTE=" rel="noopener external nofollow noreferrer">http://192.168.6.116:8597/index.php?module=CoreHome&amp;action=index&amp;idSite=1&amp;period=day&amp;date=yesterday#?period=day&amp;date=2023-12-01&amp;idSite=1&amp;category=Dashboard_Dashboard&amp;subcategory=1</a></p>
+<li><p>StatCount 无法正常打开，<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODU5Ny9pbmRleC5waHA/bW9kdWxlPUNvcmVIb21lJmFjdGlvbj1pbmRleCZpZFNpdGU9MSZwZXJpb2Q9ZGF5JmRhdGU9eWVzdGVyZGF5Iz9wZXJpb2Q9ZGF5JmRhdGU9MjAyMy0xMi0wMSZpZFNpdGU9MSZjYXRlZ29yeT1EYXNoYm9hcmRfRGFzaGJvYXJkJnN1YmNhdGVnb3J5PTE=" rel="noopener external nofollow noreferrer">http://192.168.6.116:8597/index.php?module=CoreHome&amp;action=index&amp;idSite=1&amp;period=day&amp;date=yesterday#?period=day&amp;date=2023-12-01&amp;idSite=1&amp;category=Dashboard_Dashboard&amp;subcategory=1</a></p>
 <ol>
 <li>This site can’t be reached192.168.6.116 took too long to respond.</li>
 </ol>
 </li>
-<li><p>IPNAS 无法打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4yMDM6NTAwMC8=" rel="noopener external nofollow noreferrer">http://192.168.6.203:5000/</a></p>
+<li><p>IPNAS 无法打开<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4yMDM6NTAwMC8=" rel="noopener external nofollow noreferrer">http://192.168.6.203:5000/</a></p>
 <ol>
 <li>奇怪的是：用手机可以正常打开；反复测试中</li>
 </ol>
 </li>
-<li><p>NAS中的docker Aria2 可以正常使用 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hcmlhMi5jYXJsemVuZy50b3A6NDQ0My8jIS9kb3dubG9hZGluZw==" rel="noopener external nofollow noreferrer">https://aria2.carlzeng.top:4443/#!/downloading</a></p>
+<li><p>NAS中的docker Aria2 可以正常使用 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hcmlhMi5jYXJsemVuZy50b3A6NDQ0My8jIS9kb3dubG9hZGluZw==" rel="noopener external nofollow noreferrer">https://aria2.carlzeng.top:4443/#!/downloading</a></p>
 </li>
 <li><p>Debian clash 的 7890无法正常使用</p>
 </li>
@@ -578,17 +578,17 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 <ol>
 <li>artalk 正常</li>
 <li>bt 无法连接web</li>
-<li>dujiaoka正常<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9idXkuY2FybHplbmcudG9wOjQ0NDMv" rel="noopener external nofollow noreferrer">https://buy.carlzeng.top:4443/</a></li>
-<li>Yourls正常<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2FkbWluL2luZGV4LnBocA==" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:3/admin/index.php</a><ol>
-<li>Yourls后台可以正常登录查看<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2FkbWluL2luZGV4LnBocA==" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:3/admin/index.php</a></li>
+<li>dujiaoka正常<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9idXkuY2FybHplbmcudG9wOjQ0NDMv" rel="noopener external nofollow noreferrer">https://buy.carlzeng.top:4443/</a></li>
+<li>Yourls正常<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2FkbWluL2luZGV4LnBocA==" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:3/admin/index.php</a><ol>
+<li>Yourls后台可以正常登录查看<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLnRvcDozL2FkbWluL2luZGV4LnBocA==" rel="noopener external nofollow noreferrer">https://c.carlzeng.top:3/admin/index.php</a></li>
 </ol>
 </li>
-<li>metaUI又能正常打开了，<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MC8jL292ZXJ2aWV3" rel="noopener external nofollow noreferrer">http://192.168.6.116:9090/#/overview</a><ol>
-<li>可是，仍然无法连接到<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MS8=" rel="noopener external nofollow noreferrer">http://192.168.6.116:9091</a></li>
+<li>metaUI又能正常打开了，<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MC8jL292ZXJ2aWV3" rel="noopener external nofollow noreferrer">http://192.168.6.116:9090/#/overview</a><ol>
+<li>可是，仍然无法连接到<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MS8=" rel="noopener external nofollow noreferrer">http://192.168.6.116:9091</a></li>
 </ol>
 </li>
-<li>NPM无法正常打开<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxL25naW54L3Byb3h5" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/nginx/proxy</a></li>
-<li>Hnet Web首页正常了<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9wcm94eS5jYXJsemVuZy50b3A6NDQ0My8=" rel="noopener external nofollow noreferrer">https://proxy.carlzeng.top:4443/</a></li>
+<li>NPM无法正常打开<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxL25naW54L3Byb3h5" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/nginx/proxy</a></li>
+<li>Hnet Web首页正常了<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9wcm94eS5jYXJsemVuZy50b3A6NDQ0My8=" rel="noopener external nofollow noreferrer">https://proxy.carlzeng.top:4443/</a></li>
 <li>电脑端的statcounter无法打开，可是手机端（在系统中）可以正常查看各种信息<ol>
 <li>奇怪</li>
 </ol>
@@ -682,7 +682,7 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
 <li><p>反复的dig查询dig img.carlzeng.top（检查ANSWER SECTION 中的TTL）</p>
 </li>
 <li><p>更换本机DNS IP服务器地址（切换以后，dig查询发现 TTL值，一直加快速度地变小，相对于不切换DNS服务器的情况下）</p>
-<p>Note： <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ob3d0b3VzZWxpbnV4Lm1lZGl1bS5jb20vZG5zJUU4JUFFJUIwJUU1JUJEJTk1JUU4JUFGJUE2JUU4JUE3JUEzLTM1NWU5MjNmMWNjYw==" rel="noopener external nofollow noreferrer">DNS记录详解</a> 中详细讲解了TTL的含义及设计原理</p>
+<p>Note： <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9ob3d0b3VzZWxpbnV4Lm1lZGl1bS5jb20vZG5zJUU4JUFFJUIwJUU1JUJEJTk1JUU4JUFGJUE2JUU4JUE3JUEzLTM1NWU5MjNmMWNjYw==" rel="noopener external nofollow noreferrer">DNS记录详解</a> 中详细讲解了TTL的含义及设计原理</p>
 </li>
 </ol>
 <h3 id="DNS相关命令"><a href="#DNS相关命令" class="headerlink" title="DNS相关命令"></a>DNS相关命令</h3><p>dig命令：</p>
@@ -709,18 +709,18 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
 </ul>
 <h3 id="K2P-udpxy异常"><a href="#K2P-udpxy异常" class="headerlink" title="K2P udpxy异常"></a>K2P udpxy异常</h3><p>ps 发现系统有：<br>441 admin      776 S  &#x2F;usr&#x2F;sbin&#x2F;udpxy -m br0 -p 8012 -B 65536 -c 10 -M 120</p>
 <p>kill -9 441 后，运行<br>udpxy -p 8012</p>
-<p>udpxy一切正常了；可以正常使用VLC播放：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4yNDM6ODAxMi9ydHAvMjM5LjMuMS4xNTg6ODAwMA==" rel="noopener external nofollow noreferrer">http://192.168.6.243:8012/rtp/239.3.1.158:8000</a></p>
+<p>udpxy一切正常了；可以正常使用VLC播放：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4yNDM6ODAxMi9ydHAvMjM5LjMuMS4xNTg6ODAwMA==" rel="noopener external nofollow noreferrer">http://192.168.6.243:8012/rtp/239.3.1.158:8000</a></p>
 <p>测试：</p>
-<p>UI上看太玄学了，kill掉‘udpxy -p 8012’，重新检查ps中udpxy都消失后，重新<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4yNDMvQWR2YW5jZWRfSVBUVl9Db250ZW50LmFzcA==" rel="noopener external nofollow noreferrer">提交IPTV页面</a>一切正常了。</p>
+<p>UI上看太玄学了，kill掉‘udpxy -p 8012’，重新检查ps中udpxy都消失后，重新<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4yNDMvQWR2YW5jZWRfSVBUVl9Db250ZW50LmFzcA==" rel="noopener external nofollow noreferrer">提交IPTV页面</a>一切正常了。</p>
 <p>这导致每次重启K2P都需要运行 &#x2F;usr&#x2F;sbin&#x2F;udpxy -p 8012 </p>
-<p>即便在<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4yNDMvQWR2YW5jZWRfU2NyaXB0c19Db250ZW50LmFzcA==" rel="noopener external nofollow noreferrer">自定义脚本》路由器启动后执行</a>定义了 &#x2F;usr&#x2F;sbin&#x2F;udpxy -p 8012 也不知道是否管用？</p>
+<p>即便在<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4yNDMvQWR2YW5jZWRfU2NyaXB0c19Db250ZW50LmFzcA==" rel="noopener external nofollow noreferrer">自定义脚本》路由器启动后执行</a>定义了 &#x2F;usr&#x2F;sbin&#x2F;udpxy -p 8012 也不知道是否管用？</p>
 <blockquote>
 <p>期待下一次的断电重启测试</p>
 </blockquote>
 <hr>
 <p>无意间点进PVE，不看不知道，一看吓一跳：</p>
 <p>原来很可能是pve的磁盘占用 96.69% (104.62 GiB的108.20 GiB）</p>
-<p>我不知道&#x2F;dev&#x2F;sdb3(在SSD128上面, Reeinno CY128GB S1S3上面)为何就满了？里面放了什么了？<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1zbFozU3dGZmxIVQ==" rel="noopener external nofollow noreferrer">pve存储空间扩容 磁盘大小调整 proxmox6</a></p>
+<p>我不知道&#x2F;dev&#x2F;sdb3(在SSD128上面, Reeinno CY128GB S1S3上面)为何就满了？里面放了什么了？<br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1zbFozU3dGZmxIVQ==" rel="noopener external nofollow noreferrer">pve存储空间扩容 磁盘大小调整 proxmox6</a></p>
 <p>采取措施（对debian和NAS）</p>
 <p>​	docker volume prune<br>​	docker image prune</p>
 <p>没招，找了一圈又一圈：没有找到解决办法。</p>
@@ -771,12 +771,12 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
 </ol>
 <p>这个BT还是更适合方便+初级用户+快速上线，很高心释放出了30G空间。下一步：找BT替换方案。</p>
 <p>感谢列表：</p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ydXhpLm9yZy8zODYuaHRtbA==" rel="noopener external nofollow noreferrer">一个反向代理神器——Nginx Proxy Manager&gt;修改Docker配置</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3JlYWQvY3YyMTg3MjUxNi8=" rel="noopener external nofollow noreferrer">一种给PVE虚拟机磁盘扩容的方法</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9ydXhpLm9yZy8zODYuaHRtbA==" rel="noopener external nofollow noreferrer">一个反向代理神器——Nginx Proxy Manager&gt;修改Docker配置</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3JlYWQvY3YyMTg3MjUxNi8=" rel="noopener external nofollow noreferrer">一种给PVE虚拟机磁盘扩容的方法</a></p>
 <h1 id="如何迁移-导入-导出-NPM-数据库"><a href="#如何迁移-导入-导出-NPM-数据库" class="headerlink" title="如何迁移&#x2F;导入&#x2F;导出 NPM 数据库"></a>如何迁移&#x2F;导入&#x2F;导出 NPM 数据库</h1><ol>
 <li><p>Copy the <code>/data</code> and <code>/etc/letsencrypt</code> volumes to your new instance and mount them into your new instance. If you use the default config</p>
 </li>
-<li><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL05naW54UHJveHlNYW5hZ2VyL25naW54LXByb3h5LW1hbmFnZXIvZGlzY3Vzc2lvbnMvMTUyOSNleHBvcnQtZnJvbS1tYXJpYWRi" rel="noopener external nofollow noreferrer">Export the database</a> if you are using the MariaDB &#x2F; MySQL database. If you are using the SQLite database it is likely included in your <code>data</code> folder, otherwise just copy the file over. Also possible using <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL05naW54UHJveHlNYW5hZ2VyL25naW54LXByb3h5LW1hbmFnZXIvZGlzY3Vzc2lvbnMvMTUyOSNleHBvcnQtZnJvbS1tYXJpYWRiLWRiZWF2ZXI=" rel="noopener external nofollow noreferrer">DBeaver</a>.</p>
+<li><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL05naW54UHJveHlNYW5hZ2VyL25naW54LXByb3h5LW1hbmFnZXIvZGlzY3Vzc2lvbnMvMTUyOSNleHBvcnQtZnJvbS1tYXJpYWRi" rel="noopener external nofollow noreferrer">Export the database</a> if you are using the MariaDB &#x2F; MySQL database. If you are using the SQLite database it is likely included in your <code>data</code> folder, otherwise just copy the file over. Also possible using <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL05naW54UHJveHlNYW5hZ2VyL25naW54LXByb3h5LW1hbmFnZXIvZGlzY3Vzc2lvbnMvMTUyOSNleHBvcnQtZnJvbS1tYXJpYWRiLWRiZWF2ZXI=" rel="noopener external nofollow noreferrer">DBeaver</a>.</p>
 <ol>
 <li><pre><code class="shell">docker exec -it [db-container-name] mysqldump --user=[mysql-user] --password=[mysql-password] [mysql-db-name] -h 127.0.0.1 &gt; npm-export.sql
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">我的实例是</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line">docker exec -i template-app-1 apt-get update</span><br><span class="line">docker exec -i template-app-1 apt-get install -y default-mysql-client</span><br><span class="line">docker exec -it template-app-1 mysqldump --user=npm --password=npm npm -h 127.0.0.1 &gt; my-export2024010501.sql</span><br><span class="line"></span><br><span class="line">mysqldump: Got error: 2002: &quot;Can&#x27;t connect to MySQL server on &#x27;127.0.0.1&#x27; (115)&quot; when trying to connect</span><br><span class="line"></span><br><span class="line">docker exec -it template-app-1 mysqldump --user=npm --password=npm npm -h 127.0.0.1 &gt; my-export2024010501.sql</span><br><span class="line"></span><br><span class="line">#我就卡在这步，也不用往前了，因为我用的是sqlite文件型数据库，直接复制就可以备份了</span><br><span class="line">docker cp 2c88aa4ba4d5:/data/database.sqlite /home/pi/database.sqlite</span><br></pre></td></tr></table></figure>
@@ -784,7 +784,7 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
 </li>
 </ol>
 </li>
-<li><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL05naW54UHJveHlNYW5hZ2VyL25naW54LXByb3h5LW1hbmFnZXIvZGlzY3Vzc2lvbnMvMTUyOSNpbXBvcnQtdG8tbWFyaWFkYg==" rel="noopener external nofollow noreferrer">Import the database</a> to your new database container (if you are using the MariaDB &#x2F; MySQL database). Also possible using <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL05naW54UHJveHlNYW5hZ2VyL25naW54LXByb3h5LW1hbmFnZXIvZGlzY3Vzc2lvbnMvMTUyOSNpbXBvcnQtdG8tbWFyaWFkYi1kYmVhdmVy" rel="noopener external nofollow noreferrer">DBeaver</a>.</p>
+<li><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL05naW54UHJveHlNYW5hZ2VyL25naW54LXByb3h5LW1hbmFnZXIvZGlzY3Vzc2lvbnMvMTUyOSNpbXBvcnQtdG8tbWFyaWFkYg==" rel="noopener external nofollow noreferrer">Import the database</a> to your new database container (if you are using the MariaDB &#x2F; MySQL database). Also possible using <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL05naW54UHJveHlNYW5hZ2VyL25naW54LXByb3h5LW1hbmFnZXIvZGlzY3Vzc2lvbnMvMTUyOSNpbXBvcnQtdG8tbWFyaWFkYi1kYmVhdmVy" rel="noopener external nofollow noreferrer">DBeaver</a>.</p>
 <ol>
 <li><pre><code class="shell">docker exec -i [db-container-name] mysql --user=[mysql-user] --password=[mysql-password] [mysql-db-name] -h 127.0.0.1 &lt; npm-export.sql
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">      </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">假如mysqldump没有在容器里面</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -809,11 +809,11 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
 <p>每三个月都要这么操作一下</p>
 <p>TODO</p>
 <p>Migrate to </p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2dkeTY2Ni9sdWNreQ==" rel="noopener external nofollow noreferrer">软硬路由公网神器,ipv6&#x2F;ipv4 端口转发,反向代理,DDNS,WOL,ipv4 stun内网穿透,cron,acme,阿里云盘,ftp,webdav,filebrowser</a></p>
-<p>官网: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9sdWNreTY2Ni5jbi8=" rel="noopener external nofollow noreferrer">https://lucky666.cn/</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2dkeTY2Ni9sdWNreQ==" rel="noopener external nofollow noreferrer">软硬路由公网神器,ipv6&#x2F;ipv4 端口转发,反向代理,DDNS,WOL,ipv4 stun内网穿透,cron,acme,阿里云盘,ftp,webdav,filebrowser</a></p>
+<p>官网: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9sdWNreTY2Ni5jbi8=" rel="noopener external nofollow noreferrer">https://lucky666.cn/</a></p>
 <p>替代方案介绍: </p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9wb3N0LnNtemRtLmNvbS9wL2F3ejRkbnJrLw==" rel="noopener external nofollow noreferrer">使用Lucky轻松实现反向代理+Https外网访问家庭NAS</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYW5neHVlc2hlbmcuY29tL2FyY2hpdmVzLzk5MS5odG1s" rel="noopener external nofollow noreferrer">openwrt使用lucky插件开启反向代理服务</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9wb3N0LnNtemRtLmNvbS9wL2F3ejRkbnJrLw==" rel="noopener external nofollow noreferrer">使用Lucky轻松实现反向代理+Https外网访问家庭NAS</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zYW5neHVlc2hlbmcuY29tL2FyY2hpdmVzLzk5MS5odG1s" rel="noopener external nofollow noreferrer">openwrt使用lucky插件开启反向代理服务</a></p>
 
 
         <!-- search & recent posts(added 20240914) -->
@@ -882,7 +882,7 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
           </div>
         </p>
 
-        <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
+        <a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
         <img src="https://c.carlzeng.com:3/wechatScan.png" border="0">
 
 
@@ -916,14 +916,14 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
 <ul>
   <li class="post-copyright-author">
       <strong>本文作者： </strong>Carl Notes
-    <a href='https://www.carlzeng.top/202311032202.html'> 《Nginx Proxy Manager修复笔记》</a>
+    <a href='https://www.carlzeng.com/202311032202.html'> 《Nginx Proxy Manager修复笔记》</a>
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.carlzeng.top/202311032202.html" title="Nginx Proxy Manager修复笔记">https://www.carlzeng.top/202311032202.html</a>
+      <a href="https://www.carlzeng.com/202311032202.html" title="Nginx Proxy Manager修复笔记">https://www.carlzeng.com/202311032202.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -1048,12 +1048,12 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
 
 
 <div class="followme">
-  <span>您可以<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer">提交需求反馈</a>, <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a> 或 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLmNvbTozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">打赏作者</a>.</span>
+  <span>您可以<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer">提交需求反馈</a>, <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a> 或 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLmNvbTozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">打赏作者</a>.</span>
 
   <div class="social-list">
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
@@ -1063,7 +1063,7 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
@@ -1073,7 +1073,7 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tLzIwMjMxMjA4MTEyOC5odG1s" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/202312081128.html">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -1083,7 +1083,7 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -1093,7 +1093,7 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fa fa-rss"></i>
             </span>
@@ -1103,7 +1103,7 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -1113,7 +1113,7 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -1123,7 +1123,7 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -1133,7 +1133,7 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -1156,8 +1156,8 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
 
           <div class="post-tags">
             继续浏览有关
-              <a href="/tags/docker/" rel="tag"># docker</a>
               <a href="/tags/debian/" rel="tag"># debian</a>
+              <a href="/tags/docker/" rel="tag"># docker</a>
               <a href="/tags/NPM/" rel="tag"># NPM</a>
               <a href="/tags/docker-compose/" rel="tag"># docker-compose</a>
               <a href="/tags/%E5%AE%B6%E5%AE%BD/" rel="tag"># 家宽</a>
@@ -1241,22 +1241,22 @@ PING frp.carlzeng.top (221.218.236.157): 56 data bytes
     var _paq = window._paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-    _paq.push(["setCookieDomain", "*.carlzeng.top"]);
+    _paq.push(["setCookieDomain", "*.carlzeng.com"]);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-      var u="//statcounter.carlzeng.top:4443/";
+      var u="//statcounter.carlzeng.com:4443/";
       _paq.push(['setTrackerUrl', u+'matomo.php']);
       _paq.push(['setSiteId', '1']);
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
       g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
   </script>
-  <noscript><p><img src="//statcounter.carlzeng.top:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <noscript><p><img src="//statcounter.carlzeng.com:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
   <!-- End Matomo Code -->
 
 <div class="powered-by">
-    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL3NpdGVtYXAueG1s" rel="noopener external nofollow noreferrer">Sitemap</a> | <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL3JzczIueG1s" rel="noopener external nofollow noreferrer">RSS</a> | 选择服务器：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">Main</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oay5jYXJsemVuZy50b3A=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">US</a>
+    <a href='https://www.carlzeng.com/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.com/rss2.xml'>RSS</a> | 选择服务器：<a href="https://www.carlzeng.com">Main</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">US</a>
 </div>
 
     </div>

@@ -16,12 +16,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="2024年10月更新: 提升可用性节点的自动判断准确率(升级配置中URL Test地址), 使https:&#x2F;&#x2F;proxy.carlzeng.top:3可用性和稳定性增强. 新增安卓手机端更详细的操作步骤以及截图等 2023年12月更新：正式替换Mac端Clash for Windows为：Clash Verge。详见以下章节目录‘Clash Verge (MAC)’">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)(部分转载)">
-<meta property="og:url" content="https://www.carlzeng.top/202310051715.html">
+<meta property="og:url" content="https://www.carlzeng.com/202310051715.html">
 <meta property="og:site_name" content="云随笔 Carl Notes">
 <meta property="og:description" content="2024年10月更新: 提升可用性节点的自动判断准确率(升级配置中URL Test地址), 使https:&#x2F;&#x2F;proxy.carlzeng.top:3可用性和稳定性增强. 新增安卓手机端更详细的操作步骤以及截图等 2023年12月更新：正式替换Mac端Clash for Windows为：Clash Verge。详见以下章节目录‘Clash Verge (MAC)’">
 <meta property="og:locale" content="zh_CN">
@@ -40,6 +40,7 @@
 <meta property="article:published_time" content="2023-10-05T09:15:48.000Z">
 <meta property="article:modified_time" content="2024-10-07T12:36:53.321Z">
 <meta property="article:author" content="Carl Notes">
+<meta property="article:tag" content="docker">
 <meta property="article:tag" content="Clash">
 <meta property="article:tag" content="转载">
 <meta property="article:tag" content="墙">
@@ -51,17 +52,16 @@
 <meta property="article:tag" content="OpenWrt">
 <meta property="article:tag" content="go">
 <meta property="article:tag" content="科学上网">
-<meta property="article:tag" content="docker">
 <meta property="article:tag" content="Clash Verge">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2020/06/16/BSEwKabNtpd2OZM.png">
 
 
-<link rel="canonical" href="https://www.carlzeng.top/202310051715.html">
+<link rel="canonical" href="https://www.carlzeng.com/202310051715.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/202310051715.html","path":"202310051715.html","title":"Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)(部分转载)"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.com/202310051715.html","path":"202310051715.html","title":"Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)(部分转载)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)(部分转载) | 云随笔 Carl Notes</title>
@@ -114,7 +114,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">245</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">70</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">366</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NhbQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">245</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">70</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">366</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NhbQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -394,7 +394,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202310051715.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/202310051715.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -462,7 +462,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><div class="note success"><p>2024年10月更新: 提升可用性节点的自动判断准确率(升级配置中URL Test地址), 使<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9wcm94eS5jYXJsemVuZy50b3A6My8=" rel="noopener external nofollow noreferrer">https://proxy.carlzeng.top:3</a>可用性和稳定性增强. 新增安卓手机端更详细的操作步骤以及截图等</p>
+    <div class="post-body" itemprop="articleBody"><div class="note success"><p>2024年10月更新: 提升可用性节点的自动判断准确率(升级配置中URL Test地址), 使<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9wcm94eS5jYXJsemVuZy50b3A6My8=" rel="noopener external nofollow noreferrer">https://proxy.carlzeng.top:3</a>可用性和稳定性增强. 新增安卓手机端更详细的操作步骤以及截图等</p>
 <p>2023年12月更新：正式替换Mac端Clash for Windows为：Clash Verge。详见以下章节目录‘Clash Verge (MAC)’</p>
 </div>
 
@@ -470,11 +470,11 @@
 
 <iframe style="box-shadow: 0px 0px 20px -10px;" src="https://c.carlzeng.top:3/web" frameborder="0" scrolling="auto" width="100%" height="600"></iframe>
 
-<h1 id="1-下载与安装"><a href="#1-下载与安装" class="headerlink" title="1. 下载与安装"></a>1. 下载与安装</h1><p>   访问 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0ZuZHJvaWQvY2xhc2hfZm9yX3dpbmRvd3NfcGtnL3JlbGVhc2Vz" rel="noopener external nofollow noreferrer">Clash for Windows 官方 Github Releases [已失效]</a> 或搜索 Repo 更新网站下载客户端<br>   对于 Windows，下载 Clash.for.Windows.Setup.版本号.exe 文件，不要下载带 arm64 字样的 exe 运行文件<br>   对于 MacOS，下载 Clash.for.Windows-版本号.dmg 文件。<br>   对于 Andriod, 下载等等请参见下方 Clash for Android 章节。</p>
+<h1 id="1-下载与安装"><a href="#1-下载与安装" class="headerlink" title="1. 下载与安装"></a>1. 下载与安装</h1><p>   访问 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL0ZuZHJvaWQvY2xhc2hfZm9yX3dpbmRvd3NfcGtnL3JlbGVhc2Vz" rel="noopener external nofollow noreferrer">Clash for Windows 官方 Github Releases [已失效]</a> 或搜索 Repo 更新网站下载客户端<br>   对于 Windows，下载 Clash.for.Windows.Setup.版本号.exe 文件，不要下载带 arm64 字样的 exe 运行文件<br>   对于 MacOS，下载 Clash.for.Windows-版本号.dmg 文件。<br>   对于 Andriod, 下载等等请参见下方 Clash for Android 章节。</p>
 <p>在 Windows 上，直接双击 exe 文件进行安装。如果提示“阻止了无法识别的应用启动”，请点击“更多信息”，然后再点击“仍要运行”进行安装。</p>
-<p>说明书：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zdGFzaC53aWtpL2VuL3Byb3h5LXByb3RvY29scy9wcm94eS1ncm91cHM=" rel="noopener external nofollow noreferrer">https://stash.wiki/en/proxy-protocols/proxy-groups</a></p>
-<h2 id="1-1-下载地址二"><a href="#1-1-下载地址二" class="headerlink" title="1.1 下载地址二"></a>1.1 下载地址二</h2><p>   v2rayN永久更新地址<br>   <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tLzJkdXN0L3YycmF5Ti9yZWxlYXNlcw==" rel="noopener external nofollow noreferrer">https://github.com/2dust/v2rayN/releases</a></p>
-<p>   Clash永久更新地址<br>   <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0ZuZHJvaWQvY2xhc2hfZm9yX3dpbmRvd3NfcGtnL3JlbGVhc2Vz" rel="noopener external nofollow noreferrer">https://github.com/Fndroid/clash_for_windows_pkg/releases</a></p>
+<p>说明书：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zdGFzaC53aWtpL2VuL3Byb3h5LXByb3RvY29scy9wcm94eS1ncm91cHM=" rel="noopener external nofollow noreferrer">https://stash.wiki/en/proxy-protocols/proxy-groups</a></p>
+<h2 id="1-1-下载地址二"><a href="#1-1-下载地址二" class="headerlink" title="1.1 下载地址二"></a>1.1 下载地址二</h2><p>   v2rayN永久更新地址<br>   <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tLzJkdXN0L3YycmF5Ti9yZWxlYXNlcw==" rel="noopener external nofollow noreferrer">https://github.com/2dust/v2rayN/releases</a></p>
+<p>   Clash永久更新地址<br>   <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL0ZuZHJvaWQvY2xhc2hfZm9yX3dpbmRvd3NfcGtnL3JlbGVhc2Vz" rel="noopener external nofollow noreferrer">https://github.com/Fndroid/clash_for_windows_pkg/releases</a></p>
 <h1 id="2-获取配置"><a href="#2-获取配置" class="headerlink" title="2. 获取配置"></a>2. 获取配置</h1><p>   登入客户中心后，依次访问“产品服务” &gt; “我的产品与服务”(点击前往)，以查看 Trojan 服务对应的服务器信息。</p>
 <p>在产品详情页面，获取 Clash 服务器的订阅链接。</p>
 <img data-src="https://i.loli.net/2020/06/16/BSEwKabNtpd2OZM.png" alt="portal-clash-get-link.png" width="822" height="107" />
@@ -497,7 +497,7 @@
 <img data-src="https://i.loli.net/2021/09/13/1DhxmedGlP7NRcV.png" alt="cfw-select-node.png" width="100%" height />
 
 <p>选择节点后可能不会立即生效。建议返回“General”页面，点击“Clash for Windows”字样，通过快速重启客户端重新载入配置。</p>
-<p>此时，Clash已经通过设置系统代理的方式开始工作，使用系统代理的软件已经可以正常使用。可以使用IE &#x2F; EDGE &#x2F; Safari访问 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8=" rel="noopener external nofollow noreferrer">https://www.google.com</a> 进行测试。</p>
+<p>此时，Clash已经通过设置系统代理的方式开始工作，使用系统代理的软件已经可以正常使用。可以使用IE &#x2F; EDGE &#x2F; Safari访问 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8=" rel="noopener external nofollow noreferrer">https://www.google.com</a> 进行测试。</p>
 <h2 id="4-2-Global-全局规则选项"><a href="#4-2-Global-全局规则选项" class="headerlink" title="4.2 Global 全局规则选项"></a>4.2 Global 全局规则选项</h2><p>Global 页面是用于设置 Clash 的代理规则，即设置 Clash 如何处理访问请求。</p>
 <p>Direct 表示直接连接，不使用代理。<br><img data-src="https://repo.yizhihongxing.app/images/trojan/clash-win/cfw-rule-direct.png" alt="cfw-rule-direct.png" /><br>Reject 表示全部拒绝访问。<br><img data-src="https://repo.yizhihongxing.app/images/trojan/clash-win/cfw-rule-reject.png" alt="cfw-rule-reject.png" /><br>其他直接选中节点表示所有请求都会通过代理，类似于 Shadowsocks 的全局模式。<br>而选择 Global 页面右侧的 Rule 标签，则表示使用的是自动切换模式，类似于其他软件的 PAC 模式。</p>
 <h1 id="5-Chrome-Edge-Firefox-配合-SwitchyOmega-扩展"><a href="#5-Chrome-Edge-Firefox-配合-SwitchyOmega-扩展" class="headerlink" title="5. Chrome &#x2F; Edge &#x2F; Firefox 配合 SwitchyOmega 扩展"></a>5. Chrome &#x2F; Edge &#x2F; Firefox 配合 SwitchyOmega 扩展</h1><p>   如果不想使用客户端的系统代理，您可以通过安装浏览器扩展来使用 Clash。（支持 Chrome &#x2F; Firefox &#x2F; 新版 Edge 浏览器）</p>
@@ -506,7 +506,7 @@
 <img data-src="https://repo.yizhihongxing.app/images/trojan/clash-win/cfw-swo-port.png" alt="cfw-swo-port.png" />
 
 <hr>
-<p>来源<br>【Windows &#x2F; macOS】 Clash for Windows 设置方法<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9vcmRlci55aXpoaWhvbmd4aW5nLm9yZy9pbmRleC5waHA/cnA9L2tub3dsZWRnZWJhc2UvMjcv" rel="noopener external nofollow noreferrer">https://order.yizhihongxing.org/index.php?rp=/knowledgebase/27/</a><br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9vcmRlci55aXpoaWhvbmd4aW5nLm9yZy9pbmRleC5waHA/cnA9L2tub3dsZWRnZWJhc2UvMTMv" rel="noopener external nofollow noreferrer">https://order.yizhihongxing.org/index.php?rp=/knowledgebase/13/</a></p>
+<p>来源<br>【Windows &#x2F; macOS】 Clash for Windows 设置方法<br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9vcmRlci55aXpoaWhvbmd4aW5nLm9yZy9pbmRleC5waHA/cnA9L2tub3dsZWRnZWJhc2UvMjcv" rel="noopener external nofollow noreferrer">https://order.yizhihongxing.org/index.php?rp=/knowledgebase/27/</a><br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9vcmRlci55aXpoaWhvbmd4aW5nLm9yZy9pbmRleC5waHA/cnA9L2tub3dsZWRnZWJhc2UvMTMv" rel="noopener external nofollow noreferrer">https://order.yizhihongxing.org/index.php?rp=/knowledgebase/13/</a></p>
 <h1 id="Clash配置文件之-策略组"><a href="#Clash配置文件之-策略组" class="headerlink" title="Clash配置文件之 策略组"></a>Clash配置文件之 策略组</h1><p>策略组有：延迟最低、故障转移、手动选择、负载均衡 四种模式。<br>对应type：url-test、fallback、select、load-balance 和 relay</p>
 <ul>
 <li><p>延迟最低，顾名思义，每隔一段时间进行延迟测试，选择延迟最低的节点。</p>
@@ -527,9 +527,9 @@
 把 type 修改为 url-test;</li>
 </ul>
 <p>原先求负载均衡的值是：type: load-balance</p>
-<p>详解解释参见：<a href="https://www.carlzeng.top/202310011555.html?highlight=clash+load+balance#proxypool-%E6%97%A0%E6%B3%95%E6%8A%93%E5%8F%96%E5%BD%93%E5%89%8D%E8%87%AA%E5%B7%B1%E6%9C%AC%E6%9C%BA%E8%BF%90%E8%A1%8C%E7%9A%84%E5%8F%AF%E7%94%A8%E7%9A%84%E8%8A%82%E7%82%B9%EF%BC%8C">Clash load balance 方案中，服务器群，如何对新连接，会优先选择测速最快的节点？</a></p>
+<p>详解解释参见：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY2FybHplbmcudG9wLzIwMjMxMDAxMTU1NS5odG1sP2hpZ2hsaWdodD1jbGFzaCtsb2FkK2JhbGFuY2UjcHJveHlwb29sLSVFNiU5NyVBMCVFNiVCMyU5NSVFNiU4QSU5MyVFNSU4RiU5NiVFNSVCRCU5MyVFNSU4OSU4RCVFOCU4NyVBQSVFNSVCNyVCMSVFNiU5QyVBQyVFNiU5QyVCQSVFOCVCRiU5MCVFOCVBMSU4QyVFNyU5QSU4NCVFNSU4RiVBRiVFNyU5NCVBOCVFNyU5QSU4NCVFOCU4QSU4MiVFNyU4MiVCOSVFRiVCQyU4Qw==" rel="noopener external nofollow noreferrer">Clash load balance 方案中，服务器群，如何对新连接，会优先选择测速最快的节点？</a></p>
 <h3 id="这个-interval-300-每5分钟可能太过于频繁了"><a href="#这个-interval-300-每5分钟可能太过于频繁了" class="headerlink" title="这个 interval: 300 每5分钟可能太过于频繁了"></a>这个 interval: 300 每5分钟可能太过于频繁了</h3><p>导致节点经常现实Timeout，可是仍然是可以使用的，这代表是轮询过于频繁了？<br>而测试过600（10分钟）又太缓慢了，现修改为450；继续测试</p>
-<p>另外一个因素出现在这URL Test的目的地：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jbGllbnRzMy5nb29nbGUuY29tL2dlbmVyYXRlXzIwNA==" rel="noopener external nofollow noreferrer">https://clients3.google.com/generate_204</a><br>这个目的地出现问题会导致测速结果都是错误的，导致误判。</p>
+<p>另外一个因素出现在这URL Test的目的地：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jbGllbnRzMy5nb29nbGUuY29tL2dlbmVyYXRlXzIwNA==" rel="noopener external nofollow noreferrer">https://clients3.google.com/generate_204</a><br>这个目的地出现问题会导致测速结果都是错误的，导致误判。</p>
 <p>另外这个URL Test的原理是：从代理服务器到达URLTest测试服务器的延时。<br>现实情况中：我遇到了这个URLTest延时小而访问Google速度反而慢的情况，听上去很不合理，其实理解了原理以后我们知道：还有一个速度至关重要，就是你的PC或手机到达这个代理服务器的速度，然后才是代理服务器往返最终的目的地服务器的速度。<br>根据你的宽带出口出国的速度：日本，美国西部海岸，香港，新加坡，台湾；这些服务器相对较近，延迟小；<br>最普普通通的搬瓦工也会在500ms左右。</p>
 <h2 id="那么如何知道速度最快的服务器节点？"><a href="#那么如何知道速度最快的服务器节点？" class="headerlink" title="那么如何知道速度最快的服务器节点？"></a>那么如何知道速度最快的服务器节点？</h2><p>TCP Ping的延时 + URL Test的延时最小的节点，是最快的。显然Clash还没有这个机制&#x2F;算法。<br>那么那个软件可以实现这种两个维度的定时轮询，自动跳转节点呢？</p>
 <p>clash for window 根据ip地址来决定线路<br>PC或MAC端的，可以通过配置文件，来按IP地址的归属地来走不同的节点，分流。</p>
@@ -537,9 +537,9 @@
 <p>不清楚目前负载均衡的算法时怎么负载的，明显不能根据浏览器的不同域名来分流的，观察到Clash for Window具体连接界面，往往是（目测）第一个节点（最快）被分配了95%以上流量。</p>
 <p>优化配置文件，增加<br>      域名类：全球拦截，应用净化<br>      IP类：全球直连（DIRECT）</p>
 <h4 id="URL-Test-地址"><a href="#URL-Test-地址" class="headerlink" title="URL Test 地址"></a>URL Test 地址</h4><ul>
-<li><p>HTTPS<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9nc3RhdGljLmNvbS9nZW5lcmF0ZV8yMDQ=" rel="noopener external nofollow noreferrer">https://gstatic.com/generate_204</a><br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jbGllbnRzMy5nb29nbGUuY29tL2dlbmVyYXRlXzIwNA==" rel="noopener external nofollow noreferrer">https://clients3.google.com/generate_204</a><br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcC5jbG91ZGZsYXJlLmNvbS8=" rel="noopener external nofollow noreferrer">https://cp.cloudflare.com</a><br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9kZXRlY3Rwb3J0YWwuZmlyZWZveC5jb20vc3VjY2Vzcy50eHQ=" rel="noopener external nofollow noreferrer">https://detectportal.firefox.com/success.txt</a></p>
+<li><p>HTTPS<br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9nc3RhdGljLmNvbS9nZW5lcmF0ZV8yMDQ=" rel="noopener external nofollow noreferrer">https://gstatic.com/generate_204</a><br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jbGllbnRzMy5nb29nbGUuY29tL2dlbmVyYXRlXzIwNA==" rel="noopener external nofollow noreferrer">https://clients3.google.com/generate_204</a><br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jcC5jbG91ZGZsYXJlLmNvbS8=" rel="noopener external nofollow noreferrer">https://cp.cloudflare.com</a><br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9kZXRlY3Rwb3J0YWwuZmlyZWZveC5jb20vc3VjY2Vzcy50eHQ=" rel="noopener external nofollow noreferrer">https://detectportal.firefox.com/success.txt</a></p>
 </li>
-<li><p>HTTP<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5tc2Z0Y29ubmVjdHRlc3QuY29tL2Nvbm5lY3R0ZXN0LnR4dA==" rel="noopener external nofollow noreferrer">http://www.msftconnecttest.com/connecttest.txt</a><br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2dzdGF0aWMuY29tL2dlbmVyYXRlXzIwNA==" rel="noopener external nofollow noreferrer">http://gstatic.com/generate_204</a><br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5nc3RhdGljLmNvbS9nZW5lcmF0ZV8yMDQ=" rel="noopener external nofollow noreferrer">http://www.gstatic.com/generate_204</a><br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2NsaWVudHMzLmdvb2dsZS5jb20vZ2VuZXJhdGVfMjA0" rel="noopener external nofollow noreferrer">http://clients3.google.com/generate_204</a><br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2NwLmNsb3VkZmxhcmUuY29tLw==" rel="noopener external nofollow noreferrer">http://cp.cloudflare.com</a><br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2RldGVjdHBvcnRhbC5maXJlZm94LmNvbS9zdWNjZXNzLnR4dA==" rel="noopener external nofollow noreferrer">http://detectportal.firefox.com/success.txt</a></p>
+<li><p>HTTP<br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovL3d3dy5tc2Z0Y29ubmVjdHRlc3QuY29tL2Nvbm5lY3R0ZXN0LnR4dA==" rel="noopener external nofollow noreferrer">http://www.msftconnecttest.com/connecttest.txt</a><br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovL2dzdGF0aWMuY29tL2dlbmVyYXRlXzIwNA==" rel="noopener external nofollow noreferrer">http://gstatic.com/generate_204</a><br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovL3d3dy5nc3RhdGljLmNvbS9nZW5lcmF0ZV8yMDQ=" rel="noopener external nofollow noreferrer">http://www.gstatic.com/generate_204</a><br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovL2NsaWVudHMzLmdvb2dsZS5jb20vZ2VuZXJhdGVfMjA0" rel="noopener external nofollow noreferrer">http://clients3.google.com/generate_204</a><br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovL2NwLmNsb3VkZmxhcmUuY29tLw==" rel="noopener external nofollow noreferrer">http://cp.cloudflare.com</a><br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovL2RldGVjdHBvcnRhbC5maXJlZm94LmNvbS9zdWNjZXNzLnR4dA==" rel="noopener external nofollow noreferrer">http://detectportal.firefox.com/success.txt</a></p>
 </li>
 </ul>
 <h2 id="各个平台与构架"><a href="#各个平台与构架" class="headerlink" title="各个平台与构架"></a>各个平台与构架</h2><p>其他版本下载<br>Clash for Android MacOS 版名为 ClashX，可移步至 ClashX 下载并查看详细教程。<br>Clash for Android Windows 版名为 Clash for Windows，可移步至 Clash for Windows 下载并查看详细教程。<br>软路由 OpenWRT 版名为 OpenClash，可移步至 OpenClash 下载并查看详细教程。</p>
@@ -553,40 +553,40 @@
 <p>节省人力去不停维护一堆的服务器列表（有些url-test成功，可是实际无法使用的节点）</p>
 </blockquote>
 <p>20240928</p>
-<p>旧的验证URL: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL3d3dy5nc3RhdGljLmNvbS9nZW5lcmF0ZV8yMDQ=" rel="noopener external nofollow noreferrer">http://www.gstatic.com/generate_204</a></p>
-<p>必须使用更加严苛的URL测试地址: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jbGllbnRzMy5nb29nbGUuY29tL2dlbmVyYXRlXzIwNA==" rel="noopener external nofollow noreferrer">https://clients3.google.com/generate_204</a></p>
+<p>旧的验证URL: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovL3d3dy5nc3RhdGljLmNvbS9nZW5lcmF0ZV8yMDQ=" rel="noopener external nofollow noreferrer">http://www.gstatic.com/generate_204</a></p>
+<p>必须使用更加严苛的URL测试地址: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jbGllbnRzMy5nb29nbGUuY29tL2dlbmVyYXRlXzIwNA==" rel="noopener external nofollow noreferrer">https://clients3.google.com/generate_204</a></p>
 <p>因为发现自动检测的结果, 不真实, 导致debian中的metacube老是自动识别到错误&#x2F;无法使用的服务器节点(尴尬)</p>
 <hr>
 <hr>
 <h2 id="汇总目前常用的内核仓库和客户端"><a href="#汇总目前常用的内核仓库和客户端" class="headerlink" title="汇总目前常用的内核仓库和客户端"></a>汇总目前常用的内核仓库和客户端</h2><p>clash for windows 客户端：</p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0ZuZHJvaWQvY2xhc2hfZm9yX3dpbmRvd3NfcGtnL3JlbGVhc2Vz" rel="noopener external nofollow noreferrer">https://github.com/Fndroid/clash_for_windows_pkg/releases</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL0ZuZHJvaWQvY2xhc2hfZm9yX3dpbmRvd3NfcGtnL3JlbGVhc2Vz" rel="noopener external nofollow noreferrer">https://github.com/Fndroid/clash_for_windows_pkg/releases</a></p>
 <p>clash 内核：</p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0RyZWFtYWNyby9jbGFzaA==" rel="noopener external nofollow noreferrer">https://github.com/Dreamacro/clash</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL0RyZWFtYWNyby9jbGFzaA==" rel="noopener external nofollow noreferrer">https://github.com/Dreamacro/clash</a></p>
 <p>clash for android 客户端：</p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0tyMzI4L0NsYXNoRm9yQW5kcm9pZA==" rel="noopener external nofollow noreferrer">https://github.com/Kr328/ClashForAndroid</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL0tyMzI4L0NsYXNoRm9yQW5kcm9pZA==" rel="noopener external nofollow noreferrer">https://github.com/Kr328/ClashForAndroid</a></p>
 <p>归档<br>clash.meta 内核（主分支设置成 rm 分支，官网和群组换成虚空题材）:</p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL01ldGFDdWJlWC9DbGFzaC5NZXRhLw==" rel="noopener external nofollow noreferrer">https://github.com/MetaCubeX/Clash.Meta/</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL01ldGFDdWJlWC9DbGFzaC5NZXRhLw==" rel="noopener external nofollow noreferrer">https://github.com/MetaCubeX/Clash.Meta/</a></p>
 <p>tuic 内核（停止维护）:</p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0VBaW1UWS90dWlj" rel="noopener external nofollow noreferrer">https://github.com/EAimTY/tuic</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL0VBaW1UWS90dWlj" rel="noopener external nofollow noreferrer">https://github.com/EAimTY/tuic</a></p>
 <p>clash verge 客户端（主分支设置成 rm 分支）：</p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3p6emd5ZGkvY2xhc2gtdmVyZ2Uv" rel="noopener external nofollow noreferrer">https://github.com/zzzgydi/clash-verge/</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3p6emd5ZGkvY2xhc2gtdmVyZ2Uv" rel="noopener external nofollow noreferrer">https://github.com/zzzgydi/clash-verge/</a></p>
 <p>clash for android：</p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL01ldGFDdWJlWC9DbGFzaE1ldGFGb3JBbmRyb2lk" rel="noopener external nofollow noreferrer">https://github.com/MetaCubeX/ClashMetaForAndroid</a></p>
-<p>健壮内核<br>v2ray：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3YyZmx5L3YycmF5LWNvcmU=" rel="noopener external nofollow noreferrer">https://github.com/v2fly/v2ray-core</a><br>xray：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL1hUTFMvWHJheS1jb3Jl" rel="noopener external nofollow noreferrer">https://github.com/XTLS/Xray-core</a><br>sing-box：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL1NhZ2VyTmV0L3NpbmctYm94" rel="noopener external nofollow noreferrer">https://github.com/SagerNet/sing-box</a><br>hysteria（人在国外）：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2FwZXJuZXQvaHlzdGVyaWE=" rel="noopener external nofollow noreferrer">https://github.com/apernet/hysteria</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL01ldGFDdWJlWC9DbGFzaE1ldGFGb3JBbmRyb2lk" rel="noopener external nofollow noreferrer">https://github.com/MetaCubeX/ClashMetaForAndroid</a></p>
+<p>健壮内核<br>v2ray：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3YyZmx5L3YycmF5LWNvcmU=" rel="noopener external nofollow noreferrer">https://github.com/v2fly/v2ray-core</a><br>xray：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL1hUTFMvWHJheS1jb3Jl" rel="noopener external nofollow noreferrer">https://github.com/XTLS/Xray-core</a><br>sing-box：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL1NhZ2VyTmV0L3NpbmctYm94" rel="noopener external nofollow noreferrer">https://github.com/SagerNet/sing-box</a><br>hysteria（人在国外）：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2FwZXJuZXQvaHlzdGVyaWE=" rel="noopener external nofollow noreferrer">https://github.com/apernet/hysteria</a></p>
 <p>还有各类小众内核，例如 naiveproxy，橘子汁等</p>
 <p>还能使用哪些客户端<br>基于 clash 内核的<br>比如 clash for windows，clash for android 等基于 clash 的客户端大家可以不用了，内核都删库了。</p>
 <p>基于 clash.meta 内核的<br>clash.meta 内核目前来说大概率就是避避风头，我猜测后续还是继续开发的，目前来说基于 meta 的客户端，大家还是可以放心使用</p>
-<p>Clash Verge（全平台 - 归档但不影响）：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL3p6emd5ZGkvY2xhc2gtdmVyZ2U=" rel="noopener external nofollow noreferrer">https://github.com/zzzgydi/clash-verge</a></p>
-<p>clashX.meta(macos):<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL01ldGFDdWJlWC9DbGFzaFguTWV0YQ==" rel="noopener external nofollow noreferrer">https://github.com/MetaCubeX/ClashX.Meta</a></p>
-<p>clash.meta for android（android - 归档但不影响）：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL01ldGFDdWJlWC9DbGFzaE1ldGFGb3JBbmRyb2lk" rel="noopener external nofollow noreferrer">https://github.com/MetaCubeX/ClashMetaForAndroid</a></p>
-<p>其他<br>v2rayN (人在国外 - windows）：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tLzJkdXN0L3YycmF5Tg==" rel="noopener external nofollow noreferrer">https://github.com/2dust/v2rayN</a></p>
-<p>sing-box（全平台）：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL1NhZ2VyTmV0L3NpbmctYm94L3JlbGVhc2Vz" rel="noopener external nofollow noreferrer">https://github.com/SagerNet/sing-box/releases</a></p>
-<p>nekoray（windows，linux）：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL01hdHN1cmlEYXlvL25la29yYXk=" rel="noopener external nofollow noreferrer">https://github.com/MatsuriDayo/nekoray</a></p>
+<p>Clash Verge（全平台 - 归档但不影响）：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3p6emd5ZGkvY2xhc2gtdmVyZ2U=" rel="noopener external nofollow noreferrer">https://github.com/zzzgydi/clash-verge</a></p>
+<p>clashX.meta(macos):<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL01ldGFDdWJlWC9DbGFzaFguTWV0YQ==" rel="noopener external nofollow noreferrer">https://github.com/MetaCubeX/ClashX.Meta</a></p>
+<p>clash.meta for android（android - 归档但不影响）：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL01ldGFDdWJlWC9DbGFzaE1ldGFGb3JBbmRyb2lk" rel="noopener external nofollow noreferrer">https://github.com/MetaCubeX/ClashMetaForAndroid</a></p>
+<p>其他<br>v2rayN (人在国外 - windows）：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tLzJkdXN0L3YycmF5Tg==" rel="noopener external nofollow noreferrer">https://github.com/2dust/v2rayN</a></p>
+<p>sing-box（全平台）：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL1NhZ2VyTmV0L3NpbmctYm94L3JlbGVhc2Vz" rel="noopener external nofollow noreferrer">https://github.com/SagerNet/sing-box/releases</a></p>
+<p>nekoray（windows，linux）：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL01hdHN1cmlEYXlvL25la29yYXk=" rel="noopener external nofollow noreferrer">https://github.com/MatsuriDayo/nekoray</a></p>
 <p>shadowrocket，quanx，stash 等等付费或免费 ios 专用软件</p>
 <p>v2rayNG&#x2F;nekobox 等等 android 专用软件</p>
-<h2 id="本章节来源：https-blog-mareep-net-posts-20003"><a href="#本章节来源：https-blog-mareep-net-posts-20003" class="headerlink" title="本章节来源：https://blog.mareep.net/posts/20003/"></a>本章节来源：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9ibG9nLm1hcmVlcC5uZXQvcG9zdHMvMjAwMDMv" rel="noopener external nofollow noreferrer">https://blog.mareep.net/posts/20003/</a></h2><hr>
-<h1 id="Clash-for-Android"><a href="#Clash-for-Android" class="headerlink" title="Clash for Android"></a>Clash for Android</h1><p>Clash for Android GitHub 仓库地址为：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0tyMzI4L0NsYXNoRm9yQW5kcm9pZA==" rel="noopener external nofollow noreferrer">https://github.com/Kr328/ClashForAndroid</a></p>
-<p>Clash for Android 下载地址为：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL0tyMzI4L0NsYXNoRm9yQW5kcm9pZC9yZWxlYXNlcw==" rel="noopener external nofollow noreferrer">https://github.com/Kr328/ClashForAndroid/releases</a><br>备份线路(20231108待测试)：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL01ldGFDdWJlWC9DbGFzaE1ldGFGb3JBbmRyb2lkL3JlbGVhc2Vz" rel="noopener external nofollow noreferrer">https://github.com/MetaCubeX/ClashMetaForAndroid/releases</a><br>已实测版本：cfa-2.5.12-foss-arm64-v8a-release.apk<br>新手使用建议下载最新稳定版本，即版本号后标记为 Latest 的版本。<br><img class="lozad" data-src=https://www.evernote.com/shard/s122/sh/95766b11-c8f3-4bb9-ba2b-1b5a758e0ed4/2OJRUc1jGqyxwKsIZQ2cPndYJwI1RCiueDa9u3LbC8HIexUWul2hMsujIg/deep/0/image.png></p>
+<h2 id="本章节来源：https-blog-mareep-net-posts-20003"><a href="#本章节来源：https-blog-mareep-net-posts-20003" class="headerlink" title="本章节来源：https://blog.mareep.net/posts/20003/"></a>本章节来源：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9ibG9nLm1hcmVlcC5uZXQvcG9zdHMvMjAwMDMv" rel="noopener external nofollow noreferrer">https://blog.mareep.net/posts/20003/</a></h2><hr>
+<h1 id="Clash-for-Android"><a href="#Clash-for-Android" class="headerlink" title="Clash for Android"></a>Clash for Android</h1><p>Clash for Android GitHub 仓库地址为：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL0tyMzI4L0NsYXNoRm9yQW5kcm9pZA==" rel="noopener external nofollow noreferrer">https://github.com/Kr328/ClashForAndroid</a></p>
+<p>Clash for Android 下载地址为：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL0tyMzI4L0NsYXNoRm9yQW5kcm9pZC9yZWxlYXNlcw==" rel="noopener external nofollow noreferrer">https://github.com/Kr328/ClashForAndroid/releases</a><br>备份线路(20231108待测试)：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL01ldGFDdWJlWC9DbGFzaE1ldGFGb3JBbmRyb2lkL3JlbGVhc2Vz" rel="noopener external nofollow noreferrer">https://github.com/MetaCubeX/ClashMetaForAndroid/releases</a><br>已实测版本：cfa-2.5.12-foss-arm64-v8a-release.apk<br>新手使用建议下载最新稳定版本，即版本号后标记为 Latest 的版本。<br><img class="lozad" data-src=https://www.evernote.com/shard/s122/sh/95766b11-c8f3-4bb9-ba2b-1b5a758e0ed4/2OJRUc1jGqyxwKsIZQ2cPndYJwI1RCiueDa9u3LbC8HIexUWul2hMsujIg/deep/0/image.png></p>
 <h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p>安装教程很简单，如果是通过应用商店下载的，那么直接根据提示下载并安装即可，如果是通过官网下载或其他第三方下载的，下载完后获得文件为 cfa_x-x-x.apk 文件，其中后缀 .apk 为安卓系统的安装包，然后点击安装即可，十分简单。</p>
 <h2 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h2><p>节点即软件中的服务器，在使用之前，首先需要添加一个 Clash for Android 节点 即服务端才能使用代理上网功能，更多节点可参考本站节点订阅地址。</p>
 <h2 id="免费节点"><a href="#免费节点" class="headerlink" title="免费节点"></a>免费节点</h2><p>由于软件支持Shadowsocks、ShadowsocksR、Socks、Snell、V2Ray、Trojan等代理协议，如需免费节点可以使用搜索引擎搜索。</p>
@@ -596,7 +596,7 @@
 <h2 id="Clash-for-Android-创建配置"><a href="#Clash-for-Android-创建配置" class="headerlink" title="Clash for Android 创建配置"></a>Clash for Android 创建配置</h2><p>创建配置<br>添加配置文件<br>添加配置文件一般有如下两种方式:</p>
 <p>文件：从文件导入，即从配置文件所在文件夹导入<br>URL：从URL导入，即从订阅连接获取配置<br>一般情况下，远程订阅地址（从URL导入）及本地配置文件（从配置文件所在文件夹导入）都由节点服务商提供。</p>
 <h2 id="Clash-for-Android-从-URL-导入配置文件"><a href="#Clash-for-Android-从-URL-导入配置文件" class="headerlink" title="Clash for Android 从 URL 导入配置文件"></a>Clash for Android 从 URL 导入配置文件</h2><p>远程订阅地址<br>远程订阅地址即从 URL 导入，从订阅连接获取配置，如下图所示。<br><img class="lozad" data-src=https://www.evernote.com/shard/s122/sh/156770bf-f96a-474d-928e-076e8fe1fdff/AVXWtOPh6ebIyNCiesN7vd0MPY2G1pM2GbKGQQWvcjYxagdlNaGSKWPSqw/deep/0/image.png></p>
-<p>此章节参考：<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jbGFzaGZvcmFuZHJvaWQub3JnL2NsYXNoLWZvci1hbmRyb2lkLWRvd25sb2FkLw==" rel="noopener external nofollow noreferrer">https://clashforandroid.org/clash-for-android-download/</a></p>
+<p>此章节参考：<br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jbGFzaGZvcmFuZHJvaWQub3JnL2NsYXNoLWZvci1hbmRyb2lkLWRvd25sb2FkLw==" rel="noopener external nofollow noreferrer">https://clashforandroid.org/clash-for-android-download/</a></p>
 <p><img data-src="https://img.carlzeng.top:3/i/2024/09/23/66f16c6771900.png" alt="image-20240923212557363"></p>
 <p><img data-src="https://img.carlzeng.top:3/i/2024/09/23/66f16ce2e3562.png" alt="image-20240923212801427"></p>
 <p>如果没有可用的服务, 尝试 更新配置. </p>
@@ -615,9 +615,9 @@
 
 </details>
 
-<p>存放在分享网盘中：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jbi5jYXJsemVuZy50b3AvZmlsZXVwZA==" rel="noopener external nofollow noreferrer">https://cn.carlzeng.top/fileupd</a></p>
+<p>存放在分享网盘中：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jbi5jYXJsemVuZy50b3AvZmlsZXVwZA==" rel="noopener external nofollow noreferrer">https://cn.carlzeng.top/fileupd</a></p>
 <hr>
-<h1 id="Clash-for-Linux"><a href="#Clash-for-Linux" class="headerlink" title="Clash for Linux"></a>Clash for Linux</h1><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2p1bnh5L2RvY2tlci1jbGFzaC9ibG9iL21hc3Rlci9kb2NrZXItY29tcG9zZS55bWw=" rel="noopener external nofollow noreferrer">https://github.com/junxy/docker-clash/blob/master/docker-compose.yml</a></p>
+<h1 id="Clash-for-Linux"><a href="#Clash-for-Linux" class="headerlink" title="Clash for Linux"></a>Clash for Linux</h1><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2p1bnh5L2RvY2tlci1jbGFzaC9ibG9iL21hc3Rlci9kb2NrZXItY29tcG9zZS55bWw=" rel="noopener external nofollow noreferrer">https://github.com/junxy/docker-clash/blob/master/docker-compose.yml</a></p>
 <p>或使用Linux下载: </p>
 <ul>
 <li>Linux 64位: amd64.deb&#x2F;amd64.rpm</li>
@@ -632,23 +632,23 @@
 <h2 id="Clash-Verge-更新配置文件步骤（MAC）"><a href="#Clash-Verge-更新配置文件步骤（MAC）" class="headerlink" title="Clash Verge 更新配置文件步骤（MAC）"></a>Clash Verge 更新配置文件步骤（MAC）</h2><pre><code>1. 打开主界面，左侧的，配置 &gt; 新建
 </code></pre>
 <p>​	2. 选择 类型为：Local，然后点击‘选择文件’，找到本地proxypool生成的配置文件即可。<br>​		与原来Clash配置文件的区别是，开头多了：mixed-port: 7890   secret: @@@@</p>
-<h1 id="Clash-Verge-for-Windows"><a href="#Clash-Verge-for-Windows" class="headerlink" title="Clash Verge for Windows"></a>Clash Verge for Windows</h1><h3 id="Windows-Win7-用户请查看FAQ中的解决方案"><a href="#Windows-Win7-用户请查看FAQ中的解决方案" class="headerlink" title="Windows (Win7 用户请查看FAQ中的解决方案)"></a>Windows (Win7 用户请查看<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jbGFzaC12ZXJnZS1yZXYuZ2l0aHViLmlvL2ZhcS93aW5kb3dzLmh0bWw=" rel="noopener external nofollow noreferrer">FAQ中的解决方案</a>)</h3><h4 id="正常版本-推荐"><a href="#正常版本-推荐" class="headerlink" title="正常版本(推荐)"></a>正常版本(推荐)</h4><ul>
-<li>64位: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2NsYXNoLXZlcmdlLXJldi9jbGFzaC12ZXJnZS1yZXYvcmVsZWFzZXMvZG93bmxvYWQvdjEuNy41L0NsYXNoLlZlcmdlXzEuNy41X3g2NC1zZXR1cC5leGU=" rel="noopener external nofollow noreferrer">x64-setup.exe</a> (实测当前1.7.5在windows 10 64位运行非常流畅顺滑)</li>
-<li>32位: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2NsYXNoLXZlcmdlLXJldi9jbGFzaC12ZXJnZS1yZXYvcmVsZWFzZXMvZG93bmxvYWQvdjEuNy41L0NsYXNoLlZlcmdlXzEuNy41X3g4Ni1zZXR1cC5leGU=" rel="noopener external nofollow noreferrer">x86-setup.exe</a></li>
-<li>arm64架构: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2NsYXNoLXZlcmdlLXJldi9jbGFzaC12ZXJnZS1yZXYvcmVsZWFzZXMvZG93bmxvYWQvdjEuNy41L0NsYXNoLlZlcmdlXzEuNy41X2FybTY0LXNldHVwLmV4ZQ==" rel="noopener external nofollow noreferrer">arm64-setup.exe</a></li>
+<h1 id="Clash-Verge-for-Windows"><a href="#Clash-Verge-for-Windows" class="headerlink" title="Clash Verge for Windows"></a>Clash Verge for Windows</h1><h3 id="Windows-Win7-用户请查看FAQ中的解决方案"><a href="#Windows-Win7-用户请查看FAQ中的解决方案" class="headerlink" title="Windows (Win7 用户请查看FAQ中的解决方案)"></a>Windows (Win7 用户请查看<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jbGFzaC12ZXJnZS1yZXYuZ2l0aHViLmlvL2ZhcS93aW5kb3dzLmh0bWw=" rel="noopener external nofollow noreferrer">FAQ中的解决方案</a>)</h3><h4 id="正常版本-推荐"><a href="#正常版本-推荐" class="headerlink" title="正常版本(推荐)"></a>正常版本(推荐)</h4><ul>
+<li>64位: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2NsYXNoLXZlcmdlLXJldi9jbGFzaC12ZXJnZS1yZXYvcmVsZWFzZXMvZG93bmxvYWQvdjEuNy41L0NsYXNoLlZlcmdlXzEuNy41X3g2NC1zZXR1cC5leGU=" rel="noopener external nofollow noreferrer">x64-setup.exe</a> (实测当前1.7.5在windows 10 64位运行非常流畅顺滑)</li>
+<li>32位: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2NsYXNoLXZlcmdlLXJldi9jbGFzaC12ZXJnZS1yZXYvcmVsZWFzZXMvZG93bmxvYWQvdjEuNy41L0NsYXNoLlZlcmdlXzEuNy41X3g4Ni1zZXR1cC5leGU=" rel="noopener external nofollow noreferrer">x86-setup.exe</a></li>
+<li>arm64架构: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2NsYXNoLXZlcmdlLXJldi9jbGFzaC12ZXJnZS1yZXYvcmVsZWFzZXMvZG93bmxvYWQvdjEuNy41L0NsYXNoLlZlcmdlXzEuNy41X2FybTY0LXNldHVwLmV4ZQ==" rel="noopener external nofollow noreferrer">arm64-setup.exe</a></li>
 </ul>
 <h4 id="便携版-不推荐使用，无法自动更新"><a href="#便携版-不推荐使用，无法自动更新" class="headerlink" title="便携版(不推荐使用，无法自动更新)"></a>便携版(不推荐使用，无法自动更新)</h4><ul>
-<li>64位: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2NsYXNoLXZlcmdlLXJldi9jbGFzaC12ZXJnZS1yZXYvcmVsZWFzZXMvZG93bmxvYWQvdjEuNy41L0NsYXNoLlZlcmdlXzEuNy41X3g2NF9wb3J0YWJsZS56aXA=" rel="noopener external nofollow noreferrer">x64_portable.zip</a></li>
-<li>32位: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2NsYXNoLXZlcmdlLXJldi9jbGFzaC12ZXJnZS1yZXYvcmVsZWFzZXMvZG93bmxvYWQvdjEuNy41L0NsYXNoLlZlcmdlXzEuNy41X3g4Nl9wb3J0YWJsZS56aXA=" rel="noopener external nofollow noreferrer">x86_portable.zip</a></li>
+<li>64位: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2NsYXNoLXZlcmdlLXJldi9jbGFzaC12ZXJnZS1yZXYvcmVsZWFzZXMvZG93bmxvYWQvdjEuNy41L0NsYXNoLlZlcmdlXzEuNy41X3g2NF9wb3J0YWJsZS56aXA=" rel="noopener external nofollow noreferrer">x64_portable.zip</a></li>
+<li>32位: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2NsYXNoLXZlcmdlLXJldi9jbGFzaC12ZXJnZS1yZXYvcmVsZWFzZXMvZG93bmxvYWQvdjEuNy41L0NsYXNoLlZlcmdlXzEuNy41X3g4Nl9wb3J0YWJsZS56aXA=" rel="noopener external nofollow noreferrer">x86_portable.zip</a></li>
 <li>arm64架构: arm64_portable.zip</li>
 </ul>
 <h3 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h3><ul>
-<li>MacOS intel芯片: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2NsYXNoLXZlcmdlLXJldi9jbGFzaC12ZXJnZS1yZXYvcmVsZWFzZXMvZG93bmxvYWQvdjEuNy41L0NsYXNoLlZlcmdlXzEuNy41X3g2NC5kbWc=" rel="noopener external nofollow noreferrer">x64.dmg</a></li>
-<li>MacOS apple M芯片: <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2NsYXNoLXZlcmdlLXJldi9jbGFzaC12ZXJnZS1yZXYvcmVsZWFzZXMvZG93bmxvYWQvdjEuNy41L0NsYXNoLlZlcmdlXzEuNy41X2FhcmNoNjQuZG1n" rel="noopener external nofollow noreferrer">aarch64.dmg</a></li>
+<li>MacOS intel芯片: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2NsYXNoLXZlcmdlLXJldi9jbGFzaC12ZXJnZS1yZXYvcmVsZWFzZXMvZG93bmxvYWQvdjEuNy41L0NsYXNoLlZlcmdlXzEuNy41X3g2NC5kbWc=" rel="noopener external nofollow noreferrer">x64.dmg</a></li>
+<li>MacOS apple M芯片: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2NsYXNoLXZlcmdlLXJldi9jbGFzaC12ZXJnZS1yZXYvcmVsZWFzZXMvZG93bmxvYWQvdjEuNy41L0NsYXNoLlZlcmdlXzEuNy41X2FhcmNoNjQuZG1n" rel="noopener external nofollow noreferrer">aarch64.dmg</a></li>
 </ul>
 <h1 id="MetaCubeX-metacubexd-Debian"><a href="#MetaCubeX-metacubexd-Debian" class="headerlink" title="MetaCubeX&#x2F;metacubexd (Debian)"></a>MetaCubeX&#x2F;metacubexd (Debian)</h1><p>好用！赞！</p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL01ldGFDdWJlWC9tZXRhY3ViZXhkL3RyZWUvbWFpbg==" rel="noopener external nofollow noreferrer">https://github.com/MetaCubeX/metacubexd/tree/main</a></p>
-<p>MetaCubeX UI 局域网访问： <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MC8jL3NldHVw" rel="noopener external nofollow noreferrer">http://192.168.6.116:9090/#/setup</a><br>    后端地址及端口：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MS8=" rel="noopener external nofollow noreferrer">http://192.168.6.116:9091</a><br>    后端密码：    ********<br>对应config.yaml中的配置；在Docker里面跑起来，稳定</p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL01ldGFDdWJlWC9tZXRhY3ViZXhkL3RyZWUvbWFpbg==" rel="noopener external nofollow noreferrer">https://github.com/MetaCubeX/metacubexd/tree/main</a></p>
+<p>MetaCubeX UI 局域网访问： <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MC8jL3NldHVw" rel="noopener external nofollow noreferrer">http://192.168.6.116:9090/#/setup</a><br>    后端地址及端口：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MS8=" rel="noopener external nofollow noreferrer">http://192.168.6.116:9091</a><br>    后端密码：    ********<br>对应config.yaml中的配置；在Docker里面跑起来，稳定</p>
 <h2 id="设置Clash-Meta的配置文件步骤（Debian）"><a href="#设置Clash-Meta的配置文件步骤（Debian）" class="headerlink" title="设置Clash Meta的配置文件步骤（Debian）"></a>设置Clash Meta的配置文件步骤（Debian）</h2><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1. 打开debian的/root/.config/clash</span><br><span class="line"> ​		docker-compose中的映射 - /root/.config/clash:/root/.config/clash</span><br><span class="line"> ​		所以配置文件指向了：/root/.config/clash</span><br><span class="line"> ​	2. 替换config.yaml到最新版配置文件</span><br><span class="line"> ​	3. cd /www/server/panel/data/compose/metacubexd</span><br><span class="line"> ​	4. docker-compose restart</span><br><span class="line"> ​	5. 检测状态：http://192.168.6.116:9090/<span class="comment">#/proxies</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">2. 维护新的Clash Meta的config.yaml配置文件步骤：</span><br><span class="line"> 	1. (用途：剔除特定服务器，它的tcp可以通，但无法*墙)</span><br><span class="line"> 	2. 进server 的ssh</span><br><span class="line"> 	3.  vi /root/.config/clash/config.yaml</span><br><span class="line"> 	4. cd /www/server/panel/data/compose/metacubexd</span><br><span class="line"> 	5. docker-compose restart</span><br></pre></td></tr></table></figure>
 
 <h2 id="维护Clash-Meta新的config-yaml配置"><a href="#维护Clash-Meta新的config-yaml配置" class="headerlink" title="维护Clash Meta新的config.yaml配置"></a>维护Clash Meta新的config.yaml配置</h2><p>操作步骤：</p>
@@ -721,7 +721,7 @@
           </div>
         </p>
 
-        <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
+        <a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
         <img src="https://c.carlzeng.com:3/wechatScan.png" border="0">
 
 
@@ -755,14 +755,14 @@
 <ul>
   <li class="post-copyright-author">
       <strong>本文作者： </strong>Carl Notes
-    <a href='https://www.carlzeng.top/202310051715.html'> 《Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)(部分转载)》</a>
+    <a href='https://www.carlzeng.com/202310051715.html'> 《Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)(部分转载)》</a>
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.carlzeng.top/202310051715.html" title="Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)(部分转载)">https://www.carlzeng.top/202310051715.html</a>
+      <a href="https://www.carlzeng.com/202310051715.html" title="Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)(部分转载)">https://www.carlzeng.com/202310051715.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -887,12 +887,12 @@
 
 
 <div class="followme">
-  <span>您可以<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer">提交需求反馈</a>, <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a> 或 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLmNvbTozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">打赏作者</a>.</span>
+  <span>您可以<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer">提交需求反馈</a>, <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a> 或 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLmNvbTozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">打赏作者</a>.</span>
 
   <div class="social-list">
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
@@ -902,7 +902,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
@@ -912,7 +912,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tLzIwMjMxMjA4MTEyOC5odG1s" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/202312081128.html">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -922,7 +922,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -932,7 +932,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fa fa-rss"></i>
             </span>
@@ -942,7 +942,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -952,7 +952,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -962,7 +962,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -972,7 +972,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -995,6 +995,7 @@
 
           <div class="post-tags">
             继续浏览有关
+              <a href="/tags/docker/" rel="tag"># docker</a>
               <a href="/tags/Clash/" rel="tag"># Clash</a>
               <a href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag"># 转载</a>
               <a href="/tags/%E5%A2%99/" rel="tag"># 墙</a>
@@ -1006,7 +1007,6 @@
               <a href="/tags/OpenWrt/" rel="tag"># OpenWrt</a>
               <a href="/tags/go/" rel="tag"># go</a>
               <a href="/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag"># 科学上网</a>
-              <a href="/tags/docker/" rel="tag"># docker</a>
               <a href="/tags/Clash-Verge/" rel="tag"># Clash Verge</a>
             的文章
           </div>
@@ -1085,22 +1085,22 @@
     var _paq = window._paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-    _paq.push(["setCookieDomain", "*.carlzeng.top"]);
+    _paq.push(["setCookieDomain", "*.carlzeng.com"]);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-      var u="//statcounter.carlzeng.top:4443/";
+      var u="//statcounter.carlzeng.com:4443/";
       _paq.push(['setTrackerUrl', u+'matomo.php']);
       _paq.push(['setSiteId', '1']);
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
       g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
   </script>
-  <noscript><p><img src="//statcounter.carlzeng.top:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <noscript><p><img src="//statcounter.carlzeng.com:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
   <!-- End Matomo Code -->
 
 <div class="powered-by">
-    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL3NpdGVtYXAueG1s" rel="noopener external nofollow noreferrer">Sitemap</a> | <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL3JzczIueG1s" rel="noopener external nofollow noreferrer">RSS</a> | 选择服务器：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">Main</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oay5jYXJsemVuZy50b3A=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">US</a>
+    <a href='https://www.carlzeng.com/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.com/rss2.xml'>RSS</a> | 选择服务器：<a href="https://www.carlzeng.com">Main</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">US</a>
 </div>
 
     </div>

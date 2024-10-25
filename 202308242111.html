@@ -16,12 +16,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="The LEDE Project ssh修改80管理端口 排查及优化Openwrt内存占用，故障排查与资源维护">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng">
-<meta property="og:url" content="https://www.carlzeng.top/202308242111.html">
+<meta property="og:url" content="https://www.carlzeng.com/202308242111.html">
 <meta property="og:site_name" content="云随笔 Carl Notes">
 <meta property="og:description" content="The LEDE Project ssh修改80管理端口 排查及优化Openwrt内存占用，故障排查与资源维护">
 <meta property="og:locale" content="zh_CN">
@@ -30,8 +30,8 @@
 <meta property="article:published_time" content="2023-08-24T13:11:00.000Z">
 <meta property="article:modified_time" content="2023-12-13T12:04:11.434Z">
 <meta property="article:author" content="Carl Notes">
-<meta property="article:tag" content="OpenWrt">
 <meta property="article:tag" content="家宽">
+<meta property="article:tag" content="OpenWrt">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="路由器">
 <meta property="article:tag" content="Nginx">
@@ -40,11 +40,11 @@
 <meta name="twitter:image" content="https://www.evernote.com/shard/s122/sh/a104a5d9-edac-4c2f-8539-390534af86ba/OlRv4r57iAyhSvr2cNbJCVORou8YVWp9iTQq6vZy3zQkeyCrezsfcqvvJA/deep/0/image.png">
 
 
-<link rel="canonical" href="https://www.carlzeng.top/202308242111.html">
+<link rel="canonical" href="https://www.carlzeng.com/202308242111.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/202308242111.html","path":"202308242111.html","title":"如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.com/202308242111.html","path":"202308242111.html","title":"如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng | 云随笔 Carl Notes</title>
@@ -97,7 +97,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">245</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">70</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">366</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NhbQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">245</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">70</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">366</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NhbQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -377,7 +377,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202308242111.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/202308242111.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -452,25 +452,25 @@
 <span id="more"></span>
 
 <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>我们网络环境的特殊性，尤其是跨越运营商时；80端口是很敏感而被封锁着的。那么如何把OpenWrt（路由器系统）的默认端口从默认的80端口改到其他的端口呢？SSH局域网内配置修改步骤如下。</p>
-<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><p>如果您对相关的 <a href="https://www.carlzeng.top/search?q=linux">linux</a> 感兴趣，以下内容可能帮到您：</p>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><p>如果您对相关的 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY2FybHplbmcudG9wL3NlYXJjaD9xPWxpbnV4" rel="noopener external nofollow noreferrer">linux</a> 感兴趣，以下内容可能帮到您：</p>
 <ul>
-<li><p><a href="https://www.carlzeng.top/202311032202.html?highlight=nginx+proxy+manager%E4%BF%AE%E5%A4%8D%E7%AC%94%E8%AE%B0">Nginx Proxy Manager修复笔记</a></p>
+<li><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY2FybHplbmcudG9wLzIwMjMxMTAzMjIwMi5odG1sP2hpZ2hsaWdodD1uZ2lueCtwcm94eSttYW5hZ2VyJUU0JUJGJUFFJUU1JUE0JThEJUU3JUFDJTk0JUU4JUFFJUIw" rel="noopener external nofollow noreferrer">Nginx Proxy Manager修复笔记</a></p>
 <p>排查Nginx Proxy Manager，反向代理，让网站变成HTTPS 有什么用排查Nginx Proxy Manager，反向代理，让网站变成HTTPS …</p>
 </li>
-<li><p><a href="https://www.carlzeng.top/202310261222.html?highlight=nginx+proxy+manager%E4%BF%AE%E5%A4%8D%E7%AC%94%E8%AE%B0">Hexo定制之家宽部署artalk评论</a></p>
-<p>需要升级到https Nginx Proxy Manager也可以代劳 家宽如何使用Nginx Proxy Manager反向代理 - YouTube <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly92dC53b28v" rel="noopener external nofollow noreferrer">https://vt.woo</a>…</p>
+<li><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY2FybHplbmcudG9wLzIwMjMxMDI2MTIyMi5odG1sP2hpZ2hsaWdodD1uZ2lueCtwcm94eSttYW5hZ2VyJUU0JUJGJUFFJUU1JUE0JThEJUU3JUFDJTk0JUU4JUFFJUIw" rel="noopener external nofollow noreferrer">Hexo定制之家宽部署artalk评论</a></p>
+<p>需要升级到https Nginx Proxy Manager也可以代劳 家宽如何使用Nginx Proxy Manager反向代理 - YouTube <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly92dC53b28v" rel="noopener external nofollow noreferrer">https://vt.woo</a>…</p>
 </li>
-<li><p><a href="https://www.carlzeng.top/202310171918.html?highlight=nginx+proxy+manager%E4%BF%AE%E5%A4%8D%E7%AC%94%E8%AE%B0">Debian初体验之基础设置</a></p>
+<li><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY2FybHplbmcudG9wLzIwMjMxMDE3MTkxOC5odG1sP2hpZ2hsaWdodD1uZ2lueCtwcm94eSttYW5hZ2VyJUU0JUJGJUFFJUU1JUE0JThEJUU3JUFDJTk0JUU4JUFFJUIw" rel="noopener external nofollow noreferrer">Debian初体验之基础设置</a></p>
 <p>切换方案：wget….</p>
 </li>
-<li><p><a href="https://www.carlzeng.top/202310110855.html">utm虚拟机在mac m1下kali linux实战</a></p>
-<p>虚拟机软件 UTM，安装及使用KALI linux MAC M1 开源虚拟机UTM app<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9nZXR1dG0uYXBwLw==" rel="noopener external nofollow noreferrer">https://getutm.app</a> KALI linuxWorks Kali linux 2023.1…</p>
+<li><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY2FybHplbmcudG9wLzIwMjMxMDExMDg1NS5odG1s" rel="noopener external nofollow noreferrer">utm虚拟机在mac m1下kali linux实战</a></p>
+<p>虚拟机软件 UTM，安装及使用KALI linux MAC M1 开源虚拟机UTM app<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9nZXR1dG0uYXBwLw==" rel="noopener external nofollow noreferrer">https://getutm.app</a> KALI linuxWorks Kali linux 2023.1…</p>
 </li>
-<li><p><a href="https://www.carlzeng.top/202311141039.html">iptables应用</a></p>
+<li><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY2FybHplbmcudG9wLzIwMjMxMTE0MTAzOS5odG1s" rel="noopener external nofollow noreferrer">iptables应用</a></p>
 <p>有什么用管理linux防火墙开启Openwrt上的clash服务中转 实现方法 iptables 应用在OpenWrt上面，开放OpenWrt中OpenClash的HTTP &amp; SOCK…</p>
 </li>
-<li><p><a href="https://www.carlzeng.top/202308262104.html">云盘转nas，云盘转化为本地磁盘，跨平台跨设备同步-carlzeng</a></p>
-<p>止DOS）同时也出现各种解决方法，比如：linux<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hdXIuYXJjaGxpbnV4Lm9yZy9wYWNrYWdlcy9hcmlhMi11bmxpbWl0ZWRodHRwczovL2dpdGh1Yi5jb20vUDNURVJY" rel="noopener external nofollow noreferrer">https://aur.archlinux.org/packages/aria2-unlimitedhttps://github.com/P3TERX</a>…</p>
+<li><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY2FybHplbmcudG9wLzIwMjMwODI2MjEwNC5odG1s" rel="noopener external nofollow noreferrer">云盘转nas，云盘转化为本地磁盘，跨平台跨设备同步-carlzeng</a></p>
+<p>止DOS）同时也出现各种解决方法，比如：linux<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hdXIuYXJjaGxpbnV4Lm9yZy9wYWNrYWdlcy9hcmlhMi11bmxpbWl0ZWRodHRwczovL2dpdGh1Yi5jb20vUDNURVJY" rel="noopener external nofollow noreferrer">https://aur.archlinux.org/packages/aria2-unlimitedhttps://github.com/P3TERX</a>…</p>
 </li>
 </ul>
 <p>下一步TODO：我讲尝试API获取站内搜索的结果页面（仅内容+链接）返回HTML</p>
@@ -478,12 +478,12 @@
 <p>这样查询以后就知道机器目前到底开放了那些tcp端口</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@K2P:/# netstat -tln</span><br><span class="line">Active Internet connections (only servers)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State</span><br><span class="line">tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN</span><br><span class="line">tcp        0      0 0.0.0.0:53              0.0.0.0:*               LISTEN</span><br><span class="line">tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN</span><br><span class="line">tcp        0      0 ::ffff:192.168.2.1:7681 :::*                    LISTEN</span><br><span class="line">tcp        0      0 :::5000                 :::*                    LISTEN</span><br><span class="line">tcp        0      0 :::80                   :::*                    LISTEN</span><br><span class="line">tcp        0      0 :::53                   :::*                    LISTEN</span><br><span class="line">tcp        0      0 :::22                   :::*                    LISTEN</span><br><span class="line">tcp        0      0 :::23                   :::*                    LISTEN</span><br></pre></td></tr></table></figure>
 
-<h1 id="关于LEDE-OpenWrt"><a href="#关于LEDE-OpenWrt" class="headerlink" title="关于LEDE OpenWrt"></a>关于LEDE OpenWrt</h1><p>The LEDE Project (“Linux Embedded Development Environment”) is a <strong>Linux</strong> operating system based on OpenWrt. <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9sZWRlLnJlYWR0aGVkb2NzLmlvL2VuL2xhdGVzdC8j" rel="noopener external nofollow noreferrer">https://lede.readthedocs.io/en/latest/#</a></p>
+<h1 id="关于LEDE-OpenWrt"><a href="#关于LEDE-OpenWrt" class="headerlink" title="关于LEDE OpenWrt"></a>关于LEDE OpenWrt</h1><p>The LEDE Project (“Linux Embedded Development Environment”) is a <strong>Linux</strong> operating system based on OpenWrt. <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9sZWRlLnJlYWR0aGVkb2NzLmlvL2VuL2xhdGVzdC8j" rel="noopener external nofollow noreferrer">https://lede.readthedocs.io/en/latest/#</a></p>
 <p>相当于一台硬件配置简陋的Linux服务器，用于测试小ipk软件包还是很好用的。</p>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
 <li><p>使用SSH连接到OpenWrt</p>
 </li>
-<li><p>Terminal 运行 ssh <a href="mailto:&#114;&#x6f;&#111;&#x74;&#x40;&#49;&#57;&#50;&#46;&#49;&#x36;&#56;&#x2e;&#x36;&#46;&#x31;">&#114;&#x6f;&#111;&#x74;&#x40;&#49;&#57;&#50;&#46;&#49;&#x36;&#56;&#x2e;&#x36;&#46;&#x31;</a> 如果提示错误：</p>
+<li><p>Terminal 运行 ssh <a href="mailto:&#114;&#x6f;&#111;&#116;&#64;&#49;&#x39;&#50;&#x2e;&#49;&#x36;&#x38;&#46;&#x36;&#46;&#49;">&#114;&#x6f;&#111;&#116;&#64;&#49;&#x39;&#50;&#x2e;&#49;&#x36;&#x38;&#46;&#x36;&#46;&#49;</a> 如果提示错误：</p>
 <pre><code>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -600,7 +600,7 @@ BusyBox v1.25.1 () built-in shell (ash)
           </div>
         </p>
 
-        <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
+        <a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
         <img src="https://c.carlzeng.com:3/wechatScan.png" border="0">
 
 
@@ -634,14 +634,14 @@ BusyBox v1.25.1 () built-in shell (ash)
 <ul>
   <li class="post-copyright-author">
       <strong>本文作者： </strong>Carl Notes
-    <a href='https://www.carlzeng.top/202308242111.html'> 《如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng》</a>
+    <a href='https://www.carlzeng.com/202308242111.html'> 《如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng》</a>
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.carlzeng.top/202308242111.html" title="如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng">https://www.carlzeng.top/202308242111.html</a>
+      <a href="https://www.carlzeng.com/202308242111.html" title="如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng">https://www.carlzeng.com/202308242111.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -766,12 +766,12 @@ BusyBox v1.25.1 () built-in shell (ash)
 
 
 <div class="followme">
-  <span>您可以<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer">提交需求反馈</a>, <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a> 或 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLmNvbTozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">打赏作者</a>.</span>
+  <span>您可以<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer">提交需求反馈</a>, <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a> 或 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLmNvbTozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">打赏作者</a>.</span>
 
   <div class="social-list">
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
@@ -781,7 +781,7 @@ BusyBox v1.25.1 () built-in shell (ash)
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
@@ -791,7 +791,7 @@ BusyBox v1.25.1 () built-in shell (ash)
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tLzIwMjMxMjA4MTEyOC5odG1s" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/202312081128.html">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -801,7 +801,7 @@ BusyBox v1.25.1 () built-in shell (ash)
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -811,7 +811,7 @@ BusyBox v1.25.1 () built-in shell (ash)
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fa fa-rss"></i>
             </span>
@@ -821,7 +821,7 @@ BusyBox v1.25.1 () built-in shell (ash)
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -831,7 +831,7 @@ BusyBox v1.25.1 () built-in shell (ash)
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -841,7 +841,7 @@ BusyBox v1.25.1 () built-in shell (ash)
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -851,7 +851,7 @@ BusyBox v1.25.1 () built-in shell (ash)
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -874,8 +874,8 @@ BusyBox v1.25.1 () built-in shell (ash)
 
           <div class="post-tags">
             继续浏览有关
-              <a href="/tags/OpenWrt/" rel="tag"># OpenWrt</a>
               <a href="/tags/%E5%AE%B6%E5%AE%BD/" rel="tag"># 家宽</a>
+              <a href="/tags/OpenWrt/" rel="tag"># OpenWrt</a>
               <a href="/tags/linux/" rel="tag"># linux</a>
               <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="tag"># 路由器</a>
               <a href="/tags/Nginx/" rel="tag"># Nginx</a>
@@ -957,22 +957,22 @@ BusyBox v1.25.1 () built-in shell (ash)
     var _paq = window._paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-    _paq.push(["setCookieDomain", "*.carlzeng.top"]);
+    _paq.push(["setCookieDomain", "*.carlzeng.com"]);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-      var u="//statcounter.carlzeng.top:4443/";
+      var u="//statcounter.carlzeng.com:4443/";
       _paq.push(['setTrackerUrl', u+'matomo.php']);
       _paq.push(['setSiteId', '1']);
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
       g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
   </script>
-  <noscript><p><img src="//statcounter.carlzeng.top:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <noscript><p><img src="//statcounter.carlzeng.com:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
   <!-- End Matomo Code -->
 
 <div class="powered-by">
-    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL3NpdGVtYXAueG1s" rel="noopener external nofollow noreferrer">Sitemap</a> | <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL3JzczIueG1s" rel="noopener external nofollow noreferrer">RSS</a> | 选择服务器：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">Main</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oay5jYXJsemVuZy50b3A=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">US</a>
+    <a href='https://www.carlzeng.com/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.com/rss2.xml'>RSS</a> | 选择服务器：<a href="https://www.carlzeng.com">Main</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">US</a>
 </div>
 
     </div>

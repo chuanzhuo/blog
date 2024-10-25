@@ -16,12 +16,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="希望对大家重新认识 Javascript 有所帮助。   代码:   &#x2F;**  * 定义一个全局对象, 属性 Version 在发布的时候会替换为当前版本号  *&#x2F;  var Prototype &#x3D; {  Version: &#39;@@VERSION@@&#39;  }   &#x2F;**  * 创建一种类型，注意其属性 create 是一个方法，返回一个构造函数。  * 一般使用如下  * var X &#x3D; Class">
 <meta property="og:type" content="article">
 <meta property="og:title" content="prototype.js源码解读(一)-CarlZeng">
-<meta property="og:url" content="https://www.carlzeng.top/201002251628.html">
+<meta property="og:url" content="https://www.carlzeng.com/201002251628.html">
 <meta property="og:site_name" content="云随笔 Carl Notes">
 <meta property="og:description" content="希望对大家重新认识 Javascript 有所帮助。   代码:   &#x2F;**  * 定义一个全局对象, 属性 Version 在发布的时候会替换为当前版本号  *&#x2F;  var Prototype &#x3D; {  Version: &#39;@@VERSION@@&#39;  }   &#x2F;**  * 创建一种类型，注意其属性 create 是一个方法，返回一个构造函数。  * 一般使用如下  * var X &#x3D; Class">
 <meta property="og:locale" content="zh_CN">
@@ -32,11 +32,11 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.carlzeng.top/201002251628.html">
+<link rel="canonical" href="https://www.carlzeng.com/201002251628.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/201002251628.html","path":"201002251628.html","title":"prototype.js源码解读(一)-CarlZeng"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.com/201002251628.html","path":"201002251628.html","title":"prototype.js源码解读(一)-CarlZeng"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>prototype.js源码解读(一)-CarlZeng | 云随笔 Carl Notes</title>
@@ -89,7 +89,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">245</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">70</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">366</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NhbQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">245</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">70</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">366</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NhbQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -368,7 +368,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/201002251628.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/201002251628.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -435,7 +435,7 @@
 <p>&#x2F;**<br>* 创建一种类型，注意其属性 create 是一个方法，返回一个构造函数。<br>* 一般使用如下<br>* var X &#x3D; Class.create(); 返回一个类型，类似于 java 的一个Class实例。<br>* 要使用 X 类型，需继续用 new X()来获取一个实例，如同 java 的 Class.newInstance()方法。<br>*<br>* 返回的构造函数会执行名为 initialize 的方法， initialize 是 Ruby 对象的构造器方法名字。<br>* 此时initialize方法还没有定义，其后的代码中创建新类型时会建立相应的同名方法。<br>*<br>* 如果一定要从java上去理解。你可以理解为用Class.create()创建一个继承java.lang.Class类的类。当然java不允许这样做，因为Class类是final的<br>*<br>*&#x2F;<br>var Class &#x3D; {<br>create: function() {<br>return function() {<br>this.initialize.apply(this, arguments);<br>}<br>}<br>}  </p>
 <p>&#x2F;**<br>* 创建一个对象，从变量名来思考，本意也许是定义一个抽象类，以后创建新对象都 extend 它。<br>* 但从其后代码的应用来看， Abstract 更多是为了保持命名空间清晰的考虑。<br>* 也就是说，我们可以给 Abstract 这个对象实例添加新的对象定义。<br>*<br>* 从java去理解，就是动态给一个对象创建内部类。<br>*&#x2F;<br>var Abstract &#x3D; new Object();  </p>
 <p>&#x2F;**<br>* 获取参数对象的所有属性和方法，有点象多重继承。但是这种继承是动态获得的。<br>* 如：<br>* var a &#x3D; new ObjectA(), b &#x3D; new ObjectB();<br>* var c &#x3D; a.extend(b);<br>* 此时 c 对象同时拥有 a 和 b 对象的属性和方法。但是与多重继承不同的是，c instanceof ObjectB 将返回false。<br>*&#x2F;<br>Object.prototype.extend &#x3D; function(object) {<br>for (property in object) {<br>this[property] &#x3D; object[property];<br>}<br>return this;<br>}  </p>
-<p>&#x2F;**<br>* 这个方法很有趣，它封装一个javascript函数对象，返回一个新函数对象，新函数对象的主体和原对象相同，但是bind()方法参数将被用作当前对象的对象。<br>* 也就是说新函数中的 this 引用被改变为参数提供的对象。<br>* 比如：<br>* <input type="text" id="aaa" value="aaa"><br>* <input type="text" id="bbb" value="bbb"><br>* ……………..<br>* <script><br>* var aaa = document.getElementById("aaa");<br>* var bbb = document.getElementById("bbb");<br>* aaa.showValue = function() {alert(this.value);}<br>* aaa.showValue2 = aaa.showValue.bind(bbb);<br>* </script><br>* 那么，调用aaa.showValue 将返回”aaa”, 但调用aaa.showValue2 将返回”bbb”。<br>*<br>* apply 是ie5.5后才出现的新方法(Netscape好像很早就支持了)。<br>* 该方法更多的资料参考MSDN <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL21zZG4ubWljcm9zb2Z0LmNvbS9saWJyYXJ5L2VuLXVzL3NjcmlwdDU2L2h0bWwvanM1NmpzbXRoQXBwbHkuYXNw" rel="noopener external nofollow noreferrer">http://msdn.microsoft.com/library/en...jsmthApply.asp</a><br>* 还有一个 call 方法，应用起来和 apply 类似。可以一起研究下。<br>*&#x2F;<br>Function.prototype.bind &#x3D; function(object) {<br>var method &#x3D; this;<br>return function() {<br>method.apply(object, arguments);<br>}<br>}  </p>
+<p>&#x2F;**<br>* 这个方法很有趣，它封装一个javascript函数对象，返回一个新函数对象，新函数对象的主体和原对象相同，但是bind()方法参数将被用作当前对象的对象。<br>* 也就是说新函数中的 this 引用被改变为参数提供的对象。<br>* 比如：<br>* <input type="text" id="aaa" value="aaa"><br>* <input type="text" id="bbb" value="bbb"><br>* ……………..<br>* <script><br>* var aaa = document.getElementById("aaa");<br>* var bbb = document.getElementById("bbb");<br>* aaa.showValue = function() {alert(this.value);}<br>* aaa.showValue2 = aaa.showValue.bind(bbb);<br>* </script><br>* 那么，调用aaa.showValue 将返回”aaa”, 但调用aaa.showValue2 将返回”bbb”。<br>*<br>* apply 是ie5.5后才出现的新方法(Netscape好像很早就支持了)。<br>* 该方法更多的资料参考MSDN <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovL21zZG4ubWljcm9zb2Z0LmNvbS9saWJyYXJ5L2VuLXVzL3NjcmlwdDU2L2h0bWwvanM1NmpzbXRoQXBwbHkuYXNw" rel="noopener external nofollow noreferrer">http://msdn.microsoft.com/library/en...jsmthApply.asp</a><br>* 还有一个 call 方法，应用起来和 apply 类似。可以一起研究下。<br>*&#x2F;<br>Function.prototype.bind &#x3D; function(object) {<br>var method &#x3D; this;<br>return function() {<br>method.apply(object, arguments);<br>}<br>}  </p>
 <p>&#x2F;**<br>* 和bind一样，不过这个方法一般用做html控件对象的事件处理。所以要传递event对象<br>* 注意这时候，用到了 Function.call。它与 Function.apply 的不同好像仅仅是对参数形式的定义。<br>* 如同 java 两个过载的方法。<br>*&#x2F;<br>Function.prototype.bindAsEventListener &#x3D; function(object) {<br>var method &#x3D; this;<br>return function(event) {<br>method.call(object, event || window.event);<br>}<br>}  </p>
 <p>&#x2F;**<br>* 将整数形式RGB颜色值转换为HEX形式<br>*&#x2F;<br>Number.prototype.toColorPart &#x3D; function() {<br>var digits &#x3D; this.toString(16);<br>if (this &lt; 16) return ‘0’ + digits;<br>return digits;<br>}  </p>
 <p>&#x2F;**<br>* 典型 Ruby 风格的函数，将参数中的方法逐个调用，返回第一个成功执行的方法的返回值<br>*&#x2F;<br>var Try &#x3D; {<br>these: function() {<br>var returnValue;  </p>
@@ -456,7 +456,7 @@
 <p>emptyFunction: function() {}<br>}  </p>
 <p>&#x2F;**<br>* 我以为此时的Ajax对象起到命名空间的作用。<br>* Ajax.Base 声明为一个基础对象类型<br>* 注意 Ajax.Base 并没有使用 Class.create() 的方式来创建，我想是因为作者并不希望 Ajax.Base 被库使用者实例化。<br>* 作者在其他对象类型的声明中，将会继承于它。<br>* 就好像 java 中的私有抽象类<br>*&#x2F;<br>Ajax.Base &#x3D; function() {};<br>Ajax.Base.prototype &#x3D; {<br>&#x2F;**<br>* extend (见prototype.js中的定义) 的用法真是让人耳目一新<br>* options 首先设置默认属性，然后再 extend 参数对象，那么参数对象中也有同名的属性，那么就覆盖默认属性值。<br>* 想想如果我写这样的实现，应该类似如下：<br>setOptions: function(options) {<br>this.options.methed &#x3D; options.methed? options.methed : ‘post’;<br>……….<br>}<br>我想很多时候，java 限制了 js 的创意。<br>*&#x2F;<br>setOptions: function(options) {<br>this.options &#x3D; {<br>method: ‘post’,<br>asynchronous: true,<br>parameters: ‘’<br>}.extend(options || {});<br>}<br>}  </p>
 <p>&#x2F;**<br>* Ajax.Request 封装 XmlHttp<br>*&#x2F;<br>Ajax.Request &#x3D; Class.create();  </p>
-<p>&#x2F;**<br>* 定义四种事件(状态)， 参考<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL21zZG4ubWljcm9zb2Z0LmNvbS93b3Jrc2hvcC9hdXRob3IvZGh0bWwvcmVmZXJlbmNlL3Byb3BlcnRpZXMvcmVhZHlzdGF0ZV8xLmFzcA==" rel="noopener external nofollow noreferrer">http://msdn.microsoft.com/workshop/a...adystate_1.asp</a><br>*&#x2F;<br>Ajax.Request.Events &#x3D;<br>[‘Uninitialized’, ‘Loading’, ‘Loaded’, ‘Interactive’, ‘Complete’];  </p>
+<p>&#x2F;**<br>* 定义四种事件(状态)， 参考<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovL21zZG4ubWljcm9zb2Z0LmNvbS93b3Jrc2hvcC9hdXRob3IvZGh0bWwvcmVmZXJlbmNlL3Byb3BlcnRpZXMvcmVhZHlzdGF0ZV8xLmFzcA==" rel="noopener external nofollow noreferrer">http://msdn.microsoft.com/workshop/a...adystate_1.asp</a><br>*&#x2F;<br>Ajax.Request.Events &#x3D;<br>[‘Uninitialized’, ‘Loading’, ‘Loaded’, ‘Interactive’, ‘Complete’];  </p>
 <p>&#x2F;**<br>*<br>*&#x2F;<br>Ajax.Request.prototype &#x3D; (new Ajax.Base()).extend({<br>initialize: function(url, options) {<br>this.transport &#x3D; Ajax.getTransport();<br>this.setOptions(options);  </p>
 <p>try {<br>if (this.options.method &#x3D;&#x3D; ‘get’)<br>url +&#x3D; ‘?’ + this.options.parameters + ‘&amp;_&#x3D;’;  </p>
 <p>&#x2F;**<br>* 此处好像强制使用了异步方式，而不是依照 this.options.asynchronous 的值<br>*&#x2F;<br>this.transport.open(this.options.method, url, true);  </p>
@@ -484,7 +484,7 @@
 <p>&#x2F;**<br>* 得到表单的所有元素对象<br>*&#x2F;<br>getElements: function(form) {<br>form &#x3D; $(form);<br>var elements &#x3D; new Array();  </p>
 <p>for (tagName in Form.Element.Serializers) {<br>var tagElements &#x3D; form.getElementsByTagName(tagName);<br>for (var j &#x3D; 0; j &lt; tagElements.length; j++)<br>elements.push(tagElements[j]);<br>}<br>return elements;<br>},  </p>
 <p>&#x2F;**<br>* 将指定表单的元素置于不可用状态<br>*&#x2F;<br>disable: function(form) {<br>var elements &#x3D; Form.getElements(form);<br>for (var i &#x3D; 0; i &lt; elements.length; i++) {<br>var element &#x3D; elements[i];<br>element.blur();<br>element.disable &#x3D; ‘true’;<br>}<br>},</p>
-<p>from:<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cDovL2ZvcnVtLmoyZWVteC5jb20vYWpheC1hamF4LWRpc2N1c3Npb25zLzEwMjYtcHJvdG90eXBlLWphdmFzY3JpcHQuaHRtbA==" rel="noopener external nofollow noreferrer">http://forum.j2eemx.com/ajax-ajax-discussions/1026-prototype-javascript.html</a></p>
+<p>from:<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovL2ZvcnVtLmoyZWVteC5jb20vYWpheC1hamF4LWRpc2N1c3Npb25zLzEwMjYtcHJvdG90eXBlLWphdmFzY3JpcHQuaHRtbA==" rel="noopener external nofollow noreferrer">http://forum.j2eemx.com/ajax-ajax-discussions/1026-prototype-javascript.html</a></p>
 
 
         <!-- search & recent posts(added 20240914) -->
@@ -553,7 +553,7 @@
           </div>
         </p>
 
-        <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
+        <a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
         <img src="https://c.carlzeng.com:3/wechatScan.png" border="0">
 
 
@@ -587,14 +587,14 @@
 <ul>
   <li class="post-copyright-author">
       <strong>本文作者： </strong>Carl Notes
-    <a href='https://www.carlzeng.top/201002251628.html'> 《prototype.js源码解读(一)-CarlZeng》</a>
+    <a href='https://www.carlzeng.com/201002251628.html'> 《prototype.js源码解读(一)-CarlZeng》</a>
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.carlzeng.top/201002251628.html" title="prototype.js源码解读(一)-CarlZeng">https://www.carlzeng.top/201002251628.html</a>
+      <a href="https://www.carlzeng.com/201002251628.html" title="prototype.js源码解读(一)-CarlZeng">https://www.carlzeng.com/201002251628.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -719,12 +719,12 @@
 
 
 <div class="followme">
-  <span>您可以<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer">提交需求反馈</a>, <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a> 或 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLmNvbTozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">打赏作者</a>.</span>
+  <span>您可以<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer">提交需求反馈</a>, <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a> 或 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLmNvbTozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">打赏作者</a>.</span>
 
   <div class="social-list">
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
@@ -734,7 +734,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
@@ -744,7 +744,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tLzIwMjMxMjA4MTEyOC5odG1s" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/202312081128.html">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -754,7 +754,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -764,7 +764,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fa fa-rss"></i>
             </span>
@@ -774,7 +774,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -784,7 +784,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -794,7 +794,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -804,7 +804,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -900,22 +900,22 @@
     var _paq = window._paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-    _paq.push(["setCookieDomain", "*.carlzeng.top"]);
+    _paq.push(["setCookieDomain", "*.carlzeng.com"]);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-      var u="//statcounter.carlzeng.top:4443/";
+      var u="//statcounter.carlzeng.com:4443/";
       _paq.push(['setTrackerUrl', u+'matomo.php']);
       _paq.push(['setSiteId', '1']);
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
       g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
   </script>
-  <noscript><p><img src="//statcounter.carlzeng.top:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <noscript><p><img src="//statcounter.carlzeng.com:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
   <!-- End Matomo Code -->
 
 <div class="powered-by">
-    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL3NpdGVtYXAueG1s" rel="noopener external nofollow noreferrer">Sitemap</a> | <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL3JzczIueG1s" rel="noopener external nofollow noreferrer">RSS</a> | 选择服务器：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">Main</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oay5jYXJsemVuZy50b3A=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">US</a>
+    <a href='https://www.carlzeng.com/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.com/rss2.xml'>RSS</a> | 选择服务器：<a href="https://www.carlzeng.com">Main</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">US</a>
 </div>
 
     </div>

@@ -16,12 +16,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="家宽环境搭建兰空图床实践过程记录分享; 结合ffmpeg抽帧和Synology Photos分享特定照片库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建图床 切换本站图片至自建服务">
-<meta property="og:url" content="https://www.carlzeng.top/202401222151.html">
+<meta property="og:url" content="https://www.carlzeng.com/202401222151.html">
 <meta property="og:site_name" content="云随笔 Carl Notes">
 <meta property="og:description" content="家宽环境搭建兰空图床实践过程记录分享; 结合ffmpeg抽帧和Synology Photos分享特定照片库">
 <meta property="og:locale" content="zh_CN">
@@ -30,19 +30,19 @@
 <meta property="article:published_time" content="2024-01-22T13:51:38.000Z">
 <meta property="article:modified_time" content="2024-10-07T12:11:47.581Z">
 <meta property="article:author" content="Carl Notes">
-<meta property="article:tag" content="NPM">
 <meta property="article:tag" content="Docker">
+<meta property="article:tag" content="NPM">
 <meta property="article:tag" content="图床">
 <meta property="article:tag" content="LskyPro">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img.carlzeng.top:3/i/2024/02/21/65d5961d744d1.png">
 
 
-<link rel="canonical" href="https://www.carlzeng.top/202401222151.html">
+<link rel="canonical" href="https://www.carlzeng.com/202401222151.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.top/202401222151.html","path":"202401222151.html","title":"搭建图床 切换本站图片至自建服务"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.com/202401222151.html","path":"202401222151.html","title":"搭建图床 切换本站图片至自建服务"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>搭建图床 切换本站图片至自建服务 | 云随笔 Carl Notes</title>
@@ -95,7 +95,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">245</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">70</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">366</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NhbQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">245</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">70</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">366</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NhbQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -375,7 +375,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/202401222151.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/202401222151.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -470,13 +470,13 @@
 <li>群晖 Synology Photos, 备份各个手机中的照片</li>
 <li>ffmpeg抽帧实践</li>
 </ul>
-<p>访问：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9pbWcuY2FybHplbmcudG9wOjMv" rel="noopener external nofollow noreferrer">Carl Notes 图床</a></p>
+<p>访问：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9pbWcuY2FybHplbmcudG9wOjMv" rel="noopener external nofollow noreferrer">Carl Notes 图床</a></p>
 <p>登录后台管理图床中的图片内容等操作</p>
 <h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.top:3/appsearch?q=image" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><h2 id="Docker搭建Lsky-Pro图床应用"><a href="#Docker搭建Lsky-Pro图床应用" class="headerlink" title="Docker搭建Lsky Pro图床应用"></a>Docker搭建Lsky Pro图床应用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">docker pull dko0/lsky-pro</span><br><span class="line"></span><br><span class="line">docker run  --name lsky-pro --restart always -p 8091:80 -d -v /volume2/KingchuxingSSD512G/MacBookPro_Skitch:/var/www/html dko0/lsky-pro</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">转化为docker-compose</span></span><br><span class="line">version: &#x27;3.9&#x27;</span><br><span class="line">services:</span><br><span class="line">    lsky-pro:</span><br><span class="line">        image: dko0/lsky-pro</span><br><span class="line">        volumes:</span><br><span class="line">            - &#x27;/volume2/KingchuxingSSD512G/MacBookPro_Skitch:/var/www/html&#x27;</span><br><span class="line">        ports:</span><br><span class="line">            - &#x27;8091:80&#x27;</span><br><span class="line">        restart: always</span><br><span class="line">        container_name: lsky-pro</span><br></pre></td></tr></table></figure>
 
-<h2 id="配置PicGO"><a href="#配置PicGO" class="headerlink" title="配置PicGO"></a>配置PicGO</h2><p>下载并安装PicGo，Mac OS X：[PicGo-2.4.0-beta.6-x64.dmg](<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL01vbHVuZXJmaW5uL1BpY0dvL3JlbGVhc2Vz" rel="noopener external nofollow noreferrer">https://github.com/Molunerfinn/PicGo/releases</a><br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9waWNnby1yZWxlYXNlLm1vbHVuZXJmaW5uLmNvbS8yLjQuMC1iZXRhLjYvUGljR28tMi40LjAtYmV0YS42LXg2NC5kbWc=" rel="noopener external nofollow noreferrer">https://picgo-release.molunerfinn.com/2.4.0-beta.6/PicGo-2.4.0-beta.6-x64.dmg</a>)</p>
+<h2 id="配置PicGO"><a href="#配置PicGO" class="headerlink" title="配置PicGO"></a>配置PicGO</h2><p>下载并安装PicGo，Mac OS X：[PicGo-2.4.0-beta.6-x64.dmg](<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL01vbHVuZXJmaW5uL1BpY0dvL3JlbGVhc2Vz" rel="noopener external nofollow noreferrer">https://github.com/Molunerfinn/PicGo/releases</a><br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9waWNnby1yZWxlYXNlLm1vbHVuZXJmaW5uLmNvbS8yLjQuMC1iZXRhLjYvUGljR28tMi40LjAtYmV0YS42LXg2NC5kbWc=" rel="noopener external nofollow noreferrer">https://picgo-release.molunerfinn.com/2.4.0-beta.6/PicGo-2.4.0-beta.6-x64.dmg</a>)</p>
 <p>打开主界面&#x2F;窗口，插件设置，搜索并安装插件名：lankong （我下载的版本是：lankong 1.1.3）</p>
 <p>图床配置 》 lankong</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Lsky Pro Version： V2</span><br><span class="line">Server: https://img.carlzeng.top:3</span><br><span class="line">Auth token: Bearer 1|ZRZcNz1E6hAuyV4LytmCqmGx5yST0g9OyhdptXXX</span><br></pre></td></tr></table></figure>
@@ -485,7 +485,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --location --request POST &#x27;https://imgserver.com:3/api/v1/tokens&#x27; \</span><br><span class="line">	--form &#x27;email=&quot;email@email.com&quot;&#x27; \</span><br><span class="line">	--form &#x27;password=&quot;password&quot;&#x27;</span><br></pre></td></tr></table></figure>
 
 <p>请修改一下URL地址为访问自建兰空图床的URL地址，email和密码为登录图传所使用的用户名和密码</p>
-<p>本章节参见：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2hlbGxvZGszNC9waWNnby1wbHVnaW4tbGFua29uZw==" rel="noopener external nofollow noreferrer">https://github.com/hellodk34/picgo-plugin-lankong</a></p>
+<p>本章节参见：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2hlbGxvZGszNC9waWNnby1wbHVnaW4tbGFua29uZw==" rel="noopener external nofollow noreferrer">https://github.com/hellodk34/picgo-plugin-lankong</a></p>
 <p>测试：将文件拖拽到此处，或 点击上传，然后到兰空图床的URL后台，确认图片已上传至系统中</p>
 <h2 id="配置Typora"><a href="#配置Typora" class="headerlink" title="配置Typora"></a>配置Typora</h2><p>设置 偏好设置</p>
 <ol>
@@ -506,7 +506,7 @@
 <li><p>全流程结束</p>
 </li>
 </ol>
-<p>本章节可以参见：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zdXBwb3J0LnR5cG9yYS5pby9VcGxvYWQtSW1hZ2UvI3BpY2dvYXBwLWNoaW5lc2UtbGFuZ3VhZ2Utb25seQ==" rel="noopener external nofollow noreferrer">Upload Images</a></p>
+<p>本章节可以参见：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zdXBwb3J0LnR5cG9yYS5pby9VcGxvYWQtSW1hZ2UvI3BpY2dvYXBwLWNoaW5lc2UtbGFuZ3VhZ2Utb25seQ==" rel="noopener external nofollow noreferrer">Upload Images</a></p>
 <h2 id="关联Alist的目录"><a href="#关联Alist的目录" class="headerlink" title="关联Alist的目录"></a>关联Alist的目录</h2><p>这是根据个人自身的使用情况做的拓展，分享出图床中的所有图片</p>
 <p>修改docker-compose.yml, 添加映射：</p>
 <ul>
@@ -524,13 +524,13 @@
 
 <p>进入Alist的后台管理，新增 “本机存储”</p>
 <p>映射&#x2F;home&#x2F;share10 至外观目录：&#x2F;图床MacBookPro_Skitch</p>
-<p>效果如：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9maWxlLmNhcmx6ZW5nLnRvcDozLyVFNSU5QiVCRSVFNSVCQSU4QU1hY0Jvb2tQcm9fU2tpdGNoL3N0b3JhZ2UvYXBwL3VwbG9hZHMvMjAyNC8wMi8yMQ==" rel="noopener external nofollow noreferrer">https://file.carlzeng.top:3/%E5%9B%BE%E5%BA%8AMacBookPro_Skitch/storage/app/uploads/2024/02/21</a></p>
+<p>效果如：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9maWxlLmNhcmx6ZW5nLnRvcDozLyVFNSU5QiVCRSVFNSVCQSU4QU1hY0Jvb2tQcm9fU2tpdGNoL3N0b3JhZ2UvYXBwL3VwbG9hZHMvMjAyNC8wMi8yMQ==" rel="noopener external nofollow noreferrer">https://file.carlzeng.top:3/%E5%9B%BE%E5%BA%8AMacBookPro_Skitch/storage/app/uploads/2024/02/21</a></p>
 <h2 id="NPM反代后带端口访问"><a href="#NPM反代后带端口访问" class="headerlink" title="NPM反代后带端口访问"></a>NPM反代后带端口访问</h2><p>1、修改&#x2F;config&#x2F;app.php （大约在57-60行的地方，修改以下2行内容）</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原先：</span></span><br><span class="line">  <span class="string">&#x27;url&#x27;</span> =&gt; <span class="title function_ invoke__">env</span>(<span class="string">&#x27;APP_URL&#x27;</span>, <span class="string">&#x27;http://localhost&#x27;</span>),</span><br><span class="line"></span><br><span class="line"><span class="comment">//新：</span></span><br><span class="line">  <span class="string">&#x27;url&#x27;</span> =&gt; <span class="title function_ invoke__">env</span>(<span class="string">&#x27;APP_URL&#x27;</span>, <span class="string">&#x27;https://xxxxx.com:4443&#x27;</span>),</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原先：</span></span><br><span class="line">  <span class="string">&#x27;asset_url&#x27;</span> =&gt; <span class="title function_ invoke__">env</span>(<span class="string">&#x27;ASSET_URL&#x27;</span>, <span class="literal">null</span>),</span><br><span class="line"></span><br><span class="line"><span class="comment">//新：</span></span><br><span class="line">  <span class="string">&#x27;asset_url&#x27;</span> =&gt; <span class="title function_ invoke__">env</span>(<span class="string">&#x27;ASSET_URL&#x27;</span>, <span class="string">&#x27;https://xxxxx.com:4443&#x27;</span>),</span><br></pre></td></tr></table></figure>
 
-<p>请根据自身情况修改<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly94eHh4eC5jb206NDQ0M+S4uuiHquW3seeahOWfn+WQjeWSjOerr+WPo+OAgg==" rel="noopener external nofollow noreferrer">https://xxxxx.com:4443为自己的域名和端口。</a></p>
+<p>请根据自身情况修改<a href="https://www.carlzeng.com/go/#aHR0cHM6Ly94eHh4eC5jb206NDQ0M+S4uuiHquW3seeahOWfn+WQjeWSjOerr+WPo+OAgg==" rel="noopener external nofollow noreferrer">https://xxxxx.com:4443为自己的域名和端口。</a></p>
 <p>2、修改 &#x2F;app&#x2F;Providers&#x2F;ApServiceProvider.php  第 32 行下面追加一行：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\Illuminate\Support\Facades\URL::<span class="title function_ invoke__">forceScheme</span>(<span class="string">&#x27;https&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
@@ -547,7 +547,7 @@
 <h2 id="Synology-Photos"><a href="#Synology-Photos" class="headerlink" title="Synology Photos"></a>Synology Photos</h2><p>发现了以上的那些图床的弊端以后,</p>
 <p>查资料翻到photoprism, Lychee, immich, 很喜欢这个风格; 然后想到了群晖NAS也有Photo! </p>
 <p>也是超级喜欢的风格, Synology Photos:</p>
-<p>登录路径 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9uYXMuY2FybHplbmcudG9wOjQ0NDMvP2xhdW5jaEFwcD1TWU5PLkZvdG8uU2hhcmluZy5BcHBJbnN0YW5jZSZhcHBfbmFtZT1TWU5PLkZvdG8uU2hhcmluZy5BcHBJbnN0YW5jZSZhY3Rpb249ZXh0ZXJuYWxfbG9naW4jL3NpZ25pbg==" rel="noopener external nofollow noreferrer">https://nas.carlzeng.top:4443/?launchApp=SYNO.Foto.Sharing.AppInstance&amp;app_name=SYNO.Foto.Sharing.AppInstance&amp;action=external_login#/signin</a></p>
+<p>登录路径 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9uYXMuY2FybHplbmcudG9wOjQ0NDMvP2xhdW5jaEFwcD1TWU5PLkZvdG8uU2hhcmluZy5BcHBJbnN0YW5jZSZhcHBfbmFtZT1TWU5PLkZvdG8uU2hhcmluZy5BcHBJbnN0YW5jZSZhY3Rpb249ZXh0ZXJuYWxfbG9naW4jL3NpZ25pbg==" rel="noopener external nofollow noreferrer">https://nas.carlzeng.top:4443/?launchApp=SYNO.Foto.Sharing.AppInstance&amp;app_name=SYNO.Foto.Sharing.AppInstance&amp;action=external_login#/signin</a></p>
 <p>设置了一个用户: 13261977480 (去除了NAS的访问权限, 是的, 取消非photo资源的访问)</p>
 <p>密码: 1Carlzeng.top</p>
 <p>设置下个, 获取 &#x2F;homes 目录的绝对路径: </p>
@@ -566,7 +566,7 @@
 <p><img data-src="https://img.carlzeng.top:3/i/2024/09/26/66f4f8453d18a.png" alt="image-20240926135930307"></p>
 <h2 id="ffmpeg对视频抽帧时让结果图片文件名带上时间戳"><a href="#ffmpeg对视频抽帧时让结果图片文件名带上时间戳" class="headerlink" title="ffmpeg对视频抽帧时让结果图片文件名带上时间戳"></a>ffmpeg对视频抽帧时让结果图片文件名带上时间戳</h2><p>文件名的部分, 目前是 %03d 意思是: 三位数字, 三位递增的数字, 001, 002, 003….</p>
 <p>output%Y-%m-%d-%H-%M-%S.jpg 意思是: output年-月-日-时-分-秒</p>
-<p>nohup ffmpeg -i “rtsp:&#x2F;&#x2F;a:<a href="mailto:&#97;&#x40;&#49;&#57;&#50;&#x2e;&#49;&#x36;&#56;&#x2e;&#x36;&#x2e;&#49;&#x32;&#x36;">&#97;&#x40;&#49;&#57;&#50;&#x2e;&#49;&#x36;&#56;&#x2e;&#x36;&#x2e;&#49;&#x32;&#x36;</a>:554” -y -f image2 -r 1&#x2F;180 &#x2F;volume2&#x2F;homes&#x2F;13261977480&#x2F;Photos&#x2F;camc%Y-%m-%d-%H-%M-%S.jpg 1&gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;</p>
+<p>nohup ffmpeg -i “rtsp:&#x2F;&#x2F;a:<a href="mailto:&#97;&#x40;&#49;&#57;&#50;&#x2e;&#49;&#x36;&#56;&#x2e;&#54;&#46;&#49;&#x32;&#x36;">&#97;&#x40;&#49;&#57;&#50;&#x2e;&#49;&#x36;&#56;&#x2e;&#54;&#46;&#49;&#x32;&#x36;</a>:554” -y -f image2 -r 1&#x2F;180 &#x2F;volume2&#x2F;homes&#x2F;13261977480&#x2F;Photos&#x2F;camc%Y-%m-%d-%H-%M-%S.jpg 1&gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[image2 @ 0x55bcf2b2d900] The specified filename &#x27;/volume2/homes/13261977480/Photos/camc%Y%m%d%H%M%S.png&#x27; does</span><br><span class="line"> not contain an image sequence pattern or a pattern is invalid. </span><br></pre></td></tr></table></figure>
 
 <p>以上这个方法给文件名添加时间戳, 都是失败了.</p>
@@ -583,7 +583,7 @@
 <ul>
 <li><code>select=&#39;gt(scene,0.25)&#39;</code>: 通过 <code>select</code> 滤镜来筛选场景变化。<code>gt(scene,0.25)</code> 表示筛选出场景变化程度大于0.25的帧。<code>scene</code>是一种场景检测器，它会计算帧与帧之间的差异，当差异超过指定的阈值时，认为发生了场景变化</li>
 </ul>
-<p>由于ffmpeg抽取帧并无法按照时间戳来命名，需要手动将ffprobe提取出来的帧时间与抽取帧的图片进行对应重命名。关键帧具体的定义和用途可以参考：<br><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvS2V5X2ZyYW1l" rel="noopener external nofollow noreferrer">Https://en.wikipedia.org/wiki/Key_frame</a></p>
+<p>由于ffmpeg抽取帧并无法按照时间戳来命名，需要手动将ffprobe提取出来的帧时间与抽取帧的图片进行对应重命名。关键帧具体的定义和用途可以参考：<br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvS2V5X2ZyYW1l" rel="noopener external nofollow noreferrer">Https://en.wikipedia.org/wiki/Key_frame</a></p>
 <h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步:"></a>下一步:</h2><ol>
 <li>设置定时, 仅在特定的时间段开放视频流抽帧<ol>
 <li>或者手动输入命令后, 按命令中的特定频率抽帧, 比如每分钟1帧</li>
@@ -613,10 +613,10 @@
 </ol>
 </li>
 </ol>
-<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oZWxsb2RrLmNuL3Bvc3QvOTY0" rel="noopener external nofollow noreferrer">写了一个适配兰空图床 Lsky Pro 的 PicGo 图片上传插件</a>  <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2hlbGxvZGszNC9waWNnby1wbHVnaW4tbGFua29uZw==" rel="noopener external nofollow noreferrer">picgo-plugin-lankong</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2xza3ktb3JnL2xza3ktcHJvL2lzc3Vlcy8zMTc=" rel="noopener external nofollow noreferrer">静态资源加载失败 #317</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY29tL2xza3ktb3JnL2xza3ktcHJvL2lzc3Vlcy82MDc=" rel="noopener external nofollow noreferrer">https+域名+端口的访问问题，NginxProxyManager反代 #607</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly94eXpiei5jbi9hcmNoaXZlcy8xMDgwLw==" rel="noopener external nofollow noreferrer">树莓派通过Docker部署兰空图床</a></p>
+<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9oZWxsb2RrLmNuL3Bvc3QvOTY0" rel="noopener external nofollow noreferrer">写了一个适配兰空图床 Lsky Pro 的 PicGo 图片上传插件</a>  <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2hlbGxvZGszNC9waWNnby1wbHVnaW4tbGFua29uZw==" rel="noopener external nofollow noreferrer">picgo-plugin-lankong</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2xza3ktb3JnL2xza3ktcHJvL2lzc3Vlcy8zMTc=" rel="noopener external nofollow noreferrer">静态资源加载失败 #317</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2xza3ktb3JnL2xza3ktcHJvL2lzc3Vlcy82MDc=" rel="noopener external nofollow noreferrer">https+域名+端口的访问问题，NginxProxyManager反代 #607</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly94eXpiei5jbi9hcmNoaXZlcy8xMDgwLw==" rel="noopener external nofollow noreferrer">树莓派通过Docker部署兰空图床</a></p>
 
 
         <!-- search & recent posts(added 20240914) -->
@@ -685,7 +685,7 @@
           </div>
         </p>
 
-        <a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
+        <a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
         <img src="https://c.carlzeng.com:3/wechatScan.png" border="0">
 
 
@@ -719,14 +719,14 @@
 <ul>
   <li class="post-copyright-author">
       <strong>本文作者： </strong>Carl Notes
-    <a href='https://www.carlzeng.top/202401222151.html'> 《搭建图床 切换本站图片至自建服务》</a>
+    <a href='https://www.carlzeng.com/202401222151.html'> 《搭建图床 切换本站图片至自建服务》</a>
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.carlzeng.top/202401222151.html" title="搭建图床 切换本站图片至自建服务">https://www.carlzeng.top/202401222151.html</a>
+      <a href="https://www.carlzeng.com/202401222151.html" title="搭建图床 切换本站图片至自建服务">https://www.carlzeng.com/202401222151.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
   </li>
 </ul>
 </div>
@@ -851,12 +851,12 @@
 
 
 <div class="followme">
-  <span>您可以<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer">提交需求反馈</a>, <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a> 或 <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLmNvbTozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">打赏作者</a>.</span>
+  <span>您可以<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer">提交需求反馈</a>, <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a> 或 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLmNvbTozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">打赏作者</a>.</span>
 
   <div class="social-list">
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
@@ -866,7 +866,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
@@ -876,7 +876,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tLzIwMjMxMjA4MTEyOC5odG1s" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/202312081128.html">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -886,7 +886,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -896,7 +896,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fa fa-rss"></i>
             </span>
@@ -906,7 +906,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -916,7 +916,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -926,7 +926,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -936,7 +936,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -959,8 +959,8 @@
 
           <div class="post-tags">
             继续浏览有关
-              <a href="/tags/NPM/" rel="tag"># NPM</a>
               <a href="/tags/Docker/" rel="tag"># Docker</a>
+              <a href="/tags/NPM/" rel="tag"># NPM</a>
               <a href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag"># 图床</a>
               <a href="/tags/LskyPro/" rel="tag"># LskyPro</a>
             的文章
@@ -1040,22 +1040,22 @@
     var _paq = window._paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-    _paq.push(["setCookieDomain", "*.carlzeng.top"]);
+    _paq.push(["setCookieDomain", "*.carlzeng.com"]);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-      var u="//statcounter.carlzeng.top:4443/";
+      var u="//statcounter.carlzeng.com:4443/";
       _paq.push(['setTrackerUrl', u+'matomo.php']);
       _paq.push(['setSiteId', '1']);
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
       g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
   </script>
-  <noscript><p><img src="//statcounter.carlzeng.top:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <noscript><p><img src="//statcounter.carlzeng.com:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
   <!-- End Matomo Code -->
 
 <div class="powered-by">
-    <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL3NpdGVtYXAueG1s" rel="noopener external nofollow noreferrer">Sitemap</a> | <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL3JzczIueG1s" rel="noopener external nofollow noreferrer">RSS</a> | 选择服务器：<a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">Main</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9oay5jYXJsemVuZy50b3A=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcudG9w" rel="noopener external nofollow noreferrer">US</a>
+    <a href='https://www.carlzeng.com/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.com/rss2.xml'>RSS</a> | 选择服务器：<a href="https://www.carlzeng.com">Main</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">US</a>
 </div>
 
     </div>
