@@ -502,7 +502,7 @@
 <p>当 f1 为 * 时表示每分钟都要执行 program，<br>当 f1 为 a-b 时表示从第 a 分钟到第 b 分钟这段时间内要执行，<br>当 f1 为 *&#x2F;n 时表示每 n 分钟个时间间隔执行一次，<br>当 f1 为 a, b, c,… 时表示第 a, b, c,… 分钟要执行，</p>
 <p>当 f2 为 * 时表示每小时都要执行程序，其余类推.<br>当 f2 为 a-b 时表示从第 a 到第 b 小时都要执行，其余类推<br>当 f2 为 *&#x2F;n 表示每 n 小时个时间间隔执行一次，其余类推<br>当 f2 为 a, b, c,… 时表示第 a, b, c…个小时要执行，其余类推</p>
 <p>例子 : 每月每天每小时的第 0 分钟执行一次  # program: &#x2F;bin&#x2F;ls<br>0 * * * * &#x2F;bin&#x2F;ls 在 12 月内, 每天的早上 6 点到 12 点中，每隔 20 分钟执行一次&#x2F;usr&#x2F;bin&#x2F;backup :<br>0 6-12&#x2F;3 * 12 * &#x2F;usr&#x2F;bin&#x2F;backup</p>
-<p>周一到周五每天下午 5:00 寄一封信给 <a href="mailto:&#x61;&#x6c;&#101;&#120;&#64;&#x64;&#111;&#x6d;&#97;&#x69;&#x6e;&#x2e;&#x6e;&#x61;&#109;&#x65;">&#x61;&#x6c;&#101;&#120;&#64;&#x64;&#111;&#x6d;&#97;&#x69;&#x6e;&#x2e;&#x6e;&#x61;&#109;&#x65;</a> :<br>0 17 * * 1-5 mail -s “hi” <a href="mailto:&#x61;&#x6c;&#101;&#x78;&#x40;&#100;&#111;&#x6d;&#97;&#105;&#110;&#x2e;&#x6e;&#x61;&#109;&#x65;">&#x61;&#x6c;&#101;&#x78;&#x40;&#100;&#111;&#x6d;&#97;&#105;&#110;&#x2e;&#x6e;&#x61;&#109;&#x65;</a> &lt; &#x2F;tmp&#x2F;maildata</p>
+<p>周一到周五每天下午 5:00 寄一封信给 <a href="mailto:&#97;&#x6c;&#101;&#x78;&#x40;&#x64;&#x6f;&#x6d;&#97;&#x69;&#110;&#x2e;&#x6e;&#x61;&#109;&#101;">&#97;&#x6c;&#101;&#x78;&#x40;&#x64;&#x6f;&#x6d;&#97;&#x69;&#110;&#x2e;&#x6e;&#x61;&#109;&#101;</a> :<br>0 17 * * 1-5 mail -s “hi” <a href="mailto:&#97;&#x6c;&#101;&#x78;&#64;&#100;&#x6f;&#x6d;&#97;&#x69;&#110;&#46;&#x6e;&#97;&#109;&#101;">&#97;&#x6c;&#101;&#x78;&#64;&#100;&#x6f;&#x6d;&#97;&#x69;&#110;&#46;&#x6e;&#97;&#109;&#101;</a> &lt; &#x2F;tmp&#x2F;maildata</p>
 <p>每月每天的午夜 0 点 20 分, 2 点 20 分, 4 点 20 分….执行 echo “haha”<br>20 0-23&#x2F;2 * * * echo “haha”</p>
 
 
@@ -977,6 +977,26 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/201504071919.html","pageTitle":"SunRay4(新蕾4) 定时自动关机方案, Linux后台自动任务crontab实践-CarlZeng"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1009,26 +1029,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
