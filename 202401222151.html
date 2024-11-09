@@ -26,12 +26,13 @@
 <meta property="og:description" content="家宽环境搭建兰空图床实践过程记录分享; 结合ffmpeg抽帧和Synology Photos分享特定照片库">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/02/21/65d5961d744d1.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/10/31/6722d88739b27.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/09/26/66f4f8453d18a.png">
 <meta property="article:published_time" content="2024-01-22T13:51:38.000Z">
-<meta property="article:modified_time" content="2024-10-25T13:16:40.483Z">
+<meta property="article:modified_time" content="2024-10-31T02:45:37.115Z">
 <meta property="article:author" content="Carl Notes">
-<meta property="article:tag" content="NPM">
 <meta property="article:tag" content="Docker">
+<meta property="article:tag" content="NPM">
 <meta property="article:tag" content="图床">
 <meta property="article:tag" content="LskyPro">
 <meta name="twitter:card" content="summary">
@@ -95,7 +96,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">245</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">70</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">366</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NhbQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">245</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">71</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">367</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NhbQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -131,7 +132,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用&#x2F;怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E6%90%AD%E5%BB%BALsky-Pro%E5%9B%BE%E5%BA%8A%E5%BA%94%E7%94%A8"><span class="nav-number">3.1.</span> <span class="nav-text">Docker搭建Lsky Pro图床应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEPicGO"><span class="nav-number">3.2.</span> <span class="nav-text">配置PicGO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AETypora"><span class="nav-number">3.3.</span> <span class="nav-text">配置Typora</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E8%81%94Alist%E7%9A%84%E7%9B%AE%E5%BD%95"><span class="nav-number">3.4.</span> <span class="nav-text">关联Alist的目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM%E5%8F%8D%E4%BB%A3%E5%90%8E%E5%B8%A6%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE"><span class="nav-number">3.5.</span> <span class="nav-text">NPM反代后带端口访问</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A9%E6%B8%B8%E5%AE%A2%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E6%9F%A5%E7%9C%8B%E7%85%A7%E7%89%87"><span class="nav-number">4.</span> <span class="nav-text">如何让游客可以直接查看照片?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Synology-Photos"><span class="nav-number">4.1.</span> <span class="nav-text">Synology Photos</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%80%E5%87%BA-nohup-%E8%BF%9B%E7%A8%8B"><span class="nav-number">4.1.1.</span> <span class="nav-text">如何退出 nohup 进程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ffmpeg%E5%AF%B9%E8%A7%86%E9%A2%91%E6%8A%BD%E5%B8%A7%E6%97%B6%E8%AE%A9%E7%BB%93%E6%9E%9C%E5%9B%BE%E7%89%87%E6%96%87%E4%BB%B6%E5%90%8D%E5%B8%A6%E4%B8%8A%E6%97%B6%E9%97%B4%E6%88%B3"><span class="nav-number">4.2.</span> <span class="nav-text">ffmpeg对视频抽帧时让结果图片文件名带上时间戳</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FFMPEG%E8%BE%93%E5%87%BA%E5%B8%A7%E5%90%8D%E7%A7%B0%E9%97%AE%E9%A2%98"><span class="nav-number">4.3.</span> <span class="nav-text">FFMPEG输出帧名称问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E5%9C%BA%E6%8A%BD%E5%B8%A7"><span class="nav-number">4.4.</span> <span class="nav-text">转场抽帧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="nav-number">4.5.</span> <span class="nav-text">下一步:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用&#x2F;怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E6%90%AD%E5%BB%BALsky-Pro%E5%9B%BE%E5%BA%8A%E5%BA%94%E7%94%A8"><span class="nav-number">3.1.</span> <span class="nav-text">Docker搭建Lsky Pro图床应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEPicGO"><span class="nav-number">3.2.</span> <span class="nav-text">配置PicGO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AETypora"><span class="nav-number">3.3.</span> <span class="nav-text">配置Typora</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E8%81%94Alist%E7%9A%84%E7%9B%AE%E5%BD%95"><span class="nav-number">3.4.</span> <span class="nav-text">关联Alist的目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM%E5%8F%8D%E4%BB%A3%E5%90%8E%E5%B8%A6%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE"><span class="nav-number">3.5.</span> <span class="nav-text">NPM反代后带端口访问</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A9%E6%B8%B8%E5%AE%A2%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E6%9F%A5%E7%9C%8B%E7%85%A7%E7%89%87"><span class="nav-number">4.</span> <span class="nav-text">如何让游客可以直接查看照片?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Synology-Photos"><span class="nav-number">4.1.</span> <span class="nav-text">Synology Photos</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%80%E5%87%BA-nohup-%E8%BF%9B%E7%A8%8B"><span class="nav-number">4.1.1.</span> <span class="nav-text">如何退出 nohup 进程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ffmpeg%E5%AF%B9%E8%A7%86%E9%A2%91%E6%8A%BD%E5%B8%A7%E6%97%B6%E8%AE%A9%E7%BB%93%E6%9E%9C%E5%9B%BE%E7%89%87%E6%96%87%E4%BB%B6%E5%90%8D%E5%B8%A6%E4%B8%8A%E6%97%B6%E9%97%B4%E6%88%B3"><span class="nav-number">4.2.</span> <span class="nav-text">ffmpeg对视频抽帧时让结果图片文件名带上时间戳</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FFMPEG%E8%BE%93%E5%87%BA%E5%B8%A7%E5%90%8D%E7%A7%B0%E9%97%AE%E9%A2%98"><span class="nav-number">4.3.</span> <span class="nav-text">FFMPEG输出帧名称问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E5%9C%BA%E6%8A%BD%E5%B8%A7"><span class="nav-number">4.4.</span> <span class="nav-text">转场抽帧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="nav-number">4.5.</span> <span class="nav-text">下一步:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">灵感来源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E8%87%B3%E6%96%B0%E5%9F%9F%E5%90%8D"><span class="nav-number">6.</span> <span class="nav-text">切换至新域名</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -144,13 +145,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">366</span>
+          <span class="site-state-item-count">367</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">70</span>
+        <span class="site-state-item-count">71</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -185,6 +186,11 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
+      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202407111027.html" rel="bookmark">
       Docker搭建BT Tracker服务器贡献BT网络Tracker节点
       </a>
@@ -195,13 +201,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
-      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
-      Switch大气层游戏下载服务及实测列表
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
       </a>
     </li>
     <li class="popular-posts-item">
@@ -210,8 +211,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202404081832.html" rel="bookmark">
-      分享小主机docker安装离线下载工具
+      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
+      Switch大气层游戏下载服务及实测列表
       </a>
     </li>
   </ul>
@@ -228,6 +229,11 @@
                 最新文章
         </div>
         <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/202411092141.html" title="台式机PC Window7中毒经历及修复" target=""  class="popular-posts-link">
+                  台式机PC Window7中毒经历及修复
+                  </a>
+                </li>
                 <li class="popular-posts-item">
                   <a href="/202410211957.html" title="iMac苹果电脑系统损坏之重装MacOS系统制作启动U盘" target=""  class="popular-posts-link">
                   iMac苹果电脑系统损坏之重装MacOS系统制作启动U盘
@@ -246,11 +252,6 @@
                 <li class="popular-posts-item">
                   <a href="/202409120954.html" title="Switch串流PC让Switch运行PC或Steam大作" target=""  class="popular-posts-link">
                   Switch串流PC让Switch运行PC或Steam大作
-                  </a>
-                </li>
-                <li class="popular-posts-item">
-                  <a href="/202409081010.html" title="WIFI远程无线中继之K2P刷机Padavan无线桥接功能" target=""  class="popular-posts-link">
-                  WIFI远程无线中继之K2P刷机Padavan无线桥接功能
                   </a>
                 </li>
         </ul>
@@ -403,7 +404,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
+      <time title="修改时间：2024-10-31 10:45:37" itemprop="dateModified" datetime="2024-10-31T10:45:37+08:00">2024-10-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -433,7 +434,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>15 分钟</span>
+      <span>17 分钟</span>
     </span>
 </div>
 
@@ -482,11 +483,15 @@
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Lsky Pro Version： V2</span><br><span class="line">Server: https://img.carlzeng.com:3</span><br><span class="line">Auth token: Bearer 1|ZRZcNz1E6hAuyV4LytmCqmGx5yST0g9OyhdptXXX</span><br></pre></td></tr></table></figure>
 
 <p>获取 Lsky Pro 兰空图床的Auth Token的方式，推荐(Terminal 运行命令)：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --location --request POST &#x27;https://imgserver.com:3/api/v1/tokens&#x27; \</span><br><span class="line">	--form &#x27;email=&quot;email@email.com&quot;&#x27; \</span><br><span class="line">	--form &#x27;password=&quot;password&quot;&#x27;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --location --request POST &#x27;https://img.testimgserver.com:3/api/v1/tokens&#x27; \</span><br><span class="line">	--form &#x27;email=&quot;email@email.com&quot;&#x27; \</span><br><span class="line">	--form &#x27;password=&quot;password&quot;&#x27;</span><br></pre></td></tr></table></figure>
 
 <p>请修改一下URL地址为访问自建兰空图床的URL地址，email和密码为登录图传所使用的用户名和密码</p>
 <p>本章节参见：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2hlbGxvZGszNC9waWNnby1wbHVnaW4tbGFua29uZw==" rel="noopener external nofollow noreferrer">https://github.com/hellodk34/picgo-plugin-lankong</a></p>
 <p>测试：将文件拖拽到此处，或 点击上传，然后到兰空图床的URL后台，确认图片已上传至系统中</p>
+<blockquote>
+<p>20241031 更新token, 设置, 上传成功. 但获取的url地址仍然是旧的域名, 导致图片不可浏览</p>
+</blockquote>
+<p><img data-src="https://img.carlzeng.com:3/i/2024/10/31/6722d88739b27.png" alt="image-20241031090820585"></p>
 <h2 id="配置Typora"><a href="#配置Typora" class="headerlink" title="配置Typora"></a>配置Typora</h2><p>设置 偏好设置</p>
 <ol>
 <li><p>切换Typora到中文语言版（因为目前只有中文版有PicGo的选项）</p>
@@ -566,7 +571,7 @@
 <p><img data-src="https://img.carlzeng.com:3/i/2024/09/26/66f4f8453d18a.png" alt="image-20240926135930307"></p>
 <h2 id="ffmpeg对视频抽帧时让结果图片文件名带上时间戳"><a href="#ffmpeg对视频抽帧时让结果图片文件名带上时间戳" class="headerlink" title="ffmpeg对视频抽帧时让结果图片文件名带上时间戳"></a>ffmpeg对视频抽帧时让结果图片文件名带上时间戳</h2><p>文件名的部分, 目前是 %03d 意思是: 三位数字, 三位递增的数字, 001, 002, 003….</p>
 <p>output%Y-%m-%d-%H-%M-%S.jpg 意思是: output年-月-日-时-分-秒</p>
-<p>nohup ffmpeg -i “rtsp:&#x2F;&#x2F;a:<a href="mailto:&#97;&#x40;&#49;&#x39;&#x32;&#46;&#x31;&#54;&#56;&#46;&#x36;&#x2e;&#49;&#x32;&#x36;">&#97;&#x40;&#49;&#x39;&#x32;&#46;&#x31;&#54;&#56;&#46;&#x36;&#x2e;&#49;&#x32;&#x36;</a>:554” -y -f image2 -r 1&#x2F;180 &#x2F;volume2&#x2F;homes&#x2F;13261977480&#x2F;Photos&#x2F;camc%Y-%m-%d-%H-%M-%S.jpg 1&gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;</p>
+<p>nohup ffmpeg -i “rtsp:&#x2F;&#x2F;a:<a href="mailto:&#97;&#x40;&#x31;&#x39;&#x32;&#46;&#x31;&#x36;&#56;&#x2e;&#x36;&#x2e;&#49;&#x32;&#54;">&#97;&#x40;&#x31;&#x39;&#x32;&#46;&#x31;&#x36;&#56;&#x2e;&#x36;&#x2e;&#49;&#x32;&#54;</a>:554” -y -f image2 -r 1&#x2F;180 &#x2F;volume2&#x2F;homes&#x2F;13261977480&#x2F;Photos&#x2F;camc%Y-%m-%d-%H-%M-%S.jpg 1&gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[image2 @ 0x55bcf2b2d900] The specified filename &#x27;/volume2/homes/13261977480/Photos/camc%Y%m%d%H%M%S.png&#x27; does</span><br><span class="line"> not contain an image sequence pattern or a pattern is invalid. </span><br></pre></td></tr></table></figure>
 
 <p>以上这个方法给文件名添加时间戳, 都是失败了.</p>
@@ -617,6 +622,21 @@
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2xza3ktb3JnL2xza3ktcHJvL2lzc3Vlcy8zMTc=" rel="noopener external nofollow noreferrer">静态资源加载失败 #317</a></p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2xza3ktb3JnL2xza3ktcHJvL2lzc3Vlcy82MDc=" rel="noopener external nofollow noreferrer">https+域名+端口的访问问题，NginxProxyManager反代 #607</a></p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly94eXpiei5jbi9hcmNoaXZlcy8xMDgwLw==" rel="noopener external nofollow noreferrer">树莓派通过Docker部署兰空图床</a></p>
+<h1 id="切换至新域名"><a href="#切换至新域名" class="headerlink" title="切换至新域名"></a>切换至新域名</h1><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3loYW4yMTkvbmF2aWNhdF9yZXNldF9tYWM=" rel="noopener external nofollow noreferrer">navicat16&#x2F;17 mac版无限重置试用期脚本</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line">#/usr/libexec/PlistBuddy -c &quot;print&quot; ~/Library/Preferences/com.navicat.NavicatPremium.plist</span><br><span class="line">/usr/libexec/PlistBuddy -c &quot;Delete :014BF4EC24C114BEF46E1587042B3619&quot; ~/Library/Preferences/com.navicat.NavicatPremium.plist</span><br><span class="line">/usr/libexec/PlistBuddy -c &quot;Delete :91F6C435D172C8163E0689D3DAD3F3E9&quot; ~/Library/Preferences/com.navicat.NavicatPremium.plist</span><br><span class="line">/usr/libexec/PlistBuddy -c &quot;Delete :B966DBD409B87EF577C9BBF3363E9614&quot; ~/Library/Preferences/com.navicat.NavicatPremium.plist</span><br><span class="line"></span><br><span class="line">rm -rf ~/Library/Application\ Support/PremiumSoft\ CyberTech/Navicat\ CC/Navicat\ Premium/.*</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3loYW4yMTkvbmF2aWNhdF9yZXNldF9tYWMvY29tbWl0LzcwMmFmNzhiNjk2YzllODg3MWZiNGViYjU2MGE1ZjllNmZlNGY2OGQ=" rel="noopener external nofollow noreferrer">feat: 支持navicat 17</a></p>
+<ol>
+<li>用navicat打开数据库文件(先备份)然后修改里面的域名所在表: (users 和 strategies策略组)</li>
+<li>docker-compose down</li>
+<li>替换新的database.sqlite</li>
+<li>docker-compose up -d </li>
+<li>问题依旧: 访问 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4yMDM6ODA5MS9sb2dpbg==" rel="noopener external nofollow noreferrer">http://192.168.6.203:8091/login</a>  页面的内部还是链接(CSS, JS)到旧的域名, 导致无法登录, 无法使用UI; (API的访问方式正常)</li>
+</ol>
+<p>尝试 删除 installed.lock</p>
+<p>失败, 连install页面也是 无法正常执行的…</p>
+<p>重新安装docker(已备份数据库 和 上传的所有文件); 更新Docker容器镜像</p>
+<p>放弃; 先目前半可用状态</p>
 
 
         <!-- search & recent posts(added 20240914) -->
@@ -635,6 +655,11 @@
                     最新文章
             </div>
             <ul class="popular-posts">
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202411092141.html" title="台式机PC Window7中毒经历及修复" target="" class="popular-posts-link">
+                      台式机PC Window7中毒经历及修复
+                      </a>
+                    </li>
                     <li class="popular-posts-item" style="text-align: left;">
                       <a href="/202410211957.html" title="iMac苹果电脑系统损坏之重装MacOS系统制作启动U盘" target="" class="popular-posts-link">
                       iMac苹果电脑系统损坏之重装MacOS系统制作启动U盘
@@ -673,11 +698,6 @@
                     <li class="popular-posts-item" style="text-align: left;">
                       <a href="/202408131618.html" title="NAS安装及应用supervisor进程守护" target="" class="popular-posts-link">
                       NAS安装及应用supervisor进程守护
-                      </a>
-                    </li>
-                    <li class="popular-posts-item" style="text-align: left;">
-                      <a href="/202407191651.html" title="索尼PlayStation和SteamDeck硬件记录" target="" class="popular-posts-link">
-                      索尼PlayStation和SteamDeck硬件记录
                       </a>
                     </li>
             </ul>
@@ -751,6 +771,11 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
+      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202407111027.html" rel="bookmark">
       Docker搭建BT Tracker服务器贡献BT网络Tracker节点
       </a>
@@ -761,13 +786,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
-      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
-      Switch大气层游戏下载服务及实测列表
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
       </a>
     </li>
     <li class="popular-posts-item">
@@ -776,8 +796,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202404081832.html" rel="bookmark">
-      分享小主机docker安装离线下载工具
+      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
+      Switch大气层游戏下载服务及实测列表
       </a>
     </li>
   </ul>
@@ -797,6 +817,11 @@
             最新文章
     </div>
     <ul class="popular-posts">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202411092141.html" title="台式机PC Window7中毒经历及修复" target="" class="popular-posts-link">
+              [2024/11/09] 台式机PC Window7中毒经历及修复
+              </a>
+            </li>
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202410211957.html" title="iMac苹果电脑系统损坏之重装MacOS系统制作启动U盘" target="" class="popular-posts-link">
               [2024/10/21] iMac苹果电脑系统损坏之重装MacOS系统制作启动U盘
@@ -835,11 +860,6 @@
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202408131618.html" title="NAS安装及应用supervisor进程守护" target="" class="popular-posts-link">
               [2024/08/13] NAS安装及应用supervisor进程守护
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202407191651.html" title="索尼PlayStation和SteamDeck硬件记录" target="" class="popular-posts-link">
-              [2024/07/19] 索尼PlayStation和SteamDeck硬件记录
               </a>
             </li>
     </ul>
@@ -950,7 +970,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
+        <time title="修改时间：2024-10-31 10:45:37" itemprop="dateModified" datetime="2024-10-31T10:45:37+08:00">2024-10-31</time>
       </span>
 
 </div>
@@ -959,8 +979,8 @@
 
           <div class="post-tags">
             继续浏览有关
-              <a href="/tags/NPM/" rel="tag"># NPM</a>
               <a href="/tags/Docker/" rel="tag"># Docker</a>
+              <a href="/tags/NPM/" rel="tag"># NPM</a>
               <a href="/tags/%E5%9B%BE%E5%BA%8A/" rel="tag"># 图床</a>
               <a href="/tags/LskyPro/" rel="tag"># LskyPro</a>
             的文章
@@ -1098,26 +1118,6 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202401222151.html","pageTitle":"搭建图床 切换本站图片至自建服务"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1150,6 +1150,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>
