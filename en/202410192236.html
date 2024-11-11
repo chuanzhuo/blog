@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/10/20/671490ce2485e.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/10/27/671dd42ad1b45.png">
 <meta property="article:published_time" content="2024-10-19T14:36:16.000Z">
-<meta property="article:modified_time" content="2024-10-31T00:57:19.380Z">
+<meta property="article:modified_time" content="2024-11-11T11:44:57.577Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="switch">
 <meta property="article:tag" content="大气层">
@@ -180,13 +180,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
-      Switch大气层游戏下载服务及实测列表
+      <a class="popular-posts-link" href="/202310221511.html" rel="bookmark">
+      任天堂Switch全部记录
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310221511.html" rel="bookmark">
-      任天堂Switch全部记录
+      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
+      Switch大气层游戏下载服务及实测列表
       </a>
     </li>
     <li class="popular-posts-item">
@@ -205,13 +205,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
-      高效的服务端生成QRCODE二维码方案-Docker搭建
+      <a class="popular-posts-link" href="/202309222329.html" rel="bookmark">
+      Hello World
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
-      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
       </a>
     </li>
   </ul>
@@ -403,7 +403,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-10-31 08:57:19" itemprop="dateModified" datetime="2024-10-31T08:57:19+08:00">2024-10-31</time>
+      <time title="Modified: 2024-11-11 19:44:57" itemprop="dateModified" datetime="2024-11-11T19:44:57+08:00">2024-11-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -433,7 +433,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>13 mins.</span>
+      <span>15 mins.</span>
     </span>
 </div>
 
@@ -467,8 +467,9 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. hekate - tools - Backup eMMC - eMMC BOOT0 &amp; BOOT1</span><br><span class="line">2. hekate - tools - Backup eMMC - eMMC RAW GPP</span><br><span class="line"></span><br><span class="line">3. [可选步骤]在电脑上备份SD卡中backup文件夹全部内容.  </span><br></pre></td></tr></table></figure>
 
-
-
+<p>第一件事：备份nand<br>无论你是不是单系统\双系统，都备份一次，有双系统的，可以把自己的EMUMMC备份到电脑，这个也是NAND备份。这个备份可能会在未来，救你机器一命。<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMUNZNHkxczd1Uy8=" rel="noopener external nofollow noreferrer">备份视频教程.</a></p>
+<p>第二件事：提取prod.keys备份，用来不可知的时候手动救砖。<br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3JlYWQvY3YxNTU0MjIxNA==" rel="noopener external nofollow noreferrer">prod.keys提取教程</a></p>
+<p>[可选步骤: 验证rawnand.bin文件] <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly91cmw1MC5jdGZpbGUuY29tL2YvMjI3MjI1MC01NTI5OTIxMzItNGRlNzky" rel="noopener external nofollow noreferrer">nxnandmanager下载地址</a>（访问密码：3610）</p>
 <h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>开机正版系统卡logo黑屏, 真实系统报错</p>
 <ul>
 <li>手误点击了升级 重启后黑屏变砖</li>
@@ -604,32 +605,62 @@
 <h1 id="手动刷写Switch系统"><a href="#手动刷写Switch系统" class="headerlink" title="手动刷写Switch系统"></a>手动刷写Switch系统</h1><p>远程协助, 修复 switch 固件, 报错; 手动刷写系统</p>
 <p>软件工具</p>
 <ol>
-<li>EmmcHaccGen<ol>
+<li><p>EmmcHaccGen</p>
+<ol>
 <li>这个工具+ 固件(相同目下的文件夹) + prod.key 就可以生成出适合当前特定Switch主机的固件包(Proinfo, proinfof, PKG2-1-Normal-Main, PKG2-2-Normal-Sub, PKG2-3-SafeMode-Main, PKG2-4-SafeMode-Sub, SAFE, SYSTEM, USER)</li>
 <li>支持Windows, Mac</li>
 </ol>
 </li>
-<li>NxNandManager<ol>
+<li><p>NxNandManager</p>
+<ol>
 <li>警惕这个工具经常报错, 和闪退; 一旦发生意外当前的步骤(或关联步骤)就要重新操作一遍</li>
 <li></li>
 </ol>
 </li>
-<li>DiskGenius<ol>
+<li><p>DiskGenius</p>
+<ol>
 <li>分区工具; 可以适用于把正版系统emmu分区成 32G 或 64G(OLED) 根据需要还原的</li>
 </ol>
 </li>
-<li>固件<ol>
+<li><p>固件</p>
+<ol>
 <li>查看主机的熔断数, 根据熔断数来判断需要选用什么版本的固件</li>
 </ol>
 </li>
-<li>整合包<ol>
+<li><p>整合包</p>
+<ol>
 <li>合适的大气层整合包中, 需要用到提取prod.key需要用到的插件: Lockpick_RCM.bin(banned)</li>
 </ol>
 </li>
-<li></li>
+<li><p>prodinfo_gen</p>
+<ol>
+<li>原始, 并停留在 Adds support for 14.0.0固件</li>
+<li>github.com&#x2F;CaramelDunes&#x2F;prodinfo_gen&#x2F;</li>
+<li>Usage</li>
+<li>If you want to use a donor PRODINFO, place it at sd:&#x2F;switch&#x2F;donor_prodinfo.bin. Note: If the donor is a patched or Mariko Switch, you will need to copy the donor’s keys to sd:&#x2F;switch&#x2F;donor.keys.</li>
+<li>Launch prodinfo_gen.bin using your favorite payload injector or chainloader.</li>
+<li>You should find sd:&#x2F;switch&#x2F;generated_prodinfo_from_scratch.bin or sd:&#x2F;switch&#x2F;generated_prodinfo_from_donor.bin depending on what you selected.</li>
+<li>You can now write that PRODINFO to your NAND using a tool such as HacDiskMount (it is recommended to make a backup of the current PRODINFO first).</li>
 </ol>
+</li>
+<li><p>lockpick_rcm</p>
+<ol>
+<li>github.com&#x2F;shchmue&#x2F;Lockpick_RCM</li>
+<li><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL0tvZnlzaC9Mb2NrcGlja19SQ00=" rel="noopener external nofollow noreferrer">https://github.com/Kofysh/Lockpick_RCM</a> <ol>
+<li>New firmware is out and it brings the master_key_12 generation.</li>
+<li>Lockpick_RCM is a bare-metal Nintendo Switch payload that extracts encryption keys for use in file handling software like hactool, hactoolnet&#x2F;LibHac, ChoiDujour, etc., all without booting into Horizon OS. 🚀</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>全部工具下载地址：</p>
+<p>链接：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMXVMaFhxOExqajMzX0RvaExvSUhCclE/cHdkPWcycm8=" rel="noopener external nofollow noreferrer">https://pan.baidu.com/s/1uLhXq8Ljj33_DohLoIHBrQ?pwd=g2ro</a> </p>
+<p>提取码：g2ro </p>
 <p>参考:</p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMTJ1MlZZVEViaS8=" rel="noopener external nofollow noreferrer">18.1.0switch救机降级详细教程switch大气层系统误升级更新开机启动报错修复教程提供大气层整合包18.1.0最终稳定版支持TX转大气层修复游戏</a></p>
+<p>NS全机型手动刷写eMMC系统固件教程 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3JlYWQvY3YxNzg1NjgxMi8=" rel="noopener external nofollow noreferrer">https://www.bilibili.com/read/cv17856812/</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMUNZNHkxczd1Uw==" rel="noopener external nofollow noreferrer">ns到手第一件事：大气层HEKATE备份NAND教程</a></p>
 
 
         <!-- search & recent posts(added 20240914) -->
@@ -759,13 +790,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
-      Switch大气层游戏下载服务及实测列表
+      <a class="popular-posts-link" href="/202310221511.html" rel="bookmark">
+      任天堂Switch全部记录
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310221511.html" rel="bookmark">
-      任天堂Switch全部记录
+      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
+      Switch大气层游戏下载服务及实测列表
       </a>
     </li>
     <li class="popular-posts-item">
@@ -784,13 +815,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
-      高效的服务端生成QRCODE二维码方案-Docker搭建
+      <a class="popular-posts-link" href="/202309222329.html" rel="bookmark">
+      Hello World
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
-      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
       </a>
     </li>
   </ul>
@@ -963,7 +994,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2024-10-31 08:57:19" itemprop="dateModified" datetime="2024-10-31T08:57:19+08:00">2024-10-31</time>
+        <time title="Modified: 2024-11-11 19:44:57" itemprop="dateModified" datetime="2024-11-11T19:44:57+08:00">2024-11-11</time>
       </span>
 
 </div>
