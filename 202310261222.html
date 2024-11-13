@@ -28,9 +28,10 @@
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/3e6145c0-e60c-4484-978d-77c4fc794bf0/xZsj26mfamXYoqTFCRfXyVIHPi2gNUfF_3UuDZAv0W-ilz5vBxltD0dzLQ/deep/0/image.png">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/62d9a792-bb54-473f-a1e2-34feebae3a57/Bp2GY1StVwk23AQvse06RpwOBSWdQnuBad01TqD2pNg8RwbZSdLpzyGC3w/deep/0/image.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/08/18/66c1be83cba6f.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/11/13/6734135fcba4a.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/03/28/66052f49a5cf8.png">
 <meta property="article:published_time" content="2023-10-26T04:22:41.000Z">
-<meta property="article:modified_time" content="2024-10-25T13:16:40.387Z">
+<meta property="article:modified_time" content="2024-11-13T02:56:40.640Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="debian">
 <meta property="article:tag" content="hexo">
@@ -408,7 +409,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
+      <time title="修改时间：2024-11-13 10:56:40" itemprop="dateModified" datetime="2024-11-13T10:56:40+08:00">2024-11-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -438,7 +439,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>20 分钟</span>
+      <span>25 分钟</span>
     </span>
 </div>
 
@@ -603,6 +604,18 @@ npm install hexo-next-artalk
 <blockquote>
 <p>20240818 这个问题还是不知如何在UI界面上攻克, 估计要写脚本来轮询一个个的虚拟接口, 从一个获得在线pppoe接口稳定的方案中, 来获取外网IP地址. 然后根据这个IP地址定时推送给DDNS服务端</p>
 </blockquote>
+<p>20241113 排查新的错误: Could not detect ‘zone id’ for domain.tld: ‘carlzeng.com’</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> 101538  note : PID &#x27;32710&#x27; terminated by &#x27;SIGTERM&#x27; at 2024-11-13 10:15</span><br><span class="line"> 101538       : last update: never</span><br><span class="line"> 101538       : Detect registered/public IP</span><br><span class="line"> 101538       : #&gt; /usr/bin/host -t A aria2.carlzeng.com  &gt;/var/run/ddns/CF_carlzeng_com.dat 2&gt;/var/run/ddns/CF_carlzeng_com.err</span><br><span class="line"> 101538       : Registered IP &#x27;123.112.249.182&#x27; detected</span><br><span class="line"> 101538  info : Starting main loop at 2024-11-13 10:15</span><br><span class="line"> 101538       : Detect current IP on &#x27;network&#x27;</span><br><span class="line"> 101538       : Current IP &#x27;25.34.237.187&#x27; detected on network &#x27;vwan3&#x27;</span><br><span class="line"> 101538       : Update needed - L: &#x27;25.34.237.187&#x27; &lt;&gt; R: &#x27;23.112.249.182&#x27;</span><br><span class="line"> 101538       : parsing script &#x27;/usr/lib/ddns/update_cloudflare_com_v4.sh&#x27;</span><br><span class="line"> 101538       : Found Username &#x27;Bearer&#x27; using Password as Bearer Authorization Token</span><br><span class="line"> 101538       : #&gt; /usr/bin/curl -RsS -o /var/run/ddns/CF_carlzeng_com.dat --stderr /var/run/ddns/CF_carlzeng_com.err --noproxy &#x27;*&#x27; --header &#x27;Authorization: Bearer ***PW***&#x27;  --header &#x27;Content-Type: application/json&#x27;  --request GET &#x27;https://api.cloudflare.com/client/v4/zones?name=carlzeng.com&#x27;</span><br><span class="line"> 101539  WARN : Could not detect &#x27;zone id&#x27; for domain.tld: &#x27;carlzeng.com&#x27;</span><br><span class="line"> 101539 ERROR : No update send to DDNS Provider</span><br><span class="line"> 101539       : Waiting 3600 seconds (Check Interval)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> ------</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">103544       : Update needed - L: &#x27;25.34.237.187&#x27; &lt;&gt; R: &#x27;23.112.249.182&#x27;</span><br><span class="line"> 103544       : parsing script &#x27;/usr/lib/ddns/update_cloudflare_com_v4.sh&#x27;</span><br><span class="line"> 103545       : Found Username &#x27;Bearer&#x27; using Password as Bearer Authorization Token</span><br><span class="line"> 103545       : #&gt; /usr/bin/curl -RsS -o /var/run/ddns/CF_carlzeng_com.dat --stderr /var/run/ddns/CF_carlzeng_com.err --noproxy &#x27;*&#x27; --header &#x27;Authorization: Bearer ***PW***&#x27;  --header &#x27;Content-Type: application/json&#x27;  --request GET &#x27;https://api.cloudflare.com/client/v4/zones?name=carlzeng.com&#x27;</span><br><span class="line"> 103545  WARN : CloudFlare reported an error:</span><br><span class="line"> 103545       : &#123;&quot;success&quot;:false,&quot;errors&quot;:[&#123;&quot;code&quot;:6003,&quot;message&quot;:&quot;Invalid request headers&quot;,&quot;error_chain&quot;:[&#123;&quot;code&quot;:6111,&quot;message&quot;:&quot;Invalid format for Authorization header&quot;&#125;]&#125;],&quot;messages&quot;:[],&quot;result&quot;:null&#125;</span><br><span class="line"> 103545 ERROR : IP update not accepted by DDNS Provider</span><br><span class="line"> 103545       : Waiting 3600 seconds (Check Interval)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>在Cloudflare的API令牌中, 重新新建新的 令牌, 编辑权限(所有域) <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9kYXNoLmNsb3VkZmxhcmUuY29tL3Byb2ZpbGUvYXBpLXRva2Vucw==" rel="noopener external nofollow noreferrer">https://dash.cloudflare.com/profile/api-tokens</a></li>
+<li>使用更新的token 配置OpenWrt的DDNS</li>
+</ol>
+<p><img data-src="https://img.carlzeng.com:3/i/2024/11/13/6734135fcba4a.png" alt="image-20241113104540241"></p>
+<p>MAC使用这些命令也无法刷新DNS 返回正确的地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dscacheutil -flushcache;  sudo killall -HUP mDNSResponder</span><br></pre></td></tr></table></figure>
+
+<p>切换WIFI到中国移动, 在ping 就能看到新的IP地址了; 重新切换回来, 新的IP地址也正确了</p>
 <h2 id="Cloudflare-DNS-API"><a href="#Cloudflare-DNS-API" class="headerlink" title="Cloudflare DNS API"></a>Cloudflare DNS API</h2><p>用户 API 令牌<br>        编辑区域 DNS API 令牌已成功创建<br>        复制此令牌以访问 Cloudflare API。为安全起见，将不再显示此令牌。了解更多<br>        7u0Y_5-t_TTn1biQDfdtHgohbE3l@@@@@@。一下为Cloudflare给出的例子：</p>
 <pre><code>curl -X GET &quot;https://api.cloudflare.com/client/v4/user/tokens/verify&quot; \
  -H &quot;Authorization: Bearer 7u0Y_5-t_TTn1biQDfd@@@@@@&quot; \
@@ -612,20 +625,9 @@ DNS TOKEN: 7u0Y_5-t_TTn1biQDfdtHg@@@@@@
 </code></pre>
 <p>10:36am 回归源头错误：<br>    code”:6103,”message”:”Invalid format for X-Auth-Key header</p>
 <p>比对了Openwrt中的源文件：<br>        ‘&#x2F;usr&#x2F;lib&#x2F;ddns&#x2F;update_cloudflare_com_v4.sh’<br>        <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL21zdmEvb3BlbndydC1wYWNrYWdlcy9ibG9iL21hc3Rlci9uZXQvZGRucy1zY3JpcHRzL2ZpbGVzL3VwZGF0ZV9jbG91ZGZsYXJlX2NvbV92NC5zaA==" rel="noopener external nofollow noreferrer">https://github.com/msva/openwrt-packages/blob/master/net/ddns-scripts/files/update_cloudflare_com_v4.sh</a><br>    发现我Openwrt中的.sh文件已经是最新版，看来还是配置出问题了。</p>
-<pre><code>检查.sh源文件，发现的解决问题的办法：
-用户名需要使用： Bearer
-密码使用：API Token，编辑区域 DNS API 令牌已成功创建
-
-carlzeng.com
-10:52am works great in log.
-    both ddns setup works
-
-优化：查询主机名 最好是填写DDNS挂的解析域名，这样用于判断DDNS是否需要callAPI来更新IP最新的ADSL IP地址。
-修改以后，需要点击“重新加载”来更新界面中的“已注册的IP地址“。发现这个LIST设计得很人性化，直观：上次更新，下次更新，查询主机名，已注册的IP地址，运行中的进程PID
-优化脚本运行周期：
-每小时检查自己DDNS域名的特定记录，检查IP地址和DDNS域名是否一致。
-每天强制推送更新，即便IP没有变动
-</code></pre>
+<p>检查.sh源文件，发现的解决问题的办法：<br>用户名需要使用： Bearer<br>密码使用：API Token，编辑区域 DNS API 令牌已成功创建</p>
+<p>carlzeng.com<br>10:52am works great in log.<br>    both ddns setup works</p>
+<p>优化：查询主机名 最好是填写DDNS挂的解析域名，这样用于判断DDNS是否需要callAPI来更新IP最新的ADSL IP地址。<br>修改以后，需要点击“重新加载”来更新界面中的“已注册的IP地址“。发现这个LIST设计得很人性化，直观：上次更新，下次更新，查询主机名，已注册的IP地址，运行中的进程PID<br>优化脚本运行周期：<br>每小时检查自己DDNS域名的特定记录，检查IP地址和DDNS域名是否一致。<br>每天强制推送更新，即便IP没有变动</p>
 <h1 id="Artalk头像"><a href="#Artalk头像" class="headerlink" title="Artalk头像"></a>Artalk头像</h1><p>替换 </p>
 <p>FROM<br>        <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuZ3JhdmF0YXIuY29tL2F2YXRhci8=" rel="noopener external nofollow noreferrer">https://www.gravatar.com/avatar/</a></p>
 <p>TO</p>
@@ -999,7 +1001,7 @@ carlzeng.com
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
+        <time title="修改时间：2024-11-13 10:56:40" itemprop="dateModified" datetime="2024-11-13T10:56:40+08:00">2024-11-13</time>
       </span>
 
 </div>
