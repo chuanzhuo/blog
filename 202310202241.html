@@ -31,12 +31,13 @@
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/06/23/66782a283b8e2.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/06/24/6678d398b6003.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/06/24/6678dca0b4fb3.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/11/15/6736b0371b5f8.png">
 <meta property="article:published_time" content="2023-10-20T14:41:52.000Z">
-<meta property="article:modified_time" content="2024-10-25T12:30:51.269Z">
+<meta property="article:modified_time" content="2024-11-15T02:23:15.930Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="andriod">
-<meta property="article:tag" content="手机">
 <meta property="article:tag" content="安卓手机">
+<meta property="article:tag" content="手机">
 <meta property="article:tag" content="root">
 <meta property="article:tag" content="小黄鸟">
 <meta property="article:tag" content="抓包">
@@ -60,7 +61,7 @@
 
 
 
-<link rel="preconnect" href="https://artalk.carlzeng.com:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.com:4443">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -137,7 +138,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-%E5%AE%9E%E6%93%8D"><span class="nav-number">1.</span> <span class="nav-text">有什么用&#x2F;实操</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8BRoot%E7%8A%B6%E6%80%81%E7%9A%84%E6%96%B9%E6%B3%95%E4%B9%8B%E4%B8%80"><span class="nav-number">2.1.</span> <span class="nav-text">查看Root状态的方法之一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Cadb%EF%BC%8Csu"><span class="nav-number">2.2.</span> <span class="nav-text">运行adb，su</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3su%E8%8E%B7%E5%8F%96root%E6%9D%83%E9%99%90"><span class="nav-number">2.3.</span> <span class="nav-text">解决su获取root权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%93%E5%8C%85m3u8"><span class="nav-number">2.4.</span> <span class="nav-text">抓包m3u8</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">灵感来源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB"><span class="nav-number">4.</span> <span class="nav-text">杂七杂八</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%B1%B34%E6%89%8B%E6%9C%BARoot%E6%AD%A5%E9%AA%A4"><span class="nav-number">5.</span> <span class="nav-text">小米4手机Root步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mi4%E6%89%8B%E6%9C%BA%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9Recovery%E5%B7%A5%E5%85%B7TWRP%E5%AE%89%E8%A3%85LineageOS"><span class="nav-number">6.</span> <span class="nav-text">Mi4手机用第三方Recovery工具TWRP安装LineageOS</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-%E5%AE%9E%E6%93%8D"><span class="nav-number">1.</span> <span class="nav-text">有什么用&#x2F;实操</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8BRoot%E7%8A%B6%E6%80%81%E7%9A%84%E6%96%B9%E6%B3%95%E4%B9%8B%E4%B8%80"><span class="nav-number">2.1.</span> <span class="nav-text">查看Root状态的方法之一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Cadb%EF%BC%8Csu"><span class="nav-number">2.2.</span> <span class="nav-text">运行adb，su</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3su%E8%8E%B7%E5%8F%96root%E6%9D%83%E9%99%90"><span class="nav-number">2.3.</span> <span class="nav-text">解决su获取root权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%93%E5%8C%85m3u8"><span class="nav-number">2.4.</span> <span class="nav-text">抓包m3u8</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">灵感来源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB"><span class="nav-number">4.</span> <span class="nav-text">杂七杂八</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%B1%B34%E6%89%8B%E6%9C%BARoot%E6%AD%A5%E9%AA%A4"><span class="nav-number">5.</span> <span class="nav-text">小米4手机Root步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mi4%E6%89%8B%E6%9C%BA%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9Recovery%E5%B7%A5%E5%85%B7TWRP%E5%AE%89%E8%A3%85LineageOS"><span class="nav-number">6.</span> <span class="nav-text">Mi4手机用第三方Recovery工具TWRP安装LineageOS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E5%8A%A05T%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81"><span class="nav-number">7.</span> <span class="nav-text">一加5T忘记密码</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -409,7 +410,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-10-25 20:30:51" itemprop="dateModified" datetime="2024-10-25T20:30:51+08:00">2024-10-25</time>
+      <time title="修改时间：2024-11-15 10:23:15" itemprop="dateModified" datetime="2024-11-15T10:23:15+08:00">2024-11-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -574,6 +575,13 @@
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb -s 5d817fad sideload nethunter-2024.2-oneplus7-oos-eleven-kalifs-full.zip      </span><br><span class="line">Total xfer: 0.00x    </span><br></pre></td></tr></table></figure>
 
+
+
+<h1 id="一加5T忘记密码"><a href="#一加5T忘记密码" class="headerlink" title="一加5T忘记密码"></a>一加5T忘记密码</h1><p>音量+ 和 开机键, 选择进入 安卓TWRP</p>
+<p>进入后, 选择清除: 双清(无法解决忘记密码的故障)</p>
+<p>需要选择: 格式化 Data 分区, 这样才能把所有安装的APP和数据等(包括密码)都清除.</p>
+<p>这样忘记密码的尴尬就解决了</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2024/11/15/6736b0371b5f8.png" alt="image-20241115102141302"></p>
 
 
         <!-- search & recent posts(added 20240914) -->
@@ -907,7 +915,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-10-25 20:30:51" itemprop="dateModified" datetime="2024-10-25T20:30:51+08:00">2024-10-25</time>
+        <time title="修改时间：2024-11-15 10:23:15" itemprop="dateModified" datetime="2024-11-15T10:23:15+08:00">2024-11-15</time>
       </span>
 
 </div>
@@ -917,8 +925,8 @@
           <div class="post-tags">
             继续浏览有关
               <a href="/tags/andriod/" rel="tag"># andriod</a>
-              <a href="/tags/%E6%89%8B%E6%9C%BA/" rel="tag"># 手机</a>
               <a href="/tags/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA/" rel="tag"># 安卓手机</a>
+              <a href="/tags/%E6%89%8B%E6%9C%BA/" rel="tag"># 手机</a>
               <a href="/tags/root/" rel="tag"># root</a>
               <a href="/tags/%E5%B0%8F%E9%BB%84%E9%B8%9F/" rel="tag"># 小黄鸟</a>
               <a href="/tags/%E6%8A%93%E5%8C%85/" rel="tag"># 抓包</a>
@@ -1057,6 +1065,26 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202310202241.html","pageTitle":"安卓手机root与小黄鸟抓包"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1089,26 +1117,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
