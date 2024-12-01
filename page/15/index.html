@@ -423,113 +423,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/201903222305.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云随笔 Carl Notes">
-      <meta itemprop="description" content="[眼观心察 沉淀共享] 文章版本持续佛系更新">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 云随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/201903222305.html" class="post-title-link" itemprop="url">How to use NetSuite SDF to download bundles/components-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/201903222305.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="1-Install-SuiteCloud-IDE-Eclipse-Plugin"><a href="#1-Install-SuiteCloud-IDE-Eclipse-Plugin" class="headerlink" title="1. Install SuiteCloud IDE(Eclipse + Plugin)"></a>1. Install SuiteCloud IDE(Eclipse + Plugin)</h2><p>1.1 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuZWNsaXBzZS5vcmcvZG93bmxvYWRzL3BhY2thZ2VzL3JlbGVhc2UvbWFycy8yL2VjbGlwc2UtaWRlLWphdmEtZWUtZGV2ZWxvcGVycw==" rel="noopener external nofollow noreferrer">https://www.eclipse.org/downloads/packages/release/mars/2/eclipse-ide-java-ee-developers</a>.<br>1.2 Updating Eclipse for Use with SuiteCloud IDE<br>1.3 Enable NS Features, SDF,<br>Setup &gt; Company &gt; Enable Features &gt; SuiteCloud &gt; SUITECLOUD DEVELOPMENT FRAMEWORK</p>
-<h2 id="2-Create-SuiteCloud-IDE-Project"><a href="#2-Create-SuiteCloud-IDE-Project" class="headerlink" title="2. Create SuiteCloud IDE, Project"></a>2. Create SuiteCloud IDE, Project</h2><p>File &gt; New &gt; SuiteCloud Project,<br>Account Customization<br>Project Name</p>
-<h2 id="3-NETSUITE-UI-Assign-Current-Employee-Record-with-“SDF-Developer-2FA-Off”-role"><a href="#3-NETSUITE-UI-Assign-Current-Employee-Record-with-“SDF-Developer-2FA-Off”-role" class="headerlink" title="3. NETSUITE UI, Assign Current Employee Record with “SDF Developer - 2FA Off” role"></a>3. NETSUITE UI, Assign Current Employee Record with “SDF Developer - 2FA Off” role</h2><p>Create an custom role, make sure the 2FA is off(mandatory uncheck and ‘Not required’) in: Setup &gt; Users&#x2F;Roles &gt; Two-Factor Authentication Roles</p>
-<h2 id="4-Configure-SuiteCloud-IDE-to-connect-with-NS-One-Time-Setup"><a href="#4-Configure-SuiteCloud-IDE-to-connect-with-NS-One-Time-Setup" class="headerlink" title="4. Configure SuiteCloud IDE to connect with NS (One-Time Setup)"></a>4. Configure SuiteCloud IDE to connect with NS (One-Time Setup)</h2><p>NetSuite<br>Manage Account<br>Add Account(s)<br>Setup &gt; Company &gt; Company Information<br>Issue Token (Token has been issued)</p>
-<h2 id="5-Eclipse-Right-click-NetSuite-Change-Project-Setting"><a href="#5-Eclipse-Right-click-NetSuite-Change-Project-Setting" class="headerlink" title="5. Eclipse, Right click, NetSuite &gt; Change Project Setting."></a>5. Eclipse, Right click, NetSuite &gt; Change Project Setting.</h2><h2 id="6-Eclipse-NetSuite-Import-Bundle-Components"><a href="#6-Eclipse-NetSuite-Import-Bundle-Components" class="headerlink" title="6. Eclipse, NetSuite &gt; Import Bundle Components"></a>6. Eclipse, NetSuite &gt; Import Bundle Components</h2><p>List Bundles</p>
-<p>Select which Bundle to download</p>
-<h2 id="7-How-to-use-suitecloud-for-deployment"><a href="#7-How-to-use-suitecloud-for-deployment" class="headerlink" title="7. How to use suitecloud for deployment?"></a>7. How to use suitecloud for deployment?</h2><p>Please reference to <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFja3VwZXIvcC9zZGYvX2NsaS9fZm9yL19ub2RlL19qcy5odG1s" rel="noopener external nofollow noreferrer">https://www.cnblogs.com/backuper/p/sdf\_cli\_for\_node\_js.html</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFja3VwZXIvcC9zZGZfY2xpX2Zvcl9ub2RlX2pzLmh0bWw=" rel="noopener external nofollow noreferrer">How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command</a></p>
-
-      
-
-
-
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/202011100824.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -608,6 +501,113 @@
             </div>
           <!--/noindex-->
         
+      
+
+
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/201903222305.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="description" content="[眼观心察 沉淀共享] 文章版本持续佛系更新">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 云随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/201903222305.html" class="post-title-link" itemprop="url">How to use NetSuite SDF to download bundles/components-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/201903222305.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="1-Install-SuiteCloud-IDE-Eclipse-Plugin"><a href="#1-Install-SuiteCloud-IDE-Eclipse-Plugin" class="headerlink" title="1. Install SuiteCloud IDE(Eclipse + Plugin)"></a>1. Install SuiteCloud IDE(Eclipse + Plugin)</h2><p>1.1 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuZWNsaXBzZS5vcmcvZG93bmxvYWRzL3BhY2thZ2VzL3JlbGVhc2UvbWFycy8yL2VjbGlwc2UtaWRlLWphdmEtZWUtZGV2ZWxvcGVycw==" rel="noopener external nofollow noreferrer">https://www.eclipse.org/downloads/packages/release/mars/2/eclipse-ide-java-ee-developers</a>.<br>1.2 Updating Eclipse for Use with SuiteCloud IDE<br>1.3 Enable NS Features, SDF,<br>Setup &gt; Company &gt; Enable Features &gt; SuiteCloud &gt; SUITECLOUD DEVELOPMENT FRAMEWORK</p>
+<h2 id="2-Create-SuiteCloud-IDE-Project"><a href="#2-Create-SuiteCloud-IDE-Project" class="headerlink" title="2. Create SuiteCloud IDE, Project"></a>2. Create SuiteCloud IDE, Project</h2><p>File &gt; New &gt; SuiteCloud Project,<br>Account Customization<br>Project Name</p>
+<h2 id="3-NETSUITE-UI-Assign-Current-Employee-Record-with-“SDF-Developer-2FA-Off”-role"><a href="#3-NETSUITE-UI-Assign-Current-Employee-Record-with-“SDF-Developer-2FA-Off”-role" class="headerlink" title="3. NETSUITE UI, Assign Current Employee Record with “SDF Developer - 2FA Off” role"></a>3. NETSUITE UI, Assign Current Employee Record with “SDF Developer - 2FA Off” role</h2><p>Create an custom role, make sure the 2FA is off(mandatory uncheck and ‘Not required’) in: Setup &gt; Users&#x2F;Roles &gt; Two-Factor Authentication Roles</p>
+<h2 id="4-Configure-SuiteCloud-IDE-to-connect-with-NS-One-Time-Setup"><a href="#4-Configure-SuiteCloud-IDE-to-connect-with-NS-One-Time-Setup" class="headerlink" title="4. Configure SuiteCloud IDE to connect with NS (One-Time Setup)"></a>4. Configure SuiteCloud IDE to connect with NS (One-Time Setup)</h2><p>NetSuite<br>Manage Account<br>Add Account(s)<br>Setup &gt; Company &gt; Company Information<br>Issue Token (Token has been issued)</p>
+<h2 id="5-Eclipse-Right-click-NetSuite-Change-Project-Setting"><a href="#5-Eclipse-Right-click-NetSuite-Change-Project-Setting" class="headerlink" title="5. Eclipse, Right click, NetSuite &gt; Change Project Setting."></a>5. Eclipse, Right click, NetSuite &gt; Change Project Setting.</h2><h2 id="6-Eclipse-NetSuite-Import-Bundle-Components"><a href="#6-Eclipse-NetSuite-Import-Bundle-Components" class="headerlink" title="6. Eclipse, NetSuite &gt; Import Bundle Components"></a>6. Eclipse, NetSuite &gt; Import Bundle Components</h2><p>List Bundles</p>
+<p>Select which Bundle to download</p>
+<h2 id="7-How-to-use-suitecloud-for-deployment"><a href="#7-How-to-use-suitecloud-for-deployment" class="headerlink" title="7. How to use suitecloud for deployment?"></a>7. How to use suitecloud for deployment?</h2><p>Please reference to <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFja3VwZXIvcC9zZGYvX2NsaS9fZm9yL19ub2RlL19qcy5odG1s" rel="noopener external nofollow noreferrer">https://www.cnblogs.com/backuper/p/sdf\_cli\_for\_node\_js.html</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vYmFja3VwZXIvcC9zZGZfY2xpX2Zvcl9ub2RlX2pzLmh0bWw=" rel="noopener external nofollow noreferrer">How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command</a></p>
+
       
 
 
@@ -856,6 +856,109 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/202104100945.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="description" content="[眼观心察 沉淀共享] 文章版本持续佛系更新">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 云随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/202104100945.html" class="post-title-link" itemprop="url">NetSuite Batch Process Status -CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/202104100945.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>16 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Check of back-end process status which might impact reporting, learn how things are calculate&#x2F;processing in NetSuite</p>
+<p>&#x2F;app&#x2F;accounting&#x2F;bulkprocessing&#x2F;bulkprocessingstatuslist.nl</p>
+<p>[<br>  { “value”: “@ALL@”, “text”: “- All -“ },<br>  { “value”: “SUPPLYREALLOCATION”, “text”: “Allocate Orders” },<br>  { “value”: “ALLOCATEREVARRANGEMENT”, “text”: “Allocate Revenue Arrangements” },<br>  { “value”: “BULKAUTHCOMMISSN”, “text”: “Authorize Commissions” },<br>  { “value”: “BULKAUTHPARTNERCOMMISSN”, “text”: “Authorize Partner Commissions” },<br>  { “value”: “AUTO_CASH”, “text”: “Auto Cash” },<br>  { “value”: “AUTO_POST_GL_TRANSACTION”, “text”: “Auto-Create GL Transactions” },<br>  { “value”: “BALANCELCGACCOUNTS”, “text”: “Balance Location Costing Group Accounts” },<br>  { “value”: “BAL_SEGMENTS_KEY_REDUCTN”, “text”: “Balancing by Segments: Analysis data processing” },<br>  { “value”: “BAL_SEGMENTS_KEY_STAGING”, “text”: “Balancing by Segments: Transaction analysis” },<br>  { “value”: “BAL_SEGMENTS_TRX_GENERAT”, “text”: “Balancing by Segments: Transaction generation” },<br>  { “value”: “BANK_CONNECTIVITY_IMPORT”, “text”: “Bank Connectivity Import” },<br>  { “value”: “BANK_STATEMENT_IMPORT”, “text”: “Bank Statement Import” },<br>  { “value”: “BILLINBOUNDSHIPMENT”, “text”: “Bill Inbound Shipment” },<br>  { “value”: “BILLINGWORKCENTER”, “text”: “Billing Work Center” },<br>  { “value”: “BUILDWORKORDERS”, “text”: “Build Work Orders” },<br>  { “value”: “SUBSCRIPTION_MRR”, “text”: “Calculate and store MRR analytics for {Subscription Line}” },<br>  { “value”: “UPDATEDCLOSED”, “text”: “Calls Update Dclosed” },<br>  { “value”: “CANCELSUPPLYORDER”, “text”: “Cancel Supply Orders” },<br>  { “value”: “CLOSEWORKORDERS”, “text”: “Close Work Orders” },<br>  { “value”: “ORDERREALLOCATION”, “text”: “Commit Orders” },<br>  { “value”: “COMPLETEWORKORDERS”, “text”: “Complete Work Orders” },<br>  { “value”: “CONFIRM_TRANSACTIONS”, “text”: “Confirm Transactions” },<br>  { “value”: “COPYITEMLOCCONFIG”, “text”: “Copy Item Location Configuration” },<br>  { “value”: “RECOGNIZEPLANNEDEXPENSE”, “text”: “Create Advanced Expense Journal Entries” },<br>  { “value”: “RECOGNIZEPLANNEDREVENUE”, “text”: “Create Advanced Revenue Recognition Journal Entries” },<br>  { “value”: “CHARGEENGINE”, “text”: “Create Charges” },<br>  { “value”: “OFFCYCLEINVOICE”, “text”: “Create Off-Cycle “ },<br>  { “value”: “CREATEPERIODENDJOURNALS”, “text”: “Create Period End Journals” },<br>  { “value”: “BULKREVREC”, “text”: “Create Revenue Recognition Journal Entries” },<br>  { “value”: “RECOGNIZEREVENUE”, “text”: “Create Summarized Rev Rec Journal Entries” },<br>  { “value”: “CREATESUPPLYCHANGEORDER”, “text”: “Create Supply Change Orders” },<br>  { “value”: “DEFERREDREVENUERECLASS”, “text”: “Deferred Revenue Reclassification” },<br>  { “value”: “DELETEREVENUEELEMENTS”, “text”: “Delete Revenue Elements” },<br>  { “value”: “DELETEPLANDEFINITION”, “text”: “Delete Supply Plan Definition” },<br>  { “value”: “EDITREVENUEARRANGEMENTS”, “text”: “Edit Revenue Arrangements” },<br>  { “value”: “TESTUNEXPECTEDERRORTYPE”, “text”: “Error Handling Test” },<br>  { “value”: “EXECUTERECORDACTIONS”, “text”: “Execute Record Actions” },<br>  { “value”: “EXTEND_EST_REVREC_ENDDATE”, “text”: “Extend Subscription Estimated Rev Rec End Date” },<br>  { “value”: “FIRMPLANNEDORDER”, “text”: “Firm Planned Orders” },<br>  { “value”: “FIXREVRECTRANSACTIONS”, “text”: “Fix Rev Rec Transactions” },<br>  { “value”: “FULFILLSALESORDERS”, “text”: “Fulfill Sales Orders” },<br>  { “value”: “GLAUDITNUMBERING”, “text”: “GL Audit Numbering” },<br>  { “value”: “GLIMPACTADJUSTMENT”, “text”: “GL Impact Adjustment” },<br>  { “value”: “GROUPINVOICES”, “text”: “Group Invoices” },<br>  { “value”: “GROUPINVOICESSUBMISSION”, “text”: “Group Invoices Submission” },<br>  { “value”: “IMPORT_EMPLOYEE_EXPENSE”, “text”: “Import Employee Expenses” },<br>  { “value”: “INTERCOMPANYELIMINATION”, “text”: “Intercompany Elimination” },<br>  { “value”: “IC_ENTITY_GENERATION”, “text”: “Intercompany Entity Generation” },<br>  { “value”: “INTERCOORDER_GENERATION”, “text”: “Intercompany Order Generation” },<br>  { “value”: “ICORDER_RA_GENERATION”, “text”: “Intercompany Order Generation” },<br>  { “value”: “ICORDER_SO_GENERATION”, “text”: “Intercompany Order Generation” },<br>  { “value”: “INVOICEBILLABLECUSTOMERS”, “text”: “Invoice Billable Customers” },<br>  { “value”: “BILLSALESORDERS”, “text”: “Invoice Sales Orders” },<br>  { “value”: “OFFCYCLECREDITMEMO”, “text”: “Issue Credit Memo from Change Order” },<br>  { “value”: “ISSUECREDITMEMOS”, “text”: “Issue Credit Memos” },<br>  { “value”: “ISSUEWORKORDERS”, “text”: “Issue Work Orders” },<br>  { “value”: “BULKITEMSHIPSTATUSPACK”, “text”: “Mark Orders Packed” },<br>  { “value”: “BULKITEMSHIPSTATUSSHIP”, “text”: “Mark Orders Shipped” },<br>  { “value”: “MARKVSOEDELIVERED”, “text”: “Mark VSOE Delivered” },<br>  { “value”: “MARKBUILTWORKORDERS”, “text”: “Mark Work Orders Built” },<br>  { “value”: “MARKFIRMEDWORKORDERS”, “text”: “Mark Work Orders Firmed” },<br>  { “value”: “MARKRELEASEDWORKORDERS”, “text”: “Mark Work Orders Released” },<br>  { “value”: “CREATEWORKORDERSFORSTOCK”, “text”: “Mass Create Work Orders” },<br>  { “value”: “MATERIALREQUIREMENTSPLAN”, “text”: “Material Requirements Planning” },<br>  { “value”: “MEDIATEPLANRATABLEEVENTS”, “text”: “Mediate Revenue Plan Ratable Events” },<br>  { “value”: “MEMORIZEDTRANSACTIONS”, “text”: “Memorized Transactions” },<br>  { “value”: “MHATTRIBUTE”, “text”: “Merchandise Attribute” },<br>  { “value”: “MHITEMASSIGNMENT”, “text”: “Merchandise Item Assignment” },<br>  { “value”: “MHITEMREMOVAL”, “text”: “Merchandise Item Removal” },<br>  { “value”: “MERGEREVARRANGEMENT”, “text”: “Merge Revenue Arrangements for Linked Sources” },<br>  { “value”: “MIGRATEOPENREVTRANSACTION”, “text”: “Migrate Revenue Arrangements and Plans” },<br>  { “value”: “MONTHENDFXREVAL”, “text”: “Month End Currency Revaluation” },<br>  { “value”: “MRPINITIALIZATION”, “text”: “MRP Initialization” },<br>  { “value”: “MRPOLDDATADELETION”, “text”: “MRP Old Data Deletion” },<br>  { “value”: “BULKORDERITEMS”, “text”: “Order Items” },<br>  { “value”: “PICKACTION_SYNC”, “text”: “Order Release Fulfillment” },<br>  { “value”: “BULKORDERREQUISITIONS”, “text”: “Order Requisitions” },<br>  { “value”: “OWNERSHIPTRANSFER”, “text”: “Ownership Transfer” },<br>  { “value”: “BULKPAYBILLS”, “text”: “Pay “ },<br>  { “value”: “REPOSITORYINITIALIZATION”, “text”: “Planning Repository Initialization” },<br>  { “value”: “PLANNINGREPOSITORYREFRESH”, “text”: “Planning Repository Refresh” },<br>  { “value”: “SUBSCRIPTION_RECURRINGAMT”, “text”: “Populate Recurring Amount for {Subscription Line}” },<br>  { “value”: “PROCESSHISTTRANSACTIONS”, “text”: “Process Secondary Book Historical Transactions” },<br>  { “value”: “RATINGRUN”, “text”: “Rating Run” },<br>  { “value”: “RECALCEXPFORECASTPLANS”, “text”: “Recalculate Expense Forecast Plans” },<br>  { “value”: “RECALCREVFORECASTPLANS”, “text”: “Recalculate Revenue Forecast Plans” },<br>  { “value”: “RECEIVEINBOUNDSHIPMENT”, “text”: “Receive Inbound Shipment” },<br>  { “value”: “BULKRECEIVEORDER”, “text”: “Receive Orders” },<br>  { “value”: “RELEASEPLANNEDORDER”, “text”: “Release Planned Orders” },<br>  { “value”: “REMOVEMATRIXOPTIONS”, “text”: “Remove Matrix Options” },<br>  { “value”: “RENEWSUBSCRIPTIONS”, “text”: “Renew “ },<br>  { “value”: “RESCHEDULESUPPLYORDER”, “text”: “Reschedule Supply Orders” },<br>  { “value”: “REVALUESTDCOSTINVENTORY”, “text”: “Revalue Standard Cost Inventory” },<br>  { “value”: “REVERTEXPFORECASTPLANS”, “text”: “Revert Expense Forecast Plans to Original” },<br>  { “value”: “REVERTFORECASTPLANSTOORIG”, “text”: “Revert Revenue Forecast Plans to Original” },<br>  { “value”: “ROLLUPITEMCOST”, “text”: “Rollup Planned Standard Cost” },<br>  { “value”: “REC_MATCHING_ENGINE”, “text”: “Run Rules Engine” },<br>  { “value”: “SUITETAXMIGRATION”, “text”: “SuiteTax Migration” },<br>  { “value”: “SUPPLYALLOCATIONMIGRATION”, “text”: “Supply Allocation Migration” },<br>  { “value”: “SCSNAPSHOTREFRESH”, “text”: “Supply Chain Snapshot Refresh” },<br>  { “value”: “TIME_MODIFICATION”, “text”: “Time Modification” },<br>  { “value”: “REPLENISHINVENTORY”, “text”: “Transfer Order Replenishment” },<br>  { “value”: “WITHDRAWINVENTORY”, “text”: “Transfer Order Withdrawal” },<br>  { “value”: “MANAGEACTUALEXPENSEPLANS”, “text”: “Update Actual Expense Plans” },<br>  { “value”: “MANAGEACTUALREVENUEPLANS”, “text”: “Update Actual Revenue Recognition Plans” },<br>  { “value”: “TESTBULKPROCTYPE”, “text”: “Update Department Name For Testing Only” },<br>  { “value”: “UPDATEEXPENSEPLANS”, “text”: “Update Expense Plans” },<br>  { “value”: “MANAGEFORECASTEXPPLANS”, “text”: “Update Forecast Expense Plans” },<br>  { “value”: “MANAGEFORECASTREVPLANS”, “text”: “Update Forecast Revenue Recognition Plans” },<br>  { “value”: “MANAGEREVENUEARRANGEMENT”, “text”: “Update Revenue Arrangements” },<br>  { “value”: “MANAGEREVENUEELEMENTS”, “text”: “Update Revenue Elements” },<br>  { “value”: “UPDATEREVRECPLANS”, “text”: “Update Revenue Recognition Plans” }<br>]</p>
+
+      
+
+
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/201703162254.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -929,114 +1032,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/201703162254.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-
-
-
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/201811151045.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云随笔 Carl Notes">
-      <meta itemprop="description" content="[眼观心察 沉淀共享] 文章版本持续佛系更新">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 云随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/201811151045.html" class="post-title-link" itemprop="url">NetSuite Data Migration Implementation NetSuite数据批量更新思路-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/201811151045.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          应用背景 多线程，多个QUEUE，加速大数据量更新 实现思路 User Event implement data migration rule， CSV Import to trigger data migration logic/user event。 To be continue...
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/201811151045.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2987,7 +2982,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/201706231632.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/201811151045.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -3005,7 +3000,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/201706231632.html" class="post-title-link" itemprop="url">NetSuite SuiteScript 2.0 SFTP API Usage Sample-CarlZeng</a>
+          <a href="/201811151045.html" class="post-title-link" itemprop="url">NetSuite Data Migration Implementation NetSuite数据批量更新思路-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -3034,7 +3029,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/201706231632.html" ></span>
+            <span id="ArtalkPV" data-page-key="/201811151045.html" ></span>
           </span>
         
       
@@ -3045,7 +3040,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>12 分钟</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -3056,10 +3051,118 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          Background: Created a test SuiteLet script, after correct credential, it will do: 1. Upload/Sent specific NS File Cabinet file to SFTP server.(NS -> S
+          应用背景 多线程，多个QUEUE，加速大数据量更新 实现思路 User Event implement data migration rule， CSV Import to trigger data migration logic/user event。 To be continue...
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/201706231632.html#more" rel="contents">
+              <a class="btn" href="/201811151045.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+
+
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/202104081715.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="description" content="[眼观心察 沉淀共享] 文章版本持续佛系更新">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 云随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/202104081715.html" class="post-title-link" itemprop="url">NetSuite generated bank files and the Bank Reconciliation process-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/202104081715.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          NetSuite generated bank files and the Bank Reconciliation process
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/202104081715.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -3312,217 +3415,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/202104100945.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云随笔 Carl Notes">
-      <meta itemprop="description" content="[眼观心察 沉淀共享] 文章版本持续佛系更新">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 云随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/202104100945.html" class="post-title-link" itemprop="url">NetSuite Batch Process Status -CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/202104100945.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>16 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Check of back-end process status which might impact reporting, learn how things are calculate&#x2F;processing in NetSuite</p>
-<p>&#x2F;app&#x2F;accounting&#x2F;bulkprocessing&#x2F;bulkprocessingstatuslist.nl</p>
-<p>[<br>  { “value”: “@ALL@”, “text”: “- All -“ },<br>  { “value”: “SUPPLYREALLOCATION”, “text”: “Allocate Orders” },<br>  { “value”: “ALLOCATEREVARRANGEMENT”, “text”: “Allocate Revenue Arrangements” },<br>  { “value”: “BULKAUTHCOMMISSN”, “text”: “Authorize Commissions” },<br>  { “value”: “BULKAUTHPARTNERCOMMISSN”, “text”: “Authorize Partner Commissions” },<br>  { “value”: “AUTO_CASH”, “text”: “Auto Cash” },<br>  { “value”: “AUTO_POST_GL_TRANSACTION”, “text”: “Auto-Create GL Transactions” },<br>  { “value”: “BALANCELCGACCOUNTS”, “text”: “Balance Location Costing Group Accounts” },<br>  { “value”: “BAL_SEGMENTS_KEY_REDUCTN”, “text”: “Balancing by Segments: Analysis data processing” },<br>  { “value”: “BAL_SEGMENTS_KEY_STAGING”, “text”: “Balancing by Segments: Transaction analysis” },<br>  { “value”: “BAL_SEGMENTS_TRX_GENERAT”, “text”: “Balancing by Segments: Transaction generation” },<br>  { “value”: “BANK_CONNECTIVITY_IMPORT”, “text”: “Bank Connectivity Import” },<br>  { “value”: “BANK_STATEMENT_IMPORT”, “text”: “Bank Statement Import” },<br>  { “value”: “BILLINBOUNDSHIPMENT”, “text”: “Bill Inbound Shipment” },<br>  { “value”: “BILLINGWORKCENTER”, “text”: “Billing Work Center” },<br>  { “value”: “BUILDWORKORDERS”, “text”: “Build Work Orders” },<br>  { “value”: “SUBSCRIPTION_MRR”, “text”: “Calculate and store MRR analytics for {Subscription Line}” },<br>  { “value”: “UPDATEDCLOSED”, “text”: “Calls Update Dclosed” },<br>  { “value”: “CANCELSUPPLYORDER”, “text”: “Cancel Supply Orders” },<br>  { “value”: “CLOSEWORKORDERS”, “text”: “Close Work Orders” },<br>  { “value”: “ORDERREALLOCATION”, “text”: “Commit Orders” },<br>  { “value”: “COMPLETEWORKORDERS”, “text”: “Complete Work Orders” },<br>  { “value”: “CONFIRM_TRANSACTIONS”, “text”: “Confirm Transactions” },<br>  { “value”: “COPYITEMLOCCONFIG”, “text”: “Copy Item Location Configuration” },<br>  { “value”: “RECOGNIZEPLANNEDEXPENSE”, “text”: “Create Advanced Expense Journal Entries” },<br>  { “value”: “RECOGNIZEPLANNEDREVENUE”, “text”: “Create Advanced Revenue Recognition Journal Entries” },<br>  { “value”: “CHARGEENGINE”, “text”: “Create Charges” },<br>  { “value”: “OFFCYCLEINVOICE”, “text”: “Create Off-Cycle “ },<br>  { “value”: “CREATEPERIODENDJOURNALS”, “text”: “Create Period End Journals” },<br>  { “value”: “BULKREVREC”, “text”: “Create Revenue Recognition Journal Entries” },<br>  { “value”: “RECOGNIZEREVENUE”, “text”: “Create Summarized Rev Rec Journal Entries” },<br>  { “value”: “CREATESUPPLYCHANGEORDER”, “text”: “Create Supply Change Orders” },<br>  { “value”: “DEFERREDREVENUERECLASS”, “text”: “Deferred Revenue Reclassification” },<br>  { “value”: “DELETEREVENUEELEMENTS”, “text”: “Delete Revenue Elements” },<br>  { “value”: “DELETEPLANDEFINITION”, “text”: “Delete Supply Plan Definition” },<br>  { “value”: “EDITREVENUEARRANGEMENTS”, “text”: “Edit Revenue Arrangements” },<br>  { “value”: “TESTUNEXPECTEDERRORTYPE”, “text”: “Error Handling Test” },<br>  { “value”: “EXECUTERECORDACTIONS”, “text”: “Execute Record Actions” },<br>  { “value”: “EXTEND_EST_REVREC_ENDDATE”, “text”: “Extend Subscription Estimated Rev Rec End Date” },<br>  { “value”: “FIRMPLANNEDORDER”, “text”: “Firm Planned Orders” },<br>  { “value”: “FIXREVRECTRANSACTIONS”, “text”: “Fix Rev Rec Transactions” },<br>  { “value”: “FULFILLSALESORDERS”, “text”: “Fulfill Sales Orders” },<br>  { “value”: “GLAUDITNUMBERING”, “text”: “GL Audit Numbering” },<br>  { “value”: “GLIMPACTADJUSTMENT”, “text”: “GL Impact Adjustment” },<br>  { “value”: “GROUPINVOICES”, “text”: “Group Invoices” },<br>  { “value”: “GROUPINVOICESSUBMISSION”, “text”: “Group Invoices Submission” },<br>  { “value”: “IMPORT_EMPLOYEE_EXPENSE”, “text”: “Import Employee Expenses” },<br>  { “value”: “INTERCOMPANYELIMINATION”, “text”: “Intercompany Elimination” },<br>  { “value”: “IC_ENTITY_GENERATION”, “text”: “Intercompany Entity Generation” },<br>  { “value”: “INTERCOORDER_GENERATION”, “text”: “Intercompany Order Generation” },<br>  { “value”: “ICORDER_RA_GENERATION”, “text”: “Intercompany Order Generation” },<br>  { “value”: “ICORDER_SO_GENERATION”, “text”: “Intercompany Order Generation” },<br>  { “value”: “INVOICEBILLABLECUSTOMERS”, “text”: “Invoice Billable Customers” },<br>  { “value”: “BILLSALESORDERS”, “text”: “Invoice Sales Orders” },<br>  { “value”: “OFFCYCLECREDITMEMO”, “text”: “Issue Credit Memo from Change Order” },<br>  { “value”: “ISSUECREDITMEMOS”, “text”: “Issue Credit Memos” },<br>  { “value”: “ISSUEWORKORDERS”, “text”: “Issue Work Orders” },<br>  { “value”: “BULKITEMSHIPSTATUSPACK”, “text”: “Mark Orders Packed” },<br>  { “value”: “BULKITEMSHIPSTATUSSHIP”, “text”: “Mark Orders Shipped” },<br>  { “value”: “MARKVSOEDELIVERED”, “text”: “Mark VSOE Delivered” },<br>  { “value”: “MARKBUILTWORKORDERS”, “text”: “Mark Work Orders Built” },<br>  { “value”: “MARKFIRMEDWORKORDERS”, “text”: “Mark Work Orders Firmed” },<br>  { “value”: “MARKRELEASEDWORKORDERS”, “text”: “Mark Work Orders Released” },<br>  { “value”: “CREATEWORKORDERSFORSTOCK”, “text”: “Mass Create Work Orders” },<br>  { “value”: “MATERIALREQUIREMENTSPLAN”, “text”: “Material Requirements Planning” },<br>  { “value”: “MEDIATEPLANRATABLEEVENTS”, “text”: “Mediate Revenue Plan Ratable Events” },<br>  { “value”: “MEMORIZEDTRANSACTIONS”, “text”: “Memorized Transactions” },<br>  { “value”: “MHATTRIBUTE”, “text”: “Merchandise Attribute” },<br>  { “value”: “MHITEMASSIGNMENT”, “text”: “Merchandise Item Assignment” },<br>  { “value”: “MHITEMREMOVAL”, “text”: “Merchandise Item Removal” },<br>  { “value”: “MERGEREVARRANGEMENT”, “text”: “Merge Revenue Arrangements for Linked Sources” },<br>  { “value”: “MIGRATEOPENREVTRANSACTION”, “text”: “Migrate Revenue Arrangements and Plans” },<br>  { “value”: “MONTHENDFXREVAL”, “text”: “Month End Currency Revaluation” },<br>  { “value”: “MRPINITIALIZATION”, “text”: “MRP Initialization” },<br>  { “value”: “MRPOLDDATADELETION”, “text”: “MRP Old Data Deletion” },<br>  { “value”: “BULKORDERITEMS”, “text”: “Order Items” },<br>  { “value”: “PICKACTION_SYNC”, “text”: “Order Release Fulfillment” },<br>  { “value”: “BULKORDERREQUISITIONS”, “text”: “Order Requisitions” },<br>  { “value”: “OWNERSHIPTRANSFER”, “text”: “Ownership Transfer” },<br>  { “value”: “BULKPAYBILLS”, “text”: “Pay “ },<br>  { “value”: “REPOSITORYINITIALIZATION”, “text”: “Planning Repository Initialization” },<br>  { “value”: “PLANNINGREPOSITORYREFRESH”, “text”: “Planning Repository Refresh” },<br>  { “value”: “SUBSCRIPTION_RECURRINGAMT”, “text”: “Populate Recurring Amount for {Subscription Line}” },<br>  { “value”: “PROCESSHISTTRANSACTIONS”, “text”: “Process Secondary Book Historical Transactions” },<br>  { “value”: “RATINGRUN”, “text”: “Rating Run” },<br>  { “value”: “RECALCEXPFORECASTPLANS”, “text”: “Recalculate Expense Forecast Plans” },<br>  { “value”: “RECALCREVFORECASTPLANS”, “text”: “Recalculate Revenue Forecast Plans” },<br>  { “value”: “RECEIVEINBOUNDSHIPMENT”, “text”: “Receive Inbound Shipment” },<br>  { “value”: “BULKRECEIVEORDER”, “text”: “Receive Orders” },<br>  { “value”: “RELEASEPLANNEDORDER”, “text”: “Release Planned Orders” },<br>  { “value”: “REMOVEMATRIXOPTIONS”, “text”: “Remove Matrix Options” },<br>  { “value”: “RENEWSUBSCRIPTIONS”, “text”: “Renew “ },<br>  { “value”: “RESCHEDULESUPPLYORDER”, “text”: “Reschedule Supply Orders” },<br>  { “value”: “REVALUESTDCOSTINVENTORY”, “text”: “Revalue Standard Cost Inventory” },<br>  { “value”: “REVERTEXPFORECASTPLANS”, “text”: “Revert Expense Forecast Plans to Original” },<br>  { “value”: “REVERTFORECASTPLANSTOORIG”, “text”: “Revert Revenue Forecast Plans to Original” },<br>  { “value”: “ROLLUPITEMCOST”, “text”: “Rollup Planned Standard Cost” },<br>  { “value”: “REC_MATCHING_ENGINE”, “text”: “Run Rules Engine” },<br>  { “value”: “SUITETAXMIGRATION”, “text”: “SuiteTax Migration” },<br>  { “value”: “SUPPLYALLOCATIONMIGRATION”, “text”: “Supply Allocation Migration” },<br>  { “value”: “SCSNAPSHOTREFRESH”, “text”: “Supply Chain Snapshot Refresh” },<br>  { “value”: “TIME_MODIFICATION”, “text”: “Time Modification” },<br>  { “value”: “REPLENISHINVENTORY”, “text”: “Transfer Order Replenishment” },<br>  { “value”: “WITHDRAWINVENTORY”, “text”: “Transfer Order Withdrawal” },<br>  { “value”: “MANAGEACTUALEXPENSEPLANS”, “text”: “Update Actual Expense Plans” },<br>  { “value”: “MANAGEACTUALREVENUEPLANS”, “text”: “Update Actual Revenue Recognition Plans” },<br>  { “value”: “TESTBULKPROCTYPE”, “text”: “Update Department Name For Testing Only” },<br>  { “value”: “UPDATEEXPENSEPLANS”, “text”: “Update Expense Plans” },<br>  { “value”: “MANAGEFORECASTEXPPLANS”, “text”: “Update Forecast Expense Plans” },<br>  { “value”: “MANAGEFORECASTREVPLANS”, “text”: “Update Forecast Revenue Recognition Plans” },<br>  { “value”: “MANAGEREVENUEARRANGEMENT”, “text”: “Update Revenue Arrangements” },<br>  { “value”: “MANAGEREVENUEELEMENTS”, “text”: “Update Revenue Elements” },<br>  { “value”: “UPDATEREVRECPLANS”, “text”: “Update Revenue Recognition Plans” }<br>]</p>
-
-      
-
-
-
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/202104081715.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云随笔 Carl Notes">
-      <meta itemprop="description" content="[眼观心察 沉淀共享] 文章版本持续佛系更新">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 云随笔 Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/202104081715.html" class="post-title-link" itemprop="url">NetSuite generated bank files and the Bank Reconciliation process-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="阅读次数">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/202104081715.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>7 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          NetSuite generated bank files and the Bank Reconciliation process
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/202104081715.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-
-
-
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/202205110811.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3626,7 +3518,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/201411051016.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/201706231632.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -3644,7 +3536,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/201411051016.html" class="post-title-link" itemprop="url">Netsuite > Employee Record Name维护规则-CarlZeng</a>
+          <a href="/201706231632.html" class="post-title-link" itemprop="url">NetSuite SuiteScript 2.0 SFTP API Usage Sample-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -3673,7 +3565,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">阅读次数：</span>
-            <span id="ArtalkPV" data-page-key="/201411051016.html" ></span>
+            <span id="ArtalkPV" data-page-key="/201706231632.html" ></span>
           </span>
         
       
@@ -3684,7 +3576,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>12 分钟</span>
     </span>
 </div>
 
@@ -3695,10 +3587,118 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          Employee Record Name 维护规则 - 在NS系统设计中，默认的Field展现是：First Name, Middle Name, Last Name - 在General Preferences（Setup > Company > Genernal Prefrences）中，影响员
+          Background: Created a test SuiteLet script, after correct credential, it will do: 1. Upload/Sent specific NS File Cabinet file to SFTP server.(NS -> S
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/201411051016.html#more" rel="contents">
+              <a class="btn" href="/201706231632.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+
+
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/201410231000.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="description" content="[眼观心察 沉淀共享] 文章版本持续佛系更新">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 云随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/201410231000.html" class="post-title-link" itemprop="url">Netsuite SuiteScript > Search Advance feature，搜索中使用 'OR' operation-CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/201410231000.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Sample in online help//Define search filter expressionvar filterExpression =	[ [ 'trandate', 'onOrAfter', 'daysAgo90' ], 'or', [ 'projecte...
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/201410231000.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
