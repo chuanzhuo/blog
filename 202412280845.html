@@ -26,8 +26,14 @@
 <meta property="og:description" content="N100以及它下面的虚拟机, 从应用角度出发部署各类生产系统">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/12/30/6771fd2db7fec.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2024/12/30/67729be17e3b0.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/01/02/67767a7715ba8.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/01/01/6775453485c89.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/01/02/6775f2ea7bbc6.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/01/02/677609dbbd87a.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/01/02/67761adca4d5b.png">
 <meta property="article:published_time" content="2024-12-28T00:45:38.000Z">
-<meta property="article:modified_time" content="2024-12-30T02:03:37.581Z">
+<meta property="article:modified_time" content="2025-01-02T11:50:53.637Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="pve">
 <meta property="article:tag" content="N100">
@@ -127,7 +133,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用&#x2F;怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pve%E6%96%B0%E5%A2%9E%E7%AE%A1%E7%90%86%E5%91%98%E7%94%A8%E6%88%B7"><span class="nav-number">3.1.</span> <span class="nav-text">pve新增管理员用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E5%AE%89%E8%A3%85%E6%97%B6%E6%8C%87%E5%AE%9A%E7%9A%84IP%E5%9C%B0%E5%9D%80"><span class="nav-number">3.2.</span> <span class="nav-text">如何修改安装时指定的IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4"><span class="nav-number">3.3.</span> <span class="nav-text">集群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8Eraw-qcow2%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6%E4%B8%AD%E6%81%A2%E5%A4%8D%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">3.4.</span> <span class="nav-text">从raw&#x2F;qcow2格式的镜像文件中恢复虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">3.4.1.</span> <span class="nav-text">新建虚拟机</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用&#x2F;怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pve%E6%96%B0%E5%A2%9E%E7%AE%A1%E7%90%86%E5%91%98%E7%94%A8%E6%88%B7"><span class="nav-number">3.1.</span> <span class="nav-text">pve新增管理员用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E5%AE%89%E8%A3%85%E6%97%B6%E6%8C%87%E5%AE%9A%E7%9A%84IP%E5%9C%B0%E5%9D%80"><span class="nav-number">3.2.</span> <span class="nav-text">如何修改安装时指定的IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PVE%E6%B7%BB%E5%8A%A0%E6%B8%A9%E5%BA%A6%E6%98%BE%E7%A4%BA%E6%8F%92%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">PVE添加温度显示插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4"><span class="nav-number">3.4.</span> <span class="nav-text">集群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8Eraw-qcow2%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6%E4%B8%AD%E6%81%A2%E5%A4%8D%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">3.5.</span> <span class="nav-text">从raw&#x2F;qcow2格式的镜像文件中恢复虚拟机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">3.5.1.</span> <span class="nav-text">新建虚拟机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PVE%E5%AE%89%E8%A3%85Windows11"><span class="nav-number">3.6.</span> <span class="nav-text">PVE安装Windows11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96IP%E5%9C%B0%E5%9D%80"><span class="nav-number">3.7.</span> <span class="nav-text">Debian虚拟机无法获取IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%AE%9A%E5%88%B6%E7%9A%84img%E5%9C%A8PVE%E4%B8%8A%E5%AE%89%E8%A3%85%E9%BB%91%E7%BE%A4%E6%99%96"><span class="nav-number">3.8.</span> <span class="nav-text">使用定制的img在PVE上安装黑群晖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5pat%E6%96%87%E4%BB%B6"><span class="nav-number">3.8.1.</span> <span class="nav-text">导入pat文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#arpl%E5%AE%89%E8%A3%85%E9%BB%91%E7%BE%A4%E6%99%96-%E8%B8%A9%E5%9D%91%E5%BE%97%E7%BB%8F%E9%AA%8C"><span class="nav-number">3.8.2.</span> <span class="nav-text">arpl安装黑群晖-踩坑得经验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B5%E8%A7%86%E7%9A%84%E7%9B%B4%E6%92%AD%E6%B5%81-docker"><span class="nav-number">3.9.</span> <span class="nav-text">电视的直播流 docker</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -176,13 +182,18 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
       TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
-      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
       </a>
     </li>
     <li class="popular-posts-item">
@@ -191,18 +202,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409260813.html" rel="bookmark">
-      MAC端为RSA登录生成SSH公钥并实现免密码登录SSH
+      <a class="popular-posts-link" href="/202404081832.html" rel="bookmark">
+      分享小主机docker安装离线下载工具
       </a>
     </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202412300901.html" rel="bookmark">
       Github加速Github代理
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202404081832.html" rel="bookmark">
-      分享小主机docker安装离线下载工具
       </a>
     </li>
     <li class="popular-posts-item">
@@ -399,7 +405,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-12-30 10:03:37" itemprop="dateModified" datetime="2024-12-30T10:03:37+08:00">2024-12-30</time>
+      <time title="修改时间：2025-01-02 19:50:53" itemprop="dateModified" datetime="2025-01-02T19:50:53+08:00">2025-01-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -429,7 +435,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>18 分钟</span>
     </span>
 </div>
 
@@ -466,10 +472,18 @@
 <h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=pve" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><h2 id="pve新增管理员用户"><a href="#pve新增管理员用户" class="headerlink" title="pve新增管理员用户"></a>pve新增管理员用户</h2><p>使用显示器接入到通过U盘PVE(ISO文件安装)安装后的命令行界面.</p>
-<p>ssh <a href="mailto:&#114;&#x6f;&#x6f;&#116;&#64;&#x31;&#57;&#x32;&#x2e;&#49;&#x36;&#56;&#x2e;&#49;&#x30;&#x30;&#46;&#50;">&#114;&#x6f;&#x6f;&#116;&#64;&#x31;&#57;&#x32;&#x2e;&#49;&#x36;&#56;&#x2e;&#49;&#x30;&#x30;&#46;&#50;</a></p>
+<p>ssh <a href="mailto:&#x72;&#111;&#111;&#x74;&#64;&#49;&#57;&#50;&#46;&#49;&#54;&#x38;&#x2e;&#49;&#48;&#48;&#46;&#x32;">&#x72;&#111;&#111;&#x74;&#64;&#49;&#57;&#50;&#46;&#49;&#54;&#x38;&#x2e;&#49;&#48;&#48;&#46;&#x32;</a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ls /dev/disk/by-id</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mount /dev/sdc2 /mnt/usbToshiBa1T</span><br></pre></td></tr></table></figure>
 
 <h2 id="如何修改安装时指定的IP地址"><a href="#如何修改安装时指定的IP地址" class="headerlink" title="如何修改安装时指定的IP地址"></a>如何修改安装时指定的IP地址</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/network/interfaces</span><br><span class="line"></span><br><span class="line">nano /etc/issue</span><br><span class="line"></span><br><span class="line">nano /etc/hosts</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把这个三个命令打开的文件里面都从192.168.100.2, 修改到192.168.6.3</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">control + O 回车 保存</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">control + X 退出nano</span></span><br><span class="line"></span><br><span class="line">reboot 重启N100软路由</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="PVE添加温度显示插件"><a href="#PVE添加温度显示插件" class="headerlink" title="PVE添加温度显示插件"></a>PVE添加温度显示插件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(curl -Lf -o /tmp/temp.sh https://raw.githubusercontent.com/a904055262/PVE-manager-status/main/showtempcpufreq.sh || curl -Lf -o /tmp/temp.sh  https://gh-proxy.com/raw.githubusercontent.com/a904055262/PVE-manager-status/main/showtempcpufreq.sh) &amp;&amp; chmod +x /tmp/temp.sh &amp;&amp; /tmp/temp.sh remod</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>来源:  <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL2ZvcnVtLnBocD9tb2Q9dmlld3RocmVhZCZ0aWQ9Njc1NDY4Nw==" rel="noopener external nofollow noreferrer">[虚拟机相关] (2023.12.13)SHELL脚本：一键给PVE增加温度,cpu功耗频率,硬盘等信息</a></p>
+<p>执行日志:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">root@pve:~# (curl -Lf -o /tmp/temp.sh https://raw.githubusercontent.com/a904055262/PVE-manager-status/main/showtempcpufreq.sh || curl -Lf -o /tmp/temp.sh  https://gh-proxy.com/raw.githubusercontent.com/a904055262/PVE-manager-status/main/showtempcpufreq.sh) &amp;&amp; chmod +x /tmp/temp.sh &amp;&amp; /tmp/temp.sh remod</span><br><span class="line"><span class="meta prompt_">  % </span><span class="language-bash">Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span></span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">100 13615  100 13615    0     0  24565      0 --:--:-- --:--:-- --:--:-- 24531</span><br><span class="line">脚本路径：/tmp/temp.sh</span><br><span class="line">你需要先安装 lm-sensors 和 linux-cpupower，脚本尝试给你自动安装</span><br><span class="line">Get:1 http://security.debian.org bookworm-security InRelease [48.0 kB]</span><br><span class="line">Hit:2 http://ftp.debian.org/debian bookworm InRelease                                            </span><br><span class="line">Get:3 http://ftp.debian.org/debian bookworm-updates InRelease [55.4 kB]       </span><br><span class="line">Err:4 https://enterprise.proxmox.com/debian/ceph-quincy bookworm InRelease    </span><br><span class="line">  401  Unauthorized [IP: 51.79.228.122 443]</span><br><span class="line">Err:5 https://enterprise.proxmox.com/debian/pve bookworm InRelease</span><br><span class="line">  401  Unauthorized [IP: 51.79.228.122 443]</span><br><span class="line">Reading package lists... Done</span><br><span class="line">E: Failed to fetch https://enterprise.proxmox.com/debian/ceph-quincy/dists/bookworm/InRelease  401  Unauthorized [IP: 51.79.228.122 443]</span><br><span class="line">E: The repository &#x27;https://enterprise.proxmox.com/debian/ceph-quincy bookworm InRelease&#x27; is not signed.</span><br><span class="line">N: Updating from such a repository can&#x27;t be done securely, and is therefore disabled by default.</span><br><span class="line">N: See apt-secure(8) manpage for repository creation and user configuration details.</span><br><span class="line">E: Failed to fetch https://enterprise.proxmox.com/debian/pve/dists/bookworm/InRelease  401  Unauthorized [IP: 51.79.228.122 443]</span><br><span class="line">E: The repository &#x27;https://enterprise.proxmox.com/debian/pve bookworm InRelease&#x27; is not signed.</span><br><span class="line">N: Updating from such a repository can&#x27;t be done securely, and is therefore disabled by default.</span><br><span class="line">N: See apt-secure(8) manpage for repository creation and user configuration details.</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree... Done</span><br><span class="line">Reading state information... Done</span><br><span class="line">The following additional packages will be installed:</span><br><span class="line">  libsensors-config libsensors5</span><br><span class="line">Suggested packages:</span><br><span class="line">  fancontrol read-edid i2c-tools</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line">  libsensors-config libsensors5 lm-sensors</span><br><span class="line">0 upgraded, 3 newly installed, 0 to remove and 3 not upgraded.</span><br><span class="line">Need to get 146 kB of archives.</span><br><span class="line">After this operation, 518 kB of additional disk space will be used.</span><br><span class="line">Get:1 http://ftp.debian.org/debian bookworm/main amd64 libsensors-config all 1:3.6.0-7.1 [14.3 kB]</span><br><span class="line">Get:2 http://ftp.debian.org/debian bookworm/main amd64 libsensors5 amd64 1:3.6.0-7.1 [34.2 kB]</span><br><span class="line">Get:3 http://ftp.debian.org/debian bookworm/main amd64 lm-sensors amd64 1:3.6.0-7.1 [97.2 kB]</span><br><span class="line">Fetched 146 kB in 1s (182 kB/s)  </span><br><span class="line">Selecting previously unselected package libsensors-config.</span><br><span class="line">(Reading database ... 45930 files and directories currently installed.)</span><br><span class="line">Preparing to unpack .../libsensors-config_1%3a3.6.0-7.1_all.deb ...</span><br><span class="line">Unpacking libsensors-config (1:3.6.0-7.1) ...</span><br><span class="line">Selecting previously unselected package libsensors5:amd64.</span><br><span class="line">Preparing to unpack .../libsensors5_1%3a3.6.0-7.1_amd64.deb ...</span><br><span class="line">Unpacking libsensors5:amd64 (1:3.6.0-7.1) ...</span><br><span class="line">Selecting previously unselected package lm-sensors.</span><br><span class="line">Preparing to unpack .../lm-sensors_1%3a3.6.0-7.1_amd64.deb ...</span><br><span class="line">Unpacking lm-sensors (1:3.6.0-7.1) ...</span><br><span class="line">Setting up libsensors-config (1:3.6.0-7.1) ...</span><br><span class="line">Setting up libsensors5:amd64 (1:3.6.0-7.1) ...</span><br><span class="line">Setting up lm-sensors (1:3.6.0-7.1) ...</span><br><span class="line">Created symlink /etc/systemd/system/multi-user.target.wants/lm-sensors.service → /lib/systemd/system/lm-sensors.service.</span><br><span class="line">Processing triggers for man-db (2.11.2-2) ...</span><br><span class="line">Processing triggers for libc-bin (2.36-9+deb12u9) ...</span><br><span class="line">lm-sensors 安装成功</span><br><span class="line">尝试继续安装linux-cpupower获取功耗信息</span><br><span class="line">Reading package lists... Done</span><br><span class="line">Building dependency tree... Done</span><br><span class="line">Reading state information... Done</span><br><span class="line">The following additional packages will be installed:</span><br><span class="line">  libcpupower1</span><br><span class="line">The following NEW packages will be installed:</span><br><span class="line">  libcpupower1 linux-cpupower</span><br><span class="line">0 upgraded, 2 newly installed, 0 to remove and 3 not upgraded.</span><br><span class="line">Need to get 1,975 kB of archives.</span><br><span class="line">After this operation, 2,267 kB of additional disk space will be used.</span><br><span class="line">Get:1 http://security.debian.org bookworm-security/main amd64 libcpupower1 amd64 6.1.119-1 [936 kB]</span><br><span class="line">Get:2 http://security.debian.org bookworm-security/main amd64 linux-cpupower amd64 6.1.119-1 [1,039 kB]</span><br><span class="line">Fetched 1,975 kB in 1s (2,376 kB/s)   </span><br><span class="line">Selecting previously unselected package libcpupower1.</span><br><span class="line">(Reading database ... 45980 files and directories currently installed.)</span><br><span class="line">Preparing to unpack .../libcpupower1_6.1.119-1_amd64.deb ...</span><br><span class="line">Unpacking libcpupower1 (6.1.119-1) ...</span><br><span class="line">Selecting previously unselected package linux-cpupower.</span><br><span class="line">Preparing to unpack .../linux-cpupower_6.1.119-1_amd64.deb ...</span><br><span class="line">Unpacking linux-cpupower (6.1.119-1) ...</span><br><span class="line">Setting up libcpupower1 (6.1.119-1) ...</span><br><span class="line">Setting up linux-cpupower (6.1.119-1) ...</span><br><span class="line">Processing triggers for man-db (2.11.2-2) ...</span><br><span class="line">Processing triggers for libc-bin (2.36-9+deb12u9) ...</span><br><span class="line">linux-cpupower安装成功</span><br><span class="line">你的PVE版本号：8.3.0</span><br><span class="line">强制重新修改</span><br><span class="line">-----------</span><br><span class="line">脚本路径：/tmp/temp.sh</span><br><span class="line">你的PVE版本号：8.3.0</span><br><span class="line">检测系统中的NVME硬盘</span><br><span class="line">已添加 1 块NVME硬盘</span><br><span class="line">检测系统中的SATA固态和机械硬盘</span><br><span class="line">已添加 0 块SATA固态和机械硬盘</span><br><span class="line">开始修改nodes.pm文件</span><br><span class="line">开始修改pvemanagerlib.js文件</span><br><span class="line">修改页面高度</span><br><span class="line">修改左栏高度</span><br><span class="line">修改右栏高度和左栏一致，解决浮动错位</span><br><span class="line">温度，频率，硬盘信息相关修改已完成</span><br><span class="line">------------------------</span><br><span class="line">------------------------</span><br><span class="line">开始修改proxmoxlib.js文件</span><br><span class="line">去除订阅弹窗</span><br><span class="line">------------------------</span><br><span class="line">修改完成</span><br><span class="line">请刷新浏览器缓存：Shift+F5</span><br><span class="line">如果你看到主页面提示连接错误或者没看到温度和频率，请按：Shift+F5，刷新浏览器缓存！</span><br><span class="line">如果你对效果不满意，请执行：&quot;/tmp/temp.sh&quot; restore 命令，可以还原修改</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
@@ -481,16 +495,82 @@
 <li>然后去新建CT(宿主虚拟机), 选debian12的模版</li>
 <li>顺着向导配置CPU, 内存等等即可成功创建CT虚拟机</li>
 </ol>
-<p>PVE安装Windows11</p>
-<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93aWxseHVwLnRvcC9hcmNoaXZlcy9wdmUtaW5zdGFsbC13aW4xMQ==" rel="noopener external nofollow noreferrer">https://willxup.top/archives/pve-install-win11</a></p>
+<h2 id="PVE安装Windows11"><a href="#PVE安装Windows11" class="headerlink" title="PVE安装Windows11"></a>PVE安装Windows11</h2><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93aWxseHVwLnRvcC9hcmNoaXZlcy9wdmUtaW5zdGFsbC13aW4xMQ==" rel="noopener external nofollow noreferrer">https://willxup.top/archives/pve-install-win11</a></p>
 <p>没有网络<br>    shift+F10 打开CMD，然后运行oobe\BypassNRO.cmd即可，Windows会自动重启，重新开始设置Windows。</p>
+<p>使用Win11步骤</p>
+<ol>
+<li>ping 192.168.6.3 确保可以联通PVE</li>
+<li>访问<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly8xOTIuMTY4LjYuMzo4MDA2Lw==" rel="noopener external nofollow noreferrer">https://192.168.6.3:8006/</a> 恢复运行VM101 的Win11</li>
+<li>mstsc远程桌面到 192.168.6.202</li>
+</ol>
+<h2 id="Debian虚拟机无法获取IP地址"><a href="#Debian虚拟机无法获取IP地址" class="headerlink" title="Debian虚拟机无法获取IP地址"></a>Debian虚拟机无法获取IP地址</h2><p>之前新建虚拟机过程中设置了静态IP, 结果机器启动, ip add show 根本没有获取IP地址(外网也无法访问)</p>
+<p>就是通过PVE中, 指定的静态IP. </p>
+<p>修改了一些配置(根据之前6.2中的6.115debian11来设置, 重启)</p>
+<p>192.168.6.117</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2024/12/30/67729be17e3b0.png" alt="image-20241230211054821"></p>
+<p>下一步: 给他还安装开心版的BT吗? 还是换一个国外的管理面板?</p>
+<p>安装Docker 和docker-compose</p>
+<p>成功了: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbmV0Y29yZTMvcC8xODI4MTMwNQ==" rel="noopener external nofollow noreferrer">debian 12 基于清华源安装docker</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">apt install curl gnupg2</span><br><span class="line"></span><br><span class="line">curl -fsSL https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian/gpg |apt-key add -</span><br><span class="line"></span><br><span class="line">nano /etc/apt/sources.list</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在尾部添加清华源，bookworm代表debian12。stable代表发布分支，主要有三个：stable（稳定版）、testing（测试版）和 unstable（不稳定版）。</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian bookworm stable</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">更新库，然后安装</span></span><br><span class="line">apt update</span><br><span class="line">apt install docker-ce</span><br></pre></td></tr></table></figure>
+
+<p>经历失败了根据: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cud29ub3RlLmNvbS9wb3N0L2RlYmlhbi0xMi14aS10b25nLW5laS1hbi16aHVhbmctZG9ja2VyLXhpYW5nLXhpLWJ1LXpvdS8=" rel="noopener external nofollow noreferrer">Debian 12 系统内安装 Docker 详细步骤</a></p>
+<p>玩不来 不习惯 还是搞一个NAS的 有界面那种; 安装DS918</p>
+<h2 id="使用定制的img在PVE上安装黑群晖"><a href="#使用定制的img在PVE上安装黑群晖" class="headerlink" title="使用定制的img在PVE上安装黑群晖"></a>使用定制的img在PVE上安装黑群晖</h2><p>第一步: 去下载.img 和 .pat 两个文件; 他们必须匹配的, 版本号一直的.</p>
+<p>使用该命令导入磁盘</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">qm importdisk 102 /var/lib/vz/template/iso/DS920_7.21-69057.img local-lvm</span><br><span class="line"><span class="comment">#102 为您虚拟机的编号</span></span><br><span class="line"><span class="comment">#/var/lib/vz/template/iso/DS920_7.21-69057.img 为你上传到pve中的文件目录,详细路径和文件名</span></span><br><span class="line"><span class="comment">#local-lvm 为pve存储空间 详细名称</span></span><br></pre></td></tr></table></figure>
+
+<p>所以下载文件的时候，一定要注意，Model和Build必须 严格对应，才能安装的上。否则会报各种错误。</p>
+<p>仔细搜索网盘目录中 序列号, 比如 42962, 然后点击进入后, 选择下载920的.pat文件.</p>
+<h3 id="导入pat文件"><a href="#导入pat文件" class="headerlink" title="导入pat文件"></a>导入pat文件</h3><p><img data-src="https://img.carlzeng.com:3/i/2025/01/02/67767a7715ba8.png" alt="image-20250102193725055"></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9wYW4ucHk0Ny5jb20vJUU3JUJFJUE0JUU4JUJFJTg5LyVFOSVCQiU5MSVFNyVCRSVBNCVFNiU5OSU5Ng==" rel="noopener external nofollow noreferrer">https://pan.py47.com/%E7%BE%A4%E8%BE%89/%E9%BB%91%E7%BE%A4%E6%99%96</a></p>
+<p>使用网盘提供的两个文件就能成功安装上ds920</p>
+<ol>
+<li>先使用qm importdisk 导入引导文件.img</li>
+<li>在路由器中获取得到的nas新IP地址5000端口进行导入, 导入pat文件完成安装<ol>
+<li>整个过程需要大约10-20分钟, 浏览器不能关闭, 机器不能休眠</li>
+</ol>
+</li>
+</ol>
+<h3 id="arpl安装黑群晖-踩坑得经验"><a href="#arpl安装黑群晖-踩坑得经验" class="headerlink" title="arpl安装黑群晖-踩坑得经验"></a>arpl安装黑群晖-踩坑得经验</h3><p>先从github上下载到最新版的arpl的引导文件.img; 同样使用上面的qm importdisk 导入arpl.img作为引导</p>
+<p>然后使用官网下载到 对应版本的pat文件进行安装</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2025/01/01/6775453485c89.png" alt="image-20250101213752714"></p>
+<p><img data-src="https://img.carlzeng.com:3/i/2025/01/02/6775f2ea7bbc6.png" alt="image-20250102095902444"></p>
+<p>遇到这个错误, 就删除nas虚拟机原先添加的硬盘, 然后暂停, 停止, 关机; 重新开机</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2025/01/02/677609dbbd87a.png" alt="image-20250102113654227"></p>
+<p>经过反复安装测试，从synology下载的就是不能用.</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2025/01/02/67761adca4d5b.png" alt="image-20250102124926889"></p>
+<h2 id="电视的直播流-docker"><a href="#电视的直播流-docker" class="headerlink" title="电视的直播流 docker"></a>电视的直播流 docker</h2><p>docker 一个 msd_lite</p>
+<p>比如 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9wb3N0LnNtemRtLmNvbS9wL2E0eG4wcjI4Lw==" rel="noopener external nofollow noreferrer">https://post.smzdm.com/p/a4xn0r28/</a> 中提及的 tinyserve&#x2F;msd_lite</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit \</span><br><span class="line">--name msd_lite \</span><br><span class="line">--net=host \</span><br><span class="line">--restart=unless-stopped \</span><br><span class="line">tinyserve/msd_lite</span><br></pre></td></tr></table></figure>
+
+<p>或者 duan2001&#x2F;msd_lite</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 直接配置组播所在网卡和监听端口号（支持参数传递和环境变量两种配置方式，环境变量优先级最高）</span><br><span class="line">docker run --name msd_lite -e IFNAME=enp7s0 -e PORT=7088 --net=host --restart=unless-stopped duan2001/msd_lite</span><br><span class="line"># 或者 OR</span><br><span class="line">docker run --name msd_lite --net=host --restart=unless-stopped duan2001/msd_lite vlan77 7088 # 监听端口号可省略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 手动配置文件（/etc/msd_lite/msd_lite.conf）</span><br><span class="line"># 第一次启动后编辑msd_lite目录下的配置文件msd_lite.conf.sample，并去掉结尾的.sample</span><br><span class="line">mkdir msd_lite</span><br><span class="line">docker run -d --name=msd_lite --restart=unless-stopped -v $&#123;PWD&#125;/msd_lite:/etc/msd_lite --net=host duan2001/msd_lite</span><br><span class="line">cp msd_lite/msd_lite.conf.sample msd_lite/msd_lite.conf</span><br><span class="line">nano msd_lite/msd_lite.conf</span><br><span class="line"># 之后再次启动即可</span><br><span class="line">docker restart msd_lite</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 高级用法</span><br><span class="line">docker run -d --name=msd_lite -e IFNAME=br1 -e PORT=7088 --restart=unless-stopped -v $&#123;PWD&#125;/msd_lite:/etc/msd_lite --net=host duan2001/msd_lite</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <hr>
 <ol>
-<li>电视的直播流 docker接管</li>
+<li>电视的直播流 docker接管<ol>
+<li>进行中, 安排在debian或者nas中运行docker进行直播</li>
+</ol>
+</li>
 <li>(取消)2. 集群? 多台pve</li>
 <li>(done)3. windows11最新版，需要xbox配件</li>
 <li>op or ikuai 优缺点我的应用侧重点在哪里?</li>
-<li>nas</li>
+<li>(done)5. nas<ol>
+<li>初步设置好DS920</li>
+</ol>
+</li>
 <li>(done)6. debian</li>
 <li>手机的安卓系统，sunshine，moonlight串流出来给mac电脑使用</li>
 <li>cdn系统搭建</li>
@@ -624,13 +704,18 @@
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
       TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
-      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
       </a>
     </li>
     <li class="popular-posts-item">
@@ -639,18 +724,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409260813.html" rel="bookmark">
-      MAC端为RSA登录生成SSH公钥并实现免密码登录SSH
+      <a class="popular-posts-link" href="/202404081832.html" rel="bookmark">
+      分享小主机docker安装离线下载工具
       </a>
     </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202412300901.html" rel="bookmark">
       Github加速Github代理
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202404081832.html" rel="bookmark">
-      分享小主机docker安装离线下载工具
       </a>
     </li>
     <li class="popular-posts-item">
@@ -828,7 +908,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-12-30 10:03:37" itemprop="dateModified" datetime="2024-12-30T10:03:37+08:00">2024-12-30</time>
+        <time title="修改时间：2025-01-02 19:50:53" itemprop="dateModified" datetime="2025-01-02T19:50:53+08:00">2025-01-02</time>
       </span>
 
 </div>
