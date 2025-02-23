@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/09/20/66ecc4dbb04e4.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/12/11/6759a8830ed8c.png">
 <meta property="article:published_time" content="2024-06-29T00:06:37.000Z">
-<meta property="article:modified_time" content="2025-02-21T12:10:44.612Z">
+<meta property="article:modified_time" content="2025-02-23T00:48:15.005Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="SteamDeck">
 <meta name="twitter:card" content="summary">
@@ -409,7 +409,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-02-21 20:10:44" itemprop="dateModified" datetime="2025-02-21T20:10:44+08:00">2025-02-21</time>
+      <time title="Modified: 2025-02-23 08:48:15" itemprop="dateModified" datetime="2025-02-23T08:48:15+08:00">2025-02-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -717,9 +717,13 @@
 <p>启动完成后进入SteamOS恢复页面，因为是要完全重装系统，所以我们选择Re-image Steam Deck，对Steam Deck重新映像，等待操作完成即可。</p>
 <p>成功进入SteamOS后，到登录账号这一步我们可以暂时不用登录，我们按下Steam键，电源那里选择切换至桌面。</p>
 <p>切换到桌面后，第一次切换到桌面可能会自动下载Steam客户端，等它下载完即可。</p>
-<p>下载完后我们打开终端Konsole，输入passwd设置root密码。</p>
-<p>root密码设置完成后，再使用sudo加上steamos-readonly disable的命令，解除系统只读保护，防止后面折腾受到限制，其中设置的root密码要记住，尤其是后面一些操作（例如安装Clover脚本）是需要root权限来做的，执行前需要输入root密码。</p>
-<h2 id="分配Windows需要的分区"><a href="#分配Windows需要的分区" class="headerlink" title="分配Windows需要的分区"></a>分配Windows需要的分区</h2><p>上面设置完成后点击关机，插入前面制作好的恢复盘，重新U盘启动进入恢复系统，进入恢复系统后，打开KDE Partition Manager，虽然前面在系统里可能也可以直接用这个来分区，不过个人还是推荐在这个恢复系统里来进行分区操作，不容易受到其他因素影响。</p>
+<p>下载完后我们打开终端Konsole，</p>
+<p>输入passwd设置root密码。</p>
+<p>root密码设置完成后，</p>
+<p>再使用sudo加上steamos-readonly disable的命令，</p>
+<p>解除系统只读保护，防止后面折腾受到限制，其中设置的root密码要记住，尤其是后面一些操作（例如安装Clover脚本）是需要root权限来做的，执行前需要输入root密码。</p>
+<h2 id="分配Windows需要的分区"><a href="#分配Windows需要的分区" class="headerlink" title="分配Windows需要的分区"></a>分配Windows需要的分区</h2><p>这时, 请连接拓展坞! 因为需要同时使用USB&#x2F;Typec的启动盘 和 键盘, 鼠标(非必需, 但可提高效率和体验)</p>
+<p>上面设置完成后点击关机，插入前面制作好的恢复盘，重新U盘启动进入恢复系统，进入恢复系统后，打开KDE Partition Manager，虽然前面在系统里可能也可以直接用这个来分区，不过个人还是推荐在这个恢复系统里来进行分区操作，不容易受到其他因素影响。</p>
 <p>打开KDE分区管理器后，我们找到机器的内置硬盘，往下拉找到home分区，右键选择Resize&#x2F;Move（或者按下快捷键Ctrl+R）从Home划分出Windows的分区，上面的分区不懂的话不要去调整，不然可能会导致系统无法正常启动或者工作。</p>
 <p>留给Windows的分区，在Free space after那里设置即可，大小由你个人决定，因为我在那边主要是玩一些学习版的小游戏，把那些游戏放在TF卡上（例如GAL），正版的还是喜欢来SteamOS这边玩，这里只分了100G，在那里输入102400，点击OK即可。</p>
 <p>划出空闲分区以后，点击软件左上角的Apply应用设置，我们就可以关机了，格式化分区的操作推荐进PE使用DiskGenius，那样可以确保4K对齐。</p>
@@ -727,8 +731,10 @@
 <p>将PE写入U盘，</p>
 <p>再将DiskGenius和Dism++(默认已经有了), </p>
 <p>再将Window的镜像也复制进U盘的根目录</p>
-<p>接着我们选择做好的PE盘启动，进入PE运行DiskGenius，对刚才划分出来的空闲分区建立新分区，文件系统选择NTFS，并设置4K对齐，卷标可以设置成Windows方便区分，点击工具左上角保存更改。</p>
-<p>格式化完成后，我们运行Dism++，选择释放镜像，再选择镜像所在的目录和释放的目录（刚才格式化的新分区），目标映像中选择我们需要安装的版本，之前我安装和激活的是专业工作站版，这里重装也就选这个了，勾选添加引导，将Windows镜像写入。</p>
+<p>接着我们选择做好的PE盘启动，进入PE运行DiskGenius，</p>
+<p>对刚才划分出来的空闲分区建立新分区(要在右上角试图中可见, 左侧菜单由于没有卷标等看不见该新分区)，文件系统选择NTFS，并设置4K对齐，卷标可以设置成Windows方便区分，点击工具左上角保存更改。</p>
+<p>格式化完成后，我们运行Dism++，选择释放镜像，</p>
+<p>再选择镜像所在的目录和释放的目录（刚才格式化的新分区），目标映像中选择我们需要安装的版本，之前我安装和激活的是专业工作站版，这里重装也就选这个了，勾选添加引导，将Windows镜像写入。</p>
 <p>写入完成后关机，开机后会自动进入Windows，这里需要注意在Clover安装完成之前，Windows这边不要联网，不然联网后可能会自动更新，系统更新的话可能会掉引导。</p>
 <p>我们还是按下Shift+F10打开命令提示符，输入oobe\bypassnro.cmd，重新启动后就可以跳过联网和登录微软账号。</p>
 <h3 id="安装Windows驱动"><a href="#安装Windows驱动" class="headerlink" title="安装Windows驱动"></a>安装Windows驱动</h3><p>这部的可选的, 根据下载到的Windows11(或者10)镜像, 已经包含了Steamdeck的驱动</p>
@@ -1121,7 +1127,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2025-02-21 20:10:44" itemprop="dateModified" datetime="2025-02-21T20:10:44+08:00">2025-02-21</time>
+        <time title="Modified: 2025-02-23 08:48:15" itemprop="dateModified" datetime="2025-02-23T08:48:15+08:00">2025-02-23</time>
       </span>
 
 </div>
@@ -1266,26 +1272,6 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202406290806.html","pageTitle":"SteamDeck双系统之重装windows11"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1318,6 +1304,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>
