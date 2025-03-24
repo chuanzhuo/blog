@@ -570,7 +570,7 @@
 <p><img data-src="https://img.carlzeng.com:3/i/2024/09/26/66f4f8453d18a.png" alt="image-20240926135930307"></p>
 <h2 id="ffmpeg对视频抽帧时让结果图片文件名带上时间戳"><a href="#ffmpeg对视频抽帧时让结果图片文件名带上时间戳" class="headerlink" title="ffmpeg对视频抽帧时让结果图片文件名带上时间戳"></a>ffmpeg对视频抽帧时让结果图片文件名带上时间戳</h2><p>文件名的部分, 目前是 %03d 意思是: 三位数字, 三位递增的数字, 001, 002, 003….</p>
 <p>output%Y-%m-%d-%H-%M-%S.jpg 意思是: output年-月-日-时-分-秒</p>
-<p>nohup ffmpeg -i “rtsp:&#x2F;&#x2F;a:<a href="mailto:&#x61;&#64;&#x31;&#57;&#50;&#x2e;&#49;&#54;&#56;&#x2e;&#54;&#46;&#x31;&#x32;&#54;">&#x61;&#64;&#x31;&#57;&#50;&#x2e;&#49;&#54;&#56;&#x2e;&#54;&#46;&#x31;&#x32;&#54;</a>:554” -y -f image2 -r 1&#x2F;180 &#x2F;volume2&#x2F;homes&#x2F;13261977480&#x2F;Photos&#x2F;camc%Y-%m-%d-%H-%M-%S.jpg 1&gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;</p>
+<p>nohup ffmpeg -i “rtsp:&#x2F;&#x2F;a:<a href="mailto:&#x61;&#x40;&#x31;&#57;&#x32;&#46;&#x31;&#54;&#56;&#46;&#54;&#x2e;&#49;&#x32;&#x36;">&#x61;&#x40;&#x31;&#57;&#x32;&#46;&#x31;&#54;&#56;&#46;&#54;&#x2e;&#49;&#x32;&#x36;</a>:554” -y -f image2 -r 1&#x2F;180 &#x2F;volume2&#x2F;homes&#x2F;13261977480&#x2F;Photos&#x2F;camc%Y-%m-%d-%H-%M-%S.jpg 1&gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 &amp;</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[image2 @ 0x55bcf2b2d900] The specified filename &#x27;/volume2/homes/13261977480/Photos/camc%Y%m%d%H%M%S.png&#x27; does</span><br><span class="line"> not contain an image sequence pattern or a pattern is invalid. </span><br></pre></td></tr></table></figure>
 
 <p>以上这个方法给文件名添加时间戳, 都是失败了.</p>

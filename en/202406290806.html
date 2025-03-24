@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/09/20/66ecc4dbb04e4.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/12/11/6759a8830ed8c.png">
 <meta property="article:published_time" content="2024-06-29T00:06:37.000Z">
-<meta property="article:modified_time" content="2025-02-23T00:48:15.005Z">
+<meta property="article:modified_time" content="2025-03-24T14:46:24.193Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="SteamDeck">
 <meta name="twitter:card" content="summary">
@@ -409,7 +409,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-02-23 08:48:15" itemprop="dateModified" datetime="2025-02-23T08:48:15+08:00">2025-02-23</time>
+      <time title="Modified: 2025-03-24 22:46:24" itemprop="dateModified" datetime="2025-03-24T22:46:24+08:00">2025-03-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -733,6 +733,7 @@
 <p>再将Window的镜像也复制进U盘的根目录</p>
 <p>接着我们选择做好的PE盘启动，进入PE运行DiskGenius，</p>
 <p>对刚才划分出来的空闲分区建立新分区(要在右上角试图中可见, 左侧菜单由于没有卷标等看不见该新分区)，文件系统选择NTFS，并设置4K对齐，卷标可以设置成Windows方便区分，点击工具左上角保存更改。</p>
+<p>[友情提示: 这里的设置4K对齐 是指: 在DiskGenius新建分区格式化页面时, 指定“对齐到下列扇区数的整数倍”为 4096 扇区 (2097152字节)]</p>
 <p>格式化完成后，我们运行Dism++，选择释放镜像，</p>
 <p>再选择镜像所在的目录和释放的目录（刚才格式化的新分区），目标映像中选择我们需要安装的版本，之前我安装和激活的是专业工作站版，这里重装也就选这个了，勾选添加引导，将Windows镜像写入。</p>
 <p>写入完成后关机，开机后会自动进入Windows，这里需要注意在Clover安装完成之前，Windows这边不要联网，不然联网后可能会自动更新，系统更新的话可能会掉引导。</p>
@@ -750,6 +751,10 @@
 <p>再输入.&#x2F;install-Clover.sh，运行那个脚本以安装Clover，输入root密码即可。</p>
 <p>接着会弹出一个窗口，让你选择在Clover的GUI引导菜单中默认自动启动的操作系统，按自己需求选择，我选择的是Windows，反正后面也可以更改，等待工具自动下载Clover ISO就行。</p>
 <p>如果从github的下载失败, 那就使用proxy来代理一下 SteamDeck的上网, 重新再试一次.</p>
+<blockquote>
+<p>在设置代理的页面, 输入 IP地址和端口, 然后 勾选 其他的协议也都使用这个代理</p>
+</blockquote>
+<p>本小节来源: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL29wdXMvODg3NDA4NTgwNjA4NjU1Mzc5" rel="noopener external nofollow noreferrer">Steam Deck单盘双系统+Clover-dualboot引导安装流程</a></p>
 <h1 id="SteamDeck硬件修复"><a href="#SteamDeck硬件修复" class="headerlink" title="SteamDeck硬件修复"></a>SteamDeck硬件修复</h1><h2 id="硬件修复之更换右肩键R1"><a href="#硬件修复之更换右肩键R1" class="headerlink" title="硬件修复之更换右肩键R1"></a>硬件修复之更换右肩键R1</h2><p>图文：</p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly96aC5pZml4aXQuY29tL0d1aWRlLyVFNiU5QiVCNCVFNiU4RCVBMitTdGVhbStEZWNrKyVFNyU5QSU4NCVFNSU4RiVCMyVFNCVCRSVBNyVFOCU4MiVBOSVFOSU5NCVBRS8xNDg5ODA=" rel="noopener external nofollow noreferrer">更换+Steam+Deck+的右侧肩键</a></p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly96aC5pZml4aXQuY29tL0d1aWRlLyVFNiU5QiVCNCVFNiU4RCVBMitTdGVhbStEZWNrKyVFNyU5QSU4NCVFNSVCNyVBNiVFNCVCRSVBNyVFOCU4MiVBOSVFOSU5NCVBRS8xNDg5MzY=" rel="noopener external nofollow noreferrer">更换+Steam+Deck+的左侧肩</a></p>
@@ -1127,7 +1132,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2025-02-23 08:48:15" itemprop="dateModified" datetime="2025-02-23T08:48:15+08:00">2025-02-23</time>
+        <time title="Modified: 2025-03-24 22:46:24" itemprop="dateModified" datetime="2025-03-24T22:46:24+08:00">2025-03-24</time>
       </span>
 
 </div>
