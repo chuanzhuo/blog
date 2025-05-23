@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2025/04/16/67ffb78336961.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2025/04/19/6803ba1f6f707.png">
 <meta property="article:published_time" content="2025-04-16T08:59:57.000Z">
-<meta property="article:modified_time" content="2025-05-03T03:11:28.307Z">
+<meta property="article:modified_time" content="2025-05-23T05:09:36.295Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="pigallery2">
@@ -55,9 +55,9 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
 <link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
-<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -128,7 +128,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DS918%E9%83%A8%E7%BD%B2pigallery2"><span class="nav-number">4.1.</span> <span class="nav-text">DS918部署pigallery2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AErsync%E6%89%8B%E5%B7%A5%E5%90%8C%E6%AD%A5"><span class="nav-number">4.2.</span> <span class="nav-text">Debian如何配置rsync手工同步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85rsync"><span class="nav-number">4.2.1.</span> <span class="nav-text">安装rsync</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TODO-done-%E9%85%8D%E7%BD%AErsync-%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5"><span class="nav-number">4.2.2.</span> <span class="nav-text">TODO-done: 配置rsync 自动同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E5%90%8C%E6%AD%A5"><span class="nav-number">4.2.3.</span> <span class="nav-text">定时同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5-ignore-%E5%88%87%E6%8D%A2%E5%88%B0-rsync%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.2.4.</span> <span class="nav-text">下一步(ignore): 切换到 rsync服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%BB%9F%E8%AE%A1%E5%92%8C%E5%88%86%E6%9E%90"><span class="nav-number">4.3.</span> <span class="nav-text">配置统计和分析</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DS918%E9%83%A8%E7%BD%B2pigallery2"><span class="nav-number">4.1.</span> <span class="nav-text">DS918部署pigallery2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AErsync%E6%89%8B%E5%B7%A5%E5%90%8C%E6%AD%A5"><span class="nav-number">4.2.</span> <span class="nav-text">Debian如何配置rsync手工同步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85rsync"><span class="nav-number">4.2.1.</span> <span class="nav-text">安装rsync</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TODO-done-%E9%85%8D%E7%BD%AErsync-%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5"><span class="nav-number">4.2.2.</span> <span class="nav-text">TODO-done: 配置rsync 自动同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E5%90%8C%E6%AD%A5"><span class="nav-number">4.2.3.</span> <span class="nav-text">定时同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5-ignore-%E5%88%87%E6%8D%A2%E5%88%B0-rsync%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.2.4.</span> <span class="nav-text">下一步(ignore): 切换到 rsync服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E6%9C%9F%E6%B5%8B%E8%AF%95%E5%8F%8A%E6%94%B9%E8%BF%9B-%E5%A2%9E%E5%BC%BA"><span class="nav-number">4.2.5.</span> <span class="nav-text">后期测试及改进&#x2F;增强</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%BB%9F%E8%AE%A1%E5%92%8C%E5%88%86%E6%9E%90"><span class="nav-number">4.3.</span> <span class="nav-text">配置统计和分析</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -202,13 +202,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
-      多个docker容器间共享单个mariadb(Docker数据库服务)
+      <a class="popular-posts-link" href="/202403011130.html" rel="bookmark">
+      Docker自建Email服务器 - 私人邮件系统
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403011130.html" rel="bookmark">
-      Docker自建Email服务器 - 私人邮件系统
+      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
+      多个docker容器间共享单个mariadb(Docker数据库服务)
       </a>
     </li>
   </ul>
@@ -400,7 +400,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-05-03 11:11:28" itemprop="dateModified" datetime="2025-05-03T11:11:28+08:00">2025-05-03</time>
+      <time title="修改时间：2025-05-23 13:09:36" itemprop="dateModified" datetime="2025-05-23T13:09:36+08:00">2025-05-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -430,7 +430,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>23 分钟</span>
+      <span>24 分钟</span>
     </span>
 </div>
 
@@ -499,7 +499,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-v: 打印命令执行过程中的详细信息</span><br><span class="line">-r: 递归拷贝数据（在传递文件的过程中不会保留权限信息以及时间戳）</span><br><span class="line">-a: 归档模式，可以允许递归拷贝数据，并且保留链接符号，文件权限，用户和用户组的归属，时间戳</span><br><span class="line">-z: 压缩数据</span><br><span class="line">-h: 可读模式，输出可读的数字格式</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">rsync -avzh --progress root@192.168.6.203:/volume2/homes/13261977480/Photos /root/pigallery2/images</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">切换各种用户测试</span><br><span class="line">rsync -avzh --progress DS918@192.168.6.203:/volume2/homes/132619</span><br><span class="line">77480/Photos /root/pigallery2/images</span><br><span class="line">DS918@192.168.6.203&#x27;s password: </span><br><span class="line">Permission denied, please try again.</span><br><span class="line">rsync: connection unexpectedly closed (0 bytes received so far) [Receiver]</span><br><span class="line">rsync error: error in rsync protocol data stream (code 12) at io.c(232) [Receiver=3.2.7]</span><br></pre></td></tr></table></figure>
 
 <p>没办法 DS918的目录权限太绕了, 无法访问到想要的文件夹和文件; 只能让DS918来运行rsync了</p>
-<p>rsync -avzh –progress &#x2F;volume2&#x2F;homes&#x2F;13261977480&#x2F;Photos <a href="mailto:&#x63;&#97;&#x72;&#x6c;&#122;&#101;&#110;&#x67;&#x40;&#x31;&#x39;&#x32;&#x2e;&#x31;&#54;&#56;&#x2e;&#x36;&#x2e;&#x31;&#49;&#55;">&#x63;&#97;&#x72;&#x6c;&#122;&#101;&#110;&#x67;&#x40;&#x31;&#x39;&#x32;&#x2e;&#x31;&#54;&#56;&#x2e;&#x36;&#x2e;&#x31;&#49;&#55;</a>:&#x2F;root&#x2F;pigallery2&#x2F;images</p>
+<p>rsync -avzh –progress &#x2F;volume2&#x2F;homes&#x2F;13261977480&#x2F;Photos <a href="mailto:&#x63;&#97;&#114;&#x6c;&#122;&#x65;&#x6e;&#103;&#64;&#x31;&#57;&#50;&#46;&#x31;&#x36;&#56;&#46;&#54;&#46;&#x31;&#x31;&#55;">&#x63;&#97;&#114;&#x6c;&#122;&#x65;&#x6e;&#103;&#64;&#x31;&#57;&#50;&#46;&#x31;&#x36;&#56;&#46;&#54;&#46;&#x31;&#x31;&#55;</a>:&#x2F;root&#x2F;pigallery2&#x2F;images</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root@DS918:~# rsync -avzh --progress /volume2/homes/13261977480/Photos carlzeng***@192.168.6.117:/root/pigallery2/images                                                                               </span><br><span class="line">The authenticity of host &#x27;192.168.6.117 (192.168.6.117)&#x27; can&#x27;t be established.                    </span><br><span class="line">ECDSA key fingerprint is SHA256:2DtPJyL4F/scW7WqVrX7G4KimA8kokRW8DjCUV3MZp8.                      </span><br><span class="line">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes                          </span><br><span class="line">Warning: Permanently added &#x27;192.168.6.117&#x27; (ECDSA) to the list of known hosts.                    </span><br><span class="line">carlzeng@192.168.6.117&#x27;s password:                                                                </span><br><span class="line">sending incremental file list                                                                     </span><br><span class="line">rsync: [Receiver] ERROR: cannot stat destination &quot;/root/pigallery2/images&quot;: Permission denied (13)</span><br><span class="line">rsync error: errors selecting input/output files, dirs (code 3) at main.c(772) [Receiver=3.2.7]</span><br></pre></td></tr></table></figure>
 
 <p>切换思路, 既然root用户无法登录ssh, 其他用户又无法访问到&#x2F;root目录下面的所有文件; </p>
@@ -551,7 +551,7 @@
 
 <p>最后还是这个方法配置成功了! </p>
 <p>authorized_keys</p>
-<h3 id="下一步-ignore-切换到-rsync服务"><a href="#下一步-ignore-切换到-rsync服务" class="headerlink" title="下一步(ignore): 切换到 rsync服务"></a>下一步(ignore): 切换到 rsync服务</h3><p>不用切换了, 找到原因了, 原来是文档中的 $HOME&#x2F;.ssh&#x2F;<strong>authorized_keys</strong>, 必需是使用这个文件名“authorized_keys”</p>
+<h3 id="下一步-ignore-切换到-rsync服务"><a href="#下一步-ignore-切换到-rsync服务" class="headerlink" title="下一步(ignore): 切换到 rsync服务"></a>下一步(ignore): 切换到 rsync服务</h3><p>不用切换了, 找到原因了, 原来是文档中的笔误 $HOME&#x2F;.ssh&#x2F;<strong>authorized_keys</strong>, 必需是使用这个文件名“authorized_keys”</p>
 <p>测试调试的办法是: </p>
 <p>​	直接在DS918的shell中使用ssh -i 命令 来测试. </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i /tmp/mykey carlzeng***@192.168.6.117    </span><br></pre></td></tr></table></figure>
@@ -569,6 +569,13 @@
 </li>
 </ol>
 <p>到此就设置成功了, NAS中定时的自动同步(到另外一台服务器)的功能.</p>
+<h3 id="后期测试及改进-增强"><a href="#后期测试及改进-增强" class="headerlink" title="后期测试及改进&#x2F;增强"></a>后期测试及改进&#x2F;增强</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync -avzh -e &#x27;ssh -i ~/mykey&#x27; /volume2/homes/13261977480/Photos carlzeng***@192.16</span><br><span class="line">8.6.117:/home/carlzeng</span><br></pre></td></tr></table></figure>
+
+<p>不要使用&#x2F;tmp&#x2F;mykey, 因为这个文件夹下的文件是临时的, 重启或什么操作之后就丢失了;</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">Photos/@eaDir/202505232034.jpg/</span><br><span class="line">Photos/@eaDir/202505232034.jpg/SYNOINDEX_MEDIA_INFO</span><br><span class="line">Photos/@eaDir/202505232034.jpg/SYNOPHOTO_THUMB_M.jpg</span><br><span class="line">Photos/@eaDir/202505232034.jpg/SYNOPHOTO_THUMB_SM.jpg</span><br><span class="line">Photos/@eaDir/202505232034.jpg/SYNOPHOTO_THUMB_XL.jpg</span><br><span class="line">Photos/@eaDir/bgm2.mp3/</span><br><span class="line">Photos/@eaDir/bgm2.mp3/SYNOINDEX_MEDIA_INFO</span><br><span class="line">sent 1.65G bytes  received 483.20K bytes  13.37M bytes/sec                                        </span><br><span class="line">total size is 10.75G  speedup is 6.51 </span><br></pre></td></tr></table></figure>
+
+
+
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cucmVoaXkuY29tL3Bvc3QvOTgv" rel="noopener external nofollow noreferrer">Ubuntu&#x2F;Debian 安装 rsync 服务</a></p>
 <h2 id="配置统计和分析"><a href="#配置统计和分析" class="headerlink" title="配置统计和分析"></a>配置统计和分析</h2><p>设置一下后台的HTML页头位置, 由于整个设置内容已经会自动被<script>标签包围, 所以去掉该标签, 放进设置内容即可.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var _paq = window._paq = window._paq || [];</span><br><span class="line">  _paq.push([&quot;setDocumentTitle&quot;, document.domain + &quot;/&quot; + document.title]);</span><br><span class="line">  _paq.push([&quot;setCookieDomain&quot;, &quot;*.carlzeng.com&quot;]);</span><br><span class="line">  _paq.push([&#x27;trackPageView&#x27;]);</span><br><span class="line">  _paq.push([&#x27;enableLinkTracking&#x27;]);</span><br><span class="line">  (function() &#123;</span><br><span class="line">    var u=&quot;//statcounter.carlzeng.com:4443/&quot;;</span><br><span class="line">    _paq.push([&#x27;setTrackerUrl&#x27;, u+&#x27;matomo.php&#x27;]);</span><br><span class="line">    _paq.push([&#x27;setSiteId&#x27;, &#x27;1&#x27;]);</span><br><span class="line">    var d=document, g=d.createElement(&#x27;script&#x27;), s=d.getElementsByTagName(&#x27;script&#x27;)[0];</span><br><span class="line">    g.async=true; g.src=u+&#x27;matomo.js&#x27;; s.parentNode.insertBefore(g,s);</span><br><span class="line">  &#125;)();</span><br></pre></td></tr></table></figure>
@@ -744,13 +751,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
-      多个docker容器间共享单个mariadb(Docker数据库服务)
+      <a class="popular-posts-link" href="/202403011130.html" rel="bookmark">
+      Docker自建Email服务器 - 私人邮件系统
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403011130.html" rel="bookmark">
-      Docker自建Email服务器 - 私人邮件系统
+      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
+      多个docker容器间共享单个mariadb(Docker数据库服务)
       </a>
     </li>
   </ul>
@@ -923,7 +930,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2025-05-03 11:11:28" itemprop="dateModified" datetime="2025-05-03T11:11:28+08:00">2025-05-03</time>
+        <time title="修改时间：2025-05-23 13:09:36" itemprop="dateModified" datetime="2025-05-23T13:09:36+08:00">2025-05-23</time>
       </span>
 
 </div>

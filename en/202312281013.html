@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/06/11/66680dfedfc95.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/06/11/66680d51ba193.png">
 <meta property="article:published_time" content="2023-12-28T02:13:47.000Z">
-<meta property="article:modified_time" content="2024-10-25T12:32:22.179Z">
+<meta property="article:modified_time" content="2025-05-17T01:30:47.177Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="language">
@@ -56,9 +56,9 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
 <link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
-<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -129,7 +129,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-Github-Workflow"><span class="nav-number">4.1.</span> <span class="nav-text">创建 Github Workflow</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A9%E7%94%A8skip-render%E6%8E%92%E9%99%A4%E4%B8%8D%E5%90%8C%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">4.1.0.1.</span> <span class="nav-text">利用skip_render排除不同的文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5deploy%E6%B5%81%E7%A8%8B%EF%BC%88%E5%8D%95%E5%91%BD%E4%BB%A4%E5%AE%9E%E7%8E%B0%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">下一步deploy流程（单命令实现）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%BF%90%E8%A1%8C%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">4.3.</span> <span class="nav-text">命令运行异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fatal-Authentication-failed"><span class="nav-number">4.3.1.</span> <span class="nav-text">fatal: Authentication failed</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-Github-Workflow"><span class="nav-number">4.1.</span> <span class="nav-text">创建 Github Workflow</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A9%E7%94%A8skip-render%E6%8E%92%E9%99%A4%E4%B8%8D%E5%90%8C%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">4.1.0.1.</span> <span class="nav-text">利用skip_render排除不同的文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5deploy%E6%B5%81%E7%A8%8B%EF%BC%88%E5%8D%95%E5%91%BD%E4%BB%A4%E5%AE%9E%E7%8E%B0%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">下一步deploy流程（单命令实现）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%BF%90%E8%A1%8C%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">4.3.</span> <span class="nav-text">命令运行异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fatal-Authentication-failed"><span class="nav-number">4.3.1.</span> <span class="nav-text">fatal: Authentication failed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#error-RPC-failed-HTTP-408-curl-22-The-requested-URL-returned-error-408"><span class="nav-number">4.3.2.</span> <span class="nav-text">error: RPC failed; HTTP 408 curl 22 The requested URL returned error: 408</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -183,18 +183,23 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200810101002.html" rel="bookmark">
-      ajax和Java session监听-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202111231111.html" rel="bookmark">
       [GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200810101002.html" rel="bookmark">
+      ajax和Java session监听-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202309222329.html" rel="bookmark">
       Hello World
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202403281654.html" rel="bookmark">
+      升级Artalk评论至V2-8-3解决错误(请求响应404)
       </a>
     </li>
     <li class="popular-posts-item">
@@ -205,11 +210,6 @@
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202106220916.html" rel="bookmark">
       More about NetSuite SDF manifest.xml and deploy.xml-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403281654.html" rel="bookmark">
-      升级Artalk评论至V2-8-3解决错误(请求响应404)
       </a>
     </li>
   </ul>
@@ -401,7 +401,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-10-25 20:32:22" itemprop="dateModified" datetime="2024-10-25T20:32:22+08:00">2024-10-25</time>
+      <time title="Modified: 2025-05-17 09:30:47" itemprop="dateModified" datetime="2025-05-17T09:30:47+08:00">2025-05-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -431,7 +431,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>10 mins.</span>
+      <span>13 mins.</span>
     </span>
 </div>
 
@@ -502,6 +502,9 @@
 
 <p>注意, 密码是在 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL3Rva2Vucw==" rel="noopener external nofollow noreferrer">Personal access tokens (classic)</a>页面重新生成的token长度比较长, 类似:</p>
 <p>ghp_aaaaahL1TG3CnKC5jm5c62guk9Udgm2aaaaa</p>
+<h3 id="error-RPC-failed-HTTP-408-curl-22-The-requested-URL-returned-error-408"><a href="#error-RPC-failed-HTTP-408-curl-22-The-requested-URL-returned-error-408" class="headerlink" title="error: RPC failed; HTTP 408 curl 22 The requested URL returned error: 408"></a>error: RPC failed; HTTP 408 curl 22 The requested URL returned error: 408</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">nothing to commit, working tree clean                                                             </span><br><span class="line">Enumerating objects: 4674, done.                                                                  </span><br><span class="line">Counting objects: 100% (4674/4674), done.                                                         </span><br><span class="line">Delta compression using up to 8 threads                                                           </span><br><span class="line">Compressing objects: 100% (728/728), done.                                                        </span><br><span class="line">Writing objects: 100% (3044/3044), 3.22 MiB | 3.67 MiB/s, done.                                   </span><br><span class="line">Total 3044 (delta 1994), reused 2421 (delta 1384), pack-reused 0                                  </span><br><span class="line">error: RPC failed; HTTP 408 curl 22 The requested URL returned error: 408                         </span><br><span class="line">send-pack: unexpected disconnect while reading sideband packet                                    </span><br><span class="line">fatal: the remote end hung up unexpectedly                                                        </span><br><span class="line">Everything up-to-date                                                                             </span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshootin</span><br><span class="line">g.html                                                                                            </span><br><span class="line">Error: Spawn failed                                                                               </span><br><span class="line">    at ChildProcess. (/Users/carlzeng/AppTesting/blog/node_modules/hexo-util/lib/spawn.</span><br><span class="line">js:51:21)                                                                                         </span><br><span class="line">    at ChildProcess.emit (node:events:514:28)                                                     </span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/child_process:294:12)           </span><br></pre></td></tr></table></figure>
+
+<p>解决办法是: 切换节点; 代理节点的连通性问题.</p>
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuaWdlcm0uZWUvZXhwZXJpZW5jZS8lRTUlQUUlOEMlRTclQkUlOEUlRTclOUElODRIZXhvJUU1JUE0JTlBJUU4JUFGJUFEJUU4JUE4JTgwJUU4JUE3JUEzJUU1JTg2JUIzJUU2JTk2JUI5JUU2JUExJTg4" rel="noopener external nofollow noreferrer">https://www.igerm.ee/experience/%E5%AE%8C%E7%BE%8E%E7%9A%84Hexo%E5%A4%9A%E8%AF%AD%E8%A8%80%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88</a></p>
 <hr>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL0NyYXp5TWF5Zmx5L0ZyZWUtTWFya2Rvd24tVHJhbnNsYXRvci90cmVlL21hc3Rlcg==" rel="noopener external nofollow noreferrer">https://github.com/CrazyMayfly/Free-Markdown-Translator/tree/master</a></p>
@@ -649,18 +652,23 @@ AppTesting
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200810101002.html" rel="bookmark">
-      ajax和Java session监听-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202111231111.html" rel="bookmark">
       [GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200810101002.html" rel="bookmark">
+      ajax和Java session监听-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202309222329.html" rel="bookmark">
       Hello World
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202403281654.html" rel="bookmark">
+      升级Artalk评论至V2-8-3解决错误(请求响应404)
       </a>
     </li>
     <li class="popular-posts-item">
@@ -671,11 +679,6 @@ AppTesting
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202106220916.html" rel="bookmark">
       More about NetSuite SDF manifest.xml and deploy.xml-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403281654.html" rel="bookmark">
-      升级Artalk评论至V2-8-3解决错误(请求响应404)
       </a>
     </li>
   </ul>
@@ -848,7 +851,7 @@ AppTesting
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2024-10-25 20:32:22" itemprop="dateModified" datetime="2024-10-25T20:32:22+08:00">2024-10-25</time>
+        <time title="Modified: 2025-05-17 09:30:47" itemprop="dateModified" datetime="2025-05-17T09:30:47+08:00">2025-05-17</time>
       </span>
 
 </div>

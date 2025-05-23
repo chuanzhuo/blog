@@ -35,8 +35,8 @@
 <meta property="article:published_time" content="2023-11-08T02:03:29.000Z">
 <meta property="article:modified_time" content="2025-05-02T12:34:23.935Z">
 <meta property="article:author" content="Carl Notes">
-<meta property="article:tag" content="docker">
 <meta property="article:tag" content="debian">
+<meta property="article:tag" content="docker">
 <meta property="article:tag" content="NPM">
 <meta property="article:tag" content="docker-compose">
 <meta property="article:tag" content="短链接">
@@ -65,9 +65,9 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
 <link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
-<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -618,7 +618,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3.9&quot;</span><br><span class="line">services:</span><br><span class="line">  xui:</span><br><span class="line">    image: enwaiax/x-ui</span><br><span class="line">    container_name: xui</span><br><span class="line">    volumes:</span><br><span class="line">      - $PWD/db/:/etc/x-ui/</span><br><span class="line">      - $PWD/cert/:/root/cert/</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    network_mode: host</span><br></pre></td></tr></table></figure>
 <p>新建目录，并把上面的配置放到x-ui.yaml中<br>root@Debian11:&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;x-ui&#x2F;template# docker-compose -f x-ui.yaml up</p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuYW1hZHVlcy5saW5rL2FyY2hpdmVzL2RvY2tlcmRhLWppYW4tamllLWRpYW4tdmxlc3Mtd3MtdGxzLXdlYg==" rel="noopener external nofollow noreferrer">https://www.amadues.link/archives/dockerda-jian-jie-dian-vless-ws-tls-web</a><br>docker-compose.yaml的方案follow：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9ob3N0bG9jLmNvbS90aHJlYWQtMTEwODQ2OC0xLTEuaHRtbA==" rel="noopener external nofollow noreferrer">https://hostloc.com/thread-1108468-1-1.html</a><br>配置的方案follow：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9pd2FubGFiLmNvbS9ucG0teHVpLw==" rel="noopener external nofollow noreferrer">https://iwanlab.com/npm-xui/</a><br>相关的视频：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1WM25zRGljU01CYw==" rel="noopener external nofollow noreferrer">https://www.youtube.com/watch?v=V3nsDicSMBc</a></p>
-<p>待测试：vless:&#x2F;&#x2F;<a href="mailto:&#51;&#57;&#102;&#100;&#101;&#50;&#100;&#50;&#45;&#99;&#x38;&#56;&#99;&#x2d;&#x34;&#x62;&#x65;&#97;&#x2d;&#100;&#x34;&#x39;&#x31;&#x2d;&#102;&#98;&#x36;&#57;&#x39;&#48;&#x64;&#52;&#x39;&#55;&#52;&#49;&#64;&#118;&#x6d;&#101;&#x73;&#115;&#46;&#x63;&#97;&#114;&#108;&#122;&#x65;&#110;&#103;&#46;&#99;&#x6f;&#x6d;">&#51;&#57;&#102;&#100;&#101;&#50;&#100;&#50;&#45;&#99;&#x38;&#56;&#99;&#x2d;&#x34;&#x62;&#x65;&#97;&#x2d;&#100;&#x34;&#x39;&#x31;&#x2d;&#102;&#98;&#x36;&#57;&#x39;&#48;&#x64;&#52;&#x39;&#55;&#52;&#49;&#64;&#118;&#x6d;&#101;&#x73;&#115;&#46;&#x63;&#97;&#114;&#108;&#122;&#x65;&#110;&#103;&#46;&#99;&#x6f;&#x6d;</a>:17866?type&#x3D;ws&amp;security&#x3D;none&amp;path&#x3D;%2Fgugu#gugugee</p>
+<p>待测试：vless:&#x2F;&#x2F;<a href="mailto:&#51;&#x39;&#x66;&#100;&#x65;&#50;&#100;&#x32;&#45;&#x63;&#56;&#x38;&#99;&#x2d;&#52;&#x62;&#101;&#97;&#45;&#100;&#x34;&#57;&#49;&#x2d;&#x66;&#98;&#54;&#x39;&#57;&#48;&#100;&#52;&#57;&#55;&#x34;&#x31;&#64;&#x76;&#109;&#x65;&#x73;&#115;&#46;&#x63;&#x61;&#x72;&#x6c;&#122;&#x65;&#110;&#x67;&#x2e;&#99;&#x6f;&#x6d;">&#51;&#x39;&#x66;&#100;&#x65;&#50;&#100;&#x32;&#45;&#x63;&#56;&#x38;&#99;&#x2d;&#52;&#x62;&#101;&#97;&#45;&#100;&#x34;&#57;&#49;&#x2d;&#x66;&#98;&#54;&#x39;&#57;&#48;&#100;&#52;&#57;&#55;&#x34;&#x31;&#64;&#x76;&#109;&#x65;&#x73;&#115;&#46;&#x63;&#x61;&#x72;&#x6c;&#122;&#x65;&#110;&#x67;&#x2e;&#99;&#x6f;&#x6d;</a>:17866?type&#x3D;ws&amp;security&#x3D;none&amp;path&#x3D;%2Fgugu#gugugee</p>
 <p>可以打开后台配置 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6NTQzMjEvZmsveHVpLw==" rel="noopener external nofollow noreferrer">http://192.168.6.116:54321/fk/xui/</a><br>没成功…期待更多的客户端连接测试, 等救援</p>
 <p>思路有问题：x-ui是一个服务端的节点！</p>
 <div class="tabs" id="名称"><ul class="nav-tabs"><li class="tab active"><a href="#名称-1">名称 1</a></li></ul><div class="tab-content"><div class="tab-pane active" id="名称-1"><p>待续。。。</p></div></div></div>
@@ -967,8 +967,8 @@
 
           <div class="post-tags">
             继续浏览有关
-              <a href="/tags/docker/" rel="tag"># docker</a>
               <a href="/tags/debian/" rel="tag"># debian</a>
+              <a href="/tags/docker/" rel="tag"># docker</a>
               <a href="/tags/NPM/" rel="tag"># NPM</a>
               <a href="/tags/docker-compose/" rel="tag"># docker-compose</a>
               <a href="/tags/%E7%9F%AD%E9%93%BE%E6%8E%A5/" rel="tag"># 短链接</a>

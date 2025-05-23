@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/04/17/661f43ddd8091.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/04/22/66264a39070f7.png">
 <meta property="article:published_time" content="2023-12-29T00:51:31.000Z">
-<meta property="article:modified_time" content="2024-10-25T12:32:22.313Z">
+<meta property="article:modified_time" content="2025-05-23T01:43:35.833Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="docker-compose">
@@ -67,9 +67,9 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
 <link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
-<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -140,7 +140,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%92%E6%9F%A5%E4%BF%AE%E5%A4%8D%E7%BB%93%E6%9E%9C%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">排查修复结果总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">有什么用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E5%89%8D%E7%9A%84%E5%90%8E%E6%9E%9C%EF%BC%882023-12-29%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">当前的后果（2023.12.29）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%87%E5%8F%96%E6%8E%AA%E6%96%BD"><span class="nav-number">3.</span> <span class="nav-text">采取措施</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E7%90%86-%E7%AE%A1%E7%90%86Linux%E6%97%A5%E5%BF%97"><span class="nav-number">3.1.</span> <span class="nav-text">清理+管理Linux日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-%E8%BF%90%E8%A1%8C-Mysql-%E5%AE%B9%E5%99%A8%E5%90%8E%E6%8A%A5%E9%94%99%EF%BC%9A-ERROR-%E2%80%93initialize-specified-but-the-data-directory-has-files-in-it-Abort"><span class="nav-number">3.1.1.</span> <span class="nav-text">Docker - 运行 Mysql 容器后报错：[ERROR] –initialize specified but the data directory has files in it. Abort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%AF%E6%95%91MaraDB%EF%BC%9B"><span class="nav-number">3.1.2.</span> <span class="nav-text">拯救MaraDB；</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PVE8-0%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%92%8C%E9%99%90%E5%88%B6%E6%97%A5%E5%BF%97%E7%94%9F%E6%88%90"><span class="nav-number">3.2.</span> <span class="nav-text">PVE8.0如何配置和限制日志生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian-%E6%B8%85%E7%90%86apt%E7%BC%93%E5%AD%98%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">Debian 清理apt缓存文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-clear-the-APT-cache-and-delete-everything-from-var-cache-apt-archives"><span class="nav-number">3.3.1.</span> <span class="nav-text">How to clear the APT cache and delete everything from &#x2F;var&#x2F;cache&#x2F;apt&#x2F;archives&#x2F;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Delete-all-useless-files-from-the-APT-cache"><span class="nav-number">3.3.2.</span> <span class="nav-text">Delete all useless files from the APT cache</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AEdocker%E6%AF%8F%E5%A4%A9%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF"><span class="nav-number">3.4.</span> <span class="nav-text">如何设置docker每天定时重启</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian%E4%B8%AD%E8%80%97%E7%A3%81%E7%9B%98%E7%9A%84docker%E8%AE%BE%E7%BD%AE%E9%87%8D%E5%90%AF"><span class="nav-number">3.5.</span> <span class="nav-text">Debian中耗磁盘的docker设置重启</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PVE%E6%8C%82%E8%BD%BD%E6%96%B0%E7%A1%AC%E7%9B%98"><span class="nav-number">3.6.</span> <span class="nav-text">PVE挂载新硬盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%A4%E6%99%96%E4%B8%AD%E6%B8%85%E7%90%86%E6%96%B0%E7%A1%AC%E7%9B%98%E5%AE%B9%E9%87%8F"><span class="nav-number">3.7.</span> <span class="nav-text">群晖中清理新硬盘容量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%85%8DPVE%E6%96%B0%E7%9A%84USB%E7%A3%81%E7%9B%98%E7%BB%99Debian"><span class="nav-number">3.8.</span> <span class="nav-text">分配PVE新的USB磁盘给Debian</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">实现方法</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%92%E6%9F%A5%E4%BF%AE%E5%A4%8D%E7%BB%93%E6%9E%9C%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">排查修复结果总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">有什么用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E5%89%8D%E7%9A%84%E5%90%8E%E6%9E%9C%EF%BC%882023-12-29%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">当前的后果（2023.12.29）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%87%E5%8F%96%E6%8E%AA%E6%96%BD"><span class="nav-number">3.</span> <span class="nav-text">采取措施</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%85%E7%90%86-%E7%AE%A1%E7%90%86Linux%E6%97%A5%E5%BF%97"><span class="nav-number">3.1.</span> <span class="nav-text">清理+管理Linux日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-%E8%BF%90%E8%A1%8C-Mysql-%E5%AE%B9%E5%99%A8%E5%90%8E%E6%8A%A5%E9%94%99%EF%BC%9A-ERROR-%E2%80%93initialize-specified-but-the-data-directory-has-files-in-it-Abort"><span class="nav-number">3.1.1.</span> <span class="nav-text">Docker - 运行 Mysql 容器后报错：[ERROR] –initialize specified but the data directory has files in it. Abort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%AF%E6%95%91MaraDB%EF%BC%9B"><span class="nav-number">3.1.2.</span> <span class="nav-text">拯救MaraDB；</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PVE8-0%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E5%92%8C%E9%99%90%E5%88%B6%E6%97%A5%E5%BF%97%E7%94%9F%E6%88%90"><span class="nav-number">3.2.</span> <span class="nav-text">PVE8.0如何配置和限制日志生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian-%E6%B8%85%E7%90%86apt%E7%BC%93%E5%AD%98%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">Debian 清理apt缓存文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-clear-the-APT-cache-and-delete-everything-from-var-cache-apt-archives"><span class="nav-number">3.3.1.</span> <span class="nav-text">How to clear the APT cache and delete everything from &#x2F;var&#x2F;cache&#x2F;apt&#x2F;archives&#x2F;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Delete-all-useless-files-from-the-APT-cache"><span class="nav-number">3.3.2.</span> <span class="nav-text">Delete all useless files from the APT cache</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AEdocker%E6%AF%8F%E5%A4%A9%E5%AE%9A%E6%97%B6%E9%87%8D%E5%90%AF"><span class="nav-number">3.4.</span> <span class="nav-text">如何设置docker每天定时重启</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian%E4%B8%AD%E8%80%97%E7%A3%81%E7%9B%98%E7%9A%84docker%E8%AE%BE%E7%BD%AE%E9%87%8D%E5%90%AF"><span class="nav-number">3.5.</span> <span class="nav-text">Debian中耗磁盘的docker设置重启</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PVE%E6%8C%82%E8%BD%BD%E6%96%B0%E7%A1%AC%E7%9B%98"><span class="nav-number">3.6.</span> <span class="nav-text">PVE挂载新硬盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%A4%E6%99%96%E4%B8%AD%E6%B8%85%E7%90%86%E6%96%B0%E7%A1%AC%E7%9B%98%E5%AE%B9%E9%87%8F"><span class="nav-number">3.7.</span> <span class="nav-text">群晖中清理新硬盘容量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%85%8DPVE%E6%96%B0%E7%9A%84USB%E7%A3%81%E7%9B%98%E7%BB%99Debian"><span class="nav-number">3.8.</span> <span class="nav-text">分配PVE新的USB磁盘给Debian</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#starting-worker-failed-unable-to-create-output-file"><span class="nav-number">3.9.</span> <span class="nav-text">starting worker failed: unable to create output file</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Debian%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC"><span class="nav-number">4.</span> <span class="nav-text">Debian开机自启动脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">5.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">实现方法</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -199,13 +199,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
-      Docker群晖docker查询注册表失败
+      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
+      Nginx Proxy Manager修复笔记
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
-      Nginx Proxy Manager修复笔记
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
       </a>
     </li>
     <li class="popular-posts-item">
@@ -219,8 +219,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202401110931.html" rel="bookmark">
-      PVE磁盘占满解决方案实践
+      <a class="popular-posts-link" href="/202311201654.html" rel="bookmark">
+      Docker搭建自动售货系统-独角数卡
       </a>
     </li>
   </ul>
@@ -412,7 +412,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-10-25 20:32:22" itemprop="dateModified" datetime="2024-10-25T20:32:22+08:00">2024-10-25</time>
+      <time title="修改时间：2025-05-23 09:43:35" itemprop="dateModified" datetime="2025-05-23T09:43:35+08:00">2025-05-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -442,7 +442,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>56 分钟</span>
+      <span>1:01</span>
     </span>
 </div>
 
@@ -645,9 +645,40 @@
 
 
 
+<h2 id="starting-worker-failed-unable-to-create-output-file"><a href="#starting-worker-failed-unable-to-create-output-file" class="headerlink" title="starting worker failed: unable to create output file"></a>starting worker failed: unable to create output file</h2><p>虚拟机Debian11内存100%卡死, 想要重启包错误</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">starting worker failed: unable to create output file &#x27;/var/log/pve/tasks/6/UPID:lgkdz:00001DB9:36FF1CB5:682ED196:vzstop:101:root@pam:&#x27; - Read-only file system (500)</span><br></pre></td></tr></table></figure>
+
+<p>mount &#x2F;dev&#x2F;sdd2 &#x2F;mnt&#x2F;usbToshiBa</p>
+<p>没办法一致无法加载到&#x2F;mnt&#x2F;usbToshiBa; 后来拔插USB线可以加在到内容; 但是还是无法重启或关闭Debian11;</p>
+<p>无奈, </p>
+<p>只能把整个pve重启</p>
+<p>重启以后一些APP应用就挂了, 老规矩, 目录权限问题</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Forbidden</span><br><span class="line">You don&#x27;t have permission to access this resource.Server unable to read htaccess file, denying access to be safe</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Debian下需要重新启动和设置的内容:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">//yourls Docker启动修复</span></span><br><span class="line">chown mysql /www/server/panel/data/compose/yourls_service/template/yMariaDb -R</span><br><span class="line">chown mysql /www/server/panel/data/compose/yourls_service/template/yourlsData20231229 -R</span><br><span class="line"></span><br><span class="line">chmod +777 /www/server/panel/data/compose/yourls_service/template/yMariaDb -R</span><br><span class="line">chmod +777 /www/server/panel/data/compose/yourls_service/template/yourlsData20231229/ -R</span><br><span class="line">cd /www/server/panel/data/compose/yourls_service/template</span><br><span class="line">docker-compose down</span><br><span class="line">docker-compose up -d</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">//Matomo Docker启动修复</span></span><br><span class="line">chmod +777 /www/server/panel/data/compose/matomo/matomo -R</span><br><span class="line">chmod +777 /www/server/panel/data/compose/matomo/matomodb -R</span><br><span class="line">	</span><br><span class="line">chown mysql /www/server/panel/data/compose/matomo/matomo -R</span><br><span class="line">chown mysql /www/server/panel/data/compose/matomo/matomodb -R</span><br><span class="line"></span><br><span class="line">cd /www/server/panel/data/compose/matomo</span><br><span class="line">docker-compose down</span><br><span class="line">docker-compose up -d</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">//Surveyking_mysql Docker启动修复</span></span><br><span class="line">chmod +777 /www/server/panel/data/compose/surveyking/mysql_data -R</span><br><span class="line">cd /www/server/panel/data/compose/surveyking</span><br><span class="line">docker-compose down</span><br><span class="line">docker-compose up -d</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">//SRS</span></span><br><span class="line">cd /www/server/panel/data/compose/srs</span><br><span class="line">docker-compose down</span><br><span class="line">docker-compose up -d</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>NAS918下需要重新启动和设置的内容:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">//NAS下需要重启一下srs的取流监控/监测</span></span><br><span class="line">supervisord -c /etc/supervisord.d/ffmpeg.conf</span><br><span class="line">supervisorctl restart ffmpeg</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Next: 需要将这个命令行, 都添加到Debian的开机启动脚本中</p>
+<h1 id="Debian开机自启动脚本"><a href="#Debian开机自启动脚本" class="headerlink" title="Debian开机自启动脚本"></a>Debian开机自启动脚本</h1><ol>
+<li>~&#x2F;.bashrc</li>
+</ol>
+<p>20250522 添加上方的所有的shell脚本到 ~&#x2F;.bashrc文件中.</p>
+<p>测试中…</p>
+<p><em>方法2: &#x2F;etc&#x2F;profile</em></p>
+<p><em>方法3 rc.local</em></p>
 <h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=nas" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>都是些小爱心小公益的项目，没必要花时间攻击哦，沉淀共享，格局放大！～</p>
+<p>相关文章: <a href="">Nginx Proxy Manager修复笔记</a></p>
 
 
         <!-- search & recent posts(added 20240914) -->
@@ -787,13 +818,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
-      Docker群晖docker查询注册表失败
+      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
+      Nginx Proxy Manager修复笔记
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311032202.html" rel="bookmark">
-      Nginx Proxy Manager修复笔记
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
       </a>
     </li>
     <li class="popular-posts-item">
@@ -807,8 +838,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202401110931.html" rel="bookmark">
-      PVE磁盘占满解决方案实践
+      <a class="popular-posts-link" href="/202311201654.html" rel="bookmark">
+      Docker搭建自动售货系统-独角数卡
       </a>
     </li>
   </ul>
@@ -981,7 +1012,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-10-25 20:32:22" itemprop="dateModified" datetime="2024-10-25T20:32:22+08:00">2024-10-25</time>
+        <time title="修改时间：2025-05-23 09:43:35" itemprop="dateModified" datetime="2025-05-23T09:43:35+08:00">2025-05-23</time>
       </span>
 
 </div>

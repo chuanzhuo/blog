@@ -26,7 +26,7 @@
 <meta property="og:description" content="如何从Tor Network里面提取使用Socks5代理呢？How to use the socks5 proxy in Tor Network?">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-05T11:04:00.000Z">
-<meta property="article:modified_time" content="2023-11-16T11:15:31.981Z">
+<meta property="article:modified_time" content="2025-05-23T05:09:42.994Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="墙">
 <meta property="article:tag" content="tor">
@@ -52,9 +52,9 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
 <link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
-<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -125,7 +125,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-1%EF%BC%9ATor-Browser"><span class="nav-number">1.</span> <span class="nav-text">方法 #1：Tor Browser</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-2-%E4%B8%8D%E4%BF%9D%E8%AF%81-%EF%BC%9AClash"><span class="nav-number">2.</span> <span class="nav-text">方法 #2(不保证)：Clash</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-3-advance-%EF%BC%9A%E8%BF%90%E8%A1%8C-tor"><span class="nav-number">3.</span> <span class="nav-text">方法 #3(advance)：运行 tor</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-1%EF%BC%9ATor-Browser"><span class="nav-number">1.</span> <span class="nav-text">方法 #1：Tor Browser</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-2-%E4%B8%8D%E4%BF%9D%E8%AF%81-%EF%BC%9AClash"><span class="nav-number">2.</span> <span class="nav-text">方法 #2(不保证)：Clash</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-3-advance-%EF%BC%9A%E8%BF%90%E8%A1%8C-tor"><span class="nav-number">3.</span> <span class="nav-text">方法 #3(advance)：运行 tor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Run-a-Tor-Relay-in-Docker%E8%BF%90%E8%A1%8CTor%E4%B8%AD%E7%BB%A7%E8%8A%82%E7%82%B9"><span class="nav-number">4.</span> <span class="nav-text">Run a Tor Relay in Docker运行Tor中继节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E6%8E%92%E9%99%A4"><span class="nav-number">4.1.</span> <span class="nav-text">错误排除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unable-to-find-IPv4-address-for-ORPort-9099-You-might-want-to-specify-IPv6Only-to-it-or-set-an-explicit-address-or-set-Address"><span class="nav-number">4.1.1.</span> <span class="nav-text">Unable to find IPv4 address for ORPort 9099. You might want to specify IPv6Only to it or set an explicit address or set Address.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#etc-tor-torrc"><span class="nav-number">4.1.2.</span> <span class="nav-text">&#x2F;etc&#x2F;tor&#x2F;torrc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#REDSOCKS"><span class="nav-number">4.2.</span> <span class="nav-text">REDSOCKS</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -184,13 +184,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312021028.html" rel="bookmark">
-      计划任务定时任务crontab - 如何让路由器按要求定时发BTC价至手机
+      <a class="popular-posts-link" href="/202309040941.html" rel="bookmark">
+      NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202309040941.html" rel="bookmark">
-      NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng
+      <a class="popular-posts-link" href="/202312021028.html" rel="bookmark">
+      计划任务定时任务crontab - 如何让路由器按要求定时发BTC价至手机
       </a>
     </li>
     <li class="popular-posts-item">
@@ -199,13 +199,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200811121057.html" rel="bookmark">
-      netsuite弹出窗体的数据回传例子-CarlZeng
+      <a class="popular-posts-link" href="/202403260717.html" rel="bookmark">
+      搭建尊重隐私的元搜索引擎 SearX
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202304131742.html" rel="bookmark">
-      Python 编辑器 jupyter notebook-CarlZeng
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
       </a>
     </li>
   </ul>
@@ -397,7 +397,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-16 19:15:31" itemprop="dateModified" datetime="2023-11-16T19:15:31+08:00">2023-11-16</time>
+      <time title="修改时间：2025-05-23 13:09:42" itemprop="dateModified" datetime="2025-05-23T13:09:42+08:00">2025-05-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -427,7 +427,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>9 分钟</span>
+      <span>32 分钟</span>
     </span>
 </div>
 
@@ -439,6 +439,7 @@
     
     <div class="post-body" itemprop="articleBody"><p>如何从Tor Network里面提取使用Socks5代理呢？How to use the socks5 proxy in Tor Network?</p>
 <span id="more"></span>
+
 <h1 id="方法-1：Tor-Browser"><a href="#方法-1：Tor-Browser" class="headerlink" title="方法 #1：Tor Browser"></a>方法 #1：Tor Browser</h1><p>最简单直接的办法就是在电脑或手机中使用Tor Browser浏览器，这样可以直接使用到符合设计初衷的匿名浏览（同时也意味着*墙）。</p>
 <p>手机APP版指导手册：MOBILE TOR <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly90Yi1tYW51YWwudG9ycHJvamVjdC5vcmcvbW9iaWxlLXRvci8jY2lyY3VtdmVudGlvbg==" rel="noopener external nofollow noreferrer">https://tb-manual.torproject.org/mobile-tor/#circumvention</a></p>
 <p>手机端设置要点：下载后打开Tor Browser，</p>
@@ -497,6 +498,87 @@
 <p>6. 配置应用程序，连接到Socks 127.0.0.1:62501 即可（根据具体的日志信息）</p>
 <p>【可选步骤】7. 检测连接状态：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jaGVjay50b3Jwcm9qZWN0Lm9yZy8=" rel="noopener external nofollow noreferrer">https://check.torproject.org/</a></p>
 <p>祝各位：女神节快乐！～</p>
+<h1 id="Run-a-Tor-Relay-in-Docker运行Tor中继节点"><a href="#Run-a-Tor-Relay-in-Docker运行Tor中继节点" class="headerlink" title="Run a Tor Relay in Docker运行Tor中继节点"></a>Run a Tor Relay in Docker运行Tor中继节点</h1><ol>
+<li><p>创建和启动docker-compose</p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRsYWIudG9ycHJvamVjdC5vcmcvdG9ycHJvamVjdC9hbnRpLWNlbnNvcnNoaXAvZG9ja2VyLW9iZnM0LWJyaWRnZS9yYXcvbWFpbi9kb2NrZXItY29tcG9zZS55bWw=" rel="noopener external nofollow noreferrer">https://gitlab.torproject.org/torproject/anti-censorship/docker-obfs4-bridge/raw/main/docker-compose.yml</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRsYWIudG9ycHJvamVjdC5vcmcvdHBvL2FudGktY2Vuc29yc2hpcC9kb2NrZXItb2JmczQtYnJpZGdlLy0vcmF3L21haW4vLmVudg==" rel="noopener external nofollow noreferrer">https://gitlab.torproject.org/tpo/anti-censorship/docker-obfs4-bridge/-/raw/main/.env</a></p>
+</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file assists operators in (re-)deploying an obfs4 bridge Docker</span></span><br><span class="line"><span class="comment"># container.  You need the tool &#x27;docker-compose&#x27; to use this file.  You</span></span><br><span class="line"><span class="comment"># can find it in the Debian package &#x27;docker-compose&#x27;.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># First, you need to create a configuration file, &quot;.env&quot;, in the same directory</span></span><br><span class="line"><span class="comment"># as this file, &quot;docker-compose.yml&quot;.  Add the following environment variables</span></span><br><span class="line"><span class="comment"># to this configuration file.  EMAIL is your email address; OR_PORT is your</span></span><br><span class="line"><span class="comment"># onion routing port; and PT_PORT is your obfs4 port:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#   EMAIL=you@example.com</span></span><br><span class="line"><span class="comment">#   OR_PORT=XXX</span></span><br><span class="line"><span class="comment">#   PT_PORT=XXX</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># If needed, you can also activate there an additional variables processing with:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#   OBFS4_ENABLE_ADDITIONAL_VARIABLES=1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># followed by defining desired torrc entries prefixed with OBFS4V_</span></span><br><span class="line"><span class="comment"># For example:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#   OBFS4V_AddressDisableIPv6=1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Next, pull the Docker image, by running:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#   docker-compose pull obfs4-bridge</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># And finally, to (re-)deploy the container, run:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#   docker-compose up -d obfs4-bridge</span></span><br><span class="line"></span><br><span class="line"><span class="attr">version:</span> <span class="string">&quot;3.4&quot;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">obfs4-bridge:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">thetorproject/obfs4-bridge:latest</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">obfs4_bridge_external_network</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="comment"># Exit with an error message if OR_PORT is unset or empty.</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">OR_PORT=$&#123;OR_PORT:?Env</span> <span class="string">var</span> <span class="string">OR_PORT</span> <span class="string">is</span> <span class="string">not</span> <span class="string">set.&#125;</span></span><br><span class="line">      <span class="comment"># Exit with an error message if PT_PORT is unset or empty.</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PT_PORT=$&#123;PT_PORT:?Env</span> <span class="string">var</span> <span class="string">PT_PORT</span> <span class="string">is</span> <span class="string">not</span> <span class="string">set.&#125;</span></span><br><span class="line">      <span class="comment"># Exit with an error message if EMAIL is unset or empty.</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">EMAIL=$&#123;EMAIL:?Env</span> <span class="string">var</span> <span class="string">EMAIL</span> <span class="string">is</span> <span class="string">not</span> <span class="string">set.&#125;</span></span><br><span class="line">      <span class="comment"># Nickname with default value: &quot;DockerObfs4Bridge&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NICKNAME=$&#123;NICKNAME:-DockerObfs4Bridge&#125;</span></span><br><span class="line">    <span class="attr">env_file:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">.env</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">data:/var/lib/tor</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">$&#123;OR_PORT&#125;:$&#123;OR_PORT&#125;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">$&#123;PT_PORT&#125;:$&#123;PT_PORT&#125;</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">data:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">tor-datadir-$&#123;OR_PORT&#125;-$&#123;PT_PORT&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">obfs4_bridge_external_network:</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Set required variables</span><br><span class="line">OR_PORT=9099</span><br><span class="line">PT_PORT=9050</span><br><span class="line">EMAIL=ame@apple.com</span><br><span class="line"># If you want, you could change the nickname of your bridge</span><br><span class="line">#NICKNAME=DockerObfs4Bridge</span><br><span class="line"># If needed, activate additional variables processing</span><br><span class="line">#OBFS4_ENABLE_ADDITIONAL_VARIABLES=1</span><br><span class="line"># and define desired torrc entries prefixed with OBFS4V_</span><br><span class="line"># For example:</span><br><span class="line">#OBFS4V_AddressDisableIPv6=1</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up</span><br><span class="line">WARN[0000] /root/obfs4-bridge/docker-compose.yaml: `version` is obsolete </span><br><span class="line">[+] Running 15/15</span><br><span class="line"> ✔ obfs4-bridge Pulled                                                                      39.3s </span><br><span class="line">   ✔ 04857b38bc21 Pull complete                                                              5.2s </span><br><span class="line">   ✔ e5bfec8939cb Pull complete                                                              1.6s </span><br><span class="line">   ✔ 5f68de6710c4 Pull complete                                                              1.8s </span><br><span class="line">   ✔ b60093912f91 Pull complete                                                              3.2s </span><br><span class="line">   ✔ ab018a71dd54 Pull complete                                                              5.0s </span><br><span class="line">   ✔ 3b96c9cd7341 Pull complete                                                              7.1s </span><br><span class="line">   ✔ 399de59d9384 Pull complete                                                              9.4s </span><br><span class="line">   ✔ 1fd06b5f7332 Pull complete                                                              6.8s </span><br><span class="line">   ✔ 9632961b9f45 Pull complete                                                              9.2s </span><br><span class="line">   ✔ 8887d261ae57 Pull complete                                                              8.7s </span><br><span class="line">   ✔ 702c64636d8d Pull complete                                                             10.3s </span><br><span class="line">   ✔ 0c8449df639a Pull complete                                                             10.7s </span><br><span class="line">   ✔ 5f1156e46d38 Pull complete                                                             11.3s </span><br><span class="line">   ✔ dbc5b9df9780 Pull complete                                                             12.0s </span><br><span class="line">[+] Running 2/1</span><br><span class="line"> ✔ Network obfs4-bridge_obfs4_bridge_external_network  Created                               0.1s </span><br><span class="line"> ✔ Volume &quot;tor-datadir-9099-9050&quot;                      C...                                  0.0s </span><br><span class="line"> ⠋ Container obfs4-bridge-obfs4-bridge-1               Created                               0.0s </span><br><span class="line">Attaching to obfs4-bridge-1</span><br><span class="line">obfs4-bridge-1  | Using NICKNAME=DockerObfs4Bridge, OR_PORT=9099, PT_PORT=9050, and EMAIL=ame@apple.com.</span><br><span class="line">obfs4-bridge-1  | Starting tor.</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:00.842 [notice] Tor 0.4.8.14 running on Linux with Libevent 2.1.12-stable, OpenSSL 3.0.15, Zlib 1.2.13, Liblzma 5.4.1, Libzstd 1.5.4 and Glibc 2.36 as libc.</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:00.842 [notice] Tor can&#x27;t help you if you use it wrong! Learn how to be safe at https://support.torproject.org/faq/staying-anonymous/</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:00.842 [notice] Read configuration file &quot;/etc/tor/torrc&quot;.</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:00.843 [notice] Based on detected system memory, MaxMemInQueues is set to 6296 MB. You can override this by setting MaxMemInQueues by hand.</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:00.843 [notice] Opening OR listener on 0.0.0.0:9099</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:00.843 [notice] Opened OR listener connection (ready) on 0.0.0.0:9099</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:00.843 [notice] Opening OR listener on [::]:9099</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:00.843 [notice] Opened OR listener connection (ready) on [::]:9099</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:00.843 [notice] Opening Extended OR listener on 127.0.0.1:0</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:00.843 [notice] Extended OR listener listening on port 44627.</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:00.843 [notice] Opened Extended OR listener connection (ready) on 127.0.0.1:44627</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:00.000 [notice] Parsing GEOIP IPv4 file /usr/share/tor/geoip.</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:00.000 [notice] Parsing GEOIP IPv6 file /usr/share/tor/geoip6.</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:01.000 [notice] Configured to measure statistics. Look for the *-stats files that will first be written to the data directory in 24 hours from now.</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:01.000 [notice] You are running a new relay. Thanks for helping the Tor network! If you wish to know what will happen in the upcoming weeks regarding its usage, have a look at https://blog.torproject.org/lifecycle-of-a-new-relay</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:01.000 [notice] It looks like I need to generate and sign a new medium-term signing key, because I don&#x27;t have one. To do that, I need to load (or create) the permanent master identity key. If the master identity key was not moved or encrypted with a passphrase, this will be done automatically and no further action is required. Otherwise, provide the necessary data using &#x27;tor --keygen&#x27; to do it manually.</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:01.000 [notice] Your Tor server&#x27;s identity key fingerprint is &#x27;DockerObfs4Bridge F22790FB5078D507920743B6D6&#x27;</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:01.000 [notice] Your Tor bridge&#x27;s hashed identity key fingerprint is &#x27;DockerObfs4Bridge 811EBA87EE1ACE2893140B5AC&#x27;</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:01.000 [notice] Your Tor server&#x27;s identity key ed25519 fingerprint is &#x27;DockerObfs4Bridge YlsH1QKdRNwX70+dDrHQHBoUDDWRMo&#x27;</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:01.000 [notice] You can check the status of your bridge relay at https://bridges.torproject.org/status?id=811EBA87EE1ACE2893140</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:01.000 [notice] Bootstrapped 0% (starting): Starting</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:01.000 [notice] Starting with guard context &quot;default&quot;</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:01.000 [notice] Registered server transport &#x27;obfs4&#x27; at &#x27;[::]:9050&#x27;</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:02.000 [notice] Unable to find IPv4 address for ORPort 9099. You might want to specify IPv6Only to it or set an explicit address or set Address.</span><br><span class="line">obfs4-bridge-1  | May 21 04:44:02.000 [notice] Bootstrapped 5% (conn): Connecting to a relay</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">obfs4-bridge-1  | May 21 04:48:18.000 [warn] Problem bootstrapping. Stuck at 5% (conn): Connecting to a relay. (Connection timed out; TIMEOUT; count 10; recommendation warn; host FA3EC05000800EB7C4 at 94.142.140.158:443)</span><br><span class="line">obfs4-bridge-1  | May 21 04:48:18.000 [warn] 9 connections have failed:</span><br><span class="line">obfs4-bridge-1  | May 21 04:48:18.000 [warn]  9 connections died in state connect()ing with SSL state (No SSL object)</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>NAT设置 端口转发</li>
+</ol>
+<p>Internet‘s 9050 至 docker机的9050</p>
+<p>Internet‘s 9059 至 docker机的9099</p>
+<h2 id="错误排除"><a href="#错误排除" class="headerlink" title="错误排除"></a>错误排除</h2><h3 id="Unable-to-find-IPv4-address-for-ORPort-9099-You-might-want-to-specify-IPv6Only-to-it-or-set-an-explicit-address-or-set-Address"><a href="#Unable-to-find-IPv4-address-for-ORPort-9099-You-might-want-to-specify-IPv6Only-to-it-or-set-an-explicit-address-or-set-Address" class="headerlink" title="Unable to find IPv4 address for ORPort 9099. You might want to specify IPv6Only to it or set an explicit address or set Address."></a>Unable to find IPv4 address for ORPort 9099. You might want to specify IPv6Only to it or set an explicit address or set Address.</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">May 22 08:57:23.000 [notice] Unable to find IPv4 address for ORPort 9099. You might want to specify IPv6Only to it or set an explicit address or set Address.</span><br></pre></td></tr></table></figure>
+
+<p>如何指定一个地址? </p>
+<p>docker-compse.yml中映射出docker容器中的tor配置文件</p>
+<h3 id="etc-tor-torrc"><a href="#etc-tor-torrc" class="headerlink" title="/etc/tor/torrc"></a><code>/etc/tor/torrc</code></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obfs4-bridge-1  | May 22 11:57:20.345 [warn] Error parsing ServerTransportListenAddr address &#x27;op.c</span><br><span class="line">arlzeng.com:9092&#x27;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obfs4-bridge-1  | May 21 07:57:46.000 [notice] Unable to find IPv4 address for ORPort 9099. You mi</span><br><span class="line">ght want to specify IPv6Only to it or set an explicit address or set Address.</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRsYWIudG9ycHJvamVjdC5vcmcvdHBvL2FudGktY2Vuc29yc2hpcC9kb2NrZXItb2JmczQtYnJpZGdlLy0vaXNzdWVzLzY=" rel="noopener external nofollow noreferrer">https://gitlab.torproject.org/tpo/anti-censorship/docker-obfs4-bridge/-/issues/6</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ah yes. It&#x27;s indeed forwarded.</span><br><span class="line">Good to know it&#x27;s normal behavior. I saw multiple posts online like this reddit Post as well..</span><br><span class="line">Maybe we should say this message is normal in most cases, especially a machine behind a nat. After all, it confuses me. As if I was doing something wrong.</span><br></pre></td></tr></table></figure>
+
+<p>那么下一步就变成: 如何在proxy下运行这个 tor -f torrc</p>
+<p>既然tor的 自己运行成 bridge mode 无法是在代理的情况; </p>
+<p>那么能否让整个docker的外网连接都是处于proxy状态下的, </p>
+<p>这样它的流量自动走入proxy; </p>
+<p>这样成bridge链接到一个relay应该就能成功</p>
+<p>或者使用docker 的环境变量</p>
+<p>HTTP_PROXY</p>
+<p>HTTPS_PROXY</p>
+<p>如何在docker-compose.yml中设置这样的环境变量</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3.4&quot;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">obfs4-bridge:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">thetorproject/obfs4-bridge:latest</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">obfs4_bridge_external_network</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="comment"># Exit with an error message if OR_PORT is unset or empty.</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">OR_PORT=$&#123;OR_PORT:?Env</span> <span class="string">var</span> <span class="string">OR_PORT</span> <span class="string">is</span> <span class="string">not</span> <span class="string">set.&#125;</span></span><br><span class="line">      <span class="comment"># Exit with an error message if PT_PORT is unset or empty.</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PT_PORT=$&#123;PT_PORT:?Env</span> <span class="string">var</span> <span class="string">PT_PORT</span> <span class="string">is</span> <span class="string">not</span> <span class="string">set.&#125;</span></span><br><span class="line">      <span class="comment"># Exit with an error message if EMAIL is unset or empty.</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">EMAIL=$&#123;EMAIL:?Env</span> <span class="string">var</span> <span class="string">EMAIL</span> <span class="string">is</span> <span class="string">not</span> <span class="string">set.&#125;</span></span><br><span class="line">      <span class="comment"># Nickname with default value: &quot;DockerObfs4Bridge&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NICKNAME=$&#123;NICKNAME:-DockerObfs4Bridge&#125;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HTTP_PROXY=http://192.168.6.116:7890</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HTTPS_PROXY=http://192.168.6.116:7890</span></span><br><span class="line">    <span class="attr">env_file:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">.env</span></span><br><span class="line">      </span><br><span class="line"><span class="string">....</span> </span><br></pre></td></tr></table></figure>
+
+
+
+<p>显然: 这个方案是不靠谱的, 流量被被转发到代理</p>
+<p>修改配置文件torrc</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Bridge meek_lite 192.0.2.20:80 url=https://1314488750.rsc.cdn77.org front=www.phpmyadmin.net utls=HelloRandomizedALPN</span><br><span class="line">ClientTransportPlugin meek_lite exec /usr/bin/lyrebird managed</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it obfs4-bridge-obfs4-bridge-1 bash </span><br></pre></td></tr></table></figure>
+
+<p>进去去找找 lyrebird 这个东西, 在那里具体路径?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/lyrebird</span><br></pre></td></tr></table></figure>
+
+
+
+<p>思路来源: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zcGVjLnRvcnByb2plY3Qub3JnL3B0LXNwZWMvY29uZmlndXJhdGlvbi1lbnZpcm9ubWVudC5odG1s" rel="noopener external nofollow noreferrer">https://spec.torproject.org/pt-spec/configuration-environment.html</a></p>
+<p>TOR_PT_PROXY</p>
+<p>TOR_PT_PROXY&#x3D;<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5OC41MS4xMDAuMzo0NDMv" rel="noopener external nofollow noreferrer">http://198.51.100.3:443</a></p>
+<p>测试:</p>
+<p>把这个TOR_PT_PROXY参数设置到.env,重启docker, 无效</p>
+<p>下一步 修改torrc来</p>
+<p>设置TOR_PT_PROXY 和 ServerTransportPlugin obfs4 exec &#x2F;usr&#x2F;bin&#x2F;lyrebird                </p>
+<p>​	May 22 14:31:51.242 [warn] Failed to parse&#x2F;validate config: Unknown option ‘TOR_PT_PROXY’.  Failing.</p>
+<p>​	看来torrc 中不能设置TOR_PT_PROXY; 导致整个docker无法启动</p>
+<p>​	修改obfs4 为 meek_lite</p>
+<p>也失败了; 错误:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">May 22 14:34:23.000 [notice] Starting with guard context &quot;default&quot;</span><br><span class="line">May 22 14:34:23.000 [warn] Server managed proxy encountered a method error. (meek_lite server not supported)</span><br><span class="line">May 22 14:34:23.000 [warn] Managed proxy &#x27;/usr/bin/lyrebird&#x27; was spawned successfully, but it didn&#x27;t launch any pluggable transport listeners!</span><br><span class="line">May 22 14:34:24.000 [notice] Unable to find IPv4 address for ORPort 9099. You might want to specify IPv6Only to it or set an explicit address or set Address.</span><br><span class="line">May 22 14:34:24.000 [notice] Bootstrapped 5% (conn): Connecting to a relay</span><br><span class="line">May 22 14:38:31.000 [warn] Problem bootstrapping. Stuck at 5% (conn): Connecting to a relay. (No route to host; NOROUTE; count 8; recommendation warn; host B6526852EF18FB54BC91437B54055D16FD581898 at 176.198.159.33:9001)</span><br><span class="line">May 22 14:38:31.000 [warn] 7 connections have failed:</span><br></pre></td></tr></table></figure>
+
+
+
+<p>&#x2F;usr&#x2F;local&#x2F;bin&#x2F;start-tor.sh: line 25: &#x2F;etc&#x2F;tor&#x2F;torrc: Permission denied<br>Starting tor.</p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9ibG9nLm8xaHkuY29tLzIwMjAvMDEvMTQvZGV2L2RvY2tlci8lRTklODAlOUElRTglQkYlODdpcHRhYmxlcyVFOCVCRCVBQyVFNSU4RiU5MWRvY2tlciVFNiVCNSU4MSVFOSU4NyU4Ri8=" rel="noopener external nofollow noreferrer">通过IPTABLES转发docker流量</a></p>
+<h2 id="REDSOCKS"><a href="#REDSOCKS" class="headerlink" title="REDSOCKS"></a>REDSOCKS</h2><p>工具连接：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2RhcmtrL3JlZHNvY2tz" rel="noopener external nofollow noreferrer">https://github.com/darkk/redsocks</a></p>
+<blockquote>
+<p>This tool allows you to redirect any TCP connection to SOCKS or HTTPS proxy using your firewall, so redirection may be system-wide or network-wide.</p>
+</blockquote>
+<p>这个工具可以通过iptables将所有TCP流量转至它监听的端口下，然后通过代理发出。</p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cubm90aW9uLnNvL1JFRFNPQ0tTLWZiNzViMGIwMmI5ZDRlODc4Njc3NzExNjZlZTQzNzMx" rel="noopener external nofollow noreferrer">https://www.notion.so/REDSOCKS-fb75b0b02b9d4e87867771166ee43731</a></p>
+<p>本小节来源</p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9mYWszci5jb20vMjAyNC8xMC8yMi9ydW4tYS10b3ItcmVsYXktaW4tZG9ja2VyLw==" rel="noopener external nofollow noreferrer">Run a Tor Relay in Docker</a></p>
 
 
         <!-- search & recent posts(added 20240914) -->
@@ -636,13 +718,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312021028.html" rel="bookmark">
-      计划任务定时任务crontab - 如何让路由器按要求定时发BTC价至手机
+      <a class="popular-posts-link" href="/202309040941.html" rel="bookmark">
+      NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202309040941.html" rel="bookmark">
-      NetSuite 数据分析 ODBC(SuiteAnalytics Connect) 和 新的Analytics Warehouse-CarlZeng
+      <a class="popular-posts-link" href="/202312021028.html" rel="bookmark">
+      计划任务定时任务crontab - 如何让路由器按要求定时发BTC价至手机
       </a>
     </li>
     <li class="popular-posts-item">
@@ -651,13 +733,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/200811121057.html" rel="bookmark">
-      netsuite弹出窗体的数据回传例子-CarlZeng
+      <a class="popular-posts-link" href="/202403260717.html" rel="bookmark">
+      搭建尊重隐私的元搜索引擎 SearX
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202304131742.html" rel="bookmark">
-      Python 编辑器 jupyter notebook-CarlZeng
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
       </a>
     </li>
   </ul>
@@ -830,7 +912,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-11-16 19:15:31" itemprop="dateModified" datetime="2023-11-16T19:15:31+08:00">2023-11-16</time>
+        <time title="修改时间：2025-05-23 13:09:42" itemprop="dateModified" datetime="2025-05-23T13:09:42+08:00">2025-05-23</time>
       </span>
 
 </div>
