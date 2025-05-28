@@ -26,7 +26,7 @@
 <meta property="og:description" content="如何从Tor Network里面提取使用Socks5代理呢？How to use the socks5 proxy in Tor Network?">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-05T11:04:00.000Z">
-<meta property="article:modified_time" content="2025-05-23T05:09:42.994Z">
+<meta property="article:modified_time" content="2025-05-23T08:26:30.722Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="墙">
 <meta property="article:tag" content="tor">
@@ -52,9 +52,9 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
 <link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
-</head>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -125,7 +125,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-1%EF%BC%9ATor-Browser"><span class="nav-number">1.</span> <span class="nav-text">方法 #1：Tor Browser</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-2-%E4%B8%8D%E4%BF%9D%E8%AF%81-%EF%BC%9AClash"><span class="nav-number">2.</span> <span class="nav-text">方法 #2(不保证)：Clash</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-3-advance-%EF%BC%9A%E8%BF%90%E8%A1%8C-tor"><span class="nav-number">3.</span> <span class="nav-text">方法 #3(advance)：运行 tor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Run-a-Tor-Relay-in-Docker%E8%BF%90%E8%A1%8CTor%E4%B8%AD%E7%BB%A7%E8%8A%82%E7%82%B9"><span class="nav-number">4.</span> <span class="nav-text">Run a Tor Relay in Docker运行Tor中继节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E6%8E%92%E9%99%A4"><span class="nav-number">4.1.</span> <span class="nav-text">错误排除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unable-to-find-IPv4-address-for-ORPort-9099-You-might-want-to-specify-IPv6Only-to-it-or-set-an-explicit-address-or-set-Address"><span class="nav-number">4.1.1.</span> <span class="nav-text">Unable to find IPv4 address for ORPort 9099. You might want to specify IPv6Only to it or set an explicit address or set Address.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#etc-tor-torrc"><span class="nav-number">4.1.2.</span> <span class="nav-text">&#x2F;etc&#x2F;tor&#x2F;torrc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#REDSOCKS"><span class="nav-number">4.2.</span> <span class="nav-text">REDSOCKS</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-1%EF%BC%9ATor-Browser"><span class="nav-number">1.</span> <span class="nav-text">方法 #1：Tor Browser</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-2-%E4%B8%8D%E4%BF%9D%E8%AF%81-%EF%BC%9AClash"><span class="nav-number">2.</span> <span class="nav-text">方法 #2(不保证)：Clash</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-3-advance-%EF%BC%9A%E8%BF%90%E8%A1%8C-tor"><span class="nav-number">3.</span> <span class="nav-text">方法 #3(advance)：运行 tor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Run-a-Tor-Relay-in-Docker%E8%BF%90%E8%A1%8CTor%E4%B8%AD%E7%BB%A7%E8%8A%82%E7%82%B9"><span class="nav-number">4.</span> <span class="nav-text">Run a Tor Relay in Docker运行Tor中继节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E6%8E%92%E9%99%A4"><span class="nav-number">4.1.</span> <span class="nav-text">错误排除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unable-to-find-IPv4-address-for-ORPort-9099-You-might-want-to-specify-IPv6Only-to-it-or-set-an-explicit-address-or-set-Address"><span class="nav-number">4.1.1.</span> <span class="nav-text">Unable to find IPv4 address for ORPort 9099. You might want to specify IPv6Only to it or set an explicit address or set Address.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#etc-tor-torrc"><span class="nav-number">4.1.2.</span> <span class="nav-text">&#x2F;etc&#x2F;tor&#x2F;torrc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#My-internet-connection-requires-an-HTTP-or-SOCKS-Proxy"><span class="nav-number">4.1.3.</span> <span class="nav-text">My internet connection requires an HTTP or SOCKS Proxy</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#REDSOCKS"><span class="nav-number">4.2.</span> <span class="nav-text">REDSOCKS</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -204,8 +204,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
-      Docker群晖docker查询注册表失败
+      <a class="popular-posts-link" href="/202111231111.html" rel="bookmark">
+      [GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out
       </a>
     </li>
   </ul>
@@ -397,7 +397,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-05-23 13:09:42" itemprop="dateModified" datetime="2025-05-23T13:09:42+08:00">2025-05-23</time>
+      <time title="修改时间：2025-05-23 16:26:30" itemprop="dateModified" datetime="2025-05-23T16:26:30+08:00">2025-05-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -427,7 +427,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>32 分钟</span>
+      <span>39 分钟</span>
     </span>
 </div>
 
@@ -570,6 +570,22 @@
 
 
 <p>&#x2F;usr&#x2F;local&#x2F;bin&#x2F;start-tor.sh: line 25: &#x2F;etc&#x2F;tor&#x2F;torrc: Permission denied<br>Starting tor.</p>
+<h3 id="My-internet-connection-requires-an-HTTP-or-SOCKS-Proxy"><a href="#My-internet-connection-requires-an-HTTP-or-SOCKS-Proxy" class="headerlink" title="My internet connection requires an HTTP or SOCKS Proxy"></a>My internet connection requires an HTTP or SOCKS Proxy</h3><p>If you’re using Tor Browser, you can set your proxy’s address, port, and authentication information in the <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly90Yi1tYW51YWwudG9ycHJvamVjdC5vcmcvcnVubmluZy10b3ItYnJvd3Nlci8=" rel="noopener external nofollow noreferrer">Connection Settings</a>.</p>
+<p>If you’re using Tor another way, you can set the proxy information in your torrc file. Check out the <code>HTTPSProxy</code> config option in the <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly8yMDE5Lnd3dy50b3Jwcm9qZWN0Lm9yZy9kb2NzL3Rvci1tYW51YWwuaHRtbC5lbiNIVFRQU1Byb3h5" rel="noopener external nofollow noreferrer">manual page</a>. If your proxy requires authentication, see the <code>HTTPSProxyAuthenticator</code> option. Example with authentication:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HTTPSProxy 10.0.0.1:8080</span><br><span class="line">HTTPSProxyAuthenticator myusername:mypass</span><br></pre></td></tr></table></figure>
+
+<p>本小节思路来源: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zdXBwb3J0LnRvcnByb2plY3Qub3JnL3RiYi90YmItNDcvI3RvcGljX3RiYi00Nw==" rel="noopener external nofollow noreferrer">My internet connection requires an HTTP or SOCKS Proxy</a></p>
+<p>config option in the <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly8yMDE5Lnd3dy50b3Jwcm9qZWN0Lm9yZy9kb2NzL3Rvci1tYW51YWwuaHRtbC5lbiNIVFRQU1Byb3h5" rel="noopener external nofollow noreferrer">manual page</a></p>
+<p>修改torrc文件, 添加(改成你本地可用的代理) </p>
+<p>HTTPSProxy 127.0.0.1:7890</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin/start-tor.sh: line 25: /etc/tor/torrc: Permission denied</span><br><span class="line">Starting tor.</span><br><span class="line">May 23 08:10:42.437 [notice] Tor 0.4.8.14 running on Linux with Libevent 2.1.12-stable, OpenSSL 3.0.15, Zlib 1.2.13, Liblzma 5.4.1, Libzstd 1.5.4 and Glibc 2.36 as libc.</span><br><span class="line">May 23 08:10:42.437 [notice] Tor can&#x27;t help you if you use it wrong! Learn how to be safe at https://support.torproject.org/faq/staying-anonymous/</span><br><span class="line">May 23 08:10:42.437 [notice] Read configuration file &quot;/etc/tor/torrc&quot;.</span><br><span class="line">May 23 08:10:42.438 [notice] Based on detected system memory, MaxMemInQueues is set to 6296 MB. You can override this by setting MaxMemInQueues by hand.</span><br><span class="line">May 23 08:10:42.439 [notice] Opening OR listener on 0.0.0.0:9099</span><br><span class="line">May 23 08:10:42.439 [notice] Opened OR listener connection (ready) on 0.0.0.0:9099</span><br><span class="line">May 23 08:10:42.439 [notice] Opening OR listener on [::]:9099</span><br><span class="line">May 23 08:10:42.439 [notice] Opened OR listener connection (ready) on [::]:9099</span><br><span class="line">May 23 08:10:42.439 [notice] Opening Extended OR listener on 127.0.0.1:0</span><br><span class="line">May 23 08:10:42.439 [notice] Extended OR listener listening on port 45571.</span><br><span class="line">May 23 08:10:42.439 [notice] Opened Extended OR listener connection (ready) on 127.0.0.1:45571</span><br><span class="line">May 23 08:10:42.000 [notice] Parsing GEOIP IPv4 file /usr/share/tor/geoip.</span><br><span class="line">May 23 08:10:42.000 [notice] Parsing GEOIP IPv6 file /usr/share/tor/geoip6.</span><br><span class="line">May 23 08:10:42.000 [notice] Configured to measure statistics. Look for the *-stats files that will first be written to the data directory in 24 hours from now.</span><br><span class="line">May 23 08:10:43.000 [notice] Your Tor server&#x27;s identity key fingerprint is &#x27;DockerObfs4Brg2025 BB46A33E093FAB4F48F2F8B433E51E38320DA462&#x27;</span><br><span class="line">May 23 08:10:43.000 [notice] Your Tor bridge&#x27;s hashed identity key fingerprint is &#x27;DockerObfs4Brg2025 20A3E084775ECB102401250C53F8E064D6EDA5FA&#x27;</span><br><span class="line">May 23 08:10:43.000 [notice] Your Tor server&#x27;s identity key ed25519 fingerprint is &#x27;DockerObfs4Brg2025 GExPVxdmowxMdpW3Erl8HQQbdPhyzjxpEqhJJ7BuZEE&#x27;</span><br><span class="line">May 23 08:10:43.000 [notice] You can check the status of your bridge relay at https://bridges.torproject.org/status?id=20A3E084775ECB102401250C53F8E064D6EDA5FA</span><br><span class="line">May 23 08:10:43.000 [notice] Bootstrapped 0% (starting): Starting</span><br><span class="line">May 23 08:10:43.000 [notice] Starting with guard context &quot;default&quot;</span><br><span class="line">May 23 08:10:43.000 [warn] Managed proxy &#x27;/usr/bin/lyrebird&#x27; did not configure the specified outgoing proxy and will be terminated.</span><br><span class="line">May 23 08:10:43.000 [warn] Managed proxy &quot;N/A&quot; process terminated with status code 0</span><br><span class="line">May 23 08:10:44.000 [notice] Unable to find IPv4 address for ORPort 9099. You might want to specify IPv6Only to it or set an explicit address or set Address.</span><br><span class="line">May 23 08:10:44.000 [notice] Bootstrapped 3% (conn_proxy): Connecting to proxy</span><br><span class="line">May 23 08:10:44.000 [notice] Bootstrapped 4% (conn_done_proxy): Connected to proxy</span><br><span class="line">May 23 08:10:44.000 [notice] Bootstrapped 10% (conn_done): Connected to a relay</span><br><span class="line">May 23 08:10:44.000 [notice] Bootstrapped 14% (handshake): Handshaking with a relay</span><br><span class="line">May 23 08:10:44.000 [notice] Bootstrapped 15% (handshake_done): Handshake with a relay done</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9ibG9nLm8xaHkuY29tLzIwMjAvMDEvMTQvZGV2L2RvY2tlci8lRTklODAlOUElRTglQkYlODdpcHRhYmxlcyVFOCVCRCVBQyVFNSU4RiU5MWRvY2tlciVFNiVCNSU4MSVFOSU4NyU4Ri8=" rel="noopener external nofollow noreferrer">通过IPTABLES转发docker流量</a></p>
 <h2 id="REDSOCKS"><a href="#REDSOCKS" class="headerlink" title="REDSOCKS"></a>REDSOCKS</h2><p>工具连接：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2RhcmtrL3JlZHNvY2tz" rel="noopener external nofollow noreferrer">https://github.com/darkk/redsocks</a></p>
 <blockquote>
@@ -738,8 +754,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
-      Docker群晖docker查询注册表失败
+      <a class="popular-posts-link" href="/202111231111.html" rel="bookmark">
+      [GitHub] fatal: unable to access 'https://github.com/': Failed to connect to github.com port 443: Operation timed out
       </a>
     </li>
   </ul>
@@ -912,7 +928,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2025-05-23 13:09:42" itemprop="dateModified" datetime="2025-05-23T13:09:42+08:00">2025-05-23</time>
+        <time title="修改时间：2025-05-23 16:26:30" itemprop="dateModified" datetime="2025-05-23T16:26:30+08:00">2025-05-23</time>
       </span>
 
 </div>

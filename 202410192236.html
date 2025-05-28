@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/10/27/671dd42ad1b45.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2025/05/16/68271d9eab507.png">
 <meta property="article:published_time" content="2024-10-19T14:36:16.000Z">
-<meta property="article:modified_time" content="2025-05-16T11:35:09.708Z">
+<meta property="article:modified_time" content="2025-05-28T02:39:02.724Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="switch">
 <meta property="article:tag" content="大气层">
@@ -58,9 +58,9 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
 <link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
-</head>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -403,7 +403,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-05-16 19:35:09" itemprop="dateModified" datetime="2025-05-16T19:35:09+08:00">2025-05-16</time>
+      <time title="修改时间：2025-05-28 10:39:02" itemprop="dateModified" datetime="2025-05-28T10:39:02+08:00">2025-05-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -433,7 +433,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>18 分钟</span>
+      <span>19 分钟</span>
     </span>
 </div>
 
@@ -612,12 +612,19 @@
 <li>这个工具有命令行版本, 同时也有贴心的UI,可以选取prod.key文件和原始的固件目录; 另外三个选项: ExFAT Support, Enable AutoRCM, Generate Mariko Firmware(除非是Switch普通版, 其他版本的Switch都要选中)</li>
 </ol>
 </li>
-<li><p>NxNandManager</p>
+<li><p>NxNandManager(这个工具更适合与导出 Nand管理, 而不是刷机; 刷机用: HacDiskMount)</p>
 <ol>
-<li>警惕这个工具经常报错, 和闪退; 一旦发生意外当前的步骤(或关联步骤)就要重新操作一遍</li>
-<li>这个工具的第一个步骤是去加载证书! 确保解密正常才能进行恢复等等的动作</li>
-<li>当您刷完了PKG2-1-Normal-Main, PKG2-2-Normal-Sub, PKG2-3-SafeMode-Main, PKG2-4-SafeMode-Sub, SAFE, SYSTEM</li>
-<li>由于版本跨度, 也要刷Boot0, 和Boot1 这两个以.bin后缀的文件. 不然会提示出错:  “Pkg2 decryption failed.  Pkg1&#x2F;pkg2 mismatch or old hekate. Failed to launch HOS!”<ol>
+<li><p>警惕这个工具经常报错, 和闪退; 一旦发生意外当前的步骤(或关联步骤)就要重新操作一遍</p>
+</li>
+<li><p>这个工具的第一个步骤是去加载证书! 确保解密正常才能进行恢复等等的动作</p>
+<ol>
+<li>如果显示证书解密失败, 不用进行下面动作了; 因为SYSTEM USER, 和头2个证书等, 在未解密状态下,即便写入了机器成功; 开机也会报错: Pkg2 decryption failed.  Pkg1&#x2F;pkg2 mismatch or old hekate. Failed to launch HOS!”</li>
+</ol>
+</li>
+<li><p>当您刷完了PKG2-1-Normal-Main, PKG2-2-Normal-Sub, PKG2-3-SafeMode-Main, PKG2-4-SafeMode-Sub, SAFE, SYSTEM</p>
+</li>
+<li><p>由于版本跨度, 也要刷Boot0, 和Boot1 这两个以.bin后缀的文件. 不然会提示出错:  “Pkg2 decryption failed.  Pkg1&#x2F;pkg2 mismatch or old hekate. Failed to launch HOS!”</p>
+<ol>
 <li><p>Boot0 和 boot1 也可以使用NxNandManager来还原&#x2F;刷写, 步骤: </p>
 </li>
 <li><p>在hekate页面选择Boot0 后使用NxNandManager 的 load driver加载(能看到4M的驱动盘);</p>
@@ -634,6 +641,7 @@
 <p>1：recreate_boot_by_yoti</p>
 <p>2：系统固件</p>
 <p>3：最新的prod.keys(prod.keys请自己从自己设备提取)</p>
+<p>4: Boot0和Boot1在相同固件版本的情况下, 是通用的, 通用的(其他机器的Boot0和Boot1可以用, 待核实, 比对二进制. TODO)</p>
 </li>
 </ol>
 </li>
@@ -657,7 +665,7 @@
 <li>合适的大气层整合包中, 需要用到提取prod.key需要用到的插件: Lockpick_RCM.bin(banned)</li>
 </ol>
 </li>
-<li><p>prodinfo_gen</p>
+<li><p>prodinfo_gen 证书生成工具</p>
 <ol>
 <li>原始, 并停留在 Adds support for 14.0.0固件</li>
 <li>github.com&#x2F;CaramelDunes&#x2F;prodinfo_gen&#x2F;</li>
@@ -1044,7 +1052,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2025-05-16 19:35:09" itemprop="dateModified" datetime="2025-05-16T19:35:09+08:00">2025-05-16</time>
+        <time title="修改时间：2025-05-28 10:39:02" itemprop="dateModified" datetime="2025-05-28T10:39:02+08:00">2025-05-28</time>
       </span>
 
 </div>
