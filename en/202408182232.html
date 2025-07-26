@@ -18,12 +18,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="使用WireGuard将不同地区的局域网或设备连接起来, 组成一个内部虚拟专用网络">
+    <meta name="description" content="使用WireGuard将不同地区的局域网或设备连接起来, 组成一个内部虚拟专用网络; 增加Tailscale方案">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker配置WireGuard服务端及多种客户端实践">
 <meta property="og:url" content="https://www.carlzeng.com/en/202408182232.html">
 <meta property="og:site_name" content="云随笔 Carl Notes">
-<meta property="og:description" content="使用WireGuard将不同地区的局域网或设备连接起来, 组成一个内部虚拟专用网络">
+<meta property="og:description" content="使用WireGuard将不同地区的局域网或设备连接起来, 组成一个内部虚拟专用网络; 增加Tailscale方案">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/09/10/66e00d44aa551.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/09/10/66dfb579be8f8.png">
@@ -33,8 +33,9 @@
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/09/10/66e037359aea9.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/08/20/66c4bb3886c11.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/09/10/66e007f785cb2.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/07/18/6879f004eebfc.png">
 <meta property="article:published_time" content="2024-08-18T14:32:13.000Z">
-<meta property="article:modified_time" content="2024-10-25T13:16:40.534Z">
+<meta property="article:modified_time" content="2025-07-19T08:17:12.009Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="OpenWrt">
 <meta property="article:tag" content="linux">
@@ -100,7 +101,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">259</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">82</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">386</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Nhc2U=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">260</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">83</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">387</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Nhc2U=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -136,7 +137,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">硬件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenWRT%E5%88%9B%E5%BB%BA%E5%85%AC%E9%92%A5%E7%A7%81%E9%92%A5"><span class="nav-number">5.1.</span> <span class="nav-text">OpenWRT创建公钥私钥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E5%85%B1%E4%BA%AB%E5%AF%86%E9%92%A5"><span class="nav-number">5.1.1.</span> <span class="nav-text">预共享密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%85%AC%E9%92%A5%E7%A7%81%E9%92%A5"><span class="nav-number">5.1.2.</span> <span class="nav-text">服务端公钥私钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MacOS-%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%85%AC%E9%92%A5"><span class="nav-number">5.1.3.</span> <span class="nav-text">MacOS 客户端公钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-OpenWRT-UI"><span class="nav-number">5.1.4.</span> <span class="nav-text">配置 OpenWRT UI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="nav-number">5.1.4.1.</span> <span class="nav-text">服务端相关配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-Peers-%E5%8C%BA%E5%9F%9F%E4%B8%BA%E6%AF%8F%E4%B8%AA%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B7%BB%E5%8A%A0%E9%85%8D%E7%BD%AE"><span class="nav-number">5.1.4.2.</span> <span class="nav-text">客户端 Peers 区域为每个客户端添加配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">5.1.4.3.</span> <span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%90%AF-WireGuard"><span class="nav-number">5.1.4.4.</span> <span class="nav-text">重启 WireGuard</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-MAC"><span class="nav-number">5.2.</span> <span class="nav-text">客户端(MAC)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">5.2.1.</span> <span class="nav-text">创建客户端配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AllowedIPs"><span class="nav-number">5.2.1.1.</span> <span class="nav-text">AllowedIPs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="nav-number">5.2.1.2.</span> <span class="nav-text">其他命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%A4%E6%99%96%E5%AE%89%E8%A3%85-WireGuard-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">5.3.</span> <span class="nav-text">群晖安装 WireGuard 客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5-K2P%E4%BD%9C%E4%B8%BA%E4%B8%80%E4%B8%AAWireGuard%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%85%A5VPN%E7%BD%91%E7%BB%9C"><span class="nav-number">5.4.</span> <span class="nav-text">[下一步]K2P作为一个WireGuard客户端接入VPN网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenWrt%E4%BD%9C%E4%B8%BAWireGuard%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%85%A5VPN%E7%BD%91%E7%BB%9C"><span class="nav-number">5.5.</span> <span class="nav-text">OpenWrt作为WireGuard客户端接入VPN网络</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E5%8F%8A%E6%8E%92%E6%9F%A5%E8%A7%A3%E5%86%B3"><span class="nav-number">6.</span> <span class="nav-text">故障及排查解决</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NAS%E4%B8%AD%E8%BF%90%E8%A1%8Cwg-quick%E9%94%99%E8%AF%AF"><span class="nav-number">6.1.</span> <span class="nav-text">NAS中运行wg-quick错误</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker%E6%90%AD%E5%BB%BAWireGuard%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="nav-number">7.</span> <span class="nav-text">docker搭建WireGuard服务端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">8.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">硬件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenWRT%E5%88%9B%E5%BB%BA%E5%85%AC%E9%92%A5%E7%A7%81%E9%92%A5"><span class="nav-number">5.1.</span> <span class="nav-text">OpenWRT创建公钥私钥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E5%85%B1%E4%BA%AB%E5%AF%86%E9%92%A5"><span class="nav-number">5.1.1.</span> <span class="nav-text">预共享密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%85%AC%E9%92%A5%E7%A7%81%E9%92%A5"><span class="nav-number">5.1.2.</span> <span class="nav-text">服务端公钥私钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MacOS-%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%85%AC%E9%92%A5"><span class="nav-number">5.1.3.</span> <span class="nav-text">MacOS 客户端公钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-OpenWRT-UI"><span class="nav-number">5.1.4.</span> <span class="nav-text">配置 OpenWRT UI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="nav-number">5.1.4.1.</span> <span class="nav-text">服务端相关配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-Peers-%E5%8C%BA%E5%9F%9F%E4%B8%BA%E6%AF%8F%E4%B8%AA%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B7%BB%E5%8A%A0%E9%85%8D%E7%BD%AE"><span class="nav-number">5.1.4.2.</span> <span class="nav-text">客户端 Peers 区域为每个客户端添加配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">5.1.4.3.</span> <span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%90%AF-WireGuard"><span class="nav-number">5.1.4.4.</span> <span class="nav-text">重启 WireGuard</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-MAC"><span class="nav-number">5.2.</span> <span class="nav-text">客户端(MAC)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">5.2.1.</span> <span class="nav-text">创建客户端配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AllowedIPs"><span class="nav-number">5.2.1.1.</span> <span class="nav-text">AllowedIPs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="nav-number">5.2.1.2.</span> <span class="nav-text">其他命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%A4%E6%99%96%E5%AE%89%E8%A3%85-WireGuard-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">5.3.</span> <span class="nav-text">群晖安装 WireGuard 客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5-K2P%E4%BD%9C%E4%B8%BA%E4%B8%80%E4%B8%AAWireGuard%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%85%A5VPN%E7%BD%91%E7%BB%9C"><span class="nav-number">5.4.</span> <span class="nav-text">[下一步]K2P作为一个WireGuard客户端接入VPN网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenWrt%E4%BD%9C%E4%B8%BAWireGuard%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%85%A5VPN%E7%BD%91%E7%BB%9C"><span class="nav-number">5.5.</span> <span class="nav-text">OpenWrt作为WireGuard客户端接入VPN网络</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E5%8F%8A%E6%8E%92%E6%9F%A5%E8%A7%A3%E5%86%B3"><span class="nav-number">6.</span> <span class="nav-text">故障及排查解决</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NAS%E4%B8%AD%E8%BF%90%E8%A1%8Cwg-quick%E9%94%99%E8%AF%AF"><span class="nav-number">6.1.</span> <span class="nav-text">NAS中运行wg-quick错误</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker%E6%90%AD%E5%BB%BAWireGuard%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="nav-number">7.</span> <span class="nav-text">docker搭建WireGuard服务端</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tailscale%E7%9A%84VPN%E6%96%B9%E6%A1%88"><span class="nav-number">8.</span> <span class="nav-text">Tailscale的VPN方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">8.1.</span> <span class="nav-text">Android客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MAC-OS%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">8.2.</span> <span class="nav-text">MAC OS客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF-%E8%83%8C%E6%99%AF"><span class="nav-number">8.3.</span> <span class="nav-text">显示应用场景&#x2F;背景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">9.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -149,18 +150,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">386</span>
+          <span class="site-state-item-count">387</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-count">83</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">259</span>
+        <span class="site-state-item-count">260</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -185,13 +186,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
-      iptables应用
+      <a class="popular-posts-link" href="/202409081010.html" rel="bookmark">
+      WIFI远程无线中继之K2P刷机Padavan无线桥接功能
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409081010.html" rel="bookmark">
-      WIFI远程无线中继之K2P刷机Padavan无线桥接功能
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
       </a>
     </li>
     <li class="popular-posts-item">
@@ -200,13 +201,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310051715.html" rel="bookmark">
-      Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)(部分转载)
+      <a class="popular-posts-link" href="/202308242111.html" rel="bookmark">
+      如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202308242111.html" rel="bookmark">
-      如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng
+      <a class="popular-posts-link" href="/202310051715.html" rel="bookmark">
+      Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)(部分转载)
       </a>
     </li>
     <li class="popular-posts-item">
@@ -215,8 +216,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
-      光猫设置端口映射IP端口转发
+      <a class="popular-posts-link" href="/202408131618.html" rel="bookmark">
+      NAS安装及应用supervisor进程守护
       </a>
     </li>
   </ul>
@@ -233,6 +234,11 @@
                 最新文章
         </div>
         <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/202507220832.html" title="关于国内手机安装Google全家桶谷歌全家桶服务框架frameworkPlayServicePlayStore" target=""  class="popular-posts-link">
+                  关于国内手机安装Google全家桶谷歌全家桶服务框架frameworkPlayServicePlayStore
+                  </a>
+                </li>
                 <li class="popular-posts-item">
                   <a href="/202506291735.html" title="Nintendo Switch安装塞尔达传说王国之泪Mod大师模式" target=""  class="popular-posts-link">
                   Nintendo Switch安装塞尔达传说王国之泪Mod大师模式
@@ -251,11 +257,6 @@
                 <li class="popular-posts-item">
                   <a href="/202506122201.html" title="光猫设置端口映射IP端口转发" target=""  class="popular-posts-link">
                   光猫设置端口映射IP端口转发
-                  </a>
-                </li>
-                <li class="popular-posts-item">
-                  <a href="/202506081611.html" title="Switch安装安卓系统用于调试硬件" target=""  class="popular-posts-link">
-                  Switch安装安卓系统用于调试硬件
                   </a>
                 </li>
         </ul>
@@ -408,7 +409,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
+      <time title="Modified: 2025-07-19 16:17:12" itemprop="dateModified" datetime="2025-07-19T16:17:12+08:00">2025-07-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -438,7 +439,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>28 mins.</span>
+      <span>31 mins.</span>
     </span>
 </div>
 
@@ -450,7 +451,7 @@
     
     <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.com:3/i/2024/09/10/66e00d44aa551.png">
 
-<p>使用WireGuard将不同地区的局域网或设备连接起来, 组成一个内部虚拟专用网络</p>
+<p>使用WireGuard将不同地区的局域网或设备连接起来, 组成一个内部虚拟专用网络; 增加Tailscale方案</p>
 <span id="more"></span>
 
 <div> 
@@ -508,6 +509,7 @@
 <li><p>客户端四: OpenWrt作为WireGuard客户端接入VPN网络</p>
 </li>
 </ol>
+<p>新增章节Tailscale</p>
 <p>未完待续….</p>
 <h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=vpn" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
@@ -672,9 +674,39 @@
 <hr>
 <h1 id="docker搭建WireGuard服务端"><a href="#docker搭建WireGuard服务端" class="headerlink" title="docker搭建WireGuard服务端"></a>docker搭建WireGuard服务端</h1><p>状态实时查看界面: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4yMDM6NTE4MjEv" rel="noopener external nofollow noreferrer">http://192.168.6.203:51821/</a></p>
 <p>docker-compose.yml</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">etc_wireguard:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">wg-easy:</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="comment"># Change Language:</span></span><br><span class="line">      <span class="comment"># (Supports: en, ua, ru, tr, no, pl, fr, de, ca, es, ko, vi, nl, is, pt, chs, cht, it, th, hi)</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">LANG=en</span></span><br><span class="line">      <span class="comment">#  Required:</span></span><br><span class="line">      <span class="comment"># Change this to your host&#x27;s public address</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">WG_HOST=raspberrypi.local</span></span><br><span class="line"></span><br><span class="line">      <span class="comment"># Optional:</span></span><br><span class="line">      <span class="comment"># - PASSWORD_HASH=$$2y$$10$$hBCoykrB95WSzuV4fafBzOHWKu9sbyVa34GJr8VV5R/pIelfEMYyG (needs double $$, hash of &#x27;foobar123&#x27;; see &quot;How_to_generate_an_bcrypt_hash.md&quot; for generate the hash)</span></span><br><span class="line">      <span class="comment"># - PORT=51821</span></span><br><span class="line">      <span class="comment"># - WG_PORT=51820</span></span><br><span class="line">      <span class="comment"># - WG_CONFIG_PORT=92820</span></span><br><span class="line">      <span class="comment"># - WG_DEFAULT_ADDRESS=10.8.0.x</span></span><br><span class="line">      <span class="comment"># - WG_DEFAULT_DNS=1.1.1.1</span></span><br><span class="line">      <span class="comment"># - WG_MTU=1420</span></span><br><span class="line">      <span class="comment"># - WG_ALLOWED_IPS=192.168.15.0/24, 10.0.1.0/24</span></span><br><span class="line">      <span class="comment"># - WG_PERSISTENT_KEEPALIVE=25</span></span><br><span class="line">      <span class="comment"># - WG_PRE_UP=echo &quot;Pre Up&quot; &gt; /etc/wireguard/pre-up.txt</span></span><br><span class="line">      <span class="comment"># - WG_POST_UP=echo &quot;Post Up&quot; &gt; /etc/wireguard/post-up.txt</span></span><br><span class="line">      <span class="comment"># - WG_PRE_DOWN=echo &quot;Pre Down&quot; &gt; /etc/wireguard/pre-down.txt</span></span><br><span class="line">      <span class="comment"># - WG_POST_DOWN=echo &quot;Post Down&quot; &gt; /etc/wireguard/post-down.txt</span></span><br><span class="line">      <span class="comment"># - UI_TRAFFIC_STATS=true</span></span><br><span class="line">      <span class="comment"># - UI_CHART_TYPE=0 # (0 Charts disabled, 1 # Line chart, 2 # Area chart, 3 # Bar chart)</span></span><br><span class="line">      <span class="comment"># - WG_ENABLE_ONE_TIME_LINKS=true</span></span><br><span class="line">      <span class="comment"># - UI_ENABLE_SORT_CLIENTS=true</span></span><br><span class="line">      <span class="comment"># - WG_ENABLE_EXPIRES_TIME=true</span></span><br><span class="line">      <span class="comment"># - ENABLE_PROMETHEUS_METRICS=false</span></span><br><span class="line">      <span class="comment"># - PROMETHEUS_METRICS_PASSWORD=$$2a$$12$$vkvKpeEAHD78gasyawIod.1leBMKg8sBwKW.pQyNsq78bXV3INf2G # (needs double $$, hash of &#x27;prometheus_password&#x27;; see &quot;How_to_generate_an_bcrypt_hash.md&quot; for generate the hash)</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">image:</span> <span class="string">ghcr.io/wg-easy/wg-easy</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">wg-easy</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">etc_wireguard:/etc/wireguard</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;51820:51820/udp&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;51821:51821/tcp&quot;</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">cap_add:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NET_ADMIN</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SYS_MODULE</span></span><br><span class="line">      <span class="comment"># - NET_RAW # Uncomment if using Podman</span></span><br><span class="line">    <span class="attr">sysctls:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">net.ipv4.ip_forward=1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">net.ipv4.conf.all.src_valid_mark=1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">etc_wireguard:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">wg-easy:</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="comment"># Change Language:</span></span><br><span class="line">      <span class="comment"># (Supports: en, ua, ru, tr, no, pl, fr, de, ca, es, ko, vi, nl, is, pt, chs, cht, it, th, hi)</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">LANG=en</span></span><br><span class="line">      <span class="comment">#  Required:</span></span><br><span class="line">      <span class="comment"># Change this to your host&#x27;s public address</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">WG_HOST=raspberrypi.local</span></span><br><span class="line"></span><br><span class="line">      <span class="comment"># Optional:</span></span><br><span class="line">      <span class="comment"># - PASSWORD_HASH=$$2y$$10$$hBCoykrB95WSzuV4fafBzOHWKu9sbyVa34GJr8VV5R/pIelfEMYyG (needs double $$, hash of &#x27;foobar123&#x27;; see &quot;How_to_generate_an_bcrypt_hash.md&quot; for generate the hash)</span></span><br><span class="line">      <span class="comment"># - PORT=51821</span></span><br><span class="line">      <span class="comment"># - WG_PORT=51820</span></span><br><span class="line">      <span class="comment"># - WG_CONFIG_PORT=92820</span></span><br><span class="line">      <span class="comment"># - WG_DEFAULT_ADDRESS=10.8.0.x</span></span><br><span class="line">      <span class="comment"># - WG_DEFAULT_DNS=1.1.1.1</span></span><br><span class="line">      <span class="comment"># - WG_MTU=1420</span></span><br><span class="line">      <span class="comment"># - WG_ALLOWED_IPS=192.168.15.0/24, 10.0.1.0/24</span></span><br><span class="line">      <span class="comment"># - WG_PERSISTENT_KEEPALIVE=25</span></span><br><span class="line">      <span class="comment"># - WG_PRE_UP=echo &quot;Pre Up&quot; &gt; /etc/wireguard/pre-up.txt</span></span><br><span class="line">      <span class="comment"># - WG_POST_UP=echo &quot;Post Up&quot; &gt; /etc/wireguard/post-up.txt</span></span><br><span class="line">      <span class="comment"># - WG_PRE_DOWN=echo &quot;Pre Down&quot; &gt; /etc/wireguard/pre-down.txt</span></span><br><span class="line">      <span class="comment"># - WG_POST_DOWN=echo &quot;Post Down&quot; &gt; /etc/wireguard/post-down.txt</span></span><br><span class="line">      <span class="comment"># - UI_TRAFFIC_STATS=true</span></span><br><span class="line">      <span class="comment"># - UI_CHART_TYPE=0 # (0 Charts disabled, 1 # Line chart, 2 # Area chart, 3 # Bar chart)</span></span><br><span class="line">      <span class="comment"># - WG_ENABLE_ONE_TIME_LINKS=true</span></span><br><span class="line">      <span class="comment"># - UI_ENABLE_SORT_CLIENTS=true</span></span><br><span class="line">      <span class="comment"># - WG_ENABLE_EXPIRES_TIME=true</span></span><br><span class="line">      <span class="comment"># - ENABLE_PROMETHEUS_METRICS=false</span></span><br><span class="line">      <span class="comment"># - PROMETHEUS_METRICS_PASSWORD=$$2a$$12$$vkvKpeEAHD78gasyawIod.1leBMKg8sBwKW.pQyNsq78bXV3INf2G # (needs double $$, hash of &#x27;prometheus_password&#x27;; see &quot;How_to_generate_an_bcrypt_hash.md&quot; for generate the hash)</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">image:</span> <span class="string">ghcr.io/wg-easy/wg-easy</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">wg-easy</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./etc_wireguard:/etc/wireguard</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;51820:51820/udp&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;51821:51821/tcp&quot;</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">cap_add:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NET_ADMIN</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SYS_MODULE</span></span><br><span class="line">      <span class="comment"># - NET_RAW # Uncomment if using Podman</span></span><br><span class="line">    <span class="attr">sysctls:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">net.ipv4.ip_forward=1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">net.ipv4.conf.all.src_valid_mark=1</span></span><br></pre></td></tr></table></figure>
 
 <p>如本文第一章照片所示, 这个工具很人性化, 整个设置非常简便, 节省时间.</p>
+<hr>
+<h1 id="Tailscale的VPN方案"><a href="#Tailscale的VPN方案" class="headerlink" title="Tailscale的VPN方案"></a>Tailscale的VPN方案</h1><p>优点: 安卓的流量全部走远程的服务器, 各个APP都会识别远程的IP(比如 闲鱼 等会识别远程的IP和位置)</p>
+<p>注册tailscale建议使用Hotmail&#x2F;Outlook的微软账号.</p>
+<p>设置到旁路由, 或者主路由</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mkdir tun &amp;&amp; mkdir lib</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">下面是docker-compose.yaml</span></span><br><span class="line">vi docker-compose.yaml</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">version: &#x27;3.8&#x27;</span><br><span class="line">services:</span><br><span class="line">  tailscale:</span><br><span class="line">    image: tailscale/tailscale:latest</span><br><span class="line">    container_name: tailscale</span><br><span class="line">    network_mode: host</span><br><span class="line">    volumes:</span><br><span class="line">      - ./tun:/dev/net/tun</span><br><span class="line">      - ./lib:/var/lib</span><br><span class="line">    environment:</span><br><span class="line">      - TS_AUTH_KEY=tskey-auth-kAxuYZ8wMC21CNTRL-Eyia43QCsAagRFUNtZGHBasETVAGGXXX</span><br><span class="line">      - TS_STATE_DIR=/var/lib/tailscale</span><br><span class="line">      - TS_HOSTNAME=Debian12docker</span><br><span class="line">      - TS_EXTRA_ARGS=--advertise-routes=192.168.6.0/24 --advertise-exit-node</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p>设置在Tailscale的Access Control 里面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;tagOwners&quot;: &#123;</span><br><span class="line">		// 设置 tag 和拥有者，tag 可以不用改，后面的邮箱改成你自己的账号名</span><br><span class="line">		&quot;tag:docker&quot;: [&quot;XXXX@outlook.com&quot;],</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;autoApprovers&quot;: &#123;</span><br><span class="line">		// 设置自动开启子网功能：192.168.X.0/24 改成你家里网段，这个很重要，后面也还要用到，简单理解即你家路由器 ip 地址的最后一个数字改成 0 并加上/24 ，假如你的路由器管理页面是 192.168.31.1 ，则应填 192.168.31.0/24</span><br><span class="line">		&quot;routes&quot;: &#123;</span><br><span class="line">			&quot;192.168.6.0/24&quot;: [&quot;XXXX@outlook.com&quot;, &quot;tag:docker&quot;],</span><br><span class="line">		&#125;,</span><br><span class="line">		// 设置自动开启 exitnode 功能，可选</span><br><span class="line">		&quot;exitNode&quot;: [&quot;tag:docker&quot;],</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>生成密钥的页面:</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2025/07/18/6879f004eebfc.png" alt="image-20250718145558425"></p>
+<p>这个密钥就是用在docker-compose中的密钥</p>
+<h2 id="Android客户端"><a href="#Android客户端" class="headerlink" title="Android客户端"></a>Android客户端</h2><p>下载安卓客户端文件安装, 比如: tailscale-android-universal-1.84.0.apk</p>
+<p>下载地址: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9wa2dzLnRhaWxzY2FsZS5jb20vc3RhYmxlLyNtYWNvcw==" rel="noopener external nofollow noreferrer">https://pkgs.tailscale.com/stable/#macos</a></p>
+<p>安装后登录;</p>
+<p>然后自动就连接上了(会要求在本机 新建一个文件夹)</p>
+<p>开启连接成功后, VPN显示建立成功</p>
+<h2 id="MAC-OS客户端"><a href="#MAC-OS客户端" class="headerlink" title="MAC OS客户端"></a>MAC OS客户端</h2><p>被这个卡死:  Change security settings on the startup disk of a Mac with Apple silicon</p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zdXBwb3J0LmFwcGxlLmNvbS9lbi1jYS9ndWlkZS9tYWMtaGVscC9tY2hsNzY4ZjcyOTEvbWFj" rel="noopener external nofollow noreferrer">Change security settings on the startup disk of a Mac with Apple silicon</a></p>
+<h2 id="显示应用场景-背景"><a href="#显示应用场景-背景" class="headerlink" title="显示应用场景&#x2F;背景"></a>显示应用场景&#x2F;背景</h2><p>本地用Windows笔记本或者游戏的主机</p>
+<p>用一台淘汰的Windows主机, 安装双网口的网卡, 一个做LAN, 另一个做WAN;</p>
+<p>然后这台Windows用作软路由, 用Hyper安装OpenWrt的虚拟机, 用来把WAN口拨号, Lan口转接到交换机或者旁路由</p>
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuaW9pb3guY29tL2FyY2hpdmVzLzE0My5odG1s" rel="noopener external nofollow noreferrer">https://www.ioiox.com/archives/143.html</a></p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3dnLWVhc3kvd2ctZWFzeQ==" rel="noopener external nofollow noreferrer">https://github.com/wg-easy/wg-easy</a></p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cud2lyZWd1YXJkLmNvbS9pbnN0YWxsLw==" rel="noopener external nofollow noreferrer">https://www.wireguard.com/install/</a></p>
@@ -696,6 +728,11 @@
                     最新文章
             </div>
             <ul class="popular-posts">
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202507220832.html" title="关于国内手机安装Google全家桶谷歌全家桶服务框架frameworkPlayServicePlayStore" target="" class="popular-posts-link">
+                      关于国内手机安装Google全家桶谷歌全家桶服务框架frameworkPlayServicePlayStore
+                      </a>
+                    </li>
                     <li class="popular-posts-item" style="text-align: left;">
                       <a href="/202506291735.html" title="Nintendo Switch安装塞尔达传说王国之泪Mod大师模式" target="" class="popular-posts-link">
                       Nintendo Switch安装塞尔达传说王国之泪Mod大师模式
@@ -734,11 +771,6 @@
                     <li class="popular-posts-item" style="text-align: left;">
                       <a href="/202505041100.html" title="Docker搭建基于WebRTC点对点传输工具FastSend-去中心化" target="" class="popular-posts-link">
                       Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
-                      </a>
-                    </li>
-                    <li class="popular-posts-item" style="text-align: left;">
-                      <a href="/202504161659.html" title="Docker搭建pigallery2目录优先的图片库网站" target="" class="popular-posts-link">
-                      Docker搭建pigallery2目录优先的图片库网站
                       </a>
                     </li>
             </ul>
@@ -807,13 +839,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
-      iptables应用
+      <a class="popular-posts-link" href="/202409081010.html" rel="bookmark">
+      WIFI远程无线中继之K2P刷机Padavan无线桥接功能
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409081010.html" rel="bookmark">
-      WIFI远程无线中继之K2P刷机Padavan无线桥接功能
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
       </a>
     </li>
     <li class="popular-posts-item">
@@ -822,13 +854,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202310051715.html" rel="bookmark">
-      Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)(部分转载)
+      <a class="popular-posts-link" href="/202308242111.html" rel="bookmark">
+      如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202308242111.html" rel="bookmark">
-      如何修改LEDE和X86_64位OpenWrt的默认80管理端口-CarlZeng
+      <a class="popular-posts-link" href="/202310051715.html" rel="bookmark">
+      Clash for Windows 设置方法入门(适用于Windows+Mac+安卓)(部分转载)
       </a>
     </li>
     <li class="popular-posts-item">
@@ -837,8 +869,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
-      光猫设置端口映射IP端口转发
+      <a class="popular-posts-link" href="/202408131618.html" rel="bookmark">
+      NAS安装及应用supervisor进程守护
       </a>
     </li>
   </ul>
@@ -858,6 +890,11 @@
             最新文章
     </div>
     <ul class="popular-posts">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202507220832.html" title="关于国内手机安装Google全家桶谷歌全家桶服务框架frameworkPlayServicePlayStore" target="" class="popular-posts-link">
+              [2025/07/22] 关于国内手机安装Google全家桶谷歌全家桶服务框架frameworkPlayServicePlayStore
+              </a>
+            </li>
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202506291735.html" title="Nintendo Switch安装塞尔达传说王国之泪Mod大师模式" target="" class="popular-posts-link">
               [2025/06/29] Nintendo Switch安装塞尔达传说王国之泪Mod大师模式
@@ -896,11 +933,6 @@
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202505041100.html" title="Docker搭建基于WebRTC点对点传输工具FastSend-去中心化" target="" class="popular-posts-link">
               [2025/05/04] Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202504161659.html" title="Docker搭建pigallery2目录优先的图片库网站" target="" class="popular-posts-link">
-              [2025/04/16] Docker搭建pigallery2目录优先的图片库网站
               </a>
             </li>
     </ul>
@@ -1011,7 +1043,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
+        <time title="Modified: 2025-07-19 16:17:12" itemprop="dateModified" datetime="2025-07-19T16:17:12+08:00">2025-07-19</time>
       </span>
 
 </div>

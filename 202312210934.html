@@ -18,17 +18,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="技术参考，理解IPTV组播原理">
+    <meta name="description" content="技术参考，理解IPTV组播原理;  新增M3U-TXT播放列表相互转换工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源">
 <meta property="og:url" content="https://www.carlzeng.com/202312210934.html">
 <meta property="og:site_name" content="云随笔 Carl Notes">
-<meta property="og:description" content="技术参考，理解IPTV组播原理">
+<meta property="og:description" content="技术参考，理解IPTV组播原理;  新增M3U-TXT播放列表相互转换工具">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/b9cc9087-b87c-4f9b-8396-7379bcaa5c58/5eJusyLJHIHOTIxVeVS8J6uYqIj-mr6g8KIabe67tJCgSzyWcn-WZWaAJQ/deep/0/image.png">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/1ed67490-bf71-4e18-99fb-4cdcf71e2ff4/yBl9mX140Oh5gdiTWM8WrO3ngCGlUf9TbN7ZdT0jmfu2APYITPfIjBgC2w/deep/0/image.png">
 <meta property="article:published_time" content="2023-12-21T01:34:56.000Z">
-<meta property="article:modified_time" content="2024-10-25T13:16:40.486Z">
+<meta property="article:modified_time" content="2025-07-26T01:41:53.422Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="andriod">
 <meta property="article:tag" content="机顶盒">
@@ -101,7 +101,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">259</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">82</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">386</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Nhc2U=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">260</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">83</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">387</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Nhc2U=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -150,18 +150,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">386</span>
+          <span class="site-state-item-count">387</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-count">83</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">259</span>
+        <span class="site-state-item-count">260</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -235,6 +235,11 @@
         </div>
         <ul class="popular-posts">
                 <li class="popular-posts-item">
+                  <a href="/202507220832.html" title="关于国内手机安装Google全家桶谷歌全家桶服务框架frameworkPlayServicePlayStore" target=""  class="popular-posts-link">
+                  关于国内手机安装Google全家桶谷歌全家桶服务框架frameworkPlayServicePlayStore
+                  </a>
+                </li>
+                <li class="popular-posts-item">
                   <a href="/202506291735.html" title="Nintendo Switch安装塞尔达传说王国之泪Mod大师模式" target=""  class="popular-posts-link">
                   Nintendo Switch安装塞尔达传说王国之泪Mod大师模式
                   </a>
@@ -252,11 +257,6 @@
                 <li class="popular-posts-item">
                   <a href="/202506122201.html" title="光猫设置端口映射IP端口转发" target=""  class="popular-posts-link">
                   光猫设置端口映射IP端口转发
-                  </a>
-                </li>
-                <li class="popular-posts-item">
-                  <a href="/202506081611.html" title="Switch安装安卓系统用于调试硬件" target=""  class="popular-posts-link">
-                  Switch安装安卓系统用于调试硬件
                   </a>
                 </li>
         </ul>
@@ -409,7 +409,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
+      <time title="修改时间：2025-07-26 09:41:53" itemprop="dateModified" datetime="2025-07-26T09:41:53+08:00">2025-07-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -451,7 +451,7 @@
     
     <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="">
 
-<p>技术参考，理解IPTV组播原理</p>
+<p>技术参考，理解IPTV组播原理;  新增M3U-TXT播放列表相互转换工具</p>
 <span id="more"></span>
 
 <h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>技术参考，理解IPTV组播原理；经历2天时间的实践，曲折过程，成功把组播转单播播放</p>
@@ -557,7 +557,7 @@ IGMPProxy
 <p>跨ISP时，用HK或JP的CDN都不如直接连接来得快。</p>
 <h1 id="移动网络播放IPTV组播"><a href="#移动网络播放IPTV组播" class="headerlink" title="移动网络播放IPTV组播"></a>移动网络播放IPTV组播</h1><p>开始尝试扫描 北京移动通用组播<br>        通用组播列表永久地址（北京移动网络通用，可以在支持组播的环境中任意播放）</p>
 <p>K2P Padavan，修改IP：192.168.1.12<br>    修改为了，避开移动猫中的192.168.1.1网段。</p>
-<p>ssh <a href="mailto:&#97;&#x64;&#109;&#105;&#x6e;&#64;&#49;&#x39;&#50;&#x2e;&#49;&#x36;&#x38;&#46;&#x31;&#46;&#49;&#50;">&#97;&#x64;&#109;&#105;&#x6e;&#64;&#49;&#x39;&#50;&#x2e;&#49;&#x36;&#x38;&#46;&#x31;&#46;&#49;&#50;</a><br>    yes<br>    可以正常启用udpxy -p 8013</p>
+<p>ssh <a href="mailto:&#x61;&#x64;&#x6d;&#105;&#x6e;&#x40;&#x31;&#x39;&#50;&#x2e;&#49;&#54;&#56;&#46;&#49;&#46;&#49;&#x32;">&#x61;&#x64;&#x6d;&#105;&#x6e;&#x40;&#x31;&#x39;&#50;&#x2e;&#49;&#54;&#56;&#46;&#49;&#46;&#49;&#x32;</a><br>    yes<br>    可以正常启用udpxy -p 8013</p>
 <p>记录成功（接收组播数据）<br>    移动猫的IPTV口连接Padavan的Lan口！必须是IPTV口到K2P路由器的Lan口（wan口不行），<br>    然后在后台开启 udpxy -p 8013 -m 192.168.1.12  (没有)<br>        就可以接收到组播数据rtp:&#x2F;&#x2F;228.1.1.194:8002；VLC可以播放。<br>    然后路由器设置：【已截图】必须要在路由上开启：<br>            启用 IGMP&#x2F;MLD 侦听	<br>            M2U - 以太网交换机: HW IGMP&#x2F;MLD snooping<br>            M2U - 无线 2.4G:	muli…</p>
 <p><img data-src="https://www.evernote.com/shard/s122/sh/b9cc9087-b87c-4f9b-8396-7379bcaa5c58/5eJusyLJHIHOTIxVeVS8J6uYqIj-mr6g8KIabe67tJCgSzyWcn-WZWaAJQ/deep/0/image.png" alt="Padavan系统的K2P路由器IPTV设置"></p>
 <p>下一步： 用udpxy转化出http数据<br>        udpxy -p 8013 -m 192.168.1.12<br>        udpxy -p 8014</p>
@@ -594,7 +594,12 @@ IGMPProxy
 
 
 
-<h1 id="将M3U转化为TXT格式"><a href="#将M3U转化为TXT格式" class="headerlink" title="将M3U转化为TXT格式"></a>将M3U转化为TXT格式</h1><p>用 perfect tv播放主播地址卡！</p>
+<h1 id="将M3U转化为TXT格式"><a href="#将M3U转化为TXT格式" class="headerlink" title="将M3U转化为TXT格式"></a>将M3U转化为TXT格式</h1><p>发布最新版可用的工具: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3R4dDJtM3UuaHRtbA==" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:3/txt2m3u.html</a></p>
+<iframe style="box-shadow: 0px 0px 20px -10px;" src="https://c.carlzeng.com:3/txt2m3u.html" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+
+
+<p>用 perfect tv播放主播地址卡！</p>
 <p>用diyp播放同样的组播地址就很快<br>    <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTo0NDQzL3R2bW1jYXN0" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:4443/tvmmcast</a></p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用场景：直接播放组播的地址。请使用DIYP，</span><br><span class="line">同样的配置文件Perfect TV超级卡，没法用；全线下架Perfect TV这个APP，哎</span><br></pre></td></tr></table></figure>
 
@@ -682,7 +687,7 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用新的padavan（有大量的可用空间），把包放到/tmp下了；如何下载？</span><br><span class="line">tcpdump -i any -w iptv.cap                                                       </span><br><span class="line">tcpdump: listening on any, link-type LINUX_SLL (Linux cooked v1), capture size 262144 bytes </span><br><span class="line">^C39215 packets captured                                                                    </span><br><span class="line">39318 packets received by filter                                                            </span><br><span class="line">0 packets dropped by kernel   </span><br></pre></td></tr></table></figure>
 
 <p>扫描到一个24M的cap包，怎么下载呢？padavan<br>     用scp, 打开Mac的Terminal</p>
-<p>​	&gt; scp <a href="mailto:&#97;&#x64;&#x6d;&#x69;&#110;&#x40;&#49;&#x39;&#x32;&#46;&#x31;&#x36;&#56;&#46;&#49;&#46;&#x32;">&#97;&#x64;&#x6d;&#x69;&#110;&#x40;&#49;&#x39;&#x32;&#46;&#x31;&#x36;&#56;&#46;&#49;&#46;&#x32;</a>:&#x2F;tmp&#x2F;iptv.cap &#x2F;Users&#x2F;carlzeng&#x2F;AppTesting<br>​	<a href="mailto:&#x61;&#x64;&#x6d;&#x69;&#110;&#64;&#x31;&#x39;&#x32;&#x2e;&#x31;&#x36;&#x38;&#x2e;&#49;&#46;&#50;">&#x61;&#x64;&#x6d;&#x69;&#110;&#64;&#x31;&#x39;&#x32;&#x2e;&#x31;&#x36;&#x38;&#x2e;&#49;&#46;&#50;</a>‘s password:<br>​	iptv.cap                                                  100%   24MB   5.8MB&#x2F;s   00:04   </p>
+<p>​	&gt; scp <a href="mailto:&#x61;&#x64;&#x6d;&#105;&#110;&#x40;&#x31;&#57;&#50;&#46;&#x31;&#x36;&#56;&#x2e;&#x31;&#x2e;&#x32;">&#x61;&#x64;&#x6d;&#105;&#110;&#x40;&#x31;&#57;&#50;&#46;&#x31;&#x36;&#56;&#x2e;&#x31;&#x2e;&#x32;</a>:&#x2F;tmp&#x2F;iptv.cap &#x2F;Users&#x2F;carlzeng&#x2F;AppTesting<br>​	<a href="mailto:&#x61;&#100;&#x6d;&#x69;&#x6e;&#64;&#49;&#x39;&#x32;&#x2e;&#49;&#x36;&#x38;&#46;&#x31;&#46;&#x32;">&#x61;&#100;&#x6d;&#x69;&#x6e;&#64;&#49;&#x39;&#x32;&#x2e;&#49;&#x36;&#x38;&#46;&#x31;&#46;&#x32;</a>‘s password:<br>​	iptv.cap                                                  100%   24MB   5.8MB&#x2F;s   00:04   </p>
 <p>两次抓下来2个25M得cap包，用Wireshark打开，找不到关键的 :-(</p>
 <h2 id="本章节感谢列表："><a href="#本章节感谢列表：" class="headerlink" title="本章节感谢列表："></a>本章节感谢列表：</h2><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vcm9nZXIteXUvcC8xNjM0Nzg2MS5odG1s" rel="noopener external nofollow noreferrer">adb shell input keyevent 控制按键输入</a></p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbWlsdG9uL3AvNDYyMjEwNy5odG1s" rel="noopener external nofollow noreferrer">利用scp 远程上传下载文件&#x2F;文件夹和ssh远程执行命令</a></p>
@@ -716,6 +721,11 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
                     最新文章
             </div>
             <ul class="popular-posts">
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202507220832.html" title="关于国内手机安装Google全家桶谷歌全家桶服务框架frameworkPlayServicePlayStore" target="" class="popular-posts-link">
+                      关于国内手机安装Google全家桶谷歌全家桶服务框架frameworkPlayServicePlayStore
+                      </a>
+                    </li>
                     <li class="popular-posts-item" style="text-align: left;">
                       <a href="/202506291735.html" title="Nintendo Switch安装塞尔达传说王国之泪Mod大师模式" target="" class="popular-posts-link">
                       Nintendo Switch安装塞尔达传说王国之泪Mod大师模式
@@ -754,11 +764,6 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
                     <li class="popular-posts-item" style="text-align: left;">
                       <a href="/202505041100.html" title="Docker搭建基于WebRTC点对点传输工具FastSend-去中心化" target="" class="popular-posts-link">
                       Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
-                      </a>
-                    </li>
-                    <li class="popular-posts-item" style="text-align: left;">
-                      <a href="/202504161659.html" title="Docker搭建pigallery2目录优先的图片库网站" target="" class="popular-posts-link">
-                      Docker搭建pigallery2目录优先的图片库网站
                       </a>
                     </li>
             </ul>
@@ -879,6 +884,11 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
     </div>
     <ul class="popular-posts">
             <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202507220832.html" title="关于国内手机安装Google全家桶谷歌全家桶服务框架frameworkPlayServicePlayStore" target="" class="popular-posts-link">
+              [2025/07/22] 关于国内手机安装Google全家桶谷歌全家桶服务框架frameworkPlayServicePlayStore
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
               <a href="/202506291735.html" title="Nintendo Switch安装塞尔达传说王国之泪Mod大师模式" target="" class="popular-posts-link">
               [2025/06/29] Nintendo Switch安装塞尔达传说王国之泪Mod大师模式
               </a>
@@ -916,11 +926,6 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202505041100.html" title="Docker搭建基于WebRTC点对点传输工具FastSend-去中心化" target="" class="popular-posts-link">
               [2025/05/04] Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202504161659.html" title="Docker搭建pigallery2目录优先的图片库网站" target="" class="popular-posts-link">
-              [2025/04/16] Docker搭建pigallery2目录优先的图片库网站
               </a>
             </li>
     </ul>
@@ -1031,7 +1036,7 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
+        <time title="修改时间：2025-07-26 09:41:53" itemprop="dateModified" datetime="2025-07-26T09:41:53+08:00">2025-07-26</time>
       </span>
 
 </div>
