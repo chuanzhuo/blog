@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="NetSuite库存盘点接口探讨及WMS系统对接实例, 思路探讨文章不涉及商业应用或客户信息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NetSuite库存盘点接口探讨及WMS系统对接实例">
+<meta property="og:url" content="https://www.carlzeng.com/en/202508280924.html">
+<meta property="og:site_name" content="云随笔 Carl Notes">
+<meta property="og:description" content="NetSuite库存盘点接口探讨及WMS系统对接实例, 思路探讨文章不涉及商业应用或客户信息">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/08/29/68b109d13a243.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/08/29/68b1209347b60.png">
+<meta property="article:published_time" content="2025-08-28T01:24:53.000Z">
+<meta property="article:modified_time" content="2025-08-29T03:45:50.067Z">
+<meta property="article:author" content="Carl Notes">
+<meta property="article:tag" content="NetSuite">
+<meta property="article:tag" content="接口">
+<meta property="article:tag" content="Integration">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.carlzeng.com:3/i/2025/08/29/68b109d13a243.png">
+
+
+<link rel="canonical" href="https://www.carlzeng.com/en/202508280924.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.com/202508280924.html","path":"en/202508280924.html","title":"NetSuite库存盘点接口探讨及WMS系统对接实例"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>NetSuite库存盘点接口探讨及WMS系统对接实例 | 云随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.com:4443">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">云随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">ERP IT方案 电玩</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">263</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">84</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">390</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Nhc2U=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
+  </ul>
+
+    <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <!--<div class="search-header">-->
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="58" placeholder="全局检索..." spellcheck="false" type="search" class="search-input">
+      </div>
+      <!--</div>-->
+    </div>
+    </form>
+
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NetSuite-%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">NetSuite 实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Inventory-Count%E5%9C%A8Script%E4%B8%AD%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-number">4.1.</span> <span class="nav-text">Inventory Count在Script中局限性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E8%BA%AB%E4%B8%8A%E7%9A%84%E5%B1%80%E9%99%90"><span class="nav-number">4.1.1.</span> <span class="nav-text">本身上的局限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E4%B8%8A%E5%B1%80%E9%99%90"><span class="nav-number">4.1.2.</span> <span class="nav-text">流程上局限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%81%B5%E6%B4%BB%E6%80%9D%E8%B7%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">4.2.</span> <span class="nav-text">灵活思路解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-RestLet-Script"><span class="nav-number">4.3.</span> <span class="nav-text">Sample RestLet Script</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-Inventory-Count-User-Event"><span class="nav-number">4.4.</span> <span class="nav-text">Sample Inventory Count User Event</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POSTMAN%E5%8F%8A%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.5.</span> <span class="nav-text">POSTMAN及设置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Notes</p>
+  <div class="site-description" itemprop="description">眼观心察 沉淀共享 版本持续更新</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">390</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">84</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">263</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200903300921.html" rel="bookmark">
+      netsuite Bin Numbers 输入原理-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202211182125.html" rel="bookmark">
+      netsuite query account balance-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201811151045.html" rel="bookmark">
+      NetSuite Data Migration Implementation NetSuite数据批量更新思路-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201703162254.html" rel="bookmark">
+      NetSuite Build-In Error Message: The record has been deleted since you have retrieved it.-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202205110811.html" rel="bookmark">
+      NetSuite's next generation transaction - Inbound Shipment-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201701151056.html" rel="bookmark">
+      How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201708292107.html" rel="bookmark">
+      NetSuite SearchFilter Transaction Internal Status List SS 2.0-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202211162129.html" rel="bookmark">
+      Share how to use Bootstrap in NetSuite SuiteLet-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+    <div class="pjax">
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新文章
+        </div>
+        <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/202508280924.html" title="NetSuite库存盘点接口探讨及WMS系统对接实例" target=""  class="popular-posts-link">
+                  NetSuite库存盘点接口探讨及WMS系统对接实例
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202508041651.html" title="免费给小宝宝下载歌曲的步骤和技巧" target=""  class="popular-posts-link">
+                  免费给小宝宝下载歌曲的步骤和技巧
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202507260959.html" title="吉比特光猫HG6145D1改桥接获超级密码开Telnet" target=""  class="popular-posts-link">
+                  吉比特光猫HG6145D1改桥接获超级密码开Telnet
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202507220832.html" title="手机安装Google全家桶谷歌服务框架" target=""  class="popular-posts-link">
+                  手机安装Google全家桶谷歌服务框架
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202506291735.html" title="Nintendo Switch安装塞尔达传说王国之泪Mod大师模式" target=""  class="popular-posts-link">
+                  Nintendo Switch安装塞尔达传说王国之泪Mod大师模式
+                  </a>
+                </li>
+        </ul>
+      </div>
+    </div>
+
+    <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <!--<div class="search-header">-->
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="58" placeholder="全站检索..." spellcheck="false" type="search" class="search-input">
+      </div>
+      <!--</div>-->
+    </div>
+    </form>
+    <style>
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      margin-top: 30px !important;
+      padding: clamp(17px, 5%, 40px) clamp(17px, 7%, 50px) !important;
+      max-width: none !important;
+      border-radius: 6px !important;
+      box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview *{
+      box-sizing: border-box !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading {
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5{
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
+      margin-top: 20px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      width: 100% !important;
+      height: 40px !important;
+      border-radius: 6px !important;
+      border: 2px solid #e9e8e8 !important;
+      background-color: #fff !important;
+      outline: none !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      color: #000000 !important;
+      font-family: "Montserrat" !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 20px !important;
+      text-align: center !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+      color: #000000 !important;
+      opacity: 1 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input:-ms-input-placeholder {
+      color: #000000 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::-ms-input-placeholder {
+      color: #000000 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
+      margin-top: 10px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+      width: 100% !important;
+      height: 40px !important;
+      border: 0 !important;
+      border-radius: 6px !important;
+      line-height: 0px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
+      cursor: pointer !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+      color: #231f20 !important;
+      font-family: "Montserrat" !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 25px !important;
+      text-align: center !important;
+      text-decoration: none !important;
+      display: flex !important;
+      width: 100% !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 10px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
+      margin-left: 10px !important;
+      height: 1.13em !important;
+      max-height: 1.13em !important;
+    }
+    </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
+      订阅最新文章
+    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="请输入您的邮箱地址后回车确认" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
+      订阅
+    </button></div></div></form></div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/202508280924.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="description" content="眼观心察 沉淀共享 版本持续更新">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="NetSuite库存盘点接口探讨及WMS系统对接实例 | 云随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          NetSuite库存盘点接口探讨及WMS系统对接实例
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-08-29 11:45:50" itemprop="dateModified" datetime="2025-08-29T11:45:50+08:00">2025-08-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/202508280924.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>30 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.com:3/i/2025/08/29/68b109d13a243.png">
+
+<p>NetSuite库存盘点接口探讨及WMS系统对接实例, 思路探讨文章不涉及商业应用或客户信息</p>
+<span id="more"></span>
+
+<div> 
+<button onclick="synthesizeSpeech()">朗读全文</button>
+</div>
+<audio controls id="audioPlayer">Your browser does not support the audio element.</audio>      
+<script>
+  function synthesizeSpeech() { 
+    var inputText = document.getElementsByClassName('post-block')[0].innerText;
+    var voice = "ZH";
+    var url = 'https://tts.carlzeng.com:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
+    var audioPlayer = document.getElementById('audioPlayer');          
+    audioPlayer.src = url;
+    audioPlayer.load();
+    audioPlayer.play();
+  }
+</script>
+
+
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>了解NetSuite库存盘点接口, 以及WMS系统对接实例</p>
+<p>学习NetSuite如果通过Restlet进行接口类设计和开发</p>
+<p>已提前隐去客户的私人信息, 本文内容不针对任何特定客户, 本文只是思路的探讨, 如有侵权, 请<a href="carl.zeng@me.com">联系作者</a>删除</p>
+<h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><p>把两个实例代码在NetSuite中创建脚本记录, 配置Integration Record, 让RestLet可以与外界通信</p>
+<p>抛砖引玉, 展开思路; 这一类的接口设计(或系统对接, 拓展NetSuite或外部系统功能)都可以引用参考</p>
+<p>下面的实现方法已局限于特定的应用(库存盘点), 难免会局限思维, 仅可作为一个特定的实例, 现实当中可以搭配更加灵活的设计, 让整体多系统之间实现协调, 从而达到拓展单一系统功能局限性或包容特定行业应用的特色等目的.</p>
+<p>解放人力, 高效协作(系统间, 人与人之间)</p>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=netsuite" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+<h1 id="NetSuite-实现方法"><a href="#NetSuite-实现方法" class="headerlink" title="NetSuite 实现方法"></a>NetSuite 实现方法</h1><h2 id="Inventory-Count在Script中局限性"><a href="#Inventory-Count在Script中局限性" class="headerlink" title="Inventory Count在Script中局限性"></a>Inventory Count在Script中局限性</h2><h3 id="本身上的局限"><a href="#本身上的局限" class="headerlink" title="本身上的局限"></a>本身上的局限</h3><ol>
+<li><p>Inventory Count 不支持自定义表单(custom form), 但是可以新建自定义表头字段并应用到InventoryCount</p>
+</li>
+<li><p>Inventory Count 不支持显示自定义表头和列表自定义字段</p>
+</li>
+<li><p>Inventory Count 不支持保存自定义列表字段的内容(即便在Script中写入了自定义列表字段内容, 保存单据后, 自定义列表字段内容会清空消失)</p>
+</li>
+<li><p>当在点击“开始盘点Start Count” 动作之前输入货品以及详细的盘点数据, 然后在点击‘开始盘点’, 完成盘点 和审批的流程性动作, 会导致盘点的货品数据只是调增</p>
+<ol>
+<li>也就是说详细的盘点数据 不是覆盖目前系统中货品的库存数据, 而是新增添加到当前的库存数据中去.</li>
+</ol>
+</li>
+</ol>
+<h3 id="流程上局限"><a href="#流程上局限" class="headerlink" title="流程上局限"></a>流程上局限</h3><ol>
+<li><p>创建库存盘点单. 根据现实情况输入Body上面的字段. 然后搜索或选择货品，然后选择库位和单位后即可保存(此时为‘未结’状态)</p>
+</li>
+<li><p>之后点击“开始盘点” 为‘已开始’状态后点击编辑即可输入	盘点数量，	输入完数量后才能点击盘点	明细按钮打开对话框，然后输入批次号、下拉框状态、数量保存即可，此时状态下拉框	默认只有Good - available 可用状态，输入好判断数量后点击“完成盘点”后就完成了盘点单</p>
+</li>
+<li><p>点击“完成盘点”按钮后状态就变成了	‘已完成&#x2F;待审批’状态，	之后就是审批流程。审批通过后就回生成一个库存调整单，就会按照原来的盘点数量来加数量审批通过	后就	会操作数据.  在开发过程中，接收到传过来的值后就可以立即进行一整套操作，跳过审批直接生成库存调整，执行完成后返回信息。</p>
+</li>
+</ol>
+<p>走完库存盘点单Inventory Count 需要搭配 新建保存初始单据 然后 “开始盘点Start Count” 和 “完成盘点Complete Count” 和 “审批Approve”这个四个动作action</p>
+<p>问题来了: 我们通过Reslet来接收WMS传来的库存盘单数据, 然后需要一步到位走完NetSuite的库存盘点的四个动作流程才能生效(影响货品库存和GL Impact)</p>
+<p>经过测试 “开始盘点Start Count” 和 “完成盘点Complete Count” 和 “审批Approve”这个四个动作是无法用非’N&#x2F;action’的NetSuite默认包来实现的, 然后Restlet又无法支持引用’N&#x2F;action’包.</p>
+<h2 id="灵活思路解决方案"><a href="#灵活思路解决方案" class="headerlink" title="灵活思路解决方案"></a>灵活思路解决方案</h2><p>Restlet先接收和缓存库存盘点的详细Item数据(比如批次和数量等), 然后通过另新建一个User Event Script来继续操作剩下的流程 “开始盘点Start Count”, 输入详细的盘点数量数据 和 “完成盘点Complete Count” 和 “审批Approve”</p>
+<h2 id="Sample-RestLet-Script"><a href="#Sample-RestLet-Script" class="headerlink" title="Sample RestLet Script"></a>Sample RestLet Script</h2><p>解析WMS post传来的参数, 做好数据对应后, 在把详细的盘点数据缓存在表单头的自定义字段中(custbody_wms_invcount_items), 等待下一步处理.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">// Copyright 2018, All rights reserved, Carl Notes.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// No part of this file may be copied or used without express, written</span></span><br><span class="line"><span class="comment">// permission of Carl Notes.</span></span><br><span class="line"><span class="comment">//------------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">//Script: ep_OperateInvCount_rl.js</span></span><br><span class="line"><span class="comment">//Developer: Carl</span></span><br><span class="line"><span class="comment">//Date: 20250808</span></span><br><span class="line"><span class="comment">//Description: API REST Endpoint: Operate Inventory Count</span></span><br><span class="line"><span class="comment">//			   Running in nonpaged mode, per search upto 4000 results.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@NApiVersion</span> 2.1</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@NScriptType</span> <span class="variable">Restlet</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="title function_">define</span>([<span class="string">&#x27;N/error&#x27;</span>, <span class="string">&#x27;N/record&#x27;</span>, <span class="string">&#x27;N/runtime&#x27;</span>, <span class="string">&#x27;N/search&#x27;</span>],</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>&#123;<span class="type">error</span>&#125; <span class="variable">error</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>&#123;<span class="type">record</span>&#125; <span class="variable">record</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>&#123;<span class="type">runtime</span>&#125; <span class="variable">runtime</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>&#123;<span class="type">search</span>&#125; <span class="variable">search</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">(<span class="params">error, record, runtime, search</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * Defines the function that is executed when a GET request is sent to a RESTlet.</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">Object</span>&#125; <span class="variable">requestParams</span> - Parameters from HTTP request URL; parameters passed as an Object (for all supported</span></span><br><span class="line"><span class="comment">         *     content types)</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@returns</span> &#123;<span class="type">string | Object</span>&#125; HTTP response body; returns a string when request Content-Type is &#x27;text/plain&#x27;; returns an</span></span><br><span class="line"><span class="comment">         *     Object when request Content-Type is &#x27;application/json&#x27; or &#x27;application/xml&#x27;</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@since</span> 2015.2</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">const</span> <span class="title function_">get</span> = (<span class="params">requestParams</span>) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * Defines the function that is executed when a PUT request is sent to a RESTlet.</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">string | Object</span>&#125; <span class="variable">requestBody</span> - The HTTP request body; request body are passed as a string when request</span></span><br><span class="line"><span class="comment">         *     Content-Type is &#x27;text/plain&#x27; or parsed into an Object when request Content-Type is &#x27;application/json&#x27; (in which case</span></span><br><span class="line"><span class="comment">         *     the body must be a valid JSON)</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@returns</span> &#123;<span class="type">string | Object</span>&#125; HTTP response body; returns a string when request Content-Type is &#x27;text/plain&#x27;; returns an</span></span><br><span class="line"><span class="comment">         *     Object when request Content-Type is &#x27;application/json&#x27; or &#x27;application/xml&#x27;</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@since</span> 2015.2</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">const</span> <span class="title function_">put</span> = (<span class="params">requestBody</span>) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * Defines the function that is executed when a POST request is sent to a RESTlet.</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">string | Object</span>&#125; <span class="variable">requestBody</span> - The HTTP request body; request body is passed as a string when request</span></span><br><span class="line"><span class="comment">         *     Content-Type is &#x27;text/plain&#x27; or parsed into an Object when request Content-Type is &#x27;application/json&#x27; (in which case</span></span><br><span class="line"><span class="comment">         *     the body must be a valid JSON)</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@returns</span> &#123;<span class="type">string | Object</span>&#125; HTTP response body; returns a string when request Content-Type is &#x27;text/plain&#x27;; returns an</span></span><br><span class="line"><span class="comment">         *     Object when request Content-Type is &#x27;application/json&#x27; or &#x27;application/xml&#x27;</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@since</span> 2015.2</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">const</span> <span class="title function_">post</span> = (<span class="params">requestBody</span>) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//Validate requestBody</span></span><br><span class="line">            <span class="keyword">if</span> (!requestBody.<span class="property">body</span> || !requestBody.<span class="property">body</span>.<span class="property">location</span>||!requestBody.<span class="property">body</span>.<span class="property">internalid</span>||!requestBody.<span class="property">body</span>.<span class="property">data</span>) &#123;</span><br><span class="line">            </span><br><span class="line">                error.<span class="title function_">create</span>(&#123;</span><br><span class="line">                    <span class="attr">name</span>: <span class="string">&#x27;Invalid_Post_Data&#x27;</span>,</span><br><span class="line">                    <span class="attr">message</span>: <span class="string">&#x27;Please check documenation for validate Post data&#x27;</span>,</span><br><span class="line">                    <span class="attr">notifyOff</span>: <span class="literal">false</span></span><br><span class="line">                &#125;);</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">var</span> objInvCountBd = requestBody.<span class="property">body</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Create Inventory Count</span></span><br><span class="line">            <span class="keyword">var</span> recInvCount = record.<span class="title function_">create</span>(&#123;</span><br><span class="line">                <span class="attr">type</span>: record.<span class="property">Type</span>.<span class="property">INVENTORY_COUNT</span>,</span><br><span class="line">                <span class="attr">isDynamic</span>: <span class="literal">false</span></span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            recInvCount.<span class="title function_">setValue</span>(<span class="string">&#x27;location&#x27;</span>, objInvCountBd.<span class="property">location</span>);</span><br><span class="line">            recInvCount.<span class="title function_">setValue</span>(<span class="string">&#x27;account&#x27;</span>, <span class="number">1423</span>);</span><br><span class="line">            recInvCount.<span class="title function_">setValue</span>(<span class="string">&#x27;custbody_wms_invcount_id&#x27;</span>, objInvCountBd.<span class="property">internalid</span>);</span><br><span class="line">            recInvCount.<span class="title function_">setValue</span>(<span class="string">&#x27;custbody_wms_invcount_user&#x27;</span>, requestBody.<span class="property">user</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> arrInvCountItems = [];</span><br><span class="line">            arrInvCountItems = objInvCountBd.<span class="property">data</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> ln=<span class="number">0</span> ; arrInvCountItems &amp;&amp; ln&lt;arrInvCountItems.<span class="property">length</span>; ln++)&#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">var</span> objInvCountItm = arrInvCountItems[ln];</span><br><span class="line"></span><br><span class="line">                recInvCount.<span class="title function_">setSublistValue</span>(&#123;</span><br><span class="line">                    <span class="attr">sublistId</span>: <span class="string">&#x27;item&#x27;</span>,</span><br><span class="line">                    <span class="attr">fieldId</span>: <span class="string">&#x27;item&#x27;</span>,</span><br><span class="line">                    <span class="attr">value</span>: objInvCountItm.<span class="property">item</span>,</span><br><span class="line">                    <span class="attr">line</span>: ln</span><br><span class="line">                &#125;);</span><br><span class="line">                recInvCount.<span class="title function_">setSublistValue</span>(&#123;</span><br><span class="line">                    <span class="attr">sublistId</span>: <span class="string">&#x27;item&#x27;</span>,</span><br><span class="line">                    <span class="attr">fieldId</span>: <span class="string">&#x27;binnumber&#x27;</span>,</span><br><span class="line">                    <span class="attr">value</span>: objInvCountItm.<span class="property">binnumber</span>, <span class="comment">//20 = 2.配件库位; 23 = 1. 成品库位</span></span><br><span class="line">                    <span class="attr">line</span>: ln</span><br><span class="line">                &#125;);</span><br><span class="line"></span><br><span class="line">                arrInvCountItems[ln].<span class="property">line</span> = ln;</span><br><span class="line">            &#125;</span><br><span class="line">            recInvCount.<span class="title function_">setValue</span>(<span class="string">&#x27;custbody_wms_invcount_items&#x27;</span>, <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(arrInvCountItems));</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> intInvCountId = recInvCount.<span class="title function_">save</span>(&#123;</span><br><span class="line">                <span class="attr">enableSourcing</span>: <span class="literal">true</span></span><br><span class="line">                <span class="comment">// , ignoreMandatoryFields: true</span></span><br><span class="line">            &#125;);</span><br><span class="line">            log.<span class="title function_">audit</span>(<span class="string">&#x27;ep_OperateInvCount_rl&#x27;</span>, <span class="string">&#x27;Created New Inventory Count: &#x27;</span> + intInvCountId);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// return &#123;</span></span><br><span class="line">            <span class="comment">//     code: 0,</span></span><br><span class="line">            <span class="comment">//     msg: &#x27;推送库存盘点单成功&#x27;</span></span><br><span class="line">            <span class="comment">// &#125;;</span></span><br><span class="line">            <span class="keyword">return</span> intInvCountId;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * Defines the function that is executed when a DELETE request is sent to a RESTlet.</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">Object</span>&#125; <span class="variable">requestParams</span> - Parameters from HTTP request URL; parameters are passed as an Object (for all supported</span></span><br><span class="line"><span class="comment">         *     content types)</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@returns</span> &#123;<span class="type">string | Object</span>&#125; HTTP response body; returns a string when request Content-Type is &#x27;text/plain&#x27;; returns an</span></span><br><span class="line"><span class="comment">         *     Object when request Content-Type is &#x27;application/json&#x27; or &#x27;application/xml&#x27;</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@since</span> 2015.2</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">const</span> <span class="title function_">doDelete</span> = (<span class="params">requestParams</span>) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="comment">// get: post,</span></span><br><span class="line">            <span class="comment">// , put,</span></span><br><span class="line">            <span class="attr">post</span>: post</span><br><span class="line">            <span class="comment">// , delete: doDelete</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Sample-Inventory-Count-User-Event"><a href="#Sample-Inventory-Count-User-Event" class="headerlink" title="Sample Inventory Count User Event"></a>Sample Inventory Count User Event</h2><p>根据严格限定条件, 锁定只有第一次RestLet传来的库存盘点单才进行自动化处理. “开始盘点Start Count”, 输入每个货品详细的盘点批次和数量等数据 和 “完成盘点Complete Count” 和 “审批Approve”这个四个动作action</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@NApiVersion</span> 2.1</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@NScriptType</span> <span class="variable">UserEventScript</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="title function_">define</span>([<span class="string">&#x27;N/action&#x27;</span>, <span class="string">&#x27;N/error&#x27;</span>, <span class="string">&#x27;N/record&#x27;</span>, <span class="string">&#x27;N/runtime&#x27;</span>, <span class="string">&#x27;N/search&#x27;</span>],</span><br><span class="line"></span><br><span class="line">    <span class="function">(<span class="params">action, error, record, runtime, search</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * Defines the function definition that is executed before record is loaded.</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">Object</span>&#125; <span class="variable">scriptContext</span></span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">Record</span>&#125; scriptContext.newRecord - New record</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; scriptContext.type - Trigger type; use values from the context.UserEventType enum</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">Form</span>&#125; scriptContext.form - Current form</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">ServletRequest</span>&#125; scriptContext.request - HTTP request information sent from the browser for a client action only.</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@since</span> 2015.2</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">const</span> <span class="title function_">beforeLoad</span> = (<span class="params">scriptContext</span>) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * Defines the function definition that is executed before record is submitted.</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">Object</span>&#125; <span class="variable">scriptContext</span></span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">Record</span>&#125; scriptContext.newRecord - New record</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">Record</span>&#125; scriptContext.oldRecord - Old record</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; scriptContext.type - Trigger type; use values from the context.UserEventType enum</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@since</span> 2015.2</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">const</span> <span class="title function_">beforeSubmit</span> = (<span class="params">scriptContext</span>) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * Defines the function definition that is executed after record is submitted.</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">Object</span>&#125; <span class="variable">scriptContext</span></span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">Record</span>&#125; scriptContext.newRecord - New record</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">Record</span>&#125; scriptContext.oldRecord - Old record</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; scriptContext.type - Trigger type; use values from the context.UserEventType enum</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@since</span> 2015.2</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">const</span> <span class="title function_">afterSubmit</span> = (<span class="params">scriptContext</span>) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> currentRecord = scriptContext.<span class="property">newRecord</span>;</span><br><span class="line">            <span class="keyword">var</span> intInvCountId = currentRecord.<span class="property">id</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//flag for restlet API transaction</span></span><br><span class="line">            <span class="keyword">if</span> (!currentRecord.<span class="title function_">getValue</span>(<span class="string">&#x27;custbody_wms_invcount_id&#x27;</span>))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//only available for RESTLET</span></span><br><span class="line">            <span class="keyword">if</span> (runtime.<span class="property">executionContext</span> != runtime.<span class="property">ContextType</span>.<span class="property">RESTLET</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (!currentRecord.<span class="title function_">getValue</span>(<span class="string">&#x27;status&#x27;</span>)|| </span><br><span class="line">                currentRecord.<span class="title function_">getValue</span>(<span class="string">&#x27;status&#x27;</span>) == <span class="string">&#x27;Open&#x27;</span> || currentRecord.<span class="title function_">getValue</span>(<span class="string">&#x27;statuskey&#x27;</span>) == <span class="string">&#x27;A&#x27;</span>) &#123;</span><br><span class="line"></span><br><span class="line">                action.<span class="title function_">execute</span>(&#123;</span><br><span class="line">                    <span class="attr">id</span>: <span class="string">&#x27;startcount&#x27;</span>,</span><br><span class="line">                    <span class="attr">recordType</span>: currentRecord.<span class="property">type</span>,</span><br><span class="line">                    <span class="attr">params</span>: &#123;</span><br><span class="line">                        <span class="attr">recordId</span>: currentRecord.<span class="property">id</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//re-enter the quantity and count detail</span></span><br><span class="line">                recInvCount = record.<span class="title function_">load</span>(&#123;</span><br><span class="line">                    <span class="attr">type</span>: record.<span class="property">Type</span>.<span class="property">INVENTORY_COUNT</span>,</span><br><span class="line">                    <span class="attr">id</span>: intInvCountId</span><br><span class="line">                &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                <span class="keyword">var</span> strItemData = recInvCount.<span class="title function_">getValue</span>(<span class="string">&#x27;custbody_wms_invcount_items&#x27;</span>);</span><br><span class="line">                <span class="keyword">var</span> arrInvCountItems = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(strItemData);</span><br><span class="line">                <span class="keyword">var</span> arrLinkedArrIdx = [];</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span> ; arrInvCountItems &amp;&amp; i&lt;arrInvCountItems.<span class="property">length</span>; i++)&#123;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">var</span> objInvCountItm = arrInvCountItems[i];</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">var</span> intItemId_tmp = recInvCount.<span class="title function_">getSublistValue</span>(&#123;</span><br><span class="line">                        <span class="attr">sublistId</span>: <span class="string">&#x27;item&#x27;</span>,</span><br><span class="line">                        <span class="attr">fieldId</span>: <span class="string">&#x27;item&#x27;</span>,</span><br><span class="line">                        <span class="attr">line</span>: i</span><br><span class="line">                    &#125;);</span><br><span class="line">                    <span class="keyword">var</span> intItemBin_tmp = recInvCount.<span class="title function_">getSublistValue</span>(&#123;</span><br><span class="line">                        <span class="attr">sublistId</span>: <span class="string">&#x27;item&#x27;</span>,</span><br><span class="line">                        <span class="attr">fieldId</span>: <span class="string">&#x27;binnumber&#x27;</span>,</span><br><span class="line">                        <span class="attr">line</span>: i</span><br><span class="line">                    &#125;);</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> (objInvCountItm.<span class="property">item</span>!=intItemId_tmp || objInvCountItm.<span class="property">binnumber</span>!=intItemBin_tmp)</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    <span class="comment">// countdetail  --------------------------</span></span><br><span class="line">                    <span class="keyword">var</span> intQtyTtl = <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">var</span> arrCountDtl = objInvCountItm.<span class="property">info</span>;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">var</span> objCountDtl = recInvCount.<span class="title function_">getSublistSubrecord</span>(&#123;</span><br><span class="line">                        <span class="attr">sublistId</span>: <span class="string">&#x27;item&#x27;</span>,</span><br><span class="line">                        <span class="attr">fieldId</span>: <span class="string">&#x27;countdetail&#x27;</span>,</span><br><span class="line">                        <span class="attr">line</span>: i</span><br><span class="line">                    &#125;);</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">var</span> countDtlIdx=<span class="number">0</span> ; arrCountDtl &amp;&amp; countDtlIdx&lt;arrCountDtl.<span class="property">length</span>; countDtlIdx++)&#123;</span><br><span class="line"></span><br><span class="line">                        objCountDtl.<span class="title function_">setSublistValue</span>(&#123;</span><br><span class="line">                            <span class="attr">sublistId</span>: <span class="string">&#x27;inventorydetail&#x27;</span>,</span><br><span class="line">                            <span class="attr">fieldId</span>: <span class="string">&#x27;inventorynumber&#x27;</span>,</span><br><span class="line">                            <span class="attr">value</span>: arrCountDtl[countDtlIdx].<span class="property">inventorynumber</span>,<span class="comment">//&#x27;Test20250812&#x27;,</span></span><br><span class="line">                            <span class="attr">line</span>: countDtlIdx</span><br><span class="line">                        &#125;);</span><br><span class="line">                        objCountDtl.<span class="title function_">setSublistValue</span>(&#123;</span><br><span class="line">                            <span class="attr">sublistId</span>: <span class="string">&#x27;inventorydetail&#x27;</span>,</span><br><span class="line">                            <span class="attr">fieldId</span>: <span class="string">&#x27;inventorystatus&#x27;</span>,</span><br><span class="line">                            <span class="attr">value</span>: arrCountDtl[countDtlIdx].<span class="property">inventorystatus</span>,<span class="comment">//&#x27;1&#x27;,</span></span><br><span class="line">                            <span class="attr">line</span>: countDtlIdx</span><br><span class="line">                        &#125;);</span><br><span class="line">                        objCountDtl.<span class="title function_">setSublistValue</span>(&#123;</span><br><span class="line">                            <span class="attr">sublistId</span>: <span class="string">&#x27;inventorydetail&#x27;</span>,</span><br><span class="line">                            <span class="attr">fieldId</span>: <span class="string">&#x27;quantity&#x27;</span>,</span><br><span class="line">                            <span class="attr">value</span>: arrCountDtl[countDtlIdx].<span class="property">inventorycount</span>,<span class="comment">//&#x27;999&#x27;,</span></span><br><span class="line">                            <span class="attr">line</span>: countDtlIdx</span><br><span class="line">                        &#125;);</span><br><span class="line"></span><br><span class="line">                        intQtyTtl = intQtyTtl + arrCountDtl[countDtlIdx].<span class="property">inventorycount</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    </span><br><span class="line">                    recInvCount.<span class="title function_">setSublistValue</span>(&#123;</span><br><span class="line">                        <span class="attr">sublistId</span>: <span class="string">&#x27;item&#x27;</span>,</span><br><span class="line">                        <span class="attr">fieldId</span>: <span class="string">&#x27;countquantity&#x27;</span>,</span><br><span class="line">                        <span class="attr">value</span>: intQtyTtl,</span><br><span class="line">                        <span class="attr">line</span>: i</span><br><span class="line">                    &#125;);</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">var</span> intInvCountId = recInvCount.<span class="title function_">save</span>();</span><br><span class="line">                log.<span class="title function_">audit</span>(<span class="string">&#x27;wms_invCount_ue&#x27;</span>, <span class="string">&#x27;Updated New Inventory Count: &#x27;</span> + intInvCountId);</span><br><span class="line"></span><br><span class="line">                action.<span class="title function_">execute</span>(&#123;</span><br><span class="line">                    <span class="attr">id</span>: <span class="string">&#x27;completecount&#x27;</span>,</span><br><span class="line">                    <span class="attr">recordType</span>: currentRecord.<span class="property">type</span>,</span><br><span class="line">                    <span class="attr">params</span>: &#123;</span><br><span class="line">                        <span class="attr">recordId</span>: currentRecord.<span class="property">id</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line"></span><br><span class="line">                action.<span class="title function_">execute</span>(&#123;</span><br><span class="line">                    <span class="attr">id</span>: <span class="string">&#x27;approve&#x27;</span>,</span><br><span class="line">                    <span class="attr">recordType</span>: currentRecord.<span class="property">type</span>,</span><br><span class="line">                    <span class="attr">params</span>: &#123;</span><br><span class="line">                        <span class="attr">recordId</span>: currentRecord.<span class="property">id</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="comment">// beforeLoad, beforeSubmit,</span></span><br><span class="line">            afterSubmit</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="POSTMAN及设置"><a href="#POSTMAN及设置" class="headerlink" title="POSTMAN及设置"></a>POSTMAN及设置</h2><p>oAuth 1.0 的设置中, 有个需要注意的地方: 把NetSuite Account ID 放到 header的 Realm 字段中. In Postman in your request tab and then in the authorization tab in the advanced section there is a field called Realm. Put the account id in the realm field with underscores.</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2025/08/29/68b1209347b60.png" alt="image-20250829113750207"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>实例由于隐去所有显示应用的信息, 难免会十分偏向于技术性的探讨, 也变得比较难理解. </p>
+<p>如果您对这类对接设计或开发或应用实现等感兴趣, 可通过下方的链接(或扫码) 与我取得联系</p>
+<p>我们可以进行更加针对性的探讨与交流</p>
+<p>感谢您有耐心看到这里, 祝您生活愉快!~</p>
+<p>本文仅是思路的探讨, 如有侵权, 请<a href="carl.zeng@me.com">联系作者</a>删除修改</p>
+
+
+        <!-- search & recent posts(added 20240914) -->
+        <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
+          <div class="popup search-popup">
+            <div class="search-input-container">
+              <input name="q" autocomplete="off" autocapitalize="off" maxlength="40" placeholder="全站搜索..." spellcheck="false" type="search" class="search-input">    (请输入关键字以后回车，检索内容涵盖全局站点)
+            </div>
+          </div>
+        </form>
+        <p>
+        <div class="">
+          <div class="">
+                <div class="links-of-blogroll-title recent-posts-title">
+              <i class="fa fa-history " aria-hidden="true"></i>
+                    最新文章
+            </div>
+            <ul class="popular-posts">
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202508280924.html" title="NetSuite库存盘点接口探讨及WMS系统对接实例" target="" class="popular-posts-link">
+                      NetSuite库存盘点接口探讨及WMS系统对接实例
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202508041651.html" title="免费给小宝宝下载歌曲的步骤和技巧" target="" class="popular-posts-link">
+                      免费给小宝宝下载歌曲的步骤和技巧
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202507260959.html" title="吉比特光猫HG6145D1改桥接获超级密码开Telnet" target="" class="popular-posts-link">
+                      吉比特光猫HG6145D1改桥接获超级密码开Telnet
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202507220832.html" title="手机安装Google全家桶谷歌服务框架" target="" class="popular-posts-link">
+                      手机安装Google全家桶谷歌服务框架
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202506291735.html" title="Nintendo Switch安装塞尔达传说王国之泪Mod大师模式" target="" class="popular-posts-link">
+                      Nintendo Switch安装塞尔达传说王国之泪Mod大师模式
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202506251456.html" title="友善R4S软路由刷系统" target="" class="popular-posts-link">
+                      友善R4S软路由刷系统
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202506150958.html" title="Switch联网证书浅谈" target="" class="popular-posts-link">
+                      Switch联网证书浅谈
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202506122201.html" title="光猫设置端口映射IP端口转发" target="" class="popular-posts-link">
+                      光猫设置端口映射IP端口转发
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202506081611.html" title="Switch安装安卓系统用于调试硬件" target="" class="popular-posts-link">
+                      Switch安装安卓系统用于调试硬件
+                      </a>
+                    </li>
+            </ul>
+          </div>
+          </div>
+        </p>
+
+        <a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
+        <img src="https://c.carlzeng.com:3/wechatScan.png" border="0">
+
+
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="wechat,weibo,qq,facebook"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Carl Notes
+    <a href='https://www.carlzeng.com/202508280924.html'> 《NetSuite库存盘点接口探讨及WMS系统对接实例》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://www.carlzeng.com/202508280924.html" title="NetSuite库存盘点接口探讨及WMS系统对接实例">https://www.carlzeng.com/202508280924.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <main class="main">
+<div class="column">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200903300921.html" rel="bookmark">
+      netsuite Bin Numbers 输入原理-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202211182125.html" rel="bookmark">
+      netsuite query account balance-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201811151045.html" rel="bookmark">
+      NetSuite Data Migration Implementation NetSuite数据批量更新思路-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201703162254.html" rel="bookmark">
+      NetSuite Build-In Error Message: The record has been deleted since you have retrieved it.-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202205110811.html" rel="bookmark">
+      NetSuite's next generation transaction - Inbound Shipment-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201701151056.html" rel="bookmark">
+      How to create a zip file in NetSuite SuiteScript 2.0 如何在现有SuiteScript中创建和下载ZIP压缩文档-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/201708292107.html" rel="bookmark">
+      NetSuite SearchFilter Transaction Internal Status List SS 2.0-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202211162129.html" rel="bookmark">
+      Share how to use Bootstrap in NetSuite SuiteLet-CarlZeng
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="column">
+<div class="pjax">
+<!-- recent posts -->
+<div class="animated">
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新文章
+    </div>
+    <ul class="popular-posts">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202508280924.html" title="NetSuite库存盘点接口探讨及WMS系统对接实例" target="" class="popular-posts-link">
+              [2025/08/28] NetSuite库存盘点接口探讨及WMS系统对接实例
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202508041651.html" title="免费给小宝宝下载歌曲的步骤和技巧" target="" class="popular-posts-link">
+              [2025/08/04] 免费给小宝宝下载歌曲的步骤和技巧
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202507260959.html" title="吉比特光猫HG6145D1改桥接获超级密码开Telnet" target="" class="popular-posts-link">
+              [2025/07/26] 吉比特光猫HG6145D1改桥接获超级密码开Telnet
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202507220832.html" title="手机安装Google全家桶谷歌服务框架" target="" class="popular-posts-link">
+              [2025/07/22] 手机安装Google全家桶谷歌服务框架
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202506291735.html" title="Nintendo Switch安装塞尔达传说王国之泪Mod大师模式" target="" class="popular-posts-link">
+              [2025/06/29] Nintendo Switch安装塞尔达传说王国之泪Mod大师模式
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202506251456.html" title="友善R4S软路由刷系统" target="" class="popular-posts-link">
+              [2025/06/25] 友善R4S软路由刷系统
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202506150958.html" title="Switch联网证书浅谈" target="" class="popular-posts-link">
+              [2025/06/15] Switch联网证书浅谈
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202506122201.html" title="光猫设置端口映射IP端口转发" target="" class="popular-posts-link">
+              [2025/06/12] 光猫设置端口映射IP端口转发
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202506081611.html" title="Switch安装安卓系统用于调试硬件" target="" class="popular-posts-link">
+              [2025/06/08] Switch安装安卓系统用于调试硬件
+              </a>
+            </li>
+    </ul>
+  </div>
+  </div>
+</div>
+</div>
+</main>
+
+
+<div class="followme">
+  <span><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email Subscription</a>  If the article solved your concern or clear some doubts, please <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLmNvbTozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">buy me a coffee</a>.  Also we can <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">Schedule a Converstion</a></span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">联系我(谈话)</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">IPTV直播</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/202312081128.html">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">M3U8播放器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">MP3与下载</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">ChatGPT问答</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">网络加速器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">文件分享</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">下载电子书</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">IT小工具集合</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2025-08-29 11:45:50" itemprop="dateModified" datetime="2025-08-29T11:45:50+08:00">2025-08-29</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/NetSuite/" rel="tag"># NetSuite</a>
+              <a href="/tags/%E6%8E%A5%E5%8F%A3/" rel="tag"># 接口</a>
+              <a href="/tags/Integration/" rel="tag"># Integration</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202508041651.html" rel="prev" title="免费给小宝宝下载歌曲的步骤和技巧">
+                  <i class="fa fa-angle-left"></i> 免费给小宝宝下载歌曲的步骤和技巧
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>English</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="Select language">
+      
+        <option value="zh-CN" data-href="/202508280924.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/202508280924.html" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+</div>
+
+<!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*.carlzeng.com"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//statcounter.carlzeng.com:4443/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="//statcounter.carlzeng.com:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
+
+<div class="powered-by">
+    <a href='https://www.carlzeng.com/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.com/rss2.xml'>RSS</a> | 选择服务器：<a href="https://www.carlzeng.com">Main</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">US</a>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202508280924.html","pageTitle":"NetSuite库存盘点接口探讨及WMS系统对接实例"}</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>
