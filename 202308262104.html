@@ -27,14 +27,15 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/050f3b8c-d29b-4e2c-92fa-49c631a2cfb3/V1SujW0XEuoOodXuQnwJIS1TjB6Qmkq2kAfXaKd5uDrgRBOiAJ06ykBWIg/deep/0/image.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/02/28/65df1aaa5994d.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/09/17/68ca69d044a2e.png">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/9abacbba-59d7-4b76-a067-816ce42549fc/AGLvh1hpEOIgvktrp73X36krNuRVl43i7FPKouiXx7V0h4veVuPBghRayw/deep/0/image.png">
 <meta property="article:published_time" content="2023-08-26T13:04:00.000Z">
-<meta property="article:modified_time" content="2024-10-25T12:32:22.163Z">
+<meta property="article:modified_time" content="2025-09-17T07:59:08.415Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
-<meta property="article:tag" content="下载">
 <meta property="article:tag" content="NAS">
 <meta property="article:tag" content="Nginx Proxy Manager">
+<meta property="article:tag" content="下载">
 <meta property="article:tag" content="云盘">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.evernote.com/shard/s122/sh/050f3b8c-d29b-4e2c-92fa-49c631a2cfb3/V1SujW0XEuoOodXuQnwJIS1TjB6Qmkq2kAfXaKd5uDrgRBOiAJ06ykBWIg/deep/0/image.png">
@@ -132,7 +133,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%AD%A5%E9%AA%A4%E6%B1%87%E6%80%BB"><span class="nav-number">3.</span> <span class="nav-text">技术步骤汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E8%BF%99%E4%B8%AA%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98refresh-token"><span class="nav-number">3.1.</span> <span class="nav-text">如何获取这个阿里云盘refresh-token</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="nav-number">4.</span> <span class="nav-text">背景知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%84%9F%E8%B0%A2"><span class="nav-number">5.</span> <span class="nav-text">感谢</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD"><span class="nav-number">6.</span> <span class="nav-text">后续</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NAS%E5%AE%89%E8%A3%85Aria2%E4%B8%8B%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">7.</span> <span class="nav-text">NAS安装Aria2下载服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E8%BF%99%E4%B8%AANAS%E4%B8%AD%E7%9A%84docker-aria2-webui"><span class="nav-number">7.1.</span> <span class="nav-text">改进这个NAS中的docker aria2-webui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4%E4%B8%8B%E8%BD%BD%E4%BB%BB%E5%8A%A1%E8%87%B3NAS"><span class="nav-number">7.2.</span> <span class="nav-text">远程提交下载任务至NAS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RPC%E4%B8%8B%E8%BD%BD%E7%9A%84%E2%80%99%E4%BF%9D%E5%AD%98%E8%B7%AF%E5%BE%84%E2%80%99"><span class="nav-number">7.2.1.</span> <span class="nav-text">RPC下载的’保存路径’</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E5%B0%9D%E8%AF%95%E6%AC%A1%E6%95%B0-max-tries-%E4%B8%8E%E9%87%8D%E8%AF%95%E7%AD%89%E5%BE%85%E6%97%B6%E9%97%B4-retry-wait"><span class="nav-number">7.3.</span> <span class="nav-text">最大尝试次数(max-tries)与重试等待时间(retry-wait)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AA%81%E7%A0%B4aria2c%E7%9A%8416%E8%BF%9E%E6%8E%A5%E6%95%B0%E9%99%90%E5%88%B6"><span class="nav-number">8.</span> <span class="nav-text">突破aria2c的16连接数限制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A41-SSH%E8%BF%9BNAS"><span class="nav-number">8.1.</span> <span class="nav-text">步骤1: SSH进NAS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7aria2c%E4%B8%BB%E7%A8%8B%E5%BA%8F"><span class="nav-number">8.2.</span> <span class="nav-text">升级aria2c主程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9aria2c%E4%B8%BB%E7%A8%8B%E5%BA%8F%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">8.3.</span> <span class="nav-text">更改aria2c主程序配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9Aria2c%E7%9A%84%E9%9D%A2%E6%9D%BFAriaNg"><span class="nav-number">8.4.</span> <span class="nav-text">修改Aria2c的面板AriaNg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%B5%8B%E6%95%88%E6%9E%9C"><span class="nav-number">8.5.</span> <span class="nav-text">实测效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next%EF%BC%9Ago%E7%9A%84%E5%B9%B6%E5%8F%91%E4%B8%8B%E8%BD%BD%E5%99%A8"><span class="nav-number">8.6.</span> <span class="nav-text">Next：go的并发下载器</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%AD%A5%E9%AA%A4%E6%B1%87%E6%80%BB"><span class="nav-number">3.</span> <span class="nav-text">技术步骤汇总</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E8%BF%99%E4%B8%AA%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98refresh-token"><span class="nav-number">3.1.</span> <span class="nav-text">如何获取这个阿里云盘refresh-token</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="nav-number">4.</span> <span class="nav-text">背景知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%84%9F%E8%B0%A2"><span class="nav-number">5.</span> <span class="nav-text">感谢</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD"><span class="nav-number">6.</span> <span class="nav-text">后续</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NAS%E5%AE%89%E8%A3%85Aria2%E4%B8%8B%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">7.</span> <span class="nav-text">NAS安装Aria2下载服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E8%BF%99%E4%B8%AANAS%E4%B8%AD%E7%9A%84docker-aria2-webui"><span class="nav-number">7.1.</span> <span class="nav-text">改进这个NAS中的docker aria2-webui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4%E4%B8%8B%E8%BD%BD%E4%BB%BB%E5%8A%A1%E8%87%B3NAS"><span class="nav-number">7.2.</span> <span class="nav-text">远程提交下载任务至NAS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RPC%E4%B8%8B%E8%BD%BD%E7%9A%84%E2%80%99%E4%BF%9D%E5%AD%98%E8%B7%AF%E5%BE%84%E2%80%99"><span class="nav-number">7.2.1.</span> <span class="nav-text">RPC下载的’保存路径’</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E5%B0%9D%E8%AF%95%E6%AC%A1%E6%95%B0-max-tries-%E4%B8%8E%E9%87%8D%E8%AF%95%E7%AD%89%E5%BE%85%E6%97%B6%E9%97%B4-retry-wait"><span class="nav-number">7.3.</span> <span class="nav-text">最大尝试次数(max-tries)与重试等待时间(retry-wait)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AA%81%E7%A0%B4aria2c%E7%9A%8416%E8%BF%9E%E6%8E%A5%E6%95%B0%E9%99%90%E5%88%B6"><span class="nav-number">8.</span> <span class="nav-text">突破aria2c的16连接数限制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A41-SSH%E8%BF%9BNAS"><span class="nav-number">8.1.</span> <span class="nav-text">步骤1: SSH进NAS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7aria2c%E4%B8%BB%E7%A8%8B%E5%BA%8F"><span class="nav-number">8.2.</span> <span class="nav-text">升级aria2c主程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9aria2c%E4%B8%BB%E7%A8%8B%E5%BA%8F%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">8.3.</span> <span class="nav-text">更改aria2c主程序配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9Aria2c%E7%9A%84%E9%9D%A2%E6%9D%BFAriaNg"><span class="nav-number">8.4.</span> <span class="nav-text">修改Aria2c的面板AriaNg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%B5%8B%E6%95%88%E6%9E%9C"><span class="nav-number">8.5.</span> <span class="nav-text">实测效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next%EF%BC%9Ago%E7%9A%84%E5%B9%B6%E5%8F%91%E4%B8%8B%E8%BD%BD%E5%99%A8"><span class="nav-number">8.6.</span> <span class="nav-text">Next：go的并发下载器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Neat-Download-Manager%E5%AE%9E%E7%8E%B0%E6%8D%A2%E6%BA%90%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0"><span class="nav-number">9.</span> <span class="nav-text">Neat Download Manager实现换源断点续传</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -404,7 +405,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-10-25 20:32:22" itemprop="dateModified" datetime="2024-10-25T20:32:22+08:00">2024-10-25</time>
+      <time title="修改时间：2025-09-17 15:59:08" itemprop="dateModified" datetime="2025-09-17T15:59:08+08:00">2025-09-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -446,7 +447,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>26 分钟</span>
+      <span>27 分钟</span>
     </span>
 </div>
 
@@ -586,6 +587,8 @@ sudo docker run -d --name aria2-webui -p 8080:80 -p 6800:6800 -v /volume2/Kingch
 </ol>
 <p>这样2条反代配置以后，返回第一步的Aria2面板（AriaNg）设置RPC地信息为反代以后的https信息（地址和端口), 即可<br>实现外网时也可提交下载任务至NAS。</p>
 <p><img data-src="https://img.carlzeng.com:3/i/2024/02/28/65df1aaa5994d.png"></p>
+<p>20250917更新配置如下: </p>
+<p><img data-src="https://img.carlzeng.com:3/i/2025/09/17/68ca69d044a2e.png" alt="image-20250917155701493"></p>
 <h3 id="RPC下载的’保存路径’"><a href="#RPC下载的’保存路径’" class="headerlink" title="RPC下载的’保存路径’"></a>RPC下载的’保存路径’</h3><p>油猴插件的发送至RPC非常方便，然后速度也快也稳定不断流（夸克480KB&#x2F;s），可是发现RPC的文件下载后在docker的映射目录找不到。<br>检查PRC的详细信息才知道，原来文件信息携带了Windows的目录信息 D:@@@.nsp，这直接导致NAS的docker下载成功后，文件根本找不到。<br>估计停留在了内存里面了，也不知道怎么取下来 :-)</p>
 <p>测试尝试解决（SSH中）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -d --name aria2-webui -p 8080:80 -p 6800:6800 -v /volume2/KingchuxingSSD512G/Download:/data onisuly/aria2-with-webui</span><br><span class="line"></span><br><span class="line">        docker: Error response from daemon: Conflict. The container name &quot;/aria2-webui&quot; is already in use by container &quot;3878b3e6c566c395ee8ffe2538a4ee3de892458facd72c5c6eb7a0995545deef&quot;. You have to remove (or rename) that container to be able to reuse that name.</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">进入docker里面的命令行</span></span><br><span class="line">sudo docker exec -it aria2-webui /bin/bash</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -681,6 +684,8 @@ sudo docker run -d --name aria2-webui -p 8080:80 -p 6800:6800 -v /volume2/Kingch
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">text := <span class="string">&quot;https://qdall01.baidupcs.com/file/7d19b9b918aa2a8378fbc97e09546d8b?bkt=en-24c643f198a62f889617b178e5cec2bac5c80cde035646474703157dcd274bbba0dd05b567b466d1&amp;fid=1996670861-309847-954183442172954&amp;time=1615470389&amp;sign=FDTAXUGERLQlBHSKfWaqir-DCb740ccc5511e5e8fedcff06b081203-DLIjwClp8jhvTCtezZG1c5EB%2BoI%3D&amp;to=92&amp;size=274395838&amp;sta_dx=274395838&amp;sta_cs=21142&amp;sta_ft=mkv&amp;sta_ct=7&amp;sta_mt=7&amp;fm2=MH%2CQingdao%2CAnywhere%2C%2Cshanghai%2Cct&amp;ctime=1424274646&amp;mtime=1486178443&amp;resv0=-1&amp;resv1=0&amp;resv2=rlim&amp;resv3=5&amp;resv4=274395838&amp;vuk=1996670861&amp;iv=0&amp;htype=&amp;randtype=em&amp;newver=1&amp;newfm=1&amp;secfm=1&amp;flow_ver=3&amp;pkey=en-d27c932c79071079b1c5ce8ca7087ee0a722bf4bee97d0e7e8d5cba91bd5389e8bd962717a694c4d&amp;sl=76480590&amp;expires=8h&amp;rt=pr&amp;r=199868329&amp;mlogid=1621347232376378602&amp;vbdid=3403188840&amp;fin=%E6%80%AA%E8%AF%9E%E5%B0%8F%E9%95%87.Gravity.Falls.S01E11.HR-HDTV.x264.AAC.Chs.Eng-Deefun%E8%BF%AA%E5%B9%BB%E5%AD%97%E5%B9%95%E7%BB%84.mkv&amp;fn=%E6%80%AA%E8%AF%9E%E5%B0%8F%E9%95%87.Gravity.Falls.S01E11.HR-HDTV.x264.AAC.Chs.Eng-Deefun%E8%BF%AA%E5%B9%BB%E5%AD%97%E5%B9%95%E7%BB%84.mkv&amp;rtype=1&amp;dp-logid=1621347232376378602&amp;dp-callid=0.1.1&amp;hps=1&amp;tsl=80&amp;csl=80&amp;fsl=-1&amp;csign=dVYKgEit045y%2FYZnjUaT3WXZHfA%3D&amp;so=0&amp;ut=6&amp;uter=4&amp;serv=1&amp;uc=1133405546&amp;ti=5ab0bd4e07f1f550038acada5d35496b1dc2deaff0533f8e&amp;hflag=30&amp;from_type=0&amp;adg=c_edc0108e9fa1ea2bf75676e893bdf053&amp;reqlabel=309847_d_542374c7794461b783501a9d00e48223_-1_18e87ecb8b58d3c5a256ffa3f09e85da&amp;by=themis&quot;</span></span><br><span class="line">	down, err := NewDownloader(text,</span><br><span class="line">		SetTimeout(<span class="number">222601</span>),</span><br><span class="line">		SetDownloadRoutine(<span class="number">20</span>),</span><br><span class="line">		SetStrategyWait(<span class="literal">true</span>),</span><br><span class="line">		SetTryTimes(<span class="number">400</span>),</span><br><span class="line">	)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Println(err)</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		err = down.SaveFile(context.Background())</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(err)</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			fmt.Println(down.option.SaveName)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
 <p>状态：待测试</p>
+<h1 id="Neat-Download-Manager实现换源断点续传"><a href="#Neat-Download-Manager实现换源断点续传" class="headerlink" title="Neat Download Manager实现换源断点续传"></a>Neat Download Manager实现换源断点续传</h1><p>背景: Neat Download Manager之类的多线程下载工具, 在下载网盘的大文件时, 由于某度网盘的链接是有有效时间限制的. 导致再次重新开始下载或者长期下载时, 遇到链接失效的问题. 而重新获取某度网盘的链接, 会导致Neat Download Manager识别为一个新的下载任务, 从而变成从0%开始下载. 如何让这个过程真正的实现断点续传, 将能有效解决网盘大文件下载在的慢速尴尬局面</p>
+<p>相关联: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2xpbmdvY2hhbXAvRmlsZURvd25sb2FkZXIvaXNzdWVzLzEzMDg=" rel="noopener external nofollow noreferrer">https://github.com/lingochamp/FileDownloader/issues/1308</a></p>
 
 
         <!-- search & recent posts(added 20240914) -->
@@ -1014,7 +1019,7 @@ sudo docker run -d --name aria2-webui -p 8080:80 -p 6800:6800 -v /volume2/Kingch
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-10-25 20:32:22" itemprop="dateModified" datetime="2024-10-25T20:32:22+08:00">2024-10-25</time>
+        <time title="修改时间：2025-09-17 15:59:08" itemprop="dateModified" datetime="2025-09-17T15:59:08+08:00">2025-09-17</time>
       </span>
 
 </div>
@@ -1024,9 +1029,9 @@ sudo docker run -d --name aria2-webui -p 8080:80 -p 6800:6800 -v /volume2/Kingch
           <div class="post-tags">
             继续浏览有关
               <a href="/tags/docker/" rel="tag"># docker</a>
-              <a href="/tags/%E4%B8%8B%E8%BD%BD/" rel="tag"># 下载</a>
               <a href="/tags/NAS/" rel="tag"># NAS</a>
               <a href="/tags/Nginx-Proxy-Manager/" rel="tag"># Nginx Proxy Manager</a>
+              <a href="/tags/%E4%B8%8B%E8%BD%BD/" rel="tag"># 下载</a>
               <a href="/tags/%E4%BA%91%E7%9B%98/" rel="tag"># 云盘</a>
             的文章
           </div>
@@ -1163,26 +1168,6 @@ sudo docker run -d --name aria2-webui -p 8080:80 -p 6800:6800 -v /volume2/Kingch
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202308262104.html","pageTitle":"云盘转NAS，云盘转化为本地磁盘，跨平台跨设备同步-CarlZeng"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1215,6 +1200,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>
