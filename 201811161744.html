@@ -18,21 +18,23 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="步骤如下： 1. Got Restlet URL 访问RESTlet的Deployment，这样获取WebService要Post或访问到的具体URL地址， 如果你疑惑RESTlet是什么，那要等我下一篇文章再介绍。 2. Setup Roles for Token user, goes to em">
+    <meta name="description" content="步骤如下： 1. Got Restlet URL 访问RESTlet的Deployment，这样获取WebService要Post或访问到的具体URL地址， 如果你疑惑RESTlet是什么，那要等我下一篇文章再介绍。 2. Setup Roles for Token user">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to setup oAuth 1.0 in NetSuite RESTlet API 如何在NetSuite中设置RESTlet API的oAuth认证-CarlZeng">
 <meta property="og:url" content="https://www.carlzeng.com/201811161744.html">
 <meta property="og:site_name" content="云随笔 Carl Notes">
-<meta property="og:description" content="步骤如下： 1. Got Restlet URL 访问RESTlet的Deployment，这样获取WebService要Post或访问到的具体URL地址， 如果你疑惑RESTlet是什么，那要等我下一篇文章再介绍。 2. Setup Roles for Token user, goes to em">
+<meta property="og:description" content="步骤如下： 1. Got Restlet URL 访问RESTlet的Deployment，这样获取WebService要Post或访问到的具体URL地址， 如果你疑惑RESTlet是什么，那要等我下一篇文章再介绍。 2. Setup Roles for Token user">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/11/09/69107ff480ab7.jpg">
 <meta property="og:image" content="https://img2018.cnblogs.com/blog/41238/201811/41238-20181116174042558-1191669961.png">
 <meta property="og:image" content="https://img2018.cnblogs.com/blog/41238/201811/41238-20181116173640913-410975452.png">
 <meta property="article:published_time" content="2018-11-16T09:44:00.000Z">
-<meta property="article:modified_time" content="2023-10-08T13:38:52.658Z">
+<meta property="article:modified_time" content="2025-11-09T11:50:40.855Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="NetSuite">
+<meta property="article:tag" content="oAuth">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/41238/201811/41238-20181116174042558-1191669961.png">
+<meta name="twitter:image" content="https://img.carlzeng.com:3/i/2025/11/09/69107ff480ab7.jpg">
 
 
 <link rel="canonical" href="https://www.carlzeng.com/201811161744.html">
@@ -91,7 +93,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">268</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">84</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">391</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Nhc2U=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">269</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">85</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">392</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Nhc2U=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -140,18 +142,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">391</span>
+          <span class="site-state-item-count">392</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">84</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">268</span>
+        <span class="site-state-item-count">269</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -196,18 +198,18 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201706231632.html" rel="bookmark">
-      NetSuite SuiteScript 2.0 SFTP API Usage Sample-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/201705041115.html" rel="bookmark">
       Google Sheet NetSuite Integration 设计理念-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202011100824.html" rel="bookmark">
-      How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command-CarlZeng
+      <a class="popular-posts-link" href="/201706231632.html" rel="bookmark">
+      NetSuite SuiteScript 2.0 SFTP API Usage Sample-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202511091926.html" rel="bookmark">
+      如何在NetSuite中设置RESTlet API的oAuth2.0认证
       </a>
     </li>
   </ul>
@@ -224,6 +226,11 @@
                 最新文章
         </div>
         <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/202511091926.html" title="如何在NetSuite中设置RESTlet API的oAuth2.0认证" target=""  class="popular-posts-link">
+                  如何在NetSuite中设置RESTlet API的oAuth2.0认证
+                  </a>
+                </li>
                 <li class="popular-posts-item">
                   <a href="/202510282149.html" title="Javascript如何压缩JSON数据及应用" target=""  class="popular-posts-link">
                   Javascript如何压缩JSON数据及应用
@@ -242,11 +249,6 @@
                 <li class="popular-posts-item">
                   <a href="/202507260959.html" title="吉比特光猫HG6145D1改桥接获超级密码开Telnet" target=""  class="popular-posts-link">
                   吉比特光猫HG6145D1改桥接获超级密码开Telnet
-                  </a>
-                </li>
-                <li class="popular-posts-item">
-                  <a href="/202507220832.html" title="手机安装Google全家桶谷歌服务框架" target=""  class="popular-posts-link">
-                  手机安装Google全家桶谷歌服务框架
                   </a>
                 </li>
         </ul>
@@ -399,7 +401,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+      <time title="修改时间：2025-11-09 19:50:40" itemprop="dateModified" datetime="2025-11-09T19:50:40+08:00">2025-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -441,6 +443,8 @@
     
     <div class="post-body" itemprop="articleBody"><p>步骤如下： 1. Got Restlet URL 访问RESTlet的Deployment，这样获取WebService要Post或访问到的具体URL地址， 如果你疑惑RESTlet是什么，那要等我下一篇文章再介绍。 2. Setup Roles for Token user, goes to em</p>
 <!-- more -->
+
+<p><img data-src="https://img.carlzeng.com:3/i/2025/11/09/69107ff480ab7.jpg" alt="11261762688976_.pic"></p>
 <h3 id="步骤如下："><a href="#步骤如下：" class="headerlink" title="步骤如下："></a>步骤如下：</h3><h4 id="1-Got-Restlet-URL"><a href="#1-Got-Restlet-URL" class="headerlink" title="1. Got Restlet URL"></a>1. Got Restlet URL</h4><p>访问RESTlet的Deployment，这样获取WebService要Post或访问到的具体URL地址，</p>
 <p>如果你疑惑RESTlet是什么，那要等我下一篇文章再介绍。</p>
 <h4 id="2-Setup-Roles-for-Token-user-goes-to-employee-record-to-add。"><a href="#2-Setup-Roles-for-Token-user-goes-to-employee-record-to-add。" class="headerlink" title="2. Setup Roles for Token user, goes to employee record to add。"></a>2. Setup Roles for Token user, goes to employee record to add。</h4><p>这个步骤是指定：授权那个用户访问RESTlet用的；也就是说API Call到NetSuite时所标示的那个Employee，以及具体的角色Role。<br>可以设置：Full Access<br>或者Custom Role，这样可以控制这个定制的角色具体的访问权限，比如那些特定的记录有无访问权限，都有那些具体权限（read，create，delete，full等等）</p>
@@ -471,6 +475,11 @@
                     最新文章
             </div>
             <ul class="popular-posts">
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202511091926.html" title="如何在NetSuite中设置RESTlet API的oAuth2.0认证" target="" class="popular-posts-link">
+                      如何在NetSuite中设置RESTlet API的oAuth2.0认证
+                      </a>
+                    </li>
                     <li class="popular-posts-item" style="text-align: left;">
                       <a href="/202510282149.html" title="Javascript如何压缩JSON数据及应用" target="" class="popular-posts-link">
                       Javascript如何压缩JSON数据及应用
@@ -509,11 +518,6 @@
                     <li class="popular-posts-item" style="text-align: left;">
                       <a href="/202506150958.html" title="Switch联网证书浅谈" target="" class="popular-posts-link">
                       Switch联网证书浅谈
-                      </a>
-                    </li>
-                    <li class="popular-posts-item" style="text-align: left;">
-                      <a href="/202506122201.html" title="光猫设置端口映射IP端口转发" target="" class="popular-posts-link">
-                      光猫设置端口映射IP端口转发
                       </a>
                     </li>
             </ul>
@@ -602,18 +606,18 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201706231632.html" rel="bookmark">
-      NetSuite SuiteScript 2.0 SFTP API Usage Sample-CarlZeng
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/201705041115.html" rel="bookmark">
       Google Sheet NetSuite Integration 设计理念-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202011100824.html" rel="bookmark">
-      How to use NetSuite SDF CLI, CLI for Node.js on Mac, suitecloud command-CarlZeng
+      <a class="popular-posts-link" href="/201706231632.html" rel="bookmark">
+      NetSuite SuiteScript 2.0 SFTP API Usage Sample-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202511091926.html" rel="bookmark">
+      如何在NetSuite中设置RESTlet API的oAuth2.0认证
       </a>
     </li>
   </ul>
@@ -633,6 +637,11 @@
             最新文章
     </div>
     <ul class="popular-posts">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202511091926.html" title="如何在NetSuite中设置RESTlet API的oAuth2.0认证" target="" class="popular-posts-link">
+              [2025/11/09] 如何在NetSuite中设置RESTlet API的oAuth2.0认证
+              </a>
+            </li>
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202510282149.html" title="Javascript如何压缩JSON数据及应用" target="" class="popular-posts-link">
               [2025/10/28] Javascript如何压缩JSON数据及应用
@@ -671,11 +680,6 @@
             <li class="popular-posts-item" style="text-align: left;">
               <a href="/202506150958.html" title="Switch联网证书浅谈" target="" class="popular-posts-link">
               [2025/06/15] Switch联网证书浅谈
-              </a>
-            </li>
-            <li class="popular-posts-item" style="text-align: left;">
-              <a href="/202506122201.html" title="光猫设置端口映射IP端口转发" target="" class="popular-posts-link">
-              [2025/06/12] 光猫设置端口映射IP端口转发
               </a>
             </li>
     </ul>
@@ -786,7 +790,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+        <time title="修改时间：2025-11-09 19:50:40" itemprop="dateModified" datetime="2025-11-09T19:50:40+08:00">2025-11-09</time>
       </span>
 
 </div>
@@ -796,6 +800,7 @@
           <div class="post-tags">
             继续浏览有关
               <a href="/tags/NetSuite/" rel="tag"># NetSuite</a>
+              <a href="/tags/oAuth/" rel="tag"># oAuth</a>
             的文章
           </div>
 
