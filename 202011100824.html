@@ -25,11 +25,13 @@
 <meta property="og:site_name" content="云随笔 Carl Notes">
 <meta property="og:description" content="NetSuite SDF CLI CLI for Node.js on Mac">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/11/11/6912c88f513e3.png">
 <meta property="article:published_time" content="2020-11-10T00:24:00.000Z">
-<meta property="article:modified_time" content="2023-10-08T13:38:52.658Z">
+<meta property="article:modified_time" content="2025-11-12T02:38:13.168Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="NetSuite">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.carlzeng.com:3/i/2025/11/11/6912c88f513e3.png">
 
 
 <link rel="canonical" href="https://www.carlzeng.com/202011100824.html">
@@ -124,7 +126,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-run-SDF-CLI-for-Node-js"><span class="nav-number">2.</span> <span class="nav-text">How to run SDF CLI for Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CLI-for-Node-js-Commands"><span class="nav-number">3.</span> <span class="nav-text">CLI for Node.js Commands</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample"><span class="nav-number">4.</span> <span class="nav-text">Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Practice"><span class="nav-number">5.</span> <span class="nav-text">Practice</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%80%94%E2%80%93Troubleshooting%E2%80%94%E2%80%93"><span class="nav-number">5.0.1.</span> <span class="nav-text">—–Troubleshooting—–</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-run-SDF-CLI-for-Node-js"><span class="nav-number">2.</span> <span class="nav-text">How to run SDF CLI for Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CLI-for-Node-js-Commands"><span class="nav-number">3.</span> <span class="nav-text">CLI for Node.js Commands</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample"><span class="nav-number">4.</span> <span class="nav-text">Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Practice"><span class="nav-number">5.</span> <span class="nav-text">Practice</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%80%94%E2%80%93Troubleshooting%E2%80%94%E2%80%93"><span class="nav-number">5.0.1.</span> <span class="nav-text">—–Troubleshooting—–</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E5%88%B02025-2"><span class="nav-number"></span> <span class="nav-text">更新到2025.2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#suitecloud"><span class="nav-number"></span> <span class="nav-text">suitecloud</span></a></div>
         </div>
         <!--/noindex-->
 
@@ -396,7 +398,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+      <time title="修改时间：2025-11-12 10:38:13" itemprop="dateModified" datetime="2025-11-12T10:38:13+08:00">2025-11-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -426,7 +428,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>12 分钟</span>
+      <span>14 分钟</span>
     </span>
 </div>
 
@@ -596,6 +598,31 @@
 <!--<path>~/FileCabinet/\*</path>-->  
 <!--</files>-->  
 <p>2.3 suitecloud project:deploy</p>
+<h1 id="更新到2025-2"><a href="#更新到2025-2" class="headerlink" title="更新到2025.2"></a>更新到2025.2</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">必需要用管理员模式</span></span><br><span class="line">sudo npm i g --acceptSuiteCloudSDKLicense @oracle/suitecloud-cli</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">更新好后的版本</span></span><br><span class="line">suitecloud --version     </span><br><span class="line">3.1.0</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="suitecloud"><a href="#suitecloud" class="headerlink" title="suitecloud"></a>suitecloud</h1><p>创建项目</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">suitecloud project:create -i    </span><br></pre></td></tr></table></figure>
+
+<p>设置登陆和授权 <strong>suitecloud account:setup</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">suitecloud account:setup                                                </span><br><span class="line">✔ Enter an authentication ID: ****_SB1                                                     </span><br><span class="line">/ Continue the authentication process in the prompted browser.  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">The account has been authenticated for the following company and role: **** [Administrator]. This project will use the authentication ID &quot;****_SB1&quot; as default. If you want to change your default credentials, run &quot;suitecloud account:setup&quot; again.</span><br><span class="line">The account has been successfully set up.</span><br></pre></td></tr></table></figure>
+
+<p>背后弹出的url可知NetSuite内建的intergration给suitecloud APP</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://11666440-sb1.app.netsuite.com/app/login/oauth2/authorize.nl?redirect_uri=http%3A%2F%2F127.0.0.1%3A52300%2Fsuitecloud-auth&amp;client_id=6da57bf05a6247fc876c6d228184ff487760a382a43ac7e93eaff743803d22ac&amp;response_type=code&amp;scope=restlets&amp;state=b80bac9e-bde0-40aa-aebd-f49024d8178b&amp;prompt=&amp;s=r&amp;nonce&amp;code_challenge=Ur7Rcpx5ypwwCa4Av2r18yNGyunrEP-TleYj3SOFar4&amp;code_challenge_method=S256&amp;whence=</span><br></pre></td></tr></table></figure>
+
+<p>弹出页面时cli命令正在等待, 并且监听了本机的52300</p>
+<p>放回的页面地址为:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1:52300/suitecloud-auth?state=b80bac9e-bde0-40aa-aebd-f49024d8178b&amp;role=3&amp;entity=8&amp;company=11666440_SB1&amp;code=9e11c0432aea14abfc8205c1fbb2fb40eb8e62f8f91e11f347d5ba46b1b363a4</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://img.carlzeng.com:3/i/2025/11/11/6912c88f513e3.png" alt="image-20251111132426615"></p>
+<p>上传script文件到NetSuite服务器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">suitecloud file:upload -i    </span><br></pre></td></tr></table></figure>
+
+
+
+
+
 
 
         <!-- search & recent posts(added 20240914) -->
@@ -929,7 +956,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+        <time title="修改时间：2025-11-12 10:38:13" itemprop="dateModified" datetime="2025-11-12T10:38:13+08:00">2025-11-12</time>
       </span>
 
 </div>
