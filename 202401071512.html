@@ -26,7 +26,7 @@
 <meta property="og:description" content="转化文本内容为语音，TTS，生成中文语音，朗读全文，多语言支持">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-07T07:12:46.000Z">
-<meta property="article:modified_time" content="2024-10-25T12:35:06.009Z">
+<meta property="article:modified_time" content="2025-11-17T13:20:54.038Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="docker">
@@ -192,23 +192,23 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
-      芯片SOP8之读写Flash固件XM25QH128CHIQ
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202407111027.html" rel="bookmark">
       Docker搭建BT Tracker服务器贡献BT网络Tracker节点
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
-      多个docker容器间共享单个mariadb(Docker数据库服务)
+      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
+      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
-      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
+      多个docker容器间共享单个mariadb(Docker数据库服务)
       </a>
     </li>
   </ul>
@@ -400,7 +400,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-10-25 20:35:06" itemprop="dateModified" datetime="2024-10-25T20:35:06+08:00">2024-10-25</time>
+      <time title="修改时间：2025-11-17 21:20:54" itemprop="dateModified" datetime="2025-11-17T21:20:54+08:00">2025-11-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -430,7 +430,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
+      <span>7 分钟</span>
     </span>
 </div>
 
@@ -499,6 +499,21 @@ https://github.com/parente/espeakbox
 
 <h1 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h1><p>寻找更精准的朗读AI模型，让中文阅读，更加顺耳</p>
 <p>比如讯飞语音的朗读，比这个好听多了….</p>
+<p><del>ms-ra-forwarder</del></p>
+<p><del>这是一个历史的, 无效的docker, 无法实现语音转化</del></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  ms-ra-forwarder:</span><br><span class="line">    container_name: ms-ra-forwarder</span><br><span class="line">    image: wxxxcxx/ms-ra-forwarder:latest</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    ports:</span><br><span class="line">      - 8104:3000</span><br></pre></td></tr></table></figure>
+
+<p><del>melotts-server 也是无效的</del>,无法访问外网的服务器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line">services:</span><br><span class="line">    melotts-api-server:</span><br><span class="line">        container_name: melotts-server</span><br><span class="line">        ports:</span><br><span class="line">            - 8104:8080</span><br><span class="line">        environment:</span><br><span class="line">            - DEFAULT_SPEED=1</span><br><span class="line">            - DEFAULT_LANGUAGE=ZH</span><br><span class="line">            - DEFAULT_SPEAKER_ID=ZH-Default</span><br><span class="line">        image: timhagel/melotts-api-server</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">melotts-server  |     raise EnvironmentError(                                                                </span><br><span class="line">melotts-server  | OSError: We couldn&#x27;t connect to &#x27;https://huggingface.co&#x27; to load this file, couldn&#x27;t find i</span><br><span class="line">t in the cached files and it looks like tohoku-nlp/bert-base-japanese-v3 is not the path to a directory conta</span><br><span class="line">ining a file named config.json.                                                                              </span><br><span class="line">melotts-server  | Checkout your internet connection or see how to run the library in offline mode at &#x27;https:/</span><br><span class="line">/huggingface.co/docs/transformers/installation#offline-mode&#x27;.                                                </span><br><span class="line">melotts-server exited with code 1    </span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3BhcmVudGUvZXNwZWFrYm94" rel="noopener external nofollow noreferrer">https://github.com/parente/espeakbox</a></p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2tyaXBrZW4vc3BlYWsuanM=" rel="noopener external nofollow noreferrer">https://github.com/kripken/speak.js</a></p>
 <p>手机刷入 防沉迷 	系统<br>    小米K40</p>
@@ -654,23 +669,23 @@ TTS docker
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
-      芯片SOP8之读写Flash固件XM25QH128CHIQ
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202407111027.html" rel="bookmark">
       Docker搭建BT Tracker服务器贡献BT网络Tracker节点
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
-      多个docker容器间共享单个mariadb(Docker数据库服务)
+      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
+      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
-      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
+      多个docker容器间共享单个mariadb(Docker数据库服务)
       </a>
     </li>
   </ul>
@@ -843,7 +858,7 @@ TTS docker
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-10-25 20:35:06" itemprop="dateModified" datetime="2024-10-25T20:35:06+08:00">2024-10-25</time>
+        <time title="修改时间：2025-11-17 21:20:54" itemprop="dateModified" datetime="2025-11-17T21:20:54+08:00">2025-11-17</time>
       </span>
 
 </div>
