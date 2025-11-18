@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="某大佬项目: “一个查询IP地理信息和CDN提供商的离线终端工具” 及使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个查询IP地理信息和CDN提供商的离线终端工具nali及使用">
+<meta property="og:url" content="https://www.carlzeng.com/en/202511181029.html">
+<meta property="og:site_name" content="云随笔 Carl Notes">
+<meta property="og:description" content="某大佬项目: “一个查询IP地理信息和CDN提供商的离线终端工具” 及使用">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/11/18/691bdd6999778.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/11/18/691c261ca6af1.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/11/18/691c25f3342bf.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/11/18/691c2613096a7.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/11/18/691c260a13352.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/11/18/691c260199a39.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/11/18/691c5be6d2317.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/11/18/691c5c0dc3697.png">
+<meta property="og:image" content="https://img.shields.io/github/actions/workflow/status/zu1k/nali/go.yml?branch=master&style=flat-square">
+<meta property="og:image" content="https://goreportcard.com/badge/github.com/zu1k/nali?style=flat-square">
+<meta property="og:image" content="https://img.shields.io/github/release/zu1k/nali/all.svg?style=flat-square">
+<meta property="og:image" content="https://img.shields.io/github/downloads/zu1k/nali/total?style=flat-square">
+<meta property="og:image" content="https://www.carlzeng.com/en/assets/GoLand.svg">
+<meta property="article:published_time" content="2025-11-18T02:29:37.000Z">
+<meta property="article:modified_time" content="2025-11-18T11:54:26.374Z">
+<meta property="article:author" content="Carl Notes">
+<meta property="article:tag" content="nali">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.carlzeng.com:3/i/2025/11/18/691bdd6999778.png">
+
+
+<link rel="canonical" href="https://www.carlzeng.com/en/202511181029.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.com/202511181029.html","path":"en/202511181029.html","title":"一个查询IP地理信息和CDN提供商的离线终端工具nali及使用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>一个查询IP地理信息和CDN提供商的离线终端工具nali及使用 | 云随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.com:4443">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">云随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">ERP IT方案 电玩</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">270</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">86</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">393</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Nhc2U=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
+  </ul>
+
+    <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <!--<div class="search-header">-->
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="58" placeholder="全局检索..." spellcheck="false" type="search" class="search-input">
+      </div>
+      <!--</div>-->
+    </div>
+    </form>
+
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C-%E7%BD%91%E5%9D%80%E8%AE%BF%E9%97%AE%E6%95%85%E9%9A%9C%E6%A3%80%E6%B5%8B"><span class="nav-number">4.</span> <span class="nav-text">网络&#x2F;网址访问故障检测</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS%E6%B1%A1%E6%9F%93%E5%8F%88%E6%88%96%E6%98%AFDNS%E5%88%B7%E6%96%B0%E5%BB%B6%E8%BF%9F"><span class="nav-number">4.1.</span> <span class="nav-text">DNS污染又或是DNS刷新延迟</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7-%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90Nali"><span class="nav-number">5.</span> <span class="nav-text">工具&#x2F;灵感来源Nali</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">
+  Nali
+</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">6.0.0.1.</span> <span class="nav-text">一个查询IP地理信息和CDN提供商的离线终端工具.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#English"><span class="nav-number">6.0.0.2.</span> <span class="nav-text">English</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD"><span class="nav-number">6.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">6.2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85"><span class="nav-number">6.2.1.</span> <span class="nav-text">从源码安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E9%A2%84%E7%BC%96%E8%AF%91%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F"><span class="nav-number">6.2.2.</span> <span class="nav-text">下载预编译的可执行程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arch-%E7%B3%BB-Linux"><span class="nav-number">6.2.3.</span> <span class="nav-text">Arch 系 Linux</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="nav-number">6.3.</span> <span class="nav-text">使用说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E4%B8%80%E4%B8%AAIP%E7%9A%84%E5%9C%B0%E7%90%86%E4%BF%A1%E6%81%AF"><span class="nav-number">6.3.1.</span> <span class="nav-text">查询一个IP的地理信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%96%E8%80%85-%E4%BD%BF%E7%94%A8-%E7%AE%A1%E9%81%93"><span class="nav-number">6.3.1.1.</span> <span class="nav-text">或者 使用 管道</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%97%B6%E6%9F%A5%E8%AF%A2%E5%A4%9A%E4%B8%AAIP%E7%9A%84%E5%9C%B0%E7%90%86%E4%BF%A1%E6%81%AF"><span class="nav-number">6.3.2.</span> <span class="nav-text">同时查询多个IP的地理信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%9F%A5%E8%AF%A2"><span class="nav-number">6.3.3.</span> <span class="nav-text">交互式查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8E-dig-%E5%91%BD%E4%BB%A4%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8"><span class="nav-number">6.3.4.</span> <span class="nav-text">与 dig 命令配合使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8E-nslookup-%E5%91%BD%E4%BB%A4%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8"><span class="nav-number">6.3.5.</span> <span class="nav-text">与 nslookup 命令配合使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8E%E4%BB%BB%E6%84%8F%E7%A8%8B%E5%BA%8F%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8"><span class="nav-number">6.3.6.</span> <span class="nav-text">与任意程序配合使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%AF%E6%8C%81IPv6"><span class="nav-number">6.3.7.</span> <span class="nav-text">支持IPv6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2-CDN-%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E5%95%86"><span class="nav-number">6.3.8.</span> <span class="nav-text">查询 CDN 服务提供商</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E4%BA%A4%E4%BA%92"><span class="nav-number">6.4.</span> <span class="nav-text">用户交互</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%B8%AE%E5%8A%A9"><span class="nav-number">6.4.1.</span> <span class="nav-text">查看帮助</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">6.4.2.</span> <span class="nav-text">更新数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E9%80%89%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">6.4.3.</span> <span class="nav-text">自选数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows%E5%B9%B3%E5%8F%B0"><span class="nav-number">6.4.3.1.</span> <span class="nav-text">Windows平台</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8geoip%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">6.4.3.1.1.</span> <span class="nav-text">使用geoip数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8ipip%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">6.4.3.1.2.</span> <span class="nav-text">使用ipip数据库</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux%E5%B9%B3%E5%8F%B0"><span class="nav-number">6.4.3.2.</span> <span class="nav-text">Linux平台</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8geoip%E6%95%B0%E6%8D%AE%E5%BA%93-1"><span class="nav-number">6.4.3.2.1.</span> <span class="nav-text">使用geoip数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8ipip%E6%95%B0%E6%8D%AE%E5%BA%93-1"><span class="nav-number">6.4.3.2.2.</span> <span class="nav-text">使用ipip数据库</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E8%AF%AD%E8%A8%80%E6%94%AF%E6%8C%81"><span class="nav-number">6.4.4.</span> <span class="nav-text">多语言支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95"><span class="nav-number">6.4.5.</span> <span class="nav-text">工作目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%9F%E8%B0%A2%E5%88%97%E8%A1%A8"><span class="nav-number">6.5.</span> <span class="nav-text">感谢列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E8%80%85"><span class="nav-number">6.6.</span> <span class="nav-text">作者</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Notes</p>
+  <div class="site-description" itemprop="description">眼观心察 沉淀共享 版本持续更新</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">393</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">270</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
+      光猫设置端口映射IP端口转发
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202503300850.html" rel="bookmark">
+      海康威视摄像头添加局域网NAS存储
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
+      Switch大气层游戏下载服务及实测列表
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
+      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202505041100.html" rel="bookmark">
+      Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202412300901.html" rel="bookmark">
+      Github加速Github代理
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+    <div class="pjax">
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新文章
+        </div>
+        <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/202511181029.html" title="一个查询IP地理信息和CDN提供商的离线终端工具nali及使用" target=""  class="popular-posts-link">
+                  一个查询IP地理信息和CDN提供商的离线终端工具nali及使用
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202511091926.html" title="如何在NetSuite中设置RESTlet API的oAuth2.0认证" target=""  class="popular-posts-link">
+                  如何在NetSuite中设置RESTlet API的oAuth2.0认证
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202510282149.html" title="Javascript如何压缩JSON数据及应用" target=""  class="popular-posts-link">
+                  Javascript如何压缩JSON数据及应用
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202508280924.html" title="NetSuite库存盘点接口探讨及WMS系统对接实例" target=""  class="popular-posts-link">
+                  NetSuite库存盘点接口探讨及WMS系统对接实例
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202508041651.html" title="免费给小宝宝下载歌曲的步骤和技巧" target=""  class="popular-posts-link">
+                  免费给小宝宝下载歌曲的步骤和技巧
+                  </a>
+                </li>
+        </ul>
+      </div>
+    </div>
+
+    <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <!--<div class="search-header">-->
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="58" placeholder="全站检索..." spellcheck="false" type="search" class="search-input">
+      </div>
+      <!--</div>-->
+    </div>
+    </form>
+    <style>
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      margin-top: 30px !important;
+      padding: clamp(17px, 5%, 40px) clamp(17px, 7%, 50px) !important;
+      max-width: none !important;
+      border-radius: 6px !important;
+      box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview *{
+      box-sizing: border-box !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading {
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5{
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
+      margin-top: 20px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      width: 100% !important;
+      height: 40px !important;
+      border-radius: 6px !important;
+      border: 2px solid #e9e8e8 !important;
+      background-color: #fff !important;
+      outline: none !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      color: #000000 !important;
+      font-family: "Montserrat" !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 20px !important;
+      text-align: center !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+      color: #000000 !important;
+      opacity: 1 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input:-ms-input-placeholder {
+      color: #000000 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::-ms-input-placeholder {
+      color: #000000 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
+      margin-top: 10px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+      width: 100% !important;
+      height: 40px !important;
+      border: 0 !important;
+      border-radius: 6px !important;
+      line-height: 0px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
+      cursor: pointer !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+      color: #231f20 !important;
+      font-family: "Montserrat" !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 25px !important;
+      text-align: center !important;
+      text-decoration: none !important;
+      display: flex !important;
+      width: 100% !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 10px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
+      margin-left: 10px !important;
+      height: 1.13em !important;
+      max-height: 1.13em !important;
+    }
+    </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
+      订阅最新文章
+    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="请输入您的邮箱地址后回车确认" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
+      订阅
+    </button></div></div></form></div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/202511181029.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="description" content="眼观心察 沉淀共享 版本持续更新">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="一个查询IP地理信息和CDN提供商的离线终端工具nali及使用 | 云随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一个查询IP地理信息和CDN提供商的离线终端工具nali及使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-11-18 19:54:26" itemprop="dateModified" datetime="2025-11-18T19:54:26+08:00">2025-11-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/nali/" itemprop="url" rel="index"><span itemprop="name">nali</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/202511181029.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>29 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.com:3/i/2025/11/18/691bdd6999778.png">
+
+<p>某大佬项目: “一个查询IP地理信息和CDN提供商的离线终端工具” 及使用</p>
+<span id="more"></span>
+<div> 
+<button onclick="synthesizeSpeech()">朗读全文</button>
+</div>
+<audio controls id="audioPlayer">Your browser does not support the audio element.</audio>      
+<script>
+  function synthesizeSpeech() { 
+    var inputText = document.getElementsByClassName('post-block')[0].innerText;
+    var voice = "ZH";
+    var url = 'https://tts.carlzeng.com:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
+    var audioPlayer = document.getElementById('audioPlayer');          
+    audioPlayer.src = url;
+    audioPlayer.load();
+    audioPlayer.play();
+  }
+</script>
+
+
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>查询IP地理信息和CDN提供商的离线终端工具</p>
+<h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><p>命令行运行, 见文档如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@MacBookPro frp % traceroute                                                                         </span><br><span class="line">Version 1.4a12+Darwin                                                                                        </span><br><span class="line">Usage: traceroute [-adDeFInrSvx] [-A as_server] [-f first_ttl] [-g gateway] [-i iface]                       </span><br><span class="line">        [-M first_ttl] [-m max_ttl] [-p port] [-P proto] [-q nqueries] [-s src_addr]                         </span><br><span class="line">        [-t tos] [-w waittime] [-z pausemsecs] host [packetlen]    </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">@MacBookPro frp % traceroute www.163.com | nali </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果您需要一个监测和保修一个特定合理合法互联网网址的恢复访问, 请联系我</p>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=nali" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+<h1 id="网络-网址访问故障检测"><a href="#网络-网址访问故障检测" class="headerlink" title="网络&#x2F;网址访问故障检测"></a>网络&#x2F;网址访问故障检测</h1><p>20251118, 监测一个NetSuite地址直接访问的故障前后,</p>
+<p>之前尝试过, 更新dns缓冲, 切换dns服务器, 重新路由器, 重启猫, 重启电脑等操作, 均无法正常访问网址: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly8xMTY2NjQ0MC1zYjEuYXBwLm5ldHN1aXRlLmNvbS8=" rel="noopener external nofollow noreferrer">https://11666440-sb1.app.netsuite.com/</a></p>
+<pre><code>1. 登陆后; 页面跳转
+ 先是跳: 
+     https://system.netsuite.com/app/login/secure/transport.nl?target=https%253A%252F%252F11666440-sb1.app.netsuite.com%252Fapp%252Flogin%252Fsecure%252Fauthenticaterole.nl%253Fsrc_dc%253Dsyd-ap1&amp;dc=nrt-ap2&amp;whence=
+     
+2. 最后landing:
+https://11666440-sb1.app.netsuite.com/app/login/secure/authenticaterole.nl?src_dc=syd-ap1
+
+    This site can’t be reached
+    11666440-sb1.app.netsuite.com took too long to respond.
+</code></pre>
+<p>故障汇报&#x2F;沟通过程:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">1. 访问正常(一直也都是正常, 不变) https://system.netsuite.com/pages/customerlogin.jsp</span><br><span class="line">2. 输入账号密码后登陆; 页面打不开(如图).  </span><br><span class="line"> 但ping 可以通(知道CDN服务器在香港)</span><br><span class="line"> </span><br><span class="line"> 哥，你把你登录网址发给我</span><br><span class="line"> </span><br><span class="line"> 登陆网址正常:  https://system.netsuite.com/pages/customerlogin.jsp</span><br><span class="line"></span><br><span class="line">登陆后系统自动跳转</span><br><span class="line">1. 先是跳: [正常访问]</span><br><span class="line"> https://system.netsuite.com/app/login/secure/transport.nl?target=https%253A%252F%252F11666440-sb1.app.netsuite.com%252Fapp%252Flogin%252Fsecure%252Fauthenticaterole.nl%253Fsrc_dc%253Dsyd-ap1&amp;dc=nrt-ap2&amp;whence=</span><br><span class="line"></span><br><span class="line">2. 最后landing:  [无法访问]</span><br><span class="line"> https://11666440-sb1.app.netsuite.com/app/login/secure/authenticaterole.nl?src_dc=syd-ap1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">测试无法访问的其他网址: </span><br><span class="line">https://11666440-sb1.app.netsuite.com/app/accounting/transactions/transactionlist.nl?searchtype=Transaction&amp;searchid=-2100&amp;Transaction_TYPE=PurchOrd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">您那边trace一下</span><br><span class="line">发个截图给我</span><br><span class="line">网监让我这边提供这个tracert截图</span><br><span class="line">网监让我这边提供这个tracert截图</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><img data-src="https://img.carlzeng.com:3/i/2025/11/18/691c261ca6af1.png" alt="image-20251118151312396"></p>
+<p>本机的DNS未改变, 可是汇报联通前后(最后一个ping 发生在下午) IP地址的变化.</p>
+<p>保修前—————————————————————————————————————————–</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">carlzeng@MacBookPro frp % ping -c 1 11666440-sb1.app.netsuite.com</span><br><span class="line">PING e5403.x.akamaiedge.net (23.56.180.227): 56 data bytes</span><br><span class="line">64 bytes from 23.56.180.227: icmp_seq=0 ttl=53 time=42.398 ms</span><br><span class="line"></span><br><span class="line">--- e5403.x.akamaiedge.net ping statistics ---</span><br><span class="line">1 packets transmitted, 1 packets received, 0.0% packet loss</span><br><span class="line">round-trip min/avg/max/stddev = 42.398/42.398/42.398/nan ms</span><br><span class="line">carlzeng@MacBookPro frp % ping -c 1 11666440-sb1.app.netsuite.com</span><br><span class="line">PING e5403.x.akamaiedge.net (23.56.180.227): 56 data bytes</span><br><span class="line">64 bytes from 23.56.180.227: icmp_seq=0 ttl=53 time=42.511 ms</span><br><span class="line"></span><br><span class="line">--- e5403.x.akamaiedge.net ping statistics ---</span><br><span class="line">1 packets transmitted, 1 packets received, 0.0% packet loss</span><br><span class="line">round-trip min/avg/max/stddev = 42.511/42.511/42.511/nan ms</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img data-src="https://img.carlzeng.com:3/i/2025/11/18/691c25f3342bf.png" alt="image-20251118151721950"></p>
+<p><img data-src="https://img.carlzeng.com:3/i/2025/11/18/691c2613096a7.png" alt="image-20251118151751642"></p>
+<p>保修后—————————————————————————————————————————–</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ping -c 1 11666440-sb1.app.netsuite.com | nali</span><br><span class="line">PING e5403.x.akamaiedge.net [Akamai CDN]  (157.197.144.225 [韩国 三星系统数据有限公司BGP节点] ): 56 data bytes</span><br><span class="line">64 bytes from 157.197.144.225 [韩国 三星系统数据有限公司BGP节点] : icmp_seq=0 ttl=52 time=119.260 ms</span><br><span class="line"></span><br><span class="line">--- e5403.x.akamaiedge.net [Akamai CDN]  ping statistics ---</span><br><span class="line">1 packets transmitted, 1 packets received, 0.0% packet loss</span><br><span class="line">round-trip min/avg/max/stddev = 119.260/119.260/119.260/0.000 ms</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://img.carlzeng.com:3/i/2025/11/18/691c260a13352.png" alt="image-20251118151558097"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">MacBookPro frp % nslookup 11666440-sb1.app.netsuite.com 223.18.18.18 | nali</span><br><span class="line">Server:         223.18.18.18 [香港 环球全域电讯数据中心] </span><br><span class="line">Address:        223.18.18.18 [香港 环球全域电讯数据中心] #53</span><br><span class="line"></span><br><span class="line">Non-authoritative answer:</span><br><span class="line">11666440-sb1.app.netsuite.com   canonical name = app-cdn-future.ap2.netsuite.com.</span><br><span class="line">app-cdn-future.ap2.netsuite.com canonical name = app-future.netsuite.com.edgekey.net [Akamai CDN] .</span><br><span class="line">app-future.netsuite.com.edgekey.net [Akamai CDN]        canonical name = e5403.x.akamaiedge.net [Akamai CDN] .</span><br><span class="line">Name:   e5403.x.akamaiedge.net [Akamai CDN] </span><br><span class="line">Address: 157.197.144.225 [韩国 三星系统数据有限公司BGP节点] </span><br><span class="line"></span><br><span class="line">carlzeng@MacBookPro frp % nslookup 11666440-sb1.app.netsuite.com 8.8.8.8 | nali     </span><br><span class="line">Server:         8.8.8.8 [美国加利福尼亚州圣克拉拉县山景市 谷歌公司DNS服务器] </span><br><span class="line">Address:        8.8.8.8 [美国加利福尼亚州圣克拉拉县山景市 谷歌公司DNS服务器] #53</span><br><span class="line"></span><br><span class="line">Non-authoritative answer:</span><br><span class="line">11666440-sb1.app.netsuite.com   canonical name = app-cdn-future.ap2.netsuite.com.</span><br><span class="line">app-cdn-future.ap2.netsuite.com canonical name = app-future.netsuite.com.edgekey.net [Akamai CDN] .</span><br><span class="line">app-future.netsuite.com.edgekey.net [Akamai CDN]        canonical name = e5403.x.akamaiedge.net [Akamai CDN] .</span><br><span class="line">Name:   e5403.x.akamaiedge.net [Akamai CDN] </span><br><span class="line">Address: 157.197.144.225 [韩国 三星系统数据有限公司BGP节点] </span><br><span class="line"></span><br><span class="line">carlzeng@MacBookPro frp % dig 11666440-sb1.app.netsuite.com +short | nali</span><br><span class="line">app-cdn-future.ap2.netsuite.com.</span><br><span class="line">app-future.netsuite.com.edgekey.net [Akamai CDN] .</span><br><span class="line">e5403.x.akamaiedge.net [Akamai CDN] .</span><br><span class="line">157.197.144.225 [韩国 三星系统数据有限公司BGP节点] </span><br><span class="line">carlzeng@MacBookPro frp % dig 11666440-sb1.app.netsuite.com | nali       </span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.10.6 &lt;&lt;&gt;&gt; 11666440-sb1.app.netsuite.com</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 27951</span><br><span class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags:; udp: 1232</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;11666440-sb1.app.netsuite.com. IN      A</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">11666440-sb1.app.netsuite.com. 2708 IN  CNAME   app-cdn-future.ap2.netsuite.com.</span><br><span class="line">app-cdn-future.ap2.netsuite.com. 2708 IN CNAME  app-future.netsuite.com.edgekey.net [Akamai CDN] .</span><br><span class="line">app-future.netsuite.com.edgekey.net [Akamai CDN] . 2708 IN CNAME e5403.x.akamaiedge.net [Akamai CDN] .</span><br><span class="line">e5403.x.akamaiedge.net [Akamai CDN] .   2708    IN      A       157.197.144.225 [韩国 三星系统数据有限公司BGP节点] </span><br><span class="line"></span><br><span class="line">;; Query time: 4 msec</span><br><span class="line">;; SERVER: 202.106.0.20 [北京市 联通DNS服务器] #53(202.106.0.20 [北京市 联通DNS服务器] )</span><br><span class="line">;; WHEN: Tue Nov 18 15:23:19 CST 2025</span><br><span class="line">;; MSG SIZE  rcvd: 204</span><br><span class="line"></span><br><span class="line">@MacBookPro frp % </span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://img.carlzeng.com:3/i/2025/11/18/691c260199a39.png" alt="image-20251118152612984"></p>
+<hr>
+<h2 id="DNS污染又或是DNS刷新延迟"><a href="#DNS污染又或是DNS刷新延迟" class="headerlink" title="DNS污染又或是DNS刷新延迟"></a>DNS污染又或是DNS刷新延迟</h2><p>几乎相同的时间点, 即便更新dns缓冲, 切换不同公网上的dns服务器,  只要使用不同的运营商, 那么返回的结果就可以不一样, 这种现象属于DNS污染吗? 还是网络DNS刷新的延迟导致?</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2025/11/18/691c5be6d2317.png" alt="image-20251118161118140"></p>
+<p>如果属于刷新延迟; 根据以往经验等半天(几个小时)就能正常.   外面的宽带都能访问正常, 换一个本地运营商也能访问正常(获取正确最新的IP地址, 可是本地就是无法访问)</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2025/11/18/691c5c0dc3697.png" alt="image-20251118163336827"></p>
+<p>3个多小时过去了, 故障依旧(联通访问网址的CDN又解析到香港23.56.180.227, 然后无法访问)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"> traceroute 11666440-sb1.app.netsuite.com | nali</span><br><span class="line">traceroute to e5403.x.akamaiedge.net (23.56.180.227), 64 hops max, 40 byte packets</span><br><span class="line"> 1  openwrt (192.168.6.1 [局域网 对方和您在同一内部网] )  10.525 ms  7.576 ms  8.338 ms</span><br><span class="line"> 2  221.218.232.1 [北京市西城区 联通]  (221.218.232.1 [北京市西城区 联通] )  3.858 ms  4.641 ms  6.206 ms</span><br><span class="line"> 3  123.126.28.141 [北京市 联通数据中心]  (123.126.28.141 [北京市 联通数据中心] )  8.858 ms  9.507 ms  9.341 ms</span><br><span class="line"> 4  * * 124.65.194.29 [北京市 联通]  (124.65.194.29 [北京市 联通] )  26.653 ms</span><br><span class="line"> 5  * * *</span><br><span class="line"> 6  219.158.8.118 [广东省广州市 中国联通骨干网广东省节点(AS4837)]  (219.158.8.118 [广东省广州市 中国联通骨干网广东省节点(AS4837)] )  43.665 ms</span><br><span class="line">    219.158.3.154 [中国 联通骨干网]  (219.158.3.154 [中国 联通骨干网] )  44.251 ms</span><br><span class="line">    219.158.103.42 [广东省广州市 联通骨干网节点]  (219.158.103.42 [广东省广州市 联通骨干网节点] )  36.373 ms</span><br><span class="line"> 7  219.158.4.2 [中国 联通骨干网]  (219.158.4.2 [中国 联通骨干网] )  38.358 ms *</span><br><span class="line">    219.158.4.54 [中国 联通骨干网]  (219.158.4.54 [中国 联通骨干网] )  41.454 ms</span><br><span class="line"> 8  219.158.6.106 [中国 联通骨干网]  (219.158.6.106 [中国 联通骨干网] )  45.899 ms</span><br><span class="line">    219.158.20.98 [中国 联通骨干网]  (219.158.20.98 [中国 联通骨干网] )  47.593 ms</span><br><span class="line">    219.158.6.122 [中国 联通骨干网]  (219.158.6.122 [中国 联通骨干网] )  41.182 ms</span><br><span class="line"> 9  219.158.43.2 [中国 联通骨干网]  (219.158.43.2 [中国 联通骨干网] )  47.740 ms</span><br><span class="line">    219.158.40.130 [中国 联通骨干网]  (219.158.40.130 [中国 联通骨干网] )  48.115 ms  47.056 ms</span><br><span class="line">10  * 014136143013.ctinets.com (14.136.143.13 [香港 城市电讯有限公司] )  78.656 ms  46.355 ms</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dig img.carlzeng.com | nali             </span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.10.6 &lt;&lt;&gt;&gt; img.carlzeng.com</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 17838</span><br><span class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags:; udp: 1232</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;img.carlzeng.com.              IN      A</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">img.carlzeng.com.       918     IN      A       221.218.235.18 [北京市西城区 联通] </span><br><span class="line"></span><br><span class="line">;; Query time: 3 msec</span><br><span class="line">;; SERVER: 180.76.76.76 [北京市 北京百度网讯科技有限公司公共DNS服务器(电信节点)] #53(180.76.76.76 [北京市 北京百度网讯科技有限公司公共DNS服务器(电信节点)] )</span><br><span class="line">;; WHEN: Tue Nov 18 19:53:10 CST 2025</span><br><span class="line">;; MSG SIZE  rcvd: 61</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>而如果用中国移动的宽带获取的CDN地址就变成23.215.188.189, 可以正常访问</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">traceroute 11666440-sb1.app.netsuite.com | nali</span><br><span class="line">traceroute to 11666440-sb1.app.netsuite.com (23.215.188.189), 64 hops max, 40 byte packets</span><br><span class="line"> 1  192.168.10.1 [局域网 对方和您在同一内部网]  (192.168.10.1 [局域网 对方和您在同一内部网] )  5.326 ms  17.571 ms  2.807 ms</span><br><span class="line"> 2  192.168.1.1 [局域网 对方和您在同一内部网]  (192.168.1.1 [局域网 对方和您在同一内部网] )  5.617 ms  4.687 ms  4.778 ms</span><br><span class="line"> 3  10.7.0.1 [局域网 IP]  (10.7.0.1 [局域网 IP] )  13.172 ms  9.514 ms  15.452 ms</span><br><span class="line"> 4  211.136.63.173 [北京市 移动]  (211.136.63.173 [北京市 移动] )  12.811 ms  9.066 ms</span><br><span class="line">    211.136.67.221 [北京市 移动]  (211.136.67.221 [北京市 移动] )  9.658 ms</span><br><span class="line"> 5  221.183.76.81 [广东省广州市 移动骨干网]  (221.183.76.81 [广东省广州市 移动骨干网] )  11.383 ms</span><br><span class="line">    221.183.39.113 [广东省广州市 移动骨干网]  (221.183.39.113 [广东省广州市 移动骨干网] )  8.923 ms *</span><br><span class="line"> 6  221.183.184.166 [广东省广州市 移动骨干网]  (221.183.184.166 [广东省广州市 移动骨干网] )  34.032 ms  46.864 ms  31.134 ms</span><br><span class="line"> 7  221.183.89.45 [广东省广州市 移动骨干网]  (221.183.89.45 [广东省广州市 移动骨干网] )  40.262 ms</span><br><span class="line">    221.183.89.49 [广东省广州市 移动骨干网]  (221.183.89.49 [广东省广州市 移动骨干网] )  34.627 ms</span><br><span class="line">    221.183.89.13 [广东省广州市 移动骨干网]  (221.183.89.13 [广东省广州市 移动骨干网] )  35.335 ms</span><br><span class="line"> 8  * 221.183.89.70 [广东省广州市 移动骨干网]  (221.183.89.70 [广东省广州市 移动骨干网] )  30.888 ms *</span><br><span class="line"> 9  * * *</span><br><span class="line">10  223.120.3.185 [中国 移动]  (223.120.3.185 [中国 移动] )  54.920 ms</span><br><span class="line">    223.120.3.173 [中国 移动]  (223.120.3.173 [中国 移动] )  58.422 ms</span><br><span class="line">    223.120.22.113 [广东省广州市 中国移动骨干网广东省节点(AS9808)]  (223.120.22.113 [广东省广州市 中国移动骨干网广东省节点(AS9808)] )  56.600 ms</span><br><span class="line">11  223.120.2.58 [中国 移动]  (223.120.2.58 [中国 移动] )  56.768 ms</span><br><span class="line">    223.120.2.118 [香港 中国移动骨干网香港接入点(AS58453)]  (223.120.2.118 [香港 中国移动骨干网香港接入点(AS58453)] )  55.598 ms  57.504 ms</span><br><span class="line">12  akamai5-lacp-100g.hkix.net (123.255.91.95 [香港 香港国际互联网交换中心] )  181.797 ms *  329.010 ms</span><br><span class="line">13  lo1.r04.stem01.hkg01.fab.netarch.akamai.com (23.37.122.26 [日本 Akamai节点] )  59.766 ms</span><br><span class="line">    lo1.r03.stem01.hkg01.fab.netarch.akamai.com (23.37.122.25 [日本 Akamai节点] )  60.459 ms  59.768 ms</span><br><span class="line">14  lo1.r01.spine04.hkg01.fab.netarch.akamai.com (23.37.122.19 [日本 Akamai节点] )  67.094 ms</span><br><span class="line">    lo1.r03.spine03.hkg01.fab.netarch.akamai.com (23.37.122.17 [日本 Akamai节点] )  55.875 ms</span><br><span class="line">    lo1.r03.spine01.hkg01.fab.netarch.akamai.com (23.37.122.9 [日本 Akamai节点] )  57.831 ms</span><br><span class="line">15  lo1.r03.leaf01.hkg01.fab.netarch.akamai.com (23.37.122.5 [日本 Akamai节点] )  57.073 ms *  56.520 ms</span><br><span class="line">16  vlan100.r08.tor01.hkg01.fab.netarch.akamai.com (23.40.189.65 [美国 Akamai节点] )  58.080 ms  59.834 ms  69.080 ms</span><br><span class="line">17  * * *</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<hr>
+<h1 id="工具-灵感来源Nali"><a href="#工具-灵感来源Nali" class="headerlink" title="工具&#x2F;灵感来源Nali"></a>工具&#x2F;灵感来源Nali</h1><h1 align="center">
+  <br>Nali<br>
+</h1>
+
+<h4 align="center">一个查询IP地理信息和CDN提供商的离线终端工具.</h4>
+
+<p align="center">
+  <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3p1MWsvbmFsaS9hY3Rpb25z" rel="noopener external nofollow noreferrer">
+    <img data-src="https://img.shields.io/github/actions/workflow/status/zu1k/nali/go.yml?branch=master&style=flat-square" alt="Github Actions">
+  </a>
+  <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9nb3JlcG9ydGNhcmQuY29tL3JlcG9ydC9naXRodWIuY29tL3p1MWsvbmFsaQ==" rel="noopener external nofollow noreferrer">
+    <img data-src="https://goreportcard.com/badge/github.com/zu1k/nali?style=flat-square">
+  </a>
+  <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3p1MWsvbmFsaS9yZWxlYXNlcw==" rel="noopener external nofollow noreferrer">
+    <img data-src="https://img.shields.io/github/release/zu1k/nali/all.svg?style=flat-square">
+  </a>
+  <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3p1MWsvbmFsaS9yZWxlYXNlcw==" rel="noopener external nofollow noreferrer">
+    <img data-src="https://img.shields.io/github/downloads/zu1k/nali/total?style=flat-square">
+  </a>
+</p>
+
+<h4 id="English"><a href="#English" class="headerlink" title="English"></a><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3p1MWsvbmFsaS9ibG9iL21hc3Rlci9SRUFETUVfZW4ubWQ=" rel="noopener external nofollow noreferrer">English</a></h4><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul>
+<li>支持多种数据库<ul>
+<li>纯真 IPv4 离线数据库</li>
+<li>ZX IPv6 离线数据库</li>
+<li>Geoip2 城市数据库 (可选)</li>
+<li>IPIP 数据库 (可选)</li>
+<li>ip2region 数据库 (可选)</li>
+<li>DB-IP 数据库 (可选)</li>
+<li>IP2Location DB3 LITE 数据库 (可选)</li>
+</ul>
+</li>
+<li>CDN 服务提供商查询</li>
+<li>支持管道处理</li>
+<li>支持交互式查询</li>
+<li>同时支持IPv4和IPv6</li>
+<li>支持多语言</li>
+<li>查询完全离线</li>
+<li>全平台支持</li>
+<li>支持彩色输出</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="从源码安装"><a href="#从源码安装" class="headerlink" title="从源码安装"></a>从源码安装</h3><p>Nali 需要预先安装 Go &gt;&#x3D; 1.19. 安装后可以从源码安装软件:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ go install github.com/zu1k/nali@latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="下载预编译的可执行程序"><a href="#下载预编译的可执行程序" class="headerlink" title="下载预编译的可执行程序"></a>下载预编译的可执行程序</h3><p>可以从Release页面下载预编译好的可执行程序: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3p1MWsvbmFsaS9yZWxlYXNlcw==" rel="noopener external nofollow noreferrer">Release</a></p>
+<p>你需要选择适合你系统和硬件架构的版本下载，解压后可直接运行</p>
+<h3 id="Arch-系-Linux"><a href="#Arch-系-Linux" class="headerlink" title="Arch 系 Linux"></a>Arch 系 Linux</h3><p>我们在 Aur 中发布了 3 个相关的包:</p>
+<ul>
+<li><code>nali-go</code>: Release 版本，安装时编译</li>
+<li><code>nali-go-bin</code>: Release 版本，预编译的二进制文件</li>
+<li><code>nali-go-git</code>: 最新的 master 分支版本，安装时编译</li>
+</ul>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><h3 id="查询一个IP的地理信息"><a href="#查询一个IP的地理信息" class="headerlink" title="查询一个IP的地理信息"></a>查询一个IP的地理信息</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ nali 1.2.3.4</span><br><span class="line">1.2.3.4 [澳大利亚 APNIC Debogon-prefix网络]</span><br></pre></td></tr></table></figure>
+
+<h4 id="或者-使用-管道"><a href="#或者-使用-管道" class="headerlink" title="或者 使用 管道"></a>或者 使用 <code>管道</code></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ echo IP 6.6.6.6 | nali</span><br><span class="line">IP 6.6.6.6 [美国 亚利桑那州华楚卡堡市美国国防部网络中心]</span><br></pre></td></tr></table></figure>
+
+<h3 id="同时查询多个IP的地理信息"><a href="#同时查询多个IP的地理信息" class="headerlink" title="同时查询多个IP的地理信息"></a>同时查询多个IP的地理信息</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ nali 1.2.3.4 4.3.2.1 123.23.3.0</span><br><span class="line">1.2.3.4 [澳大利亚 APNIC Debogon-prefix网络]</span><br><span class="line">4.3.2.1 [美国 新泽西州纽瓦克市Level3Communications]</span><br><span class="line">123.23.3.0 [越南 越南邮电集团公司]</span><br></pre></td></tr></table></figure>
+
+<h3 id="交互式查询"><a href="#交互式查询" class="headerlink" title="交互式查询"></a>交互式查询</h3><p>使用 <code>exit</code> 或  <code>quit</code> 退出查询</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ nali</span><br><span class="line">123.23.23.23</span><br><span class="line">123.23.23.23 [越南 越南邮电集团公司]</span><br><span class="line">1.0.0.1</span><br><span class="line">1.0.0.1 [美国 APNIC&amp;CloudFlare公共DNS服务器]</span><br><span class="line">8.8.8.8</span><br><span class="line">8.8.8.8 [美国 加利福尼亚州圣克拉拉县山景市谷歌公司DNS服务器]</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+
+<h3 id="与-dig-命令配合使用"><a href="#与-dig-命令配合使用" class="headerlink" title="与 dig 命令配合使用"></a>与 <code>dig</code> 命令配合使用</h3><p>需要你系统中已经安装好 dig 程序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ dig nali.zu1k.com +short | nali</span><br><span class="line">104.28.2.115 [美国 CloudFlare公司CDN节点]</span><br><span class="line">104.28.3.115 [美国 CloudFlare公司CDN节点]</span><br><span class="line">172.67.135.48 [美国 CloudFlare节点]</span><br></pre></td></tr></table></figure>
+
+<h3 id="与-nslookup-命令配合使用"><a href="#与-nslookup-命令配合使用" class="headerlink" title="与 nslookup 命令配合使用"></a>与 <code>nslookup</code> 命令配合使用</h3><p>需要你系统中已经安装好 nslookup 程序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ nslookup nali.zu1k.com 8.8.8.8 | nali</span><br><span class="line">Server:         8.8.8.8 [美国 加利福尼亚州圣克拉拉县山景市谷歌公司DNS服务器]</span><br><span class="line">Address:        8.8.8.8 [美国 加利福尼亚州圣克拉拉县山景市谷歌公司DNS服务器]#53</span><br><span class="line"></span><br><span class="line">Non-authoritative answer:</span><br><span class="line">Name:   nali.zu1k.com</span><br><span class="line">Address: 104.28.3.115 [美国 CloudFlare公司CDN节点]</span><br><span class="line">Name:   nali.zu1k.com</span><br><span class="line">Address: 104.28.2.115 [美国 CloudFlare公司CDN节点]</span><br><span class="line">Name:   nali.zu1k.com</span><br><span class="line">Address: 172.67.135.48 [美国 CloudFlare节点]</span><br></pre></td></tr></table></figure>
+
+<h3 id="与任意程序配合使用"><a href="#与任意程序配合使用" class="headerlink" title="与任意程序配合使用"></a>与任意程序配合使用</h3><p>因为 nali 支持管道处理，所以可以和任意程序配合使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash abc.sh | nali</span><br></pre></td></tr></table></figure>
+
+<p>Nali 将在 IP后面插入IP地理信息，CDN域名后面插入CDN服务提供商信息</p>
+<h3 id="支持IPv6"><a href="#支持IPv6" class="headerlink" title="支持IPv6"></a>支持IPv6</h3><p>和 IPv4 用法完全相同</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ nslookup google.com | nali</span><br><span class="line">Server:         127.0.0.53 [局域网 IP]</span><br><span class="line">Address:        127.0.0.53 [局域网 IP]#53</span><br><span class="line"></span><br><span class="line">Non-authoritative answer:</span><br><span class="line">Name:   google.com</span><br><span class="line">Address: 216.58.211.110 [美国 Google全球边缘网络]</span><br><span class="line">Name:   google.com</span><br><span class="line">Address: 2a00:1450:400e:809::200e [荷兰Amsterdam Google Inc. 服务器网段]</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询-CDN-服务提供商"><a href="#查询-CDN-服务提供商" class="headerlink" title="查询 CDN 服务提供商"></a>查询 CDN 服务提供商</h3><p>因为 CDN 服务通常使用 CNAME 的域名解析方式，所以推荐与 <code>nslookup</code> 或者 <code>dig</code> 配合使用，在已经知道 CNAME 后可单独使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ nslookup www.gov.cn | nali</span><br><span class="line">Server:         127.0.0.53 [局域网 IP]</span><br><span class="line">Address:        127.0.0.53 [局域网 IP]#53</span><br><span class="line"></span><br><span class="line">Non-authoritative answer:</span><br><span class="line">www.gov.cn      canonical name = www.gov.cn.bsgslb.cn [白山云 CDN].</span><br><span class="line">www.gov.cn.bsgslb.cn [白山云 CDN]       canonical name = zgovweb.v.bsgslb.cn [白山云 CDN].</span><br><span class="line">Name:   zgovweb.v.bsgslb.cn [白山云 CDN]</span><br><span class="line">Address: 103.104.170.25 [新加坡 ]</span><br><span class="line">Name:   zgovweb.v.bsgslb.cn [白山云 CDN]</span><br><span class="line">Address: 2001:428:6402:21b::5 [美国Louisiana州Monroe Qwest Communications Company, LLC (CenturyLink)]</span><br><span class="line">Name:   zgovweb.v.bsgslb.cn [白山云 CDN]</span><br><span class="line">Address: 2001:428:6402:21b::6 [美国Louisiana州Monroe Qwest Communications Company, LLC (CenturyLink)]</span><br></pre></td></tr></table></figure>
+
+<h2 id="用户交互"><a href="#用户交互" class="headerlink" title="用户交互"></a>用户交互</h2><p>程序第一次运行后，会在 config 目录生成配置文件 <code>config.yaml</code> (使用 <code>nali info</code> 来查看具体信息)，配置文件定义了数据库信息，默认用户无需进行修改</p>
+<p>数据库格式默认如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">geoip</span></span><br><span class="line">  <span class="attr">name-alias:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">geolite</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">geolite2</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">mmdb</span></span><br><span class="line">  <span class="attr">file:</span> <span class="string">GeoLite2-City.mmdb</span></span><br><span class="line">  <span class="attr">languages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ALL</span></span><br><span class="line">  <span class="attr">types:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">IPv4</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">IPv6</span></span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>languages</code> 和 <code>types</code> 表示该数据库支持的语言和查询类型。 如果你需要增加数据库，需小心修改配置文件，如果有任何问题，欢迎提 issue 询问。</p>
+<h3 id="查看帮助"><a href="#查看帮助" class="headerlink" title="查看帮助"></a>查看帮助</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ nali --help</span><br><span class="line">Usage:</span><br><span class="line">  nali [flags]</span><br><span class="line">  nali [command]</span><br><span class="line"></span><br><span class="line">Available Commands:</span><br><span class="line">  help        Help about any command</span><br><span class="line">  update      update qqwry, zxipv6wry, ip2region ip database and cdn</span><br><span class="line"></span><br><span class="line">Flags:</span><br><span class="line">  -h, --help     help for nali</span><br><span class="line">  -t, --toggle   Help message for toggle</span><br><span class="line"></span><br><span class="line">Use &quot;nali [command] --help&quot; for more information about a command.</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新数据库"><a href="#更新数据库" class="headerlink" title="更新数据库"></a>更新数据库</h3><p>更新所有可以自动更新的数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ nali update</span><br><span class="line">2020/07/17 12:53:46 正在下载最新纯真 IP 库...</span><br><span class="line">2020/07/17 12:54:05 已将最新的纯真 IP 库保存到本地 /root/.nali/qqwry.dat</span><br></pre></td></tr></table></figure>
+
+<p>或者指定数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ nali update --db qqwry,cdn</span><br><span class="line">2020/07/17 12:53:46 正在下载最新纯真 IP 库...</span><br><span class="line">2020/07/17 12:54:05 已将最新的纯真 IP 库保存到本地 /root/.nali/qqwry.dat</span><br></pre></td></tr></table></figure>
+
+<h3 id="自选数据库"><a href="#自选数据库" class="headerlink" title="自选数据库"></a>自选数据库</h3><p>用户可以指定使用哪个数据库，需要设置环境变量： <code>NALI_DB_IP4</code>、<code>NALI_DB_IP6</code> 或者两个同时设置</p>
+<p>支持的变量内容:</p>
+<ul>
+<li>Geoip2 <code>[&#39;geoip&#39;, &#39;geoip2&#39;]</code></li>
+<li>Chunzhen <code>[&#39;chunzhen&#39;, &#39;qqwry&#39;]</code></li>
+<li>IPIP <code>[&#39;ipip&#39;]</code></li>
+<li>Ip2Region <code>[&#39;ip2region&#39;, &#39;i2r&#39;]</code></li>
+<li>DBIP <code>[&#39;dbip&#39;, &#39;db-ip&#39;]</code></li>
+<li>IP2Location <code>[&#39;ip2location&#39;]</code></li>
+</ul>
+<h4 id="Windows平台"><a href="#Windows平台" class="headerlink" title="Windows平台"></a>Windows平台</h4><h5 id="使用geoip数据库"><a href="#使用geoip数据库" class="headerlink" title="使用geoip数据库"></a>使用geoip数据库</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set NALI_DB_IP4=geoip</span><br><span class="line"></span><br><span class="line">或者使用 powershell</span><br><span class="line"></span><br><span class="line">$env:NALI_DB_IP4=&quot;geoip&quot;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用ipip数据库"><a href="#使用ipip数据库" class="headerlink" title="使用ipip数据库"></a>使用ipip数据库</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set NALI_DB_IP6=ipip</span><br><span class="line"></span><br><span class="line">或者使用 powershell</span><br><span class="line"></span><br><span class="line">$env:NALI_DB_IP6=&quot;ipip&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Linux平台"><a href="#Linux平台" class="headerlink" title="Linux平台"></a>Linux平台</h4><h5 id="使用geoip数据库-1"><a href="#使用geoip数据库-1" class="headerlink" title="使用geoip数据库"></a>使用geoip数据库</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export NALI_DB_IP4=geoip</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用ipip数据库-1"><a href="#使用ipip数据库-1" class="headerlink" title="使用ipip数据库"></a>使用ipip数据库</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export NALI_DB_IP4=ipip</span><br></pre></td></tr></table></figure>
+
+<h3 id="多语言支持"><a href="#多语言支持" class="headerlink" title="多语言支持"></a>多语言支持</h3><p>通过修改环境变量 <code>NALI_LANG</code> 来指定使用的语言，当使用非中文语言时仅支持GeoIP2这个数据库</p>
+<p>该参数可设置的值见 GeoIP2 这个数据库的支持列表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># NALI_LANG=en nali 1.1.1.1</span><br><span class="line">1.1.1.1 [Australia]</span><br></pre></td></tr></table></figure>
+
+<h3 id="工作目录"><a href="#工作目录" class="headerlink" title="工作目录"></a>工作目录</h3><p>设置环境变量 <code>NALI_HOME</code> 来指定工作目录，配置文件和数据库存放在工作目录下。也可在配置文件中使用绝对路径指定其他数据库路径。</p>
+<p>设置环境变量 <code>NALI_CONFIG_HOME</code> 来指定配置文件目录，<code>NALI_DB_HOME</code> 来执行数据库文件目录</p>
+<p>如果未指定相关环境变量，将使用 XDG 规范，配置文件目录在 <code>$XDG_CONFIG_HOME/nali</code>，数据库文件目录在 <code>$XDG_DATA_HOME/nali</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set NALI_HOME=D:\nali</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">export NALI_HOME=/var/nali</span><br></pre></td></tr></table></figure>
+
+<h2 id="感谢列表"><a href="#感谢列表" class="headerlink" title="感谢列表"></a>感谢列表</h2><ul>
+<li><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovL3d3dy5jejg4Lm5ldC8=" rel="noopener external nofollow noreferrer">纯真QQIP离线数据库</a></li>
+<li><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3lpbmhlbGkvcXF3cnk=" rel="noopener external nofollow noreferrer">qqwry纯真数据库解析</a></li>
+<li><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9pcC56eGluYy5vcmcvaXBxdWVyeS8=" rel="noopener external nofollow noreferrer">ZX公网ipv6数据库</a></li>
+<li><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cubWF4bWluZC5jb20vZW4vZ2VvaXAyLXByZWNpc2lvbi1jaXR5LXNlcnZpY2U=" rel="noopener external nofollow noreferrer">Geoip2 city数据库</a></li>
+<li><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL29zY2h3YWxkL2dlb2lwMi1nb2xhbmc=" rel="noopener external nofollow noreferrer">geoip2-golang解析器</a></li>
+<li><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL1N1a2thTGFiL2Nkbg==" rel="noopener external nofollow noreferrer">CDN provider数据库</a></li>
+<li><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuaXBpcC5uZXQvcHJvZHVjdC9pcC5odG1s" rel="noopener external nofollow noreferrer">IPIP数据库</a></li>
+<li><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2lwaXBkb3RuZXQvaXBkYi1nbw==" rel="noopener external nofollow noreferrer">IPIP数据库解析</a></li>
+<li><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2xpb25zb3VsMjAxNC9pcDJyZWdpb24=" rel="noopener external nofollow noreferrer">ip2region数据库</a></li>
+<li><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9saXRlLmlwMmxvY2F0aW9uLmNvbS9kYXRhYmFzZS9kYjMtaXAtY291bnRyeS1yZWdpb24tY2l0eQ==" rel="noopener external nofollow noreferrer">IP2Location DB3 LITE</a></li>
+<li><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3NwZjEzL2NvYnJh" rel="noopener external nofollow noreferrer">Cobra CLI库</a></li>
+</ul>
+<p>感谢 JetBrains 提供开源项目免费License </p>
+<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuamV0YnJhaW5zLmNvbS8/ZnJvbT1uYWxp" rel="noopener external nofollow noreferrer">
+  <img data-src="assets/GoLand.svg">
+</a>
+
+<h2 id="作者"><a href="#作者" class="headerlink" title="作者"></a>作者</h2><p><strong>Nali</strong> © <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3p1MWs=" rel="noopener external nofollow noreferrer">zu1k</a>, 遵循 <a href="./LICENSE">MIT</a> 证书.<br></p>
+
+
+        <!-- search & recent posts(added 20240914) -->
+        <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
+          <div class="popup search-popup">
+            <div class="search-input-container">
+              <input name="q" autocomplete="off" autocapitalize="off" maxlength="40" placeholder="全站搜索..." spellcheck="false" type="search" class="search-input">    (请输入关键字以后回车，检索内容涵盖全局站点)
+            </div>
+          </div>
+        </form>
+        <p>
+        <div class="">
+          <div class="">
+                <div class="links-of-blogroll-title recent-posts-title">
+              <i class="fa fa-history " aria-hidden="true"></i>
+                    最新文章
+            </div>
+            <ul class="popular-posts">
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202511181029.html" title="一个查询IP地理信息和CDN提供商的离线终端工具nali及使用" target="" class="popular-posts-link">
+                      一个查询IP地理信息和CDN提供商的离线终端工具nali及使用
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202511091926.html" title="如何在NetSuite中设置RESTlet API的oAuth2.0认证" target="" class="popular-posts-link">
+                      如何在NetSuite中设置RESTlet API的oAuth2.0认证
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202510282149.html" title="Javascript如何压缩JSON数据及应用" target="" class="popular-posts-link">
+                      Javascript如何压缩JSON数据及应用
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202508280924.html" title="NetSuite库存盘点接口探讨及WMS系统对接实例" target="" class="popular-posts-link">
+                      NetSuite库存盘点接口探讨及WMS系统对接实例
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202508041651.html" title="免费给小宝宝下载歌曲的步骤和技巧" target="" class="popular-posts-link">
+                      免费给小宝宝下载歌曲的步骤和技巧
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202507260959.html" title="吉比特光猫HG6145D1改桥接获超级密码开Telnet" target="" class="popular-posts-link">
+                      吉比特光猫HG6145D1改桥接获超级密码开Telnet
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202507220832.html" title="手机安装Google全家桶谷歌服务框架" target="" class="popular-posts-link">
+                      手机安装Google全家桶谷歌服务框架
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202506291735.html" title="Nintendo Switch安装塞尔达传说王国之泪Mod大师模式" target="" class="popular-posts-link">
+                      Nintendo Switch安装塞尔达传说王国之泪Mod大师模式
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202506251456.html" title="友善R4S软路由刷系统" target="" class="popular-posts-link">
+                      友善R4S软路由刷系统
+                      </a>
+                    </li>
+            </ul>
+          </div>
+          </div>
+        </p>
+
+        <a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
+        <img src="https://c.carlzeng.com:3/wechatScan.png" border="0">
+
+
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="wechat,weibo,qq,facebook"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Carl Notes
+    <a href='https://www.carlzeng.com/202511181029.html'> 《一个查询IP地理信息和CDN提供商的离线终端工具nali及使用》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://www.carlzeng.com/202511181029.html" title="一个查询IP地理信息和CDN提供商的离线终端工具nali及使用">https://www.carlzeng.com/202511181029.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <main class="main">
+<div class="column">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
+      光猫设置端口映射IP端口转发
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202503300850.html" rel="bookmark">
+      海康威视摄像头添加局域网NAS存储
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
+      Switch大气层游戏下载服务及实测列表
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
+      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202505041100.html" rel="bookmark">
+      Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202412300901.html" rel="bookmark">
+      Github加速Github代理
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="column">
+<div class="pjax">
+<!-- recent posts -->
+<div class="animated">
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新文章
+    </div>
+    <ul class="popular-posts">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202511181029.html" title="一个查询IP地理信息和CDN提供商的离线终端工具nali及使用" target="" class="popular-posts-link">
+              [2025/11/18] 一个查询IP地理信息和CDN提供商的离线终端工具nali及使用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202511091926.html" title="如何在NetSuite中设置RESTlet API的oAuth2.0认证" target="" class="popular-posts-link">
+              [2025/11/09] 如何在NetSuite中设置RESTlet API的oAuth2.0认证
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202510282149.html" title="Javascript如何压缩JSON数据及应用" target="" class="popular-posts-link">
+              [2025/10/28] Javascript如何压缩JSON数据及应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202508280924.html" title="NetSuite库存盘点接口探讨及WMS系统对接实例" target="" class="popular-posts-link">
+              [2025/08/28] NetSuite库存盘点接口探讨及WMS系统对接实例
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202508041651.html" title="免费给小宝宝下载歌曲的步骤和技巧" target="" class="popular-posts-link">
+              [2025/08/04] 免费给小宝宝下载歌曲的步骤和技巧
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202507260959.html" title="吉比特光猫HG6145D1改桥接获超级密码开Telnet" target="" class="popular-posts-link">
+              [2025/07/26] 吉比特光猫HG6145D1改桥接获超级密码开Telnet
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202507220832.html" title="手机安装Google全家桶谷歌服务框架" target="" class="popular-posts-link">
+              [2025/07/22] 手机安装Google全家桶谷歌服务框架
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202506291735.html" title="Nintendo Switch安装塞尔达传说王国之泪Mod大师模式" target="" class="popular-posts-link">
+              [2025/06/29] Nintendo Switch安装塞尔达传说王国之泪Mod大师模式
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202506251456.html" title="友善R4S软路由刷系统" target="" class="popular-posts-link">
+              [2025/06/25] 友善R4S软路由刷系统
+              </a>
+            </li>
+    </ul>
+  </div>
+  </div>
+</div>
+</div>
+</main>
+
+
+<div class="followme">
+  <span><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email Subscription</a>  If the article solved your concern or clear some doubts, please <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLmNvbTozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">buy me a coffee</a>.  Also we can <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">Schedule a Converstion</a></span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">联系我(谈话)</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">IPTV直播</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/202312081128.html">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">M3U8播放器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">MP3与下载</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">ChatGPT问答</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">网络加速器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">文件分享</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">下载电子书</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">IT小工具集合</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2025-11-18 19:54:26" itemprop="dateModified" datetime="2025-11-18T19:54:26+08:00">2025-11-18</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/nali/" rel="tag"># nali</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202511091926.html" rel="prev" title="如何在NetSuite中设置RESTlet API的oAuth2.0认证">
+                  <i class="fa fa-angle-left"></i> 如何在NetSuite中设置RESTlet API的oAuth2.0认证
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>English</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="Select language">
+      
+        <option value="zh-CN" data-href="/202511181029.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/202511181029.html" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+</div>
+
+<!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*.carlzeng.com"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//statcounter.carlzeng.com:4443/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="//statcounter.carlzeng.com:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
+
+<div class="powered-by">
+    <a href='https://www.carlzeng.com/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.com/rss2.xml'>RSS</a> | 选择服务器：<a href="https://www.carlzeng.com">Main</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">US</a>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202511181029.html","pageTitle":"一个查询IP地理信息和CDN提供商的离线终端工具nali及使用"}</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>
