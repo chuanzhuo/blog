@@ -306,7 +306,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201705082038.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201411051016.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -324,7 +324,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/201705082038.html" class="post-title-link" itemprop="url">NetSuite SuiteScript 2.0 use DeferredDynamicRecord-CarlZeng</a>
+          <a href="/en/201411051016.html" class="post-title-link" itemprop="url">Netsuite > Employee Record Name维护规则-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -353,7 +353,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/201705082038.html" ></span>
+            <span id="ArtalkPV" data-page-key="/en/201411051016.html" ></span>
           </span>
         
       
@@ -375,121 +375,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          Background There is a case when we add dynamic sublists to NetSuite Transaction, for user to put in data. In server-side, how to read it in SuiteScrip
+          Employee Record Name 维护规则 - 在NS系统设计中，默认的Field展现是：First Name, Middle Name, Last Name - 在General Preferences（Setup > Company > Genernal Prefrences）中，影响员
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/en/201705082038.html#more" rel="contents">
+              <a class="btn" href="/en/201411051016.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    </br>
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201902191748.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/en/images/avatar.gif">
-      <meta itemprop="name" content="Carl Notes">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Carl Notes">
-      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Carl Notes">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/en/201902191748.html" class="post-title-link" itemprop="url">NetSuite merge PDF in SuiteScript 2.0 [in-progress]-CarlZeng</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
-        </span>
-    </span>
-
-  
-        
-          <span class="post-meta-item" title="Views">
-            <span class="post-meta-item-icon">
-              <i class="far fa-eye"></i>
-            </span>
-            <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/201902191748.html" ></span>
-          </span>
-        
-      
-        
-      
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>An example below shows the how PDF files are being merged using <pdfset> tag. For compiled PDF files to be merged, use the src property of pdf.</p>
-<p>var xmlF &#x3D; ‘<?xml version=”1.0″?></p>
-<!DOCTYPE pdf PUBLIC “-//big.faceless.org//report” “report-1.1.dtd”><p>’;<br>xmlF +&#x3D; ‘<pdfset>’;</p>
-<p><em><pdf src="https://system.netsuite.com/core/media/media.nl?id=1"/></em></p>
-<p><em><pdf src="https://system.netsuite.com/core/media/media.nl?id=2"/></em></p>
-<p>xmlF +&#x3D; ‘</pdfset>‘;<br>xmlF &#x3D; xmlF.replace(&#x2F;&amp;(?!amp;)&#x2F;g, ‘&amp;’);<br>var file &#x3D; render.xmlToPdf({ xmlString: xmlF });<br>file.save();</p>
-<p>Sample2:</p>
-<p>var arrayWithUrls &#x3D; [“&#x2F;core&#x2F;media&#x2F;media.nl?id&#x3D;theid&amp;c&#x3D;myaccoutn&amp;h&#x3D;1122&amp;_xt&#x3D;.pdf”, “&#x2F;core&#x2F;media&#x2F;media.nl?id&#x3D;theid&amp;c&#x3D;myaccount&amp;h&#x3D;2233&amp;_xt&#x3D;.pdf”] var xml &#x3D; “<?xml version=\\"1.0\\"?>\n<!DOCTYPE pdf PUBLIC \\"-//big.faceless.org//report\\" \\"report-1.1.dtd\\">\n” xml +&#x3D; “<pdfset>“ xml +&#x3D; “<pdf>\n&lt;body font-size&#x3D;\“12\“&gt;\n<h2>Merged PDF</h2>\n” xml +&#x3D; “<p></p>“ xml +&#x3D; “Document body” xml +&#x3D; “</body>\n</pdf>“ arrayWithUrls.map(function (x) { var cleanPdfURL &#x3D; mxml.escape({<br>xmlText: x<br>});<br>xml +&#x3D; ‘<pdf src="https://system.netsuite.com' + cleanPdfURL + '"></pdf>‘ })<br>xml +&#x3D; “</pdfset>“</p>
-<p> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9tZWRpdW0uY29tL0Btb3JyaXNkZXYvYXBwZW5kLW11bHRpcGxlLXBkZi1kb2N1bWVudHMtaW4tbmV0c3VpdGUtc3VpdGVzY3JpcHRzLTY1NDIzOTZhMjM0Mw==" rel="noopener external nofollow noreferrer">https://medium.com/@morrisdev/append-multiple-pdf-documents-in-netsuite-suitescripts-6542396a2343</a></p>
-
       
     </div>
 
@@ -595,6 +489,106 @@
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202104100945.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/en/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Carl Notes">
+      <meta itemprop="description" content="[Observe with eyes and heart, precipitate and share] The version of technical articles is continuously updated">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/en/202104100945.html" class="post-title-link" itemprop="url">NetSuite Batch Process Status -CarlZeng</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-10-08 21:38:52" itemprop="dateModified" datetime="2023-10-08T21:38:52+08:00">2023-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/en/categories/NetSuite/" itemprop="url" rel="index"><span itemprop="name">NetSuite</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/202104100945.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>14 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Check of back-end process status which might impact reporting, learn how things are calculate&#x2F;processing in NetSuite</p>
+<p>&#x2F;app&#x2F;accounting&#x2F;bulkprocessing&#x2F;bulkprocessingstatuslist.nl</p>
+<p>[<br>  { “value”: “@ALL@”, “text”: “- All -“ },<br>  { “value”: “SUPPLYREALLOCATION”, “text”: “Allocate Orders” },<br>  { “value”: “ALLOCATEREVARRANGEMENT”, “text”: “Allocate Revenue Arrangements” },<br>  { “value”: “BULKAUTHCOMMISSN”, “text”: “Authorize Commissions” },<br>  { “value”: “BULKAUTHPARTNERCOMMISSN”, “text”: “Authorize Partner Commissions” },<br>  { “value”: “AUTO_CASH”, “text”: “Auto Cash” },<br>  { “value”: “AUTO_POST_GL_TRANSACTION”, “text”: “Auto-Create GL Transactions” },<br>  { “value”: “BALANCELCGACCOUNTS”, “text”: “Balance Location Costing Group Accounts” },<br>  { “value”: “BAL_SEGMENTS_KEY_REDUCTN”, “text”: “Balancing by Segments: Analysis data processing” },<br>  { “value”: “BAL_SEGMENTS_KEY_STAGING”, “text”: “Balancing by Segments: Transaction analysis” },<br>  { “value”: “BAL_SEGMENTS_TRX_GENERAT”, “text”: “Balancing by Segments: Transaction generation” },<br>  { “value”: “BANK_CONNECTIVITY_IMPORT”, “text”: “Bank Connectivity Import” },<br>  { “value”: “BANK_STATEMENT_IMPORT”, “text”: “Bank Statement Import” },<br>  { “value”: “BILLINBOUNDSHIPMENT”, “text”: “Bill Inbound Shipment” },<br>  { “value”: “BILLINGWORKCENTER”, “text”: “Billing Work Center” },<br>  { “value”: “BUILDWORKORDERS”, “text”: “Build Work Orders” },<br>  { “value”: “SUBSCRIPTION_MRR”, “text”: “Calculate and store MRR analytics for {Subscription Line}” },<br>  { “value”: “UPDATEDCLOSED”, “text”: “Calls Update Dclosed” },<br>  { “value”: “CANCELSUPPLYORDER”, “text”: “Cancel Supply Orders” },<br>  { “value”: “CLOSEWORKORDERS”, “text”: “Close Work Orders” },<br>  { “value”: “ORDERREALLOCATION”, “text”: “Commit Orders” },<br>  { “value”: “COMPLETEWORKORDERS”, “text”: “Complete Work Orders” },<br>  { “value”: “CONFIRM_TRANSACTIONS”, “text”: “Confirm Transactions” },<br>  { “value”: “COPYITEMLOCCONFIG”, “text”: “Copy Item Location Configuration” },<br>  { “value”: “RECOGNIZEPLANNEDEXPENSE”, “text”: “Create Advanced Expense Journal Entries” },<br>  { “value”: “RECOGNIZEPLANNEDREVENUE”, “text”: “Create Advanced Revenue Recognition Journal Entries” },<br>  { “value”: “CHARGEENGINE”, “text”: “Create Charges” },<br>  { “value”: “OFFCYCLEINVOICE”, “text”: “Create Off-Cycle “ },<br>  { “value”: “CREATEPERIODENDJOURNALS”, “text”: “Create Period End Journals” },<br>  { “value”: “BULKREVREC”, “text”: “Create Revenue Recognition Journal Entries” },<br>  { “value”: “RECOGNIZEREVENUE”, “text”: “Create Summarized Rev Rec Journal Entries” },<br>  { “value”: “CREATESUPPLYCHANGEORDER”, “text”: “Create Supply Change Orders” },<br>  { “value”: “DEFERREDREVENUERECLASS”, “text”: “Deferred Revenue Reclassification” },<br>  { “value”: “DELETEREVENUEELEMENTS”, “text”: “Delete Revenue Elements” },<br>  { “value”: “DELETEPLANDEFINITION”, “text”: “Delete Supply Plan Definition” },<br>  { “value”: “EDITREVENUEARRANGEMENTS”, “text”: “Edit Revenue Arrangements” },<br>  { “value”: “TESTUNEXPECTEDERRORTYPE”, “text”: “Error Handling Test” },<br>  { “value”: “EXECUTERECORDACTIONS”, “text”: “Execute Record Actions” },<br>  { “value”: “EXTEND_EST_REVREC_ENDDATE”, “text”: “Extend Subscription Estimated Rev Rec End Date” },<br>  { “value”: “FIRMPLANNEDORDER”, “text”: “Firm Planned Orders” },<br>  { “value”: “FIXREVRECTRANSACTIONS”, “text”: “Fix Rev Rec Transactions” },<br>  { “value”: “FULFILLSALESORDERS”, “text”: “Fulfill Sales Orders” },<br>  { “value”: “GLAUDITNUMBERING”, “text”: “GL Audit Numbering” },<br>  { “value”: “GLIMPACTADJUSTMENT”, “text”: “GL Impact Adjustment” },<br>  { “value”: “GROUPINVOICES”, “text”: “Group Invoices” },<br>  { “value”: “GROUPINVOICESSUBMISSION”, “text”: “Group Invoices Submission” },<br>  { “value”: “IMPORT_EMPLOYEE_EXPENSE”, “text”: “Import Employee Expenses” },<br>  { “value”: “INTERCOMPANYELIMINATION”, “text”: “Intercompany Elimination” },<br>  { “value”: “IC_ENTITY_GENERATION”, “text”: “Intercompany Entity Generation” },<br>  { “value”: “INTERCOORDER_GENERATION”, “text”: “Intercompany Order Generation” },<br>  { “value”: “ICORDER_RA_GENERATION”, “text”: “Intercompany Order Generation” },<br>  { “value”: “ICORDER_SO_GENERATION”, “text”: “Intercompany Order Generation” },<br>  { “value”: “INVOICEBILLABLECUSTOMERS”, “text”: “Invoice Billable Customers” },<br>  { “value”: “BILLSALESORDERS”, “text”: “Invoice Sales Orders” },<br>  { “value”: “OFFCYCLECREDITMEMO”, “text”: “Issue Credit Memo from Change Order” },<br>  { “value”: “ISSUECREDITMEMOS”, “text”: “Issue Credit Memos” },<br>  { “value”: “ISSUEWORKORDERS”, “text”: “Issue Work Orders” },<br>  { “value”: “BULKITEMSHIPSTATUSPACK”, “text”: “Mark Orders Packed” },<br>  { “value”: “BULKITEMSHIPSTATUSSHIP”, “text”: “Mark Orders Shipped” },<br>  { “value”: “MARKVSOEDELIVERED”, “text”: “Mark VSOE Delivered” },<br>  { “value”: “MARKBUILTWORKORDERS”, “text”: “Mark Work Orders Built” },<br>  { “value”: “MARKFIRMEDWORKORDERS”, “text”: “Mark Work Orders Firmed” },<br>  { “value”: “MARKRELEASEDWORKORDERS”, “text”: “Mark Work Orders Released” },<br>  { “value”: “CREATEWORKORDERSFORSTOCK”, “text”: “Mass Create Work Orders” },<br>  { “value”: “MATERIALREQUIREMENTSPLAN”, “text”: “Material Requirements Planning” },<br>  { “value”: “MEDIATEPLANRATABLEEVENTS”, “text”: “Mediate Revenue Plan Ratable Events” },<br>  { “value”: “MEMORIZEDTRANSACTIONS”, “text”: “Memorized Transactions” },<br>  { “value”: “MHATTRIBUTE”, “text”: “Merchandise Attribute” },<br>  { “value”: “MHITEMASSIGNMENT”, “text”: “Merchandise Item Assignment” },<br>  { “value”: “MHITEMREMOVAL”, “text”: “Merchandise Item Removal” },<br>  { “value”: “MERGEREVARRANGEMENT”, “text”: “Merge Revenue Arrangements for Linked Sources” },<br>  { “value”: “MIGRATEOPENREVTRANSACTION”, “text”: “Migrate Revenue Arrangements and Plans” },<br>  { “value”: “MONTHENDFXREVAL”, “text”: “Month End Currency Revaluation” },<br>  { “value”: “MRPINITIALIZATION”, “text”: “MRP Initialization” },<br>  { “value”: “MRPOLDDATADELETION”, “text”: “MRP Old Data Deletion” },<br>  { “value”: “BULKORDERITEMS”, “text”: “Order Items” },<br>  { “value”: “PICKACTION_SYNC”, “text”: “Order Release Fulfillment” },<br>  { “value”: “BULKORDERREQUISITIONS”, “text”: “Order Requisitions” },<br>  { “value”: “OWNERSHIPTRANSFER”, “text”: “Ownership Transfer” },<br>  { “value”: “BULKPAYBILLS”, “text”: “Pay “ },<br>  { “value”: “REPOSITORYINITIALIZATION”, “text”: “Planning Repository Initialization” },<br>  { “value”: “PLANNINGREPOSITORYREFRESH”, “text”: “Planning Repository Refresh” },<br>  { “value”: “SUBSCRIPTION_RECURRINGAMT”, “text”: “Populate Recurring Amount for {Subscription Line}” },<br>  { “value”: “PROCESSHISTTRANSACTIONS”, “text”: “Process Secondary Book Historical Transactions” },<br>  { “value”: “RATINGRUN”, “text”: “Rating Run” },<br>  { “value”: “RECALCEXPFORECASTPLANS”, “text”: “Recalculate Expense Forecast Plans” },<br>  { “value”: “RECALCREVFORECASTPLANS”, “text”: “Recalculate Revenue Forecast Plans” },<br>  { “value”: “RECEIVEINBOUNDSHIPMENT”, “text”: “Receive Inbound Shipment” },<br>  { “value”: “BULKRECEIVEORDER”, “text”: “Receive Orders” },<br>  { “value”: “RELEASEPLANNEDORDER”, “text”: “Release Planned Orders” },<br>  { “value”: “REMOVEMATRIXOPTIONS”, “text”: “Remove Matrix Options” },<br>  { “value”: “RENEWSUBSCRIPTIONS”, “text”: “Renew “ },<br>  { “value”: “RESCHEDULESUPPLYORDER”, “text”: “Reschedule Supply Orders” },<br>  { “value”: “REVALUESTDCOSTINVENTORY”, “text”: “Revalue Standard Cost Inventory” },<br>  { “value”: “REVERTEXPFORECASTPLANS”, “text”: “Revert Expense Forecast Plans to Original” },<br>  { “value”: “REVERTFORECASTPLANSTOORIG”, “text”: “Revert Revenue Forecast Plans to Original” },<br>  { “value”: “ROLLUPITEMCOST”, “text”: “Rollup Planned Standard Cost” },<br>  { “value”: “REC_MATCHING_ENGINE”, “text”: “Run Rules Engine” },<br>  { “value”: “SUITETAXMIGRATION”, “text”: “SuiteTax Migration” },<br>  { “value”: “SUPPLYALLOCATIONMIGRATION”, “text”: “Supply Allocation Migration” },<br>  { “value”: “SCSNAPSHOTREFRESH”, “text”: “Supply Chain Snapshot Refresh” },<br>  { “value”: “TIME_MODIFICATION”, “text”: “Time Modification” },<br>  { “value”: “REPLENISHINVENTORY”, “text”: “Transfer Order Replenishment” },<br>  { “value”: “WITHDRAWINVENTORY”, “text”: “Transfer Order Withdrawal” },<br>  { “value”: “MANAGEACTUALEXPENSEPLANS”, “text”: “Update Actual Expense Plans” },<br>  { “value”: “MANAGEACTUALREVENUEPLANS”, “text”: “Update Actual Revenue Recognition Plans” },<br>  { “value”: “TESTBULKPROCTYPE”, “text”: “Update Department Name For Testing Only” },<br>  { “value”: “UPDATEEXPENSEPLANS”, “text”: “Update Expense Plans” },<br>  { “value”: “MANAGEFORECASTEXPPLANS”, “text”: “Update Forecast Expense Plans” },<br>  { “value”: “MANAGEFORECASTREVPLANS”, “text”: “Update Forecast Revenue Recognition Plans” },<br>  { “value”: “MANAGEREVENUEARRANGEMENT”, “text”: “Update Revenue Arrangements” },<br>  { “value”: “MANAGEREVENUEELEMENTS”, “text”: “Update Revenue Elements” },<br>  { “value”: “UPDATEREVRECPLANS”, “text”: “Update Revenue Recognition Plans” }<br>]</p>
+
       
     </div>
 
@@ -2363,6 +2357,26 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/page/11/"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -2395,26 +2409,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>

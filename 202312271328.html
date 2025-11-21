@@ -18,31 +18,33 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="提供多国语言翻译接口，为程序&#x2F;系统提供翻译服务">
+    <meta name="description" content="提供多国语言翻译接口(中, 英, 俄)，为程序&#x2F;系统提供翻译服务; 切换服务到https:&#x2F;&#x2F;c.carlzeng.com:3&#x2F;translate">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由">
+<meta property="og:title" content="Docker搭建翻译工具API - 多国语言翻译自由">
 <meta property="og:url" content="https://www.carlzeng.com/202312271328.html">
 <meta property="og:site_name" content="云随笔 Carl Notes">
-<meta property="og:description" content="提供多国语言翻译接口，为程序&#x2F;系统提供翻译服务">
+<meta property="og:description" content="提供多国语言翻译接口(中, 英, 俄)，为程序&#x2F;系统提供翻译服务; 切换服务到https:&#x2F;&#x2F;c.carlzeng.com:3&#x2F;translate">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/11/21/691fdeac99004.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/11/21/691fde8120d32.png">
 <meta property="article:published_time" content="2023-12-27T05:28:50.000Z">
-<meta property="article:modified_time" content="2024-10-25T12:32:22.228Z">
+<meta property="article:modified_time" content="2025-11-21T03:52:06.666Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="docker-compose">
-<meta property="article:tag" content="DeepL">
 <meta property="article:tag" content="API">
 <meta property="article:tag" content="translate">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.carlzeng.com:3/i/2025/11/21/691fdeac99004.png">
 
 
 <link rel="canonical" href="https://www.carlzeng.com/202312271328.html">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.com/202312271328.html","path":"202312271328.html","title":"Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.com/202312271328.html","path":"202312271328.html","title":"Docker搭建翻译工具API - 多国语言翻译自由"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由 | 云随笔 Carl Notes</title>
+<title>Docker搭建翻译工具API - 多国语言翻译自由 | 云随笔 Carl Notes</title>
   
 
 
@@ -92,7 +94,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">270</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">86</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">393</span></a></li><li class="menu-item menu-item-网络加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>网络加速</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Nhc2U=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">269</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">86</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">393</span></a></li><li class="menu-item menu-item-翻译"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3RyYW5zbGF0ZQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>翻译</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Nhc2U=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li><li class="menu-item menu-item-照片转文本"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL29jcg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>照片转文本</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -128,7 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%98%85%E8%AF%BB"><span class="nav-number">3.</span> <span class="nav-text">延伸阅读</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="nav-number">5.</span> <span class="nav-text">下一步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">6.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%B6%E4%BC%B8%E9%98%85%E8%AF%BB"><span class="nav-number">3.</span> <span class="nav-text">延伸阅读</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="nav-number">4.1.</span> <span class="nav-text">下一步</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E6%9C%8D%E5%8A%A1%E5%88%B0libretranslate"><span class="nav-number">5.</span> <span class="nav-text">切换服务到libretranslate</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AA%E5%8A%A0%E8%BD%BD%E4%B8%AD%E8%8B%B1%E4%BF%84%E6%96%87%E6%A8%A1%E5%9E%8B"><span class="nav-number">6.</span> <span class="nav-text">只加载中英俄文模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">7.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -152,7 +154,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">270</span>
+        <span class="site-state-item-count">269</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -171,11 +173,6 @@
     相关文章
   </div>
   <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201001251523.html" rel="bookmark">
-      Netsuite 友好提示-CarlZeng
-      </a>
-    </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
       加速Docker Pull或者docker-compose拉取镜像 - 适用github源
@@ -197,18 +194,23 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311201654.html" rel="bookmark">
-      Docker搭建自动售货系统-独角数卡
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202311081003.html" rel="bookmark">
       实测Docker搭建短链接服务YOURLS
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311201654.html" rel="bookmark">
+      Docker搭建自动售货系统-独角数卡
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202312230940.html" rel="bookmark">
       Docker搭建轻量个人文件分享服务-文件传输自由
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
       </a>
     </li>
   </ul>
@@ -385,12 +387,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由 | 云随笔 Carl Notes">
+      <meta itemprop="name" content="Docker搭建翻译工具API - 多国语言翻译自由 | 云随笔 Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由
+          Docker搭建翻译工具API - 多国语言翻译自由
         </h1>
 
         <div class="post-meta-container">
@@ -400,7 +402,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-10-25 20:32:22" itemprop="dateModified" datetime="2024-10-25T20:32:22+08:00">2024-10-25</time>
+      <time title="修改时间：2025-11-21 11:52:06" itemprop="dateModified" datetime="2025-11-21T11:52:06+08:00">2025-11-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -430,7 +432,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -440,9 +442,9 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="">
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.com:3/i/2025/11/21/691fdeac99004.png">
 
-<p>提供多国语言翻译接口，为程序&#x2F;系统提供翻译服务</p>
+<p>提供多国语言翻译接口(中, 英, 俄)，为程序&#x2F;系统提供翻译服务; 切换服务到<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3RyYW5zbGF0ZQ==" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:3/translate</a></p>
 <span id="more"></span>
 
 <h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>提供多国语言翻译接口，为程序&#x2F;系统提供翻译服务</p>
@@ -453,19 +455,30 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Thread-1 is translating zh to en, length=437                                                        </span><br><span class="line"> response RESULT:  &#123;&quot;code&quot;:429,&quot;message&quot;:&quot;Too Many Requests&quot;&#125;    </span><br></pre></td></tr></table></figure>
 
 <p>总之性能相当堪忧，没什么卵用的感觉。</p>
-<h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><p>post 到 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6MTE4OC90cmFuc2xhdGU=" rel="noopener external nofollow noreferrer">http://192.168.6.116:1188/translate</a></p>
-<p>如果用get的话，打印出用法：</p>
-<p>{“code”:200,”message”:”DeepL Free APIGo to &#x2F;translate with POST.”}</p>
+<p>20251121, 切换服务到 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3RyYW5zbGF0ZQ==" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:3/translate</a></p>
+<h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><p>API 用法:  post 到 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly90cmFuc2xhdGUxLmNhcmx6ZW5nLmNvbTozL3RyYW5zbGF0ZQ==" rel="noopener external nofollow noreferrer">https://translate1.carlzeng.com:3/translate</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> res = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&quot;https://translate1.carlzeng.com:3/translate&quot;</span>, &#123;</span><br><span class="line">	<span class="attr">method</span>: <span class="string">&quot;POST&quot;</span>,</span><br><span class="line">	<span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">		<span class="attr">q</span>: <span class="string">&quot;Не рекомендуется использовать карту памяти свитча с MacOS. Дело в том, что эта ОС создает большое количество мета-файлов и папок на карте памяти, а так же может без спроса у пользователя менять атрибуты папок и файлов на вашей карте памяти, тем самым делая её частично или полностью неработоспособной. Это может выражаться в испорченных играх или приложениях, которые не будет отображаться или попросту перестанут запускаться\n\nДля того, чтобы минимизировать урон рекомендуется использовать виртуальные машины с Windows или следующие приложения и скрипты:\n\nClean My Drive 2\nЭто приложение автоматически удаляет весь макосовский мусор при извлечении любого usb носителя.&quot;</span>,</span><br><span class="line">		<span class="attr">source</span>: <span class="string">&quot;auto&quot;</span>,</span><br><span class="line">		<span class="attr">target</span>: <span class="string">&quot;zh-Hans&quot;</span>,</span><br><span class="line">		<span class="attr">format</span>: <span class="string">&quot;text&quot;</span>,</span><br><span class="line">		<span class="attr">alternatives</span>: <span class="number">3</span>,</span><br><span class="line">		<span class="attr">api_key</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">	&#125;),</span><br><span class="line">	<span class="attr">headers</span>: &#123; <span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;application/json&quot;</span> &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">await</span> res.<span class="title function_">json</span>());</span><br></pre></td></tr></table></figure>
+
 <p>如果使用curl使用：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST http://localhost:1188/translate \</span><br><span class="line">-H &quot;Content-Type: application/json&quot; \</span><br><span class="line">-H &quot;Authorization: Bearer your_access_token&quot; \</span><br><span class="line">-d &#x27;&#123;</span><br><span class="line">    &quot;text&quot;: &quot;Hello, world!&quot;,</span><br><span class="line">    &quot;source_lang&quot;: &quot;EN&quot;,</span><br><span class="line">    &quot;target_lang&quot;: &quot;DE&quot;</span><br><span class="line">&#125;&#x27;</span><br></pre></td></tr></table></figure>
 
+<p>UI 访问: </p>
+<iframe style="box-shadow: 0px 0px 20px -10px;" src="https://c.carlzeng.com:4443/translate" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
 <h1 id="延伸阅读"><a href="#延伸阅读" class="headerlink" title="延伸阅读"></a>延伸阅读</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=translate" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
-<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>一键启动</p>
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p><del>一键启动, 已放弃使用</del></p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">    <span class="attr">deepl:</span></span><br><span class="line">        <span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="number">1188</span><span class="string">:1188</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">artem1sobolev/deepl:1.0.1</span></span><br><span class="line">            <span class="comment">#same error: no route to. huiwushi/deepl_zu1k</span></span><br><span class="line">            <span class="comment">#zu1k/deepl</span></span><br><span class="line">        <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
 
-<p>开放防火墙1188，反代（如果有需求的话）</p>
-<h1 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h1><p>我要把中文语言的文章内容都意义传给这个API，翻译成英文版和繁体中文版，这样多国语言的功能就能完整；路途还有点远…</p>
+<p><del>开放防火墙1188，反代（如果有需求的话）</del></p>
+<h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a><del>下一步</del></h2><p><del>我要把中文语言的文章内容都意义传给这个API，翻译成英文版和繁体中文版，这样多国语言的功能就能完整；路途还有点远…</del></p>
+<h1 id="切换服务到libretranslate"><a href="#切换服务到libretranslate" class="headerlink" title="切换服务到libretranslate"></a>切换服务到libretranslate</h1><h1 id="只加载中英俄文模型"><a href="#只加载中英俄文模型" class="headerlink" title="只加载中英俄文模型"></a>只加载中英俄文模型</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.8&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">libretranslate:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">libretranslate/libretranslate</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">lt_translate</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8104:5000&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">LT_LOAD_ONLY=en,zh,ru</span></span><br><span class="line">    <span class="attr">deploy:</span></span><br><span class="line">      <span class="attr">resources:</span></span><br><span class="line">        <span class="attr">limits:</span></span><br><span class="line">          <span class="attr">memory:</span> <span class="string">4096M</span></span><br></pre></td></tr></table></figure>
+
+<p>其他的语言: </p>
+<p>“en”,”name”:”英语”,<br>,”zh-Hans”,”name”:”简体中文”,<br>,”zh-Hant”,”name”:”繁体中文”,<br>,”fr”,”name”:”法语”,<br>,”de”,”name”:”德语”,<br>,”it”,”name”:”意大利语”,<br>,”ja”,”name”:”日语”,<br>,”ko”,”name”:”韩语”,<br>,”ru”,”name”:”俄语”,</p>
+<p>服务运行起来需要一点时间(一开始UI会502报错), 耐心等待下…</p>
+<p>下一步 API如何访问? </p>
+<p><img data-src="https://img.carlzeng.com:3/i/2025/11/21/691fde8120d32.png" alt="image-20251121113735341"></p>
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3p1MWsvdHJhbnNsYXRvcg==" rel="noopener external nofollow noreferrer">translator简单、轻量、好用的划词翻译软件</a></p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL093Ty1OZXR3b3JrL0RlZXBMWA==" rel="noopener external nofollow noreferrer">https://github.com/OwO-Network/DeepLX</a></p>
 
@@ -570,11 +583,11 @@
 <ul>
   <li class="post-copyright-author">
       <strong>本文作者： </strong>Carl Notes
-    <a href='https://www.carlzeng.com/202312271328.html'> 《Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由》</a>
+    <a href='https://www.carlzeng.com/202312271328.html'> 《Docker搭建翻译工具API - 多国语言翻译自由》</a>
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://www.carlzeng.com/202312271328.html" title="Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由">https://www.carlzeng.com/202312271328.html</a>
+      <a href="https://www.carlzeng.com/202312271328.html" title="Docker搭建翻译工具API - 多国语言翻译自由">https://www.carlzeng.com/202312271328.html</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
@@ -591,11 +604,6 @@
     相关文章
   </div>
   <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/201001251523.html" rel="bookmark">
-      Netsuite 友好提示-CarlZeng
-      </a>
-    </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
       加速Docker Pull或者docker-compose拉取镜像 - 适用github源
@@ -617,18 +625,23 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202311201654.html" rel="bookmark">
-      Docker搭建自动售货系统-独角数卡
-      </a>
-    </li>
-    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202311081003.html" rel="bookmark">
       实测Docker搭建短链接服务YOURLS
       </a>
     </li>
     <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311201654.html" rel="bookmark">
+      Docker搭建自动售货系统-独角数卡
+      </a>
+    </li>
+    <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202312230940.html" rel="bookmark">
       Docker搭建轻量个人文件分享服务-文件传输自由
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
       </a>
     </li>
   </ul>
@@ -801,7 +814,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-10-25 20:32:22" itemprop="dateModified" datetime="2024-10-25T20:32:22+08:00">2024-10-25</time>
+        <time title="修改时间：2025-11-21 11:52:06" itemprop="dateModified" datetime="2025-11-21T11:52:06+08:00">2025-11-21</time>
       </span>
 
 </div>
@@ -812,7 +825,6 @@
             继续浏览有关
               <a href="/tags/Docker/" rel="tag"># Docker</a>
               <a href="/tags/docker-compose/" rel="tag"># docker-compose</a>
-              <a href="/tags/DeepL/" rel="tag"># DeepL</a>
               <a href="/tags/API/" rel="tag"># API</a>
               <a href="/tags/translate/" rel="tag"># translate</a>
             的文章
@@ -950,7 +962,27 @@
 
 
 
-<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202312271328.html","pageTitle":"Docker搭建翻译工具API(DeepL X) - 多国语言翻译自由"}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202312271328.html","pageTitle":"Docker搭建翻译工具API - 多国语言翻译自由"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
 <style>.artalk{width:initial;}</style>
@@ -982,26 +1014,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
