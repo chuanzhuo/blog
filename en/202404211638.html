@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="AI, 大语言模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Docker部署大语言模型Llama 3">
+<meta property="og:url" content="https://www.carlzeng.com/en/202404211638.html">
+<meta property="og:site_name" content="云随笔 Carl Notes">
+<meta property="og:description" content="AI, 大语言模型">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/11/27/692841a55d698.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/11/21/6920195f995a9.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2025/11/21/692046c34be1e.png">
+<meta property="og:image" content="https://www.gstatic.com/youtube/img/watch/yt_favicon_ringo2.png">
+<meta property="article:published_time" content="2024-04-21T08:38:43.000Z">
+<meta property="article:modified_time" content="2025-11-27T12:23:12.894Z">
+<meta property="article:author" content="Carl Notes">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Llama 3">
+<meta property="article:tag" content="tts">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.carlzeng.com:3/i/2025/11/27/692841a55d698.png">
+
+
+<link rel="canonical" href="https://www.carlzeng.com/en/202404211638.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.com/202404211638.html","path":"en/202404211638.html","title":"用Docker部署大语言模型Llama 3"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>用Docker部署大语言模型Llama 3 | 云随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://artalk.carlzeng.com:4443"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">云随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">ERP IT方案 电玩</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">271</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">87</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">394</span></a></li><li class="menu-item menu-item-翻译"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3RyYW5zbGF0ZQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>翻译</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Nhc2U=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li><li class="menu-item menu-item-照片转文本"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL29jcg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>照片转文本</a></li>
+  </ul>
+
+    <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <!--<div class="search-header">-->
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="58" placeholder="全局检索..." spellcheck="false" type="search" class="search-input">
+      </div>
+      <!--</div>-->
+    </div>
+    </form>
+
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%89%E5%8F%96Ollama%E9%95%9C%E5%83%8F%E5%91%BD%E4%BB%A4"><span class="nav-number">2.1.</span> <span class="nav-text">*拉取Ollama镜像命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%89%E5%8F%96Chatbot-Ollama%EF%BC%88%E8%BF%99%E6%98%AFUI%EF%BC%89%E9%95%9C%E5%83%8F%E5%91%BD%E4%BB%A4"><span class="nav-number">2.2.</span> <span class="nav-text">*拉取Chatbot-Ollama（这是UI）镜像命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CPU-only"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">CPU only</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-a-model"><span class="nav-number">4.0.1.</span> <span class="nav-text">Run a model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TTS"><span class="nav-number">4.1.</span> <span class="nav-text">TTS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-a-model-1"><span class="nav-number">4.1.1.</span> <span class="nav-text">Run a model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">4.1.2.</span> <span class="nav-text">安装</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Notes</p>
+  <div class="site-description" itemprop="description">眼观心察 沉淀共享 版本持续更新</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">394</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">87</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">271</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
+      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
+      光猫设置端口映射IP端口转发
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202505041100.html" rel="bookmark">
+      Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
+      Switch大气层游戏下载服务及实测列表
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202503300850.html" rel="bookmark">
+      海康威视摄像头添加局域网NAS存储
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+    <div class="pjax">
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新文章
+        </div>
+        <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/202511181029.html" title="一个查询IP地理信息和CDN提供商的离线终端工具nali及使用" target=""  class="popular-posts-link">
+                  一个查询IP地理信息和CDN提供商的离线终端工具nali及使用
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202511091926.html" title="如何在NetSuite中设置RESTlet API的oAuth2.0认证" target=""  class="popular-posts-link">
+                  如何在NetSuite中设置RESTlet API的oAuth2.0认证
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202510282149.html" title="Javascript如何压缩JSON数据及应用" target=""  class="popular-posts-link">
+                  Javascript如何压缩JSON数据及应用
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202508280924.html" title="NetSuite库存盘点接口探讨及WMS系统对接实例" target=""  class="popular-posts-link">
+                  NetSuite库存盘点接口探讨及WMS系统对接实例
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202508041651.html" title="免费给小宝宝下载歌曲的步骤和技巧" target=""  class="popular-posts-link">
+                  免费给小宝宝下载歌曲的步骤和技巧
+                  </a>
+                </li>
+        </ul>
+      </div>
+    </div>
+
+    <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <!--<div class="search-header">-->
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="58" placeholder="全站检索..." spellcheck="false" type="search" class="search-input">
+      </div>
+      <!--</div>-->
+    </div>
+    </form>
+    <style>
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      margin-top: 30px !important;
+      padding: clamp(17px, 5%, 40px) clamp(17px, 7%, 50px) !important;
+      max-width: none !important;
+      border-radius: 6px !important;
+      box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview *{
+      box-sizing: border-box !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading {
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5{
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
+      margin-top: 20px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      width: 100% !important;
+      height: 40px !important;
+      border-radius: 6px !important;
+      border: 2px solid #e9e8e8 !important;
+      background-color: #fff !important;
+      outline: none !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      color: #000000 !important;
+      font-family: "Montserrat" !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 20px !important;
+      text-align: center !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+      color: #000000 !important;
+      opacity: 1 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input:-ms-input-placeholder {
+      color: #000000 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::-ms-input-placeholder {
+      color: #000000 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
+      margin-top: 10px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+      width: 100% !important;
+      height: 40px !important;
+      border: 0 !important;
+      border-radius: 6px !important;
+      line-height: 0px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
+      cursor: pointer !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+      color: #231f20 !important;
+      font-family: "Montserrat" !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 25px !important;
+      text-align: center !important;
+      text-decoration: none !important;
+      display: flex !important;
+      width: 100% !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 10px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
+      margin-left: 10px !important;
+      height: 1.13em !important;
+      max-height: 1.13em !important;
+    }
+    </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
+      订阅最新文章
+    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="请输入您的邮箱地址后回车确认" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
+      订阅
+    </button></div></div></form></div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/202404211638.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="description" content="眼观心察 沉淀共享 版本持续更新">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="用Docker部署大语言模型Llama 3 | 云随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          用Docker部署大语言模型Llama 3
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-11-27 20:23:12" itemprop="dateModified" datetime="2025-11-27T20:23:12+08:00">2025-11-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ollama/" itemprop="url" rel="index"><span itemprop="name">ollama</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="Views">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">Views: </span>
+            <span id="ArtalkPV" data-page-key="/en/202404211638.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>13 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.com:3/i/2025/11/27/692841a55d698.png">
+
+<p>AI, 大语言模型</p>
+<span id="more"></span>
+
+<div> 
+<button onclick="synthesizeSpeech()">朗读全文</button>
+</div>
+<audio controls id="audioPlayer">Your browser does not support the audio element.</audio>      
+<script>
+  function synthesizeSpeech() { 
+    var inputText = document.getElementsByClassName('post-block')[0].innerText;
+    var voice = "ZH";
+    var url = 'https://tts.carlzeng.com:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
+    var audioPlayer = document.getElementById('audioPlayer');          
+    audioPlayer.src = url;
+    audioPlayer.load();
+    audioPlayer.play();
+  }
+</script>
+
+
+
+
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>体验一下AI目前在CPU上运行的应用; 用来学习AI大语言模型</p>
+<p>本文被停滞了将近1年半时间; 受制于硬件和时间关系; 即便最近跑通了也更尴尬. 只要一请求打一点的运算, CPU马上100%占用. 下一步: 安排英伟达的GPU登场</p>
+<h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><h2 id="拉取Ollama镜像命令"><a href="#拉取Ollama镜像命令" class="headerlink" title="*拉取Ollama镜像命令"></a>*拉取Ollama镜像命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker  pull ollama/ollama:latest</span><br></pre></td></tr></table></figure>
+
+<p>然后在bash命令界面,执行<code>ollama run llama2</code>命令，接着等待下载即可,最后出现success,表示下载运行Llama 2模型成功</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it ollama-ollama1 bash    </span><br><span class="line">root@ollama-ollama1:/# ollama run llama2                                                                  </span><br><span class="line">pulling manifest                                                                                          </span><br><span class="line">pulling 8934d96d3f08...  89% ▕█████████████████████████████████████     ▏ 3.4 GB/3.8 GB  4.8 MB/s   1m26s</span><br></pre></td></tr></table></figure>
+
+<p>教程：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL29sbGFtYS9vbGxhbWE=" rel="noopener external nofollow noreferrer">https://github.com/ollama/ollama</a></p>
+<p>Remove a model<br>    ollama rm llama2</p>
+<p>卡死；删除整个container，空间没有得到释放，郁闷。。。</p>
+<p>20240423放弃，因为对CPU的占用太大。</p>
+<h2 id="拉取Chatbot-Ollama（这是UI）镜像命令"><a href="#拉取Chatbot-Ollama（这是UI）镜像命令" class="headerlink" title="*拉取Chatbot-Ollama（这是UI）镜像命令"></a>*拉取Chatbot-Ollama（这是UI）镜像命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker  pull ghcr.io/ivanfioravanti/chatbot-ollama:main</span><br></pre></td></tr></table></figure>
+
+<p>然后设置这个UI的一个变量：该变量就是连接我们上面运行Ollama框架服务的地址,我们设置本地地址:</p>
+<p>http:&#x2F;&#x2F;群晖局域网IP:11434</p>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=ai" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">    <span class="attr">localai:</span></span><br><span class="line">        <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">container_name:</span> <span class="string">local-ai</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="number">8105</span><span class="string">:8080</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">localai/localai:latest-aio-cpu</span></span><br><span class="line">        <span class="attr">volumes:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">~/models:/models:cached</span></span><br></pre></td></tr></table></figure>
+
+<p>运行之前: </p>
+<p><img data-src="https://img.carlzeng.com:3/i/2025/11/21/6920195f995a9.png" alt="image-20251121154835867"></p>
+<p>运行之后: </p>
+<p><img data-src="https://img.carlzeng.com:3/i/2025/11/21/692046c34be1e.png" alt="image-20251121190221555"></p>
+<p>可见CPU直接飙满了~. 还好当没有请求的时候cpu不是一直这样保持爆满的状态</p>
+<p>curl <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4xMTc6ODEwNS90dHM=" rel="noopener external nofollow noreferrer">http://192.168.6.117:8105/tts</a> -H “Content-Type: application&#x2F;json” -d ‘{<br>  “input”: “Hello world”,<br>  “model”: “tts”<br>}’</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Load model from /models/tts failed:Load model /models/tts failed. File doesn&#x27;t exist&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="CPU-only"><a href="#CPU-only" class="headerlink" title="CPU only"></a>CPU only</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3&quot;</span><br><span class="line">services:</span><br><span class="line">    ollama:</span><br><span class="line">        volumes:</span><br><span class="line">            - ./ollama:/root/.ollama</span><br><span class="line">        ports:</span><br><span class="line">            - 8106:11434</span><br><span class="line">        container_name: ollama</span><br><span class="line">        image: ollama/ollama</span><br></pre></td></tr></table></figure>
+
+<h3 id="Run-a-model"><a href="#Run-a-model" class="headerlink" title="Run a model"></a>Run a model</h3><p>Now you can run a model like Llama 2 inside the container.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it ollama ollama run llama2-chinese</span><br></pre></td></tr></table></figure>
+
+
+
+<p>用上一次的webui 关联起来就是</p>
+<p>给ollama弄一个前端UI</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">    <span class="attr">open-webui:</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="number">8107</span><span class="string">:8080</span></span><br><span class="line">            <span class="bullet">-</span> <span class="number">11434</span><span class="string">:11434</span></span><br><span class="line">        <span class="attr">extra_hosts:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">host.docker.internal:host-gateway</span></span><br><span class="line">        <span class="attr">volumes:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">./open-webui-data:/app/backend/data</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">/root/ollama/ollama:/root/.ollama</span></span><br><span class="line">        <span class="attr">container_name:</span> <span class="string">open-webui</span></span><br><span class="line">        <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">ghcr.io/open-webui/open-webui:main</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>        - /root/ollama/ollama:/root/.ollama 
+        - 尝试关联本机中的ollama(独立运行的)
+        - 
+</code></pre>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cucnVub29iLmNvbS9vbGxhbWEvb2xsYW1hLW9wZW4td2VidWkuaHRtbA==" rel="noopener external nofollow noreferrer">https://www.runoob.com/ollama/ollama-open-webui.html</a></p>
+<h2 id="TTS"><a href="#TTS" class="headerlink" title="TTS"></a>TTS</h2><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1yOHIxVkZiaGgxdw==" rel="noopener external nofollow noreferrer">Coqui TTS Setup via Docker: Voice AI on Linux Mint</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 5002:5002 --entrypoint /bin/bash ghcr.io/coqui-ai/tts-cpu</span><br><span class="line"></span><br><span class="line">python3 TTS/server/server.py --model_name tts_models/en/vctk/vits</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">    <span class="attr">ollama:</span></span><br><span class="line">        <span class="attr">volumes:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">./ollama:/root/.ollama</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="number">8106</span><span class="string">:11434</span></span><br><span class="line">        <span class="attr">container_name:</span> <span class="string">ollama</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">ollama/ollama</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4xMTc6ODEwNi8=" rel="noopener external nofollow noreferrer">http://192.168.6.117:8106/</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ollama is running</span><br></pre></td></tr></table></figure>
+
+<h3 id="Run-a-model-1"><a href="#Run-a-model-1" class="headerlink" title="Run a model"></a>Run a model</h3><p>Now you can run a model like Llama 2 inside the container.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it ollama ollama run ChatTTS-Ollama</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>StyleTTS - <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vcmVkaXJlY3Q/ZXZlbnQ9dmlkZW9fZGVzY3JpcHRpb24mcmVkaXJfdG9rZW49UVVGRkxVaHFiRlYwVkU1VmJuSnZYMWszY1doQ2RtRlBaazFxY1daSldWbHBVWHhCUTNKdGMwdHVjRVUwT1VNMVlYUmpPWFZEUVMxTU5sUldPVFE1UkU1bWQyTk5SMHB2TkV4TWRHY3libEpCV0dnd01rczRaVTlMT0VkTGRVbzJNblV5VVZaVGRsVllVbDgzVkZsNVFtNDNhbnBPYUY5WFNtcEhialF0Tmt4RFRGOVhkMWhhWjBsNVNVOUNXR2w1VEZrMVprUjVkemszY3cmcT1odHRwczovL2dpdGh1Yi5jb20veWw0NTc5L1N0eWxlVFRTMj90YWI9cmVhZG1lLW92LWZpbGUmdj1sUGl0amhob2Rhdw==" rel="noopener external nofollow noreferrer">https://github.com/yl4579/StyleTTS2?t...</a> Eleven’s Style TTS - <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vcmVkaXJlY3Q/ZXZlbnQ9dmlkZW9fZGVzY3JpcHRpb24mcmVkaXJfdG9rZW49UVVGRkxVaHFiVkJoUzAxV1RsSTJlRk5XWjFsaGFqaDNlV3hRTFVWU1EwODNaM3hCUTNKdGMwdHJXbll5VlY4ek9FeFVhR0V4TlVWWFgyWm1OamN4VDNwcU1tNUZkelZNYlhsbVIxZHZYelZrWkRKdExYUnFUVmRaUVVKeVdIbGFWR2QzWmxod1JuZGZPVmRFT1RWUlZsRTVWamMyU25sdFYxSnFkblZGTVVaeWF6aGtWM04wWDFkaGRXZHFTekoyWTNZMk9YazFia2xhU1EmcT1odHRwczovL2dpdGh1Yi5jb20vSUlFbGV2ZW4xMS9TdHlsZVRUUzJGaW5lVHVuZSZ2PWxQaXRqaGhvZGF3" rel="noopener external nofollow noreferrer">https://github.com/IIEleven11/StyleTT...</a> </p>
+<p>Coqui TTS - <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vcmVkaXJlY3Q/ZXZlbnQ9dmlkZW9fZGVzY3JpcHRpb24mcmVkaXJfdG9rZW49UVVGRkxVaHFibGx2VjFNMFUzZHVXRjl0ZVVwQlVXRTNMVkptVVc1cmJGbHdRWHhCUTNKdGMwdHVkM2hPU1hsTE1VbzNWazltWXpJMFlrWTVOM3BMTm5WdFNGOWxabEo1VURVemFuYzVha05tYjNocmNuaDBZbVZ6Ym1kQ1psOWFTa2x5ZEdWUFVqRXpkbTQwZWtWbGJVMUlXV2hYVTJvNWJXTndOMngyWTJ0YWQyTmhkbGRKVWpWeU5EbHVTRnA0WHpoclR6SkpjVVJRTkEmcT1odHRwczovL2dpdGh1Yi5jb20vY29xdWktYWkvVFRTJnY9bFBpdGpoaG9kYXc=" rel="noopener external nofollow noreferrer">https://github.com/coqui-ai/TTS</a> </p>
+<p>Daswers XTTS GUI - <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vcmVkaXJlY3Q/ZXZlbnQ9dmlkZW9fZGVzY3JpcHRpb24mcmVkaXJfdG9rZW49UVVGRkxVaHFhMjk2VjFaUlFuVkNOa2RVU0ROU04xWjVjVEZOZGs1WkxXdGhRWHhCUTNKdGMwdHNYek5HY3poVmExaFlUVFIyWkMweUxXaHZaMVpaVmw5UFgzSkhNMXAxWm01SWRVNHpjVzUyVjBFMVFWSkhlbTR4WnpodVFXNWZWR2d4VEV4dFh6TmFZbVJCT0dSQ1FsWlJhbUV3Ums5bWRteFliRlpmVW5SQ1oxbFRVWEV3YW0wNVVFRmFhR3B1VDJoeWRrZExSa2huT0EmcT1odHRwczovL2dpdGh1Yi5jb20vZGFzd2VyMTIzL3h0dHMtZmluZXR1bmUtd2VidWkmdj1sUGl0amhob2Rhdw==" rel="noopener external nofollow noreferrer">https://github.com/daswer123/xtts-fin...</a> </p>
+<p>Suno Bark - <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vcmVkaXJlY3Q/ZXZlbnQ9dmlkZW9fZGVzY3JpcHRpb24mcmVkaXJfdG9rZW49UVVGRkxVaHFhMnN0Tm5wYVdYbE5jamhKTFc1cldUTmtPVTFSYmxsUWFFMWtaM3hCUTNKdGMwdHVZV3BRU1VjNWRFUjZjRkI2V1ZkM01VRTBTWEpsZW5OSE5XWkhkVVJ1V1ZJMVNtRmtRVWxzTlVNMGFrNWtiRk5IWDBGNWVrd3lTVkUyZDIxRlpHRnNjbWMxTTNKbGNtOU9SamxPYXpoSE0zQTNRbU42UWxZeGRpMU9USEZIVVZwV1oxaExhV2xZVW01emNsQlJlVVkwYXcmcT1odHRwczovL2dpdGh1Yi5jb20vc3Vuby1haS9iYXJrJnY9bFBpdGpoaG9kYXc=" rel="noopener external nofollow noreferrer">https://github.com/suno-ai/bark</a><br>VallE-X - <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vcmVkaXJlY3Q/ZXZlbnQ9dmlkZW9fZGVzY3JpcHRpb24mcmVkaXJfdG9rZW49UVVGRkxVaHFiRUpqU1Rsc1dqUkVPRVIwUjBGeFpXVk9UVzB4ZVhoYWNXSkpRWHhCUTNKdGMwdHJVbmR2TkZRNExVa3lTemRuWnpsSFVIUTFXVTlFYlVkVFR5MVdSVkpsUkVkTWMwUjVUbUkwTFhsbmNUSk5lV2R3UlROdWRHWmlhbFl3UkRjMWNERkhiUzF3WWs4dFZFZzNXWEprTURSdlNqSkdTV3hDWm5WWWREVnBSemxsWHpjeFNVTlFSblUwWjI4emMzSTFVRWRXUlEmcT1odHRwczovL2dpdGh1Yi5jb20vUGxhY2h0YWEvVkFMTC1FLVgmdj1sUGl0amhob2Rhdw==" rel="noopener external nofollow noreferrer">https://github.com/Plachtaa/VALL-E-X</a> </p>
+<p><del>Tortoise TTS Installation - <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1wMzFBeF9BNVZLQSZwcD0wZ2NKQ1IwQXp0eXd2dExB" rel="noopener external nofollow noreferrer"> <img data-src="https://www.gstatic.com/youtube/img/watch/yt_favicon_ringo2.png" alt="img"> • Local AI Voice Cloning with Tortoise TTS -…  </a></del> NVIDIA GPUs</p>
+<p>最终的成功案例: </p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2ppYW5jaGFuZzUxMi9DaGF0VFRTLXVpL3RyZWUvbWFpbg==" rel="noopener external nofollow noreferrer">https://github.com/jianchang512/ChatTTS-ui/tree/main</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+<li><p>拉取项目仓库</p>
+<p>在任意路径下克隆项目，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/jianchang512/ChatTTS-ui.git chat-tts-ui</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>启动 Runner</p>
+<p>进入到项目目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd chat-tts-ui</span><br></pre></td></tr></table></figure>
+
+
+
+<p>启动容器并查看初始化日志：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gpu版本</span><br><span class="line">docker compose -f docker-compose.gpu.yaml up -d </span><br><span class="line"></span><br><span class="line">cpu版本    </span><br><span class="line">docker compose -f docker-compose.cpu.yaml up -d</span><br><span class="line"></span><br><span class="line">docker compose logs -f --no-log-prefix</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>访问 ChatTTS WebUI</p>
+<p><code>启动:[&#39;0.0.0.0&#39;, &#39;9966&#39;]</code>，也即，访问部署设备的 <code>IP:9966</code> 即可，例如：</p>
+<ul>
+<li>本机：<code>http://127.0.0.1:9966</code></li>
+<li>服务器: <code>http://192.168.1.100:9966</code></li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Attaching to chat-tts-ui                                                                                        </span><br><span class="line">chat-tts-ui  | Starting...                                                                                      </span><br><span class="line">chat-tts-ui  | Traceback (most recent call last):                                                               </span><br><span class="line">chat-tts-ui  |   File &quot;/app/app.py&quot;, line 24, in                                                        </span><br><span class="line">chat-tts-ui  |     import ChatTTS                                                                               </span><br><span class="line">chat-tts-ui  |   File &quot;/app/ChatTTS/__init__.py&quot;, line 1, in                                            </span><br><span class="line">chat-tts-ui  |     from .core import Chat                                                                       </span><br><span class="line">chat-tts-ui  |   File &quot;/app/ChatTTS/core.py&quot;, line 18, in                                               </span><br><span class="line">chat-tts-ui  |     from .model import DVAE, GPT, gen_logits, Tokenizer                                          </span><br><span class="line">chat-tts-ui  |   File &quot;/app/ChatTTS/model/__init__.py&quot;, line 4, in                                      </span><br><span class="line">chat-tts-ui  |     from .tokenizer import Tokenizer                                                             </span><br><span class="line">chat-tts-ui  |   File &quot;/app/ChatTTS/model/tokenizer.py&quot;, line 20, in                                    </span><br><span class="line">chat-tts-ui  |     class Tokenizer:                                                                             </span><br><span class="line">chat-tts-ui  |   File &quot;/app/ChatTTS/model/tokenizer.py&quot;, line 22, in Tokenizer                                  </span><br><span class="line">chat-tts-ui  |     self, tokenizer_path: torch.serialization.FILE_LIKE, device: torch.device                    </span><br><span class="line">chat-tts-ui  | AttributeError: module &#x27;torch.serialization&#x27; has no attribute &#x27;FILE_LIKE&#x27;                        </span><br><span class="line">chat-tts-ui exited with code 1                                                                                  </span><br><span class="line">chat-tts-ui  | Starting...                                                                                      </span><br><span class="line">  Gracefully stopping... (press Ctrl+C again to force)                                                          </span><br><span class="line">[+] Stopping 1/1                                                                                                </span><br><span class="line"> ✔ Container chat-tts-ui  Stopped</span><br></pre></td></tr></table></figure>
+
+<p>解决办法: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tLzJub2lzZS9DaGF0VFRTL2lzc3Vlcy85MzM=" rel="noopener external nofollow noreferrer">https://github.com/2noise/ChatTTS/issues/933</a></p>
+<p>修改requirements.txt 中的 torch&#x3D;&#x3D;2.1.0 </p>
+<p>用法1: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly90dHMxLmNhcmx6ZW5nLmNvbTozLw==" rel="noopener external nofollow noreferrer">https://tts1.carlzeng.com:3/</a></p>
+<p>用法2: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># API调用代码</span><br><span class="line"></span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line">res = requests.post(&#x27;https://tts1.carlzeng.com:3/tts&#x27;, data=&#123;</span><br><span class="line">  &quot;text&quot;: &quot;若不懂无需填写&quot;,</span><br><span class="line">  &quot;prompt&quot;: &quot;&quot;,</span><br><span class="line">  &quot;voice&quot;: &quot;3333&quot;,</span><br><span class="line">  &quot;temperature&quot;: 0.3,</span><br><span class="line">  &quot;top_p&quot;: 0.7,</span><br><span class="line">  &quot;top_k&quot;: 20,</span><br><span class="line">  &quot;skip_refine&quot;: 0,</span><br><span class="line">  &quot;custom_voice&quot;: 0</span><br><span class="line">&#125;)</span><br><span class="line">print(res.json())</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS5jbi9kZXZlbG9wZXIvYXJ0aWNsZS8yNDA2OTg1P2FyZWFJZD0xMDYwMDE=" rel="noopener external nofollow noreferrer">群晖NAS使用Docker部署大语言模型Llama 2结合内网穿透实现公网访问本地GPT聊天服务</a></p>
+<p>docker 部署 Liama</p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL0xsYW1hRmFtaWx5L0xsYW1hLUNoaW5lc2U=" rel="noopener external nofollow noreferrer">https://github.com/LlamaFamily/Llama-Chinese</a></p>
+
+
+        <!-- search & recent posts(added 20240914) -->
+        <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
+          <div class="popup search-popup">
+            <div class="search-input-container">
+              <input name="q" autocomplete="off" autocapitalize="off" maxlength="40" placeholder="全站搜索..." spellcheck="false" type="search" class="search-input">    (请输入关键字以后回车，检索内容涵盖全局站点)
+            </div>
+          </div>
+        </form>
+        <p>
+        <div class="">
+          <div class="">
+                <div class="links-of-blogroll-title recent-posts-title">
+              <i class="fa fa-history " aria-hidden="true"></i>
+                    最新文章
+            </div>
+            <ul class="popular-posts">
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202511181029.html" title="一个查询IP地理信息和CDN提供商的离线终端工具nali及使用" target="" class="popular-posts-link">
+                      一个查询IP地理信息和CDN提供商的离线终端工具nali及使用
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202511091926.html" title="如何在NetSuite中设置RESTlet API的oAuth2.0认证" target="" class="popular-posts-link">
+                      如何在NetSuite中设置RESTlet API的oAuth2.0认证
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202510282149.html" title="Javascript如何压缩JSON数据及应用" target="" class="popular-posts-link">
+                      Javascript如何压缩JSON数据及应用
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202508280924.html" title="NetSuite库存盘点接口探讨及WMS系统对接实例" target="" class="popular-posts-link">
+                      NetSuite库存盘点接口探讨及WMS系统对接实例
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202508041651.html" title="免费给小宝宝下载歌曲的步骤和技巧" target="" class="popular-posts-link">
+                      免费给小宝宝下载歌曲的步骤和技巧
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202507260959.html" title="吉比特光猫HG6145D1改桥接获超级密码开Telnet" target="" class="popular-posts-link">
+                      吉比特光猫HG6145D1改桥接获超级密码开Telnet
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202507220832.html" title="手机安装Google全家桶谷歌服务框架" target="" class="popular-posts-link">
+                      手机安装Google全家桶谷歌服务框架
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202506291735.html" title="Nintendo Switch安装塞尔达传说王国之泪Mod大师模式" target="" class="popular-posts-link">
+                      Nintendo Switch安装塞尔达传说王国之泪Mod大师模式
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202506251456.html" title="友善R4S软路由刷系统" target="" class="popular-posts-link">
+                      友善R4S软路由刷系统
+                      </a>
+                    </li>
+            </ul>
+          </div>
+          </div>
+        </p>
+
+        <a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
+        <img src="https://c.carlzeng.com:3/wechatScan.png" border="0">
+
+
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="wechat,weibo,qq,facebook"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Carl Notes
+    <a href='https://www.carlzeng.com/202404211638.html'> 《用Docker部署大语言模型Llama 3》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://www.carlzeng.com/202404211638.html" title="用Docker部署大语言模型Llama 3">https://www.carlzeng.com/202404211638.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <main class="main">
+<div class="column">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
+      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
+      光猫设置端口映射IP端口转发
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202505041100.html" rel="bookmark">
+      Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
+      Switch大气层游戏下载服务及实测列表
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202503300850.html" rel="bookmark">
+      海康威视摄像头添加局域网NAS存储
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="column">
+<div class="pjax">
+<!-- recent posts -->
+<div class="animated">
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新文章
+    </div>
+    <ul class="popular-posts">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202511181029.html" title="一个查询IP地理信息和CDN提供商的离线终端工具nali及使用" target="" class="popular-posts-link">
+              [2025/11/18] 一个查询IP地理信息和CDN提供商的离线终端工具nali及使用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202511091926.html" title="如何在NetSuite中设置RESTlet API的oAuth2.0认证" target="" class="popular-posts-link">
+              [2025/11/09] 如何在NetSuite中设置RESTlet API的oAuth2.0认证
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202510282149.html" title="Javascript如何压缩JSON数据及应用" target="" class="popular-posts-link">
+              [2025/10/28] Javascript如何压缩JSON数据及应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202508280924.html" title="NetSuite库存盘点接口探讨及WMS系统对接实例" target="" class="popular-posts-link">
+              [2025/08/28] NetSuite库存盘点接口探讨及WMS系统对接实例
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202508041651.html" title="免费给小宝宝下载歌曲的步骤和技巧" target="" class="popular-posts-link">
+              [2025/08/04] 免费给小宝宝下载歌曲的步骤和技巧
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202507260959.html" title="吉比特光猫HG6145D1改桥接获超级密码开Telnet" target="" class="popular-posts-link">
+              [2025/07/26] 吉比特光猫HG6145D1改桥接获超级密码开Telnet
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202507220832.html" title="手机安装Google全家桶谷歌服务框架" target="" class="popular-posts-link">
+              [2025/07/22] 手机安装Google全家桶谷歌服务框架
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202506291735.html" title="Nintendo Switch安装塞尔达传说王国之泪Mod大师模式" target="" class="popular-posts-link">
+              [2025/06/29] Nintendo Switch安装塞尔达传说王国之泪Mod大师模式
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202506251456.html" title="友善R4S软路由刷系统" target="" class="popular-posts-link">
+              [2025/06/25] 友善R4S软路由刷系统
+              </a>
+            </li>
+    </ul>
+  </div>
+  </div>
+</div>
+</div>
+</main>
+
+
+<div class="followme">
+  <span><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email Subscription</a>  If the article solved your concern or clear some doubts, please <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLmNvbTozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">buy me a coffee</a>.  Also we can <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">Schedule a Converstion</a></span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">联系我(谈话)</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">IPTV直播</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/202312081128.html">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">M3U8播放器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">MP3与下载</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">ChatGPT问答</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">网络加速器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">文件分享</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">下载电子书</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">IT小工具集合</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2025-11-27 20:23:12" itemprop="dateModified" datetime="2025-11-27T20:23:12+08:00">2025-11-27</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/AI/" rel="tag"># AI</a>
+              <a href="/tags/Llama-3/" rel="tag"># Llama 3</a>
+              <a href="/tags/tts/" rel="tag"># tts</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202404191047.html" rel="prev" title="用一个查询从销售订单直通供应商账单 NetSuite">
+                  <i class="fa fa-angle-left"></i> 用一个查询从销售订单直通供应商账单 NetSuite
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/202404260828.html" rel="next" title="任天堂Switch硬件改装与修复记录">
+                  任天堂Switch硬件改装与修复记录 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>English</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="Select language">
+      
+        <option value="zh-CN" data-href="/202404211638.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/202404211638.html" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+</div>
+
+<!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*.carlzeng.com"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//statcounter.carlzeng.com:4443/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="//statcounter.carlzeng.com:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
+
+<div class="powered-by">
+    <a href='https://www.carlzeng.com/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.com/rss2.xml'>RSS</a> | 选择服务器：<a href="https://www.carlzeng.com">Main</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">US</a>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202404211638.html","pageTitle":"用Docker部署大语言模型Llama 3"}</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>
