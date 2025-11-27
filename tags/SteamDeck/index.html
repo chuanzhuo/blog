@@ -511,29 +511,3 @@ darkmode.showWidget();
 </script>
 </body>
 </html>
-tils.loadComments(CONFIG.artalk.el)
-      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
-        condition: window.Artalk 
-      }))
-      .then(() => {
-        Artalk.init(CONFIG.artalk);
-      });
-
-  } else {
-
-    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
-      condition: window.Artalk 
-    }).then(() => {
-      Artalk.loadCountWidget({
-        server: CONFIG.artalk.server,
-        site: CONFIG.artalk.site,
-        pvEl: '#ArtalkPV',
-        countEl: '#ArtalkCount',
-      });
-    })
-
-  }
-})();
-</script>
-</body>
-</html>

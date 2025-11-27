@@ -306,7 +306,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/201902191748.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202205110811.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -324,7 +324,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/en/201902191748.html" class="post-title-link" itemprop="url">NetSuite merge PDF in SuiteScript 2.0 [in-progress]-CarlZeng</a>
+          <a href="/en/202205110811.html" class="post-title-link" itemprop="url">NetSuite's next generation transaction - Inbound Shipment-CarlZeng</a>
         </h2>
 
         <div class="post-meta-container">
@@ -353,7 +353,7 @@
               <i class="far fa-eye"></i>
             </span>
             <span class="post-meta-item-text">Views: </span>
-            <span id="ArtalkPV" data-page-key="/en/201902191748.html" ></span>
+            <span id="ArtalkPV" data-page-key="/en/202205110811.html" ></span>
           </span>
         
       
@@ -364,7 +364,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
+      <span>1 mins.</span>
     </span>
 </div>
 
@@ -375,15 +375,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>An example below shows the how PDF files are being merged using <pdfset> tag. For compiled PDF files to be merged, use the src property of pdf.</p>
-<p>var xmlF &#x3D; ‘<?xml version=”1.0″?></p>
-<!DOCTYPE pdf PUBLIC “-//big.faceless.org//report” “report-1.1.dtd”><p>’;<br>xmlF +&#x3D; ‘<pdfset>’;</p>
-<p><em><pdf src="https://system.netsuite.com/core/media/media.nl?id=1"/></em></p>
-<p><em><pdf src="https://system.netsuite.com/core/media/media.nl?id=2"/></em></p>
-<p>xmlF +&#x3D; ‘</pdfset>‘;<br>xmlF &#x3D; xmlF.replace(&#x2F;&amp;(?!amp;)&#x2F;g, ‘&amp;’);<br>var file &#x3D; render.xmlToPdf({ xmlString: xmlF });<br>file.save();</p>
-<p>Sample2:</p>
-<p>var arrayWithUrls &#x3D; [“&#x2F;core&#x2F;media&#x2F;media.nl?id&#x3D;theid&amp;c&#x3D;myaccoutn&amp;h&#x3D;1122&amp;_xt&#x3D;.pdf”, “&#x2F;core&#x2F;media&#x2F;media.nl?id&#x3D;theid&amp;c&#x3D;myaccount&amp;h&#x3D;2233&amp;_xt&#x3D;.pdf”] var xml &#x3D; “<?xml version=\\"1.0\\"?>\n<!DOCTYPE pdf PUBLIC \\"-//big.faceless.org//report\\" \\"report-1.1.dtd\\">\n” xml +&#x3D; “<pdfset>“ xml +&#x3D; “<pdf>\n&lt;body font-size&#x3D;\“12\“&gt;\n<h2>Merged PDF</h2>\n” xml +&#x3D; “<p></p>“ xml +&#x3D; “Document body” xml +&#x3D; “</body>\n</pdf>“ arrayWithUrls.map(function (x) { var cleanPdfURL &#x3D; mxml.escape({<br>xmlText: x<br>});<br>xml +&#x3D; ‘<pdf src="https://system.netsuite.com' + cleanPdfURL + '"></pdf>‘ })<br>xml +&#x3D; “</pdfset>“</p>
-<p> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9tZWRpdW0uY29tL0Btb3JyaXNkZXYvYXBwZW5kLW11bHRpcGxlLXBkZi1kb2N1bWVudHMtaW4tbmV0c3VpdGUtc3VpdGVzY3JpcHRzLTY1NDIzOTZhMjM0Mw==" rel="noopener external nofollow noreferrer">https://medium.com/@morrisdev/append-multiple-pdf-documents-in-netsuite-suitescripts-6542396a2343</a></p>
+          <p>That could be next generation of NetSuite’s transaction. It’s loading faster, with totally different back-end design.</p>
+<h3 id="Items-sublist-column-fields"><a href="#Items-sublist-column-fields" class="headerlink" title="Items sublist column fields"></a>Items sublist column fields</h3><p><img data-src="https://img2022.cnblogs.com/blog/41238/202205/41238-20220511080952239-970404907.png"></p>
+<p>To be continue</p>
 
       
     </div>
@@ -2363,6 +2357,26 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/page/11/"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -2395,26 +2409,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
