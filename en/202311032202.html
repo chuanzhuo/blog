@@ -16,12 +16,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/en/","images":"/en/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/en/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/en/","images":"/en/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/en/js/config.js"></script>
 
     <meta name="description" content="排查Nginx Proxy Manager，反向代理，让网站变成HTTPS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx Proxy Manager修复笔记">
-<meta property="og:url" content="https://www.carlzeng.top/en/202311032202.html">
+<meta property="og:url" content="https://www.carlzeng.com/en/202311032202.html">
 <meta property="og:site_name" content="Carl Notes">
 <meta property="og:description" content="排查Nginx Proxy Manager，反向代理，让网站变成HTTPS">
 <meta property="og:locale" content="en_US">
@@ -41,11 +41,11 @@
 <meta name="twitter:image" content="https://www.evernote.com/shard/s122/sh/ce8ceac4-b340-41f4-9e1e-4f4929ec58ce/OtBRkRas9WaV8LEDHgzPycXnbgoDdWkn62Q9mVuipiG8Ladqru7Q2G0Jlg/deep/0/image.png">
 
 
-<link rel="canonical" href="https://www.carlzeng.top/en/202311032202.html">
+<link rel="canonical" href="https://www.carlzeng.com/en/202311032202.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/en/202311032202.html","path":"202311032202.html","title":"Nginx Proxy Manager修复笔记"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.com/en/202311032202.html","path":"202311032202.html","title":"Nginx Proxy Manager修复笔记"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Nginx Proxy Manager修复笔记 | Carl Notes</title>
@@ -98,7 +98,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">233</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">60</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">348</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuL3RhZ3MvbmV0c3VpdGUv" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-schedule-meeting"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Schedule Meeting</a></li><li class="menu-item menu-item-chatgpt"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>ChatGPT</a></li><li class="menu-item menu-item-hnet-web"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>HNet Web</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-emby-iptv"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Emby IPTV</a></li><li class="menu-item menu-item-file-share"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>File Share</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li><li class="menu-item menu-item-best-buy"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Best Buy</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">233</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">60</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">348</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.com/en/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-schedule-meeting"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Schedule Meeting</a></li><li class="menu-item menu-item-hnet-web"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>HNet Web</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li><li class="menu-item menu-item-best-buy"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Best Buy</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -354,7 +354,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202311032202.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/en/202311032202.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -427,7 +427,7 @@
 <span id="more"></span>
 
 <h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>排查Nginx Proxy Manager，反向代理，让网站变成HTTPS</p>
-<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>Nginx Proxy Manager 登录异常	<br>    <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxL2xvZ2lu" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/login</a></p>
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>Nginx Proxy Manager 登录异常	<br>    <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxL2xvZ2lu" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/login</a></p>
 <pre><code>11am NPM, 登录失败错误：Bad Gateway
     template-db-1	已停止	jc21/mariadb-aria:latest	
 发现是附属的docker的&quot;/template-db-1&quot; 启动失败
@@ -466,19 +466,19 @@ dns_cloudflare_api_token e385e19ce47c207b15bf@@@@@
 》5:17pm
 </code></pre>
 <p>安装目录：&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;NginxPorxyManager&#x2F;template</p>
-<h2 id="如何编辑artalk的robots-txt"><a href="#如何编辑artalk的robots-txt" class="headerlink" title="如何编辑artalk的robots.txt"></a>如何编辑artalk的robots.txt</h2><p>收到Google的邮件（New reason preventing your pages from being indexed）<br>第二天根据链接里面的indexing report，转到问题的问题；之前还去主站点位置添加的<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5jYXJsemVuZy5jb20vcm9ib3RzLnR4dA==" rel="noopener external nofollow noreferrer">www.carlzeng.com/robots.txt</a>.<br>原来是报告<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9hcnRhbGsuY2FybHplbmcuY29tOjQ0NDMvcm9ib3RzLnR4dA==" rel="noopener external nofollow noreferrer">https://artalk.carlzeng.com:4443/robots.txt</a> 这个页面下的。</p>
-<p>在artalk容器以及映射出来的目录找了半天也找不到这个文件，莫非是程序动态生成的（无解了？）<br>也可能是NPM的反代有这样的设置?<br>        <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuaW90cy52aXAvcG9zdC9oZXhvLWFydGFsay1jb21tZW50Lmh0bWw=" rel="noopener external nofollow noreferrer">https://www.iots.vip/post/hexo-artalk-comment.html</a></p>
-<p>在BT中，&#x2F;www&#x2F;server&#x2F;phpmyadmin&#x2F;phpmyadmin_c123@@&#x2F;目录下，搜索到了robots.txt, 修改内容为：<br>    User-agent: *<br>    Allow: &#x2F;<br>    继续访问<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9hcnRhbGsuY2FybHplbmcuY29tOjQ0NDMvcm9ib3RzLnR4dCVFRiVCQyU5QiVFNCVCQiU4RCVFNyU4NCVCNiVFNiU5NyVBMCVFNiU5NSU4OA==" rel="noopener external nofollow noreferrer">https://artalk.carlzeng.com:4443/robots.txt；仍然无效</a><br>    尝试修改NPM中关于artalk反代的nginx配置文件，参考博客样式<br>    location &#x3D;&#x2F;robots.txt {<br>        default_type text&#x2F;html;<br>        add_header Content-Type “text&#x2F;plain; charset&#x3D;UTF-8”;<br>        return 200 “User-Agent: <em>\nAllow: &#x2F;</em>“;<br>    }</p>
+<h2 id="如何编辑artalk的robots-txt"><a href="#如何编辑artalk的robots-txt" class="headerlink" title="如何编辑artalk的robots.txt"></a>如何编辑artalk的robots.txt</h2><p>收到Google的邮件（New reason preventing your pages from being indexed）<br>第二天根据链接里面的indexing report，转到问题的问题；之前还去主站点位置添加的<a href="http://www.carlzeng.com/robots.txt">www.carlzeng.com/robots.txt</a>.<br>原来是报告<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9hcnRhbGsuY2FybHplbmcuY29tOjQ0NDMvcm9ib3RzLnR4dA==" rel="noopener external nofollow noreferrer">https://artalk.carlzeng.com:4443/robots.txt</a> 这个页面下的。</p>
+<p>在artalk容器以及映射出来的目录找了半天也找不到这个文件，莫非是程序动态生成的（无解了？）<br>也可能是NPM的反代有这样的设置?<br>        <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly93d3cuaW90cy52aXAvcG9zdC9oZXhvLWFydGFsay1jb21tZW50Lmh0bWw=" rel="noopener external nofollow noreferrer">https://www.iots.vip/post/hexo-artalk-comment.html</a></p>
+<p>在BT中，&#x2F;www&#x2F;server&#x2F;phpmyadmin&#x2F;phpmyadmin_c123@@&#x2F;目录下，搜索到了robots.txt, 修改内容为：<br>    User-agent: *<br>    Allow: &#x2F;<br>    继续访问<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9hcnRhbGsuY2FybHplbmcuY29tOjQ0NDMvcm9ib3RzLnR4dCVFRiVCQyU5QiVFNCVCQiU4RCVFNyU4NCVCNiVFNiU5NyVBMCVFNiU5NSU4OA==" rel="noopener external nofollow noreferrer">https://artalk.carlzeng.com:4443/robots.txt；仍然无效</a><br>    尝试修改NPM中关于artalk反代的nginx配置文件，参考博客样式<br>    location &#x3D;&#x2F;robots.txt {<br>        default_type text&#x2F;html;<br>        add_header Content-Type “text&#x2F;plain; charset&#x3D;UTF-8”;<br>        return 200 “User-Agent: <em>\nAllow: &#x2F;</em>“;<br>    }</p>
 <p>12:56pm NPM配置好的一个个host，被保存在了debian映射出来的那个目录？<br>    原来都保存在了 docker-compose.yml 的目录下，<br>    &#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;NginxPorxyManager&#x2F;template&#x2F;data&#x2F;nginx&#x2F;proxy_host#</p>
 <ol>
 <li><p>修改配置nginx问题	root@Debian11:&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;NginxPorxyManager&#x2F;template&#x2F;data&#x2F;nginx&#x2F;proxy_host# vi 1.conf </p>
 </li>
 <li><p>重启NPM docker-compose<br> root@Debian11:&#x2F;www&#x2F;server&#x2F;panel&#x2F;data&#x2F;compose&#x2F;NginxPorxyManager&#x2F;template# docker-compose restart</p>
 </li>
-<li><p>验证 <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9hcnRhbGsuY2FybHplbmcuY29tOjQ0NDMvcm9ib3RzLnR4dA==" rel="noopener external nofollow noreferrer">https://artalk.carlzeng.com:4443/robots.txt</a><br> User-agent: *<br> Allow:&#x2F;<br> Works perfect</p>
+<li><p>验证 <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9hcnRhbGsuY2FybHplbmcuY29tOjQ0NDMvcm9ib3RzLnR4dA==" rel="noopener external nofollow noreferrer">https://artalk.carlzeng.com:4443/robots.txt</a><br> User-agent: *<br> Allow:&#x2F;<br> Works perfect</p>
 </li>
 </ol>
-<p>灵感来源：<br>    <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuaW90cy52aXAvcG9zdC9oZXhvLWFydGFsay1jb21tZW50Lmh0bWw=" rel="noopener external nofollow noreferrer">如果需要 Nginx 反向代理， 这里提供一份 Nginx 配置参考</a><br>    <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLXR3L1JvYm90cy50eHQ=" rel="noopener external nofollow noreferrer">https://zh.wikipedia.org/zh-tw/Robots.txt</a></p>
+<p>灵感来源：<br>    <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly93d3cuaW90cy52aXAvcG9zdC9oZXhvLWFydGFsay1jb21tZW50Lmh0bWw=" rel="noopener external nofollow noreferrer">如果需要 Nginx 反向代理， 这里提供一份 Nginx 配置参考</a><br>    <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLXR3L1JvYm90cy50eHQ=" rel="noopener external nofollow noreferrer">https://zh.wikipedia.org/zh-tw/Robots.txt</a></p>
 <h2 id="Debian-11的一些基础"><a href="#Debian-11的一些基础" class="headerlink" title="Debian 11的一些基础"></a>Debian 11的一些基础</h2><pre><code>Debian 11默认是关闭ssh的，如何开启？设置了自动开启，断电重启就无忧
     旧方案是：在BT面板中开启SSH开关，然后用carl用户登录进ssh，在su，就可以到root用户下
     新的：
@@ -491,15 +491,15 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 <h2 id="缩短URL之简化4443端口成3端口"><a href="#缩短URL之简化4443端口成3端口" class="headerlink" title="缩短URL之简化4443端口成3端口"></a>缩短URL之简化4443端口成3端口</h2><p>尝试在NPM的docker把443映射成4443，同时增加了映射到3（后来发现这个步骤是可选的）</p>
 <img class="lozad" data-src=https://www.evernote.com/shard/s122/sh/04908e9f-02fa-4e85-ba8c-47448ca38092/uSFzRs0qKFfN6TqubZnYUk95Mlr6lsMFQtozVsBmzGLlvV_h8Tu1P_iXHg/deep/0/image.png>
 
-<p>原来仅需要在OP上，把3端口映射给重复的内部端口4443即可。<br>    <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTo0NDQzL3R2" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:4443/tv</a><br>    <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3R2" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:3/tv</a></p>
+<p>原来仅需要在OP上，把3端口映射给重复的内部端口4443即可。<br>    <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTo0NDQzL3R2" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:4443/tv</a><br>    <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3R2" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:3/tv</a></p>
 <h3 id="Docker端口映射之一对多的几种情况"><a href="#Docker端口映射之一对多的几种情况" class="headerlink" title="Docker端口映射之一对多的几种情况"></a>Docker端口映射之一对多的几种情况</h3><ol>
 <li>端口多对一，可行：访问宿主的多个端口可以映射到容器中的同一个端口。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker run -d -p 9000-9001:9000 tomcat:8.5-jre8</span><br></pre></td></tr></table></figure></li>
 <li>多对多的几种情况 9000-9001:9000-9001 可行<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># docker run -d -p 9000-9001:9000-9001 tomcat:8.5-jre8</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="NPM弊端？"><a href="#NPM弊端？" class="headerlink" title="NPM弊端？"></a>NPM弊端？</h2><p>不知为何本地局域网可访问的<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxLw==" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/</a> 无法映射代理到外网，来实现npm自己代理自己的目标。</p>
-<p>真是奇怪，<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9ucG0uY2FybHplbmcuY29tOjQ0NDMv" rel="noopener external nofollow noreferrer">https://npm.carlzeng.com:4443/</a> 更可能是NPM自己做了什么设置？无法自己代理自己的web管理服务？</p>
-<div class="note success"><p>2023年12月初：解决办法：用<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYjI=" rel="noopener external nofollow noreferrer">在线云浏览器Firefox</a>，远程过去访问本地局域网的NPM面板即可</p>
-<p>Mamoto面板反代以后无法正常登录，也请使用<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYjI=" rel="noopener external nofollow noreferrer">在线云浏览器Firefox</a></p>
+<h2 id="NPM弊端？"><a href="#NPM弊端？" class="headerlink" title="NPM弊端？"></a>NPM弊端？</h2><p>不知为何本地局域网可访问的<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxLw==" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/</a> 无法映射代理到外网，来实现npm自己代理自己的目标。</p>
+<p>真是奇怪，<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9ucG0uY2FybHplbmcuY29tOjQ0NDMv" rel="noopener external nofollow noreferrer">https://npm.carlzeng.com:4443/</a> 更可能是NPM自己做了什么设置？无法自己代理自己的web管理服务？</p>
+<div class="note success"><p>2023年12月初：解决办法：用<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYjI=" rel="noopener external nofollow noreferrer">在线云浏览器Firefox</a>，远程过去访问本地局域网的NPM面板即可</p>
+<p>Mamoto面板反代以后无法正常登录，也请使用<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYjI=" rel="noopener external nofollow noreferrer">在线云浏览器Firefox</a></p>
 </div>
 
 
@@ -509,14 +509,14 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 <ol>
 <li><p>各个设备终端上网正常</p>
 </li>
-<li><p>画面卡死，无法登录 <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxL25naW54L3Byb3h5" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/nginx/proxy</a></p>
+<li><p>画面卡死，无法登录 <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxL25naW54L3Byb3h5" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/nginx/proxy</a></p>
 </li>
 <li><p>SSH可以到达192.168.6.1</p>
 <ol>
 <li>web到OP也正常</li>
 </ol>
 </li>
-<li><p>无法连接pve <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly8xOTIuMTY4LjYuMjo4MDA2Lw==" rel="noopener external nofollow noreferrer">https://192.168.6.2:8006</a></p>
+<li><p>无法连接pve <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly8xOTIuMTY4LjYuMjo4MDA2Lw==" rel="noopener external nofollow noreferrer">https://192.168.6.2:8006</a></p>
 <ol>
 <li>This site can’t be reached192.168.6.2 took too long to respond.</li>
 </ol>
@@ -526,22 +526,22 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 <li>kex_exchange_identification: read: Operation timed out<br>banner exchange: Connection to 192.168.6.116 port 22: Operation timed out</li>
 </ol>
 </li>
-<li><p>metaUI无法正常打开，<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MC8jL292ZXJ2aWV3" rel="noopener external nofollow noreferrer">http://192.168.6.116:9090/#/overview</a></p>
+<li><p>metaUI无法正常打开，<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MC8jL292ZXJ2aWV3" rel="noopener external nofollow noreferrer">http://192.168.6.116:9090/#/overview</a></p>
 <ol>
 <li>This site can’t be reached192.168.6.116 took too long to respond.</li>
 </ol>
 </li>
-<li><p>StatCount 无法正常打开，<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODU5Ny9pbmRleC5waHA/bW9kdWxlPUNvcmVIb21lJmFjdGlvbj1pbmRleCZpZFNpdGU9MSZwZXJpb2Q9ZGF5JmRhdGU9eWVzdGVyZGF5Iz9wZXJpb2Q9ZGF5JmRhdGU9MjAyMy0xMi0wMSZpZFNpdGU9MSZjYXRlZ29yeT1EYXNoYm9hcmRfRGFzaGJvYXJkJnN1YmNhdGVnb3J5PTE=" rel="noopener external nofollow noreferrer">http://192.168.6.116:8597/index.php?module=CoreHome&amp;action=index&amp;idSite=1&amp;period=day&amp;date=yesterday#?period=day&amp;date=2023-12-01&amp;idSite=1&amp;category=Dashboard_Dashboard&amp;subcategory=1</a></p>
+<li><p>StatCount 无法正常打开，<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODU5Ny9pbmRleC5waHA/bW9kdWxlPUNvcmVIb21lJmFjdGlvbj1pbmRleCZpZFNpdGU9MSZwZXJpb2Q9ZGF5JmRhdGU9eWVzdGVyZGF5Iz9wZXJpb2Q9ZGF5JmRhdGU9MjAyMy0xMi0wMSZpZFNpdGU9MSZjYXRlZ29yeT1EYXNoYm9hcmRfRGFzaGJvYXJkJnN1YmNhdGVnb3J5PTE=" rel="noopener external nofollow noreferrer">http://192.168.6.116:8597/index.php?module=CoreHome&amp;action=index&amp;idSite=1&amp;period=day&amp;date=yesterday#?period=day&amp;date=2023-12-01&amp;idSite=1&amp;category=Dashboard_Dashboard&amp;subcategory=1</a></p>
 <ol>
 <li>This site can’t be reached192.168.6.116 took too long to respond.</li>
 </ol>
 </li>
-<li><p>IPNAS 无法打开<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovLzE5Mi4xNjguNi4yMDM6NTAwMC8=" rel="noopener external nofollow noreferrer">http://192.168.6.203:5000/</a></p>
+<li><p>IPNAS 无法打开<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovLzE5Mi4xNjguNi4yMDM6NTAwMC8=" rel="noopener external nofollow noreferrer">http://192.168.6.203:5000/</a></p>
 <ol>
 <li>奇怪的是：用手机可以正常打开；反复测试中</li>
 </ol>
 </li>
-<li><p>NAS中的docker Aria2 可以正常使用 <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9hcmlhMi5jYXJsemVuZy5jb206NDQ0My8jIS9kb3dubG9hZGluZw==" rel="noopener external nofollow noreferrer">https://aria2.carlzeng.com:4443/#!/downloading</a></p>
+<li><p>NAS中的docker Aria2 可以正常使用 <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9hcmlhMi5jYXJsemVuZy5jb206NDQ0My8jIS9kb3dubG9hZGluZw==" rel="noopener external nofollow noreferrer">https://aria2.carlzeng.com:4443/#!/downloading</a></p>
 </li>
 <li><p>Debian clash 的 7890无法正常使用</p>
 </li>
@@ -549,17 +549,17 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 <ol>
 <li>artalk 正常</li>
 <li>bt 无法连接web</li>
-<li>dujiaoka正常<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9idXkuY2FybHplbmcuY29tOjQ0NDMv" rel="noopener external nofollow noreferrer">https://buy.carlzeng.com:4443/</a></li>
-<li>Yourls正常<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2FkbWluL2luZGV4LnBocA==" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:3/admin/index.php</a><ol>
-<li>Yourls后台可以正常登录查看<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2FkbWluL2luZGV4LnBocA==" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:3/admin/index.php</a></li>
+<li>dujiaoka正常<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9idXkuY2FybHplbmcuY29tOjQ0NDMv" rel="noopener external nofollow noreferrer">https://buy.carlzeng.com:4443/</a></li>
+<li>Yourls正常<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2FkbWluL2luZGV4LnBocA==" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:3/admin/index.php</a><ol>
+<li>Yourls后台可以正常登录查看<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2FkbWluL2luZGV4LnBocA==" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:3/admin/index.php</a></li>
 </ol>
 </li>
-<li>metaUI又能正常打开了，<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MC8jL292ZXJ2aWV3" rel="noopener external nofollow noreferrer">http://192.168.6.116:9090/#/overview</a><ol>
-<li>可是，仍然无法连接到<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MS8=" rel="noopener external nofollow noreferrer">http://192.168.6.116:9091</a></li>
+<li>metaUI又能正常打开了，<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MC8jL292ZXJ2aWV3" rel="noopener external nofollow noreferrer">http://192.168.6.116:9090/#/overview</a><ol>
+<li>可是，仍然无法连接到<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6OTA5MS8=" rel="noopener external nofollow noreferrer">http://192.168.6.116:9091</a></li>
 </ol>
 </li>
-<li>NPM无法正常打开<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxL25naW54L3Byb3h5" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/nginx/proxy</a></li>
-<li>Hnet Web首页正常了<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9wcm94eS5jYXJsemVuZy5jb206NDQ0My8=" rel="noopener external nofollow noreferrer">https://proxy.carlzeng.com:4443/</a></li>
+<li>NPM无法正常打开<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovLzE5Mi4xNjguNi4xMTY6ODgxL25naW54L3Byb3h5" rel="noopener external nofollow noreferrer">http://192.168.6.116:881/nginx/proxy</a></li>
+<li>Hnet Web首页正常了<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9wcm94eS5jYXJsemVuZy5jb206NDQ0My8=" rel="noopener external nofollow noreferrer">https://proxy.carlzeng.com:4443/</a></li>
 <li>电脑端的statcounter无法打开，可是手机端（在系统中）可以正常查看各种信息<ol>
 <li>奇怪</li>
 </ol>
@@ -581,7 +581,7 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 <hr>
 <p>无意间点进PVE，不看不知道，一看吓一跳：</p>
 <p>原来很可能是pve的磁盘占用 96.69% (104.62 GiB的108.20 GiB）</p>
-<p>我不知道&#x2F;dev&#x2F;sdb3(在SSD128上面, Reeinno CY128GB S1S3上面)为何就满了？里面放了什么了？<br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1zbFozU3dGZmxIVQ==" rel="noopener external nofollow noreferrer">pve存储空间扩容 磁盘大小调整 proxmox6</a></p>
+<p>我不知道&#x2F;dev&#x2F;sdb3(在SSD128上面, Reeinno CY128GB S1S3上面)为何就满了？里面放了什么了？<br><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1zbFozU3dGZmxIVQ==" rel="noopener external nofollow noreferrer">pve存储空间扩容 磁盘大小调整 proxmox6</a></p>
 <p>采取措施（对debian和NAS）</p>
 <p>​	docker volume prune<br>​	docker image prune</p>
 <p>没招，找了一圈又一圈：没有找到解决办法。</p>
@@ -629,8 +629,8 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 </ol>
 <p>这个BT还是更适合方便+初级用户+快速上线，很高心释放出了30G空间。下一步：找BT替换方案。</p>
 <p>感谢列表：</p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9ydXhpLm9yZy8zODYuaHRtbA==" rel="noopener external nofollow noreferrer">一个反向代理神器——Nginx Proxy Manager&gt;修改Docker配置</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3JlYWQvY3YyMTg3MjUxNi8=" rel="noopener external nofollow noreferrer">一种给PVE虚拟机磁盘扩容的方法</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9ydXhpLm9yZy8zODYuaHRtbA==" rel="noopener external nofollow noreferrer">一个反向代理神器——Nginx Proxy Manager&gt;修改Docker配置</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3JlYWQvY3YyMTg3MjUxNi8=" rel="noopener external nofollow noreferrer">一种给PVE虚拟机磁盘扩容的方法</a></p>
 
     </div>
 
@@ -661,14 +661,14 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 <ul>
   <li class="post-copyright-author">
       <strong>Post author:  </strong>Carl Notes
-    <a href='https://www.carlzeng.top/en/202311032202.html'> 《Nginx Proxy Manager修复笔记》</a>
+    <a href='https://www.carlzeng.com/en/202311032202.html'> 《Nginx Proxy Manager修复笔记》</a>
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://www.carlzeng.top/en/202311032202.html" title="Nginx Proxy Manager修复笔记">https://www.carlzeng.top/en/202311032202.html</a>
+      <a href="https://www.carlzeng.com/en/202311032202.html" title="Nginx Proxy Manager修复笔记">https://www.carlzeng.com/en/202311032202.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
   </li>
 </ul>
 </div>
@@ -778,12 +778,12 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 
 
 <div class="followme">
-  <span>If the article solves your urgent needs or brings some clarity, you may wish to <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email subscription</a> or reward</span>
+  <span>If the article solves your urgent needs or brings some clarity, you may wish to <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email subscription</a> or reward</span>
 
   <div class="social-list">
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
@@ -793,7 +793,7 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuLzIwMjMxMjA4MTEyOC5odG1s" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/202312081128.html">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -803,7 +803,7 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -813,7 +813,7 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fa fa-rss"></i>
             </span>
@@ -823,7 +823,7 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -833,7 +833,7 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -843,7 +843,7 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -948,7 +948,7 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 </div>
 
 <div class="powered-by">
-    <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuL3NpdGVtYXAueG1s" rel="noopener external nofollow noreferrer">Sitemap</a> | <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuL3JzczIueG1s" rel="noopener external nofollow noreferrer">RSS</a> | Switch Server: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20vZW4=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">USA</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcC9lbg==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">Main</a>
+    <a href='https://www.carlzeng.com/en/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.com/en/rss2.xml'>RSS</a> | Switch Server: <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20vZW4=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">USA</a> <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcC9lbg==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">GitHub</a> <a href="https://www.carlzeng.com/en">Main</a>
 </div>
 
     </div>
@@ -985,6 +985,26 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202311032202.html","pageTitle":"Nginx Proxy Manager修复笔记"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1017,26 +1037,6 @@ artalk docker 没有自动重启，如何设置特定的docker自动重启？假
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>

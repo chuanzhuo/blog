@@ -16,12 +16,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/en/","images":"/en/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/en/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/en/","images":"/en/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/en/js/config.js"></script>
 
     <meta name="description" content="如何在网络包传输中捕获cookie？ 分解：cookie是否在网络数据包中包含？ 如果包含，如何读取？ 需要分开看是http的还是https的情况， https需要考虑使用硬件上的集线器监听解码或者MITM 来转变数据流。 ---------------转载：http:&#x2F;&#x2F;www.cppblog.com&#x2F;len&#x2F;archive&#x2F;2009&#x2F;05&#x2F;26&#x2F;54229.html 强大的网络传输工具cURL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何在网络包传输中捕获cookie-CarlZeng">
-<meta property="og:url" content="https://www.carlzeng.top/en/200911251629.html">
+<meta property="og:url" content="https://www.carlzeng.com/en/200911251629.html">
 <meta property="og:site_name" content="Carl Notes">
 <meta property="og:description" content="如何在网络包传输中捕获cookie？ 分解：cookie是否在网络数据包中包含？ 如果包含，如何读取？ 需要分开看是http的还是https的情况， https需要考虑使用硬件上的集线器监听解码或者MITM 来转变数据流。 ---------------转载：http:&#x2F;&#x2F;www.cppblog.com&#x2F;len&#x2F;archive&#x2F;2009&#x2F;05&#x2F;26&#x2F;54229.html 强大的网络传输工具cURL">
 <meta property="og:locale" content="en_US">
@@ -32,11 +32,11 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.carlzeng.top/en/200911251629.html">
+<link rel="canonical" href="https://www.carlzeng.com/en/200911251629.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/en/200911251629.html","path":"200911251629.html","title":"如何在网络包传输中捕获cookie-CarlZeng"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.com/en/200911251629.html","path":"200911251629.html","title":"如何在网络包传输中捕获cookie-CarlZeng"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>如何在网络包传输中捕获cookie-CarlZeng | Carl Notes</title>
@@ -89,7 +89,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">233</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">60</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">348</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuL3RhZ3MvbmV0c3VpdGUv" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-schedule-meeting"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Schedule Meeting</a></li><li class="menu-item menu-item-chatgpt"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>ChatGPT</a></li><li class="menu-item menu-item-hnet-web"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>HNet Web</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-emby-iptv"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Emby IPTV</a></li><li class="menu-item menu-item-file-share"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>File Share</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li><li class="menu-item menu-item-best-buy"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Best Buy</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">233</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">60</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">348</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.com/en/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-schedule-meeting"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Schedule Meeting</a></li><li class="menu-item menu-item-hnet-web"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>HNet Web</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li><li class="menu-item menu-item-best-buy"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Best Buy</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -330,7 +330,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200911251629.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/en/200911251629.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -389,23 +389,23 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>如何在网络包传输中捕获cookie？ 分解：cookie是否在网络数据包中包含？ 如果包含，如何读取？ 需要分开看是http的还是https的情况， https需要考虑使用硬件上的集线器监听解码或者MITM 来转变数据流。 —————转载：<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS9sZW4vYXJjaGl2ZS8yMDA5LzA1LzI2LzU0MjI5Lmh0bWw=" rel="noopener external nofollow noreferrer">http://www.cppblog.com/len/archive/2009/05/26/54229.html</a> 强大的网络传输工具cURL…</p>
+    <div class="post-body" itemprop="articleBody"><p>如何在网络包传输中捕获cookie？ 分解：cookie是否在网络数据包中包含？ 如果包含，如何读取？ 需要分开看是http的还是https的情况， https需要考虑使用硬件上的集线器监听解码或者MITM 来转变数据流。 —————转载：<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS9sZW4vYXJjaGl2ZS8yMDA5LzA1LzI2LzU0MjI5Lmh0bWw=" rel="noopener external nofollow noreferrer">http://www.cppblog.com/len/archive/2009/05/26/54229.html</a> 强大的网络传输工具cURL…</p>
 <!-- more -->
 <p>如何在网络包传输中捕获cookie？</p>
 <p>分解：cookie是否在网络数据包中包含？</p>
 <p>如果包含，如何读取？</p>
 <p>需要分开看是http的还是https的情况，</p>
 <p>https需要考虑使用硬件上的集线器监听解码或者MITM 来转变数据流。</p>
-<p>-————–转载：<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS9sZW4vYXJjaGl2ZS8yMDA5LzA1LzI2LzU0MjI5Lmh0bWw=" rel="noopener external nofollow noreferrer">http://www.cppblog.com/len/archive/2009/05/26/54229.html</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS9sZW4vYXJjaGl2ZS8yMDA4LzA2LzIxLzU0MjI5Lmh0bWw=" rel="noopener external nofollow noreferrer">强大的网络传输工具cURL和libcurl</a></p>
+<p>-————–转载：<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS9sZW4vYXJjaGl2ZS8yMDA5LzA1LzI2LzU0MjI5Lmh0bWw=" rel="noopener external nofollow noreferrer">http://www.cppblog.com/len/archive/2009/05/26/54229.html</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS9sZW4vYXJjaGl2ZS8yMDA4LzA2LzIxLzU0MjI5Lmh0bWw=" rel="noopener external nofollow noreferrer">强大的网络传输工具cURL和libcurl</a></p>
 <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>cURL 是一个利用URL语法的文件传输工具,是基于libcurl的前端命令行工具。它支持很多协议：FTP, FTPS, HTTP, HTTPS, GOPHER, TELNET, DICT, FILE 以及 LDAP。 它同样支持HTTPS认证，HTTP POST方法, HTTP PUT方法, FTP上传, kerberos认证, HTTP上传, 代理服务器, cookies, 用户名&#x2F;密码认证, 下载文件断点续传, 上载文件断点续传, http代理服务器管道（ proxy tunneling）, 甚至它还支持IPv6, socks5代理服务器,通过http代理服务器上传文件到FTP服务器等等，功能十分强大。</p>
 <p>除了使用curl命令行直接进行相关的网络操作，你也可以自由地使用libcurl,它是用C语言编写的，可以绑定到众多的编程语言中，如 C,C++,PHP,Python,Perl,Java等等。你可以很方便地利用libcurl，在程序中进行一些网络传输工作，来代替一些语言的内置，使你的知识可重用。在Unix工作环境下，你可以用curl代替wget和ftp等工具，并能将这种学习经验迁移到将来使用libcurl来完成一些自动化任务。</p>
-<p>curl是瑞典curl组织开发的，可以通过<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL2N1cmwuaGF4eC5zZS8=" rel="noopener external nofollow noreferrer">http://curl.haxx.se/</a>来获取更详细的信息和下载文件。</p>
+<p>curl是瑞典curl组织开发的，可以通过<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL2N1cmwuaGF4eC5zZS8=" rel="noopener external nofollow noreferrer">http://curl.haxx.se/</a>来获取更详细的信息和下载文件。</p>
 <h3 id="curl命令行工具使用"><a href="#curl命令行工具使用" class="headerlink" title="curl命令行工具使用"></a>curl命令行工具使用</h3><p>curl太强大了，只能对其HTTP的部分作一简单的介绍，其他选项可以参见其附带的手册。它的后端库的使用也非常方便，主要也是在选项设置上，跟命令行基本无异。</p>
 <h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p><strong>curl [选项]</strong> [URL…]</p>
-<h4 id="URL-语法"><a href="#URL-语法" class="headerlink" title="URL 语法"></a>URL 语法</h4><p>URL语法是跟协议相关的，具体细节可参见RFC 3986<br>可以指定多个URLs或者部分URL地址，通过花括号{}进行分割：<br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3NpdGUue29uZSx0d28sdGhyZWV9LmNvbS8=" rel="noopener external nofollow noreferrer">http://site.{one,two,three}.com</a><br>或者用[]使用字母序：<br><a href="ftp://ftp.numericals.com/file/[1-100/].txt">ftp://ftp.numericals.com/file\[1-100\].txt</a><br><a href="ftp://ftp.numericals.com/file/[001-100/].txt">ftp://ftp.numericals.com/file\[001-100\].txt</a> (有前导零)<br><a href="ftp://ftp.letters.com/file/[a-z/]/].txt">ftp://ftp.letters.com/file\[a-z\]\].txt</a></p>
-<p>当前序列嵌套不被支持，但是还是可以使用下列的样式：<br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL2FueS5vcmcvYXJjaGl2ZS9bMTk5Ni0xOTk5L10vdm9sL1sxLTQvXS9wYXJ0JTdCYSxiLGMlN0QuaHRtbA==" rel="noopener external nofollow noreferrer">http://any.org/archive\[1996-1999\]/vol\[1-4\]/part{a,b,c}.html</a><br>可以在命令行指定任意数量的URLs,它们将以指定的顺序被取回。</p>
-<p>从curl7.15.1开始指定可以范围步长，所以可以得到第n个数或字母：<br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5udW1lcmljYWxzLmNvbS9maWxlL1sxLTEwMDoxMC9dLnR4dA==" rel="noopener external nofollow noreferrer">http://www.numericals.com/file\[1-100:10\].txt</a><br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5sZXR0ZXJzLmNvbS9maWxlL1thLXo6Mi9dLnR4dA==" rel="noopener external nofollow noreferrer">http://www.letters.com/file\[a-z:2\].txt</a></p>
+<h4 id="URL-语法"><a href="#URL-语法" class="headerlink" title="URL 语法"></a>URL 语法</h4><p>URL语法是跟协议相关的，具体细节可参见RFC 3986<br>可以指定多个URLs或者部分URL地址，通过花括号{}进行分割：<br><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3NpdGUue29uZSx0d28sdGhyZWV9LmNvbS8=" rel="noopener external nofollow noreferrer">http://site.{one,two,three}.com</a><br>或者用[]使用字母序：<br><a href="ftp://ftp.numericals.com/file/[1-100/].txt">ftp://ftp.numericals.com/file\[1-100\].txt</a><br><a href="ftp://ftp.numericals.com/file/[001-100/].txt">ftp://ftp.numericals.com/file\[001-100\].txt</a> (有前导零)<br><a href="ftp://ftp.letters.com/file/[a-z/]/].txt">ftp://ftp.letters.com/file\[a-z\]\].txt</a></p>
+<p>当前序列嵌套不被支持，但是还是可以使用下列的样式：<br><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL2FueS5vcmcvYXJjaGl2ZS9bMTk5Ni0xOTk5L10vdm9sL1sxLTQvXS9wYXJ0JTdCYSxiLGMlN0QuaHRtbA==" rel="noopener external nofollow noreferrer">http://any.org/archive\[1996-1999\]/vol\[1-4\]/part{a,b,c}.html</a><br>可以在命令行指定任意数量的URLs,它们将以指定的顺序被取回。</p>
+<p>从curl7.15.1开始指定可以范围步长，所以可以得到第n个数或字母：<br><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3d3dy5udW1lcmljYWxzLmNvbS9maWxlL1sxLTEwMDoxMC9dLnR4dA==" rel="noopener external nofollow noreferrer">http://www.numericals.com/file\[1-100:10\].txt</a><br><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3d3dy5sZXR0ZXJzLmNvbS9maWxlL1thLXo6Mi9dLnR4dA==" rel="noopener external nofollow noreferrer">http://www.letters.com/file\[a-z:2\].txt</a></p>
 <p>如果使用了protocal:&#x2F;&#x2F;前缀，curl会将尝试你想使用的协议。它默认使用HTTP，但是其他一些协议也常被用作主机名。比如说，以”ftp”打头的主机名，curl会假定你想使用ftp协议。</p>
 <p>Curl会尝试对多文件传输使用重连接，可以使从同一服务器获取很多文件时，不会进行多次的连接。这种做法改进了速度，当然这只会在同一命令行中指定的文件启用，而不会在独立的Curl调用时使用。</p>
 <h4 id="进度指示器"><a href="#进度指示器" class="headerlink" title="进度指示器"></a>进度指示器</h4><p>curl通常在操作时会显示一个进度指示器，来指明当前的传输量，传输速度和预计的剩余时间等等。</p>
@@ -423,17 +423,17 @@
 <p><strong>-o&#x2F;–output<file></strong><br>将输出信息打印到文件中，而不是终端。可使用{}或者[]取回多个文档，可在file指定格式中的’#’跟一数字，这样这变量将会由取回的URL字符串所取代。如下：<br>curl http:&#x2F;&#x2F;{one,two}.site.com -o “file_#1.txt”<br>如果有多个变量，可以写成下面的样子：<br>curl http:&#x2F;&#x2F;{site.host}.host[1-5].com -o “#1_#2”<br>你可对任意数量的URL使用同样多的这个选项</p>
 <p><strong>-x&#x2F;–proxy&lt;proxyhost[:port]&gt;</strong><br>使用指定的HTTP代理，如果端口号没有被指定，默认为1080.<br>这选项会覆盖环境变量中代理服务器的设置。如果环境变量中设置了代理，可将proxy设置为空字符串，来覆盖环境变量中的设置。<br><strong>注意：</strong>所有通过HTTP代理的操作都会自动转化为HTTP协议。这意味着一些特定协议的操作将会变得无效。这不会有问题，如果在设置了_-p&#x2F;–proxytunnel_选项来通过代理隧道进行操作。</p>
 <h4 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h4><p>获取cppblog首页，打印至终端</p>
-<p>&gt;curl <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
+<p>&gt;curl <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
 <p>重定向，保存到文件cppblog.html</p>
-<p>&gt;curl <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
+<p>&gt;curl <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
 <p>作用同上，使用选项</p>
-<p>&gt;curl -o baidu.html <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5iYWlkdS5jb20v" rel="noopener external nofollow noreferrer">http://www.baidu.com</a></p>
+<p>&gt;curl -o baidu.html <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3d3dy5iYWlkdS5jb20v" rel="noopener external nofollow noreferrer">http://www.baidu.com</a></p>
 <p>使用http代理，可指定IP和端口</p>
-<p>&gt;curl -x 202.127.98.43:80 -o baidu.html http:<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5iYWlkdS5jb20v" rel="noopener external nofollow noreferrer">www.baidu.com</a></p>
+<p>&gt;curl -x 202.127.98.43:80 -o baidu.html http:<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3d3dy5iYWlkdS5jb20v" rel="noopener external nofollow noreferrer">www.baidu.com</a></p>
 <p>在访问一些论坛时，常常要求启用cookie，因为这些网站需要启用cookie来记录sessioin信息,这时需要选项-D，将cookie信息保存起来</p>
-<p>&gt;curl -o cpp.html -c <a href="mailto:&#108;&#101;&#110;&#x40;&#x63;&#112;&#x70;&#x62;&#108;&#111;&#x67;&#46;&#99;&#x6f;&#x6d;">&#108;&#101;&#110;&#x40;&#x63;&#112;&#x70;&#x62;&#108;&#111;&#x67;&#46;&#99;&#x6f;&#x6d;</a>[1].txt <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
+<p>&gt;curl -o cpp.html -c <a href="mailto:&#x6c;&#x65;&#110;&#x40;&#x63;&#x70;&#112;&#98;&#108;&#111;&#103;&#46;&#99;&#111;&#109;">&#x6c;&#x65;&#110;&#x40;&#x63;&#x70;&#112;&#98;&#108;&#111;&#103;&#46;&#99;&#111;&#109;</a>[1].txt <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
 <p>先前保存的cookie信息返回给网站,这通常会传回你的一些用户信息。</p>
-<p>&gt;curl -o cpp.html -c <a href="mailto:&#108;&#101;&#110;&#x40;&#99;&#x70;&#x70;&#98;&#108;&#111;&#103;&#46;&#99;&#111;&#109;">&#108;&#101;&#110;&#x40;&#99;&#x70;&#x70;&#98;&#108;&#111;&#103;&#46;&#99;&#111;&#109;</a>[2].txt -b <a href="mailto:&#x6c;&#101;&#x6e;&#x40;&#x63;&#112;&#112;&#x62;&#108;&#111;&#103;&#46;&#x63;&#111;&#109;">&#x6c;&#101;&#x6e;&#x40;&#x63;&#112;&#112;&#x62;&#108;&#111;&#103;&#46;&#x63;&#111;&#109;</a>[1].txt <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
+<p>&gt;curl -o cpp.html -c <a href="mailto:&#108;&#101;&#110;&#x40;&#99;&#112;&#x70;&#98;&#x6c;&#111;&#x67;&#46;&#x63;&#x6f;&#109;">&#108;&#101;&#110;&#x40;&#99;&#112;&#x70;&#98;&#x6c;&#111;&#x67;&#46;&#x63;&#x6f;&#109;</a>[2].txt -b <a href="mailto:&#108;&#101;&#x6e;&#64;&#99;&#x70;&#112;&#98;&#108;&#111;&#x67;&#x2e;&#99;&#x6f;&#109;">&#108;&#101;&#x6e;&#64;&#99;&#x70;&#112;&#98;&#108;&#111;&#x67;&#x2e;&#99;&#x6f;&#109;</a>[1].txt <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3d3dy5jcHBibG9nLmNvbS8=" rel="noopener external nofollow noreferrer">http://www.cppblog.com</a></p>
 
     </div>
 
@@ -464,14 +464,14 @@
 <ul>
   <li class="post-copyright-author">
       <strong>Post author:  </strong>Carl Notes
-    <a href='https://www.carlzeng.top/en/200911251629.html'> 《如何在网络包传输中捕获cookie-CarlZeng》</a>
+    <a href='https://www.carlzeng.com/en/200911251629.html'> 《如何在网络包传输中捕获cookie-CarlZeng》</a>
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://www.carlzeng.top/en/200911251629.html" title="如何在网络包传输中捕获cookie-CarlZeng">https://www.carlzeng.top/en/200911251629.html</a>
+      <a href="https://www.carlzeng.com/en/200911251629.html" title="如何在网络包传输中捕获cookie-CarlZeng">https://www.carlzeng.com/en/200911251629.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
   </li>
 </ul>
 </div>
@@ -566,12 +566,12 @@
 
 
 <div class="followme">
-  <span>If the article solves your urgent needs or brings some clarity, you may wish to <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email subscription</a> or reward</span>
+  <span>If the article solves your urgent needs or brings some clarity, you may wish to <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email subscription</a> or reward</span>
 
   <div class="social-list">
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
@@ -581,7 +581,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuLzIwMjMxMjA4MTEyOC5odG1s" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/202312081128.html">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -591,7 +591,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -601,7 +601,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fa fa-rss"></i>
             </span>
@@ -611,7 +611,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -621,7 +621,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -631,7 +631,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -725,7 +725,7 @@
 </div>
 
 <div class="powered-by">
-    <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuL3NpdGVtYXAueG1s" rel="noopener external nofollow noreferrer">Sitemap</a> | <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuL3JzczIueG1s" rel="noopener external nofollow noreferrer">RSS</a> | Switch Server: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20vZW4=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">USA</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcC9lbg==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">Main</a>
+    <a href='https://www.carlzeng.com/en/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.com/en/rss2.xml'>RSS</a> | Switch Server: <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20vZW4=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">USA</a> <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcC9lbg==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">GitHub</a> <a href="https://www.carlzeng.com/en">Main</a>
 </div>
 
     </div>
@@ -762,6 +762,26 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/200911251629.html","pageTitle":"如何在网络包传输中捕获cookie-CarlZeng"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -794,26 +814,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>

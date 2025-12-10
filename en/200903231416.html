@@ -16,12 +16,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/en/","images":"/en/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/en/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/en/","images":"/en/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/en/js/config.js"></script>
 
     <meta name="description" content="昨天和几位朋友探讨到了这个话题，发现虽然单点登录，或者叫做独立的passport登录虽然已经有了很多实现方法，但是能真正了解并实现的人却并不太多，所以些下此文，希望从原理到实现，能让大家了解的多一些至于什么是单点登录，举个例子，如果你登录了msn messenger，访问hotmail邮件就不用在此登录。一般单点登录都需要有一个独立的登录站点,一般具有独立的域名，专门的进行注册，登录，注销等操作我">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网站跨站点单点登录-跨站登陆-CarlZeng">
-<meta property="og:url" content="https://www.carlzeng.top/en/200903231416.html">
+<meta property="og:url" content="https://www.carlzeng.com/en/200903231416.html">
 <meta property="og:site_name" content="Carl Notes">
 <meta property="og:description" content="昨天和几位朋友探讨到了这个话题，发现虽然单点登录，或者叫做独立的passport登录虽然已经有了很多实现方法，但是能真正了解并实现的人却并不太多，所以些下此文，希望从原理到实现，能让大家了解的多一些至于什么是单点登录，举个例子，如果你登录了msn messenger，访问hotmail邮件就不用在此登录。一般单点登录都需要有一个独立的登录站点,一般具有独立的域名，专门的进行注册，登录，注销等操作我">
 <meta property="og:locale" content="en_US">
@@ -35,11 +35,11 @@
 <meta name="twitter:image" content="http://images.cnblogs.com/cnblogs_com/yizhu2000/WindowsLiveWriter/3616c09558a3_136C8/login_thumb_1.gif">
 
 
-<link rel="canonical" href="https://www.carlzeng.top/en/200903231416.html">
+<link rel="canonical" href="https://www.carlzeng.com/en/200903231416.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/en/200903231416.html","path":"200903231416.html","title":"网站跨站点单点登录-跨站登陆-CarlZeng"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.com/en/200903231416.html","path":"200903231416.html","title":"网站跨站点单点登录-跨站登陆-CarlZeng"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>网站跨站点单点登录-跨站登陆-CarlZeng | Carl Notes</title>
@@ -92,7 +92,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">233</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">60</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">348</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuL3RhZ3MvbmV0c3VpdGUv" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-schedule-meeting"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Schedule Meeting</a></li><li class="menu-item menu-item-chatgpt"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>ChatGPT</a></li><li class="menu-item menu-item-hnet-web"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>HNet Web</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-emby-iptv"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Emby IPTV</a></li><li class="menu-item menu-item-file-share"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>File Share</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li><li class="menu-item menu-item-best-buy"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Best Buy</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">233</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">60</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">348</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.com/en/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-schedule-meeting"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Schedule Meeting</a></li><li class="menu-item menu-item-hnet-web"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>HNet Web</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li><li class="menu-item menu-item-best-buy"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Best Buy</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -313,7 +313,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/200903231416.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/en/200903231416.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -376,35 +376,35 @@
 <!-- more -->
 <p>昨天和几位朋友探讨到了这个话题，发现虽然单点登录，或者叫做独立的passport登录虽然已经有了很多实现方法，但是能真正了解并实现的人却并不太多，所以些下此文，希望从原理到实现，能让大家了解的多一些</p>
 <p>至于什么是单点登录，举个例子，如果你登录了msn messenger，访问hotmail邮件就不用在此登录。<br>一般单点登录都需要有一个独立的登录站点,一般具有独立的域名，专门的进行注册，登录，注销等操作</p>
-<p>我们为了讨论方便，把这个登录站点叫做站点P，设其Url为<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3Bhc3Nwb3J0Lnlpemh1MjAwMC5jb20v" rel="noopener external nofollow noreferrer">http://passport.yizhu2000.com</a>，需要提供服务的站点设为A和B，跨站点单点登录是指你在A网站进行登录后，使用B网站的服务就不需要再登录</p>
+<p>我们为了讨论方便，把这个登录站点叫做站点P，设其Url为<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3Bhc3Nwb3J0Lnlpemh1MjAwMC5jb20v" rel="noopener external nofollow noreferrer">http://passport.yizhu2000.com</a>，需要提供服务的站点设为A和B，跨站点单点登录是指你在A网站进行登录后，使用B网站的服务就不需要再登录</p>
 <p>从技术角度讲单点登录分为：</p>
 <ul>
 <li>跨子域单点登录</li>
 <li>完全跨单点域登录</li>
 </ul>
-<h2 id="跨子域单点登录"><a href="#跨子域单点登录" class="headerlink" title="跨子域单点登录"></a>跨子域单点登录</h2><p>所谓跨子域登录，A，B站点和P站点位于同一个域下面，比如A站点为<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL2Jsb2cueWl6aHUyMDAwLmNvbS8=" rel="noopener external nofollow noreferrer">http://blog.yizhu2000.com</a> B站点为 <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL2ZvcnVtLnlpemh1MjAwMC5jb20v" rel="noopener external nofollow noreferrer">http://forum.yizhu2000.com</a>,他们和登录站点P的关系可以看到，都是属于同一个父域，yizhu2000.com,不同的是子域不同，一个为blog，一个为forum，一个是passport</p>
+<h2 id="跨子域单点登录"><a href="#跨子域单点登录" class="headerlink" title="跨子域单点登录"></a>跨子域单点登录</h2><p>所谓跨子域登录，A，B站点和P站点位于同一个域下面，比如A站点为<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL2Jsb2cueWl6aHUyMDAwLmNvbS8=" rel="noopener external nofollow noreferrer">http://blog.yizhu2000.com</a> B站点为 <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL2ZvcnVtLnlpemh1MjAwMC5jb20v" rel="noopener external nofollow noreferrer">http://forum.yizhu2000.com</a>,他们和登录站点P的关系可以看到，都是属于同一个父域，yizhu2000.com,不同的是子域不同，一个为blog，一个为forum，一个是passport</p>
 <p>我们先看看最常用的非跨站点普通登录的情况，一般登录验证通过后，一般会将你的用户名和一些用户信息，通过某一密钥进行加密，写在本地，也就是一个加密的cookie，我们把这个cookie叫做–票（ticket）。</p>
 <p>需要判断用户是否登录的页面，需要读取这个ticket，并从其中解密出用户信息，如果ticket不存在，或者无法解密，意味着用户没有登录，或者登录信息不正确，这时就要跳转到登录页面进行登录，在这里加密的作用有两个，一是防止用户信息被不怀好意者看到，二是保证ticket不会被伪造，后者其实更为重要，加密后，各个应用需要采用与加密同样的密钥进行解密，如果不知道密钥，就不能伪造出ticket，</p>
 <p>（注：加密和解密的密钥有可能不同，取决于采用什么加密算法，如果是对称加密，则为同一密钥，如果是非对称，就不同了，一般用私钥加密，公钥解密，但是无论怎样，密钥都只有内部知道，这样伪造者既无法伪造也无法解密ticket）</p>
 <p>跨子域的单点登录，和上述普通登录的过程没有什么不同，唯一不同的是写cookie时，由于登录站点P和应用A处于不同的子域，P站写入的 cookie的域为passport.yizhu2000.net，而A站点为forum.yizhu2000.net，A在判断用户登录时无法读到P站点的ticket</p>
 <p>解决方法非常简单，当Login完成后P站点写ticket的时候，只需把cookie的域设为他们共同的父域，yizhu2000.net就可以了：cookie.domain&#x3D;”yizhu2000.net”，A站点自然就可以读到这个ticket了</p>
-<p>ASP。Net的form验证本身实现了这个机制，大家可以参考<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL2Jsb2cuY3Nkbi5uZXQvb2N0dmVydmUvYXJjaGl2ZS8yMDA3LzA5LzIyLzE3OTYzMzguYXNweA==" rel="noopener external nofollow noreferrer">http://blog.csdn.net/octverve/archive/2007/09/22/1796338.aspx</a></p>
+<p>ASP。Net的form验证本身实现了这个机制，大家可以参考<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL2Jsb2cuY3Nkbi5uZXQvb2N0dmVydmUvYXJjaGl2ZS8yMDA3LzA5LzIyLzE3OTYzMzguYXNweA==" rel="noopener external nofollow noreferrer">http://blog.csdn.net/octverve/archive/2007/09/22/1796338.aspx</a></p>
 <p><em>ASP.NET身份验证信息跨域共享状态</em></p>
 <p><em>在ASP.NET 2.0 中只需修改web.config文件即可，修改方法如下:</em></p>
 <p><em><authentication mode="Forms"><br><forms name=".ASPNETFORM" domain="imneio.com" loginUrl="/login.aspx" defaultUrl="/default.aspx" protection="All" timeout="30" path="/" requireSSL="false" slidingExpiration="true" enableCrossAppRedirects="false" cookieless="UseDeviceProfile" /><br></authentication></em></p>
 <p><em>domain指定了cookie保存的域，只要保存的是 abc.com形式或者.abc.com的形式，那么其二级域名都可以共享此cookie。</em></p>
 <p><em>此外，web.config标签中的<sessionState >也做相应修改，mode改为StateServer或者SqlServer，那么里面的session信息也就全部可以共享了。</em></p>
 <p>_StateServer需要在服务中开启”asp.net状态服务”的服务_。</p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5pbW5laW8uY29tLzIwMDcvMTEvMTcvYXNwbmV0bm90ZTEv" rel="noopener external nofollow noreferrer" title="http://www.imneio.com/2007/11/17/aspnetnote1/">http://www.imneio.com/2007/11/17/aspnetnote1/</a>，以上斜体内容摘自此链接</p>
-<h2 id="完全跨单点域登录"><a href="#完全跨单点域登录" class="headerlink" title="完全跨单点域登录"></a>完全跨单点域登录</h2><p>完全跨域登录，是指A，B站点和P站点没有共同的父域，比如A站点为forum.yizhu1999.net,B站点为blog.yizhu1998.net，大家可以参考微软旗下的几个站点<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5saXZlLmNvbS8=" rel="noopener external nofollow noreferrer" title="http://www.live.com">http://www.live.com</a>，<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5ob3RtYWlsLmNvbS8=" rel="noopener external nofollow noreferrer">www.hotmail.com</a>,这两个站点就没有共同的父域，而仍然可以共用登录，怎样才能实现呢？请参考下图，由于这种情况ticket比较复杂，我们暂时把P站点创建的的ticket叫做P-ticket，而A站点创建的ticket叫A-ticket，B的为B-ticket</p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL2ltYWdlcy5jbmJsb2dzLmNvbS9jbmJsb2dzX2NvbS95aXpodTIwMDAvV2luZG93c0xpdmVXcml0ZXIvMzYxNmMwOTU1OGEzXzEzNkM4L2xvZ2luXzQuZ2lm" rel="noopener external nofollow noreferrer"><img data-src="http://images.cnblogs.com/cnblogs_com/yizhu2000/WindowsLiveWriter/3616c09558a3_136C8/login_thumb_1.gif" alt="login"></a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3d3dy5pbW5laW8uY29tLzIwMDcvMTEvMTcvYXNwbmV0bm90ZTEv" rel="noopener external nofollow noreferrer" title="http://www.imneio.com/2007/11/17/aspnetnote1/">http://www.imneio.com/2007/11/17/aspnetnote1/</a>，以上斜体内容摘自此链接</p>
+<h2 id="完全跨单点域登录"><a href="#完全跨单点域登录" class="headerlink" title="完全跨单点域登录"></a>完全跨单点域登录</h2><p>完全跨域登录，是指A，B站点和P站点没有共同的父域，比如A站点为forum.yizhu1999.net,B站点为blog.yizhu1998.net，大家可以参考微软旗下的几个站点<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3d3dy5saXZlLmNvbS8=" rel="noopener external nofollow noreferrer" title="http://www.live.com">http://www.live.com</a>，<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3d3dy5ob3RtYWlsLmNvbS8=" rel="noopener external nofollow noreferrer">www.hotmail.com</a>,这两个站点就没有共同的父域，而仍然可以共用登录，怎样才能实现呢？请参考下图，由于这种情况ticket比较复杂，我们暂时把P站点创建的的ticket叫做P-ticket，而A站点创建的ticket叫A-ticket，B的为B-ticket</p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL2ltYWdlcy5jbmJsb2dzLmNvbS9jbmJsb2dzX2NvbS95aXpodTIwMDAvV2luZG93c0xpdmVXcml0ZXIvMzYxNmMwOTU1OGEzXzEzNkM4L2xvZ2luXzQuZ2lm" rel="noopener external nofollow noreferrer"><img data-src="http://images.cnblogs.com/cnblogs_com/yizhu2000/WindowsLiveWriter/3616c09558a3_136C8/login_thumb_1.gif" alt="login"></a></p>
 <p>由于站点A（forum.yizhu1999.com）不能读取到由站点P（passport.yizhu2000.com）创建的加密 ticket，所以当用户访问A站点上需要登录才能访问的资源时，A站点会首先查看是否有A-ticket，如果没有，证明用户没有在A站点登录过，不过并不保证用户没有在B站点登录，（重复一下，既然是单点登录，当然无论你在A，B任意一个站点登录过，另外一个站点都要可以访问），请求会被重定向到p站点的验证页面，验证页面读取P-ticket，如果没有，或者解密不成功，就需要重定向登录页面，登录页面完成登录后，写一个加密cookie，也就是 P-ticket，并且重定向到A站点的登录处理页，并把加密的用户信息作为参数传递给这个页面，这个页面接收登录页的用户信息，解密后也要写一个 cookie，也就是A-ticket，今后用户再次访问A站点上需要登录权限才能访问的资源时，只需要检查这个A-cookie是否存在就可以了</p>
 <p>当用户访问B站点时，会重复上面的过程，监测到没有B-ticket，就会重定向到P站点的验证页面，去检查P-ticket，如果没有，就登录，有则返回B的登录处理页面写B-ticket</p>
 <p>注销的时候需要删除P-ticket和A-ticket</p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL2ltYWdlcy5jbmJsb2dzLmNvbS9jbmJsb2dzX2NvbS95aXpodTIwMDAvV2luZG93c0xpdmVXcml0ZXIvMzYxNmMwOTU1OGEzXzEzNkM4L2xvZ291dC5naWY=" rel="noopener external nofollow noreferrer"><img data-src="http://images.cnblogs.com/cnblogs_com/yizhu2000/WindowsLiveWriter/3616c09558a3_136C8/logout_thumb.gif" alt="logout"></a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL2ltYWdlcy5jbmJsb2dzLmNvbS9jbmJsb2dzX2NvbS95aXpodTIwMDAvV2luZG93c0xpdmVXcml0ZXIvMzYxNmMwOTU1OGEzXzEzNkM4L2xvZ291dC5naWY=" rel="noopener external nofollow noreferrer"><img data-src="http://images.cnblogs.com/cnblogs_com/yizhu2000/WindowsLiveWriter/3616c09558a3_136C8/logout_thumb.gif" alt="logout"></a></p>
 <p>怎么删除cookie：本来以为这个不是问题，不过还是有朋友问道，简单的说其实是创建一个和你要删除的cookie同名的cookie，并把 cookie的expire设为当前时间之前的某个时间，不过在跨子域的删除cookie时有一点要注意：必须要把cookie的域设置为父域，在本文中为yizhu2000.com</p>
 <p>为了保证各个环节的传输的安全性，最好使用https连接</p>
-<p>来源：<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovL3d3dy5jbmJsb2dzLmNvbS95aXpodTIwMDAvYXJjaGl2ZS8yMDA4LzA0LzAxLzExMzE5NzYuaHRtbA==" rel="noopener external nofollow noreferrer">http://www.cnblogs.com/yizhu2000/archive/2008/04/01/1131976.html</a></p>
+<p>来源：<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovL3d3dy5jbmJsb2dzLmNvbS95aXpodTIwMDAvYXJjaGl2ZS8yMDA4LzA0LzAxLzExMzE5NzYuaHRtbA==" rel="noopener external nofollow noreferrer">http://www.cnblogs.com/yizhu2000/archive/2008/04/01/1131976.html</a></p>
 
     </div>
 
@@ -435,14 +435,14 @@
 <ul>
   <li class="post-copyright-author">
       <strong>Post author:  </strong>Carl Notes
-    <a href='https://www.carlzeng.top/en/200903231416.html'> 《网站跨站点单点登录-跨站登陆-CarlZeng》</a>
+    <a href='https://www.carlzeng.com/en/200903231416.html'> 《网站跨站点单点登录-跨站登陆-CarlZeng》</a>
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://www.carlzeng.top/en/200903231416.html" title="网站跨站点单点登录-跨站登陆-CarlZeng">https://www.carlzeng.top/en/200903231416.html</a>
+      <a href="https://www.carlzeng.com/en/200903231416.html" title="网站跨站点单点登录-跨站登陆-CarlZeng">https://www.carlzeng.com/en/200903231416.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
   </li>
 </ul>
 </div>
@@ -517,12 +517,12 @@
 
 
 <div class="followme">
-  <span>If the article solves your urgent needs or brings some clarity, you may wish to <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email subscription</a> or reward</span>
+  <span>If the article solves your urgent needs or brings some clarity, you may wish to <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email subscription</a> or reward</span>
 
   <div class="social-list">
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
@@ -532,7 +532,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuLzIwMjMxMjA4MTEyOC5odG1s" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/202312081128.html">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -542,7 +542,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -552,7 +552,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fa fa-rss"></i>
             </span>
@@ -562,7 +562,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -572,7 +572,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -582,7 +582,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -676,7 +676,7 @@
 </div>
 
 <div class="powered-by">
-    <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuL3NpdGVtYXAueG1s" rel="noopener external nofollow noreferrer">Sitemap</a> | <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuL3JzczIueG1s" rel="noopener external nofollow noreferrer">RSS</a> | Switch Server: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20vZW4=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">USA</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcC9lbg==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">Main</a>
+    <a href='https://www.carlzeng.com/en/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.com/en/rss2.xml'>RSS</a> | Switch Server: <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20vZW4=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">USA</a> <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcC9lbg==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">GitHub</a> <a href="https://www.carlzeng.com/en">Main</a>
 </div>
 
     </div>
@@ -713,6 +713,26 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/200903231416.html","pageTitle":"网站跨站点单点登录-跨站登陆-CarlZeng"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -745,26 +765,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>

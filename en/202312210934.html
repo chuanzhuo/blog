@@ -16,12 +16,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/en/","images":"/en/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/en/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/en/","images":"/en/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/en/js/config.js"></script>
 
     <meta name="description" content="技术参考，理解IPTV组播原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源">
-<meta property="og:url" content="https://www.carlzeng.top/en/202312210934.html">
+<meta property="og:url" content="https://www.carlzeng.com/en/202312210934.html">
 <meta property="og:site_name" content="Carl Notes">
 <meta property="og:description" content="技术参考，理解IPTV组播原理">
 <meta property="og:locale" content="en_US">
@@ -45,11 +45,11 @@
 <meta name="twitter:image" content="https://www.evernote.com/shard/s122/sh/b9cc9087-b87c-4f9b-8396-7379bcaa5c58/5eJusyLJHIHOTIxVeVS8J6uYqIj-mr6g8KIabe67tJCgSzyWcn-WZWaAJQ/deep/0/image.png">
 
 
-<link rel="canonical" href="https://www.carlzeng.top/en/202312210934.html">
+<link rel="canonical" href="https://www.carlzeng.com/en/202312210934.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/en/202312210934.html","path":"202312210934.html","title":"联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.com/en/202312210934.html","path":"202312210934.html","title":"联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源 | Carl Notes</title>
@@ -102,7 +102,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">233</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">60</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">348</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuL3RhZ3MvbmV0c3VpdGUv" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-schedule-meeting"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Schedule Meeting</a></li><li class="menu-item menu-item-chatgpt"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>ChatGPT</a></li><li class="menu-item menu-item-hnet-web"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>HNet Web</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-emby-iptv"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Emby IPTV</a></li><li class="menu-item menu-item-file-share"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>File Share</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li><li class="menu-item menu-item-best-buy"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Best Buy</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">233</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">60</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">348</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.com/en/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-schedule-meeting"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Schedule Meeting</a></li><li class="menu-item menu-item-hnet-web"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>HNet Web</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li><li class="menu-item menu-item-best-buy"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Best Buy</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -338,7 +338,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202312210934.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/en/202312210934.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -425,13 +425,13 @@
 </li>
 <li>如果上网的网络已经稳定，建议单独拿一个路由器（并另加一条网线）来测试IPTV组播数据</li>
 <li>先要去下载一份当地的组播数据的通用组播列表m3u文件<ul>
-<li>比如：<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL3F3ZXJ0dHZ2L0JlaWppbmctSVBUVg==" rel="noopener external nofollow noreferrer">qwerttvv&#x2F;Beijing-IPTV</a></li>
+<li>比如：<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY29tL3F3ZXJ0dHZ2L0JlaWppbmctSVBUVg==" rel="noopener external nofollow noreferrer">qwerttvv&#x2F;Beijing-IPTV</a></li>
 </ul>
 </li>
 </ul>
 <h1 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h1><p>开放测试步骤：</p>
 <ol>
-<li>打开<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:3/iptv</a> （或者直接使用下面已嵌入的页面）</li>
+<li>打开<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:3/iptv</a> （或者直接使用下面已嵌入的页面）</li>
 <li>点击用户名user，输入密码: user</li>
 <li>点击 我的媒体中的“电视直播”，或者“最爱”</li>
 <li>点击 相应的电视台，比如 “BRTV 影视”</li>
@@ -520,7 +520,7 @@ udpxy 是一个把组播流变成 http 点播流的软件，我们通过 udpxy�
 <p>跨ISP时，用HK或JP的CDN都不如直接连接来得快。</p>
 <h1 id="移动网络播放IPTV组播"><a href="#移动网络播放IPTV组播" class="headerlink" title="移动网络播放IPTV组播"></a>移动网络播放IPTV组播</h1><p>开始尝试扫描 北京移动通用组播<br>        通用组播列表永久地址（北京移动网络通用，可以在支持组播的环境中任意播放）</p>
 <p>K2P Padavan，修改IP：192.168.1.12<br>    修改为了，避开移动猫中的192.168.1.1网段。</p>
-<p>ssh <a href="mailto:&#x61;&#100;&#109;&#105;&#110;&#64;&#49;&#x39;&#x32;&#46;&#x31;&#54;&#56;&#46;&#49;&#46;&#49;&#x32;">&#x61;&#100;&#109;&#105;&#110;&#64;&#49;&#x39;&#x32;&#46;&#x31;&#54;&#56;&#46;&#49;&#46;&#49;&#x32;</a><br>    yes<br>    可以正常启用udpxy -p 8013</p>
+<p>ssh <a href="mailto:&#x61;&#x64;&#x6d;&#x69;&#110;&#64;&#x31;&#x39;&#50;&#46;&#x31;&#54;&#x38;&#x2e;&#49;&#46;&#x31;&#x32;">&#x61;&#x64;&#x6d;&#x69;&#110;&#64;&#x31;&#x39;&#50;&#46;&#x31;&#54;&#x38;&#x2e;&#49;&#46;&#x31;&#x32;</a><br>    yes<br>    可以正常启用udpxy -p 8013</p>
 <p>记录成功（接收组播数据）<br>    移动猫的IPTV口连接Padavan的Lan口！必须是IPTV口到K2P路由器的Lan口（wan口不行），<br>    然后在后台开启 udpxy -p 8013 -m 192.168.1.12  (没有)<br>        就可以接收到组播数据rtp:&#x2F;&#x2F;228.1.1.194:8002；VLC可以播放。<br>    然后路由器设置：【已截图】必须要在路由上开启：<br>            启用 IGMP&#x2F;MLD 侦听	<br>            M2U - 以太网交换机: HW IGMP&#x2F;MLD snooping<br>            M2U - 无线 2.4G:	muli…</p>
 <p><img data-src="https://www.evernote.com/shard/s122/sh/b9cc9087-b87c-4f9b-8396-7379bcaa5c58/5eJusyLJHIHOTIxVeVS8J6uYqIj-mr6g8KIabe67tJCgSzyWcn-WZWaAJQ/deep/0/image.png" alt="Padavan系统的K2P路由器IPTV设置"></p>
 <p>下一步： 用udpxy转化出http数据<br>        udpxy -p 8013 -m 192.168.1.12<br>        udpxy -p 8014</p>
@@ -557,7 +557,7 @@ udpxy 是一个把组播流变成 http 点播流的软件，我们通过 udpxy�
 <li>（光猫桥接路由器，路由器拨号上网的情况下）如何解决把两根线都接到主路由器以后，新的wifi客户端连接，会被光猫的DHCP服务分配到192.168.1.0网段的IP而导致无法上网的问题</li>
 </ol>
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p>后来发现这个抓包的结果，其实大佬已经有分享：</p>
-<p>抓包的m3u结果：<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL3d1d2VudGFvL2JqLXVuaWNvbS1pcHR2" rel="noopener external nofollow noreferrer">https://github.com/wuwentao/bj-unicom-iptv</a><br>    <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2RhbmRlbGlvbm8vYmotdW5pY29tLWlwdHY=" rel="noopener external nofollow noreferrer">https://github.com/dandeliono/bj-unicom-iptv</a><br>    这里有所有的答案！如下：</p>
+<p>抓包的m3u结果：<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY29tL3d1d2VudGFvL2JqLXVuaWNvbS1pcHR2" rel="noopener external nofollow noreferrer">https://github.com/wuwentao/bj-unicom-iptv</a><br>    <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2RhbmRlbGlvbm8vYmotdW5pY29tLWlwdHY=" rel="noopener external nofollow noreferrer">https://github.com/dandeliono/bj-unicom-iptv</a><br>    这里有所有的答案！如下：</p>
 <pre><code>北京联通IPTV播放列表
     https://github.com/wuwentao/bj-unicom-iptv
 
@@ -578,7 +578,7 @@ udpxy 是一个把组播流变成 http 点播流的软件，我们通过 udpxy�
 
     荒野无灯版：这个版本目前已经停更，但您仍然可以在恩山论坛上找到相关信息。如果需要，您可以通过以下链接下载该固件：https://share.weiyun.com/u4nGOH8u 密码：plz4tu。
 </code></pre>
-<p>刷入hanwckf移植版：由hanwckf移植的版本，其中Nano版本非常不错。您可以在<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2hhbndja2YvcnQtbjU2dS8lRTQlQjglOEIlRTglQkQlQkQlRTYlQUQlQTQlRTclODklODglRTYlOUMlQUMlRTMlODAlODI=" rel="noopener external nofollow noreferrer">https://github.com/hanwckf/rt-n56u/下载此版本。</a><br>        连接网络，发现udpxy，自动升级了！<br>    页面也正常：<a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cDovLzE5Mi4xNjguMS4yOjgwMTIvc3RhdHVz" rel="noopener external nofollow noreferrer">http://192.168.1.2:8012/status</a><br>    版本：udpxy v. 1.0 (Build 23) standard - [Thu Dec 21 07:36:58 2023]</p>
+<p>刷入hanwckf移植版：由hanwckf移植的版本，其中Nano版本非常不错。您可以在<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2hhbndja2YvcnQtbjU2dS8lRTQlQjglOEIlRTglQkQlQkQlRTYlQUQlQTQlRTclODklODglRTYlOUMlQUMlRTMlODAlODI=" rel="noopener external nofollow noreferrer">https://github.com/hanwckf/rt-n56u/下载此版本。</a><br>        连接网络，发现udpxy，自动升级了！<br>    页面也正常：<a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cDovLzE5Mi4xNjguMS4yOjgwMTIvc3RhdHVz" rel="noopener external nofollow noreferrer">http://192.168.1.2:8012/status</a><br>    版本：udpxy v. 1.0 (Build 23) standard - [Thu Dec 21 07:36:58 2023]</p>
 <pre><code>satus页面得知：
 Multicast address 从0.0.0.0 变成了 192.168.6.192
 
@@ -594,7 +594,7 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
 
 彻底都正常了！包括：高清频道
 </code></pre>
-<h2 id="linux下高效组播地址端口扫描-工具无效"><a href="#linux下高效组播地址端口扫描-工具无效" class="headerlink" title="linux下高效组播地址端口扫描(工具无效)"></a>linux下高效组播地址端口扫描(工具无效)</h2><p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL3NkaHpkbXp6bC9pcHR2X2NoYW5uZWxfc2Nhbm5lcl9saW51eA==" rel="noopener external nofollow noreferrer">https://github.com/sdhzdmzzl/iptv_channel_scanner_linux</a></p>
+<h2 id="linux下高效组播地址端口扫描-工具无效"><a href="#linux下高效组播地址端口扫描-工具无效" class="headerlink" title="linux下高效组播地址端口扫描(工具无效)"></a>linux下高效组播地址端口扫描(工具无效)</h2><p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY29tL3NkaHpkbXp6bC9pcHR2X2NoYW5uZWxfc2Nhbm5lcl9saW51eA==" rel="noopener external nofollow noreferrer">https://github.com/sdhzdmzzl/iptv_channel_scanner_linux</a></p>
 <p>搭一下环境，用linux编译一下： g++ -g -o iptvscanner iptvscanner.cpp -lpcap</p>
 <p>然后这样扫一扫：.&#x2F;iptvscanner 239.3.1.1 239.3.1.254</p>
 <pre><code>大目标/方向
@@ -624,22 +624,22 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用新的padavan（有大量的可用空间），把包放到/tmp下了；如何下载？</span><br><span class="line">tcpdump -i any -w iptv.cap                                                       </span><br><span class="line">tcpdump: listening on any, link-type LINUX_SLL (Linux cooked v1), capture size 262144 bytes </span><br><span class="line">^C39215 packets captured                                                                    </span><br><span class="line">39318 packets received by filter                                                            </span><br><span class="line">0 packets dropped by kernel   </span><br></pre></td></tr></table></figure>
 
 <p>扫描到一个24M的cap包，怎么下载呢？padavan<br>     用scp, 打开Mac的Terminal</p>
-<p>​	&gt; scp <a href="mailto:&#97;&#x64;&#x6d;&#x69;&#110;&#64;&#x31;&#57;&#50;&#x2e;&#49;&#x36;&#x38;&#x2e;&#49;&#46;&#x32;">&#97;&#x64;&#x6d;&#x69;&#110;&#64;&#x31;&#57;&#50;&#x2e;&#49;&#x36;&#x38;&#x2e;&#49;&#46;&#x32;</a>:&#x2F;tmp&#x2F;iptv.cap &#x2F;Users&#x2F;carlzeng&#x2F;AppTesting<br>​	<a href="mailto:&#x61;&#x64;&#109;&#x69;&#x6e;&#x40;&#x31;&#x39;&#50;&#x2e;&#49;&#x36;&#56;&#x2e;&#49;&#x2e;&#50;">&#x61;&#x64;&#109;&#x69;&#x6e;&#x40;&#x31;&#x39;&#50;&#x2e;&#49;&#x36;&#56;&#x2e;&#49;&#x2e;&#50;</a>‘s password:<br>​	iptv.cap                                                  100%   24MB   5.8MB&#x2F;s   00:04   </p>
+<p>​	&gt; scp <a href="mailto:&#x61;&#x64;&#109;&#x69;&#x6e;&#64;&#49;&#57;&#50;&#46;&#x31;&#54;&#x38;&#46;&#49;&#x2e;&#50;">&#x61;&#x64;&#109;&#x69;&#x6e;&#64;&#49;&#57;&#50;&#46;&#x31;&#54;&#x38;&#46;&#49;&#x2e;&#50;</a>:&#x2F;tmp&#x2F;iptv.cap &#x2F;Users&#x2F;carlzeng&#x2F;AppTesting<br>​	<a href="mailto:&#x61;&#x64;&#x6d;&#x69;&#110;&#64;&#49;&#x39;&#x32;&#x2e;&#49;&#54;&#x38;&#x2e;&#49;&#x2e;&#x32;">&#x61;&#x64;&#x6d;&#x69;&#110;&#64;&#49;&#x39;&#x32;&#x2e;&#49;&#54;&#x38;&#x2e;&#49;&#x2e;&#x32;</a>‘s password:<br>​	iptv.cap                                                  100%   24MB   5.8MB&#x2F;s   00:04   </p>
 <p>两次抓下来2个25M得cap包，用Wireshark打开，找不到关键的 :-(</p>
-<h2 id="本章节感谢列表："><a href="#本章节感谢列表：" class="headerlink" title="本章节感谢列表："></a>本章节感谢列表：</h2><p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vcm9nZXIteXUvcC8xNjM0Nzg2MS5odG1s" rel="noopener external nofollow noreferrer">adb shell input keyevent 控制按键输入</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbWlsdG9uL3AvNDYyMjEwNy5odG1s" rel="noopener external nofollow noreferrer">利用scp 远程上传下载文件&#x2F;文件夹和ssh远程执行命令</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cub25saW5lZG93bi5uZXQvc29mdC83MDE1MDkuaHRt" rel="noopener external nofollow noreferrer">启动项管理  1.9.7</a></p>
-<h1 id="感谢列表"><a href="#感谢列表" class="headerlink" title="感谢列表"></a>感谢列表</h1><p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL3d1d2VudGFvL2JqLXVuaWNvbS1pcHR2" rel="noopener external nofollow noreferrer">https://github.com/wuwentao/bj-unicom-iptv</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2RhbmRlbGlvbm8vYmotdW5pY29tLWlwdHY=" rel="noopener external nofollow noreferrer">https://github.com/dandeliono/bj-unicom-iptv</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL3NkaHpkbXp6bC9pcHR2X2NoYW5uZWxfc2Nhbm5lcl9saW51eA==" rel="noopener external nofollow noreferrer">https://github.com/sdhzdmzzl/iptv_channel_scanner_linux</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly96aGluZy5mdW4vb3BlbndydF9pcHR2X2lnbXAv" rel="noopener external nofollow noreferrer">Openwrt IPTV组播网络设置内容补充</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cueWl0b3VqaW5nLmNvbS9hcnRpY2xlLzE3" rel="noopener external nofollow noreferrer">Padavan固件设置IPTV双网融合 任意设备观看IPTV</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuZGl5Z29nb2dvLmNvbS9hcnRpY2xlL2l0ZW0vMzk4OC5odG1s" rel="noopener external nofollow noreferrer">https://www.diygogogo.com/article/item/3988.html</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL3d1d2VudGFvL2JqLXVuaWNvbS1pcHR2L2Jsb2IvbWFzdGVyL2lwdHYubWQ=" rel="noopener external nofollow noreferrer">IPTV中继原理</a></p>
+<h2 id="本章节感谢列表："><a href="#本章节感谢列表：" class="headerlink" title="本章节感谢列表："></a>本章节感谢列表：</h2><p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vcm9nZXIteXUvcC8xNjM0Nzg2MS5odG1s" rel="noopener external nofollow noreferrer">adb shell input keyevent 控制按键输入</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbWlsdG9uL3AvNDYyMjEwNy5odG1s" rel="noopener external nofollow noreferrer">利用scp 远程上传下载文件&#x2F;文件夹和ssh远程执行命令</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly93d3cub25saW5lZG93bi5uZXQvc29mdC83MDE1MDkuaHRt" rel="noopener external nofollow noreferrer">启动项管理  1.9.7</a></p>
+<h1 id="感谢列表"><a href="#感谢列表" class="headerlink" title="感谢列表"></a>感谢列表</h1><p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY29tL3d1d2VudGFvL2JqLXVuaWNvbS1pcHR2" rel="noopener external nofollow noreferrer">https://github.com/wuwentao/bj-unicom-iptv</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2RhbmRlbGlvbm8vYmotdW5pY29tLWlwdHY=" rel="noopener external nofollow noreferrer">https://github.com/dandeliono/bj-unicom-iptv</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY29tL3NkaHpkbXp6bC9pcHR2X2NoYW5uZWxfc2Nhbm5lcl9saW51eA==" rel="noopener external nofollow noreferrer">https://github.com/sdhzdmzzl/iptv_channel_scanner_linux</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly96aGluZy5mdW4vb3BlbndydF9pcHR2X2lnbXAv" rel="noopener external nofollow noreferrer">Openwrt IPTV组播网络设置内容补充</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly93d3cueWl0b3VqaW5nLmNvbS9hcnRpY2xlLzE3" rel="noopener external nofollow noreferrer">Padavan固件设置IPTV双网融合 任意设备观看IPTV</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly93d3cuZGl5Z29nb2dvLmNvbS9hcnRpY2xlL2l0ZW0vMzk4OC5odG1s" rel="noopener external nofollow noreferrer">https://www.diygogogo.com/article/item/3988.html</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY29tL3d1d2VudGFvL2JqLXVuaWNvbS1pcHR2L2Jsb2IvbWFzdGVyL2lwdHYubWQ=" rel="noopener external nofollow noreferrer">IPTV中继原理</a></p>
 <hr>
 <p>Padavan固件是基于华硕的RT-N56U开发派生并以其名字命名的Asuswrt固件，在国内亦俗称为老毛子固件。该固件具有稳定、简洁、功能强大、高性能等优点，内存和CPU消耗低，使用过程中几乎无发热。本文将介绍Padavan固件的常用版本以及刷机方法，并分享一些实用的功能和设置。</p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9vcHQuY24ycXEuY29tL3BhZGF2YW4v" rel="noopener external nofollow noreferrer">hiboy移植版Pandavan下载</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2hhbndja2YvcnQtbjU2dS8=" rel="noopener external nofollow noreferrer">hanwckf移植版Padavan</a> (最新版截止2023年12月份目前停留在2020年11月27日版本)</p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9vcHQuY24ycXEuY29tL3BhZGF2YW4v" rel="noopener external nofollow noreferrer">hiboy移植版Pandavan下载</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2hhbndja2YvcnQtbjU2dS8=" rel="noopener external nofollow noreferrer">hanwckf移植版Padavan</a> (最新版截止2023年12月份目前停留在2020年11月27日版本)</p>
 
     </div>
 
@@ -670,14 +670,14 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
 <ul>
   <li class="post-copyright-author">
       <strong>Post author:  </strong>Carl Notes
-    <a href='https://www.carlzeng.top/en/202312210934.html'> 《联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源》</a>
+    <a href='https://www.carlzeng.com/en/202312210934.html'> 《联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源》</a>
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://www.carlzeng.top/en/202312210934.html" title="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源">https://www.carlzeng.top/en/202312210934.html</a>
+      <a href="https://www.carlzeng.com/en/202312210934.html" title="联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源">https://www.carlzeng.com/en/202312210934.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
   </li>
 </ul>
 </div>
@@ -767,12 +767,12 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
 
 
 <div class="followme">
-  <span>If the article solves your urgent needs or brings some clarity, you may wish to <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email subscription</a> or reward</span>
+  <span>If the article solves your urgent needs or brings some clarity, you may wish to <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email subscription</a> or reward</span>
 
   <div class="social-list">
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
@@ -782,7 +782,7 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuLzIwMjMxMjA4MTEyOC5odG1s" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/202312081128.html">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -792,7 +792,7 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -802,7 +802,7 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fa fa-rss"></i>
             </span>
@@ -812,7 +812,7 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -822,7 +822,7 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -832,7 +832,7 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -940,7 +940,7 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
 </div>
 
 <div class="powered-by">
-    <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuL3NpdGVtYXAueG1s" rel="noopener external nofollow noreferrer">Sitemap</a> | <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuL3JzczIueG1s" rel="noopener external nofollow noreferrer">RSS</a> | Switch Server: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20vZW4=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">USA</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcC9lbg==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">Main</a>
+    <a href='https://www.carlzeng.com/en/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.com/en/rss2.xml'>RSS</a> | Switch Server: <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20vZW4=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">USA</a> <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcC9lbg==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">GitHub</a> <a href="https://www.carlzeng.com/en">Main</a>
 </div>
 
     </div>
@@ -977,6 +977,26 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202312210934.html","pageTitle":"联通和移动的电视直播IPTV组播数据抓包过程 - 播放组播IPTV数据源"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1009,26 +1029,6 @@ Multicast address 从0.0.0.0 变成了 192.168.6.192
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>

@@ -16,12 +16,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.top","root":"/en/","images":"/en/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/en/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/en/","images":"/en/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/en/js/config.js"></script>
 
     <meta name="description" content="内网穿透, 让局域网的服务在异地互联网状态依旧在线可用 frp，一个高性能的反向代理, 可以通过互联网(外网)访问内网(本地局域网)设备 灵活，TCP&#x2F;IP底层逻辑应用广泛">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)">
-<meta property="og:url" content="https://www.carlzeng.top/en/202312031926.html">
+<meta property="og:url" content="https://www.carlzeng.com/en/202312031926.html">
 <meta property="og:site_name" content="Carl Notes">
 <meta property="og:description" content="内网穿透, 让局域网的服务在异地互联网状态依旧在线可用 frp，一个高性能的反向代理, 可以通过互联网(外网)访问内网(本地局域网)设备 灵活，TCP&#x2F;IP底层逻辑应用广泛">
 <meta property="og:locale" content="en_US">
@@ -44,11 +44,11 @@
 <meta name="twitter:image" content="https://www.evernote.com/shard/s122/sh/5871f136-c4ad-4027-a582-45be87d46857/lsLZkP4tHMBKiqmU_ELAXPMwv1QgcYVGlopUkQFCXnN7zSsVEXZ_RkAccg/deep/0/image.png">
 
 
-<link rel="canonical" href="https://www.carlzeng.top/en/202312031926.html">
+<link rel="canonical" href="https://www.carlzeng.com/en/202312031926.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.top/en/202312031926.html","path":"202312031926.html","title":"Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.com/en/202312031926.html","path":"202312031926.html","title":"Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Docker搭建FRP内网穿透服务(花生壳、Ngrok平替) | Carl Notes</title>
@@ -101,7 +101,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">233</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">60</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">348</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuL3RhZ3MvbmV0c3VpdGUv" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-schedule-meeting"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Schedule Meeting</a></li><li class="menu-item menu-item-chatgpt"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-rss fa-fw"></i>ChatGPT</a></li><li class="menu-item menu-item-hnet-web"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>HNet Web</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-emby-iptv"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Emby IPTV</a></li><li class="menu-item menu-item-file-share"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>File Share</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li><li class="menu-item menu-item-best-buy"><a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Best Buy</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/en/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/en/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">233</span></a></li><li class="menu-item menu-item-categories"><a href="/en/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">60</span></a></li><li class="menu-item menu-item-archives"><a href="/en/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">348</span></a></li><li class="menu-item menu-item-netsuite"><a href="https://www.carlzeng.com/en/tags/netsuite/" rel="section"><i class="fa fa-calendar fa-fw"></i>NetSuite</a></li><li class="menu-item menu-item-schedule-meeting"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Schedule Meeting</a></li><li class="menu-item menu-item-hnet-web"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>HNet Web</a></li><li class="menu-item menu-item-music"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Music</a></li><li class="menu-item menu-item-book"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>Book</a></li><li class="menu-item menu-item-best-buy"><a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2J1eQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>Best Buy</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -352,7 +352,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.top/en/202312031926.html">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/en/202312031926.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/en/images/avatar.gif">
@@ -422,17 +422,17 @@
     
     <div class="post-body" itemprop="articleBody"><p><img data-src="https://www.evernote.com/shard/s122/sh/5871f136-c4ad-4027-a582-45be87d46857/lsLZkP4tHMBKiqmU_ELAXPMwv1QgcYVGlopUkQFCXnN7zSsVEXZ_RkAccg/deep/0/image.png" alt="frp+scrcpy"></p>
 <p>内网穿透, 让局域网的服务在异地互联网状态依旧在线可用</p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2ZhdGVkaWVyL2ZycC9ibG9iL21hc3Rlci9SRUFETUVfemgubWQ=" rel="noopener external nofollow noreferrer">frp，一个高性能的反向代理</a>, 可以通过互联网(外网)访问内网(本地局域网)设备</p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2ZhdGVkaWVyL2ZycC9ibG9iL21hc3Rlci9SRUFETUVfemgubWQ=" rel="noopener external nofollow noreferrer">frp，一个高性能的反向代理</a>, 可以通过互联网(外网)访问内网(本地局域网)设备</p>
 <p>灵活，TCP&#x2F;IP底层逻辑应用广泛</p>
 <span id="more"></span>
 
 <h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>映射出局域网，‘打洞‘，类似花生壳之类的功能</p>
 <p>举例：远程scrcpy连接安卓设备的adb操作屏幕，说人话：远程控制机顶盒或电视等</p>
-<h1 id="概念-什么是FRP-内网穿透服务"><a href="#概念-什么是FRP-内网穿透服务" class="headerlink" title="[概念]什么是FRP 内网穿透服务"></a>[概念]什么是FRP 内网穿透服务</h1><p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2ZhdGVkaWVyL2ZycC9ibG9iL21hc3Rlci9SRUFETUVfemgubWQ=" rel="noopener external nofollow noreferrer">https://github.com/fatedier/frp/blob/master/README_zh.md</a></p>
+<h1 id="概念-什么是FRP-内网穿透服务"><a href="#概念-什么是FRP-内网穿透服务" class="headerlink" title="[概念]什么是FRP 内网穿透服务"></a>[概念]什么是FRP 内网穿透服务</h1><p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2ZhdGVkaWVyL2ZycC9ibG9iL21hc3Rlci9SRUFETUVfemgubWQ=" rel="noopener external nofollow noreferrer">https://github.com/fatedier/frp/blob/master/README_zh.md</a></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">为什么使用 frp ？</span><br><span class="line">开发状态</span><br><span class="line">完整文档已经迁移至 https://gofrp.org</span><br></pre></td></tr></table></figure>
 
-<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>先自建一个frps服务器端(运行frps用的)<br>然后自控端A，被控端B；内网穿透服务器<br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly96c3h3ei5jb20vMjAyMy8xMC8wOS8lRTglQkYlOUMlRTclQTglOEIlRTYlOEElOTUlRTUlQjElOEYlRTYlOEUlQTclRTUlODglQjYlRTUlQUUlODklRTUlOEQlOTMlRTYlODklOEIlRTYlOUMlQkElRUYlQkMlOEMlRTQlQjglOEQlRTclOTQlQTgtdXNiLSVFNCVCOCU4RCVFNyU5NCVBOC13aWZpLSVFNCVCOCU4RCVFNyU5NCVBOHJvb3Qv" rel="noopener external nofollow noreferrer">https://zsxwz.com/2023/10/09/远程投屏控制安卓手机，不用-usb-不用-wifi-不用root/</a><br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly96c3h3ei5jb20vMjAyMy8xMC8wMy9mcnAtJUU0JUJEJUJGJUU3JTk0JUE4LXAycC0lRTYlQTglQTElRTUlQkMlOEYlRUYlQkMlOEMlRTclODIlQjklRTUlQUYlQjklRTclODIlQjklRTclQTklQkYlRTklODAlOEYlRUYlQkMlOEMlRTglOEElODIlRTclQkElQTYlRTYlOUMlOEQlRTUlOEElQTElRTUlOTklQTglRTUlQjglQTYlRTUlQUUlQkQv" rel="noopener external nofollow noreferrer">https://zsxwz.com/2023/10/03/frp-使用-p2p-模式，点对点穿透，节约服务器带宽/</a><br>    开启手机adb，然后用scrcpy</p>
-<p>[done]TODO 自建docker的frps服务<br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2ZhdGVkaWVyL2ZycA==" rel="noopener external nofollow noreferrer">https://github.com/fatedier/frp</a><br>方案就是开放特定的内网服务到外网直接访问（域名+端口），这个特定的内网服务是有控制功能的，比如路由的web页面，可ssh的端口，可以远程桌面的mstc等。<br>这样打洞以后，在洞上面架设的是可以远程操作协助的APP（比如远程桌面，ssh等）<br>从而实现远程协助的功能。</p>
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>先自建一个frps服务器端(运行frps用的)<br>然后自控端A，被控端B；内网穿透服务器<br><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly96c3h3ei5jb20vMjAyMy8xMC8wOS8lRTglQkYlOUMlRTclQTglOEIlRTYlOEElOTUlRTUlQjElOEYlRTYlOEUlQTclRTUlODglQjYlRTUlQUUlODklRTUlOEQlOTMlRTYlODklOEIlRTYlOUMlQkElRUYlQkMlOEMlRTQlQjglOEQlRTclOTQlQTgtdXNiLSVFNCVCOCU4RCVFNyU5NCVBOC13aWZpLSVFNCVCOCU4RCVFNyU5NCVBOHJvb3Qv" rel="noopener external nofollow noreferrer">https://zsxwz.com/2023/10/09/远程投屏控制安卓手机，不用-usb-不用-wifi-不用root/</a><br><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly96c3h3ei5jb20vMjAyMy8xMC8wMy9mcnAtJUU0JUJEJUJGJUU3JTk0JUE4LXAycC0lRTYlQTglQTElRTUlQkMlOEYlRUYlQkMlOEMlRTclODIlQjklRTUlQUYlQjklRTclODIlQjklRTclQTklQkYlRTklODAlOEYlRUYlQkMlOEMlRTglOEElODIlRTclQkElQTYlRTYlOUMlOEQlRTUlOEElQTElRTUlOTklQTglRTUlQjglQTYlRTUlQUUlQkQv" rel="noopener external nofollow noreferrer">https://zsxwz.com/2023/10/03/frp-使用-p2p-模式，点对点穿透，节约服务器带宽/</a><br>    开启手机adb，然后用scrcpy</p>
+<p>[done]TODO 自建docker的frps服务<br><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2ZhdGVkaWVyL2ZycA==" rel="noopener external nofollow noreferrer">https://github.com/fatedier/frp</a><br>方案就是开放特定的内网服务到外网直接访问（域名+端口），这个特定的内网服务是有控制功能的，比如路由的web页面，可ssh的端口，可以远程桌面的mstc等。<br>这样打洞以后，在洞上面架设的是可以远程操作协助的APP（比如远程桌面，ssh等）<br>从而实现远程协助的功能。</p>
 <p>感觉frps，frpc才是王道，但愿受控端的操作会少一些，简单一下，步骤简易一些，通俗易懂一些。</p>
 <p>docker-compose.yml</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;3.3&#x27;</span><br><span class="line">services:</span><br><span class="line">     frps:</span><br><span class="line">        image: snowdreamtech/frps:latest</span><br><span class="line">        <span class="comment">#ports:</span></span><br><span class="line">        <span class="comment">#    - &quot;7000:7000&quot; #</span></span><br><span class="line">        <span class="comment">#    - &quot;9527:7500&quot; #web management</span></span><br><span class="line">        <span class="comment">#    - &quot;10022:10022&quot; #used for ssh</span></span><br><span class="line">        <span class="comment">#    - &quot;7500:80&quot; #http</span></span><br><span class="line">        <span class="comment">#    - &quot;10443:443&quot; #https</span></span><br><span class="line">        network_mode: host  <span class="comment">#改成host模式，省出一些事来</span></span><br><span class="line">        volumes:</span><br><span class="line">          - ./frps.ini:/etc/frp/frps.toml <span class="comment">#很奇葩为的最新版frps就是要这么对应</span></span><br><span class="line">            <span class="comment">#- ./frps.toml:/etc/frp/frps.toml </span></span><br><span class="line">        container_name: frps</span><br><span class="line">        restart: unless-stopped</span><br></pre></td></tr></table></figure>
@@ -447,7 +447,7 @@
 <img data-src='https://www.evernote.com/shard/s122/sh/48544655-3a61-483a-b7ab-0a72f6cb4579/ebhmTXJ7DGn78oKPU3BDFhmbJ1jfxVMCaYN7a-J6dd8azwGBMDIH2P9NEg/deep/0/image.png'/>
 
 <p>docker重启日志中：<br>2023&#x2F;12&#x2F;01 08:57:30 [1;34m[I] [service.go:533] [67b3d0c8dd4be924] client login info: ip [120.244.216.197:37895] version [0.52.3] hostname [] os [linux] arch [mipsle][0m</p>
-<p>new proxy [web] type [http] error: subdomain is not supported because this feature is not enabled in server<br><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2ZhdGVkaWVyL2ZycA==" rel="noopener external nofollow noreferrer">https://github.com/fatedier/frp</a></p>
+<p>new proxy [web] type [http] error: subdomain is not supported because this feature is not enabled in server<br><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY29tL2ZhdGVkaWVyL2ZycA==" rel="noopener external nofollow noreferrer">https://github.com/fatedier/frp</a></p>
 <h2 id="FRPS-服务端如何反代？"><a href="#FRPS-服务端如何反代？" class="headerlink" title="FRPS 服务端如何反代？"></a>FRPS 服务端如何反代？</h2><p>修改了上面的配置:</p>
 <p>network_mode: host</p>
 <p>开启防火墙6002</p>
@@ -466,7 +466,7 @@
 <p>开启debian防火墙的6003-6004，</p>
 <p>NPM反代6003</p>
 <h3 id="设置应用3"><a href="#设置应用3" class="headerlink" title="设置应用3"></a>设置应用3</h3><p>去应用的docker中（比如独角数卡）加入frpc，然后反代出来</p>
-<p>wget <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9taXJyb3IuZ2hwcm94eS5jb20vaHR0cHM6Ly9naXRodWIuY29tL2ZhdGVkaWVyL2ZycC9yZWxlYXNlcy9kb3dubG9hZC92MC41Mi4zL2ZycF8wLjUyLjNfbGludXhfYW1kNjQudGFyLmd6" rel="noopener external nofollow noreferrer">https://mirror.ghproxy.com/https://github.com/fatedier/frp/releases/download/v0.52.3/frp_0.52.3_linux_amd64.tar.gz</a></p>
+<p>wget <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9taXJyb3IuZ2hwcm94eS5jb20vaHR0cHM6Ly9naXRodWIuY29tL2ZhdGVkaWVyL2ZycC9yZWxlYXNlcy9kb3dubG9hZC92MC41Mi4zL2ZycF8wLjUyLjNfbGludXhfYW1kNjQudGFyLmd6" rel="noopener external nofollow noreferrer">https://mirror.ghproxy.com/https://github.com/fatedier/frp/releases/download/v0.52.3/frp_0.52.3_linux_amd64.tar.gz</a></p>
 <p>tar -xf frp_0.52.3_linux_amd64.tar.gz -C &#x2F;usr&#x2F;local&#x2F;bin</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c frpc.ini</span><br></pre></td></tr></table></figure>
 
@@ -481,9 +481,9 @@
 
 
 <h1 id="免费的FRP服务资源"><a href="#免费的FRP服务资源" class="headerlink" title="免费的FRP服务资源"></a>免费的FRP服务资源</h1><ol>
-<li><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9mcnAuMTA0MzAwLnh5ei8=" rel="noopener external nofollow noreferrer">https://frp.104300.xyz/</a></li>
-<li><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9mcmVlZnJwLm5ldC8=" rel="noopener external nofollow noreferrer">https://freefrp.net/</a><ol>
-<li><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9mcmVlZnJwLm5ldC9kb2Nz" rel="noopener external nofollow noreferrer">说明文档</a>很赞; <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9mcmVlZnJwLm5ldC9kb2Nz" rel="noopener external nofollow noreferrer">https://freefrp.net/docs</a></li>
+<li><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9mcnAuMTA0MzAwLnh5ei8=" rel="noopener external nofollow noreferrer">https://frp.104300.xyz/</a></li>
+<li><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9mcmVlZnJwLm5ldC8=" rel="noopener external nofollow noreferrer">https://freefrp.net/</a><ol>
+<li><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9mcmVlZnJwLm5ldC9kb2Nz" rel="noopener external nofollow noreferrer">说明文档</a>很赞; <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9mcmVlZnJwLm5ldC9kb2Nz" rel="noopener external nofollow noreferrer">https://freefrp.net/docs</a></li>
 </ol>
 </li>
 </ol>
@@ -492,11 +492,11 @@
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p>设置和应用太灵活了，以至于很难理解和变通到家宽部署的情况。</p>
 <p>关键词：docker frps 反向代理</p>
 <p>感谢列表：</p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9pd2FubGFiLmNvbS9mcnAtd2l0aC1uZ2lueC1wcm94eS1tYW5hZ2VyLw==" rel="noopener external nofollow noreferrer">家里没有公网IP？FRP+NPM+VPS &#x3D; 随时随地用域名访问家里的任何设备！内网穿透，从未如此简单！</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93YXluZWdvbmcuY24vcG9zdHMvODI3OS5odG1s" rel="noopener external nofollow noreferrer">Docker 部署 Nginx、frp 实现内网穿透</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9tZW93bGlnaHQuc3BhY2UvYXJjaGl2ZXMvMTU5OTM5ODgzODU4NA==" rel="noopener external nofollow noreferrer">使用docker-compose来构筑NGINX、frp的HTTP内网穿透</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9tZWRpdW0uY29tL0BrZW5fYy8lRTclOTQlQThmcGMlRTUlQUUlOUUlRTclOEUlQjBodHRwcyVFNSU4NiU4NSVFNyVCRCU5MSVFNyVBOSVCRiVFOSU4MCU4Ri1hODU3MDA0OWI1NTc=" rel="noopener external nofollow noreferrer">用FPC实现HTTPS内网穿透</a></p>
-<p><a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuaXNpc3kuY29tLzY0Ny5odG1s" rel="noopener external nofollow noreferrer">Frp内网穿透——frpc客户端使用（2）</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9pd2FubGFiLmNvbS9mcnAtd2l0aC1uZ2lueC1wcm94eS1tYW5hZ2VyLw==" rel="noopener external nofollow noreferrer">家里没有公网IP？FRP+NPM+VPS &#x3D; 随时随地用域名访问家里的任何设备！内网穿透，从未如此简单！</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly93YXluZWdvbmcuY24vcG9zdHMvODI3OS5odG1s" rel="noopener external nofollow noreferrer">Docker 部署 Nginx、frp 实现内网穿透</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9tZW93bGlnaHQuc3BhY2UvYXJjaGl2ZXMvMTU5OTM5ODgzODU4NA==" rel="noopener external nofollow noreferrer">使用docker-compose来构筑NGINX、frp的HTTP内网穿透</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9tZWRpdW0uY29tL0BrZW5fYy8lRTclOTQlQThmcGMlRTUlQUUlOUUlRTclOEUlQjBodHRwcyVFNSU4NiU4NSVFNyVCRCU5MSVFNyVBOSVCRiVFOSU4MCU4Ri1hODU3MDA0OWI1NTc=" rel="noopener external nofollow noreferrer">用FPC实现HTTPS内网穿透</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly93d3cuaXNpc3kuY29tLzY0Ny5odG1s" rel="noopener external nofollow noreferrer">Frp内网穿透——frpc客户端使用（2）</a></p>
 
     </div>
 
@@ -527,14 +527,14 @@
 <ul>
   <li class="post-copyright-author">
       <strong>Post author:  </strong>Carl Notes
-    <a href='https://www.carlzeng.top/en/202312031926.html'> 《Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)》</a>
+    <a href='https://www.carlzeng.com/en/202312031926.html'> 《Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)》</a>
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://www.carlzeng.top/en/202312031926.html" title="Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)">https://www.carlzeng.top/en/202312031926.html</a>
+      <a href="https://www.carlzeng.com/en/202312031926.html" title="Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)">https://www.carlzeng.com/en/202312031926.html</a>
   </li>
   <li class="post-copyright-license">
-      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> unless stating additionally.
   </li>
 </ul>
 </div>
@@ -639,12 +639,12 @@
 
 
 <div class="followme">
-  <span>If the article solves your urgent needs or brings some clarity, you may wish to <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email subscription</a> or reward</span>
+  <span>If the article solves your urgent needs or brings some clarity, you may wish to <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email subscription</a> or reward</span>
 
   <div class="social-list">
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class=""></i>
             </span>
@@ -654,7 +654,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuLzIwMjMxMjA4MTEyOC5odG1s" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/202312081128.html">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -664,7 +664,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -674,7 +674,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fa fa-rss"></i>
             </span>
@@ -684,7 +684,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -694,7 +694,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-telegram"></i>
             </span>
@@ -704,7 +704,7 @@
       </div>
 
       <div class="social-item">
-          <a target="_blank" class="social-link" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
@@ -810,7 +810,7 @@
 </div>
 
 <div class="powered-by">
-    <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuL3NpdGVtYXAueG1s" rel="noopener external nofollow noreferrer">Sitemap</a> | <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2VuL3JzczIueG1s" rel="noopener external nofollow noreferrer">RSS</a> | Switch Server: <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20vZW4=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">USA</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcC9lbg==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.top/en/go/#aHR0cHM6Ly93d3cuY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">Main</a>
+    <a href='https://www.carlzeng.com/en/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.com/en/rss2.xml'>RSS</a> | Switch Server: <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20vZW4=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">USA</a> <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcC9lbg==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.com/en/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29tL2Vu" rel="noopener external nofollow noreferrer">GitHub</a> <a href="https://www.carlzeng.com/en">Main</a>
 </div>
 
     </div>
@@ -847,6 +847,26 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202312031926.html","pageTitle":"Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -879,26 +899,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
