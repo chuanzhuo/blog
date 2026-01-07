@@ -26,7 +26,7 @@
 <meta property="og:description" content="远程协助, 远程控制手机, 电脑等各平台设备">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-12-18T01:49:45.000Z">
-<meta property="article:modified_time" content="2025-12-05T08:48:03.812Z">
+<meta property="article:modified_time" content="2025-12-30T13:19:19.906Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="frp">
 <meta property="article:tag" content="ToDesk">
@@ -127,7 +127,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-TeamViewer"><span class="nav-number">4.1.</span> <span class="nav-text">1. TeamViewer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%94%90%E8%BF%9E-%E9%9A%8F%E6%97%B6%E9%9A%8F%E5%9C%B0%E8%BF%9C%E7%A8%8B%E5%8D%8F%E5%8A%A9-https-remobax-top"><span class="nav-number">4.2.</span> <span class="nav-text">2. 锐连 随时随地远程协助 https:&#x2F;&#x2F;remobax.top&#x2F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-ToDesk-%E6%88%96%E8%80%85-%E9%80%89%E6%8B%A9anydesk-%E5%90%8C%E6%A0%B7%E7%9A%84%E5%8E%9F%E7%90%86%E8%BF%98%E5%85%8D%E8%B4%B9%EF%BC%8C%E4%BD%86%E6%98%AF%E5%A4%A7%E9%99%86%E4%B8%8D%E5%BC%80%E6%A2%AF%E5%AD%90%E4%BC%9A%E5%BE%88%E5%8D%A1"><span class="nav-number">4.3.</span> <span class="nav-text">3. ToDesk 或者 选择anydesk(同样的原理还免费，但是大陆不开梯子会很卡)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-rustdesk"><span class="nav-number">4.4.</span> <span class="nav-text">4. rustdesk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-Docker-build"><span class="nav-number">4.5.</span> <span class="nav-text">4.1 Docker build</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-rustdesk-flutter"><span class="nav-number">4.6.</span> <span class="nav-text">4.2 rustdesk&#x2F;flutter&#x2F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-parsec"><span class="nav-number">4.7.</span> <span class="nav-text">5. parsec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-frp%E6%96%B9%E6%A1%88"><span class="nav-number">4.8.</span> <span class="nav-text">6. frp方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E6%89%8B%E6%9C%BA%E4%B8%8AVNC%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8F%AF%E4%BB%8EF-Droid%E4%B8%8B%E8%BD%BDdroidvnc-ng%E5%BC%80%E5%90%AF%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.9.</span> <span class="nav-text">7. 手机上VNC服务端可从F-Droid下载droidvnc-ng开启服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8scrcpy%E8%BF%9E%E6%8E%A5Android%E8%B0%83%E8%AF%95%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">4.10.</span> <span class="nav-text">用scrcpy连接Android调试功能实现远程控制</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-TeamViewer"><span class="nav-number">4.1.</span> <span class="nav-text">1. TeamViewer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%94%90%E8%BF%9E-%E9%9A%8F%E6%97%B6%E9%9A%8F%E5%9C%B0%E8%BF%9C%E7%A8%8B%E5%8D%8F%E5%8A%A9-https-remobax-top"><span class="nav-number">4.2.</span> <span class="nav-text">2. 锐连 随时随地远程协助 https:&#x2F;&#x2F;remobax.top&#x2F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-ToDesk-%E6%88%96%E8%80%85-%E9%80%89%E6%8B%A9anydesk-%E5%90%8C%E6%A0%B7%E7%9A%84%E5%8E%9F%E7%90%86%E8%BF%98%E5%85%8D%E8%B4%B9%EF%BC%8C%E4%BD%86%E6%98%AF%E5%A4%A7%E9%99%86%E4%B8%8D%E5%BC%80%E6%A2%AF%E5%AD%90%E4%BC%9A%E5%BE%88%E5%8D%A1"><span class="nav-number">4.3.</span> <span class="nav-text">3. ToDesk 或者 选择anydesk(同样的原理还免费，但是大陆不开梯子会很卡)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-rustdesk"><span class="nav-number">4.4.</span> <span class="nav-text">4. rustdesk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-Docker-build"><span class="nav-number">4.5.</span> <span class="nav-text">4.1 Docker build</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-rustdesk-flutter"><span class="nav-number">4.6.</span> <span class="nav-text">4.2 rustdesk&#x2F;flutter&#x2F;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-compose-%E8%87%AA%E5%BB%BAID%E5%92%8Crelay%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">4.6.1.</span> <span class="nav-text">docker-compose 自建ID和relay服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-parsec"><span class="nav-number">4.7.</span> <span class="nav-text">5. parsec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-frp%E6%96%B9%E6%A1%88"><span class="nav-number">4.8.</span> <span class="nav-text">6. frp方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E6%89%8B%E6%9C%BA%E4%B8%8AVNC%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8F%AF%E4%BB%8EF-Droid%E4%B8%8B%E8%BD%BDdroidvnc-ng%E5%BC%80%E5%90%AF%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.9.</span> <span class="nav-text">7. 手机上VNC服务端可从F-Droid下载droidvnc-ng开启服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E7%94%A8scrcpy%E8%BF%9E%E6%8E%A5Android%E8%B0%83%E8%AF%95%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">4.10.</span> <span class="nav-text">8. 用scrcpy连接Android调试功能实现远程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-hsslive-cn-%E6%B5%8B%E8%AF%95"><span class="nav-number">4.11.</span> <span class="nav-text">9. hsslive.cn 测试</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -399,7 +399,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-05 16:48:03" itemprop="dateModified" datetime="2025-12-05T16:48:03+08:00">2025-12-05</time>
+      <time title="修改时间：2025-12-30 21:19:19" itemprop="dateModified" datetime="2025-12-30T21:19:19+08:00">2025-12-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -429,7 +429,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
+      <span>10 分钟</span>
     </span>
 </div>
 
@@ -446,11 +446,7 @@
 
 <h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>在寻找远程协助客户, 家人, 朋友的手机或电脑时，寻找最佳体验的解决办法</p>
 <p>比如：想现场讲解如何操作，演示操作过程，代替朋友协助操作软件系统画面</p>
-<p>下一步计划: 切换服务到: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9kZXNrLmhzc2xpdmUuY24vIy8=" rel="noopener external nofollow noreferrer">https://desk.hsslive.cn/#/</a>  (作者: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2dhbGF4eS1zMTA=" rel="noopener external nofollow noreferrer">https://github.com/galaxy-s10</a>)</p>
-<p>免费流畅的远程体验基于WebRTC+Flutter+Vue3+Nodejs </p>
-<p>实现电脑对电脑, 电脑对手机, 甚至可以手机对电脑的远程控制</p>
-<p>(类似于todesk, 或 向日葵功能); 下载: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9kZXNrLmhzc2xpdmUuY24vIy9yZWxlYXNl" rel="noopener external nofollow noreferrer">https://desk.hsslive.cn/#/release</a></p>
-<p>免费方案，是作者推荐的方案：BilldDesk Pro + 自建中继服务器。即直接使用现有的 BilldDesk Pro，自己再额外部署一个中继服务器，然后在 BilldDesk Pro 里面使用自建的中继服务器。这样优点是不使用官方的共享服务器，享受独立的中继服务器，远程控制更流畅。</p>
+<p>下一步计划: </p>
 <h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><p>国内用ToDesk 国外用RustDesk，不是没有道理的，ToDesk国内有中转服务器架设，这样使用的体验上就比RustDesk（开源）的要好；除非我们自己架设RustDesk服务器节点，可是即便这么做了，还得需要编译RustDesk的手机和电脑端APP，这样才能避免受协助端无需去操作界面填写服务器地址端口等等信息（因为需要协助的人，如果很懂IT，那ta很可能性不需要协助了）</p>
 <p>完美的协助流程：</p>
 <ol>
@@ -489,8 +485,25 @@ docker-compose 部署restdesk服务器
 <pre><code>方向性错误，编译出windows，mac的客户端没有意义；我需要编译出APK
 </code></pre>
 <h2 id="4-2-rustdesk-flutter"><a href="#4-2-rustdesk-flutter" class="headerlink" title="4.2 rustdesk&#x2F;flutter&#x2F;"></a>4.2 rustdesk&#x2F;flutter&#x2F;</h2><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3J1c3RkZXNrL3J1c3RkZXNrL3RyZWUvbWFzdGVyL2ZsdXR0ZXI=" rel="noopener external nofollow noreferrer">https://github.com/rustdesk/rustdesk/tree/master/flutter</a><br>    85 mins remaining</p>
-<p>TODO docker-compose 自建ID服务器</p>
-<p>测试了一下国内直连默认服务器使用，安卓端的按键和确认动作太多，延迟太大了<br>难怪方案：国内用todesk，国外用rustdesk</p>
+<p>测试了一下国内直连默认服务器使用，安卓端的按键和确认动作太多，延迟太大了<br>难怪方案：国内用todesk，国外用rustdesk; </p>
+<p>尝试自建服务器</p>
+<h3 id="docker-compose-自建ID和relay服务器"><a href="#docker-compose-自建ID和relay服务器" class="headerlink" title="docker-compose 自建ID和relay服务器"></a>docker-compose 自建ID和relay服务器</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">hbbs:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">hbbs</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">rustdesk/rustdesk-server:latest</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ALWAYS_USE_RELAY=Y</span></span><br><span class="line">    <span class="attr">command:</span> <span class="string">hbbs</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/root</span></span><br><span class="line">    <span class="attr">network_mode:</span> <span class="string">&quot;host&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">hbbr</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">hbbr:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">hbbr</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">rustdesk/rustdesk-server:latest</span></span><br><span class="line">    <span class="attr">command:</span> <span class="string">hbbr</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/root</span></span><br><span class="line">    <span class="attr">network_mode:</span> <span class="string">&quot;host&quot;</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[src/common.rs:147] Private/public key written to id_ed25519/id_ed25519.pub</span><br><span class="line">hbbs  | [2025-12-29 13:32:49.446375 +00:00] INFO [src/rendezvous_server.rs:1205] Key: huHpigOnBqrvwEH3eBFKULUWgiywtacmBpyJpupxyTE=</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">carlzeng@MacBookPro ~ % nc -vz 192.168.6.117 21114</span><br><span class="line">nc: connectx to 192.168.6.117 port 21114 (tcp) failed: Connection refused</span><br><span class="line">carlzeng@MacBookPro ~ % nc -vz 192.168.6.117 21115</span><br><span class="line">Connection to 192.168.6.117 port 21115 [tcp/*] succeeded!</span><br><span class="line">carlzeng@MacBookPro ~ % nc -vz 192.168.6.117 21116</span><br><span class="line">Connection to 192.168.6.117 port 21116 [tcp/*] succeeded!</span><br><span class="line">carlzeng@MacBookPro ~ % nc -vz 192.168.6.117 21117</span><br><span class="line">Connection to 192.168.6.117 port 21117 [tcp/*] succeeded!</span><br><span class="line">carlzeng@MacBookPro ~ % nc -vz 192.168.6.117 21118</span><br><span class="line">Connection to 192.168.6.117 port 21118 [tcp/*] succeeded!</span><br><span class="line">carlzeng@MacBookPro ~ % nc -vz 192.168.6.117 21119</span><br><span class="line">Connection to 192.168.6.117 port 21119 [tcp/*] succeeded!</span><br></pre></td></tr></table></figure>
+
+<p>TODO:   故障: 转发后, 无法连接到本地服务器的21116 和 21117.</p>
+<p>解决过程:</p>
+<p>​	重启以后, 依旧失效, 无法连接到117明明是开放着的21117; 其他端口设置了转发就有成功的… 为何就是改的这几个端口死活就是无法链接呢? </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">carlzeng@MacBookPro ~ % nc -vz 111.193.104.114 11117                                                             </span><br><span class="line">nc: connectx to 111.193.104.114 port 11117 (tcp) failed: Connection refused                                      </span><br><span class="line">carlzeng@MacBookPro ~ % nc -vz 111.193.104.114 3                                                                 </span><br><span class="line">Connection to 111.193.104.114 port 3 [tcp/compressnet] succeeded!                                                </span><br><span class="line">carlzeng@MacBookPro ~ % nc -vz 111.193.104.114 6                                                                 </span><br><span class="line">Connection to 111.193.104.114 port 6 [tcp/*] succeeded!</span><br><span class="line"></span><br><span class="line">carlzeng@MacBookPro ~ % nc -vz 111.193.104.114 1117</span><br><span class="line">Connection to 111.193.104.114 port 1117 [tcp/ardus-mtrns] succeeded!</span><br><span class="line">carlzeng@MacBookPro ~ % nc -vz 111.193.104.114 1116</span><br><span class="line">Connection to 111.193.104.114 port 1116 [tcp/ardus-cntl] succeeded!</span><br></pre></td></tr></table></figure>
+
+<p>原来又是运营商搞的鬼;   当路由器端完成了转发后, 其实流量数据包是在运营商那端被丢弃的, 导致(tcp) failed: Connection refused.</p>
+<p>切换到小的端口值号时候, 可以正常连接了服务器节点. </p>
+<p>安装安卓默认版本, 统一网络下连接顺利</p>
+<p>故障: 移动网络中的安卓, 无法连接到id服务器(切换端口到116, 117以后可以连接到RustDesk网络, 就绪. 偶尔断开)</p>
+<p>当手机的网络属于‘中国移动’的网络时, 无法从MAC连接进行远程协助.(即便是状态显示就绪; 很快又跳成未就绪, 请检查网络连接)</p>
+<p>本小结又参考阅读了: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vcnlhbnlhbmdjcy9wLzE4MTg2MTYz" rel="noopener external nofollow noreferrer">RustDesk 自建服务器部署和使用教程</a></p>
 <h2 id="5-parsec"><a href="#5-parsec" class="headerlink" title="5. parsec"></a>5. parsec</h2><p>no.</p>
 <h2 id="6-frp方案"><a href="#6-frp方案" class="headerlink" title="6. frp方案"></a>6. frp方案</h2><p>厉害了 （从rustdesk无人值守，入口找到的个人站）<br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly96c3h3ei5jb20v" rel="noopener external nofollow noreferrer">https://zsxwz.com/</a><br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zaG9wLnpzeHd6LnNob3Av" rel="noopener external nofollow noreferrer">https://shop.zsxwz.shop</a></p>
 <p>如何配置域名访问？反代？</p>
@@ -499,10 +512,18 @@ docker-compose 部署restdesk服务器
 <p>于是各路APP都在想办法在非root的情况下开启远程桌面服务：VNC server app for Android that does not require root privileges.</p>
 <p>测试中：<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3lyb20vU2NyZWVuUmVjb3JkZXI=" rel="noopener external nofollow noreferrer">https://github.com/yrom/ScreenRecorder</a></p>
 <p>Implement screen capture without root on Android 5.0+ by using MediaProjectionManager, VirtualDisplay, AudioRecord, MediaCodec and MediaMuxer APIs</p>
-<ol start="8">
-<li><h2 id="用scrcpy连接Android调试功能实现远程控制"><a href="#用scrcpy连接Android调试功能实现远程控制" class="headerlink" title="用scrcpy连接Android调试功能实现远程控制"></a>用scrcpy连接Android调试功能实现远程控制</h2></li>
+<h2 id="8-用scrcpy连接Android调试功能实现远程控制"><a href="#8-用scrcpy连接Android调试功能实现远程控制" class="headerlink" title="8. 用scrcpy连接Android调试功能实现远程控制"></a>8. 用scrcpy连接Android调试功能实现远程控制</h2><p>详见：<a href="https://www.carlzeng.com/202312121225.html">安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng</a></p>
+<h2 id="9-hsslive-cn-测试"><a href="#9-hsslive-cn-测试" class="headerlink" title="9. hsslive.cn 测试"></a>9. hsslive.cn 测试</h2><p>切换服务到: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9kZXNrLmhzc2xpdmUuY24vIy8=" rel="noopener external nofollow noreferrer">https://desk.hsslive.cn/#/</a>  (作者: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2dhbGF4eS1zMTA=" rel="noopener external nofollow noreferrer">https://github.com/galaxy-s10</a>)</p>
+<p>免费流畅的远程体验基于WebRTC+Flutter+Vue3+Nodejs </p>
+<p>实现电脑对电脑, 电脑对手机, 甚至可以手机对电脑的远程控制</p>
+<p>(类似于todesk, 或 向日葵功能); 下载: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9kZXNrLmhzc2xpdmUuY24vIy9yZWxlYXNl" rel="noopener external nofollow noreferrer">https://desk.hsslive.cn/#/release</a></p>
+<p>免费方案，是作者推荐的方案：BilldDesk Pro + 自建中继服务器。即直接使用现有的 BilldDesk Pro，自己再额外部署一个中继服务器，然后在 BilldDesk Pro 里面使用自建的中继服务器。这样优点是不使用官方的共享服务器，享受独立的中继服务器，远程控制更流畅。</p>
+<p>测试后放弃该方案, 原因:</p>
+<ol>
+<li>下载客户端的链接是各种网盘, (很不正式, github上的版本太久, 下载下来又提示强制更新)</li>
+<li>客户端也要注册用户, 这个步骤对于‘懒人’用户不友好, 不主控的话, 别强制注册, 自动一下呢?</li>
+<li>界面用的词语不恰当: 主控, 被控; 不适合我的应用场景; 给客户不安全感</li>
 </ol>
-<p>详见：<a href="https://www.carlzeng.com/202312121225.html">安卓手机投屏至电脑, 电脑显示和控制安卓手机, 手机电脑同屏软件Scrcpy-CarlZeng</a></p>
 
 
         <!-- search & recent posts(added 20240914) -->
@@ -836,7 +857,7 @@ docker-compose 部署restdesk服务器
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2025-12-05 16:48:03" itemprop="dateModified" datetime="2025-12-05T16:48:03+08:00">2025-12-05</time>
+        <time title="修改时间：2025-12-30 21:19:19" itemprop="dateModified" datetime="2025-12-30T21:19:19+08:00">2025-12-30</time>
       </span>
 
 </div>
@@ -984,26 +1005,6 @@ docker-compose 部署restdesk服务器
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202312180949.html","pageTitle":"远程协助 国内用ToDesk 国外用RustDesk"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1036,6 +1037,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>
