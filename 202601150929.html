@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="绝大多数ADSL用户处于大内网中(而99.9%的宽带用户使用这种方式入网, 政策持续收紧IPv4公网IP的发放), 本文进一步探讨如何映射大内网中的服务到互联网. PS5主机, Switch, Steamdeck等主机NAT类型探讨">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点">
+<meta property="og:url" content="https://www.carlzeng.com/202601150929.html">
+<meta property="og:site_name" content="云随笔 Carl Notes">
+<meta property="og:description" content="绝大多数ADSL用户处于大内网中(而99.9%的宽带用户使用这种方式入网, 政策持续收紧IPv4公网IP的发放), 本文进一步探讨如何映射大内网中的服务到互联网. PS5主机, Switch, Steamdeck等主机NAT类型探讨">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2026/01/15/696848b26bbba.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2026/01/15/69684c2f90aa9.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2026/01/15/69684ceec826b.png">
+<meta property="og:image" content="https://mao.fan/images/nat1.webp">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2026/01/15/69684a46152e4.png">
+<meta property="article:published_time" content="2026-01-15T01:29:16.000Z">
+<meta property="article:modified_time" content="2026-01-15T02:14:58.881Z">
+<meta property="article:author" content="Carl Notes">
+<meta property="article:tag" content="openwrt">
+<meta property="article:tag" content="NAT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.carlzeng.com:3/i/2026/01/15/696848b26bbba.png">
+
+
+<link rel="canonical" href="https://www.carlzeng.com/202601150929.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.com/202601150929.html","path":"202601150929.html","title":"浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点 | 云随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.com:4443">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">云随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">ERP IT方案 电玩</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="全站检索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">277</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">89</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">402</span></a></li><li class="menu-item menu-item-翻译"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3RyYW5zbGF0ZQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>翻译</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Nhc2U=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li><li class="menu-item menu-item-上网加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-heartbeat fa-fw"></i>上网加速</a></li><li class="menu-item menu-item-照片转文本"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL29jcg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>照片转文本</a></li>
+  </ul>
+
+    <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <!--<div class="search-header">-->
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="58" placeholder="全局检索..." spellcheck="false" type="search" class="search-input">
+      </div>
+      <!--</div>-->
+    </div>
+    </form>
+
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E4%B8%8E%E7%90%86%E8%AE%BA"><span class="nav-number">2.</span> <span class="nav-text">概念与理论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-NAT%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">什么是 NAT？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#NAT-%E5%9B%9B%E7%A7%8D%E7%B1%BB%E5%9E%8B%EF%BC%9A"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">NAT 四种类型：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E5%92%8CNAT-%E7%A9%BF%E9%80%8F-%E5%8C%BA%E5%88%AB%E4%BA%8E%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">2.2.</span> <span class="nav-text">端口转发和NAT 穿透 区别于优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%8E%9F%E7%90%86"><span class="nav-number">2.2.1.</span> <span class="nav-text">一、核心概念与原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%EF%BC%88Port-Forwarding%EF%BC%89"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">1.  端口转发（Port Forwarding）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-NAT-%E7%A9%BF%E9%80%8F%EF%BC%88NAT-Traversal%EF%BC%89"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">2.  NAT 穿透（NAT Traversal）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%A0%B8%E5%BF%83%E5%8C%BA%E5%88%AB%E5%AF%B9%E6%AF%94%E8%A1%A8"><span class="nav-number">2.2.2.</span> <span class="nav-text">二、核心区别对比表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%BC%98%E7%BC%BA%E7%82%B9%E5%88%86%E6%9E%90"><span class="nav-number">2.2.3.</span> <span class="nav-text">三、优缺点分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%EF%BC%88Port-Forwarding%EF%BC%89-1"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">1.  端口转发（Port Forwarding）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%98%E7%82%B9"><span class="nav-number">2.2.3.1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9"><span class="nav-number">2.2.3.1.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-NAT-%E7%A9%BF%E9%80%8F"><span class="nav-number">2.2.3.2.</span> <span class="nav-text">2.  NAT 穿透</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%98%E7%82%B9-1"><span class="nav-number">2.2.3.2.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9-1"><span class="nav-number">2.2.3.2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF%E6%8E%A8%E8%8D%90"><span class="nav-number">2.2.4.</span> <span class="nav-text">四、适用场景推荐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.2.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NAT%E5%8F%8A%E5%BA%94%E7%94%A8-stun%E6%89%93%E6%B4%9E%E7%A9%BF%E9%80%8Fnat"><span class="nav-number">4.</span> <span class="nav-text">NAT及应用(stun打洞穿透nat)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NAT-%E7%B1%BB%E5%9E%8B%E5%AF%B9%E6%AF%94"><span class="nav-number">4.1.</span> <span class="nav-text">NAT 类型对比</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD%E2%80%A6"><span class="nav-number">5.</span> <span class="nav-text">未完待续…</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">6.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Notes</p>
+  <div class="site-description" itemprop="description">定制ERP软件与电玩设备改装</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">402</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">277</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312021028.html" rel="bookmark">
+      计划任务定时任务crontab - 如何让路由器按要求定时发BTC价至手机
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202511292144.html" rel="bookmark">
+      磁力BT下载Switch游戏yyrtt.com资源
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
+      光猫设置端口映射IP端口转发
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202403281654.html" rel="bookmark">
+      升级Artalk评论至V2-8-3解决错误(请求响应404)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
+      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+    <div class="pjax">
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新文章
+        </div>
+        <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/202601150929.html" title="浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点" target=""  class="popular-posts-link">
+                  浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202601090857.html" title="数据分析挖掘之如何知道谁最先关注查看最新文章" target=""  class="popular-posts-link">
+                  数据分析挖掘之如何知道谁最先关注查看最新文章
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202601081153.html" title="Joycon2手柄如何连接电脑测试按键摇杆等功能" target=""  class="popular-posts-link">
+                  Joycon2手柄如何连接电脑测试按键摇杆等功能
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202601081001.html" title="自建远程协助软件rustdesk实现远程桌面远程控制软件" target=""  class="popular-posts-link">
+                  自建远程协助软件rustdesk实现远程桌面远程控制软件
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202512200852.html" title="XBOX精英二代霍尔板机故障修复及校准" target=""  class="popular-posts-link">
+                  XBOX精英二代霍尔板机故障修复及校准
+                  </a>
+                </li>
+        </ul>
+      </div>
+    </div>
+
+    <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <!--<div class="search-header">-->
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="58" placeholder="全站检索..." spellcheck="false" type="search" class="search-input">
+      </div>
+      <!--</div>-->
+    </div>
+    </form>
+    <style>
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      margin-top: 30px !important;
+      padding: clamp(17px, 5%, 40px) clamp(17px, 7%, 50px) !important;
+      max-width: none !important;
+      border-radius: 6px !important;
+      box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview *{
+      box-sizing: border-box !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading {
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5{
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
+      margin-top: 20px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      width: 100% !important;
+      height: 40px !important;
+      border-radius: 6px !important;
+      border: 2px solid #e9e8e8 !important;
+      background-color: #fff !important;
+      outline: none !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      color: #000000 !important;
+      font-family: "Montserrat" !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 20px !important;
+      text-align: center !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+      color: #000000 !important;
+      opacity: 1 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input:-ms-input-placeholder {
+      color: #000000 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::-ms-input-placeholder {
+      color: #000000 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
+      margin-top: 10px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+      width: 100% !important;
+      height: 40px !important;
+      border: 0 !important;
+      border-radius: 6px !important;
+      line-height: 0px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
+      cursor: pointer !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+      color: #231f20 !important;
+      font-family: "Montserrat" !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 25px !important;
+      text-align: center !important;
+      text-decoration: none !important;
+      display: flex !important;
+      width: 100% !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 10px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
+      margin-left: 10px !important;
+      height: 1.13em !important;
+      max-height: 1.13em !important;
+    }
+    </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
+      订阅最新文章
+    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="请输入您的邮箱地址后回车确认" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
+      订阅
+    </button></div></div></form></div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/202601150929.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="description" content="定制ERP软件与电玩设备改装">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点 | 云随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-01-15 10:14:58" itemprop="dateModified" datetime="2026-01-15T10:14:58+08:00">2026-01-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/openwrt/" itemprop="url" rel="index"><span itemprop="name">openwrt</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/202601150929.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.com:3/i/2026/01/15/696848b26bbba.png">
+
+<p>绝大多数ADSL用户处于大内网中(而99.9%的宽带用户使用这种方式入网, 政策持续收紧IPv4公网IP的发放), 本文进一步探讨如何映射大内网中的服务到互联网. PS5主机, Switch, Steamdeck等主机NAT类型探讨</p>
+<span id="more"></span>
+
+<div> 
+<button onclick="synthesizeSpeech()">朗读全文</button>
+</div>
+<audio controls id="audioPlayer">Your browser does not support the audio element.</audio>      
+<script>
+  function synthesizeSpeech() { 
+    var inputText = document.getElementsByClassName('post-block')[0].innerText;
+    var voice = "ZH";
+    var url = 'https://tts.carlzeng.com:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
+    var audioPlayer = document.getElementById('audioPlayer');          
+    audioPlayer.src = url;
+    audioPlayer.load();
+    audioPlayer.play();
+  }
+</script>
+
+
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点</p>
+<p>了解原理, 拓展应用</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2026/01/15/69684c2f90aa9.png" alt="image-20260115100846022"></p>
+<p><img data-src="https://img.carlzeng.com:3/i/2026/01/15/69684ceec826b.png" alt="image-20260115101156631"></p>
+<h1 id="概念与理论"><a href="#概念与理论" class="headerlink" title="概念与理论"></a>概念与理论</h1><p>设置路由器安装相应的应用, 配置等. 实现特定功能.  相关视频(介绍的stun打洞穿透nat):</p>
+<iframe width="951" height="535" src="https://youtu.be/T5S5O2D1hqg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+<h2 id="什么是-NAT？"><a href="#什么是-NAT？" class="headerlink" title="什么是 NAT？"></a>什么是 NAT？</h2><p><strong>NAT 代表网络地址转换</strong>，允许多个内网设备共享一个公网IP地址，使内网设备能够与外部互联网通信，主要是为了解决IPV4地址不足的问题，NAT通常部署在路由器上。 NAT 在正常的网页浏览、观看视频没太大问题，主要影响在 P2P 连接上，对游戏、下载、视频通话等应用，会受到不同NAT类型的影响。</p>
+<p><img data-src="https://mao.fan/images/nat1.webp" alt="什么是NAT"></p>
+<h4 id="NAT-四种类型："><a href="#NAT-四种类型：" class="headerlink" title="NAT 四种类型："></a>NAT 四种类型：</h4><ul>
+<li><ul>
+<li><strong>Full Cone NAT</strong>：全锥形，任何外部主机只要知道这个公网IP和端口，就能向内网主机发送数据。</li>
+<li><strong>Restricted Cone NAT</strong>：受限锥形，内网主机需先向外部主机发送数据，该外部主机才能向内网主机发送数据。</li>
+<li><strong>Port Restricted Cone NAT</strong>：端口受限锥形，内网主机需先向外部主机发送数据，该外部主机的特定端口才能向内网主机发送数据。</li>
+<li><strong>Symmetric NAT</strong>：对称形，内网主机与每个外部主机通信时，会分配不同的公网IP和端口，在安全性上最为严格，但也最容易导致连接问题。</li>
+</ul>
+</li>
+</ul>
+<p><strong>总结</strong>：前面三种NAT类型都是锥形网络，内网主机使用固定的公网IP和端口进行所有的外部通信，区别在于NAT设备防火墙的安全策略不同，对称形限制最严格，场景最复杂。</p>
+<h2 id="端口转发和NAT-穿透-区别于优缺点"><a href="#端口转发和NAT-穿透-区别于优缺点" class="headerlink" title="端口转发和NAT 穿透 区别于优缺点"></a><strong>端口转发</strong>和<strong>NAT 穿透</strong> 区别于优缺点</h2><p>在 OpenWrt 环境中，<strong>端口转发</strong>和<strong>NAT 穿透</strong>是两种解决内网设备对外暴露服务的技术，核心目标一致但实现原理、适用场景完全不同，下面详细拆解它们的区别、优缺点及适用场景。</p>
+<h3 id="一、核心概念与原理"><a href="#一、核心概念与原理" class="headerlink" title="一、核心概念与原理"></a>一、核心概念与原理</h3><h4 id="1-端口转发（Port-Forwarding）"><a href="#1-端口转发（Port-Forwarding）" class="headerlink" title="1.  端口转发（Port Forwarding）"></a>1.  端口转发（Port Forwarding）</h4><ul>
+<li><p><strong>本质</strong>：属于 <strong>静态 NAT 技术</strong>，由 OpenWrt 路由器主动配置规则，将<strong>公网 IP 的特定端口</strong>映射到<strong>内网指定设备的端口</strong>。</p>
+</li>
+<li><p>工作流程</p>
+<ol>
+<li>外网设备向路由器的公网 IP + 映射端口发起请求；</li>
+<li>路由器根据预设规则，将请求转发给内网目标设备；</li>
+<li>内网设备的响应通过路由器原路返回给外网设备。</li>
+</ol>
+</li>
+<li><p><strong>OpenWrt 配置入口</strong>：<code>网络 → 防火墙 → 端口转发</code>，需填写<strong>外部端口、内部 IP、内部端口、协议</strong>等参数。</p>
+</li>
+</ul>
+<h4 id="2-NAT-穿透（NAT-Traversal）"><a href="#2-NAT-穿透（NAT-Traversal）" class="headerlink" title="2.  NAT 穿透（NAT Traversal）"></a>2.  NAT 穿透（NAT Traversal）</h4><ul>
+<li><p><strong>本质</strong>：一种 <strong>动态穿透技术</strong>，用于突破 NAT 网关的隔离限制，让外网设备直接访问内网设备，无需依赖路由器的公网 IP 或手动配置端口规则。</p>
+</li>
+<li><p>常见实现方式</p>
+<ul>
+<li><strong>UPnP&#x2F;NAT-PMP</strong>：内网设备主动向路由器申请端口映射，路由器自动生成临时规则（重启后可能失效）；</li>
+<li><strong>P2P 穿透（如 STUN&#x2F;TURN&#x2F;ICE 协议）</strong>：通过公共服务器获取双方的 NAT 类型和端口信息，建立直接连接；</li>
+<li><strong>反向代理穿透（如 frp、ngrok）</strong>：借助公网服务器作为中转，内网设备主动连接公网服务器，外网设备通过服务器间接访问内网服务。</li>
+</ul>
+</li>
+<li><p><strong>OpenWrt 相关配置</strong>：UPnP 可通过安装 <code>luci-app-upnp</code> 插件启用；第三方穿透工具（如 frp）需手动安装客户端并配置。</p>
+</li>
+</ul>
+<h3 id="二、核心区别对比表"><a href="#二、核心区别对比表" class="headerlink" title="二、核心区别对比表"></a>二、核心区别对比表</h3><table>
+<thead>
+<tr>
+<th align="center">对比维度</th>
+<th align="center">端口转发（静态 NAT）</th>
+<th align="center">NAT 穿透（动态 &#x2F; 中转）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>依赖条件</strong></td>
+<td align="center">路由器必须有<strong>公网 IP</strong>（运营商提供）</td>
+<td align="center">支持多种场景：有 &#x2F; 无公网 IP 均可（中转模式无需公网 IP）</td>
+</tr>
+<tr>
+<td align="center"><strong>配置方式</strong></td>
+<td align="center">手动在路由器配置固定规则，静态不变</td>
+<td align="center">自动（UPnP）或客户端配置，动态灵活</td>
+</tr>
+<tr>
+<td align="center"><strong>端口控制权</strong></td>
+<td align="center">端口由路由器分配，固定不变</td>
+<td align="center">端口可由内网设备申请（UPnP）或随机分配</td>
+</tr>
+<tr>
+<td align="center"><strong>适用网络环境</strong></td>
+<td align="center">仅适用于<strong>有公网 IP</strong>的宽带（如家庭光纤）</td>
+<td align="center">适用于<strong>无公网 IP</strong>的环境（如内网多层 NAT、校园网）</td>
+</tr>
+<tr>
+<td align="center"><strong>安全性</strong></td>
+<td align="center">规则固定，暴露端口少，风险可控</td>
+<td align="center">UPnP 自动开放端口，存在安全隐患；中转模式依赖第三方服务器</td>
+</tr>
+<tr>
+<td align="center"><strong>稳定性</strong></td>
+<td align="center">规则固定，稳定性高</td>
+<td align="center">UPnP 可能因路由器重启失效；P2P 穿透受 NAT 类型影响，稳定性一般</td>
+</tr>
+</tbody></table>
+<h3 id="三、优缺点分析"><a href="#三、优缺点分析" class="headerlink" title="三、优缺点分析"></a>三、优缺点分析</h3><h4 id="1-端口转发（Port-Forwarding）-1"><a href="#1-端口转发（Port-Forwarding）-1" class="headerlink" title="1.  端口转发（Port Forwarding）"></a>1.  端口转发（Port Forwarding）</h4><h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ul>
+<li><strong>稳定性强</strong>：规则是静态配置的，只要公网 IP 不变，服务就能稳定对外提供；</li>
+<li><strong>安全性高</strong>：仅开放需要的端口，且可配合防火墙规则（如限制访问源 IP）进一步降低风险；</li>
+<li><strong>无额外开销</strong>：无需依赖第三方服务器，数据直接传输，延迟低。</li>
+</ul>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li><strong>依赖公网 IP</strong>：如果运营商不给公网 IP（如内网 IP、CGNAT 网络），则完全无法使用；</li>
+<li><strong>配置繁琐</strong>：每新增一个内网服务，都需要手动在路由器添加一条转发规则；</li>
+<li><strong>公网 IP 变化影响服务</strong>：家庭宽带的公网 IP 多为动态，IP 变化后外网设备需重新更新地址。</li>
+</ul>
+<h4 id="2-NAT-穿透"><a href="#2-NAT-穿透" class="headerlink" title="2.  NAT 穿透"></a>2.  NAT 穿透</h4><h5 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h5><ul>
+<li><strong>无需公网 IP</strong>：中转模式（如 frp）即使路由器是内网 IP，也能实现外网访问；</li>
+<li><strong>配置灵活</strong>：UPnP 可自动映射端口，无需手动配置；第三方穿透工具支持多设备、多服务同时穿透；</li>
+<li><strong>适配复杂网络</strong>：适合校园网、企业内网等多层 NAT 环境。</li>
+</ul>
+<h5 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h5><ul>
+<li><p>稳定性参差不齐：</p>
+<ul>
+<li>UPnP 依赖路由器支持，部分路由器兼容性差，重启后规则丢失；</li>
+<li>P2P 穿透受 NAT 类型限制（如对称型 NAT 难以穿透），可能需要中转服务器；</li>
+</ul>
+</li>
+<li><p><strong>安全风险</strong>：UPnP 会自动开放内网端口，若设备存在漏洞，容易被外网攻击；</p>
+</li>
+<li><p><strong>中转模式有额外延迟</strong>：数据需经过第三方公网服务器转发，延迟比端口转发高，且可能受服务器带宽限制。</p>
+</li>
+</ul>
+<h3 id="四、适用场景推荐"><a href="#四、适用场景推荐" class="headerlink" title="四、适用场景推荐"></a>四、适用场景推荐</h3><table>
+<thead>
+<tr>
+<th align="center">场景</th>
+<th align="center">推荐技术</th>
+<th align="center">原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">家庭宽带（有公网 IP），搭建内网服务（如 NAS、监控）</td>
+<td align="center">端口转发</td>
+<td align="center">稳定、低延迟、安全可控</td>
+</tr>
+<tr>
+<td align="center">家庭宽带（无公网 IP&#x2F;CGNAT），临时访问内网设备</td>
+<td align="center">NAT 穿透（frp&#x2F;ngrok 中转）</td>
+<td align="center">突破无公网 IP 限制</td>
+</tr>
+<tr>
+<td align="center">内网设备频繁新增服务，不想手动配置</td>
+<td align="center">NAT 穿透（UPnP）</td>
+<td align="center">自动映射端口，简化操作</td>
+</tr>
+<tr>
+<td align="center">企业 &#x2F; 校园网（多层 NAT），远程访问内网办公设备</td>
+<td align="center">NAT 穿透（frp 内网穿透）</td>
+<td align="center">适配复杂网络环境</td>
+</tr>
+</tbody></table>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li><strong>有公网 IP 优先选端口转发</strong>：稳定、安全、无额外开销，是家庭场景的最优解；</li>
+<li><strong>无公网 IP 选 NAT 穿透</strong>：通过中转工具（如 frp）实现外网访问，牺牲一点延迟换可用性；</li>
+<li><strong>临时轻量需求用 UPnP</strong>：适合游戏、投屏等临时端口映射需求，长期服务不建议依赖。</li>
+</ol>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=openwrt" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+<h1 id="NAT及应用-stun打洞穿透nat"><a href="#NAT及应用-stun打洞穿透nat" class="headerlink" title="NAT及应用(stun打洞穿透nat)"></a>NAT及应用(stun打洞穿透nat)</h1><p>在线检测NAT类型: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9tYW8uZmFuL215bmF0" rel="noopener external nofollow noreferrer">https://mao.fan/mynat</a></p>
+<p><img data-src="https://img.carlzeng.com:3/i/2026/01/15/69684a46152e4.png" alt="image-20260115100036449"></p>
+<h2 id="NAT-类型对比"><a href="#NAT-类型对比" class="headerlink" title="NAT 类型对比"></a>NAT 类型对比</h2><table>
+<thead>
+<tr>
+<th align="left">NAT 类型</th>
+<th align="center">游戏</th>
+<th align="center">语音</th>
+<th align="center">P2P</th>
+<th align="center">PS5</th>
+<th align="center">Xbox</th>
+<th align="center">Switch</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">开放网络</td>
+<td align="center">优秀</td>
+<td align="center">优秀</td>
+<td align="center">优秀</td>
+<td align="center">Type 1</td>
+<td align="center">Open</td>
+<td align="center">Type A</td>
+</tr>
+<tr>
+<td align="left">全锥形 NAT</td>
+<td align="center">优秀</td>
+<td align="center">优秀</td>
+<td align="center">优秀</td>
+<td align="center">Type 1</td>
+<td align="center">Open</td>
+<td align="center">Type A</td>
+</tr>
+<tr>
+<td align="left">受限 NAT</td>
+<td align="center">良好</td>
+<td align="center">良好</td>
+<td align="center">中等</td>
+<td align="center">Type 2</td>
+<td align="center">Moderate</td>
+<td align="center">Type B</td>
+</tr>
+<tr>
+<td align="left">端口受限 NAT</td>
+<td align="center">中等</td>
+<td align="center">中等</td>
+<td align="center">较差</td>
+<td align="center">Type 2</td>
+<td align="center">Moderate</td>
+<td align="center">Type C</td>
+</tr>
+<tr>
+<td align="left">对称 NAT</td>
+<td align="center">较差</td>
+<td align="center">较差</td>
+<td align="center">阻止</td>
+<td align="center">Type 3</td>
+<td align="center">Strict</td>
+<td align="center">Type D</td>
+</tr>
+</tbody></table>
+<p>路由器拨号获取IP地址 100.64.<em>.</em> 这个网段是cgnat专用网段</p>
+<p>用到的工具是natmap: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2hlaWhlci9uYXRtYXA=" rel="noopener external nofollow noreferrer">https://github.com/heiher/natmap</a></p>
+<h1 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h1><h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9idWxpYW5nbGluLmNvbS9hcmNoaXZlcy9zdHVuLmh0bWw=" rel="noopener external nofollow noreferrer">【全网最细】无公网IP实现异地远程访问家里内网设备，通过stun打洞穿透运营商NAT，实现P2P直连满速下载，无需花钱搭建内网穿透服务，打洞通信流程分析，stun、fullcone、nat1、CGNAT、完全锥形</a></p>
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2Jhbm5lZGJvb2svZmFucWlhbmcvYmxvYi9tYXN0ZXIvZ2FtZS9QUzQtUFM1JUU2JUI4JUI4JUU2JTg4JThGJUU2JTlDJUJBJUU5JTgwJTlBJUU4JUJGJTg3JUU1JUIxJTgwJUU1JTlGJTlGJUU3JUJEJTkxJUU3JUJGJUJCJUU1JUEyJTk5JUU2JTk1JTk5JUU3JUE4JThCLm1k" rel="noopener external nofollow noreferrer">PS4-PS5游戏机通过局域网翻墙，加速游戏，以及下载游戏教程</a></p>
+
+
+        <!-- search & recent posts(added 20240914) -->
+        <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
+          <div class="popup search-popup">
+            <div class="search-input-container">
+              <input name="q" autocomplete="off" autocapitalize="off" maxlength="40" placeholder="全站搜索..." spellcheck="false" type="search" class="search-input">    (请输入关键字以后回车，检索内容涵盖全局站点)
+            </div>
+          </div>
+        </form>
+        <p>
+        <div class="">
+          <div class="">
+                <div class="links-of-blogroll-title recent-posts-title">
+              <i class="fa fa-history " aria-hidden="true"></i>
+                    最新文章
+            </div>
+            <ul class="popular-posts">
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202601150929.html" title="浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点" target="" class="popular-posts-link">
+                      浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202601090857.html" title="数据分析挖掘之如何知道谁最先关注查看最新文章" target="" class="popular-posts-link">
+                      数据分析挖掘之如何知道谁最先关注查看最新文章
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202601081153.html" title="Joycon2手柄如何连接电脑测试按键摇杆等功能" target="" class="popular-posts-link">
+                      Joycon2手柄如何连接电脑测试按键摇杆等功能
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202601081001.html" title="自建远程协助软件rustdesk实现远程桌面远程控制软件" target="" class="popular-posts-link">
+                      自建远程协助软件rustdesk实现远程桌面远程控制软件
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202512200852.html" title="XBOX精英二代霍尔板机故障修复及校准" target="" class="popular-posts-link">
+                      XBOX精英二代霍尔板机故障修复及校准
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202512071122.html" title="塞尔达传说王国之泪公主之花模组MOD" target="" class="popular-posts-link">
+                      塞尔达传说王国之泪公主之花模组MOD
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202511292144.html" title="磁力BT下载Switch游戏yyrtt.com资源" target="" class="popular-posts-link">
+                      磁力BT下载Switch游戏yyrtt.com资源
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202511181029.html" title="一个查询IP地理信息和CDN提供商的离线终端工具nali及使用" target="" class="popular-posts-link">
+                      一个查询IP地理信息和CDN提供商的离线终端工具nali及使用
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202511091926.html" title="如何在NetSuite中设置RESTlet API的oAuth2.0认证" target="" class="popular-posts-link">
+                      如何在NetSuite中设置RESTlet API的oAuth2.0认证
+                      </a>
+                    </li>
+            </ul>
+          </div>
+          </div>
+        </p>
+
+        <a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
+        <img src="https://c.carlzeng.com:3/wechatScan.png" border="0">
+
+
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="wechat,weibo,qq,facebook"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Carl Notes
+    <a href='https://www.carlzeng.com/202601150929.html'> 《浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.carlzeng.com/202601150929.html" title="浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点">https://www.carlzeng.com/202601150929.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+  </li>
+</ul>
+</div>
+
+          <main class="main">
+<div class="column">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202312021028.html" rel="bookmark">
+      计划任务定时任务crontab - 如何让路由器按要求定时发BTC价至手机
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202511292144.html" rel="bookmark">
+      磁力BT下载Switch游戏yyrtt.com资源
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
+      光猫设置端口映射IP端口转发
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202403281654.html" rel="bookmark">
+      升级Artalk评论至V2-8-3解决错误(请求响应404)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
+      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
+      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="column">
+<div class="pjax">
+<!-- recent posts -->
+<div class="animated">
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新文章
+    </div>
+    <ul class="popular-posts">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202601150929.html" title="浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点" target="" class="popular-posts-link">
+              [2026/01/15] 浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202601090857.html" title="数据分析挖掘之如何知道谁最先关注查看最新文章" target="" class="popular-posts-link">
+              [2026/01/09] 数据分析挖掘之如何知道谁最先关注查看最新文章
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202601081153.html" title="Joycon2手柄如何连接电脑测试按键摇杆等功能" target="" class="popular-posts-link">
+              [2026/01/08] Joycon2手柄如何连接电脑测试按键摇杆等功能
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202601081001.html" title="自建远程协助软件rustdesk实现远程桌面远程控制软件" target="" class="popular-posts-link">
+              [2026/01/08] 自建远程协助软件rustdesk实现远程桌面远程控制软件
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202512200852.html" title="XBOX精英二代霍尔板机故障修复及校准" target="" class="popular-posts-link">
+              [2025/12/20] XBOX精英二代霍尔板机故障修复及校准
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202512071122.html" title="塞尔达传说王国之泪公主之花模组MOD" target="" class="popular-posts-link">
+              [2025/12/07] 塞尔达传说王国之泪公主之花模组MOD
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202511292144.html" title="磁力BT下载Switch游戏yyrtt.com资源" target="" class="popular-posts-link">
+              [2025/11/29] 磁力BT下载Switch游戏yyrtt.com资源
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202511181029.html" title="一个查询IP地理信息和CDN提供商的离线终端工具nali及使用" target="" class="popular-posts-link">
+              [2025/11/18] 一个查询IP地理信息和CDN提供商的离线终端工具nali及使用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202511091926.html" title="如何在NetSuite中设置RESTlet API的oAuth2.0认证" target="" class="popular-posts-link">
+              [2025/11/09] 如何在NetSuite中设置RESTlet API的oAuth2.0认证
+              </a>
+            </li>
+    </ul>
+  </div>
+  </div>
+</div>
+</div>
+</main>
+
+
+<div class="followme">
+  <span>您可以<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer">提交需求反馈</a>, <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a> 或 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLmNvbTozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">打赏作者</a>.</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">联系我(谈话)</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">IPTV直播</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/202312081128.html">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">M3U8播放器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">MP3与下载</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">ChatGPT问答</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">网络加速器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">文件分享</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">下载电子书</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">IT小工具集合</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2026-01-15 10:14:58" itemprop="dateModified" datetime="2026-01-15T10:14:58+08:00">2026-01-15</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/openwrt/" rel="tag"># openwrt</a>
+              <a href="/tags/NAT/" rel="tag"># NAT</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202601090857.html" rel="prev" title="数据分析挖掘之如何知道谁最先关注查看最新文章">
+                  <i class="fa fa-angle-left"></i> 数据分析挖掘之如何知道谁最先关注查看最新文章
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="选择语言">
+      
+        <option value="zh-CN" data-href="/202601150929.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/202601150929.html" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+</div>
+
+<!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*.carlzeng.com"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//statcounter.carlzeng.com:4443/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="//statcounter.carlzeng.com:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
+
+<div class="powered-by">
+    <a href='https://www.carlzeng.com/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.com/rss2.xml'>RSS</a> | 选择服务器：<a href="https://www.carlzeng.com">Main</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">US</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbg==" rel="noopener external nofollow noreferrer">京ICP备2024120116号</a>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202601150929.html","pageTitle":"浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点"}</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>
