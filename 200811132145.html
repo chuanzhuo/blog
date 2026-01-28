@@ -26,9 +26,9 @@
 <meta property="og:description" content="我使用的是vs2005 自带的那个SQLEXPRESS 所以没有配置的相应地方那么如果做呢?安装之后用命令解决:1.启用saUSE [master];GOEXEC xp_instance_regwriteN&#39;HKEY_LOCAL_MACHINE&#39;,N&#39;Software\Microsoft\MSSQLServer\MSSQLServer&#39;,N&#39;LoginMode&#39;,REG_DWORD,2;GO2.启">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2008-11-13T13:45:00.000Z">
-<meta property="article:modified_time" content="2023-10-02T02:27:28.929Z">
+<meta property="article:modified_time" content="2026-01-28T01:00:52.931Z">
 <meta property="article:author" content="Carl Notes">
-<meta property="article:tag" content="电玩 技术解决方案 NetSuite ERP Android IPTV MAC Javscript Debian Switch Xbox PlayStation SteamDeck">
+<meta property="article:tag" content="mssql">
 <meta name="twitter:card" content="summary">
 
 
@@ -88,7 +88,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">279</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">90</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">404</span></a></li><li class="menu-item menu-item-翻译"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3RyYW5zbGF0ZQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>翻译</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Nhc2U=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li><li class="menu-item menu-item-上网加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-heartbeat fa-fw"></i>上网加速</a></li><li class="menu-item menu-item-照片转文本"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL29jcg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>照片转文本</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">280</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">90</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">404</span></a></li><li class="menu-item menu-item-翻译"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3RyYW5zbGF0ZQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>翻译</a></li><li class="menu-item menu-item-云音乐"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>云音乐</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Nhc2U=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li><li class="menu-item menu-item-上网加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-heartbeat fa-fw"></i>上网加速</a></li><li class="menu-item menu-item-照片转文本"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL29jcg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>照片转文本</a></li>
   </ul>
 
     <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
@@ -111,7 +111,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           目录
@@ -124,6 +124,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VS2005%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">VS2005交互式操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MAC%E7%AB%AF%E5%AF%BC%E5%87%BAMSSQL%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">MAC端导出MSSQL数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-%E4%B8%AD%E9%83%A8%E7%BD%B2-MS-SQL"><span class="nav-number">2.1.</span> <span class="nav-text">Docker 中部署 MS-SQL</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -147,7 +148,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">279</span>
+        <span class="site-state-item-count">280</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -202,8 +203,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202101230038.html" rel="bookmark">
-      Version Control System, IntelliJ IDEA, Create a Git Repository for a Project and push to multiple remotes-CarlZeng
+      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
+      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
       </a>
     </li>
   </ul>
@@ -395,7 +396,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+      <time title="修改时间：2026-01-28 09:00:52" itemprop="dateModified" datetime="2026-01-28T09:00:52+08:00">2026-01-28</time>
     </span>
 
   
@@ -416,7 +417,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>6 分钟</span>
     </span>
 </div>
 
@@ -428,7 +429,8 @@
     
     <div class="post-body" itemprop="articleBody"><p>我使用的是vs2005 自带的那个SQLEXPRESS 所以没有配置的相应地方那么如果做呢?安装之后用命令解决:1.启用saUSE [master];GOEXEC xp_instance_regwriteN’HKEY_LOCAL_MACHINE’,N’Software\Microsoft\MSSQLServer\MSSQLServer’,N’LoginMode’,REG_DWORD,2;GO2.启…</p>
 <!-- more -->
-<p>我使用的是vs2005 自带的那个SQLEXPRESS 所以没有配置的相应地方那么如果做呢?<br>安装之后  </p>
+
+<h1 id="VS2005交互式操作"><a href="#VS2005交互式操作" class="headerlink" title="VS2005交互式操作"></a>VS2005交互式操作</h1><p>我使用的是vs2005 自带的那个SQLEXPRESS 所以没有配置的相应地方那么如果做呢?<br>安装之后  </p>
 <p>用命令解决:<br>1.启用sa  </p>
 <p>USE [master];<br>GO<br>EXEC xp_instance_regwrite<br>N’HKEY_LOCAL_MACHINE’,<br>N’Software\Microsoft\MSSQLServer\MSSQLServer’,<br>N’LoginMode’,<br>REG_DWORD,<br>2;<br>GO</p>
 <p>2.启用sql server身份验证模式 用 windows 身份验证登录和SQL Server 省份验证  </p>
@@ -456,6 +458,25 @@
 <p>C:\WINDOWS\system32&gt;sqlcmd -S TOTEM-C5CD3A125\SQLEXPRESS -U sa<br>密码:<br>1&gt; exit</p>
 <p>这个sa就被启用了。 如果在设置密码的时候提示太简单，那么你就不要设置空密码了，或者你去该安全策略。</p>
 <p>-—————-<br>ok. have a good day!`~</p>
+<h1 id="MAC端导出MSSQL数据库"><a href="#MAC端导出MSSQL数据库" class="headerlink" title="MAC端导出MSSQL数据库"></a>MAC端导出MSSQL数据库</h1><p>方法一: 使用bcp命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HOMEBREW_NO_AUTO_UPDATE=1 </span><br><span class="line">brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release</span><br><span class="line">ACCEPT_EULA=Y brew install mssql-tools18</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">% </span><span class="language-bash">bcp -v</span></span><br><span class="line">BCP - Bulk Copy Program for Microsoft SQL Server.</span><br><span class="line">Copyright (C) Microsoft Corporation. All Rights Reserved.</span><br><span class="line">Version: 18.6.0001.1</span><br></pre></td></tr></table></figure>
+
+<p>方法二: 使用DBeaver</p>
+<p>DBeaver 可以选中表, 然后Export</p>
+<h2 id="Docker-中部署-MS-SQL"><a href="#Docker-中部署-MS-SQL" class="headerlink" title="Docker 中部署 MS-SQL"></a>Docker 中部署 MS-SQL</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker pull mcr.microsoft.com/mssql/server:2022-latest</span><br><span class="line"></span><br><span class="line">docker run -e &#x27;ACCEPT_EULA=Y&#x27; -e &#x27;MSSQL_SA_PASSWORD=&lt;YourStrong!Passw0rd&gt;&#x27; -p 1433:1433 --name &lt;ContainerName&gt; -d mcr.microsoft.com/mssql/server:2022-latest</span><br><span class="line"></span><br><span class="line">這將在容器中啟動 MS-SQL 伺服器，並將其綁定到您的本地端口 1433。&lt;YourStrong!Passw0rd&gt; 是您的 SA 帳戶密碼。請務必將其更改為一個安全且強大的密碼。</span><br></pre></td></tr></table></figure>
+
+<p>改成使用docker-compose.yaml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mkdir mssql &amp;&amp; cd mssql </span><br><span class="line"></span><br><span class="line">version: &quot;3&quot;</span><br><span class="line">services:</span><br><span class="line">    server:</span><br><span class="line">        environment:</span><br><span class="line">            - ACCEPT_EULA=Y</span><br><span class="line">            - MSSQL_SA_PASSWORD=YourStrongPwd20260127</span><br><span class="line">        ports:</span><br><span class="line">            - 1433:1433</span><br><span class="line">        container_name: mssql</span><br><span class="line">        image: mcr.microsoft.com/mssql/server:2022-latest</span><br></pre></td></tr></table></figure>
+
+<p>这种方式, 要如何把数据库的文件最终存储在硬盘上呢? </p>
+<p>到docker中创建一个目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mssql mkdir /var/opt/mssql/backup</span><br></pre></td></tr></table></figure>
+
+<p>複製 bak 至指定路徑內</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp wwi.bak mssql:/var/opt/mssql/backup</span><br></pre></td></tr></table></figure>
+
+<p>同样的通过MSSQL的备份功能, 可以把数据库备份成文件, 然后拷贝出Docker</p>
+<p>本小结鸣谢: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9oYWNrbWQuaW8vQGNoaW5nZ28vSEpYYmdMWkUz" rel="noopener external nofollow noreferrer">Docker 中部署 MS-SQL</a></p>
 
 
         <!-- search & recent posts(added 20240914) -->
@@ -615,8 +636,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202101230038.html" rel="bookmark">
-      Version Control System, IntelliJ IDEA, Create a Git Repository for a Project and push to multiple remotes-CarlZeng
+      <a class="popular-posts-link" href="/202312262315.html" rel="bookmark">
+      加速Docker Pull或者docker-compose拉取镜像 - 适用github源
       </a>
     </li>
   </ul>
@@ -789,13 +810,18 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-10-02 10:27:28" itemprop="dateModified" datetime="2023-10-02T10:27:28+08:00">2023-10-02</time>
+        <time title="修改时间：2026-01-28 09:00:52" itemprop="dateModified" datetime="2026-01-28T09:00:52+08:00">2026-01-28</time>
       </span>
 
 </div>
 
 
 
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/mssql/" rel="tag"># mssql</a>
+            的文章
+          </div>
 
         
 
@@ -929,6 +955,26 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/200811132145.html","pageTitle":"SQLEXPRESS sa登陆-CarlZeng"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -961,26 +1007,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
