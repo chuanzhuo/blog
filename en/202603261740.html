@@ -18,23 +18,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="vmware的EXSI虚拟服务器, 进行中(持续更新中)……">
+    <meta name="description" content="vmware的EXSI虚拟服务器, 进行中(持续更新中)…… easytier异地组网">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ESXI之N5105倍控小主机体验及现实应用">
 <meta property="og:url" content="https://www.carlzeng.com/en/202603261740.html">
 <meta property="og:site_name" content="云随笔 Carl Notes">
-<meta property="og:description" content="vmware的EXSI虚拟服务器, 进行中(持续更新中)……">
+<meta property="og:description" content="vmware的EXSI虚拟服务器, 进行中(持续更新中)…… easytier异地组网">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2026/04/06/69d3217bd456c.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2026/03/26/69c5030d2871e.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2026/03/27/69c5da224a6ea.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2026/03/28/69c7a68e6a6e8.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2026/04/05/69d272ece432e.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2026/04/05/69d2785c163d1.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2026/04/06/69d3217bd456c.png">
 <meta property="article:published_time" content="2026-03-26T09:40:41.000Z">
-<meta property="article:modified_time" content="2026-03-30T00:22:46.389Z">
+<meta property="article:modified_time" content="2026-04-06T05:50:44.041Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="ESXI">
 <meta property="article:tag" content="N5105">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img.carlzeng.com:3/i/2026/03/26/69c5030d2871e.png">
+<meta name="twitter:image" content="https://img.carlzeng.com:3/i/2026/04/06/69d3217bd456c.png">
 
 
 <link rel="canonical" href="https://www.carlzeng.com/en/202603261740.html">
@@ -129,7 +133,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9BBIOS%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">进BIOS的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81-%E4%BF%AE%E6%94%B9%E5%88%86%E5%89%B2%E5%8D%80%E9%85%8D%E7%BD%AE%E9%81%BF%E5%85%8D%E7%A9%BA%E9%96%93%E6%B5%AA%E8%B2%BB"><span class="nav-number">4.1.1.</span> <span class="nav-text">重要:修改分割區配置避免空間浪費</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E8%AD%B0%E8%BC%B8%E5%85%A5%E4%BB%A5%E4%B8%8B%E6%8C%87%E4%BB%A4"><span class="nav-number">4.1.2.</span> <span class="nav-text">建議輸入以下指令:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDVMware-vSphere-Hypervisor-8-0U3e"><span class="nav-number">5.</span> <span class="nav-text">下载VMware vSphere Hypervisor 8.0U3e</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85istore"><span class="nav-number">6.</span> <span class="nav-text">安装istore</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91"><span class="nav-number">6.1.</span> <span class="nav-text">踩过的坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">6.2.</span> <span class="nav-text">下载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">7.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9BBIOS%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">进BIOS的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%A6%81-%E4%BF%AE%E6%94%B9%E5%88%86%E5%89%B2%E5%8D%80%E9%85%8D%E7%BD%AE%E9%81%BF%E5%85%8D%E7%A9%BA%E9%96%93%E6%B5%AA%E8%B2%BB"><span class="nav-number">3.1.1.</span> <span class="nav-text">重要:修改分割區配置避免空間浪費</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E8%AD%B0%E8%BC%B8%E5%85%A5%E4%BB%A5%E4%B8%8B%E6%8C%87%E4%BB%A4"><span class="nav-number">3.1.2.</span> <span class="nav-text">建議輸入以下指令:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDVMware-vSphere-Hypervisor-8-0U3e"><span class="nav-number">4.</span> <span class="nav-text">下载VMware vSphere Hypervisor 8.0U3e</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85istore"><span class="nav-number">5.</span> <span class="nav-text">安装istore</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91"><span class="nav-number">5.1.</span> <span class="nav-text">踩过的坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">5.2.</span> <span class="nav-text">下载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#easytier"><span class="nav-number">6.</span> <span class="nav-text">easytier</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8-%E7%A7%81%E6%9C%89%E6%A8%A1%E5%BC%8F"><span class="nav-number">6.1.</span> <span class="nav-text">服务器(私有模式)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E6%9C%8D%E5%8A%A1%E5%AE%89%E8%A3%85%E4%B8%BA-Linux-Systemd-%E6%9C%8D%E5%8A%A1"><span class="nav-number">6.1.1.</span> <span class="nav-text">将服务安装为 Linux Systemd 服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF1"><span class="nav-number">6.2.</span> <span class="nav-text">客户端1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFWEB%E7%AB%AF%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">6.3.</span> <span class="nav-text">如何开启WEB端的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8easytier%E7%9A%84%E5%87%BA%E5%8F%A3%E8%8A%82%E7%82%B9%E5%8A%9F%E8%83%BD"><span class="nav-number">6.4.</span> <span class="nav-text">如何使用easytier的出口节点功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E7%BD%91%E4%BB%A3%E7%90%86"><span class="nav-number">6.4.1.</span> <span class="nav-text">子网代理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E4%BB%8B%E7%BB%8D"><span class="nav-number">6.5.</span> <span class="nav-text">命令行参数介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE"><span class="nav-number">6.6.</span> <span class="nav-text">基本设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">6.6.1.</span> <span class="nav-text">配置服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE"><span class="nav-number">6.6.2.</span> <span class="nav-text">网络设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RPC-%E8%AE%BE%E7%BD%AE"><span class="nav-number">6.6.3.</span> <span class="nav-text">RPC 设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%91%E5%90%AC%E5%99%A8%E8%AE%BE%E7%BD%AE"><span class="nav-number">6.6.4.</span> <span class="nav-text">监听器设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E8%AE%BE%E7%BD%AE"><span class="nav-number">6.6.5.</span> <span class="nav-text">其他设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E8%AE%BE%E7%BD%AE"><span class="nav-number">6.6.6.</span> <span class="nav-text">日志设置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">7.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,43 +177,43 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
-      光猫设置端口映射IP端口转发
+      <a class="popular-posts-link" href="/200911201708.html" rel="bookmark">
+      一中另类调试javascrīpt的好方法-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
-      高效的服务端生成QRCODE二维码方案-Docker搭建
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
-      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      <a class="popular-posts-link" href="/202303051904.html" rel="bookmark">
+      tor，网，络-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200905311502.html" rel="bookmark">
+      item receive 的 submit-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309222329.html" rel="bookmark">
+      Hello World
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202305082325.html" rel="bookmark">
+      WIFI无线上网短信认证-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202303051903.html" rel="bookmark">
+      tor 网络 科学上网
       </a>
     </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
       TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202505041100.html" rel="bookmark">
-      Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
-      Switch大气层游戏下载服务及实测列表
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202503300850.html" rel="bookmark">
-      海康威视摄像头添加局域网NAS存储
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202601081153.html" rel="bookmark">
-      Joycon2手柄如何连接电脑测试按键摇杆等功能
       </a>
     </li>
   </ul>
@@ -401,7 +405,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-03-30 08:22:46" itemprop="dateModified" datetime="2026-03-30T08:22:46+08:00">2026-03-30</time>
+      <time title="Modified: 2026-04-06 13:50:44" itemprop="dateModified" datetime="2026-04-06T13:50:44+08:00">2026-04-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -431,7 +435,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>4 mins.</span>
+      <span>1:05</span>
     </span>
 </div>
 
@@ -441,9 +445,10 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="">
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.com:3/i/2026/04/06/69d3217bd456c.png">
 
 <p>vmware的EXSI虚拟服务器, 进行中(持续更新中)……</p>
+<p>easytier异地组网</p>
 <span id="more"></span>
 
 <div> 
@@ -464,7 +469,9 @@
 
 
 <h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>驱动, NVMe固态硬盘如何安装驱动</p>
-<h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=esxi" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+<p>easytier异地组网, 子网代理;   已完成子网代理测试, 完全可替代tailscale(无需再每三个月手动登录网站更新token)	</p>
+<p>未完待续…</p>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=esxi" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><h2 id="进BIOS的方法"><a href="#进BIOS的方法" class="headerlink" title="进BIOS的方法"></a>进BIOS的方法</h2><p>N5105小主机 如何进bios</p>
 <p>启动按F11, 要快; 狂按F11就好</p>
@@ -492,6 +499,436 @@
 <p>解压缩得到两个文件; 都上传到“数据存储浏览器”的一个自定义目录, 系统会自动合并成一个文件(这个才是关键)</p>
 <p>536bytes  istoreos-22.03.7-2024122015-x86-64-squashfs-combined-efi.vmdk</p>
 <p>2.55GB istoreos-22.03.7-2024122015-x86-64-squashfs-combined-efi-flat.vmdk</p>
+<h1 id="easytier"><a href="#easytier" class="headerlink" title="easytier"></a>easytier</h1><h2 id="服务器-私有模式"><a href="#服务器-私有模式" class="headerlink" title="服务器(私有模式)"></a>服务器(私有模式)</h2><p>如果你希望 EasyTier 仅在你的虚拟网络中提供服务，而不希望其他虚拟网的节点连接到你的节点，可以使用 <code>--private-mode true</code> 参数启动 EasyTier。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo easytier-core --private-mode true --network-name my-network --network-secret my-secret</span><br></pre></td></tr></table></figure>
+
+<p>这会仅允许网络名为 <code>my-network</code> 且密钥为 <code>my-secret</code> 的节点连接到该 EasyTier 节点。</p>
+<h3 id="将服务安装为-Linux-Systemd-服务"><a href="#将服务安装为-Linux-Systemd-服务" class="headerlink" title="将服务安装为 Linux Systemd 服务"></a>将服务安装为 Linux Systemd 服务</h3><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9lYXN5dGllci5jbi9ndWlkZS9uZXR3b3JrL2luc3RhbGwtYXMtYS1zeXN0ZW1kLXNlcnZpY2UuaHRtbA==" rel="noopener external nofollow noreferrer">https://easytier.cn/guide/network/install-as-a-systemd-service.html</a></p>
+<p>&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;easytier.service</p>
+<p>还是来一条命令的方式吧:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL &quot;https://github.com/EasyTier/EasyTier/blob/main/script/install.sh?raw=true&quot; | sudo bash -s install</span><br></pre></td></tr></table></figure>
+
+<p>最后还是被GWF干服了, 手动安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://v6.gh-proxy.org/https://github.com/EasyTier/EasyTier/releases/download/v2.4.5/</span><br><span class="line">easytier-linux-x86_64-v2.4.5.zip</span><br><span class="line"></span><br><span class="line">解压缩</span><br><span class="line">unzip -o easytier-linux-x86_64-v2.4.5.zip</span><br><span class="line"></span><br><span class="line">/root/easytier/easytier-linux-x86_64/easytier-core</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=EasyTier Service</span><br><span class="line">After=network.target syslog.target</span><br><span class="line">Wants=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/root/easytier/easytier-linux-x86_64/easytier-core --ipv4 123.112.252.247 --network-name 117debian --network-secret 117debianpass --peers tcp://peer_host:11010</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>最后还是简单粗暴的启动: </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./easytier-core      </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">接入自建平台</span><br><span class="line">./easytier-core -w udp://192.168.6.117:22020/root</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./easytier-core -w udp://192.168.6.117:22020/root -c ./config.yaml</span><br><span class="line">easytier-core -c ./config.yaml</span><br><span class="line">这两个是有冲突的 -w 是接管配置, -c 也是制定本地配置</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="客户端1"><a href="#客户端1" class="headerlink" title="客户端1"></a>客户端1</h2><p>docker来运行, 作为一个客户端节点</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">easytier:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">easytier/easytier:latest</span></span><br><span class="line">    <span class="attr">hostname:</span> <span class="string">easytierDebianClient</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">easytier</span></span><br><span class="line">    <span class="attr">labels:</span></span><br><span class="line">      <span class="attr">com.centurylinklabs.watchtower.enable:</span> <span class="string">&#x27;true&#x27;</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">network_mode:</span> <span class="string">host</span></span><br><span class="line">    <span class="attr">cap_add:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NET_ADMIN</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NET_RAW</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line">    <span class="attr">devices:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/dev/net/tun:/dev/net/tun</span></span><br><span class="line">    <span class="attr">command:</span> <span class="string">-d</span> <span class="string">--network-name</span> <span class="string">117debian</span> <span class="string">--network-secret</span> <span class="string">117debianpass</span> <span class="string">-p</span> <span class="string">tcp://op.carlzeng.com:11010</span> <span class="string">-l</span> <span class="number">11019</span> <span class="string">-w</span> <span class="string">udp://192.168.6.117:22020/root</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>添加-w udp:&#x2F;&#x2F;192.168.6.117:22020&#x2F;root 这个后, 可以在web UI上接管配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe tun </span><br><span class="line"></span><br><span class="line">sudo ./easytier-core </span><br><span class="line">sudo mkdir -p /dev/net &amp;&amp; sudo mknod /dev/net/tun c 10 200</span><br><span class="line">sudo modprobe tun </span><br><span class="line"></span><br><span class="line">modprobe: FATAL: Module tun not found in directory /lib/modules/6.8.12-4-pve</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">⚠ Warning: TUN kernel module may not be available.</span><br><span class="line">easytier  |   You may need to load it with: sudo modprobe tun</span><br><span class="line">easytier  | ⚠ Warning: Failed to create TUN device node /dev/net/tun.</span><br><span class="line">easytier  |   Error: EPERM: Operation not permitted</span><br><span class="line">easytier  |   Possible solutions:</span><br><span class="line">easytier  |   1. Run with root privileges: sudo ./easytier-core [options]</span><br><span class="line">easytier  |   2. Manually create TUN device: sudo mkdir -p /dev/net &amp;&amp; sudo mknod /dev/net/tun c 10 200</span><br><span class="line">easytier  |   3. Load TUN kernel module: sudo modprobe tun</span><br><span class="line">easytier  |   4. Use --no-tun flag if TUN functionality is not needed</span><br><span class="line">easytier  |   5. Check if your system/container supports TUN devices</span><br><span class="line">easytier  |   Note: TUN functionality may still work if the kernel supports dynamic device creation.</span><br><span class="line">easytier  | 2026-04-05 18:45:32: [11031a4b-b84e-4eed-9e04-cd158b9662f0] tun device error. err: rust tun error No such file or directory (os error 2)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>解决办法:</p>
+<p>![image-20260405192005358](&#x2F;Users&#x2F;carlzeng&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20260405192005358.png)</p>
+<h2 id="如何开启WEB端的配置"><a href="#如何开启WEB端的配置" class="headerlink" title="如何开启WEB端的配置"></a>如何开启WEB端的配置</h2><p>运行命令来监听WEB端口, 并具备下发配置的功能等:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./easytier-web-embed \</span><br><span class="line">    --api-server-port 11211 \</span><br><span class="line">    --api-host &quot;http://192.168.6.117:11211&quot; \</span><br><span class="line">    --config-server-port 22020 \</span><br><span class="line">    --config-server-protocol udp</span><br></pre></td></tr></table></figure>
+
+<p>打开配置的web: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cDovLzE5Mi4xNjguNi4xMTc6MTEyMTEvIy9hdXRo" rel="noopener external nofollow noreferrer">http://192.168.6.117:11211/#/auth</a></p>
+<p>root. root</p>
+<ul>
+<li><p><code>--api-server-port</code>: web前后端的端口</p>
+</li>
+<li><p><code>--config-server-port</code>: 用于easytier-core连接的配置下发端的端口 22020</p>
+</li>
+</ul>
+<p>原来开启这个以后; 然easytier-core来制定这个服务器, 就是会接管本地运行的配置(可以从UI界面下发配置)</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2026/04/05/69d272ece432e.png" alt="image-20260405223419075"></p>
+<h2 id="如何使用easytier的出口节点功能"><a href="#如何使用easytier的出口节点功能" class="headerlink" title="如何使用easytier的出口节点功能"></a>如何使用easytier的出口节点功能</h2><p><img data-src="https://img.carlzeng.com:3/i/2026/04/05/69d2785c163d1.png" alt="image-20260405225729565"></p>
+<p>勾选: 出口节点, </p>
+<p>然后把出口节点设置成自己的IP(服务器的)</p>
+<p>然后添加socks5代理</p>
+<p>这样就设置了当前服务器节点可以变成socks5的服务器来转发流量 </p>
+<p>​	应用: 比如浏览器就能使用插件来把流量转发到socks5服务器, 这样就实现了流量转发; 其他可以设置socks5代理的应用APP也是一样的道理</p>
+<p>那么如何实现tailscale的把本机(比如是安卓手机)的流量全部到转发到服务器上来走, 全局代理的模式;(应用, 有的APP不支持设置socks5代理, 会自动检测当前的出口流量的IP地址来判断用户的所在地, 等等)</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2026/04/06/69d3217bd456c.png" alt="image-20260406105905062"></p>
+<p>尝试:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-d --network-name 117debian --network-secret 117debianpass -p tcp://op.carlzeng.com:11010 --enable-exit-node</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>还有一个方法</p>
+<h3 id="子网代理"><a href="#子网代理" class="headerlink" title="子网代理"></a>子网代理</h3><p>在路由器开子网代理!  <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zZWFyY2guYmlsaWJpbGkuY29tL2FsbD9mcm9tX3NvdXJjZT13ZWJjb21tZW50bGluZV9zZWFyY2gma2V5d29yZD0lRTglQjclQUYlRTclOTQlQjElRTUlOTklQTglRTUlQUQlOTAlRTclQkQlOTElRTQlQkIlQTMlRTclOTAlODYmc2VpZD02Mjc2MDI3NjMzNjAzMDI5MTAzJmZyb21fYXZpZD0xMTQ1MDE0NzkzMDE1OTMmZnJvbV9jb21pZD0yNjg5MzQwMzYwMDA=" rel="noopener external nofollow noreferrer">路由器子网代理</a>0.0.0.0&#x2F;0</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--ipv4 10.10.0.1 --network-name 117debian --network-secret 117debianpass -p tcp://op.carlzeng.com:11010 -n 0.0.0.0/0</span><br></pre></td></tr></table></figure>
+
+<p>已经可以完美实现, 把手机的所有浏览都转发到远程的服务器来发送</p>
+<h2 id="命令行参数介绍"><a href="#命令行参数介绍" class="headerlink" title="命令行参数介绍"></a>命令行参数介绍</h2><h2 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h2><h3 id="配置服务器"><a href="#配置服务器" class="headerlink" title="配置服务器"></a>配置服务器</h3><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-w, --config-server</code></td>
+<td align="left">配置服务器地址。允许格式：</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">- 完整URL：<code>--config-server udp://127.0.0.1:22020/admin</code></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">- 仅用户名：<code>--config-server admin</code>，将使用官方的服务器</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">[env: ET_CONFIG_SERVER&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--machine-id</code></td>
+<td align="left">Web 配置服务器通过 machine id 来识别机器，用于断线重连后的配置恢复，需要保证唯一且固定不变。默认从系统获得。 [env: ET_MACHINE_ID&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>-c, --config-file</code></td>
+<td align="left">配置文件路径，注意：命令行中的配置的选项会覆盖配置文件中的选项 [env: ET_CONFIG_FILE&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--config-dir</code></td>
+<td align="left">加载目录中的所有 .toml 文件以启动网络实例，并将下发的配置保存在此目录中。 [env: ET_CONFIG_DIR&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--disable-env-parsing</code></td>
+<td align="left">禁用配置文件中的环境变量解析 [env: ET_DISABLE_ENV_PARSING&#x3D;]</td>
+</tr>
+</tbody></table>
+<h3 id="网络设置"><a href="#网络设置" class="headerlink" title="网络设置"></a>网络设置</h3><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>--network-name</code></td>
+<td align="left">用于标识此VPN网络的网络名称 [env: ET_NETWORK_NAME&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--network-secret</code></td>
+<td align="left">网络密钥，用于验证此节点属于VPN网络 [env: ET_NETWORK_SECRET&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>-i, --ipv4</code></td>
+<td align="left">此VPN节点的IPv4地址。如果为空，则此节点将仅转发数据包，不会创建TUN设备 [env: ET_IPV4&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--ipv6</code></td>
+<td align="left">此VPN节点的IPv6地址，可与IPv4配合使用以实现双栈运行 [env: ET_IPV6&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>-d, --dhcp</code></td>
+<td align="left">由Easytier自动确定并设置IP地址，默认从10.0.0.1开始。警告：在使用DHCP时，如果网络中出现IP冲突，IP将自动更改。 [env: ET_DHCP&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>-p, --peers</code></td>
+<td align="left">最初要连接的对等节点 [env: ET_PEERS&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>-e, --external-node</code></td>
+<td align="left">使用公共共享节点来发现对等节点 [env: ET_EXTERNAL_NODE&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>-n, --proxy-networks</code></td>
+<td align="left">将本地网络导出到VPN中的其他对等节点，例如：<code>10.0.0.0/24</code>。支持映射到其他CIDR，例如：<code>10.0.0.0/24-&gt;192.168.0.0/24</code> [env: ET_PROXY_NETWORKS&#x3D;]</td>
+</tr>
+</tbody></table>
+<h3 id="RPC-设置"><a href="#RPC-设置" class="headerlink" title="RPC 设置"></a>RPC 设置</h3><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-r, --rpc-portal</code></td>
+<td align="left">用于管理的RPC门户地址。支持以下格式：</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">- <code>0</code> 表示随机端口</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">- <code>12345</code> 表示在localhost的12345上监听</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">- <code>0.0.0.0:12345</code> 表示在所有接口的12345上监听</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">默认是 <code>0</code>，首先尝试 <code>15888</code></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">[env: ET_RPC_PORTAL&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--rpc-portal-whitelist</code></td>
+<td align="left">RPC门户白名单，仅允许这些地址访问RPC门户，例如：<code>127.0.0.1/32,127.0.0.0/8,::1/128</code> [env: ET_RPC_PORTAL_WHITELIST&#x3D;]</td>
+</tr>
+</tbody></table>
+<h3 id="监听器设置"><a href="#监听器设置" class="headerlink" title="监听器设置"></a>监听器设置</h3><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-l, --listeners</code></td>
+<td align="left">监听器用于接受连接，支持以下格式：</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">- 端口号：<code>&lt;11010&gt;</code>，意味着tcp&#x2F;udp将在11010端口监听，ws&#x2F;wss将在11010和11011端口监听，wg将在11011端口监听。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">- URL：<code>&lt;protocol://0.0.0.0:11010&gt;</code>，其中protocol可以是tcp、udp、ring、wg、ws、wss、quic、faketcp协议。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">- 协议和端口对：<code>&lt;proto:port&gt;</code>，例如wg:11011，表示使用WireGuard协议在11011端口监听。</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">[env: ET_LISTENERS&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--mapped-listeners</code></td>
+<td align="left">手动指定监听器的公网地址，其他节点可以使用该地址连接到本节点。例如：<code>tcp://123.123.123.123:11223</code>，可以指定多个。 [env: ET_MAPPED_LISTENERS&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--no-listener</code></td>
+<td align="left">不监听任何端口，只连接到对等节点 [env: ET_NO_LISTENER&#x3D;]</td>
+</tr>
+</tbody></table>
+<h3 id="其他设置"><a href="#其他设置" class="headerlink" title="其他设置"></a>其他设置</h3><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>--hostname</code></td>
+<td align="left">用于标识此设备的主机名 [env: ET_HOSTNAME&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>-m, --instance-name</code></td>
+<td align="left">实例名称，用于在同一台机器上标识此VPN节点 [env: ET_INSTANCE_NAME&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--vpn-portal</code></td>
+<td align="left">定义VPN门户的URL，允许其他VPN客户端连接。例如：<code>wg://0.0.0.0:11010/10.14.14.0/24</code> [env: ET_VPN_PORTAL&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--default-protocol</code></td>
+<td align="left">连接到对等节点时使用的默认协议 [env: ET_DEFAULT_PROTOCOL&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>-u, --disable-encryption</code></td>
+<td align="left">禁用对等节点通信的加密，默认为false，必须与对等节点相同 [env: ET_DISABLE_ENCRYPTION&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--encryption-algorithm</code></td>
+<td align="left">要使用的加密算法，支持：’’（默认aes-gcm）、’xor’、’chacha20’、’aes-gcm’、’aes-gcm-256’、’openssl-aes128-gcm’、’openssl-aes256-gcm’、’openssl-chacha20’ [env: ET_ENCRYPTION_ALGORITHM&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--multi-thread</code></td>
+<td align="left">使用多线程运行时，默认为单线程 [env: ET_MULTI_THREAD&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--multi-thread-count</code></td>
+<td align="left">使用的线程数，默认为2，仅在多线程模式下有效。取值必须大于2 [env: ET_MULTI_THREAD_COUNT&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--disable-ipv6</code></td>
+<td align="left">不使用IPv6 [env: ET_DISABLE_IPV6&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--dev-name</code></td>
+<td align="left">可选的TUN接口名称 [env: ET_DEV_NAME&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--mtu</code></td>
+<td align="left">TUN设备的MTU，默认为非加密时为1380，加密时为1360 [env: ET_MTU&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--latency-first</code></td>
+<td align="left">延迟优先模式，将尝试使用最低延迟路径转发流量，默认使用最短路径 [env: ET_LATENCY_FIRST&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--exit-nodes</code></td>
+<td align="left">转发所有流量的出口节点，虚拟IPv4地址，优先级由列表顺序决定 [env: ET_EXIT_NODES&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--enable-exit-node</code></td>
+<td align="left">允许此节点成为出口节点 [env: ET_ENABLE_EXIT_NODE&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--proxy-forward-by-system</code></td>
+<td align="left">通过系统内核转发子网代理数据包，禁用内置NAT [env: ET_PROXY_FORWARD_BY_SYSTEM&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--no-tun</code></td>
+<td align="left">不创建TUN设备，可以使用子网代理访问节点 [env: ET_NO_TUN&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--use-smoltcp</code></td>
+<td align="left">为子网代理和 KCP 代理启用smoltcp堆栈 [env: ET_USE_SMOLTCP&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--manual-routes</code></td>
+<td align="left">手动分配路由CIDR，将禁用子网代理和从对等节点传播的wireguard路由。例如：<code>192.168.0.0/16</code> [env: ET_MANUAL_ROUTES&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--relay-network-whitelist</code></td>
+<td align="left">仅转发白名单网络的流量，支持通配符字符串。多个网络名称间可以使用英文空格间隔。 [env: ET_RELAY_NETWORK_WHITELIST&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--p2p-only</code></td>
+<td align="left">仅与已经建立P2P连接的对等节点通信 [env: ET_P2P_ONLY&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--disable-p2p</code></td>
+<td align="left">禁用P2P通信，只通过<code>--peers</code>指定的节点转发数据包 [env: ET_DISABLE_P2P&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--disable-tcp-hole-punching</code></td>
+<td align="left">禁用TCP打洞功能 [env: ET_DISABLE_TCP_HOLE_PUNCHING&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--disable-udp-hole-punching</code></td>
+<td align="left">禁用UDP打洞功能 [env: ET_DISABLE_UDP_HOLE_PUNCHING&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--disable-sym-hole-punching</code></td>
+<td align="left">如果为true，则禁用基于生日攻击的对称NAT (NAT4) UDP 打洞功能，该打洞方式可能会被运营商封锁 [env: ET_DISABLE_SYM_HOLE_PUNCHING&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--relay-all-peer-rpc</code></td>
+<td align="left">转发所有对等节点的RPC数据包，即使对等节点不在转发网络白名单中。 [env: ET_RELAY_ALL_PEER_RPC&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--socks5</code></td>
+<td align="left">启用 socks5 服务器，允许 socks5 客户端访问虚拟网络。格式: <code>&lt;端口&gt;</code>，例如：<code>1080</code> [env: ET_SOCKS5&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--compression</code></td>
+<td align="left">要使用的压缩算法，支持 <code>none</code>、<code>zstd</code>。默认为 <code>none</code> [env: ET_COMPRESSION&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--bind-device</code></td>
+<td align="left">将连接器的套接字绑定到物理设备以避免路由问题。 [env: ET_BIND_DEVICE&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--enable-kcp-proxy</code></td>
+<td align="left">使用 KCP 代理 TCP 流，提高在 UDP 丢包网络上的延迟和吞吐量。 [env: ET_ENABLE_KCP_PROXY&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--disable-kcp-input</code></td>
+<td align="left">不允许其他节点使用 KCP 代理 TCP 流到此节点。 [env: ET_DISABLE_KCP_INPUT&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--enable-quic-proxy</code></td>
+<td align="left">使用 QUIC 代理 TCP 流，提高在 UDP 丢包网络上的延迟和吞吐量。 [env: ET_ENABLE_QUIC_PROXY&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--disable-quic-input</code></td>
+<td align="left">不允许其他节点使用 QUIC 代理 TCP 流到此节点。 [env: ET_DISABLE_QUIC_INPUT&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--quic-listen-port</code></td>
+<td align="left">监听 QUIC 连接的端口，默认值为0（随机端口）。 [env: ET_QUIC_LISTEN_PORT&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--port-forward</code></td>
+<td align="left">将本地端口转发到虚拟网络中的远程端口。例如：<code>udp://0.0.0.0:12345/10.126.126.1:23456</code> [env: ET_PORT_FORWARD&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--accept-dns</code></td>
+<td align="left">如果为true，则启用魔法DNS。使用魔法DNS，您可以使用域名访问其他节点，例如：<code>&lt;hostname&gt;.et.net</code> [env: ET_ACCEPT_DNS&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--tld-dns-zone</code></td>
+<td align="left">指定魔法DNS的顶级域名区域。如果未提供，默认使用dns_server模块中的值（et.net.）。仅在accept_dns为true时使用。 [env: ET_TLD_DNS_ZONE&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--private-mode</code></td>
+<td align="left">如果为true，则不允许使用了与本网络不相同的网络名称和密码的节点通过本节点进行握手或中转 [env: ET_PRIVATE_MODE&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--foreign-relay-bps-limit</code></td>
+<td align="left">限制转发流量的带宽 [env: ET_FOREIGN_RELAY_BPS_LIMIT&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--tcp-whitelist</code></td>
+<td align="left">TCP 端口白名单。支持单个端口（80）和范围（8000-9000） [env: ET_TCP_WHITELIST&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--udp-whitelist</code></td>
+<td align="left">UDP 端口白名单。支持单个端口（53）和范围（5000-6000） [env: ET_UDP_WHITELIST&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--disable-relay-kcp</code></td>
+<td align="left">如果为true，则禁止节点转发 KCP 数据包，防止过度消耗流量。默认值为false [env: ET_DISABLE_RELAY_KCP&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--enable-relay-foreign-network-kcp</code></td>
+<td align="left">如果为true，则作为共享节点时也可以转发其他网络的 KCP 数据包。默认值为false（不转发） [env: ET_ENABLE_RELAY_FOREIGN_NETWORK_KCP&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--stun-servers</code></td>
+<td align="left">覆盖内置的默认 STUN server 列表；如果设置了但是为空，则不使用 STUN servers；如果没设置，则使用默认 STUN server 列表 [env: ET_STUN_SERVERS&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--stun-servers-v6</code></td>
+<td align="left">覆盖内置的默认 IPv6 STUN server 列表；如果设置了但是为空，则不使用 IPv6 STUN servers；如果没设置，则使用默认 IPv6 STUN server 列表 [env: ET_STUN_SERVERS_V6&#x3D;]</td>
+</tr>
+</tbody></table>
+<h3 id="日志设置"><a href="#日志设置" class="headerlink" title="日志设置"></a>日志设置</h3><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>--console-log-level</code></td>
+<td align="left">控制台日志级别 [env: ET_CONSOLE_LOG_LEVEL&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--file-log-level</code></td>
+<td align="left">文件日志级别 [env: ET_FILE_LOG_LEVEL&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--file-log-dir</code></td>
+<td align="left">存储日志文件的目录 [env: ET_FILE_LOG_DIR&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--file-log-size</code></td>
+<td align="left">单个文件日志大小，单位 MB，默认值为 100MB [env: ET_FILE_LOG_SIZE&#x3D;]</td>
+</tr>
+<tr>
+<td align="left"><code>--file-log-count</code></td>
+<td align="left">最大文件日志数量，默认值为 10 [env: ET_FILE_LOG_COUNT&#x3D;]</td>
+</tr>
+</tbody></table>
+<hr>
+<p>更多配置项请参考 <code>easytier-core --help</code> 输出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br></pre></td><td class="code"><pre><span class="line">A full meshed p2p VPN, connecting all your devices in one network with one command.                                                 </span><br><span class="line">                                                                                                                                    </span><br><span class="line">Usage: easytier-core [OPTIONS]                                                                                                      </span><br><span class="line">                                                                                                                                    </span><br><span class="line">Options:                                     </span><br><span class="line">  -w, --config-server                                                                                                </span><br><span class="line">          config server address, allow format:                                                                                      </span><br><span class="line">          full url: --config-server udp://127.0.0.1:22020/admin                                                                     </span><br><span class="line">          only user name: --config-server admin, will use official server                                                           </span><br><span class="line">           [env: ET_CONFIG_SERVER=]                                                                                                 </span><br><span class="line">      --machine-id                                                                                                      </span><br><span class="line">          the machine id to identify this machine, used for config recovery after disconnection, must be unique and fixed. default  </span><br><span class="line">          is from system.                                                                                                           </span><br><span class="line">           [env: ET_MACHINE_ID=]                                                                                                    </span><br><span class="line">  -c, --config-file ...                                                                                                </span><br><span class="line">          path to the config file, NOTE: the options set by cmdline args will override options in config file [env: ET_CONFIG_FILE=]</span><br><span class="line">      --network-name                                                                                                  </span><br><span class="line">          network name to identify this vpn network [env: ET_NETWORK_NAME=]                                                         </span><br><span class="line">      --network-secret                                                                                              </span><br><span class="line">          network secret to verify this node belongs to the vpn network [env: ET_NETWORK_SECRET=]                                   </span><br><span class="line">  -i, --ipv4                                                                                                                  </span><br><span class="line">          ipv4 address of this vpn node, if empty, this node will only forward packets and no TUN device will be created [env:      </span><br><span class="line">          ET_IPV4=]                                                                                                                 </span><br><span class="line">      --ipv6                                                                                                                  </span><br><span class="line">          ipv6 address of this vpn node, can be used together with ipv4 for dual-stack operation [env: ET_IPV6=]                    </span><br><span class="line">  -d, --dhcp []                                                                                                               </span><br><span class="line">          automatically determine and set IP address by Easytier, and the IP address starts from 10.0.0.1 by default. Warning, if   </span><br><span class="line">          there is an IP conflict in the network when using DHCP, the IP will be automatically changed. [env: ET_DHCP=] [possible   </span><br><span class="line">          values: true, false]                                                                                                      </span><br><span class="line">  -p, --peers [...]                                                                                                          </span><br><span class="line">          peers to connect initially [env: ET_PEERS=]                                                                               </span><br><span class="line">  -e, --external-node                                                                                                </span><br><span class="line">          use a public shared node to discover peers [env: ET_EXTERNAL_NODE=]                                                       </span><br><span class="line">  -n, --proxy-networks                                                                                              </span><br><span class="line">          export local networks to other peers in the vpn,  e.g.: 10.0.0.0/24.                                                      </span><br><span class="line">          also support mapping proxy network to other cidr, e.g.: 10.0.0.0/24-&gt;192.168.0.0/24                                       </span><br><span class="line">          other peers can access 10.0.0.1 with ip 192.168.0.1                                                                       </span><br><span class="line">           [env: ET_PROXY_NETWORKS=]                                                                                                </span><br><span class="line">  -r, --rpc-portal                                                                                                      </span><br><span class="line">          rpc portal address to listen for management. 0 means random port, 12345 means listen on 12345 of localhost, 0.0.0.0:12345 </span><br><span class="line">          means listen on 12345 of all interfaces. default is 0 and will try 15888 first [env: ET_RPC_PORTAL=]                      </span><br><span class="line">      --rpc-portal-whitelist                                                                                  </span><br><span class="line">          rpc portal whitelist, only allow these addresses to access rpc portal, e.g.: 127.0.0.1,127.0.0.0/8,::1/128 [env:          </span><br><span class="line">          ET_RPC_PORTAL_WHITELIST=]                                                                                                 </span><br><span class="line">  -l, --listeners [...]                                                                                                  </span><br><span class="line">          listeners to accept connections, allow format:                                                                            </span><br><span class="line">          port number: &lt;11010&gt;. means tcp/udp will listen on 11010, ws/wss will listen on 11010 and 11011, wg will listen on 11011  </span><br><span class="line">          url: . tcp can be tcp, udp, ring, wg, ws, wss\n                                                      </span><br><span class="line">          proto &amp; port pair: . wg:11011, means listen on 11011 with wireguard protocol url and proto:port can occur     </span><br><span class="line">          multiple times.                                                                                                           </span><br><span class="line">           [env: ET_LISTENERS=]                                                                                                     </span><br><span class="line">      --mapped-listeners [...]                                                                                    </span><br><span class="line">          manually specify the public address of the listener, other nodes can use this address to connect to this node. e.g.:      </span><br><span class="line">          tcp://123.123.123.123:11223, can specify multiple. [env: ET_MAPPED_LISTENERS=]                                            </span><br><span class="line">      --no-listener                                                                                                                 </span><br><span class="line">          do not listen on any port, only connect to peers [env: ET_NO_LISTENER=]                                                   </span><br><span class="line">      --hostname                                                                                                          </span><br><span class="line">          host name to identify this device [env: ET_HOSTNAME=]                                                                     </span><br><span class="line">  -m, --instance-name                                                                                                </span><br><span class="line">          instance name to identify this vpn node in same machine [env: ET_INSTANCE_NAME=]                                          </span><br><span class="line">      --vpn-portal                                                                                                      </span><br><span class="line">          url that defines the vpn portal, allow other vpn clients to connect. example: wg://0.0.0.0:11010/10.14.14.0/24, means the </span><br><span class="line">          vpn portal is a wireguard server listening on vpn.example.com:11010, and the vpn client is in network of 10.14.14.0/24    </span><br><span class="line">          [env: ET_VPN_PORTAL=]                                                                                                     </span><br><span class="line">      --default-protocol                                                                                          </span><br><span class="line">          default protocol to use when connecting to peers [env: ET_DEFAULT_PROTOCOL=]                                              </span><br><span class="line">  -u, --disable-encryption []                                                                                   </span><br><span class="line">          disable encryption for peers communication, default is false, must be same with peers [env: ET_DISABLE_ENCRYPTION=]       </span><br><span class="line">          [possible values: true, false]                                                                                            </span><br><span class="line">      --encryption-algorithm                                                                                  </span><br><span class="line">          encryption algorithm to use, supported: &#x27;&#x27;, &#x27;xor&#x27;, &#x27;chacha20&#x27;, &#x27;aes-gcm&#x27;, &#x27;aes-gcm-256&#x27;, &#x27;openssl-aes128-gcm&#x27;,            </span><br><span class="line">          &#x27;openssl-aes256-gcm&#x27;, &#x27;openssl-chacha20&#x27;. Empty string means default (aes-gcm) [env: ET_ENCRYPTION_ALGORITHM=] [possible  </span><br><span class="line">          values: aes-gcm, aes-256-gcm, xor, chacha20]                                                                              </span><br><span class="line">      --multi-thread []                                                                                               </span><br><span class="line">          use multi-thread runtime, default is single-thread [env: ET_MULTI_THREAD=] [possible values: true, false]                 </span><br><span class="line">      --multi-thread-count                                                                                      </span><br><span class="line">          the number of threads to use, default is 2, only effective when multi-thread is enabled, must be greater than 2 [env:     </span><br><span class="line">          ET_MULTI_THREAD_COUNT=]                                                                                                   </span><br><span class="line">      --disable-ipv6 []                                                                                               </span><br><span class="line">          do not use ipv6 [env: ET_DISABLE_IPV6=] [possible values: true, false]                                                    </span><br><span class="line">      --dev-name                                                                                                          </span><br><span class="line">          optional tun interface name [env: ET_DEV_NAME=]                                                                           </span><br><span class="line">      --mtu                                                                                                                    </span><br><span class="line">          mtu of the TUN device, default is 1380 for non-encryption, 1360 for encryption [env: ET_MTU=]                             </span><br><span class="line">      --latency-first []                                                                                             </span><br><span class="line">          latency first mode, will try to relay traffic with lowest latency path, default is using shortest path [env:              </span><br><span class="line">          ET_LATENCY_FIRST=] [possible values: true, false]                                                                         </span><br><span class="line">      --exit-nodes [...]                                                                                                </span><br><span class="line">          exit nodes to forward all traffic to, a virtual ipv4 address, priority is determined by the order of the list [env:       </span><br><span class="line">          ET_EXIT_NODES=]                                                                                                           </span><br><span class="line">      --enable-exit-node []                                                                                       </span><br><span class="line">          allow this node to be an exit node [env: ET_ENABLE_EXIT_NODE=] [possible values: true, false]                             </span><br><span class="line">      --proxy-forward-by-system []                                                                         </span><br><span class="line">          forward packet to proxy networks via system kernel, disable internal nat for network proxy [env:                          </span><br><span class="line">          ET_PROXY_FORWARD_BY_SYSTEM=] [possible values: true, false]                                                               </span><br><span class="line">      --no-tun []                                                                                                           </span><br><span class="line">          do not create TUN device, can use subnet proxy to access node [env: ET_NO_TUN=] [possible values: true, false]            </span><br><span class="line">      --use-smoltcp []                                                                                                 </span><br><span class="line">          enable smoltcp stack for subnet proxy and kcp proxy [env: ET_USE_SMOLTCP=] [possible values: true, false]                 </span><br><span class="line">      --manual-routes [...]                                                                                          </span><br><span class="line">          assign routes cidr manually, will disable subnet proxy and wireguard routes propagated from peers. e.g.: 192.168.0.0/16   </span><br><span class="line">          [env: ET_MANUAL_ROUTES=]                                                                                                  </span><br><span class="line">      --relay-network-whitelist [...]                                                                      </span><br><span class="line">          only forward traffic from the whitelist networks, supporting wildcard strings, multiple network names can be separated by </span><br><span class="line">          spaces.                                                                                                                   </span><br><span class="line">          if local network (assigned with network_name) is not in the whitelist, the traffic can still be forwarded if no other     </span><br><span class="line">          route path is available.                                                                                                  </span><br><span class="line">          if this parameter is empty, forwarding is disabled. by default, all networks are allowed.                                 </span><br><span class="line">          e.g.: &#x27;*&#x27; (all networks), &#x27;def*&#x27; (networks with the prefix &#x27;def&#x27;), &#x27;net1 net2&#x27; (only allow net1 and net2)&quot;                </span><br><span class="line">           [env: ET_RELAY_NETWORK_WHITELIST=]                                                                                       </span><br><span class="line">      --disable-p2p []                                                                                                 </span><br><span class="line">          disable p2p communication, will only relay packets with peers specified by --peers [env: ET_DISABLE_P2P=] [possible       </span><br><span class="line">          values: true, false]                                                                                                      </span><br><span class="line">      --disable-udp-hole-punching []                                                                     </span><br><span class="line">          disable udp hole punching [env: ET_DISABLE_UDP_HOLE_PUNCHING=] [possible values: true, false]                             </span><br><span class="line">      --disable-sym-hole-punching []                                                                     </span><br><span class="line">          if true, disable udp nat hole punching for symmetric nat (NAT4), which is based on birthday attack and may be blocked by  </span><br><span class="line">          ISP. [env: ET_DISABLE_SYM_HOLE_PUNCHING=] [possible values: true, false]                                                  </span><br><span class="line">      --relay-all-peer-rpc []                                                                                   </span><br><span class="line">          relay all peer rpc packets, even if the peer is not in the relay network whitelist. this can help peers not in relay      </span><br><span class="line">          network whitelist to establish p2p connection. [env: ET_RELAY_ALL_PEER_RPC=] [possible values: true, false]               </span><br><span class="line">      --socks5                                                                                                              </span><br><span class="line">          enable socks5 server, allow socks5 client to access virtual network. format: , e.g.: 1080 [env: ET_SOCKS5=]         </span><br><span class="line">      --compression                                                                                                    </span><br><span class="line">          compression algorithm to use, support none, zstd. default is none [env: ET_COMPRESSION=]                                  </span><br><span class="line">      --bind-device                                                                                                    </span><br><span class="line">          bind the connector socket to physical devices to avoid routing issues. e.g.: subnet proxy segment conflicts with a node&#x27;s </span><br><span class="line">          segment, after binding the physical device, it can communicate with the node normally. [env: ET_BIND_DEVICE=] [possible   </span><br><span class="line">          values: true, false]                                                                                                      </span><br><span class="line">      --enable-kcp-proxy []                                                                                       </span><br><span class="line">          proxy tcp streams with kcp, improving the latency and throughput on the network with udp packet loss. [env:               </span><br><span class="line">          ET_ENABLE_KCP_PROXY=] [possible values: true, false]                                                                      </span><br><span class="line">      --disable-kcp-input []                                                                                     </span><br><span class="line">          do not allow other nodes to use kcp to proxy tcp streams to this node. when a node with kcp proxy enabled accesses this   </span><br><span class="line">          node, the original tcp connection is preserved. [env: ET_DISABLE_KCP_INPUT=] [possible values: true, false]               </span><br><span class="line">      --enable-quic-proxy []                                                                                     </span><br><span class="line">          proxy tcp streams with QUIC, improving the latency and throughput on the network with udp packet loss. [env:              </span><br><span class="line">          ET_ENABLE_QUIC_PROXY=] [possible values: true, false]                                                                     </span><br><span class="line">      --disable-quic-input []                                                                                   </span><br><span class="line">          do not allow other nodes to use QUIC to proxy tcp streams to this node. when a node with QUIC proxy enabled accesses this </span><br><span class="line">          node, the original tcp connection is preserved. [env: ET_DISABLE_QUIC_INPUT=] [possible values: true, false]              </span><br><span class="line">      --port-forward ...                                                                                              </span><br><span class="line">          forward local port to remote port in virtual network. e.g.: udp://0.0.0.0:12345/10.126.126.1:23456, means forward local   </span><br><span class="line">          udp port 12345 to 10.126.126.1:23456 in the virtual network. can specify multiple. [env: ET_PORT_FORWARD=]                </span><br><span class="line">      --accept-dns                                                                                                      </span><br><span class="line">          if true, enable magic dns. with magic dns, you can access other nodes with a domain name, e.g.: .et.net. magic  </span><br><span class="line">          dns will modify your system dns settings, enable it carefully. [env: ET_ACCEPT_DNS=] [possible values: true, false]       </span><br><span class="line">      --private-mode                                                                                                  </span><br><span class="line">          if true, nodes with different network names or passwords from this network are not allowed to perform handshake or relay  </span><br><span class="line">          through this node. [env: ET_PRIVATE_MODE=] [possible values: true, false]                                                 </span><br><span class="line">      --foreign-relay-bps-limit                                                                            </span><br><span class="line">          the maximum bps limit for foreign network relay, default is no limit. unit: BPS (bytes per second) [env:                  </span><br><span class="line">          ET_FOREIGN_RELAY_BPS_LIMIT=]                                                                                              </span><br><span class="line">      --tcp-whitelist [...]                                                                                          </span><br><span class="line">          tcp port whitelist. Supports single ports (80) and ranges (8000-9000)                                                     </span><br><span class="line">      --udp-whitelist [...]                                                                                          </span><br><span class="line">          udp port whitelist. Supports single ports (53) and ranges (5000-6000)                                                     </span><br><span class="line">      --disable-relay-kcp []                                                                                     </span><br><span class="line">          if true, disable relay kcp packets. avoid consuming too many bandwidth. default is false [env: ET_DISABLE_RELAY_KCP=]     </span><br><span class="line">          [possible values: true, false]                                                                                            </span><br><span class="line">      --enable-relay-foreign-network-kcp []                                                       </span><br><span class="line">          if true, allow relay kcp packets from foreign network. default is false (not forward foreign network kcp packets) [env:   </span><br><span class="line">          ET_ENABLE_RELAY_FOREIGN_NETWORK_KCP=] [possible values: true, false]                                                      </span><br><span class="line">      --stun-servers [...]                                                                                            </span><br><span class="line">          Override default STUN servers; If configured but empty, STUN servers are not used [env: ET_STUN_SERVERS=]                 </span><br><span class="line">      --stun-servers-v6 [...]                                                                                      </span><br><span class="line">          Override default STUN servers, IPv6; If configured but empty, IPv6 STUN servers are not used [env: ET_STUN_SERVERS_V6=]   </span><br><span class="line">      --console-log-level                                                                                        </span><br><span class="line">          console log level [env: ET_CONSOLE_LOG_LEVEL=]                                                                            </span><br><span class="line">      --file-log-level                                                                                              </span><br><span class="line">          file log level [env: ET_FILE_LOG_LEVEL=]                                                                                  </span><br><span class="line">      --file-log-dir                                                                                                  </span><br><span class="line">          directory to store log files [env: ET_FILE_LOG_DIR=]                                                                      </span><br><span class="line">      --file-log-size                                                                                                </span><br><span class="line">          per file log size in MB, default is 100MB [env: ET_FILE_LOG_SIZE=]                                                        </span><br><span class="line">      --file-log-count                                                                                              </span><br><span class="line">          max file log count, default is 10 [env: ET_FILE_LOG_COUNT=]                                                               </span><br><span class="line">      --gen-autocomplete                                                                                          </span><br><span class="line">          generate shell completions [possible values: bash, elvish, fish, powershell, zsh]                                         </span><br><span class="line">      --check-config                                                                                                                </span><br><span class="line">          Check config validity without starting the network </span><br></pre></td></tr></table></figure>
+
 <h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9vc3NsYWIudHYvMjAyNS1mcmVlLXNlcmlhbC1udW1iZXItZnJlZS1sZWdhbC1lc3hpLTgv" rel="noopener external nofollow noreferrer">2025 免序號 無須激活 免費 合法 ESXi 8安裝及設定指南(一)</a></p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8yMTEwNjYzNDMwMQ==" rel="noopener external nofollow noreferrer">闲置笔记本变身 Steam OS 游戏主机</a></p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zc3BhaS5jb20vcG9zdC85MDEzNw==" rel="noopener external nofollow noreferrer">电脑秒变SteamDeck游戏主机丨更本土化的SK-ChimeraOS安装教程</a></p>
@@ -622,43 +1059,43 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
-      光猫设置端口映射IP端口转发
+      <a class="popular-posts-link" href="/200911201708.html" rel="bookmark">
+      一中另类调试javascrīpt的好方法-CarlZeng
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
-      高效的服务端生成QRCODE二维码方案-Docker搭建
+      <a class="popular-posts-link" href="/202311141039.html" rel="bookmark">
+      iptables应用
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202405202021.html" rel="bookmark">
-      芯片SOP8之读写Flash固件XM25QH128CHIQ
+      <a class="popular-posts-link" href="/202303051904.html" rel="bookmark">
+      tor，网，络-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/200905311502.html" rel="bookmark">
+      item receive 的 submit-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202309222329.html" rel="bookmark">
+      Hello World
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202305082325.html" rel="bookmark">
+      WIFI无线上网短信认证-CarlZeng
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202303051903.html" rel="bookmark">
+      tor 网络 科学上网
       </a>
     </li>
     <li class="popular-posts-item">
       <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
       TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202505041100.html" rel="bookmark">
-      Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202409080733.html" rel="bookmark">
-      Switch大气层游戏下载服务及实测列表
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202503300850.html" rel="bookmark">
-      海康威视摄像头添加局域网NAS存储
-      </a>
-    </li>
-    <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202601081153.html" rel="bookmark">
-      Joycon2手柄如何连接电脑测试按键摇杆等功能
       </a>
     </li>
   </ul>
@@ -831,7 +1268,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2026-03-30 08:22:46" itemprop="dateModified" datetime="2026-03-30T08:22:46+08:00">2026-03-30</time>
+        <time title="Modified: 2026-04-06 13:50:44" itemprop="dateModified" datetime="2026-04-06T13:50:44+08:00">2026-04-06</time>
       </span>
 
 </div>
@@ -974,6 +1411,26 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202603261740.html","pageTitle":"ESXI之N5105倍控小主机体验及现实应用"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1006,26 +1463,6 @@
 
   }
 })();
-</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
-
 </body>
 </html>
