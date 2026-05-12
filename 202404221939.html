@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css" integrity="sha512-De7THrOr7M9dmDMBVMfyDfYypLtaH9KnvpfZ3PENIwAS0Od6Eh0M0EMucYwouLEZSaPL/PFQRQzg2Zir4tF2UQ==" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="搭建网站的工具和过程降到低门槛和极低成本，WordPress使用小型文件数据库SQLite">
+<meta property="og:type" content="article">
+<meta property="og:title" content="群晖NAS使用Docker部署WordPress">
+<meta property="og:url" content="https://www.carlzeng.com/202404221939.html">
+<meta property="og:site_name" content="云随笔 Carl Notes">
+<meta property="og:description" content="搭建网站的工具和过程降到低门槛和极低成本，WordPress使用小型文件数据库SQLite">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2026/05/image-20260511092148886.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2026/05/image-20260512231637885.png">
+<meta property="article:published_time" content="2024-04-22T11:39:10.000Z">
+<meta property="article:modified_time" content="2026-05-12T15:17:32.628Z">
+<meta property="article:author" content="Carl Notes">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="docker-compose">
+<meta property="article:tag" content="NAS">
+<meta property="article:tag" content="WordPress">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.carlzeng.com:3/i/2026/05/image-20260511092148886.png">
+
+
+<link rel="canonical" href="https://www.carlzeng.com/202404221939.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.com/202404221939.html","path":"202404221939.html","title":"群晖NAS使用Docker部署WordPress"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>群晖NAS使用Docker部署WordPress | 云随笔 Carl Notes</title>
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"><link rel="preconnect" href="https://artalk.carlzeng.com:4443">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">云随笔 Carl Notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">ERP IT方案 电玩</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="全站检索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">285</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">92</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">409</span></a></li><li class="menu-item menu-item-翻译"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3RyYW5zbGF0ZQ==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>翻译</a></li><li class="menu-item menu-item-电玩项目"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Nhc2U=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-user fa-fw"></i>电玩项目</a></li><li class="menu-item menu-item-netsuite项目定制"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL25zcHJvamVjdA==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-telegram fa-fw"></i>NetSuite项目定制</a></li><li class="menu-item menu-item-书籍下载"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>书籍下载</a></li><li class="menu-item menu-item-上网加速"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fa fa-heartbeat fa-fw"></i>上网加速</a></li><li class="menu-item menu-item-照片转文本"><a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL29jcg==" rel="noopener external nofollow noreferrer section" target="_blank"><i class="fab fa-twitter fa-fw"></i>照片转文本</a></li>
+  </ul>
+
+    <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <!--<div class="search-header">-->
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="58" placeholder="全局检索..." spellcheck="false" type="search" class="search-input">
+      </div>
+      <!--</div>-->
+    </div>
+    </form>
+
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WooCommerce%E5%AF%BC%E5%85%A5%E4%BA%A7%E5%93%81"><span class="nav-number">4.</span> <span class="nav-text">WooCommerce导入产品</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5%E4%BA%A7%E5%93%81%E7%85%A7%E7%89%87"><span class="nav-number">4.1.</span> <span class="nav-text">如何导入产品照片?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5MD%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0"><span class="nav-number">4.2.</span> <span class="nav-text">如何批量导入MD博客文章</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Carl Notes</p>
+  <div class="site-description" itemprop="description">定制ERP软件与电玩设备改装</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">409</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">92</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">285</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202505041100.html" rel="bookmark">
+      Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
+      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202503300850.html" rel="bookmark">
+      海康威视摄像头添加局域网NAS存储
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
+      多个docker容器间共享单个mariadb(Docker数据库服务)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
+      光猫设置端口映射IP端口转发
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202604152244.html" rel="bookmark">
+      浅谈部署闲鱼自动回复管理系统xianyu-auto-reply
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+
+    <!-- recent posts -->
+    <div class="pjax">
+      <div class="sidebar-inner sidebar-post-related">
+            <div class="links-of-blogroll-title recent-posts-title">
+          <i class="fa fa-history " aria-hidden="true"></i>
+                最新文章
+        </div>
+        <ul class="popular-posts">
+                <li class="popular-posts-item">
+                  <a href="/202605071047.html" title="NetSuite的gzip解压缩在接口开发中的应用" target=""  class="popular-posts-link">
+                  NetSuite的gzip解压缩在接口开发中的应用
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202604152244.html" title="浅谈部署闲鱼自动回复管理系统xianyu-auto-reply" target=""  class="popular-posts-link">
+                  浅谈部署闲鱼自动回复管理系统xianyu-auto-reply
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202604151813.html" title="NetSuite接口开发之JSON源数据发送实现gzip压缩" target=""  class="popular-posts-link">
+                  NetSuite接口开发之JSON源数据发送实现gzip压缩
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202603261740.html" title="ESXI之N5105倍控小主机体验及现实应用" target=""  class="popular-posts-link">
+                  ESXI之N5105倍控小主机体验及现实应用
+                  </a>
+                </li>
+                <li class="popular-posts-item">
+                  <a href="/202601191716.html" title="Steam客户端不识别PS5手柄不识别SwitchPro手柄不识别Xbox和国产手柄" target=""  class="popular-posts-link">
+                  Steam客户端不识别PS5手柄不识别SwitchPro手柄不识别Xbox和国产手柄
+                  </a>
+                </li>
+        </ul>
+      </div>
+    </div>
+
+    <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
+    <div class="popup search-popup">
+      <!--<div class="search-header">-->
+      <div class="search-input-container" style="text-align: left; padding-left: 22px">
+        <input name="q" autocomplete="off" autocapitalize="off" maxlength="58" placeholder="全站检索..." spellcheck="false" type="search" class="search-input">
+      </div>
+      <!--</div>-->
+    </div>
+    </form>
+    <style>
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      margin-top: 30px !important;
+      padding: clamp(17px, 5%, 40px) clamp(17px, 7%, 50px) !important;
+      max-width: none !important;
+      border-radius: 6px !important;
+      box-shadow: 0 5px 25px rgba(34, 60, 47, 0.25) !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview,
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview *{
+      box-sizing: border-box !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading {
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-heading h5{
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field {
+      margin-top: 20px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      width: 100% !important;
+      height: 40px !important;
+      border-radius: 6px !important;
+      border: 2px solid #e9e8e8 !important;
+      background-color: #fff !important;
+      outline: none !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input {
+      color: #000000 !important;
+      font-family: "Montserrat" !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      line-height: 20px !important;
+      text-align: center !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::placeholder {
+      color: #000000 !important;
+      opacity: 1 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input:-ms-input-placeholder {
+      color: #000000 !important;
+    }
+
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-input-field input::-ms-input-placeholder {
+      color: #000000 !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button {
+      margin-top: 10px !important;
+      width: 100% !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button {
+      width: 100% !important;
+      height: 40px !important;
+      border: 0 !important;
+      border-radius: 6px !important;
+      line-height: 0px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .form-preview .preview-submit-button button:hover {
+      cursor: pointer !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line {
+      color: #231f20 !important;
+      font-family: "Montserrat" !important;
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      line-height: 25px !important;
+      text-align: center !important;
+      text-decoration: none !important;
+      display: flex !important;
+      width: 100% !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 10px !important;
+    }
+    .followit--follow-form-container[attr-a][attr-b][attr-c][attr-d][attr-e][attr-f] .powered-by-line img {
+      margin-left: 10px !important;
+      height: 1.13em !important;
+      max-height: 1.13em !important;
+    }
+    </style><div class="followit--follow-form-container" attr-a attr-b attr-c attr-d attr-e attr-f><form data-v-1bbcb9ec="" action="https://api.follow.it/subscription-form/MVRRcHhiVjFRUGo4VWtoUGtIRzMxbWpkTXJ1KzhnTTRXNWNQcEIzQXZmR1dObEpQK0lzdWhzNTd3VEdwRXV4czRFMDRZTzd2Y3ZkVWY2YVZkVitIbVVoYS9vYk9PQ2Y1R0c1QVQyY3lVVVlPQzFDMFNvUXFDWDZ4cTFmM1AxUGN8T2FLZUo4ZnpvQ2IwMHVmakZsUE13RHVJOU9IQXM0cUs3blowNmhQVmJSaz0=/8" method="post"><div data-v-1bbcb9ec="" class="form-preview" style="background-color: rgb(255, 255, 255); position: relative;"><div data-v-1bbcb9ec="" class="preview-heading"><h5 data-v-1bbcb9ec="" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(0, 0, 0); font-size: 16px; text-align: center;">
+      订阅最新文章
+    </h5></div> <div data-v-1bbcb9ec="" class="preview-input-field"><input data-v-1bbcb9ec="" type="email" name="email" required="required" placeholder="请输入您的邮箱地址后回车确认" spellcheck="false" style="text-transform: none !important; font-family: Arial; font-weight: normal; color: rgb(0, 0, 0); font-size: 14px; text-align: center; background-color: rgb(255, 255, 255);"></div> <div data-v-1bbcb9ec="" class="preview-submit-button"><button data-v-1bbcb9ec="" type="submit" style="text-transform: none !important; font-family: Arial; font-weight: bold; color: rgb(255, 255, 255); font-size: 16px; text-align: center; background-color: rgb(0, 0, 0);">
+      订阅
+    </button></div></div></form></div>
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.carlzeng.com/202404221939.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Carl Notes">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="description" content="定制ERP软件与电玩设备改装">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="群晖NAS使用Docker部署WordPress | 云随笔 Carl Notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          群晖NAS使用Docker部署WordPress
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-12 23:17:32" itemprop="dateModified" datetime="2026-05-12T23:17:32+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/WordPress/" itemprop="url" rel="index"><span itemprop="name">WordPress</span></a>
+        </span>
+    </span>
+
+  
+        
+          <span class="post-meta-item" title="阅读次数">
+            <span class="post-meta-item-icon">
+              <i class="far fa-eye"></i>
+            </span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="ArtalkPV" data-page-key="/202404221939.html" ></span>
+          </span>
+        
+      
+        
+      
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>18 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="">
+
+<p>搭建网站的工具和过程降到低门槛和极低成本，WordPress使用小型文件数据库SQLite</p>
+<span id="more"></span>
+
+<div> 
+<button onclick="synthesizeSpeech()">朗读全文</button>
+</div>
+<audio controls id="audioPlayer">Your browser does not support the audio element.</audio>      
+<script>
+  function synthesizeSpeech() { 
+    var inputText = document.getElementsByClassName('post-block')[0].innerText;
+    var voice = "ZH";
+    var url = 'https://tts.carlzeng.com:3/speech?text=' + encodeURIComponent(inputText.substring(0,3000)) + '&voice=' + voice;
+    var audioPlayer = document.getElementById('audioPlayer');          
+    audioPlayer.src = url;
+    audioPlayer.load();
+    audioPlayer.play();
+  }
+</script>
+
+
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">wordpress:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">soulteary/sqlite-wordpress</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8104</span><span class="string">:80</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./:/var/www/html</span></span><br><span class="line">      <span class="comment">#用于对接兰空图床批量上传的图库, CSV中含文件名对应到产品</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/volume2/KingchuxingSSD512G/MacBookPro_Skitch/storage/app/uploads/2026/05:/var/www/html/wp-content/uploads/lskyupload202605</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93cC5jYXJsemVuZy5jb206My93cC1hZG1pbi8=" rel="noopener external nofollow noreferrer">https://wp.carlzeng.com:3/wp-admin/</a></p>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=wordpress" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+
+<h1 id="WooCommerce导入产品"><a href="#WooCommerce导入产品" class="headerlink" title="WooCommerce导入产品"></a>WooCommerce导入产品</h1><p>安装插件: WebToffee Import Export</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2026/05/image-20260511092148886.png" alt="image-20260511092148886"></p>
+<h2 id="如何导入产品照片"><a href="#如何导入产品照片" class="headerlink" title="如何导入产品照片?"></a>如何导入产品照片?</h2><p>需求: 导入所有几千张照片, 然后关联到产出</p>
+<p>WP的SQLlite数据库文件在哪里?</p>
+<p>WordPress 用 SQLite 时（官方插件 sqlite-database-integration 或 wp-sqlite-db），数据库文件默认在：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wp-content/database/.ht.sqlite</span><br></pre></td></tr></table></figure>
+
+
+
+<p>最后图片还是要使用WP原始的图库功能;</p>
+<p>上传到图库, 但由于兰空图床的目录使用的docker的映射方式, 被我直接映射到docker目录</p>
+<p>&#x2F;volume2&#x2F;KingchuxingSSD512G&#x2F;MacBookPro_Skitch&#x2F;storage&#x2F;app&#x2F;uploads&#x2F;2026&#x2F;05</p>
+<p>这样; Addd From Server Reloaded  就能加载到这些1170+张照片了</p>
+<p>导入后: 图库</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2026/05/image-20260512231637885.png" alt="image-20260512231637885"></p>
+<p>故障: 很多可以在兰空中看到的照片, 无法访问, 不知为何(是否和docker wordpress映射 并上传后有关? )<br><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9pbWcuY2FybHplbmcuY29tOjMvaS8yMDI2LzA1L08xQ04wMWJCcThXeDFzbVpsMHlQajdCXyEhNDYxMTY4NjAxODQyNzM4NTk4NS01My1mbGVhbWFya2V0LmpwZw==" rel="noopener external nofollow noreferrer">https://img.carlzeng.com:3/i/2026/05/O1CN01bBq8Wx1smZl0yPj7B_!!4611686018427385985-53-fleamarket.jpg</a></p>
+<p>O1CN01fP0ICM1smZqe9QMrt_!!4611686018427385985-53-xy_item.jpg</p>
+<p>成功链接到使用免费版的WebToffee Import Export; 导入所有产品和相关联的图片(先导入到图库中)</p>
+<p>照片可以导入格式:<br>    &#x2F;wp-content&#x2F;uploads&#x2F;O1CN013Dpd011smZsfIaiIb_4611686018427385985-53-xy_item.jpg</p>
+<p>可以导入多张照片, 用 , 空格分开</p>
+<pre><code>-5:09pm- 用,分隔即可
+
+    修改全部的csv文件, 转化
+    | 为 ,
+    !! 去除
+    格式如上
+</code></pre>
+<p>优化docker-compose 的目录映射 添加:ro, 确保兰空图床中的文件, 不要受影响&#x2F;删除</p>
+<h2 id="如何批量导入MD博客文章"><a href="#如何批量导入MD博客文章" class="headerlink" title="如何批量导入MD博客文章"></a>如何批量导入MD博客文章</h2><p>插件: Import Markdown  似乎只能单独, 单个文件的导入?</p>
+<p>各种研究, 最后在一个博主的站点上找到了解决方案, 用一个python脚本 一键批量上传目录中441篇文章到WordPress</p>
+<p>简直太高效了, 分享源码: </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os  <span class="comment"># 用来遍历文件路径</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> ssl</span><br><span class="line">ssl._create_default_https_context = ssl._create_unverified_context</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">需要安装如下pip包</span></span><br><span class="line"><span class="string">pip3 install python-frontmatter</span></span><br><span class="line"><span class="string">pip3 install markdown</span></span><br><span class="line"><span class="string">pip install &#x27;Markdown&#x27;</span></span><br><span class="line"><span class="string">pip3 install python-wordpress-xmlrpc</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 1 导入frontmatter模块</span></span><br><span class="line"><span class="keyword">import</span> frontmatter</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2 导入markdown模块</span></span><br><span class="line"><span class="keyword">import</span> markdown</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3 导入wordpress_xmlrpc模块</span></span><br><span class="line"><span class="keyword">from</span> wordpress_xmlrpc <span class="keyword">import</span> Client, WordPressPost</span><br><span class="line"><span class="keyword">from</span> wordpress_xmlrpc.methods.posts <span class="keyword">import</span> NewPost</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_post</span>(<span class="params">filepath, metadata</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    make a WordPressPost for Client call</span></span><br><span class="line"><span class="string">    :param filepath: 要发布的文件路径</span></span><br><span class="line"><span class="string">    :param metadata: 字典类型</span></span><br><span class="line"><span class="string">             包括 metadata[&#x27;category&#x27;]: 文章分类</span></span><br><span class="line"><span class="string">                  metadata[&#x27;tag&#x27;]: 文章标签</span></span><br><span class="line"><span class="string">                  metadata[&#x27;status&#x27;]: 有publish发布、draft草稿、private隐私状态可选</span></span><br><span class="line"><span class="string">    :return WordPressPost: if success</span></span><br><span class="line"><span class="string">            None: if failure</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    filename = os.path.basename(filepath)  <span class="comment"># 例如：test(2021.11.19).md</span></span><br><span class="line">    filename_suffix = filename.split(<span class="string">&#x27;.&#x27;</span>)[-<span class="number">1</span>]  <span class="comment"># 例如：md</span></span><br><span class="line">    filename_prefix = filename.replace(<span class="string">&#x27;.&#x27;</span> + filename_suffix, <span class="string">&#x27;&#x27;</span>)  <span class="comment"># 例如：test(2021.11.19)；注意：这种替换方法要求文件名中只有一个&quot;.md&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 目前只支持 .md 后缀的文件</span></span><br><span class="line">    <span class="keyword">if</span> filename_suffix != <span class="string">&#x27;md&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1 通过frontmatter.load函数加载读取文档里的信息，包括元数据</span></span><br><span class="line">    post_from_file = frontmatter.load(filepath)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2 markdown库导入内容</span></span><br><span class="line">    post_content_html = markdown.markdown(post_from_file.content, extensions=[<span class="string">&#x27;markdown.extensions.fenced_code&#x27;</span>])</span><br><span class="line">    post_content_html = post_content_html.encode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3 将本地post的元数据暂存到metadata中</span></span><br><span class="line">    metadata[<span class="string">&#x27;title&#x27;</span>] = filename_prefix  <span class="comment"># 将文件名去掉.md后缀，作为标题</span></span><br><span class="line">    <span class="comment"># metadata[&#x27;slug&#x27;] = metadata[&#x27;title&#x27;]  # 别名</span></span><br><span class="line">    metadata_keys = metadata.keys()</span><br><span class="line">    <span class="comment"># 如果post_from_file.metadata中的属性key存在，那么就将metadata[key]替换为它</span></span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> metadata_keys:</span><br><span class="line">        <span class="keyword">if</span> key <span class="keyword">in</span> post_from_file.metadata:  <span class="comment"># 若md文件中没有元数据&#x27;category&#x27;，则无法调用post.metadata[&#x27;category&#x27;]</span></span><br><span class="line">            metadata[key] = post_from_file.metadata[key]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4 将metadata中的属性赋值给post的对应属性</span></span><br><span class="line">    post = WordPressPost()  <span class="comment"># 要返回的post</span></span><br><span class="line">    post.content = post_content_html</span><br><span class="line">    post.title = metadata[<span class="string">&#x27;title&#x27;</span>]</span><br><span class="line">    <span class="comment"># post.slug = metadata[&#x27;slug&#x27;]</span></span><br><span class="line">    post.post_status = metadata[<span class="string">&#x27;status&#x27;</span>]</span><br><span class="line">    post.terms_names = &#123;</span><br><span class="line">        <span class="string">&#x27;category&#x27;</span>: metadata[<span class="string">&#x27;category&#x27;</span>],</span><br><span class="line">        <span class="string">&#x27;post_tag&#x27;</span>: metadata[<span class="string">&#x27;tag&#x27;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    post.comment_status = <span class="string">&#x27;open&#x27;</span>  <span class="comment"># 开启评论</span></span><br><span class="line">    <span class="keyword">return</span> post</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">push_post</span>(<span class="params">post, client</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    上传post到WordPress网站</span></span><br><span class="line"><span class="string">    :param post: 要发布的文章（WordPressPost类型），由make_post函数得到</span></span><br><span class="line"><span class="string">    :param client: 客户端</span></span><br><span class="line"><span class="string">    :return True: if success</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> client.call(NewPost(post))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_filepaths</span>(<span class="params">path</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    如果path是目录路径，递归遍历path目录下的所有文件，将所有文件路径存入filepaths</span></span><br><span class="line"><span class="string">    如果path是文件路径，直接将单个文件路径存入filepaths</span></span><br><span class="line"><span class="string">    :param path: 你要上传的目录路径或文件路径（绝对路径）</span></span><br><span class="line"><span class="string">    :return filepaths: 该目录下的所有子文件或单个文件的绝对路径</span></span><br><span class="line"><span class="string">            None: wrong path</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    filepaths = []</span><br><span class="line">    <span class="keyword">if</span> os.path.isdir(path):  <span class="comment"># 当前路径是目录</span></span><br><span class="line">        <span class="keyword">for</span> now_dirpath, child_dirnames, child_filenames <span class="keyword">in</span> os.walk(path):</span><br><span class="line">            <span class="comment"># ========== 新增：排除包含 secret 的目录 ==========</span></span><br><span class="line">            <span class="keyword">if</span> <span class="string">&#x27;secret&#x27;</span> <span class="keyword">in</span> now_dirpath.lower():  <span class="comment"># 不区分大小写：Secret / SECRET 都排除</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">                </span><br><span class="line">            <span class="keyword">for</span> filename <span class="keyword">in</span> child_filenames:</span><br><span class="line">                filepath = os.path.join(now_dirpath, filename)</span><br><span class="line">                filepaths.append(filepath)</span><br><span class="line">        filepaths.sort()  <span class="comment"># &lt;-- 按英文字母 / 数字顺序排序（就加这一行）</span></span><br><span class="line">        <span class="keyword">return</span> filepaths</span><br><span class="line">    <span class="keyword">elif</span> os.path.isfile(path):  <span class="comment"># 当前路径是文件</span></span><br><span class="line">        <span class="keyword">return</span> [path]</span><br><span class="line">    <span class="keyword">else</span>:  <span class="comment"># wrong path</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># User Configuration</span></span><br><span class="line">    path = <span class="string">&#x27;/Users/carlzeng/App/blog/source/_posts&#x27;</span>  <span class="comment"># e.g. D:/PythonCode/post-wordpress-with-markdown/doc</span></span><br><span class="line">    domain_list = [</span><br><span class="line">        <span class="string">&#x27;https://wp.carlzeng.com:3/&#x27;</span></span><br><span class="line">    ]  <span class="comment"># e.g. https://example.com（配置了SSL证书就用https，否则用http）</span></span><br><span class="line">    username = <span class="string">&#x27;*******&#x27;</span></span><br><span class="line">    password = <span class="string">&#x27;*******&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> domain <span class="keyword">in</span> domain_list:</span><br><span class="line">        <span class="comment"># Optional Configuration</span></span><br><span class="line">        post_metadata = &#123;</span><br><span class="line">            <span class="string">&#x27;category&#x27;</span>: [<span class="string">&#x27;未分类&#x27;</span>],  <span class="comment"># 文章分类</span></span><br><span class="line">            <span class="string">&#x27;tag&#x27;</span>: [<span class="string">&#x27;手柄一修哥&#x27;</span>],  <span class="comment"># 文章标签</span></span><br><span class="line">            <span class="string">&#x27;status&#x27;</span>: <span class="string">&#x27;publish&#x27;</span>  <span class="comment"># 可选publish发布、draft草稿、private隐私状态</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Start Work</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;----------------------------------------------START----------------------------------------------&#x27;</span>)</span><br><span class="line">        filepaths = get_filepaths(path)</span><br><span class="line">        <span class="keyword">if</span> filepaths <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;FAILURE: wrong path&#x27;</span>)</span><br><span class="line">            sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        client = Client(domain + <span class="string">&#x27;/xmlrpc.php&#x27;</span>, username, password)  <span class="comment"># 客户端</span></span><br><span class="line"></span><br><span class="line">        md_cnt = <span class="number">0</span></span><br><span class="line">        all_cnt = <span class="built_in">len</span>(filepaths)</span><br><span class="line">        process_number = <span class="number">0</span></span><br><span class="line">        failpaths = []  <span class="comment"># 存储上传失败的文件路径</span></span><br><span class="line">        <span class="keyword">for</span> filepath <span class="keyword">in</span> filepaths:</span><br><span class="line">            process_number = process_number + <span class="number">1</span></span><br><span class="line">            filename = os.path.basename(filepath)</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="comment"># 把可能报错的逻辑全部放进 try</span></span><br><span class="line">                post = make_post(filepath, post_metadata)</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> post <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                    push_post(post, client)</span><br><span class="line">                    md_cnt = md_cnt + <span class="number">1</span></span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">&#x27;Process number: %d/%d  SUCCESS: Push &quot;%s&quot; completed!&#x27;</span> % (process_number, all_cnt, filename))</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    failpaths.append(filepath)</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">&#x27;Process number: %d/%d  WARNING: Can\&#x27;t push &quot;%s&quot; because it\&#x27;s not Markdown file.&#x27;</span> % (</span><br><span class="line">                    process_number, all_cnt, filename))</span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                <span class="comment"># 捕获解析/发布失败，不中断程序</span></span><br><span class="line">                failpaths.append(filepath)</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&#x27;Process number: %d/%d  ERROR: Failed to push &quot;%s&quot; | Reason: %s&#x27;</span> % (process_number, all_cnt, filename, <span class="built_in">str</span>(e)))</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;-----------------------------------------------END-----------------------------------------------&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;SUCCESS: %d files have been pushed to &#123;0&#125;.&#x27;</span>.<span class="built_in">format</span>(domain) % md_cnt)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(failpaths) &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;WARNING: %d files haven\&#x27;t been pushed to &#123;0&#125;.&#x27;</span>.<span class="built_in">format</span>(domain) % <span class="built_in">len</span>(failpaths))</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;\nFailure to push these file paths:&#x27;</span>)</span><br><span class="line">            <span class="keyword">for</span> failpath <span class="keyword">in</span> failpaths:</span><br><span class="line">                <span class="built_in">print</span>(failpath)</span><br></pre></td></tr></table></figure>
+
+<p>感谢作者: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93d3cuY2FjY2EuY2MvP3A9NjE4" rel="noopener external nofollow noreferrer">一键上传markdown 格式文章到wordpress</a></p>
+<p>修改的点有:</p>
+<ol>
+<li>第137行 post &#x3D; make_post(filepath, post_metadata)  这个需要try catch</li>
+<li>添加排序功能: 目前加载目录下的文件没有排序, 请按文件的英文字母顺序排序</li>
+<li>请排除目录名中包含secret的目录</li>
+</ol>
+<p>运行后输出:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">----------------------------------------------START----------------------------------------------</span><br><span class="line">Process number: 8/418  SUCCESS: Push &quot;1099-MISC是什么-CarlZeng.md&quot; completed!</span><br><span class="line">Process number: 9/418  SUCCESS: Push &quot;A-feature-in-Netsuite-Reports-Financial-Balance-Sheet-CarlZeng.md&quot; completed!</span><br><span class="line">Process number: 10/418  SUCCESS: Push &quot;AI脸部识别，人脸比对，人脸识别-CarlZeng.md&quot; completed!</span><br><span class="line">Process number: 11/418  SUCCESS: Push &quot;AJAX提交数据时-中文处理-以及js-url-中文处理-CarlZeng.md&quot; completed!</span><br><span class="line">Process number: 12/418  SUCCESS: Push &quot;Bar-codes-in-NetSuite-Saved-Searches-transport-reprint-活用NetSuite搜索页面显示可扫描条码-CarlZeng.md&quot; completed!</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Process number: 417/418  SUCCESS: Push &quot;高手写出的是天使，而新手写的，可能是魔鬼！-Javascript这样的脚本语言，由于太灵活-CarlZeng.md&quot; completed!</span><br><span class="line">Process number: 418/418  SUCCESS: Push &quot;高效的服务端生成QRCODE二维码方案-Docker搭建.md&quot; completed!</span><br><span class="line">-----------------------------------------------END-----------------------------------------------</span><br><span class="line">SUCCESS: 411 files have been pushed to https://wp.carlzeng.com:3/.</span><br><span class="line">WARNING: 7 files haven&#x27;t been pushed to https://wp.carlzeng.com:3/.</span><br><span class="line"></span><br><span class="line">Failure to push these file paths:</span><br><span class="line">/Users/carlzeng/App/blog/source/_posts/.DS_Store</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zb3VsdGVhcnkuY29tLzIwMjQvMDQvMTcvc2F5LWdvb2RieWUtdG8tbXlzcWwtZG9ja2VyLXNxbGl0ZS13b3JkcHJlc3MuaHRtbA==" rel="noopener external nofollow noreferrer">WordPress 告别 MySQL：Docker SQLite WordPress</a></p>
+
+
+        <!-- search & recent posts(added 20240914) -->
+        <form action="https://query.carlzeng.com:3/appsearch?q=" method="get" target="_blank">
+          <div class="popup search-popup">
+            <div class="search-input-container">
+              <input name="q" autocomplete="off" autocapitalize="off" maxlength="40" placeholder="全站搜索..." spellcheck="false" type="search" class="search-input">    (请输入关键字以后回车，检索内容涵盖全局站点)
+            </div>
+          </div>
+        </form>
+        <p>
+        <div class="">
+          <div class="">
+                <div class="links-of-blogroll-title recent-posts-title">
+              <i class="fa fa-history " aria-hidden="true"></i>
+                    最新文章
+            </div>
+            <ul class="popular-posts">
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202605071047.html" title="NetSuite的gzip解压缩在接口开发中的应用" target="" class="popular-posts-link">
+                      NetSuite的gzip解压缩在接口开发中的应用
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202604152244.html" title="浅谈部署闲鱼自动回复管理系统xianyu-auto-reply" target="" class="popular-posts-link">
+                      浅谈部署闲鱼自动回复管理系统xianyu-auto-reply
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202604151813.html" title="NetSuite接口开发之JSON源数据发送实现gzip压缩" target="" class="popular-posts-link">
+                      NetSuite接口开发之JSON源数据发送实现gzip压缩
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202603261740.html" title="ESXI之N5105倍控小主机体验及现实应用" target="" class="popular-posts-link">
+                      ESXI之N5105倍控小主机体验及现实应用
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202601191716.html" title="Steam客户端不识别PS5手柄不识别SwitchPro手柄不识别Xbox和国产手柄" target="" class="popular-posts-link">
+                      Steam客户端不识别PS5手柄不识别SwitchPro手柄不识别Xbox和国产手柄
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202601151739.html" title="如何远程编译生成Switch最新版大气层整合包" target="" class="popular-posts-link">
+                      如何远程编译生成Switch最新版大气层整合包
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202601150929.html" title="浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点" target="" class="popular-posts-link">
+                      浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202601090857.html" title="数据分析挖掘之如何知道谁最先关注查看最新文章" target="" class="popular-posts-link">
+                      数据分析挖掘之如何知道谁最先关注查看最新文章
+                      </a>
+                    </li>
+                    <li class="popular-posts-item" style="text-align: left;">
+                      <a href="/202601081153.html" title="Joycon2手柄如何连接电脑测试按键摇杆等功能" target="" class="popular-posts-link">
+                      Joycon2手柄如何连接电脑测试按键摇杆等功能
+                      </a>
+                    </li>
+            </ul>
+          </div>
+          </div>
+        </p>
+
+        <a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer" target="_blank">个性化需求沟通</a> 扫客服加V加群：
+        <img src="https://c.carlzeng.com:3/wechatScan.png" border="0">
+
+
+
+    </div>
+
+    </br>
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+    <div
+      class="social-share"
+      
+        data-sites="wechat,weibo,qq,facebook"
+      
+      
+        data-wechat-qrcode-title="微信扫一扫：分享"
+      
+      
+        data-wechat-qrcode-helper="<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>"
+      
+    >
+    </div>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Carl Notes
+    <a href='https://www.carlzeng.com/202404221939.html'> 《群晖NAS使用Docker部署WordPress》</a>
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.carlzeng.com/202404221939.html" title="群晖NAS使用Docker部署WordPress">https://www.carlzeng.com/202404221939.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>自由转载-非商用-非衍生-保持署名（<a href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLW5kLzQuMC8=" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-ND</a> 许可协议）
+  </li>
+</ul>
+</div>
+
+          <main class="main">
+<div class="column">
+    <div class="pjax">
+    <div class="sidebar-inner sidebar-post-related">
+      <div class="animated">
+          <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    相关文章
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202505041100.html" rel="bookmark">
+      Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202402201752.html" rel="bookmark">
+      高效的服务端生成QRCODE二维码方案-Docker搭建
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202407121006.html" rel="bookmark">
+      Docker群晖docker查询注册表失败
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202401071512.html" rel="bookmark">
+      TTS(Text-to-speech)服务docker搭建 转化文本内容为语音
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202503300850.html" rel="bookmark">
+      海康威视摄像头添加局域网NAS存储
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
+      多个docker容器间共享单个mariadb(Docker数据库服务)
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
+      光猫设置端口映射IP端口转发
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/202604152244.html" rel="bookmark">
+      浅谈部署闲鱼自动回复管理系统xianyu-auto-reply
+      </a>
+    </li>
+  </ul>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<div class="column">
+<div class="pjax">
+<!-- recent posts -->
+<div class="animated">
+  <div class="sidebar-inner sidebar-post-related">
+        <div class="links-of-blogroll-title recent-posts-title">
+      <i class="fa fa-history " aria-hidden="true"></i>
+            最新文章
+    </div>
+    <ul class="popular-posts">
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202605071047.html" title="NetSuite的gzip解压缩在接口开发中的应用" target="" class="popular-posts-link">
+              [2026/05/07] NetSuite的gzip解压缩在接口开发中的应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202604152244.html" title="浅谈部署闲鱼自动回复管理系统xianyu-auto-reply" target="" class="popular-posts-link">
+              [2026/04/15] 浅谈部署闲鱼自动回复管理系统xianyu-auto-reply
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202604151813.html" title="NetSuite接口开发之JSON源数据发送实现gzip压缩" target="" class="popular-posts-link">
+              [2026/04/15] NetSuite接口开发之JSON源数据发送实现gzip压缩
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202603261740.html" title="ESXI之N5105倍控小主机体验及现实应用" target="" class="popular-posts-link">
+              [2026/03/26] ESXI之N5105倍控小主机体验及现实应用
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202601191716.html" title="Steam客户端不识别PS5手柄不识别SwitchPro手柄不识别Xbox和国产手柄" target="" class="popular-posts-link">
+              [2026/01/19] Steam客户端不识别PS5手柄不识别SwitchPro手柄不识别Xbox和国产手柄
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202601151739.html" title="如何远程编译生成Switch最新版大气层整合包" target="" class="popular-posts-link">
+              [2026/01/15] 如何远程编译生成Switch最新版大气层整合包
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202601150929.html" title="浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点" target="" class="popular-posts-link">
+              [2026/01/15] 浅谈路由器Openwrt防火墙的 端口转发 与 NAT穿透 区别与优缺点
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202601090857.html" title="数据分析挖掘之如何知道谁最先关注查看最新文章" target="" class="popular-posts-link">
+              [2026/01/09] 数据分析挖掘之如何知道谁最先关注查看最新文章
+              </a>
+            </li>
+            <li class="popular-posts-item" style="text-align: left;">
+              <a href="/202601081153.html" title="Joycon2手柄如何连接电脑测试按键摇杆等功能" target="" class="popular-posts-link">
+              [2026/01/08] Joycon2手柄如何连接电脑测试按键摇杆等功能
+              </a>
+            </li>
+    </ul>
+  </div>
+  </div>
+</div>
+</div>
+</main>
+
+
+<div class="followme">
+  <span>您可以<a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9hc2suY2FybHplbmcuY29tOjQ0NDMvcy9pRFluQlY=" rel="noopener external nofollow noreferrer">提交需求</a>, <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9mb2xsb3cuaXQvY2FybC1ub3Rlcz9sZWFucHVi" rel="noopener external nofollow noreferrer">Email订阅</a>, <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9iZXN0YnV5LmNhcmx6ZW5nLmNvbTozLyMvMS9kZXRhaWw=" rel="noopener external nofollow noreferrer">打赏作者</a> (闲鱼APP下单支持：手柄一修哥)</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jYWxlbmRseS5jb20vY2FybHplbmcvMzBtaW4=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">联系我(谈话)</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2lwdHY=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class=""></i>
+            </span>
+
+            <span class="label">IPTV直播</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/202312081128.html">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">M3U8播放器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL21wMw==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">MP3与下载</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2NoYXQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">ChatGPT问答</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL3dlYg==" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">网络加速器</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2ZpbGV1cGQ=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-telegram"></i>
+            </span>
+
+            <span class="label">文件分享</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2Jvb2s=" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">下载电子书</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTozL2l0LXRvb2xz" rel="noopener external nofollow noreferrer">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">IT小工具集合</span>
+          </a>
+      </div>
+  </div>
+      <span>
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2026-05-12 23:17:32" itemprop="dateModified" datetime="2026-05-12T23:17:32+08:00">2026-05-12</time>
+      </span>
+
+</div>
+
+
+
+          <div class="post-tags">
+            继续浏览有关
+              <a href="/tags/docker/" rel="tag"># docker</a>
+              <a href="/tags/docker-compose/" rel="tag"># docker-compose</a>
+              <a href="/tags/NAS/" rel="tag"># NAS</a>
+              <a href="/tags/WordPress/" rel="tag"># WordPress</a>
+            的文章
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/202404211638.html" rel="prev" title="用Docker部署大语言模型Llama 3">
+                  <i class="fa fa-angle-left"></i> 用Docker部署大语言模型Llama 3
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/202404260828.html" rel="next" title="任天堂Switch硬件改装与修复记录">
+                  任天堂Switch硬件改装与修复记录 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+    <div class="comments" id="comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="" aria-label="选择语言">
+      
+        <option value="zh-CN" data-href="/202404221939.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/202404221939.html" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+</div>
+
+<!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*.carlzeng.com"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//statcounter.carlzeng.com:4443/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="//statcounter.carlzeng.com:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
+
+<div class="powered-by">
+    <a href='https://www.carlzeng.com/sitemap.xml'>Sitemap</a> | <a href='https://www.carlzeng.com/rss2.xml'>RSS</a> | 选择服务器：<a href="https://www.carlzeng.com">Main</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zYWdlLWhhbHZhLWJhYzA1NC5uZXRsaWZ5LmFwcA==" rel="noopener external nofollow noreferrer">Netlify</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">GitHub</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9oay5jYXJsemVuZy5jb20=" rel="noopener external nofollow noreferrer">HK</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jZG4uY2FybHplbmcuY29t" rel="noopener external nofollow noreferrer">US</a> <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbg==" rel="noopener external nofollow noreferrer">京ICP备2024120116号</a>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202404221939.html","pageTitle":"群晖NAS使用Docker部署WordPress"}</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
+<style>.artalk{width:initial;}</style>
+
+<script data-pjax type="text/javascript">
+;(function() {
+  if (CONFIG.page.comments) {
+
+    NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>
