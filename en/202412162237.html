@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
+<head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -22,7 +21,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何不拔卡调取摄像头监控-回放取流">
 <meta property="og:url" content="https://www.carlzeng.com/en/202412162237.html">
-<meta property="og:site_name" content="云随笔 Carl Notes">
+<meta property="og:site_name" content="Carl Notes">
 <meta property="og:description" content="如何不拔卡调取摄像头监控(TP1Z为例子)">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/12/17/6760f5ac6ffdf.png">
@@ -43,7 +42,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.com/202412162237.html","path":"en/202412162237.html","title":"如何不拔卡调取摄像头监控-回放取流"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>如何不拔卡调取摄像头监控-回放取流 | 云随笔 Carl Notes</title>
+<title>如何不拔卡调取摄像头监控-回放取流 | Carl Notes</title>
   
 
 
@@ -56,8 +55,8 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
-<link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
+<link rel="alternate" href="/atom.xml" title="Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Carl Notes" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -78,7 +77,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">云随笔 Carl Notes</p>
+      <p class="site-title">Carl Notes</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">ERP IT方案 电玩</p>
@@ -381,12 +380,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="name" content="Carl Notes">
       <meta itemprop="description" content="定制ERP软件与电玩设备改装">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="如何不拔卡调取摄像头监控-回放取流 | 云随笔 Carl Notes">
+      <meta itemprop="name" content="如何不拔卡调取摄像头监控-回放取流 | Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -504,8 +503,8 @@
 <p>ffmpeg+加速录制+rtsp流</p>
 <p>推流这段回放到SRS服务器上, 让服务器不停循环播放即可</p>
 <p>可否把思路转变为: 推流这段回放到SRS服务器上, 让服务器不停循环播放即可</p>
-<p>rtsp:&#x2F;&#x2F;*:<a href="mailto:&#100;&#x40;&#49;&#x37;&#x32;&#x2e;&#50;&#x32;&#x2e;&#48;&#46;&#50;&#54;">&#100;&#x40;&#49;&#x37;&#x32;&#x2e;&#50;&#x32;&#x2e;&#48;&#46;&#50;&#54;</a>:554&#x2F;cam&#x2F;playback?channel&#x3D;1&amp;subtype&#x3D;1&amp;starttime&#x3D;2024_12_13_11_19_00&amp;endtime&#x3D;2024_12_13_12_51_48</p>
-<h2 id="3-推流回放流到SRS"><a href="#3-推流回放流到SRS" class="headerlink" title="3. 推流回放流到SRS"></a>3. 推流回放流到SRS</h2><p>ffmpeg -re -i “rtsp:&#x2F;&#x2F;*:<a href="mailto:&#100;&#64;&#x31;&#x37;&#x32;&#46;&#50;&#50;&#46;&#48;&#x2e;&#x32;&#54;">&#100;&#64;&#x31;&#x37;&#x32;&#46;&#50;&#50;&#46;&#48;&#x2e;&#x32;&#54;</a>:554&#x2F;cam&#x2F;playback?channel&#x3D;1&amp;subtype&#x3D;1&amp;starttime&#x3D;2024_12_13_11_19_00&amp;endtime&#x3D;2024_12_13_12_51_48” -c copy -f flv -y rtmp:&#x2F;&#x2F;192.168.6.221:1935&#x2F;live&#x2F;switchSDadapter</p>
+<p>rtsp:&#x2F;&#x2F;*:<a href="mailto:&#100;&#64;&#49;&#x37;&#x32;&#46;&#x32;&#50;&#x2e;&#x30;&#x2e;&#x32;&#54;">&#100;&#64;&#49;&#x37;&#x32;&#46;&#x32;&#50;&#x2e;&#x30;&#x2e;&#x32;&#54;</a>:554&#x2F;cam&#x2F;playback?channel&#x3D;1&amp;subtype&#x3D;1&amp;starttime&#x3D;2024_12_13_11_19_00&amp;endtime&#x3D;2024_12_13_12_51_48</p>
+<h2 id="3-推流回放流到SRS"><a href="#3-推流回放流到SRS" class="headerlink" title="3. 推流回放流到SRS"></a>3. 推流回放流到SRS</h2><p>ffmpeg -re -i “rtsp:&#x2F;&#x2F;*:<a href="mailto:&#x64;&#64;&#49;&#55;&#x32;&#46;&#x32;&#50;&#46;&#48;&#x2e;&#50;&#54;">&#x64;&#64;&#49;&#55;&#x32;&#46;&#x32;&#50;&#46;&#48;&#x2e;&#50;&#54;</a>:554&#x2F;cam&#x2F;playback?channel&#x3D;1&amp;subtype&#x3D;1&amp;starttime&#x3D;2024_12_13_11_19_00&amp;endtime&#x3D;2024_12_13_12_51_48” -c copy -f flv -y rtmp:&#x2F;&#x2F;192.168.6.221:1935&#x2F;live&#x2F;switchSDadapter</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -re -i &quot;rtsp://*:*@192.168.6.211:554/cam/playback?channel=1&amp;subtype=1&amp;starttime=2024_12_13_10_19_00&amp;endtime=2024_12_13_12_51_48&quot; -c copy -f flv -y rtmp://192.168.6.116:1935/live/switchSDadapter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  Metadata:</span><br><span class="line">    title           : Media Server</span><br><span class="line">  Duration: 02:30:30.00, start: 0.000000, bitrate: N/A</span><br><span class="line">  Stream #0:0: Video: hevc (Main), yuvj420p(pc, bt709), 1920x1080 [SAR 1:1 DAR 16:9], 10 fps, 100 tbr, 90k tbn</span><br><span class="line">  Stream #0:1: Audio: aac (LC), 16000 Hz, mono, fltp</span><br><span class="line">[flv @ 0x563db2eb0400] Video codec hevc not compatible with flv</span><br><span class="line"><span class="meta prompt_">  [out#</span><span class="language-bash">0/flv @ 0x563db2e9f000] Could not write header (incorrect codec parameters ?): Function not implemented</span></span><br><span class="line"><span class="meta prompt_">[aost#</span><span class="language-bash">0:1/copy @ 0x563db2e9bac0] Error initializing output stream:</span> </span><br><span class="line">Stream mapping:</span><br><span class="line">  Stream #0:0 -&gt; #0:0 (copy)</span><br><span class="line">  Stream #0:1 -&gt; #0:1 (copy)</span><br><span class="line">    Last message repeated 1 times</span><br><span class="line">    </span><br><span class="line">   </span><br></pre></td></tr></table></figure>
 
 <p>可以推流成功, 但是无法获取图像, 如何修复?</p>
@@ -541,7 +540,7 @@
 <p>我何必需要推流给SRS, 直接外网映射进来; 可直接播发的回放取流地址不就行了? </p>
 <p>何必推来推去(因为本身已经是视频的情况下)</p>
 <p>如何保护播放‘回放取流地址’的具体地址? 因为它具有最高权限, 这是极其危险的行为.</p>
-<p>rtsp:&#x2F;&#x2F;*:<a href="mailto:&#112;&#97;&#x73;&#115;&#x77;&#x6f;&#x72;&#100;&#64;&#x31;&#57;&#x32;&#46;&#49;&#x36;&#x38;&#x2e;&#54;&#x2e;&#x32;&#x31;&#x31;">&#112;&#97;&#x73;&#115;&#x77;&#x6f;&#x72;&#100;&#64;&#x31;&#57;&#x32;&#46;&#49;&#x36;&#x38;&#x2e;&#54;&#x2e;&#x32;&#x31;&#x31;</a>:554&#x2F;cam&#x2F;playback?channel&#x3D;1&amp;subtype&#x3D;1&amp;starttime&#x3D;2024_12_13_10_19_00&amp;endtime&#x3D;2024_12_13_12_51_48</p>
+<p>rtsp:&#x2F;&#x2F;*:<a href="mailto:&#112;&#97;&#x73;&#115;&#x77;&#111;&#x72;&#x64;&#x40;&#49;&#57;&#x32;&#46;&#x31;&#54;&#56;&#46;&#54;&#46;&#x32;&#x31;&#x31;">&#112;&#97;&#x73;&#115;&#x77;&#111;&#x72;&#x64;&#x40;&#49;&#57;&#x32;&#46;&#x31;&#54;&#56;&#46;&#54;&#46;&#x32;&#x31;&#x31;</a>:554&#x2F;cam&#x2F;playback?channel&#x3D;1&amp;subtype&#x3D;1&amp;starttime&#x3D;2024_12_13_10_19_00&amp;endtime&#x3D;2024_12_13_12_51_48</p>
 <p>目前紧急情况, 使用 Yourls缩短以后, 浏览器打开 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9jLmNhcmx6ZW5nLmNvbTo0NDQzLzEyMTMx" rel="noopener external nofollow noreferrer">https://c.carlzeng.com:4443/12131</a>, 会提示: </p>
 <p><img data-src="https://img.carlzeng.com:3/i/2024/12/17/67618c5abae49.png" alt="image-20241217223608783"></p>
 <p>调用VLC以后, 可以正常播放(在本地播放) ; 配置切换地址后, 也可以网络播放.</p>
@@ -1056,26 +1055,6 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202412162237.html","pageTitle":"如何不拔卡调取摄像头监控-回放取流"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1108,6 +1087,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
+<head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -22,7 +21,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker搭建自动售货系统-独角数卡">
 <meta property="og:url" content="https://www.carlzeng.com/202311201654.html">
-<meta property="og:site_name" content="云随笔 Carl Notes">
+<meta property="og:site_name" content="Carl Notes">
 <meta property="og:description" content="自动售货系统-独角数卡 dujiaoka">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/28cd0f84-7b75-402b-a78b-0fdbc30e7615/0Vihl8lVbSwR84f1sWlHCWkZdwVZjcmThrHc-x0gAzbTvCrzNM1ztoXh0g/deep/0/image.png">
@@ -30,8 +29,8 @@
 <meta property="article:modified_time" content="2026-04-11T14:49:26.194Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
-<meta property="article:tag" content="NPM">
 <meta property="article:tag" content="debian">
+<meta property="article:tag" content="NPM">
 <meta property="article:tag" content="docker-compose">
 <meta property="article:tag" content="家宽">
 <meta property="article:tag" content="自动售货系统">
@@ -46,7 +45,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.com/202311201654.html","path":"202311201654.html","title":"Docker搭建自动售货系统-独角数卡"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Docker搭建自动售货系统-独角数卡 | 云随笔 Carl Notes</title>
+<title>Docker搭建自动售货系统-独角数卡 | Carl Notes</title>
   
 
 
@@ -59,8 +58,8 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
-<link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
+<link rel="alternate" href="/atom.xml" title="Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Carl Notes" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -81,7 +80,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">云随笔 Carl Notes</p>
+      <p class="site-title">Carl Notes</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">ERP IT方案 电玩</p>
@@ -384,12 +383,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="name" content="Carl Notes">
       <meta itemprop="description" content="定制ERP软件与电玩设备改装">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Docker搭建自动售货系统-独角数卡 | 云随笔 Carl Notes">
+      <meta itemprop="name" content="Docker搭建自动售货系统-独角数卡 | Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -588,7 +587,7 @@ URL自动携带端口，没有解决。
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">    <span class="attr">kamifaka:</span></span><br><span class="line">        <span class="attr">container_name:</span> <span class="string">kmfaka</span></span><br><span class="line">        <span class="attr">stdin_open:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">tty:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">volumes:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">./:/usr/src/app/public</span></span><br><span class="line">            <span class="comment"># - ./user/js/app.20ca6680.js:/usr/src/app/dist/static/user/js/app.20ca6680.js</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="number">4445</span><span class="string">:8000</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">baiyuetribe/kamifaka:latest</span></span><br><span class="line">        <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
 
 <hr>
-<p>后台地址ip地址:4445&#x2F;admin。默认管理员账号<a href="mailto:&#x61;&#x64;&#x6d;&#105;&#110;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#x61;&#x64;&#x6d;&#105;&#110;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;</a>，密码：123456。</p>
+<p>后台地址ip地址:4445&#x2F;admin。默认管理员账号<a href="mailto:&#x61;&#100;&#109;&#x69;&#110;&#64;&#x71;&#113;&#46;&#x63;&#111;&#109;">&#x61;&#100;&#109;&#x69;&#110;&#64;&#x71;&#113;&#46;&#x63;&#111;&#109;</a>，密码：123456。</p>
 <p>NEXT: </p>
 <ul>
 <li>支付设置，支付接口设置（已完成）</li>
@@ -959,8 +958,8 @@ URL自动携带端口，没有解决。
           <div class="post-tags">
             继续浏览有关
               <a href="/tags/docker/" rel="tag"># docker</a>
-              <a href="/tags/NPM/" rel="tag"># NPM</a>
               <a href="/tags/debian/" rel="tag"># debian</a>
+              <a href="/tags/NPM/" rel="tag"># NPM</a>
               <a href="/tags/docker-compose/" rel="tag"># docker-compose</a>
               <a href="/tags/%E5%AE%B6%E5%AE%BD/" rel="tag"># 家宽</a>
               <a href="/tags/%E8%87%AA%E5%8A%A8%E5%94%AE%E8%B4%A7%E7%B3%BB%E7%BB%9F/" rel="tag"># 自动售货系统</a>
@@ -1100,26 +1099,6 @@ URL自动携带端口，没有解决。
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202311201654.html","pageTitle":"Docker搭建自动售货系统-独角数卡"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1152,6 +1131,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>

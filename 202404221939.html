@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
+<head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -18,22 +17,23 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.carlzeng.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"right","width":300,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="搭建网站的工具和过程降到低门槛和极低成本，WordPress使用小型文件数据库SQLite">
+    <meta name="description" content="搭建网站的工具和过程降到低门槛和低成本，WordPress使用小型文件数据库SQLite组建Sandbox系统模拟">
 <meta property="og:type" content="article">
 <meta property="og:title" content="群晖NAS使用Docker部署WordPress">
 <meta property="og:url" content="https://www.carlzeng.com/202404221939.html">
-<meta property="og:site_name" content="云随笔 Carl Notes">
-<meta property="og:description" content="搭建网站的工具和过程降到低门槛和极低成本，WordPress使用小型文件数据库SQLite">
+<meta property="og:site_name" content="Carl Notes">
+<meta property="og:description" content="搭建网站的工具和过程降到低门槛和低成本，WordPress使用小型文件数据库SQLite组建Sandbox系统模拟">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2026/05/image-20260515131212125.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2026/05/image-20260511092148886.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2026/05/image-20260512231637885.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2026/05/image-20260520230621810.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2026/05/image-20260514101102522.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2026/05/image-20260514101017933.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2026/05/image-20260514153126661.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2026/05/image-20260515081045699.png">
 <meta property="article:published_time" content="2024-04-22T11:39:10.000Z">
-<meta property="article:modified_time" content="2026-05-15T05:17:34.524Z">
+<meta property="article:modified_time" content="2026-05-22T01:33:51.284Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="docker-compose">
@@ -49,7 +49,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.com/202404221939.html","path":"202404221939.html","title":"群晖NAS使用Docker部署WordPress"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>群晖NAS使用Docker部署WordPress | 云随笔 Carl Notes</title>
+<title>群晖NAS使用Docker部署WordPress | Carl Notes</title>
   
 
 
@@ -62,8 +62,8 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
-<link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
+<link rel="alternate" href="/atom.xml" title="Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Carl Notes" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -84,7 +84,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">云随笔 Carl Notes</p>
+      <p class="site-title">Carl Notes</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">ERP IT方案 电玩</p>
@@ -135,7 +135,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WooCommerce%E5%AF%BC%E5%85%A5%E4%BA%A7%E5%93%81"><span class="nav-number">4.</span> <span class="nav-text">WooCommerce导入产品</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5%E4%BA%A7%E5%93%81%E7%85%A7%E7%89%87"><span class="nav-number">4.1.</span> <span class="nav-text">如何导入产品照片?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5MD%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0"><span class="nav-number">4.2.</span> <span class="nav-text">如何批量导入MD博客文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Woocommerce%E4%B8%8B%E5%8D%95%E9%94%99%E8%AF%AF"><span class="nav-number">4.3.</span> <span class="nav-text">Woocommerce下单错误</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E5%88%B0%E5%AE%98%E6%96%B9Docker-Image"><span class="nav-number">5.</span> <span class="nav-text">切换到官方Docker Image</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="nav-number">5.1.</span> <span class="nav-text">下一步:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">6.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WooCommerce%E5%AF%BC%E5%85%A5%E4%BA%A7%E5%93%81"><span class="nav-number">4.</span> <span class="nav-text">WooCommerce导入产品</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5%E4%BA%A7%E5%93%81%E7%85%A7%E7%89%87"><span class="nav-number">4.1.</span> <span class="nav-text">如何导入产品照片?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E8%AF%A6%E7%BB%86%E5%95%86%E5%93%81%E7%9B%AE%E5%BD%95"><span class="nav-number">4.2.</span> <span class="nav-text">导入详细商品目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%89%B9%E9%87%8F%E5%AF%BC%E5%85%A5MD%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0"><span class="nav-number">4.3.</span> <span class="nav-text">如何批量导入MD博客文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Woocommerce%E4%B8%8B%E5%8D%95%E9%94%99%E8%AF%AF"><span class="nav-number">4.4.</span> <span class="nav-text">Woocommerce下单错误</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E5%88%B0%E5%AE%98%E6%96%B9Docker-Image"><span class="nav-number">5.</span> <span class="nav-text">切换到官方Docker Image</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E4%BF%AE%E5%A4%8D%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB"><span class="nav-number">5.1.</span> <span class="nav-text">SQL修复文章分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%B8%80-%E6%8F%92%E5%85%A5wp-term-relationships"><span class="nav-number">5.1.1.</span> <span class="nav-text">步骤一: 插入wp_term_relationships</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E4%BA%8C-%E6%8F%92%E5%85%A5wp-term-taxonomy"><span class="nav-number">5.1.2.</span> <span class="nav-text">步骤二: 插入wp_term_taxonomy</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">5.2.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E9%83%A8%E5%88%86%E7%A1%AC%E4%BB%B6%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95-%E6%88%90%E5%8A%9F%E6%A1%88%E4%BE%8B"><span class="nav-number">5.3.</span> <span class="nav-text">导入部分硬件工作记录&#x2F;成功案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E9%9A%90%E7%A7%81-%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E7%9A%84%E5%B1%8F%E8%94%BD%E4%BF%9D%E6%8A%A4"><span class="nav-number">5.3.1.</span> <span class="nav-text">对隐私&#x2F;敏感信息的屏蔽保护</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="nav-number">5.4.</span> <span class="nav-text">下一步:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA-%E7%BD%91%E7%AB%99%E5%AE%A2%E6%9C%8D%E7%B3%BB%E7%BB%9F-docker"><span class="nav-number">5.5.</span> <span class="nav-text">搭建: 网站客服系统 docker</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90%E4%B8%8E%E9%A1%B9%E7%9B%AE%E8%AE%A1%E5%88%92"><span class="nav-number">6.</span> <span class="nav-text">灵感来源与项目计划</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -387,12 +387,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="name" content="Carl Notes">
       <meta itemprop="description" content="定制ERP软件与电玩设备改装">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="群晖NAS使用Docker部署WordPress | 云随笔 Carl Notes">
+      <meta itemprop="name" content="群晖NAS使用Docker部署WordPress | Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -407,7 +407,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-15 13:17:34" itemprop="dateModified" datetime="2026-05-15T13:17:34+08:00">2026-05-15</time>
+      <time title="修改时间：2026-05-22 09:33:51" itemprop="dateModified" datetime="2026-05-22T09:33:51+08:00">2026-05-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -437,7 +437,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>25 分钟</span>
+      <span>36 分钟</span>
     </span>
 </div>
 
@@ -449,7 +449,7 @@
     
     <div class="post-body" itemprop="articleBody"><img class="lozad" data-src="https://img.carlzeng.com:3/i/2026/05/image-20260515131212125.png">
 
-<p>搭建网站的工具和过程降到低门槛和极低成本，WordPress使用小型文件数据库SQLite</p>
+<p>搭建网站的工具和过程降到低门槛和低成本，WordPress使用小型文件数据库SQLite组建Sandbox系统模拟</p>
 <span id="more"></span>
 
 <div> 
@@ -469,11 +469,11 @@
 </script>
 
 
-<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>创建工作室&#x2F;公司网站, 网店</p>
+<h1 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h1><p>创建工作室&#x2F;公司网站, 网店; 发布文章, 分享经验等</p>
 <h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">wordpress:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">soulteary/sqlite-wordpress</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8104</span><span class="string">:80</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./:/var/www/html</span></span><br><span class="line">      <span class="comment">#用于对接兰空图床批量上传的图库, CSV中含文件名对应到产品</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/volume2/KingchuxingSSD512G/MacBookPro_Skitch/storage/app/uploads/2026/05:/var/www/html/wp-content/uploads/lskyupload202605</span></span><br></pre></td></tr></table></figure>
 
 <p>后来验证: 这种方式最后用于sandbox的建设, 因为网店再导入商品和图片后下单会报错, 切换使用官方版本后解决; 用这种轻量级的sandbox好处有: 随便安装插件等, 不怕污染了主数据库(数据的清理干净很麻烦, 耗时, 易出错)</p>
-<p>演示 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93LmNhcmx6ZW5nLmNvbS8=" rel="noopener external nofollow noreferrer">https://w.carlzeng.com</a></p>
+<p>演示&#x2F;实践 <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly93LmNhcmx6ZW5nLmNvbS8=" rel="noopener external nofollow noreferrer">https://w.carlzeng.com</a></p>
 <h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=wordpress" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
 <h1 id="WooCommerce导入产品"><a href="#WooCommerce导入产品" class="headerlink" title="WooCommerce导入产品"></a>WooCommerce导入产品</h1><p>安装插件: WebToffee Import Export</p>
@@ -504,6 +504,30 @@
     格式如上
 </code></pre>
 <p>优化docker-compose 的目录映射 添加:ro, 确保兰空图床中的文件, 不要受影响&#x2F;删除</p>
+<h2 id="导入详细商品目录"><a href="#导入详细商品目录" class="headerlink" title="导入详细商品目录"></a>导入详细商品目录</h2><p>用DBeaver, 导入wp_posts表数据, 和 wp_postmeta表数据</p>
+<p>绝大部分数据成功&#x2F;轻松导入.</p>
+<p>发现问题: </p>
+<p>有的货品的SKU和价格丢失</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2026/05/image-20260520230621810.png" alt="image-20260520230621810"></p>
+<p>修复步骤:</p>
+<ol>
+<li>查询到sku 或 price为空的行, 一共60个; 复制出p.ID</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    p.ID <span class="keyword">as</span> product_id, </span><br><span class="line">    p.post_title <span class="keyword">as</span> product_name,</span><br><span class="line">    sku.meta_value <span class="keyword">as</span> sku,</span><br><span class="line">    price.meta_value <span class="keyword">as</span> price</span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">    wp_posts p</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> </span><br><span class="line">    wp_postmeta sku <span class="keyword">ON</span> p.ID <span class="operator">=</span> sku.post_id <span class="keyword">AND</span> sku.meta_key <span class="operator">=</span> <span class="string">&#x27;_sku&#x27;</span></span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> </span><br><span class="line">    wp_postmeta price <span class="keyword">ON</span> p.ID <span class="operator">=</span> price.post_id <span class="keyword">AND</span> price.meta_key <span class="operator">=</span> <span class="string">&#x27;_price&#x27;</span></span><br><span class="line"><span class="keyword">WHERE</span> </span><br><span class="line">    p.post_type <span class="operator">=</span> <span class="string">&#x27;product&#x27;</span> </span><br><span class="line">    <span class="keyword">AND</span> p.post_status <span class="operator">=</span> <span class="string">&#x27;publish&#x27;</span></span><br><span class="line">    <span class="keyword">AND</span> (</span><br><span class="line">        sku.meta_value <span class="keyword">IS</span> <span class="keyword">NULL</span> <span class="keyword">OR</span> sku.meta_value <span class="operator">=</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">OR</span> price.meta_value <span class="keyword">IS</span> <span class="keyword">NULL</span> <span class="keyword">OR</span> price.meta_value <span class="operator">=</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">    );</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>到Sandbox正常的数据库中提取这些wp_postmeta相关的行数据</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">    post_id,</span><br><span class="line">    meta_key,</span><br><span class="line">    meta_value</span><br><span class="line">FROM </span><br><span class="line">    wp_postmeta</span><br><span class="line">WHERE </span><br><span class="line">    post_id IN (9, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>使用DBeaver导出这些数据, 然后目标选择到MariaDB的wp_postmeta 表,</p>
+<p>注意: 不要输出meta_id, 列, 不然会存在PK冲突的问题, 导致数据无法正常导入</p>
+<p>导入最后一步选择 Insert IGNORE</p>
+</li>
+</ol>
+<p>至此60个有显示故障的商品wp_postmeta被重新导入修复完毕!</p>
+<p>下一步: 继续设置商品的分类和品牌, 标签等</p>
 <h2 id="如何批量导入MD博客文章"><a href="#如何批量导入MD博客文章" class="headerlink" title="如何批量导入MD博客文章"></a>如何批量导入MD博客文章</h2><p>插件: Import Markdown  似乎只能单独, 单个文件的导入?</p>
 <p>各种研究, 最后在一个博主的站点上找到了解决方案, 用一个python脚本 一键批量上传目录中441篇文章到WordPress</p>
 <p>简直太高效了, 分享源码: </p>
@@ -519,8 +543,15 @@
 <p>运行后输出:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">----------------------------------------------START----------------------------------------------</span><br><span class="line">Process number: 8/418  SUCCESS: Push &quot;1099-MISC是什么-CarlZeng.md&quot; completed!</span><br><span class="line">Process number: 9/418  SUCCESS: Push &quot;A-feature-in-Netsuite-Reports-Financial-Balance-Sheet-CarlZeng.md&quot; completed!</span><br><span class="line">Process number: 10/418  SUCCESS: Push &quot;AI脸部识别，人脸比对，人脸识别-CarlZeng.md&quot; completed!</span><br><span class="line">Process number: 11/418  SUCCESS: Push &quot;AJAX提交数据时-中文处理-以及js-url-中文处理-CarlZeng.md&quot; completed!</span><br><span class="line">Process number: 12/418  SUCCESS: Push &quot;Bar-codes-in-NetSuite-Saved-Searches-transport-reprint-活用NetSuite搜索页面显示可扫描条码-CarlZeng.md&quot; completed!</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">Process number: 417/418  SUCCESS: Push &quot;高手写出的是天使，而新手写的，可能是魔鬼！-Javascript这样的脚本语言，由于太灵活-CarlZeng.md&quot; completed!</span><br><span class="line">Process number: 418/418  SUCCESS: Push &quot;高效的服务端生成QRCODE二维码方案-Docker搭建.md&quot; completed!</span><br><span class="line">-----------------------------------------------END-----------------------------------------------</span><br><span class="line">SUCCESS: 411 files have been pushed to https://wp.carlzeng.com:3/.</span><br><span class="line">WARNING: 7 files haven&#x27;t been pushed to https://wp.carlzeng.com:3/.</span><br><span class="line"></span><br><span class="line">Failure to push these file paths:</span><br><span class="line">/Users/carlzeng/App/blog/source/_posts/.DS_Store</span><br></pre></td></tr></table></figure>
 
-
-
+<p>遇到的bug&#x2F;enhancement:</p>
+<ol>
+<li><p>手动完成文章所有分类, </p>
+</li>
+<li><p>标签和照片无法导入; (用python, 等待更新, 提取这些信息到WP)</p>
+</li>
+<li><p>下一步:</p>
+</li>
+</ol>
 <h2 id="Woocommerce下单错误"><a href="#Woocommerce下单错误" class="headerlink" title="Woocommerce下单错误"></a>Woocommerce下单错误</h2><p>点击下单报错: </p>
 <p><img data-src="https://img.carlzeng.com:3/i/2026/05/image-20260514101102522.png" alt="image-20260514101102522"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught Error: Call to a member function get_total() on false in /var/www/html/wp-content/plugins/woocommerce/includes/gateways/cod/class-wc-gateway-cod.php:314\nStack trace:\n#0 /var/www/html/wp-content/plugins/woocommerce/src/StoreApi/Legacy.php(56): WC_Gateway_COD-&gt;process_payment(4131)\n#1 /var/www/html/wp-includes/class-wp-hook.php(341): Automattic\\WooCommerce\\StoreApi\\Legacy-&gt;process_legacy_payment(Object(Automattic\\WooCommerce\\StoreApi\\Payments\\PaymentContext), Object(Automattic\\WooCommerce…wp-includes/class-wp-hook.php(365): WP_Hook-&gt;apply_filters(NULL, Array)\n</span><br></pre></td></tr></table></figure>
@@ -564,8 +595,38 @@
 </ol>
 <p>裁剪您的图片时发生错误。</p>
 <p>原来是操作不了PNG; JPG可以的, 无所谓, 无伤大雅</p>
-<h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步:"></a>下一步:</h2><p>搭建: 网站客服系统 docker</p>
-<h1 id="灵感来源"><a href="#灵感来源" class="headerlink" title="灵感来源"></a>灵感来源</h1><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zb3VsdGVhcnkuY29tLzIwMjQvMDQvMTcvc2F5LWdvb2RieWUtdG8tbXlzcWwtZG9ja2VyLXNxbGl0ZS13b3JkcHJlc3MuaHRtbA==" rel="noopener external nofollow noreferrer">WordPress 告别 MySQL：Docker SQLite WordPress</a></p>
+<h2 id="SQL修复文章分类"><a href="#SQL修复文章分类" class="headerlink" title="SQL修复文章分类"></a>SQL修复文章分类</h2><h3 id="步骤一-插入wp-term-relationships"><a href="#步骤一-插入wp-term-relationships" class="headerlink" title="步骤一: 插入wp_term_relationships"></a>步骤一: 插入wp_term_relationships</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INSERT IGNORE INTO wp_term_relationships (object_id, term_taxonomy_id, term_order)</span><br><span class="line"></span><br><span class="line">select ID, 22, 0 from wp_posts where post_type = &#x27;post&#x27; and post_content like &#x27;%netsuite%&#x27; or post_title like &#x27;%netsuite&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>note: 用IGNORE支持多次执行, 会避开重复的行, 输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Duplicate entry &#x27;205-22&#x27; for key &#x27;PRIMARY&#x27;</span><br><span class="line">Duplicate entry &#x27;3298-22&#x27; for key &#x27;PRIMARY&#x27;</span><br><span class="line">Duplicate entry &#x27;3306-22&#x27; for key &#x27;PRIMARY&#x27;</span><br><span class="line">Duplicate entry &#x27;3312-22&#x27; for key &#x27;PRIMARY&#x27;</span><br><span class="line">Duplicate entry &#x27;3640-22&#x27; for key &#x27;PRIMARY&#x27;</span><br><span class="line">Duplicate entry &#x27;3662-22&#x27; for key &#x27;PRIMARY&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="步骤二-插入wp-term-taxonomy"><a href="#步骤二-插入wp-term-taxonomy" class="headerlink" title="步骤二: 插入wp_term_taxonomy"></a>步骤二: 插入wp_term_taxonomy</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#关键后续：更新 WordPress 分类计数器</span><br><span class="line">UPDATE wp_term_taxonomy </span><br><span class="line">SET count = (</span><br><span class="line">    SELECT COUNT(*) </span><br><span class="line">    FROM wp_term_relationships </span><br><span class="line">    WHERE wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id</span><br><span class="line">)</span><br><span class="line">WHERE term_taxonomy_id = 22</span><br></pre></td></tr></table></figure>
+
+
+
+<p>添加剩余的文章都分类到: 一修哥工作室</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> IGNORE <span class="keyword">INTO</span> wp_term_relationships (object_id, term_taxonomy_id, term_order)</span><br><span class="line"><span class="keyword">select</span> ID, <span class="number">23</span>, <span class="number">0</span> <span class="keyword">from</span> wp_posts <span class="keyword">where</span> post_type <span class="operator">=</span> <span class="string">&#x27;post&#x27;</span> <span class="keyword">and</span> ID <span class="keyword">not</span> <span class="keyword">in</span> (</span><br><span class="line"><span class="keyword">select</span> object_id <span class="keyword">from</span> wp_term_relationships</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_term_taxonomy </span><br><span class="line"><span class="keyword">SET</span> count <span class="operator">=</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) </span><br><span class="line">    <span class="keyword">FROM</span> wp_term_relationships </span><br><span class="line">    <span class="keyword">WHERE</span> wp_term_relationships.term_taxonomy_id <span class="operator">=</span> wp_term_taxonomy.term_taxonomy_id</span><br><span class="line">)</span><br><span class="line"><span class="keyword">WHERE</span> term_taxonomy_id <span class="operator">=</span> <span class="number">23</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="导入部分硬件工作记录-成功案例"><a href="#导入部分硬件工作记录-成功案例" class="headerlink" title="导入部分硬件工作记录&#x2F;成功案例"></a>导入部分硬件工作记录&#x2F;成功案例</h2><p>以准备好成功案例的md聊天记录导出, 导入展现.    此md来源为: <a href="https://www.carlzeng.com/202604152244">闲鱼APP中聊天记录导出</a></p>
+<p>批量, 加载目录下md文件时, 需要按md文件的创建时间顺序来加载</p>
+<p>Sanbox测试得知: 待修复 视频,如何支持在线点击查看?<br>    md文件中如何显示视频播放器?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="comment"># 匹配 Markdown 格式的 [视频](url地址)</span></span><br><span class="line">pattern = <span class="string">r&#x27;\[\s*视频\s*\]\(\s*(https?://[^\s\)]+|[^\s\)]+\.mp4|[^\s\)]+)\s*\)&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_file_creation_time</span>(<span class="params">file_path</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;兼容多系统的获取文件创建时间函数&quot;&quot;&quot;</span></span><br><span class="line">    stat = os.stat(file_path)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># macOS / FreeBSD 优先使用 birthtime</span></span><br><span class="line">        <span class="keyword">return</span> stat.st_birthtime</span><br><span class="line">    <span class="keyword">except</span> AttributeError:</span><br><span class="line">        <span class="comment"># Windows 上 ctime 即为创建时间；Linux 上为元数据修改时间</span></span><br><span class="line">        <span class="keyword">return</span> stat.st_ctime</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert_md_files_by_order</span>():</span><br><span class="line">    current_dir = os.getcwd()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1. 过滤出当前目录下所有的 .md 文件</span></span><br><span class="line">    md_files = [f <span class="keyword">for</span> f <span class="keyword">in</span> os.listdir(current_dir) <span class="keyword">if</span> f.endswith(<span class="string">&quot;.md&quot;</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2. 【核心修改】将文件列表按照创建时间进行“升序排序”（从旧到新）</span></span><br><span class="line">    <span class="comment"># 如果想改为降序（最新创建的先处理），可以加上 reverse=True</span></span><br><span class="line">    md_files.sort(key=<span class="keyword">lambda</span> x: get_file_creation_time(os.path.join(current_dir, x)))</span><br><span class="line"></span><br><span class="line">    success_count = <span class="number">0</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;开始按创建时间【升序】处理文件...\n&quot;</span> + <span class="string">&quot;-&quot;</span> * <span class="number">40</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3. 按排序后的顺序遍历文件</span></span><br><span class="line">    <span class="keyword">for</span> filename <span class="keyword">in</span> md_files:</span><br><span class="line">        file_path = os.path.join(current_dir, filename)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(file_path, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            content = f.read()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> re.search(pattern, content):</span><br><span class="line">            <span class="comment"># 替换并强制添加前后空行激活 HTML 渲染</span></span><br><span class="line">            replaced_content = re.sub(</span><br><span class="line">                pattern,</span><br><span class="line">                <span class="string">r&quot;\n\n&lt;video src=&#x27;\1&#x27; controls width=&#x27;100%&#x27; height=&#x27;auto&#x27; loop=&#x27;loop&#x27;&gt;&lt;/video&gt;\n\n&quot;</span>,</span><br><span class="line">                content,</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(file_path, <span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(replaced_content)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 获取文件创建时间用于终端打印展示</span></span><br><span class="line">            c_time = get_file_creation_time(file_path)</span><br><span class="line">            <span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">            time_str = datetime.fromtimestamp(c_time).strftime(</span><br><span class="line">                <span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span></span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;[<span class="subst">&#123;time_str&#125;</span>] 成功转换: <span class="subst">&#123;filename&#125;</span>&quot;</span>)</span><br><span class="line">            success_count += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;-&quot;</span> * <span class="number">40</span> + <span class="string">f&quot;\n处理完成！共依序转换了 <span class="subst">&#123;success_count&#125;</span> 个文件。&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    convert_md_files_by_order()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">----------------------------------------------START----------------------------------          </span><br><span class="line">Process number: 1/30  SUCCESS: Push &quot;聊天记录_tbNick_n9c42_2026-05-17.md&quot; completed!</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+
+<h3 id="对隐私-敏感信息的屏蔽保护"><a href="#对隐私-敏感信息的屏蔽保护" class="headerlink" title="对隐私&#x2F;敏感信息的屏蔽保护"></a>对隐私&#x2F;敏感信息的屏蔽保护</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ID, post_title, post_date </span><br><span class="line"><span class="keyword">FROM</span> wp_posts </span><br><span class="line"><span class="keyword">WHERE</span> post_content <span class="keyword">LIKE</span> <span class="string">&#x27;%13261977480%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 1. 替换文章正文内容（最核心）</span></span><br><span class="line"><span class="keyword">UPDATE</span> wp_posts </span><br><span class="line"><span class="keyword">SET</span> post_content <span class="operator">=</span> REPLACE(post_content, <span class="string">&#x27;13261977480&#x27;</span>, <span class="string">&#x27;1326****480&#x27;</span>)</span><br><span class="line"><span class="keyword">WHERE</span> post_content <span class="keyword">LIKE</span> <span class="string">&#x27;%13261977480%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_posts </span><br><span class="line"><span class="keyword">SET</span> post_content <span class="operator">=</span> REPLACE(post_content, <span class="string">&#x27;后北营家园一区10号楼3-130&#x27;</span>, <span class="string">&#x27;后北营家园一区10号(大运河果蔬便民店外)&#x27;</span>)</span><br><span class="line"><span class="keyword">WHERE</span> post_content <span class="keyword">LIKE</span> <span class="string">&#x27;%后北营家园一区10号楼3-130%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_posts </span><br><span class="line"><span class="keyword">SET</span> post_content <span class="operator">=</span> REPLACE(post_content, <span class="string">&#x27;VPN&#x27;</span>, <span class="string">&#x27;V*P*N&#x27;</span>)</span><br><span class="line"><span class="keyword">WHERE</span> post_content <span class="keyword">LIKE</span> <span class="string">&#x27;%VPN%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 替换文章标题</span></span><br><span class="line"><span class="keyword">UPDATE</span> wp_posts </span><br><span class="line"><span class="keyword">SET</span> post_title <span class="operator">=</span> REPLACE(post_title, <span class="string">&#x27;_2026-05-17&#x27;</span>, <span class="string">&#x27;_手柄一修哥&#x27;</span>)</span><br><span class="line"><span class="keyword">WHERE</span> post_title <span class="keyword">LIKE</span> <span class="string">&#x27;%_2026-05-17%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步:"></a>下一步:</h2><h2 id="搭建-网站客服系统-docker"><a href="#搭建-网站客服系统-docker" class="headerlink" title="搭建: 网站客服系统 docker"></a>搭建: 网站客服系统 docker</h2><p>比如: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8yMzY3Nzg3MDQ4OA==" rel="noopener external nofollow noreferrer">https://zhuanlan.zhihu.com/p/23677870488</a></p>
+<p>用于新增一个潜在客户直接语言沟通的机会, 直接在网站中聊天</p>
+<h1 id="灵感来源与项目计划"><a href="#灵感来源与项目计划" class="headerlink" title="灵感来源与项目计划"></a>灵感来源与项目计划</h1><p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9zb3VsdGVhcnkuY29tLzIwMjQvMDQvMTcvc2F5LWdvb2RieWUtdG8tbXlzcWwtZG9ja2VyLXNxbGl0ZS13b3JkcHJlc3MuaHRtbA==" rel="noopener external nofollow noreferrer">WordPress 告别 MySQL：Docker SQLite WordPress</a></p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9kZXBwLndhbmcvMjAyNi9vYnNpZGlhbi10by13ZWNoYXQvI21vcmU=" rel="noopener external nofollow noreferrer">我写了个从 Obsidian 自动发布文章到微信公众号的工具</a></p>
 
 
@@ -900,7 +961,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2026-05-15 13:17:34" itemprop="dateModified" datetime="2026-05-15T13:17:34+08:00">2026-05-15</time>
+        <time title="修改时间：2026-05-22 09:33:51" itemprop="dateModified" datetime="2026-05-22T09:33:51+08:00">2026-05-22</time>
       </span>
 
 </div>
@@ -1048,26 +1109,6 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202404221939.html","pageTitle":"群晖NAS使用Docker部署WordPress"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1100,6 +1141,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>

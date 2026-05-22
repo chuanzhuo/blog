@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
+<head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -22,7 +21,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)">
 <meta property="og:url" content="https://www.carlzeng.com/202312031926.html">
-<meta property="og:site_name" content="云随笔 Carl Notes">
+<meta property="og:site_name" content="Carl Notes">
 <meta property="og:description" content="内网穿透, 让局域网的服务在异地互联网状态依旧在线可用 frp，一个高性能的反向代理, 可以通过互联网(外网)访问内网(本地局域网)设备 灵活，TCP&#x2F;IP底层逻辑应用广泛">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.evernote.com/shard/s122/sh/5871f136-c4ad-4027-a582-45be87d46857/lsLZkP4tHMBKiqmU_ELAXPMwv1QgcYVGlopUkQFCXnN7zSsVEXZ_RkAccg/deep/0/image.png">
@@ -37,9 +36,9 @@
 <meta property="article:modified_time" content="2025-12-10T00:38:41.801Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
+<meta property="article:tag" content="debian">
 <meta property="article:tag" content="内网穿透">
 <meta property="article:tag" content="NPM">
-<meta property="article:tag" content="debian">
 <meta property="article:tag" content="docker-compose">
 <meta property="article:tag" content="FRP">
 <meta property="article:tag" content="frpc">
@@ -55,7 +54,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.com/202312031926.html","path":"202312031926.html","title":"Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Docker搭建FRP内网穿透服务(花生壳、Ngrok平替) | 云随笔 Carl Notes</title>
+<title>Docker搭建FRP内网穿透服务(花生壳、Ngrok平替) | Carl Notes</title>
   
 
 
@@ -68,8 +67,8 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
-<link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
+<link rel="alternate" href="/atom.xml" title="Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Carl Notes" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -90,7 +89,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">云随笔 Carl Notes</p>
+      <p class="site-title">Carl Notes</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">ERP IT方案 电玩</p>
@@ -393,12 +392,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="name" content="Carl Notes">
       <meta itemprop="description" content="定制ERP软件与电玩设备改装">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Docker搭建FRP内网穿透服务(花生壳、Ngrok平替) | 云随笔 Carl Notes">
+      <meta itemprop="name" content="Docker搭建FRP内网穿透服务(花生壳、Ngrok平替) | Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -978,9 +977,9 @@ https://github.com/fatedier/frp/issues/583
           <div class="post-tags">
             继续浏览有关
               <a href="/tags/docker/" rel="tag"># docker</a>
+              <a href="/tags/debian/" rel="tag"># debian</a>
               <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag"># 内网穿透</a>
               <a href="/tags/NPM/" rel="tag"># NPM</a>
-              <a href="/tags/debian/" rel="tag"># debian</a>
               <a href="/tags/docker-compose/" rel="tag"># docker-compose</a>
               <a href="/tags/FRP/" rel="tag"># FRP</a>
               <a href="/tags/frpc/" rel="tag"># frpc</a>
@@ -1121,26 +1120,6 @@ https://github.com/fatedier/frp/issues/583
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202312031926.html","pageTitle":"Docker搭建FRP内网穿透服务(花生壳、Ngrok平替)"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1173,6 +1152,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>

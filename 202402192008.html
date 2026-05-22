@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
+<head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -21,7 +20,7 @@
     <meta property="og:type" content="article">
 <meta property="og:title" content="如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式">
 <meta property="og:url" content="https://www.carlzeng.com/202402192008.html">
-<meta property="og:site_name" content="云随笔 Carl Notes">
+<meta property="og:site_name" content="Carl Notes">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/02/21/65d58e67ec924.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/02/21/65d5c73550e5f.png">
@@ -47,7 +46,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.carlzeng.com/202402192008.html","path":"202402192008.html","title":"如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式 | 云随笔 Carl Notes</title>
+<title>如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式 | Carl Notes</title>
   
 
 
@@ -60,8 +59,8 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
-<link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
+<link rel="alternate" href="/atom.xml" title="Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Carl Notes" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -82,7 +81,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">云随笔 Carl Notes</p>
+      <p class="site-title">Carl Notes</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">ERP IT方案 电玩</p>
@@ -385,12 +384,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="name" content="Carl Notes">
       <meta itemprop="description" content="定制ERP软件与电玩设备改装">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式 | 云随笔 Carl Notes">
+      <meta itemprop="name" content="如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式 | Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -567,7 +566,7 @@ https://code.kryo.se/iodine/
 
 <h2 id="5-使用dns隧道来代理上网"><a href="#5-使用dns隧道来代理上网" class="headerlink" title="5. 使用dns隧道来代理上网"></a>5. 使用dns隧道来代理上网</h2><p>注意：这个方案需要开启iodined服务端（也就是OpenWrt）防火墙设置；开启SSH访问运行从Wan口访问，开启防火墙运行接收入站流量。</p>
 <p>现实中的代理使用; </p>
-<p>​	ssh隧道方案：<br>​		客户端运行：<br>​			ssh -CfNg -D 7001 <a href="mailto:&#x72;&#111;&#x6f;&#116;&#x40;&#49;&#x30;&#46;&#48;&#46;&#x30;&#46;&#x31;">&#x72;&#111;&#x6f;&#116;&#x40;&#49;&#x30;&#46;&#48;&#46;&#x30;&#46;&#x31;</a></p>
+<p>​	ssh隧道方案：<br>​		客户端运行：<br>​			ssh -CfNg -D 7001 <a href="mailto:&#x72;&#x6f;&#x6f;&#116;&#x40;&#x31;&#48;&#46;&#x30;&#46;&#x30;&#x2e;&#49;">&#x72;&#x6f;&#x6f;&#116;&#x40;&#x31;&#48;&#46;&#x30;&#46;&#x30;&#x2e;&#49;</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -CfNg -D 7001 root@192.168.99.1</span><br></pre></td></tr></table></figure>
 
 
@@ -633,7 +632,7 @@ https://code.kryo.se/iodine/
 
 <p>#7 由于连接速度慢，当并发多的时候（同时刷新多个网页）服务经常容易进入假死状态，这是远程如何重启整个链路呢？</p>
 <p>#7解决办法：</p>
-<p>7.1 ssh进iodined的服务器：ssh <a href="mailto:&#114;&#x6f;&#x6f;&#116;&#x40;&#x31;&#57;&#x32;&#x2e;&#49;&#54;&#56;&#46;&#57;&#x39;&#46;&#49;">&#114;&#x6f;&#x6f;&#116;&#x40;&#x31;&#57;&#x32;&#x2e;&#49;&#54;&#56;&#46;&#57;&#x39;&#46;&#49;</a>   </p>
+<p>7.1 ssh进iodined的服务器：ssh <a href="mailto:&#x72;&#x6f;&#111;&#x74;&#64;&#x31;&#x39;&#50;&#46;&#x31;&#54;&#x38;&#x2e;&#57;&#x39;&#46;&#49;">&#x72;&#x6f;&#111;&#x74;&#64;&#x31;&#x39;&#50;&#46;&#x31;&#54;&#x38;&#x2e;&#57;&#x39;&#46;&#49;</a>   </p>
 <p>7.2 ps | grep iodined </p>
 <p>7.3 kill -9 23611 &amp;&amp; iodined -c -l 125.34.235.88 -p 53 -P 123 192.168.99.1&#x2F;24 t1.carlzeng.com</p>
 <p>这样就可以远程重启iodined服务端，然后在本地在重启一下iodine就可以获取到全新的链路</p>
@@ -1132,26 +1131,6 @@ https://code.kryo.se/iodine/
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202402192008.html","pageTitle":"如何建立dns隧道来突破连接WIFI后用户密码认证的上网方式"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1184,6 +1163,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
+<head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -22,13 +21,15 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈部署闲鱼自动回复管理系统xianyu-auto-reply">
 <meta property="og:url" content="https://www.carlzeng.com/en/202604152244.html">
-<meta property="og:site_name" content="云随笔 Carl Notes">
+<meta property="og:site_name" content="Carl Notes">
 <meta property="og:description" content="xianyu-auto-reply项目浅尝, 未成功应用(个人感觉不靠谱), 个人水平有限期待高人指点">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2026/04/16/69e05dc1ecf27.png">
 <meta property="og:image" content="https://images.cnblogs.com/cnblogs_com/backuper/933606/o_260412030146_WechatAddMe.jpeg">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2026/05/image-20260517113443570.png">
+<meta property="og:image" content="https://img.carlzeng.com:3/i/2026/05/image-20260518000029012.png">
 <meta property="article:published_time" content="2026-04-15T14:44:07.000Z">
-<meta property="article:modified_time" content="2026-04-24T09:34:29.849Z">
+<meta property="article:modified_time" content="2026-05-22T01:31:16.858Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="闲鱼">
@@ -42,7 +43,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://www.carlzeng.com/202604152244.html","path":"en/202604152244.html","title":"浅谈部署闲鱼自动回复管理系统xianyu-auto-reply"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>浅谈部署闲鱼自动回复管理系统xianyu-auto-reply | 云随笔 Carl Notes</title>
+<title>浅谈部署闲鱼自动回复管理系统xianyu-auto-reply | Carl Notes</title>
   
 
 
@@ -55,8 +56,8 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="云随笔 Carl Notes" type="application/atom+xml">
-<link rel="alternate" href="/rss2.xml" title="云随笔 Carl Notes" type="application/rss+xml">
+<link rel="alternate" href="/atom.xml" title="Carl Notes" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Carl Notes" type="application/rss+xml">
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -77,7 +78,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">云随笔 Carl Notes</p>
+      <p class="site-title">Carl Notes</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">ERP IT方案 电玩</p>
@@ -128,7 +129,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用&#x2F;怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8A%B6%E6%80%81-docker%E8%B7%91%E8%B5%B7%E6%9D%A5%E4%BA%86%E4%BD%86%E6%98%AF%E6%97%A0%E6%B3%95%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95%E5%88%B7%E6%96%B0cookie%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E8%87%AA%E5%8A%A8%E5%9B%9E%E5%A4%8D%E5%8A%9F%E8%83%BD"><span class="nav-number">3.1.</span> <span class="nav-text">状态: docker跑起来了但是无法实现自动登录刷新cookie无法正常使用自动回复功能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">4.</span> <span class="nav-text">灵感来源</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8-%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">有什么用&#x2F;怎么用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">相关内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">实现方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8A%B6%E6%80%81-docker%E8%B7%91%E8%B5%B7%E6%9D%A5%E4%BA%86%E4%BD%86%E6%98%AF%E6%97%A0%E6%B3%95%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95%E5%88%B7%E6%96%B0cookie%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E8%87%AA%E5%8A%A8%E5%9B%9E%E5%A4%8D%E5%8A%9F%E8%83%BD"><span class="nav-number">3.1.</span> <span class="nav-text">状态: docker跑起来了但是无法实现自动登录刷新cookie无法正常使用自动回复功能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%81%B5%E6%84%9F%E6%9D%A5%E6%BA%90"><span class="nav-number">4.</span> <span class="nav-text">灵感来源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%B2%E9%B1%BCAPP%E4%B8%AD%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95%E5%AF%BC%E5%87%BA"><span class="nav-number">5.</span> <span class="nav-text">闲鱼APP中聊天记录导出</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -182,8 +183,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
-      光猫设置端口映射IP端口转发
+      <a class="popular-posts-link" href="/202505041100.html" rel="bookmark">
+      Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
       </a>
     </li>
     <li class="popular-posts-item">
@@ -192,8 +193,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202505041100.html" rel="bookmark">
-      Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
+      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
+      光猫设置端口映射IP端口转发
       </a>
     </li>
     <li class="popular-posts-item">
@@ -207,8 +208,8 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202601081153.html" rel="bookmark">
-      Joycon2手柄如何连接电脑测试按键摇杆等功能
+      <a class="popular-posts-link" href="/202503300850.html" rel="bookmark">
+      海康威视摄像头添加局域网NAS存储
       </a>
     </li>
   </ul>
@@ -380,12 +381,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云随笔 Carl Notes">
+      <meta itemprop="name" content="Carl Notes">
       <meta itemprop="description" content="定制ERP软件与电玩设备改装">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="浅谈部署闲鱼自动回复管理系统xianyu-auto-reply | 云随笔 Carl Notes">
+      <meta itemprop="name" content="浅谈部署闲鱼自动回复管理系统xianyu-auto-reply | Carl Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -400,7 +401,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-04-24 17:34:29" itemprop="dateModified" datetime="2026-04-24T17:34:29+08:00">2026-04-24</time>
+      <time title="Modified: 2026-05-22 09:31:16" itemprop="dateModified" datetime="2026-05-22T09:31:16+08:00">2026-05-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -430,7 +431,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
+      <span>5 mins.</span>
     </span>
 </div>
 
@@ -486,6 +487,26 @@ xianyu-auto-reply项目浅尝, 未成功应用(个人感觉不靠谱), 个人水
 <li><strong><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL3NoYXhpdS9YaWFueXVBdXRvQWdlbnQ=" rel="noopener external nofollow noreferrer">XianyuAutoAgent</a></strong> - 提供了自动化处理的实现思路</li>
 <li><strong><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL0thZ3V5YTIzM3F3cS9teWZpc2g=" rel="noopener external nofollow noreferrer">myfish</a></strong> - 提供了扫码登录的实现思路</li>
 </ul>
+<h1 id="闲鱼APP中聊天记录导出"><a href="#闲鱼APP中聊天记录导出" class="headerlink" title="闲鱼APP中聊天记录导出"></a>闲鱼APP中聊天记录导出</h1><p>一键导出闲鱼聊天记录，支持勾选消息、导出 HTML 和 Markdown 格式</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2026/05/image-20260517113443570.png" alt="image-20260517113443570"></p>
+<p>安装顺利.</p>
+<p>使用有问题: </p>
+<p>点击“导出 Markdown” 或者 “导出 HTML” 被权限卡死, 偶尔, 设置修改了权限后, 全新窗口; 能导出(有弹窗)</p>
+<p>绝大多数情况, 无法弹窗</p>
+<p>解决办法: </p>
+<p>需要修复一下downloadFile; 新版的数据如下: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">function downloadFile(content, filename, type) &#123;</span><br><span class="line">	//旧版本</span><br><span class="line">  // const blob = new Blob([content], &#123; type: type + &#x27;;charset=utf-8&#x27; &#125;);</span><br><span class="line">  // const url = URL.createObjectURL(blob);</span><br><span class="line">  //</span><br><span class="line">  // chrome.downloads.download(&#123;</span><br><span class="line">  //   url: url,</span><br><span class="line">  //   filename: filename,</span><br><span class="line">  //   saveAs: true</span><br><span class="line">  // &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    // 1. 将内容转换为 UTF-8 的 Base64 编码，绕过 ObjectURL 在异步中的手势检查限制</span><br><span class="line">    const base64Content = btoa(unescape(encodeURIComponent(content)));</span><br><span class="line">    const dataUrl = `data:$&#123;type&#125;;charset=utf-8;base64,$&#123;base64Content&#125;`;</span><br><span class="line"></span><br><span class="line">    chrome.downloads.download(&#123;</span><br><span class="line">      url: dataUrl,</span><br><span class="line">      filename: filename,</span><br><span class="line">      saveAs: true</span><br><span class="line">    &#125;, (downloadId) =&gt; &#123;</span><br><span class="line">      // 2. 增加错误捕获，如果依然失败，可以在控制台直接看到原因</span><br><span class="line">      if (chrome.runtime.lastError) &#123;</span><br><span class="line">        console.error(&quot;下载失败原因:&quot;, chrome.runtime.lastError.message);</span><br><span class="line">        // 降级备用方案：如果 API 真的被拦截，尝试用传统的 &lt;a&gt; 标签下载（虽然也可能受限，但多一层保障）</span><br><span class="line">        const a = document.createElement(&#x27;a&#x27;);</span><br><span class="line">        a.href = dataUrl;</span><br><span class="line">        a.download = filename;</span><br><span class="line">        a.click();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>非常感谢这个作者: <a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2dhbnNnb29kcy94aWFueXUtY2hhdC1leHBvcnRlcg==" rel="noopener external nofollow noreferrer">https://github.com/gansgoods/xianyu-chat-exporter</a>; 我欠你一杯咖啡</p>
+<p>我修改插件以后导出了39个聊天记录; </p>
+<p>导出聊天记录从2026年4月底, 到2026年2月, 等待继续…</p>
+<p>我的硬件工作记录实在太多, 成功案例实在太多, 要如何展示呢?</p>
+<p><img data-src="https://img.carlzeng.com:3/i/2026/05/image-20260518000029012.png" alt="image-20260518000029012"></p>
+<p>待优化:</p>
+<p>将视频部分的代码处理; 替换为可在网页中直接播放的方式</p>
+<p>\n\n<video src='\1' controls width='100%' height='auto' loop='loop'></video></p>
 
 
         <!-- search & recent posts(added 20240914) -->
@@ -620,8 +641,8 @@ xianyu-auto-reply项目浅尝, 未成功应用(个人感觉不靠谱), 个人水
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
-      光猫设置端口映射IP端口转发
+      <a class="popular-posts-link" href="/202505041100.html" rel="bookmark">
+      Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
       </a>
     </li>
     <li class="popular-posts-item">
@@ -630,8 +651,8 @@ xianyu-auto-reply项目浅尝, 未成功应用(个人感觉不靠谱), 个人水
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202505041100.html" rel="bookmark">
-      Docker搭建基于WebRTC点对点传输工具FastSend-去中心化
+      <a class="popular-posts-link" href="/202506122201.html" rel="bookmark">
+      光猫设置端口映射IP端口转发
       </a>
     </li>
     <li class="popular-posts-item">
@@ -645,8 +666,8 @@ xianyu-auto-reply项目浅尝, 未成功应用(个人感觉不靠谱), 个人水
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202601081153.html" rel="bookmark">
-      Joycon2手柄如何连接电脑测试按键摇杆等功能
+      <a class="popular-posts-link" href="/202503300850.html" rel="bookmark">
+      海康威视摄像头添加局域网NAS存储
       </a>
     </li>
   </ul>
@@ -819,7 +840,7 @@ xianyu-auto-reply项目浅尝, 未成功应用(个人感觉不靠谱), 个人水
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2026-04-24 17:34:29" itemprop="dateModified" datetime="2026-04-24T17:34:29+08:00">2026-04-24</time>
+        <time title="Modified: 2026-05-22 09:31:16" itemprop="dateModified" datetime="2026-05-22T09:31:16+08:00">2026-05-22</time>
       </span>
 
 </div>
@@ -965,26 +986,6 @@ xianyu-auto-reply项目浅尝, 未成功应用(个人感觉不靠谱), 个人水
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/en/202604152244.html","pageTitle":"浅谈部署闲鱼自动回复管理系统xianyu-auto-reply"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1017,6 +1018,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>
