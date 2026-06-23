@@ -401,14 +401,14 @@
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
-      var u="//statcounter.carlzeng.com:4443/";
+      var u="//statcounter.carlzeng.com/";
       _paq.push(['setTrackerUrl', u+'matomo.php']);
       _paq.push(['setSiteId', '1']);
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
       g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
     })();
   </script>
-  <noscript><p><img src="//statcounter.carlzeng.com:4443/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <noscript><p><img src="//statcounter.carlzeng.com/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
   <!-- End Matomo Code -->
 
 <div class="powered-by">
@@ -485,6 +485,32 @@ darkmode.showWidget();
   if (CONFIG.page.comments) {
 
     NexT.utils.loadComments(CONFIG.artalk.el)
+      .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+        condition: window.Artalk 
+      }))
+      .then(() => {
+        Artalk.init(CONFIG.artalk);
+      });
+
+  } else {
+
+    NexT.utils.getScript(CONFIG.artalk.jsUrl, {
+      condition: window.Artalk 
+    }).then(() => {
+      Artalk.loadCountWidget({
+        server: CONFIG.artalk.server,
+        site: CONFIG.artalk.site,
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+      });
+    })
+
+  }
+})();
+</script>
+</body>
+</html>
+tils.loadComments(CONFIG.artalk.el)
       .then(() => NexT.utils.getScript(CONFIG.artalk.jsUrl, {
         condition: window.Artalk 
       }))
