@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/04/23/662722fde4c91.png">
 <meta property="og:image" content="https://img.carlzeng.com:3/i/2024/04/23/662725ef860df.png">
 <meta property="article:published_time" content="2024-03-01T03:30:00.000Z">
-<meta property="article:modified_time" content="2024-10-25T13:16:40.671Z">
+<meta property="article:modified_time" content="2026-08-06T08:36:17.334Z">
 <meta property="article:author" content="Carl Notes">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="email">
@@ -219,13 +219,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403101522.html" rel="bookmark">
-      部署GitLab代码管理平台 2024
+      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
+      多个docker容器间共享单个mariadb(Docker数据库服务)
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
-      多个docker容器间共享单个mariadb(Docker数据库服务)
+      <a class="popular-posts-link" href="/202604152244.html" rel="bookmark">
+      浅谈部署闲鱼自动回复管理系统xianyu-auto-reply
       </a>
     </li>
   </ul>
@@ -417,7 +417,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
+      <time title="修改时间：2026-08-06 16:36:17" itemprop="dateModified" datetime="2026-08-06T16:36:17+08:00">2026-08-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -493,7 +493,7 @@
 <li><p>第三方平台（或自己搭建的服务）上需要设置的SMTP服务（SMTP邮箱设置）邮件通知&#x2F;告知</p>
 </li>
 </ul>
-<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com:3/appsearch?q=email" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
+<h1 id="相关内容"><a href="#相关内容" class="headerlink" title="相关内容"></a>相关内容</h1><iframe style="box-shadow: 0px 0px 20px -10px;" src="https://query.carlzeng.com/appsearch?q=email" frameborder="0" scrolling="auto" width="100%" height="500"></iframe>
 
 <h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><h2 id="iRedMail-Docker搭建"><a href="#iRedMail-Docker搭建" class="headerlink" title="iRedMail Docker搭建"></a>iRedMail Docker搭建</h2><p>iRedMail docker-compose.yml</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.9&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">        <span class="attr">mariadb:</span></span><br><span class="line">            <span class="attr">image:</span> <span class="string">&#x27;iredmail/mariadb:stable&#x27;</span></span><br><span class="line">            <span class="attr">volumes:</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;./postfix_queue:/var/spool/postfix&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;./sa_rules:/var/lib/spamassassin&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;./clamav:/var/lib/clamav&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;./mysql:/var/lib/mysql&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;./ssl:/opt/iredmail/ssl&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;./custom:/opt/iredmail/custom&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;./imapsieve_copy:/var/vmail/imapsieve_copy&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;./mlmmj-archive:/var/vmail/mlmmj-archive&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;./mlmmj:/var/vmail/mlmmj&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;./mailboxes:/var/vmail/vmail1&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;./backup-mysql:/var/vmail/backup/mysql&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&quot;/etc/localtime:/etc/localtime:ro&quot;</span> <span class="comment">#这条可纠正邮件系统的时区</span></span><br><span class="line">            <span class="attr">ports:</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;587:587&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;465:465&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;25:25&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;993:993&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;143:143&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;995:995&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;110:110&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;4433:443&#x27;</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">&#x27;8093:80&#x27;</span></span><br><span class="line">            <span class="attr">env_file:</span></span><br><span class="line">                <span class="bullet">-</span> <span class="string">./iredmail-docker.conf</span></span><br><span class="line">            <span class="attr">container_name:</span> <span class="string">iRedMail</span></span><br></pre></td></tr></table></figure>
@@ -765,7 +765,7 @@
 
 
 
-<p>docker exec -ti mailserver setup email add <a href="mailto:&#x73;&#101;&#x72;&#x76;&#105;&#99;&#101;&#64;&#99;&#97;&#114;&#108;&#122;&#101;&#x6e;&#103;&#46;&#x63;&#111;&#109;">&#x73;&#101;&#x72;&#x76;&#105;&#99;&#101;&#64;&#99;&#97;&#114;&#108;&#122;&#101;&#x6e;&#103;&#46;&#x63;&#111;&#109;</a></p>
+<p>docker exec -ti mailserver setup email add <a href="mailto:&#115;&#x65;&#x72;&#x76;&#x69;&#x63;&#101;&#x40;&#x63;&#97;&#x72;&#x6c;&#x7a;&#x65;&#110;&#x67;&#46;&#x63;&#111;&#109;">&#115;&#x65;&#x72;&#x76;&#x69;&#x63;&#101;&#x40;&#x63;&#97;&#x72;&#x6c;&#x7a;&#x65;&#110;&#x67;&#46;&#x63;&#111;&#109;</a></p>
 <p>解决办法：未知</p>
 <p>文档信息：</p>
 <p><a target="_blank" href="https://www.carlzeng.com/go/#aHR0cHM6Ly9naXRodWIuY29tL2RvY2tlci1tYWlsc2VydmVyL2RvY2tlci1tYWlsc2VydmVyP3RhYj1yZWFkbWUtb3YtZmlsZQ==" rel="noopener external nofollow noreferrer">https://github.com/docker-mailserver/docker-mailserver?tab=readme-ov-file</a></p>
@@ -946,13 +946,13 @@
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403101522.html" rel="bookmark">
-      部署GitLab代码管理平台 2024
+      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
+      多个docker容器间共享单个mariadb(Docker数据库服务)
       </a>
     </li>
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/202403291025.html" rel="bookmark">
-      多个docker容器间共享单个mariadb(Docker数据库服务)
+      <a class="popular-posts-link" href="/202604152244.html" rel="bookmark">
+      浅谈部署闲鱼自动回复管理系统xianyu-auto-reply
       </a>
     </li>
   </ul>
@@ -1125,7 +1125,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-10-25 21:16:40" itemprop="dateModified" datetime="2024-10-25T21:16:40+08:00">2024-10-25</time>
+        <time title="修改时间：2026-08-06 16:36:17" itemprop="dateModified" datetime="2026-08-06T16:36:17+08:00">2026-08-06</time>
       </span>
 
 </div>
@@ -1272,26 +1272,6 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
-</script>
 <script class="next-config" data-name="artalk" type="application/json">{"enable":true,"server":"https://artalk.carlzeng.com:4443","site":"Carl Notes","jsUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.js","cssUrl":"https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css","pvCount":true,"commentCount":false,"darkMode":"auto","useBackendConf":true,"el":"#comments","pageKey":"/202403011130.html","pageTitle":"Docker自建Email服务器 - 私人邮件系统"}</script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.8.3/Artalk.min.css">
@@ -1324,6 +1304,26 @@ darkmode.showWidget();
 
   }
 })();
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.5.7/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
 </script>
+
 </body>
 </html>
